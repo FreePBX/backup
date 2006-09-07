@@ -7,7 +7,7 @@
 	<menuitems>
 		<backup>Backup &amp; Restore</backup>
 	</menuitems>
-	<location>release/backup-1.0.tgz</location>
+	<location>release//2.2/backup-1.0.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-BackupRestore</info>
-	<md5sum>cfec97760da1b00df49d912c94ca8afd</md5sum>
+	<md5sum>192d701fa7f6770ebd0434ca0cded2f3</md5sum>
 </module>

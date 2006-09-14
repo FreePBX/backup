@@ -19,6 +19,22 @@ $action = isset($_REQUEST['action'])?$_REQUEST['action']:'';
 $display='backup';
 $type = 'tool';
 
+$dir=isset($_REQUEST['dir'])?$_REQUEST['dir']:'';
+$file=isset($_REQUEST['file'])?$_REQUEST['file']:'';
+$filetype=isset($_REQUEST['filetype'])?$_REQUEST['filetype']:'';
+$ID=isset($_REQUEST['backupid'])?$_REQUEST['backupid']:'';
+$name=((isset($_REQUEST['name'])&&empty($_REQUEST['name']))?'backup':$_REQUEST['name']);
+
+// Santity check passed params
+if (strpos($dir, '.') || strpos($dir, '\'') || strpos($dir, '"') || strpos($dir, '\'') || strpos($dir,'\`') ||
+    strpos($file, '.') || strpos($file, '\'') || strpos($file, '"') || strpos($file, '\'') || strpos($file,'\`') ||
+    strpos($ID, '.') || strpos($ID, '\'') || strpos($ID, '"') || strpos($ID, '\'') || strpos($ID,'\`') ||
+    strpos($filetype, '.') || strpos($filetype, '\'') || strpos($filetype, '"') || strpos($filetype, '\'') || strpos($filetype,'\`')) {
+	print "You're trying to use an invalid character. Please don't.\n";
+	exit;
+}
+
+
 switch ($action) {
 	case "addednew":
 		$ALL_days=$_POST['all_days'];
@@ -43,14 +59,12 @@ switch ($action) {
 		Save_Backup_Schedule($Backup_Parms, $backup_options);
 	break;
 	case "edited":
-		$ID=$_REQUEST['backupid'];
 		Delete_Backup_set($ID);
 		$ALL_days=$_REQUEST['all_days'];
 		$ALL_months=$_REQUEST['all_months'];
 		$ALL_weekdays=$_REQUEST['all_weekdays'];
 
 		$backup_schedule=$_REQUEST['backup_schedule'];
-		$name=(empty($_REQUEST['name'])?'backup':$_REQUEST['name']);
 		$mins=$_REQUEST['mins'];
 		$hours=$_REQUEST['hours'];
 		$days=$_REQUEST['days'];
@@ -67,21 +81,15 @@ switch ($action) {
 		Save_Backup_Schedule($Backup_Parms, $backup_options);
 	break;
 	case "delete":
-		$ID=$_REQUEST['backupid'];
 		Delete_Backup_set($ID);
 	break;
 	case "deletedataset":
-		$dir=$_REQUEST['dir'];
 		exec("/bin/rm -rf '$dir'");
 	break;
 	case "deletefileset":
-		$dir=$_REQUEST['dir'];
 		exec("/bin/rm -rf '$dir'");
 	break;
 	case "restored":
-		$dir=$_REQUEST['dir'];
-		$file=$_REQUEST['file'];
-		$filetype=$_REQUEST['filetype'];
 		$Message=Restore_Tar_Files($dir, $file, $filetype, $display);
 		needreload();
 	break;
@@ -163,13 +171,10 @@ else if ($action == 'restore')
 ?>
 	<h2><?php echo _("System Restore")?></h2>
 <?php
-	if (!isset($_REQUEST['dir'])) {
+	if (empty($dir)) {
 		$dir = "/var/lib/asterisk/backups";
 		if(!is_dir($dir)) mkdir($dir);
-	} else {
-		$dir = "$_REQUEST[dir]";
 	}
-	$file = "$_REQUEST[file]";
 
 	Get_Tar_Files($dir, $display, $file);
 	echo "<br><br><br><br><br><br><br><br><br><br><br><br>";

@@ -1,13 +1,13 @@
 <module>
 	<rawname>backup</rawname>
 	<name>Backup &amp; Restore</name>
-	<version>1.1</version>
+	<version>1.1.1</version>
 	<type>tool</type>
 	<category>System Admin</category>
 	<menuitems>
 		<backup>Backup &amp; Restore</backup>
 	</menuitems>
-	<location>release/2.2/backup-1.1.tgz</location>
+	<location>release/2.2/backup-1.1.1.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-BackupRestore</info>
-	<md5sum>5fc4de2d92059514becbd5982a099c63</md5sum>
+	<md5sum>5dfeb5834c47267407402f8511653861</md5sum>
 </module>

@@ -26,8 +26,8 @@ $ID=isset($_REQUEST['backupid'])?$_REQUEST['backupid']:'';
 $name=((isset($_REQUEST['name'])&&empty($_REQUEST['name']))?'backup':$_REQUEST['name']);
 
 // Santity check passed params
-if (strpos($dir, '.') || strpos($dir, '\'') || strpos($dir, '"') || strpos($dir, '\'') || strpos($dir,'\`') ||
-    strpos($file, '.') || strpos($file, '\'') || strpos($file, '"') || strpos($file, '\'') || strpos($file,'\`') ||
+if (strstr($dir, '..') || strpos($dir, '\'') || strpos($dir, '"') || strpos($dir, '\'') || strpos($dir,'\`') ||
+    strstr($file, '..') || strpos($file, '\'') || strpos($file, '"') || strpos($file, '\'') || strpos($file,'\`') ||
     strpos($ID, '.') || strpos($ID, '\'') || strpos($ID, '"') || strpos($ID, '\'') || strpos($ID,'\`') ||
     strpos($filetype, '.') || strpos($filetype, '\'') || strpos($filetype, '"') || strpos($filetype, '\'') || strpos($filetype,'\`')) {
 	print "You're trying to use an invalid character. Please don't.\n";

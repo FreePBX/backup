@@ -20,6 +20,7 @@ $display='backup';
 $type = 'tool';
 
 $dir=isset($_REQUEST['dir'])?$_REQUEST['dir']:'';
+$extdisplay=isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
 $file=isset($_REQUEST['file'])?$_REQUEST['file']:'';
 $filetype=isset($_REQUEST['filetype'])?$_REQUEST['filetype']:'';
 $ID=isset($_REQUEST['backupid'])?$_REQUEST['backupid']:'';

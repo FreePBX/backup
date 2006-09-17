@@ -268,7 +268,7 @@ function Get_Backup_Times($BackupID)
         $sql = "SELECT Minutes, Hours, Days, Months, Weekdays, Method From Backup where ID=\"$BackupID\"";
         $results = $db->getAll($sql);
         if(DB::IsError($results)) {
-                $results = null;
+                $results = Array(null, null, null, null, null, null);
         }
         return $results;
 }
@@ -278,7 +278,7 @@ function Get_Backup_Options($BackupID)
         $sql = "SELECT Name, Voicemail, Recordings, Configurations, CDR, FOP FROM Backup where ID=\"$BackupID\"";
         $results = $db->getAll($sql);
         if(DB::IsError($results)) {
-                $results = null;
+                $results = Array(null, null, null, null, null, null);
         }
         return $results;
 }

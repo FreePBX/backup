@@ -24,7 +24,7 @@ $extdisplay=isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
 $file=isset($_REQUEST['file'])?$_REQUEST['file']:'';
 $filetype=isset($_REQUEST['filetype'])?$_REQUEST['filetype']:'';
 $ID=isset($_REQUEST['backupid'])?$_REQUEST['backupid']:'';
-$name=((isset($_REQUEST['name'])&&empty($_REQUEST['name']))?'backup':$_REQUEST['name']);
+$name=isset($_REQUEST['name'])?$_REQUEST['name'])):'backup';
 
 // Santity check passed params
 if (strstr($dir, '..') || strpos($dir, '\'') || strpos($dir, '"') || strpos($dir, '\'') || strpos($dir,'\`') ||
@@ -92,6 +92,9 @@ switch ($action) {
 	break;
 	case "restored":
 		$Message=Restore_Tar_Files($dir, $file, $filetype, $display);
+		// Regenerate all the ASTDB stuff. Note, we need a way to do speedials and other astdb stuff here.
+		core_users2astdb();
+		core_devices2astdb();
 		needreload();
 	break;
 }

@@ -24,7 +24,7 @@ $extdisplay=isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
 $file=isset($_REQUEST['file'])?$_REQUEST['file']:'';
 $filetype=isset($_REQUEST['filetype'])?$_REQUEST['filetype']:'';
 $ID=isset($_REQUEST['backupid'])?$_REQUEST['backupid']:'';
-$name=isset($_REQUEST['name'])?$_REQUEST['name'])):'backup';
+$name=isset($_REQUEST['name'])?$_REQUEST['name']:'backup';
 
 // Santity check passed params
 if (strstr($dir, '..') || strpos($dir, '\'') || strpos($dir, '"') || strpos($dir, '\'') || strpos($dir,'\`') ||

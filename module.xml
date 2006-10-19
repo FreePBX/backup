@@ -3,7 +3,7 @@
 	<name>Backup &amp; Restore</name>
 	<version>1.2</version>
 	<type>tool</type>
-	<category>System Admin</category>
+	<category>System Administration</category>
 	<menuitems>
 		<backup>Backup &amp; Restore</backup>
 	</menuitems>

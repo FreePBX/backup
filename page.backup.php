@@ -102,7 +102,7 @@ switch ($action) {
 
 ?>
 </div>
-<div class="rnav">
+<div class="rnav"><ul>
     <li><a href="config.php?type=<?php echo urlencode($type)?>&display=<?php echo urlencode($display)?>&action=add"><?php echo _("Add Backup Schedule")?></a></li>
     <li><a href="config.php?type=<?php echo urlencode($type)?>&display=<?php echo urlencode($display)?>&action=restore"><?php echo _("Restore from Backup")?></a></li>
 
@@ -116,7 +116,7 @@ if (isset($results)) {
 	}
 }
 ?>
-</div>
+</ul></div>
 
 
 <div class="content">

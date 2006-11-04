@@ -26,7 +26,8 @@ if (!$argv[1] || strstr($argv[1], "/") || strstr($argv[1], "..")) {
 	// You must supply a single filename, which will be written to /tmp
 	exit;
 }
-$fh = fopen("/tmp/$argv[1]", "w");
+@mkdir("/tmp/ampbackups.$argv[1]/");
+$fh = fopen("/tmp/ampbackups.$argv[1]/astdb.dump", "w");
 $astdb = $astman->database_show();
 foreach ($astdb as $key => $val) {
 	if ($key == "") { continue; }

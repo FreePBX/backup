@@ -156,8 +156,8 @@ else
 		system ("/bin/tar -Pcz -f /tmp/ampbackups.$Stamp/recordings.tar.gz ".$ast{'astvarlibdir'}."/sounds/custom");
 	}
 	if ( $Backup_Configurations eq "yes" ){
-		system ("dumpastdb.php /tmp/astdb.$Stamp > /dev/null");
-		system ("/bin/tar -Pcz -f /tmp/ampbackups.$Stamp/configurations.tar.gz ".$ast{'astvarlibdir'}."/agi-bin/ ".$ast{'astvarlibdir'}."/bin/ /etc/asterisk $webroot/admin /etc/amportal.conf /var/lib/asterisk/astdb ");
+		system ($ast{'astvarlibdir'}."/bin/dumpastdb.php $Stamp > /dev/null");
+		system ("/bin/tar -Pcz -f /tmp/ampbackups.$Stamp/configurations.tar.gz ".$ast{'astvarlibdir'}."/agi-bin/ ".$ast{'astvarlibdir'}."/bin/ /etc/asterisk $webroot/admin /etc/amportal.conf /tmp/ampbackups.$Stamp/astdb.dump ");
 		system ("mysqldump --add-drop-table -u $username -p$password --database asterisk > /tmp/ampbackups.$Stamp/asterisk.sql");
 	}
 	if ( $Backup_CDR eq "yes" ){

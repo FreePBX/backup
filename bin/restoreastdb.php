@@ -33,8 +33,11 @@ foreach ($arr as $line) {
 	// Now, the bad ones we know about are the ones that start with //, anything starting with SIP or IAX,
 	// and RG (which are only temporary anyway).
 	if (!isset($matches[1]) || $matches[1] == "") { continue; }
-	if (preg_match("/^\/[SIP|IAX|\/|RG]/", $matches[1])) { continue; }
-	$astman->database_put($matches[1], '', $matches[2]);
+	$pattern = "/(^\/\/)|(^\/IAX)|(^\/SIP)|(^\/RG)/";
+	if (preg_match($pattern, $matches[1])) { continue; }
+	preg_match("/(.+)\/(.+)$/", $matches[1], $famkey);
+	$famkey[1]=trim($famkey[1], '/');
+	$astman->database_put($famkey[1], $famkey[2], $matches[2]);
 }
 
 ?>

@@ -15,6 +15,7 @@
 
 <?php
 include_once "schedule_functions.php";
+global $asterisk_conf;
 $action = isset($_REQUEST['action'])?$_REQUEST['action']:'';
 $display='backup';
 $type = 'tool';
@@ -176,7 +177,7 @@ else if ($action == 'restore')
 	<h2><?php echo _("System Restore")?></h2>
 <?php
 	if (empty($dir)) {
-		$dir = "/var/lib/asterisk/backups";
+		$dir = $asterisk_conf['astvarlibdir']."/backups";
 		if(!is_dir($dir)) mkdir($dir);
 	}
 

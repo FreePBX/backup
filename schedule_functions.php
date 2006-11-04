@@ -39,11 +39,11 @@ function Get_Tar_Files($dir="", $display="", $file="")
                 echo "<br>";
                 $tar_string="tar tfz \"$dir\" | cut -d'/' -f4";
                 exec($tar_string,$restore_files,$error);
-                echo "<li><a class=\"info\" href=\"javascript:decision('Are you sure you want to Restore this Complete File Set\nDoing so will Permanently Over-Write all AMP and Asterisk Files\n You will Loose all Your CAll DETAIL RECORDS and YOUR VoiceMail that was recorded between the BACKUP DATE and NOW?','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=ALL&file=$file')\">";
+                echo "<li><a class=\"info\" href=\"javascript:decision('Are you sure you want to restore this COMPLETE file set?\nDoing so will permanently over-write all freePBX and Asterisk files\n You will loose all Your Call Detail Records and any Voicemail that was recorded between the BACKUP DATE and NOW.','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=ALL&file=$file')\">";
 		echo _("Restore Entire Backup Set"); echo "<span>"; echo _("Restore your Complete Backup set overwriting all files."); echo "</span></a><br></li>";
                 echo "<br>";
                 if (array_search('voicemail.tar.gz',$restore_files)){
-                        echo "<li><a class=\"info\" href=\"javascript:decision('Are you sure you want to Restore  this File Set\nDoing so will permently delete any new voicemail you have in your mailbox\n ansince this backup on $file ?','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=VoiceMail&file=$file')\">";
+                        echo "<li><a class=\"info\" href=\"javascript:decision('Are you sure you want to Restore this file set?\nDoing so will permanently delete any new voicemail you have in your mailbox\n since this backup on $file?','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=VoiceMail&file=$file')\">";
 			echo _("Restore VoiceMail Files");echo "<span>"; echo _("Restore your Voicemail files from this backup set.  NOTE! This will delete any voicemail currently in the voicemail boxes.");
 			echo "</span></a><br></li>";
                         echo "<br>";
@@ -76,7 +76,7 @@ function Get_Tar_Files($dir="", $display="", $file="")
 }
 function Restore_Tar_Files($dir="", $file="",$filetype="", $display="") {
 	global $asterisk_conf;
-	$amp_conf = parse_amportal_conf("/etc/amportal.conf");
+	global $amp_conf;
 	$Message="Restore Failed";
 
 	if($filetype=="ALL") {
@@ -87,12 +87,13 @@ function Restore_Tar_Files($dir="", $file="",$filetype="", $display="") {
 		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/voicemail.tar.gz /tmp/ampbackups.$fileholder/recordings.tar.gz ";
 		$tar_cmd.="/tmp/ampbackups.$fileholder/configurations.tar.gz /tmp/ampbackups.$fileholder/fop.tar.gz /tmp/ampbackups.$fileholder/cdr.tar.gz  | tar -Pxvz";
 		exec($tar_cmd);
-		$tar_cmd="tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql /tmp/ampbackups.$fileholder/asteriskcdr.sql";
+		$tar_cmd="tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql /tmp/ampbackups.$fileholder/asteriskcdr.sql /tmp/ampbackups.$fileholder/astdb.dump";
 		exec($tar_cmd);
 		$sql_cmd="mysql -u $amp_conf[AMPDBUSER] -p$amp_conf[AMPDBPASS] < /tmp/ampbackups.$fileholder/asterisk.sql";
 		exec($sql_cmd);
 		$sql_cmd="mysql -u $amp_conf[AMPDBUSER] -p$amp_conf[AMPDBPASS] < /tmp/ampbackups.$fileholder/asteriskcdr.sql";
 		exec($sql_cmd);
+		exec($asterisk_conf['astvarlibdir']."/bin/restoreastdb.php $fileholder");
 		exec('/bin/rm -rf /tmp/ampbackups.$fileholder');
 	} else if($filetype=="VoiceMail") {
 		$Message="Restored VoiceMail";

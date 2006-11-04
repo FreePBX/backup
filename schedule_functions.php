@@ -479,7 +479,7 @@ function show_schedule($quickbar="no", $BackupID="")
 		$Hours="";
 		$Days="";
 		$Months="";
-		$WeekDays="";
+		$Weekdays="";
 		$Method="follow_schedule";
 	}
 	else{

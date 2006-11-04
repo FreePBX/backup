@@ -39,17 +39,17 @@ if (strstr($dir, '..') || strpos($dir, '\'') || strpos($dir, '"') || strpos($dir
 
 switch ($action) {
 	case "addednew":
-		$ALL_days=$_POST['all_days'];
-		$ALL_months=$_POST['all_months'];
-		$ALL_weekdays=$_POST['all_weekdays'];
+		$ALL_days=isset($_POST['all_days'])?$_POST['all_days']:'';
+		$ALL_months=isset($_POST['all_months'])?$_POST['all_months']:'';
+		$ALL_weekdays=isset($_POST['all_weekdays'])?$_POST['all_weekdays']:'';
 
-		$backup_schedule=$_REQUEST['backup_schedule'];
+		$backup_schedule=isset($_REQUEST['backup_schedule'])?$_REQUEST['backup_schedule']:'';
 		$name=(empty($_REQUEST['name'])?'backup':$_REQUEST['name']);
-		$mins=$_REQUEST['mins'];
-		$hours=$_REQUEST['hours'];
-		$days=$_REQUEST['days'];
-		$months=$_REQUEST['months'];
-		$weekdays=$_REQUEST['weekdays'];
+		$mins=isset($_REQUEST['mins'])?$_REQUEST['mins']:'';
+		$hours=isset($_REQUEST['hours'])?$_REQUEST['hours']:'';
+		$days=isset($_REQUEST['days'])?$_REQUEST['days']:'';
+		$months=isset($_REQUEST['months'])?$_REQUEST['months']:'';
+		$weekdays=isset($_REQUEST['weekdays'])?$_REQUEST['weekdays']:'';
 		
 		$backup_options[]=$_REQUEST['bk_voicemail'];
 		$backup_options[]=$_REQUEST['bk_sysrecordings'];

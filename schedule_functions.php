@@ -233,7 +233,7 @@ function Get_Backup_String($name, $backup_schedule, $ALL_days, $ALL_months, $ALL
 			foreach ($months as $value)
 		        	$months_string.=":$value:";
 		}
-		if($ALL_weekdays=="1")
+		if($ALL_weekdays=="1"||(count($weekdays)<1))
 			$weekdays_string="*";
 		else{
 			foreach ($weekdays as $value)

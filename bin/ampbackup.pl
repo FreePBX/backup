@@ -55,6 +55,12 @@ $hostname = "localhost";
 # scratch file to ftp results with
 $ftpfile = "/tmp/freepbx-backup.ftp";
 
+# Set Default if not defined below
+$User_Preferences{"AMPDBUSER"}  = "asteriskuser";
+$User_Preferences{"AMPDBPASS"}  = "amp109";
+$User_Preferences{"AMPDBNAME"}  = "asterisk";
+$User_Preferences{"AMPWEBROOT"} = "/var/www/html";
+
 open(FILE, "/etc/amportal.conf") || die "Failed to open amportal.conf\n";
 while (<FILE>) {
     chomp;                  # no newline
@@ -158,7 +164,7 @@ else
 	if ( $Backup_Configurations eq "yes" ){
 		system ($ast{'astvarlibdir'}."/bin/dumpastdb.php $Stamp > /dev/null");
 		system ("/bin/tar -Pcz -f /tmp/ampbackups.$Stamp/configurations.tar.gz ".$ast{'astvarlibdir'}."/agi-bin/ ".$ast{'astvarlibdir'}."/bin/ /etc/asterisk $webroot/admin /etc/amportal.conf /tmp/ampbackups.$Stamp/astdb.dump ");
-		system ("mysqldump --add-drop-table -u $username -p$password --database asterisk > /tmp/ampbackups.$Stamp/asterisk.sql");
+		system ("mysqldump --add-drop-table -u $username -p$password --database $database > /tmp/ampbackups.$Stamp/asterisk.sql");
 	}
 	if ( $Backup_CDR eq "yes" ){
 		system ("/bin/tar -Pcz -f /tmp/ampbackups.$Stamp/cdr.tar.gz $webroot/admin/cdr");

@@ -83,12 +83,27 @@ function Restore_Tar_Files($dir="", $file="",$filetype="", $display="") {
 		$Message="Restored All Files in BackupSet";
 		$fileholder=substr($file, 0,-7);
 		exec('/bin/rm -rf /tmp/ampbackups.$fileholder');
+
+		// First restore voicemial (for some reason if you do it all at once these don't get restored
+		//
 		exec('/bin/rm -rf '.$asterisk_conf['astspooldir'].'/voicemail');
-		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/voicemail.tar.gz /tmp/ampbackups.$fileholder/recordings.tar.gz ";
-		$tar_cmd.="/tmp/ampbackups.$fileholder/configurations.tar.gz /tmp/ampbackups.$fileholder/fop.tar.gz /tmp/ampbackups.$fileholder/cdr.tar.gz  | tar -Pxvz";
+		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/voicemail.tar.gz | tar -Pxvz";
+		exec($tar_cmd);
+
+		// Next, recordings cause same issue as above
+		//
+		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/recordings.tar.gz | tar -Pxvz";
+		exec($tar_cmd);
+
+		// Now the rest and then we'll get on with the databases
+		//
+		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/configurations.tar.gz | tar -Pxvz";
+		exec($tar_cmd);
+		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/fop.tar.gz /tmp/ampbackups.$fileholder/cdr.tar.gz  | tar -Pxvz";
 		exec($tar_cmd);
 		$tar_cmd="tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql /tmp/ampbackups.$fileholder/asteriskcdr.sql /tmp/ampbackups.$fileholder/astdb.dump";
 		exec($tar_cmd);
+
 		$sql_cmd="mysql -u $amp_conf[AMPDBUSER] -p$amp_conf[AMPDBPASS] < /tmp/ampbackups.$fileholder/asterisk.sql";
 		exec($sql_cmd);
 		$sql_cmd="mysql -u $amp_conf[AMPDBUSER] -p$amp_conf[AMPDBPASS] < /tmp/ampbackups.$fileholder/asteriskcdr.sql";

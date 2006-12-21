@@ -33,7 +33,7 @@ foreach ($arr as $line) {
 	// Now, the bad ones we know about are the ones that start with //, anything starting with SIP or IAX,
 	// and RG (which are only temporary anyway).
 	if (!isset($matches[1]) || $matches[1] == "") { continue; }
-	$pattern = "/(^\/\/)|(^\/IAX)|(^\/SIP)|(^\/RG)/";
+	$pattern = "/(^\/\/)|(^\/IAX)|(^\/SIP)|(^\/RG)|(^\/BLKVM)|(^\/FM)/";
 	if (preg_match($pattern, $matches[1])) { continue; }
 	preg_match("/(.+)\/(.+)$/", $matches[1], $famkey);
 	$famkey[1]=trim($famkey[1], '/');

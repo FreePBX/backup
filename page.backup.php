@@ -97,6 +97,7 @@ switch ($action) {
 		core_users2astdb();
 		core_devices2astdb();
 		needreload();
+		redirect_standard();
 	break;
 }
 

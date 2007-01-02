@@ -3,7 +3,6 @@
 // No use outputting anything, as env forces php headers to appear. Sigh.
 
 global $argv;
-require_once("php-asmanager.php");
 
 function getconf($filename) {
         $file = file($filename);
@@ -15,8 +14,9 @@ function getconf($filename) {
         return $conf;
 }
 
-$amp_conf = getconf(AMP_CONF);
+$amp_conf = getconf("/etc/amportal.conf");
 
+require_once($amp_conf['AMPWEBROOT']."/admin/common/php-asmanager.php");
 $astman         = new AGI_AsteriskManager();
 if (! $res = $astman->connect("127.0.0.1", $amp_conf["AMPMGRUSER"] , $amp_conf["AMPMGRPASS"])) {
         unset( $astman );

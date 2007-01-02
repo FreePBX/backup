@@ -1,7 +1,7 @@
 <module>
 	<rawname>backup</rawname>
 	<name>Backup &amp; Restore</name>
-	<version>2.0.3</version>
+	<version>2.1</version>
 	<type>tool</type>
 	<category>System Administration</category>
 	<menuitems>
@@ -11,6 +11,8 @@
 		<module>core</module>
 	</depends>
 	<changelog>
+	*2.1* Actually, really, restore ASTDB now. Finally. Also add redirect_standard to avoid problems with TRBoE.
+	*2.0.4* Add he_IL translation
 	*2.0.3* don't have BLKVM and FM astdb trees, which shouldn't be left around anyhow
 	*2.0.2* fixed restore ALL to get it to actually work
 	*2.0.1* supplied defaults and fixed bug is weekdays schedule_functions.php - #1279

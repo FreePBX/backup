@@ -1,0 +1,325 @@
+# Hebrew version for FreePBX Backup Module.
+# Copyright (C) 2006
+# This file is distributed under the same license as the PACKAGE package.
+# Shimi <shimi@shimi.net>, 2006.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: FreePBX 2.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-10-17 17:20+0300\n"
+"PO-Revision-Date: 2006-10-17 17:30+0300\n"
+"Last-Translator: Shimi <shimi@shimi.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: page.backup.php:103
+msgid "Add Backup Schedule"
+msgstr "הוסף תיזמון גיבויים"
+
+#: page.backup.php:104
+msgid "Restore from Backup"
+msgstr "שחזר מגיבוי"
+
+#: page.backup.php:125 page.backup.php:148 page.backup.php:192
+msgid "System Backup"
+msgstr "גיבוי מערכת"
+
+#: page.backup.php:133 page.backup.php:158
+msgid "Run Schedule"
+msgstr "הרץ גיבוי"
+
+#: page.backup.php:149
+msgid "Delete Backup Schedule"
+msgstr "מחק תיזמון גיבויים"
+
+#: page.backup.php:173
+msgid "System Restore"
+msgstr "שחזור מערכת"
+
+#: schedule_functions.php:22
+msgid "DELETE ALL THE DATA IN THIS SET"
+msgstr "<em>מחק את כל הנתונים בסט זה</em>"
+
+#: schedule_functions.php:22
+msgid "Delete this backup set and all data associated with this backup set.."
+msgstr "מחק סט גיבוי זה ואת כל הנתונים המשוייכים לסט גיבוי זה.."
+
+#: schedule_functions.php:38
+msgid "Delete File Set"
+msgstr "מחק סט קבצים"
+
+#: schedule_functions.php:38
+msgid "Delete this backup set."
+msgstr "מחק סט גיבויים זה"
+
+#: schedule_functions.php:43
+msgid "Restore Entire Backup Set"
+msgstr "שחזר סט גיבוי מלא"
+
+#: schedule_functions.php:43
+msgid "Restore your Complete Backup set overwriting all files."
+msgstr "שחזר סט גיבוי מלא ובכך דרוס את כל הקבצים הקיימים."
+
+#: schedule_functions.php:47
+msgid "Restore VoiceMail Files"
+msgstr "שחזר קבצי תא קולי"
+
+#: schedule_functions.php:47
+msgid ""
+"Restore your Voicemail files from this backup set.  NOTE! This will delete "
+"any voicemail currently in the voicemail boxes."
+msgstr "שחזר את כל קבצי הדואר הקולי מסט גיבוי זה. <em>שים לב!</em> פעולה זו תמחק את כל הודעות הדואר הקולי אשר נמצאות כעת בתיבות הדואר הקולי."
+
+#: schedule_functions.php:54
+msgid "Restore System Recordings Files"
+msgstr "שחזר קבצי הקלטות מערכת"
+
+#: schedule_functions.php:54
+msgid ""
+"Restore your system Voice Recordings including AutoAttendent files from this "
+"backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the "
+"system. It will NOT delete new files not currently in the backup set"
+msgstr "שחזר את קבצי הקלטות המערכת כולל את אלו של מערכת המענה הקולי האוטומטי מסט גיבוי זה. <em>שים לב!</em> פעולה זו <em>תדרוס</em> את כל ההקלטות שיש כרגע במערכת. היא <em>לא</em> תמחוק קבצים חדשים שאינם קיימים בסט הגיבוי"
+
+#: schedule_functions.php:59
+msgid "Restore System Configuration"
+msgstr "שחזר תצורת מערכת"
+
+#: schedule_functions.php:59
+msgid ""
+"Restore your system configuration from this backup set.  NOTE! This will "
+"OVERWRITE any System changes you have made since this backup... ALL Itemes "
+"will be reset to what they were at the time of this backup set.."
+msgstr "שחזר את תצורת המערכת מסט גיבוי זה. <em>שים לב!</em> פעולה זו <em>תדרוס</em> כל שינוי שעשית במערכת מאז גיבוי זה... <em>כל</em> ההגדרות ישוחזרו למה שהן היו בזמן יצירת סט גיבוי זה.."
+
+#: schedule_functions.php:64
+msgid "Restore Operator Panel"
+msgstr "שחזר פאנל ניהול"
+
+#: schedule_functions.php:64
+msgid ""
+"Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE "
+"any Operator Panel Changes you have made since this backup... ALL Itemes "
+"will be reset to what they were at the time of this backup set.."
+msgstr "שחזר את פאנל המפעיל מסט גיבוי זה. <em>שים לב!</em> פעולה זו <em>תדרוס</em> כל שינוי שעשית בפאנל המפעיל מאז שבוצע גיבוי זה... <em>כל</em> ההגדרות יוחזרו למצב שבו הן היו בזמן יצירת סט גיבוי זה.."
+
+#: schedule_functions.php:69
+msgid "Restore Call Detail Report"
+msgstr "שחזר דוח פרטי שיחות"
+
+#: schedule_functions.php:69
+msgid ""
+"Restore the Call Detail Records from this backup set.  NOTE! This will "
+"DELETE ALL CALL RECORDS that have been saved since this backup set.."
+msgstr "שחזר את רשומות פרטי השיחות מסט גיבוי זה. <em>שים לב!</em> פעולה זו <em>תמחק את כל רישומי השיחות</em> שנשמרו מאז יצירת סט גיבוי זה.."
+
+#: schedule_functions.php:74
+msgid "ERROR its not a BACKUP SET file"
+msgstr "<em>שגיאה:</em> זהו לא קובץ <em>סט גיבוי</em>"
+
+#: schedule_functions.php:296
+msgid "Schedule Name:"
+msgstr "שם התזמון:"
+
+#: schedule_functions.php:296
+msgid "Give this Backup Schedule a brief name to help you identify it."
+msgstr "תן לתיזמון גיבוי זה שם קצר שיעזור לך לזהות אותו בעתיד."
+
+#: schedule_functions.php:301
+msgid "VoiceMail"
+msgstr "דואר קולי"
+
+#: schedule_functions.php:301
+msgid ""
+"Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
+msgstr "גבה את תיבות הדואר הקולי שבמערכת... <em>אזהרה:</em> עשוי להיווצר קובץ גדול למדי"
+
+#: schedule_functions.php:303 schedule_functions.php:305
+#: schedule_functions.php:311 schedule_functions.php:313
+#: schedule_functions.php:319 schedule_functions.php:321
+#: schedule_functions.php:327 schedule_functions.php:329
+#: schedule_functions.php:335 schedule_functions.php:337
+msgid "yes"
+msgstr "כן"
+
+#: schedule_functions.php:303 schedule_functions.php:305
+#: schedule_functions.php:311 schedule_functions.php:313
+#: schedule_functions.php:319 schedule_functions.php:321
+#: schedule_functions.php:327 schedule_functions.php:329
+#: schedule_functions.php:335 schedule_functions.php:337
+msgid "no"
+msgstr "לא"
+
+#: schedule_functions.php:309
+msgid "System Recordings"
+msgstr "הקלטות מערכת"
+
+#: schedule_functions.php:309
+msgid ""
+"Backup the System Recordings (AutoAttendent, Music On Hold, System "
+"Recordings)"
+msgstr "גבה את הקלטות המערכת (מענה קולי, מוסיקת המתנה, הקלטות מערכת)"
+
+#: schedule_functions.php:317
+msgid "System Configuration"
+msgstr "תצורת מערכת"
+
+#: schedule_functions.php:317
+msgid ""
+"Backup the System Configurations (Database, etc files, SQL Database, astdb)"
+msgstr "גבה את תצורות המערכת (מסד נתונים, קבצי etc, SQL ו-astdb)"
+
+#: schedule_functions.php:325
+msgid "CDR"
+msgstr "דוח רישום שיחות (CDR)"
+
+#: schedule_functions.php:325
+msgid "Backup the System Call Detail Reporting (HTML and Database)"
+msgstr "גבה את דיווח פרטי השיחות שבמערכת (HTML ומסד נתונים)"
+
+#: schedule_functions.php:333
+msgid "Operator Panel"
+msgstr "פאנל מפעיל"
+
+#: schedule_functions.php:333
+msgid "Backup the Operator Panel (HTML and Database)"
+msgstr "גבה את פאנל המנהל (HTML ומסד נתונים)"
+
+#: schedule_functions.php:384 schedule_functions.php:388
+#: schedule_functions.php:413 schedule_functions.php:417
+#: schedule_functions.php:442 schedule_functions.php:446
+msgid "All"
+msgstr "הכל"
+
+#: schedule_functions.php:385 schedule_functions.php:389
+#: schedule_functions.php:414 schedule_functions.php:418
+#: schedule_functions.php:443 schedule_functions.php:447
+msgid "Selected"
+msgstr "נבחר"
+
+#: schedule_functions.php:422
+msgid "January"
+msgstr "ינואר"
+
+#: schedule_functions.php:423
+msgid "February"
+msgstr "פברואר"
+
+#: schedule_functions.php:424
+msgid "March"
+msgstr "מרץ"
+
+#: schedule_functions.php:425
+msgid "April"
+msgstr "אפריל"
+
+#: schedule_functions.php:426
+msgid "May"
+msgstr "מאי"
+
+#: schedule_functions.php:427
+msgid "June"
+msgstr "יוני"
+
+#: schedule_functions.php:428
+msgid "July"
+msgstr "יולי"
+
+#: schedule_functions.php:429
+msgid "August"
+msgstr "אוגוסט"
+
+#: schedule_functions.php:430
+msgid "September"
+msgstr "ספטמבר"
+
+#: schedule_functions.php:431
+msgid "October"
+msgstr "אוקטובר"
+
+#: schedule_functions.php:432
+msgid "November"
+msgstr "נובמבר"
+
+#: schedule_functions.php:433
+msgid "December"
+msgstr "דצמבר"
+
+#: schedule_functions.php:451
+msgid "Monday"
+msgstr "שני"
+
+#: schedule_functions.php:452
+msgid "Tuesday"
+msgstr "שלישי"
+
+#: schedule_functions.php:453
+msgid "Wednesday"
+msgstr "רביעי"
+
+#: schedule_functions.php:454
+msgid "Thursday"
+msgstr "חמישי"
+
+#: schedule_functions.php:455
+msgid "Friday"
+msgstr "שישי"
+
+#: schedule_functions.php:456
+msgid "Saturday"
+msgstr "שבת"
+
+#: schedule_functions.php:457
+msgid "Sunday"
+msgstr "ראשון"
+
+#: schedule_functions.php:465
+msgid "Run Backup"
+msgstr "הרץ גיבוי"
+
+#: schedule_functions.php:467
+msgid "Follow Schedule Below"
+msgstr "עקוב אחר התזמון לקמן"
+
+#: schedule_functions.php:468
+msgid "Now"
+msgstr "עכשיו"
+
+#: schedule_functions.php:469
+msgid "Daily (at midnight)"
+msgstr "כל יום (בחצות)"
+
+#: schedule_functions.php:470
+msgid "Weekly (on Sunday)"
+msgstr "פעם בשבוע (ביום ראשון)"
+
+#: schedule_functions.php:471
+msgid "Monthly (on the 1st)"
+msgstr "פעם בחודש (בראשון לחודש)"
+
+#: schedule_functions.php:472
+msgid "Yearly (on 1st Jan)"
+msgstr "פעם בשנה (ב 1 בינואר)"
+
+#: schedule_functions.php:497
+msgid "Minutes"
+msgstr "דקות"
+
+#: schedule_functions.php:497
+msgid "Hours"
+msgstr "שעות"
+
+#: schedule_functions.php:497
+msgid "Days"
+msgstr "ימים"
+
+#: schedule_functions.php:497
+msgid "Months"
+msgstr "חודשים"
+
+#: schedule_functions.php:497
+msgid "Weekdays"
+msgstr "ימים בשבוע"

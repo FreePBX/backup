@@ -94,8 +94,6 @@ switch ($action) {
 	case "restored":
 		$Message=Restore_Tar_Files($dir, $file, $filetype, $display);
 		// Regenerate all the ASTDB stuff. Note, we need a way to do speedials and other astdb stuff here.
-		core_users2astdb();
-		core_devices2astdb();
 		needreload();
 		redirect_standard();
 	break;

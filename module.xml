@@ -1,7 +1,7 @@
 <module>
 	<rawname>backup</rawname>
 	<name>Backup &amp; Restore</name>
-	<version>2.1.1</version>
+	<version>2.1.2</version>
 	<type>tool</type>
 	<category>System Administration</category>
 	<menuitems>
@@ -11,6 +11,7 @@
 		<module>core</module>
 	</depends>
 	<changelog>
+	*2.1.2* Add ability to scp backups to a server, add optional provisioning directory that can be backed up (no restore ability)
 	*2.1.1* Remove core_users2astdb and core_devices2astdb, it isn't needed and corrupts resotred ampuser info
 	*2.1* Actually, really, restore ASTDB now. Finally. Also add redirect_standard to avoid problems with TRBoE.
 	*2.0.4* Add he_IL translation

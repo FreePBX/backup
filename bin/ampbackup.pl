@@ -61,6 +61,21 @@ $User_Preferences{"AMPDBPASS"}  = "amp109";
 $User_Preferences{"AMPDBNAME"}  = "asterisk";
 $User_Preferences{"AMPWEBROOT"} = "/var/www/html";
 
+$User_Preferences{"AMPPROVROOT"} = "";
+$User_Preferences{"AMPPROVEXCLUDE"} = "";
+
+$User_Preferences{"FTPBACKUP"} = "";
+$User_Preferences{"FTPUSER"} = "";
+$User_Preferences{"FTPPASSWORD"} = "";
+$User_Preferences{"FTPSUBDIR"} = "";
+$User_Preferences{"FTPSERVER"} = "";
+
+$User_Preferences{"SSHBACKUP"} = "";
+$User_Preferences{"SSHUSER"} = "";
+$User_Preferences{"SSHRSAKEY"} = "";
+$User_Preferences{"SSHSUBDIR"} = "";
+$User_Preferences{"SSHSERVER"} = "";
+
 open(FILE, "/etc/amportal.conf") || die "Failed to open amportal.conf\n";
 while (<FILE>) {
     chomp;                  # no newline
@@ -94,6 +109,11 @@ $database = $User_Preferences{"AMPDBNAME"};
 # the WEB ROOT directory 
 $webroot = $User_Preferences{"AMPWEBROOT"};
 
+# Provisioning root(s) and exclude list, if phone configuratoins should be backed up
+#
+$provroot = $User_Preferences{"AMPPROVROOT"};
+$excludefile = $User_Preferences{"AMPPROVEXCLUDE"};
+
 # If and where to send the backup file once created (still left on local machine as well)
 #
 $ftpbackup = uc $User_Preferences{"FTPBACKUP"};
@@ -102,6 +122,12 @@ $ftppassword = $User_Preferences{"FTPPASSWORD"};
 $ftpsubdir = $User_Preferences{"FTPSUBDIR"};
 $ftpserver = $User_Preferences{"FTPSERVER"};
 
+$sshbackup = uc $User_Preferences{"SSHBACKUP"};
+$sshuser = $User_Preferences{"SSHUSER"};
+$sshrsakey = $User_Preferences{"SSHRSAKEY"};
+$sshsubdir = $User_Preferences{"SSHSUBDIR"};
+$sshserver = $User_Preferences{"SSHSERVER"};
+
 ################### END OF CONFIGURATION #######################
 my $now = localtime time;
 my ($sec,$min,$hour,$mday,$mon,$year, $wday,$yday,$isdst) = localtime time;
@@ -109,7 +135,6 @@ $year += 1900;
 $mon +=1;
 #my $Stamp="$year$mon$mday.$hour.$min.$sec";
 my $Stamp=sprintf "%04d%02d%02d.%02d.%02d.%02d",$year,$mon,$mday,$hour,$min,$sec;
-
 
 if (scalar @ARGV > 1)
 {
@@ -150,8 +175,6 @@ else
 		#print "$Backup_Name $Backup_Voicemail $Backup_Recordings $Backup_Configurations $Backup_CDR $Backup_FOP\n";
 	}
 }
-#print "$Backup_Name $Backup_Voicemail $Backup_Recordings $Backup_Configurations $Backup_CDR $Backup_FOP\n";
-
 
 	system ("/bin/rm -rf /tmp/ampbackups.$Stamp > /dev/null  2>&1");
 	system ("/bin/mkdir /tmp/ampbackups.$Stamp > /dev/null  2>&1");
@@ -164,6 +187,15 @@ else
 	if ( $Backup_Configurations eq "yes" ){
 		system ($ast{'astvarlibdir'}."/bin/dumpastdb.php $Stamp > /dev/null");
 		system ("/bin/tar -Pcz -f /tmp/ampbackups.$Stamp/configurations.tar.gz ".$ast{'astvarlibdir'}."/agi-bin/ ".$ast{'astvarlibdir'}."/bin/ /etc/asterisk $webroot/admin /etc/amportal.conf /tmp/ampbackups.$Stamp/astdb.dump ");
+
+		if ($provroot ne "") {
+			$excludearg = "";
+			if (-r $excludefile) {
+				$excludearg = "--exclude-from $excludefile ";
+			}
+			system ("/bin/tar -Pcz $excludearg -f /tmp/ampbackups.$Stamp/phoneconfig.tar.gz $provroot ");
+		}
+
 		system ("mysqldump --add-drop-table -u $username -p$password --database $database > /tmp/ampbackups.$Stamp/asterisk.sql");
 	}
 	if ( $Backup_CDR eq "yes" ){
@@ -185,26 +217,33 @@ else
 #             root leave the file around and asterisk can't overwrite it.
 #	      Note - the hardcoded full backup that cron does will overwrite each day at destination.
 #
-if ( $ftpbackup ne "YES" ) {
-	exit
+if ( $ftpbackup eq "YES" ) {
+	open(FILE, ">$ftpfile") || die "Failed to open $ftpfile\n";
+ 
+		printf FILE "user $ftpuser $ftppassword \n";
+		printf FILE "binary\n";
+			if ( $ftpsubdir ne "" ) {
+				printf FILE "cd $ftpsubdir \n";
+			}
+			printf FILE "lcd /var/lib/asterisk/backups/$Backup_Name/\n";
+			printf FILE "put $Stamp.tar.gz\n";
+			printf FILE "bye\n";
+			close(FILE);
+ 
+			system ("ftp -n $ftpserver < $ftpfile > /dev/null  2>&1");
+ 
+			#system ("/bin/rm -rf /tmp/ftp2cabana > /dev/null  2>&1");
 }
 
-open(FILE, ">$ftpfile") || die "Failed to open $ftpfile\n";
- 
-        printf FILE "user $ftpuser $ftppassword \n";
-        printf FILE "binary\n";
-	if ( $ftpsubdir ne "" ) {
-        	printf FILE "cd $ftpsubdir \n";
+if ( ($sshbackup eq "YES") && ($sshrsakey ne "") && ($sshserver ne "") ) {
+
+	if ($sshuser eq "") {
+		$sshuser = system("whoami");
 	}
-        printf FILE "lcd /var/lib/asterisk/backups/$Backup_Name/\n";
-        printf FILE "put $Stamp.tar.gz\n";
-        printf FILE "bye\n";
-        close(FILE);
- 
-        system ("ftp -n $ftpserver < $ftpfile > /dev/null  2>&1");
- 
-        #system ("/bin/rm -rf /tmp/ftp2cabana > /dev/null  2>&1");
-
-
+	if ($sshsubdir ne "") {
+		system("/usr/bin/ssh -o StrictHostKeyChecking=no -i $sshrsakey $sshuser\@$sshserver mkdir -p $sshsubdir");
+	}
+	system("/usr/bin/scp -o StrictHostKeyChecking=no -i $sshrsakey /var/lib/asterisk/backups/$Backup_Name/$Stamp.tar.gz $sshuser\@$sshserver:$sshsubdir");
+}
 
 exit 0;

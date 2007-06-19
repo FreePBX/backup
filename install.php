@@ -6,7 +6,7 @@ global $amp_conf;
 $autoincrement = (($amp_conf["AMPDBENGINE"] == "sqlite") || ($amp_conf["AMPDBENGINE"] == "sqlite3")) ? "AUTOINCREMENT":"AUTO_INCREMENT";
 
 $sql = "
-CREATE TABLE Backup (
+CREATE TABLE IF NOT EXISTS Backup (
 	  Name varchar(50) default NULL,
 	  Voicemail varchar(50) default NULL,
 	  Recordings varchar(50) default NULL,

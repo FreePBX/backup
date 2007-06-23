@@ -39,7 +39,7 @@ function Get_Tar_Files($dir="", $display="", $file="")
                 echo "<br>";
                 $tar_string="tar tfz \"$dir\" | cut -d'/' -f4";
                 exec($tar_string,$restore_files,$error);
-                echo "<li><a class=\"info\" href=\"javascript:decision('Are you sure you want to restore this COMPLETE file set?\nDoing so will permanently over-write all freePBX and Asterisk files\n You will loose all Your Call Detail Records and any Voicemail that was recorded between the BACKUP DATE and NOW.','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=ALL&file=$file')\">";
+                echo "<li><a class=\"info\" href=\"javascript:decision('Are you sure you want to restore this COMPLETE file set?\nDoing so will permanently over-write all FreePBX and Asterisk files\n You will loose all Your Call Detail Records and any Voicemail that was recorded between the BACKUP DATE and NOW.','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=ALL&file=$file')\">";
 		echo _("Restore Entire Backup Set"); echo "<span>"; echo _("Restore your Complete Backup set overwriting all files."); echo "</span></a><br></li>";
                 echo "<br>";
                 if (array_search('voicemail.tar.gz',$restore_files)){

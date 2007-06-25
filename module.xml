@@ -1,7 +1,7 @@
 <module>
 	<rawname>backup</rawname>
 	<name>Backup &amp; Restore</name>
-	<version>2.1.4</version>
+	<version>2.1.4.1</version>
 	<type>tool</type>
 	<category>System Administration</category>
 	<menuitems>
@@ -11,6 +11,7 @@
 		<module>core</module>
 	</depends>
 	<changelog>
+	*2.1.4.1* changed freePBX to FreePBX
 	*2.1.4* modified install script to create table if NOT EXISTS to avoid errors
 	*2.1.3* #1992: move create/remove schema for Backup into module away from core
 	*2.1.2* Add ability to scp backups to a server, add optional provisioning directory that can be backed up (no restore ability)
@@ -23,7 +24,7 @@
 	*2.0* Now backs up and restores astdb, which was causing problems with phone configurations.
 	*1.2* Potential fix for restore issues, clean up some warnings
 	</changelog>
-	<location>release/2.3/backup-2.1.4.tgz</location>
+	<location>release/2.3/backup-2.1.4.1.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-BackupRestore</info>
-	<md5sum>0736dc2a49034bc53515a3b0e46f847d</md5sum>
+	<md5sum>603798223d3fb3d01e0156a21ef2c492</md5sum>
 </module>

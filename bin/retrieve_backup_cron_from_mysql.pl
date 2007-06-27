@@ -30,10 +30,16 @@ require "retrieve_parse_amportal_conf.pl";
 $table_name = "Backup";
 # the path to the extensions.conf file
 # WARNING: this file will be substituted by the output of this program
-$Backup_cron = "/etc/asterisk/backup.conf";
 
 # cool hack by Julien BLACHE <jblache@debian.org>
 $ampconf = parse_amportal_conf( "/etc/amportal.conf" );
+
+$astetcdir = "/etc/asterisk";
+
+if (defined $ampconf->{'ASTETCDIR'}) {
+	$astetcdir = $ampconf->{'ASTETCDIR'};
+}
+$Backup_cron = "$astetcdir/backup.conf";
 
 ################### END OF CONFIGURATION #######################
 

@@ -60,6 +60,7 @@ $User_Preferences{"AMPDBUSER"}  = "asteriskuser";
 $User_Preferences{"AMPDBPASS"}  = "amp109";
 $User_Preferences{"AMPDBNAME"}  = "asterisk";
 $User_Preferences{"AMPWEBROOT"} = "/var/www/html";
+$User_Preferences{"ASTETCDIR"} = "/etc/asterisk";
 
 $User_Preferences{"AMPPROVROOT"} = "";
 $User_Preferences{"AMPPROVEXCLUDE"} = "";
@@ -88,7 +89,7 @@ while (<FILE>) {
 }
 close(FILE);
 
-open(FILE, "/etc/asterisk/asterisk.conf") || die "Failed to open asterisk.conf\n";
+open(FILE, $User_Preferences{"ASTETCDIR"}."/asterisk.conf") || die "Failed to open asterisk.conf\n";
 while (<FILE>) {
 	chomp;
 	s/\s//g;	# No spaces, anywhere.
@@ -99,6 +100,8 @@ while (<FILE>) {
 		$ast{$1} = $2;
 	}
 }
+
+$backupdir = $ast{'astvarlibdir'}."/backups";
 
 # username to connect to the database
 $username = $User_Preferences{"AMPDBUSER"} ;
@@ -205,8 +208,8 @@ else
 	if ( $Backup_FOP eq "yes" ){
 		system ("/bin/tar -Pcz -f /tmp/ampbackups.$Stamp/fop.tar.gz $webroot/panel");
 	}
-	system ("/bin/mkdir -p '/var/lib/asterisk/backups/$Backup_Name' > /dev/null  2>&1");
-	system ("/bin/tar -Pcz -f '/var/lib/asterisk/backups/$Backup_Name/$Stamp.tar.gz' /tmp/ampbackups.$Stamp");
+	system ("/bin/mkdir -p '$backupdir/$Backup_Name' > /dev/null  2>&1");
+	system ("/bin/tar -Pcz -f '$backupdir/$Backup_Name/$Stamp.tar.gz' /tmp/ampbackups.$Stamp");
 	system ("/bin/rm -rf /tmp/ampbackups.$Stamp > /dev/null  2>&1");
 #
 #
@@ -225,7 +228,7 @@ if ( $ftpbackup eq "YES" ) {
 			if ( $ftpsubdir ne "" ) {
 				printf FILE "cd $ftpsubdir \n";
 			}
-			printf FILE "lcd /var/lib/asterisk/backups/$Backup_Name/\n";
+			printf FILE "lcd $backupdir/$Backup_Name/\n";
 			printf FILE "put $Stamp.tar.gz\n";
 			printf FILE "bye\n";
 			close(FILE);
@@ -243,7 +246,7 @@ if ( ($sshbackup eq "YES") && ($sshrsakey ne "") && ($sshserver ne "") ) {
 	if ($sshsubdir ne "") {
 		system("/usr/bin/ssh -o StrictHostKeyChecking=no -i $sshrsakey $sshuser\@$sshserver mkdir -p $sshsubdir");
 	}
-	system("/usr/bin/scp -o StrictHostKeyChecking=no -i $sshrsakey /var/lib/asterisk/backups/$Backup_Name/$Stamp.tar.gz $sshuser\@$sshserver:$sshsubdir");
+	system("/usr/bin/scp -o StrictHostKeyChecking=no -i $sshrsakey $backupdir/$Backup_Name/$Stamp.tar.gz $sshuser\@$sshserver:$sshsubdir");
 }
 
 exit 0;

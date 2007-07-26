@@ -1,5 +1,5 @@
 #!/usr/bin/env php
-<?
+<?php
 // No use outputting anything, as env forces php headers to appear. Sigh.
 
 global $argv;

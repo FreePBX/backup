@@ -1,7 +1,7 @@
 <module>
 	<rawname>backup</rawname>
 	<name>Backup &amp; Restore</name>
-	<version>2.1.4.4</version>
+	<version>2.1.4.5</version>
 	<type>tool</type>
 	<category>System Administration</category>
 	<menuitems>
@@ -11,6 +11,7 @@
 		<module>core</module>
 	</depends>
 	<changelog>
+		*2.1.4.5* fixed syntax error in uninstall script
 		*2.1.4.4* #2231 restore astdb as part of configuration restore choice
 		*2.1.4.3* #2070 fix proper use of script tags
 		*2.1.4.2* #1866 removed some hard coded paths
@@ -29,5 +30,5 @@
 	</changelog>
 	<location>release/2.3/backup-2.1.4.4.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-BackupRestore</info>
-	<md5sum>3577dff71a46d3528659bf310455a475</md5sum>
+	<md5sum>b02e49fee011ba976d31ce1b7cd3ade6</md5sum>
 </module>

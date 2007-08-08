@@ -131,11 +131,12 @@ function Restore_Tar_Files($dir="", $file="",$filetype="", $display="") {
 		exec('/bin/rm -rf /tmp/ampbackups.$fileholder');
 		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/configurations.tar.gz | tar -Pxvz";
 		exec($tar_cmd);
-		$tar_cmd="tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql";
+		$tar_cmd="tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql /tmp/ampbackups.$fileholder/astdb.dump";
 		exec($tar_cmd);
 		$sql_cmd="mysql -u $amp_conf[AMPDBUSER] -p$amp_conf[AMPDBPASS] < /tmp/ampbackups.$fileholder/asterisk.sql";
 		exec($sql_cmd);
-               	exec('/bin/rm -rf /tmp/ampbackups.$fileholder');
+		exec($asterisk_conf['astvarlibdir']."/bin/restoreastdb.php $fileholder");
+		exec('/bin/rm -rf /tmp/ampbackups.$fileholder');
 	} else if($filetype=="FOP"){
 		$Message="Restored Operator Panel";
 		$fileholder=substr($file, 0,-7);

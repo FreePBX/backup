@@ -1,7 +1,7 @@
 <module>
 	<rawname>backup</rawname>
 	<name>Backup &amp; Restore</name>
-	<version>2.1.4.3</version>
+	<version>2.1.4.4</version>
 	<type>tool</type>
 	<category>System Administration</category>
 	<menuitems>
@@ -11,6 +11,7 @@
 		<module>core</module>
 	</depends>
 	<changelog>
+		*2.1.4.4* #2231 restore astdb as part of configuration restore choice
 		*2.1.4.3* #2070 fix proper use of script tags
 		*2.1.4.2* #1866 removed some hard coded paths
 		*2.1.4.1* changed freePBX to FreePBX

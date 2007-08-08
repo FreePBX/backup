@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS Backup (
 
 $check = $db->query($sql);
 if(DB::IsError($check)) {
-	die("Can not create Backup table");
+	die_freepbx("Can not create Backup table");
 }
 
 ?>

@@ -173,7 +173,7 @@ function Delete_Backup_Set($ID="") {
 	$sql = "DELETE FROM Backup  WHERE ID = '$ID'";
         $result = $db->query($sql);
         if(DB::IsError($result)) {
-                die($result->getMessage());
+                die_freepbx($result->getMessage());
         }
 	$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/retrieve_backup_cron_from_mysql.pl";
 	exec($Cron_Script);
@@ -204,7 +204,7 @@ function Save_Backup_Schedule($Backup_Parms, $backup_options )
         $sql .= "'".$Backup_Parms[1]."');";
         $result = $db->query($sql);
         if(DB::IsError($result)) {
-                die($result->getMessage().'<hr>'.$sql);
+                die_freepbx($result->getMessage().'<hr>'.$sql);
         }
 	$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/retrieve_backup_cron_from_mysql.pl";
 	exec($Cron_Script);

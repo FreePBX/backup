@@ -9,7 +9,7 @@ if(DB::IsError($result)) {
 }
 $Cron_Script=$asterisk_conf['astvarlibdir']."/bin/retrieve_backup_cron_from_mysql.pl";
 exec($Cron_Script);
-
+}
 sql('DROP TABLE Backup');
 
 ?>

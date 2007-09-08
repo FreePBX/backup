@@ -1,7 +1,7 @@
 <module>
 	<rawname>backup</rawname>
 	<name>Backup &amp; Restore</name>
-	<version>2.1.4.7</version>
+	<version>2.1.4.8</version>
 	<type>tool</type>
 	<category>System Administration</category>
 	<menuitems>
@@ -11,6 +11,7 @@
 		<module>core</module>
 	</depends>
 	<changelog>
+		*2.1.4.8* #2323 allow remote MySQL database
 		*2.1.4.7* #2267 restoreadtb restore values with spaces
 		*2.1.4.6* bump for rc1 (and really chcek in uninstall fix)
 		*2.1.4.5* fixed syntax error in uninstall script

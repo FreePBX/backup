@@ -109,6 +109,8 @@ $username = $User_Preferences{"AMPDBUSER"} ;
 $password = $User_Preferences{"AMPDBPASS"};
 # Database name
 $database = $User_Preferences{"AMPDBNAME"};
+# Database host
+$hostname = $User_Preferences{"AMPDBHOST"};
 # the WEB ROOT directory 
 $webroot = $User_Preferences{"AMPWEBROOT"};
 
@@ -199,11 +201,11 @@ else
 			system ("/bin/tar -Pcz $excludearg -f /tmp/ampbackups.$Stamp/phoneconfig.tar.gz $provroot ");
 		}
 
-		system ("mysqldump --add-drop-table -u $username -p$password --database $database > /tmp/ampbackups.$Stamp/asterisk.sql");
+		system ("mysqldump --add-drop-table -h $hostname -u $username -p$password --database $database > /tmp/ampbackups.$Stamp/asterisk.sql");
 	}
 	if ( $Backup_CDR eq "yes" ){
 		system ("/bin/tar -Pcz -f /tmp/ampbackups.$Stamp/cdr.tar.gz $webroot/admin/cdr");
-		system ("mysqldump --add-drop-table -u $username -p$password --database asteriskcdrdb > /tmp/ampbackups.$Stamp/asteriskcdr.sql");
+		system ("mysqldump --add-drop-table -h $hostname -u $username -p$password --database asteriskcdrdb > /tmp/ampbackups.$Stamp/asteriskcdr.sql");
 	}
 	if ( $Backup_FOP eq "yes" ){
 		system ("/bin/tar -Pcz -f /tmp/ampbackups.$Stamp/fop.tar.gz $webroot/panel");

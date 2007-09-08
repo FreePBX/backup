@@ -38,7 +38,7 @@ foreach ($arr as $line) {
 	if (preg_match($pattern, $matches[1])) { continue; }
 	preg_match("/(.+)\/(.+)$/", $matches[1], $famkey);
 	$famkey[1]=trim($famkey[1], '/');
-	$astman->database_put($famkey[1], $famkey[2], $matches[2]);
+	$astman->database_put($famkey[1], $famkey[2], '"'.$matches[2].'"');
 }
 
 ?>

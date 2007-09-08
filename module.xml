@@ -31,6 +31,6 @@
 		*2.0* Now backs up and restores astdb, which was causing problems with phone configurations.
 		*1.2* Potential fix for restore issues, clean up some warnings
 	</changelog>
-	<location>release/2.3/backup-2.1.4.7.tgz</location>
-	<md5sum>24d33b6ee299d6c184d8237f6cae476b</md5sum>
+	<location>release/2.3/backup-2.1.4.8.tgz</location>
+	<md5sum>f43b68ea693795566e6beda9fbb5e5f4</md5sum>
 </module>

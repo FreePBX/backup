@@ -1,7 +1,7 @@
 <module>
 	<rawname>backup</rawname>
 	<name>Backup &amp; Restore</name>
-	<version>2.1.4.8</version>
+	<version>2.4.0</version>
 	<type>tool</type>
 	<category>System Administration</category>
 	<menuitems>
@@ -11,6 +11,7 @@
 		<module>core</module>
 	</depends>
 	<changelog>
+		*2.4.0* bumbed for 2.4 and italian tranlations
 		*2.1.4.8* #2323 allow remote MySQL database
 		*2.1.4.7* #2267 restoreadtb restore values with spaces
 		*2.1.4.6* bump for rc1 (and really chcek in uninstall fix)
@@ -31,6 +32,6 @@
 		*2.0* Now backs up and restores astdb, which was causing problems with phone configurations.
 		*1.2* Potential fix for restore issues, clean up some warnings
 	</changelog>
-	<location>release/2.3/backup-2.1.4.8.tgz</location>
-	<md5sum>f43b68ea693795566e6beda9fbb5e5f4</md5sum>
+	<location>release/2.4/backup-2.4.0.tgz</location>
+	<md5sum>386de60c7b1d0cb2e2ed963bf8d2ddf2</md5sum>
 </module>

@@ -4,6 +4,19 @@
 
 global $argv;
 
+// Astdb trees that should be deleted before the restore
+//
+$deltree = array(
+	'AMPUSER',
+	'DEVICE',
+	'CF',
+	'CFB',
+	'CFU',
+	'CW',
+	'DND',
+	'DAYNIGHT',
+);
+
 function getconf($filename) {
         $file = file($filename);
         foreach ($file as $line) {
@@ -27,14 +40,21 @@ if (!$argv[1] || strstr($argv[1], "/") || strstr($argv[1], "..")) {
 	// You must supply a single filename, which will be written to /tmp
 	exit;
 }
-$dump = file_get_contents("/tmp/ampbackups.$argv[1]/astdb.dump");
+$dump = file_get_contents("/tmp/ampbackups.".$argv[1]."/astdb.dump");
 $arr = explode("\n", $dump);
+
+// Before restoring, let's clear out all of the current settings for the main objects
+//
+foreach ($deltree as $family) {
+	$astman->database_deltree($family);
+}
+
 foreach ($arr as $line) {
 	$result = preg_match("/\[(.+)\] \[(.+)\]/", $line, $matches);
 	// Now, the bad ones we know about are the ones that start with //, anything starting with SIP or IAX,
 	// and RG (which are only temporary anyway).
 	if (!isset($matches[1]) || $matches[1] == "") { continue; }
-	$pattern = "/(^\/\/)|(^\/IAX)|(^\/SIP)|(^\/RG)|(^\/BLKVM)|(^\/FM)/";
+	$pattern = "/(^\/\/)|(^\/IAX)|(^\/SIP)|(^\/RG)|(^\/BLKVM)|(^\/FM)|(^\/dundi)/";
 	if (preg_match($pattern, $matches[1])) { continue; }
 	preg_match("/(.+)\/(.+)$/", $matches[1], $famkey);
 	$famkey[1]=trim($famkey[1], '/');

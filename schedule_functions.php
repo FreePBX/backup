@@ -16,6 +16,7 @@ function Get_Tar_Files($dir="", $display="", $file="")
 {
 	global $type;
 	global $asterisk_conf;
+	global $amp_conf;
         if (is_dir($dir)) {
         	if (($file!=".") && ($file!="..") && ($file!="")){
                 	echo "<li><a class=\"info\" href=\"javascript:decision('Are you sure you want to delete this File Set?','config.php?type=$type&display=$display&action=deletedataset&dir=$dir')\">";
@@ -25,7 +26,7 @@ function Get_Tar_Files($dir="", $display="", $file="")
                 if ($dh = opendir($dir)){
                         while (($file = readdir($dh)) !== false)
                         {
-                                if (($file!=".") && ($file!="..") && ($dir==$asterisk_conf['astvarlibdir']."/backups/"))
+                                if (($file!=".") && ($file!="..") && ($dir==$amp_conf['ASTVARLIBDIR']."/backups/"))
                                         echo "<li><a href=\"config.php?type=$type&display=$display&action=restore&dir=$dir/$file\">$file</a><br></li>";
                                 else if (($file!=".") && ($file!="..") )
                                         echo "<li><a href=\"config.php?type=$type&display=$display&action=restore&dir=$dir/$file&file=$file\">$file</a><br></li>";
@@ -82,11 +83,11 @@ function Restore_Tar_Files($dir="", $file="",$filetype="", $display="") {
 	if($filetype=="ALL") {
 		$Message="Restored All Files in BackupSet";
 		$fileholder=substr($file, 0,-7);
-		exec('/bin/rm -rf /tmp/ampbackups.$fileholder');
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
 
 		// First restore voicemial (for some reason if you do it all at once these don't get restored
 		//
-		exec('/bin/rm -rf '.$asterisk_conf['astspooldir'].'/voicemail');
+		exec('/bin/rm -rf '.$amp_conf['ASTSPOOLDIR'].'/voicemail');
 		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/voicemail.tar.gz | tar -Pxvz";
 		exec($tar_cmd);
 
@@ -104,57 +105,64 @@ function Restore_Tar_Files($dir="", $file="",$filetype="", $display="") {
 		$tar_cmd="tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql /tmp/ampbackups.$fileholder/asteriskcdr.sql /tmp/ampbackups.$fileholder/astdb.dump";
 		exec($tar_cmd);
 
-		$sql_cmd="mysql -u $amp_conf[AMPDBUSER] -p$amp_conf[AMPDBPASS] < /tmp/ampbackups.$fileholder/asterisk.sql";
+		$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asterisk.sql";
 		exec($sql_cmd);
-		$sql_cmd="mysql -u $amp_conf[AMPDBUSER] -p$amp_conf[AMPDBPASS] < /tmp/ampbackups.$fileholder/asteriskcdr.sql";
+		$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asteriskcdr.sql";
 		exec($sql_cmd);
-		exec($asterisk_conf['astvarlibdir']."/bin/restoreastdb.php $fileholder");
-		exec('/bin/rm -rf /tmp/ampbackups.$fileholder');
+		exec($amp_conf['AMPBIN']."/restoreastdb.php $fileholder");
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
+		/*
+		$fh = fopen("/tmp/backup.log","w");
+		fwrite($fh,"RET is: $RETCODE Just deleted file\n");
+		fwrite($fh,"OUTPUT: %s\n",print_r($OUTPUT,true));
+		fclose($fh);
+		*/
+
 	} else if($filetype=="VoiceMail") {
 		$Message="Restored VoiceMail";
 		$fileholder=substr($file, 0,-7);
-		exec('/bin/rm -rf /tmp/ampbackups.$fileholder');
-		exec('/bin/rm -rf '.$asterisk_conf['astspooldir'].'/voicemail');
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
+		exec('/bin/rm -rf '.$amp_conf['ASTSPOOLDIR'].'/voicemail');
 		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/voicemail.tar.gz | tar -Pxvz";
 		exec($tar_cmd);
-		exec('/bin/rm -rf /tmp/ampbackups.$fileholder');
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
 	} else if($filetype=="Recordings") {
 		$Message="Restored System Recordings";
 		$fileholder=substr($file, 0,-7);
-		exec('/bin/rm -rf /tmp/ampbackups.$fileholder');
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
 		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/recordings.tar.gz | tar -Pxvz";
 		exec($tar_cmd);
-		exec('/bin/rm -rf /tmp/ampbackups.$fileholder');
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
 	} else if($filetype=="Configurations"){
 		$Message="Restored System Configuration";
 		$fileholder=substr($file, 0,-7);
-		exec('/bin/rm -rf /tmp/ampbackups.$fileholder');
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
 		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/configurations.tar.gz | tar -Pxvz";
 		exec($tar_cmd);
 		$tar_cmd="tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql /tmp/ampbackups.$fileholder/astdb.dump";
 		exec($tar_cmd);
-		$sql_cmd="mysql -u $amp_conf[AMPDBUSER] -p$amp_conf[AMPDBPASS] < /tmp/ampbackups.$fileholder/asterisk.sql";
+		$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asterisk.sql";
 		exec($sql_cmd);
-		exec($asterisk_conf['astvarlibdir']."/bin/restoreastdb.php $fileholder");
-		exec('/bin/rm -rf /tmp/ampbackups.$fileholder');
+		exec($amp_conf['AMPBIN']."/restoreastdb.php $fileholder");
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
 	} else if($filetype=="FOP"){
 		$Message="Restored Operator Panel";
 		$fileholder=substr($file, 0,-7);
-		exec('/bin/rm -rf /tmp/ampbackups.$fileholder');
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
 		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/fop.tar.gz | tar -Pxvz";
 		exec($tar_cmd);
-		exec('/bin/rm -rf /tmp/ampbackups.$fileholder');
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
 	} else if($filetype=="CDR"){
 		$Message="Restored CDR logs";
 		$fileholder=substr($file, 0,-7);
-		exec('/bin/rm -rf /tmp/ampbackups.$fileholder');
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
 		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/cdr.tar.gz | tar -Pxvz";
 		exec($tar_cmd);
 		$tar_cmd="tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asteriskcdr.sql";
 		exec($tar_cmd);
-		$sql_cmd="mysql -u $amp_conf[AMPDBUSER] -p$amp_conf[AMPDBPASS] < /tmp/ampbackups.$fileholder/asteriskcdr.sql";
+		$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asteriskcdr.sql";
 		exec($sql_cmd);
-		exec('/bin/rm -rf /tmp/ampbackups.$fileholder');
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
 	}
 	 return ($Message);
 }

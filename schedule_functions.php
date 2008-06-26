@@ -402,7 +402,7 @@ function Schedule_Show_Hours($Hours_Set="")
 
 function Schedule_Show_Days($Days_Set="")
 {
-	if ($Days_Set==""){
+	if (($Days_Set=="") || ($Days_Set=="*")){
 	echo "<input type=radio name=all_days value=1 checked>"; echo _("All"); echo "<br>";
 	echo "<input type=radio name=all_days value=0 >"; echo _("Selected"); echo "<br>";
 	}
@@ -420,7 +420,7 @@ function Schedule_Show_Days($Days_Set="")
 			echo "</select></td>";
 			echo "<td valign=top><select multiple size=12 name=days[]>";
 		}
-*/		if (strstr($Days_Set,":$days:"))
+*/		if ((strstr($Days_Set,":$days:")) || ($Days_Set=="*"))
 			echo "<option value=\"$days\" selected>$days";
 		else
 			echo "<option value=\"$days\" >$days";
@@ -431,7 +431,7 @@ function Schedule_Show_Days($Days_Set="")
 
 function Schedule_Show_Months($Months_Set="")
 {
-	if ($Months_Set==""){
+	if (($Months_Set=="") || ($Months_Set=="*")){
 	echo "<input type=radio name=all_months value=1 checked>"; echo _("All"); echo "<br>";
 	echo "<input type=radio name=all_months value=0 >"; echo _("Selected"); echo "<br>";
 	}
@@ -441,18 +441,18 @@ function Schedule_Show_Months($Months_Set="")
 	}
 	echo "<table> <tr>";
 	echo "<td valign=top><select multiple size=12 name=months[]>";
-	echo (strstr($Months_Set,":1:") ? '<option value="1" selected>'._("January"):'<option value="1" >'._("January"));
- 	echo (strstr($Months_Set,":2:") ? '<option value="2" selected>'._("February"):'<option value="2" >'._("February"));
- 	echo (strstr($Months_Set,":3:") ? '<option value="3" selected>'._("March"):'<option value="3" >'._("March"));
- 	echo (strstr($Months_Set,":4:") ? '<option value="4" selected>'._("April"):'<option value="4" >'._("April"));
- 	echo (strstr($Months_Set,":5:") ? '<option value="5" selected>'._("May"):'<option value="5" >'._("May"));
- 	echo (strstr($Months_Set,":6:") ? '<option value="6" selected>'._("June"):'<option value="6" >'._("June"));
- 	echo (strstr($Months_Set,":7:") ? '<option value="7" selected>'._("July"):'<option value="7" >'._("July"));
- 	echo (strstr($Months_Set,":8:") ? '<option value="8" selected>'._("August"):'<option value="8" >'._("August"));
- 	echo (strstr($Months_Set,":9:") ? '<option value="9" selected>'._("September"):'<option value="9" >'._("September"));
- 	echo (strstr($Months_Set,":10:") ? '<option value="10" selected>'._("October"):'<option value="10" >'._("October"));
- 	echo (strstr($Months_Set,":11:") ? '<option value="11" selected>'._("November"):'<option value="11" >'._("November"));
- 	echo (strstr($Months_Set,":12:") ? '<option value="12" selected>'._("December"):'<option value="12" >'._("December"));
+	echo ((strstr($Months_Set,":1:") || ($Months_Set=="*")) ? '<option value="1" selected>'._("January"):'<option value="1" >'._("January"));
+ 	echo ((strstr($Months_Set,":2:") || ($Months_Set=="*")) ? '<option value="2" selected>'._("February"):'<option value="2" >'._("February"));
+ 	echo ((strstr($Months_Set,":3:") || ($Months_Set=="*")) ? '<option value="3" selected>'._("March"):'<option value="3" >'._("March"));
+ 	echo ((strstr($Months_Set,":4:") || ($Months_Set=="*")) ? '<option value="4" selected>'._("April"):'<option value="4" >'._("April"));
+ 	echo ((strstr($Months_Set,":5:") || ($Months_Set=="*")) ? '<option value="5" selected>'._("May"):'<option value="5" >'._("May"));
+ 	echo ((strstr($Months_Set,":6:") || ($Months_Set=="*")) ? '<option value="6" selected>'._("June"):'<option value="6" >'._("June"));
+ 	echo ((strstr($Months_Set,":7:") || ($Months_Set=="*")) ? '<option value="7" selected>'._("July"):'<option value="7" >'._("July"));
+ 	echo ((strstr($Months_Set,":8:") || ($Months_Set=="*")) ? '<option value="8" selected>'._("August"):'<option value="8" >'._("August"));
+ 	echo ((strstr($Months_Set,":9:") || ($Months_Set=="*")) ? '<option value="9" selected>'._("September"):'<option value="9" >'._("September"));
+ 	echo ((strstr($Months_Set,":10:") || ($Months_Set=="*")) ? '<option value="10" selected>'._("October"):'<option value="10" >'._("October"));
+ 	echo ((strstr($Months_Set,":11:") || ($Months_Set=="*")) ? '<option value="11" selected>'._("November"):'<option value="11" >'._("November"));
+ 	echo ((strstr($Months_Set,":12:") || ($Months_Set=="*")) ? '<option value="12" selected>'._("December"):'<option value="12" >'._("December"));
 
 	echo "</select></td>";
 	echo "</tr></table></td>";
@@ -460,7 +460,7 @@ function Schedule_Show_Months($Months_Set="")
 
 function Schedule_Show_Weekdays($Weekdays_Set="")
 {
-	if ($Weekdays_Set==""){
+	if (($Weekdays_Set=="") || ($Weekdays_Set=="*")){
 	echo "<input type=radio name=all_weekdays value=1 checked>";echo _("All"); echo "<br>";
 	echo "<input type=radio name=all_weekdays value=0 >";echo _("Selected"); echo "<br>";
 	}
@@ -470,13 +470,13 @@ function Schedule_Show_Weekdays($Weekdays_Set="")
 	}
 	echo "<table> <tr>";
 	echo "<td valign=top><select multiple size=12 name=weekdays[]>";
-	echo (strstr($Weekdays_Set,":1:") ? '<option value="1" selected>'._("Monday"):'<option value="1" >'._("Monday"));
-	echo (strstr($Weekdays_Set,":2:") ? '<option value="2" selected>'._("Tuesday"):'<option value="2" >'._("Tuesday"));
-	echo (strstr($Weekdays_Set,":3:") ? '<option value="3" selected>'._("Wednesday"):'<option value="3" >'._("Wednesday"));
-	echo (strstr($Weekdays_Set,":4:") ? '<option value="4" selected>'._("Thursday"):'<option value="4" >'._("Thursday"));
-	echo (strstr($Weekdays_Set,":5:") ? '<option value="5" selected>'._("Friday"):'<option value="5" >'._("Friday"));
-	echo (strstr($Weekdays_Set,":6:") ? '<option value="6" selected>'._("Saturday"):'<option value="6" >'._("Saturday"));
-	echo (strstr($Weekdays_Set,":0:") ? '<option value="0" selected>'._("Sunday"):'<option value="0" >'._("Sunday"));
+	echo ((strstr($Weekdays_Set,":1:") || ($Weekdays_Set=="*")) ? '<option value="1" selected>'._("Monday"):'<option value="1" >'._("Monday"));
+	echo ((strstr($Weekdays_Set,":2:") || ($Weekdays_Set=="*")) ? '<option value="2" selected>'._("Tuesday"):'<option value="2" >'._("Tuesday"));
+	echo ((strstr($Weekdays_Set,":3:") || ($Weekdays_Set=="*")) ? '<option value="3" selected>'._("Wednesday"):'<option value="3" >'._("Wednesday"));
+	echo ((strstr($Weekdays_Set,":4:") || ($Weekdays_Set=="*")) ? '<option value="4" selected>'._("Thursday"):'<option value="4" >'._("Thursday"));
+	echo ((strstr($Weekdays_Set,":5:") || ($Weekdays_Set=="*")) ? '<option value="5" selected>'._("Friday"):'<option value="5" >'._("Friday"));
+	echo ((strstr($Weekdays_Set,":6:") || ($Weekdays_Set=="*")) ? '<option value="6" selected>'._("Saturday"):'<option value="6" >'._("Saturday"));
+	echo ((strstr($Weekdays_Set,":0:") || ($Weekdays_Set=="*")) ? '<option value="0" selected>'._("Sunday"):'<option value="0" >'._("Sunday"));
 
 	echo "</select></td>";
 	echo "</tr></table></td>";

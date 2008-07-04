@@ -179,10 +179,7 @@ else if ($action == 'restore')
 		$dir = $asterisk_conf['astvarlibdir']."/backups";
 		if(!is_dir($dir)) mkdir($dir);
 	}
-
 	Get_Tar_Files($dir, $display, $file);
-	echo "<br><br><br><br><br><br><br><br><br><br><br><br>";
-	
 }
 else
 {

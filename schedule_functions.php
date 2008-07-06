@@ -337,15 +337,15 @@ function Show_Backup_Options($ID="")
 	?>
         <tr>
                 <td><a href="#" class="info"><?php echo _("Schedule Name:")?><span><?php echo _("Give this Backup Schedule a brief name to help you identify it.");?></span></a></td>
-                <td><input type="text" name="name" value="<?php echo (isset($name) ? $name : ''); ?>"></td>
+                <td><input type="text" name="name" value="<?php echo (isset($name) ? $name : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
         </tr>
 
 	<tr>
  		<td><a href="#" class="info"><?php echo _("VoiceMail");?><span><?php echo _("Backup the System VoiceMail Boxes... CAUTION: Could result in large file");?></span></a>: </td>
  		<?php if ($voicemail == "yes"){?>
- 			<td><input type="radio" name="bk_voicemail" value="yes" checked=checked/> <?php echo _("yes");?> &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="bk_voicemail" value="no"/> <?php echo _("no");?></td>
+ 			<td><input type="radio" name="bk_voicemail"  tabindex="<?php echo ++$tabindex;?>" value="yes" checked=checked /> <?php echo _("yes");?> &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="bk_voicemail" value="no"/> <?php echo _("no");?></td>
  		<?php } else{ ?>
- 			<td><input type="radio" name="bk_voicemail" value="yes" /> <?php echo _("yes");?> &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="bk_voicemail" value="no" checked=checked/> <?php echo _("no");?></td>
+ 			<td><input type="radio" name="bk_voicemail"  tabindex="<?php echo ++$tabindex;?>" value="yes" /> <?php echo _("yes");?> &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="bk_voicemail" value="no" checked=checked/> <?php echo _("no");?></td>
  		<?php } ?>
  	</tr>
 	<tr>

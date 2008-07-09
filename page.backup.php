@@ -149,7 +149,13 @@ else if ($action == 'edit')
 {
 	?>
 	<h2><?php echo _("System Backup")?></h2>
-	<p><a href="config.php?type=<?php echo urlencode($type)?>&display=<?php echo urlencode($display) ?>&action=delete&backupid=<?php echo urlencode($_REQUEST['backupid']); ?>"><?php echo _("Delete Backup Schedule")?> <?php echo $_REQUEST['backupname']; ?></a></p>
+<?php
+	$delURL = $_SERVER['PHP_SELF'].'?type='.urlencode($type).'&display='.urlencode($display).'&action=delete&backupid='.urlencode($_REQUEST['backupid']);
+	$tlabel = sprintf(_("Delete Backup Schedule %s"),$_REQUEST['backupname']);
+	$label = '<span><img width="16" height="16" border="0" title="'.$tlabel.'" alt="" src="images/core_delete.png"/>&nbsp;'.$tlabel.'</span>';
+?>
+	<p><a href="<?php echo $delURL ?>"><?php echo $label; ?></a></p>
+
 	<form name="addbackup" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
 	<input type="hidden" name="display" value="<?php echo $display?>">
 	<input type="hidden" name="action" value="edited">

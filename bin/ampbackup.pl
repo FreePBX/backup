@@ -191,7 +191,7 @@ else
 	}
 	if ( $Backup_Configurations eq "yes" ){
 		system ($ast{'astvarlibdir'}."/bin/dumpastdb.php $Stamp > /dev/null");
-		system ("/bin/tar -Pcz -f /tmp/ampbackups.$Stamp/configurations.tar.gz ".$ast{'astvarlibdir'}."/agi-bin/ ".$ast{'astvarlibdir'}."/bin/ /etc/asterisk $webroot/admin /etc/amportal.conf /tmp/ampbackups.$Stamp/astdb.dump ");
+		system ("/bin/tar -Pcz -f /tmp/ampbackups.$Stamp/configurations.tar.gz ".$ast{'astvarlibdir'}."/agi-bin/ ".$ast{'astvarlibdir'}."/bin/ /etc/asterisk $webroot/admin /etc/amportal.conf /etc/zaptel.conf /tmp/ampbackups.$Stamp/astdb.dump ");
 
 		if ($provroot ne "") {
 			$excludearg = "";

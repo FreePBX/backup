@@ -199,18 +199,20 @@ function Get_Backup_Sets() {
 function Delete_Backup_Set($ID="") {
         global $db;
 	global $asterisk_conf;
+	global $amp_conf;
 	$sql = "DELETE FROM Backup  WHERE ID = '$ID'";
         $result = $db->query($sql);
         if(DB::IsError($result)) {
                 die_freepbx($result->getMessage());
         }
-	$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/retrieve_backup_cron_from_mysql.pl";
+	$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/retrieve_backup_cron.php";
 	exec($Cron_Script);
 }
 function Save_Backup_Schedule($Backup_Parms, $backup_options )
 {
         global $db;
 	global $asterisk_conf;
+	global $amp_conf;
 	if ($Backup_Parms[1]=="now")
 	{
 		$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/ampbackup.pl '$Backup_Parms[0]' $backup_options[0] $backup_options[1] $backup_options[2] $backup_options[3] $backup_options[4]";
@@ -235,8 +237,7 @@ function Save_Backup_Schedule($Backup_Parms, $backup_options )
         if(DB::IsError($result)) {
                 die_freepbx($result->getMessage().'<hr>'.$sql);
         }
-	$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/retrieve_backup_cron_from_mysql.pl";
-	exec($Cron_Script);
+	$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/retrieve_backup_cron.php";
 	
 }
 function Get_Backup_String($name, $backup_schedule, $ALL_days, $ALL_months, $ALL_weekdays, $mins="", $hours="", $days="", $months="", $weekdays="") {

@@ -1,7 +1,7 @@
 <module>
 	<rawname>backup</rawname>
 	<name>Backup &amp; Restore</name>
-	<version>2.5.0.2</version>
+	<version>2.5.1</version>
 	<type>tool</type>
 	<category>System Administration</category>
 	<menuitems>
@@ -11,6 +11,7 @@
 		<module>core</module>
 	</depends>
 	<changelog>
+		*2.5.1* #2987, #2995, #3037 sqlite3 support, removal of retrieve_backup_cron.pl
 		*2.5.0.2* #2743 don't delete the current astdb entries if the new astdb.dump is empty
 		*2.5.0.1* #2884 include zaptel.conf in backup
 		*2.5.0* #2889, #2845, #2353, added delete and add icons

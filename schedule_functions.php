@@ -99,93 +99,156 @@ function Get_Tar_Files($dir="", $display="", $file="") {
 function Restore_Tar_Files($dir="", $file="",$filetype="", $display="") {
 	global $asterisk_conf;
 	global $amp_conf;
-	$Message="Restore Failed";
+	$error = false;
 
 	if($filetype=="ALL") {
-		$Message="Restored All Files in BackupSet";
+
 		$fileholder=substr($file, 0,-7);
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+		$error = ($error || ($ret != 0));
 
 		// First restore voicemial (for some reason if you do it all at once these don't get restored
 		//
-		exec('/bin/rm -rf '.$amp_conf['ASTSPOOLDIR'].'/voicemail');
+		exec('/bin/rm -rf '.$amp_conf['ASTSPOOLDIR'].'/voicemail 2>&1',$out_arr,$ret);
+		$error = ($error || ($ret != 0));
 		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/voicemail.tar.gz | tar -Pxvz";
-		exec($tar_cmd);
+		exec($tar_cmd,$out_arr,$ret);
+		$error = ($error || ($ret != 0));
 
 		// Next, recordings cause same issue as above
 		//
 		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/recordings.tar.gz | tar -Pxvz";
-		exec($tar_cmd);
+		exec($tar_cmd,$out_arr,$ret);
+		$error = ($error || ($ret != 0));
 
 		// Now the rest and then we'll get on with the databases
 		//
 		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/configurations.tar.gz | tar -Pxvz";
-		exec($tar_cmd);
+		exec($tar_cmd,$out_arr,$ret);
+		$error = ($error || ($ret != 0));
 		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/fop.tar.gz /tmp/ampbackups.$fileholder/cdr.tar.gz  | tar -Pxvz";
-		exec($tar_cmd);
+		exec($tar_cmd,$out_arr,$ret);
+		$error = ($error || ($ret != 0));
 		$tar_cmd="tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql /tmp/ampbackups.$fileholder/asteriskcdr.sql /tmp/ampbackups.$fileholder/astdb.dump";
-		exec($tar_cmd);
+		exec($tar_cmd,$out_arr,$ret);
+		$error = ($error || ($ret != 0));
 
-		$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asterisk.sql";
-		exec($sql_cmd);
-		$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asteriskcdr.sql";
-		exec($sql_cmd);
-		exec($amp_conf['AMPBIN']."/restoreastdb.php $fileholder");
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
-		/*
-		$fh = fopen("/tmp/backup.log","w");
-		fwrite($fh,"RET is: $RETCODE Just deleted file\n");
-		fwrite($fh,"OUTPUT: %s\n",print_r($OUTPUT,true));
-		fclose($fh);
-		*/
+		$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asterisk.sql 2>&1";
+		exec($sql_cmd,$out_arr,$ret);
+		$error = ($error || ($ret != 0));
+		$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asteriskcdr.sql 2>&1";
+		exec($sql_cmd,$out_arr,$ret);
+		$error = ($error || ($ret != 0));
+		exec($amp_conf['AMPBIN']."/restoreastdb.php $fileholder 2>&1",$out_arr,$ret);
+		$error = ($error || ($ret != 0));
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder",$out_arr,$ret);
+		$error = ($error || ($ret != 0));
+
+		if (!error) {
+			$Message=_("Restored All Files in BackupSet");
+		}
 
 	} else if($filetype=="VoiceMail") {
-		$Message="Restored VoiceMail";
+
 		$fileholder=substr($file, 0,-7);
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
-		exec('/bin/rm -rf '.$amp_conf['ASTSPOOLDIR'].'/voicemail');
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+		$error = ($error || ($ret != 0));
+		exec('/bin/rm -rf '.$amp_conf['ASTSPOOLDIR'].'/voicemail 2>&1',$out_arr,$ret);
+		$error = ($error || ($ret != 0));
 		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/voicemail.tar.gz | tar -Pxvz";
-		exec($tar_cmd);
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
+		exec($tar_cmd,$out_arr,$ret);
+		$error = ($error || ($ret != 0));
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+		$error = ($error || ($ret != 0));
+
+		if (!error) {
+			$Message=_("Restored VoiceMail");
+		}
+
 	} else if($filetype=="Recordings") {
-		$Message="Restored System Recordings";
+
 		$fileholder=substr($file, 0,-7);
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+		$error = ($error || ($ret != 0));
 		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/recordings.tar.gz | tar -Pxvz";
-		exec($tar_cmd);
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
+		exec($tar_cmd,$out_arr,$ret);
+		$error = ($error || ($ret != 0));
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+		$error = ($error || ($ret != 0));
+
+		if (!error) {
+			$Message=_("Restored System Recordings");
+		}
+
 	} else if($filetype=="Configurations"){
-		$Message="Restored System Configuration";
+
 		$fileholder=substr($file, 0,-7);
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+		$error = ($error || ($ret != 0));
 		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/configurations.tar.gz | tar -Pxvz";
-		exec($tar_cmd);
+		exec($tar_cmd,$out_arr,$ret);
+		$error = ($error || ($ret != 0));
 		$tar_cmd="tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql /tmp/ampbackups.$fileholder/astdb.dump";
-		exec($tar_cmd);
+		exec($tar_cmd,$out_arr,$ret);
+		$error = ($error || ($ret != 0));
 		$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asterisk.sql";
-		exec($sql_cmd);
-		exec($amp_conf['AMPBIN']."/restoreastdb.php $fileholder");
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
+		exec($sql_cmd,$out_arr,$ret);
+		$error = ($error || ($ret != 0));
+		exec($amp_conf['AMPBIN']."/restoreastdb.php $fileholder 2>&1",$out_arr,$ret);
+		$error = ($error || ($ret != 0));
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+		$error = ($error || ($ret != 0));
+
+		if (!error) {
+			$Message=_("Restored System Configuration");
+		}
+
 	} else if($filetype=="FOP"){
-		$Message="Restored Operator Panel";
+
 		$fileholder=substr($file, 0,-7);
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+		$error = ($error || ($ret != 0));
 		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/fop.tar.gz | tar -Pxvz";
-		exec($tar_cmd);
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
+		exec($tar_cmd,$out_arr,$ret);
+		$error = ($error || ($ret != 0));
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+		$error = ($error || ($ret != 0));
+
+		if (!error) {
+			$Message=_("Restored Operator Panel");
+		}
+
 	} else if($filetype=="CDR"){
-		$Message="Restored CDR logs";
+
 		$fileholder=substr($file, 0,-7);
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+		$error = ($error || ($ret != 0));
 		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/cdr.tar.gz | tar -Pxvz";
-		exec($tar_cmd);
+		exec($tar_cmd,$out_arr,$ret);
+		$error = ($error || ($ret != 0));
 		$tar_cmd="tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asteriskcdr.sql";
-		exec($tar_cmd);
-		$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asteriskcdr.sql";
-		exec($sql_cmd);
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder");
+		exec($tar_cmd,$out_arr,$ret);
+		$error = ($error || ($ret != 0));
+		$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asteriskcdr.sql 2>&1";
+		exec($sql_cmd,$out_arr,$ret);
+		$error = ($error || ($ret != 0));
+		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+		$error = ($error || ($ret != 0));
+
+		if (!error) {
+			$Message=_("Restored CDR logs");
+		}
+
 	}
-	 return ($Message);
+	if (! $error) {
+		$Message=_("Restore Failed, see System Status Notification for details");
+		return ($Message);
+	} else {
+		// TODO: put in notification error and add code above to collect details
+		//       along the way to put something meaningful in it
+		//
+		return ($Message);
+	}
 }
 function Get_Backup_Sets() {
         global $db;
@@ -205,8 +268,10 @@ function Delete_Backup_Set($ID="") {
         if(DB::IsError($result)) {
                 die_freepbx($result->getMessage());
         }
-	$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/retrieve_backup_cron.php";
-	exec($Cron_Script);
+	//$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/retrieve_backup_cron.php";
+	//exec($Cron_Script);
+	//TODO: should we check and act on false return
+	backup_retrieve_backup_cron();
 }
 function Save_Backup_Schedule($Backup_Parms, $backup_options )
 {
@@ -237,7 +302,9 @@ function Save_Backup_Schedule($Backup_Parms, $backup_options )
         if(DB::IsError($result)) {
                 die_freepbx($result->getMessage().'<hr>'.$sql);
         }
-	$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/retrieve_backup_cron.php";
+	//$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/retrieve_backup_cron.php";
+	//exec($Cron_Script);
+	backup_retrieve_backup_cron();
 	
 }
 function Get_Backup_String($name, $backup_schedule, $ALL_days, $ALL_months, $ALL_weekdays, $mins="", $hours="", $days="", $months="", $weekdays="") {

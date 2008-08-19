@@ -49,7 +49,5 @@ $check = $db->query($sql);
 if(DB::IsError($check)) {
 	die_freepbx("Can not create Backup table");
 }
-copy($amp_conf["AMPWEBROOT"]."/admin/modules/backup/bin/ampbackup.pl",$amp_conf["AMPBIN"]."/ampbackup.pl");
-chmod($amp_conf["AMPBIN"]."/ampbackup.pl", 0755);
 
 ?>

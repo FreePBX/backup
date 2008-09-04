@@ -1,0 +1,364 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FreePBX backup\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-04 22:12+0200\n"
+"PO-Revision-Date: 2008-09-04 23:20+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+#: page.backup.php:106
+msgid "Add Backup Schedule"
+msgstr "Lägg till schema för säkerhetskopia"
+
+#: page.backup.php:107
+msgid "Restore from Backup"
+msgstr "Återställ från säkerhetskopia"
+
+#: page.backup.php:128
+#: page.backup.php:151
+#: page.backup.php:198
+msgid "System Backup"
+msgstr "Säkerhetskopiering"
+
+#: page.backup.php:136
+#: page.backup.php:167
+msgid "Run Schedule"
+msgstr "Kör schema"
+
+#: page.backup.php:140
+#: page.backup.php:171
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+
+#: page.backup.php:154
+#, php-format
+msgid "Delete Backup Schedule %s"
+msgstr "Ta bort schema för säkerhetskopia %s"
+
+#: page.backup.php:182
+msgid "System Restore"
+msgstr "Systemåterställning"
+
+#: schedule_functions.php:22
+msgid "DELETE ALL THE DATA IN THIS SET"
+msgstr "TA BORT ALL DATA I DENNA SÄKERHETSKOPIA"
+
+#: schedule_functions.php:22
+msgid "Delete this backup set and all data associated with this backup set.."
+msgstr "Ta bort denna säkerhetskopia och all data den innehåller"
+
+#: schedule_functions.php:47
+msgid "Delete File Set"
+msgstr "Ta bort säkerhetskopian"
+
+#: schedule_functions.php:47
+msgid "Delete this backup set."
+msgstr "Ta bort denna säkerhetskopia"
+
+#: schedule_functions.php:52
+msgid "Restore Entire Backup Set"
+msgstr "Återställ hela säkerhetskopian"
+
+#: schedule_functions.php:54
+msgid "Restore your Complete Backup set overwriting all files."
+msgstr "Återställ din kompletta säkerhetskopia och skriv över alla filer. NOTERA! Detta kommer att återställa ditt system till samma status det hade vid tiden för denna säkerhetskopia. ALLT KOMMER ATT SKRIVAS ÖVER!!"
+
+#: schedule_functions.php:59
+msgid "Restore VoiceMail Files"
+msgstr "Återställ röstbrevlådorna"
+
+#: schedule_functions.php:61
+msgid "Restore your Voicemail files from this backup set.  NOTE! This will delete any voicemail currently in the voicemail boxes."
+msgstr "Återställ dina röstbrevlådor från detta kopia. NOTERA! Detta tar bort allt innehåll som nu finns i röstbrevlådorna."
+
+#: schedule_functions.php:68
+msgid "Restore System Recordings Files"
+msgstr "Återställ systeminspelningarna"
+
+#: schedule_functions.php:70
+msgid "Restore your system Voice Recordings including AutoAttendent files from this backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the system. It will NOT delete new files not currently in the backup set"
+msgstr "Återställer dina systeminspelningar inklusive filerna för AutoAttendent . NOTERA! Detta kommer att SKRIVA ÖVER alla systeminspelningar i systemet, men kommer INTE att ta bort nya filer som inte finns i denna säkerhetskopia."
+
+#: schedule_functions.php:75
+msgid "Restore System Configuration"
+msgstr "Återställ systemkonfigurationen"
+
+#: schedule_functions.php:75
+msgid "Restore your system configuration from this backup set.  NOTE! This will OVERWRITE any System changes you have made since this backup... ALL Itemes will be reset to what they were at the time of this backup set.."
+msgstr "Återställer din systemkonfiguration från denna säkerhetskopia. NOTERA! Detta kommer att SKRIVA ÖVER alla förändringar i ditt system du gjort efter denna säkerhetskopia... ALLT kommer att återställas till den status systemet hade vid tiden för denna säkerhetskopia."
+
+#: schedule_functions.php:80
+msgid "Restore Operator Panel"
+msgstr "Återställ Operatörspanelen"
+
+#: schedule_functions.php:82
+msgid "Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE any Operator Panel Changes you have made since this backup... ALL Itemes will be reset to what they were at the time of this backup set.."
+msgstr "Återställer operatörspanelen från denna säkerhetskopia. NOTERA! Detta kommer att SKRIVA ÖVER alla förändringar som skett i operatörspanelen sedan säkerhetskopian togs... ALLT kommer att återställas till den status operatörspanelen hade vid tiden för denna säkerhetskopia."
+
+#: schedule_functions.php:88
+msgid "Restore Call Detail Report"
+msgstr "Återställer samtalsdatabasen"
+
+#: schedule_functions.php:90
+msgid "Restore the Call Detail Records from this backup set.  NOTE! This will DELETE ALL CALL RECORDS that have been saved since this backup set.."
+msgstr "Återställer samtalsdatabasen från denna säkerhetskopia. NOTERA! Detta kommer att TA BORT ALLA SAMTALSLOGGAR som har tillkommit efter att denna säkerhetskopia togs."
+
+#: schedule_functions.php:95
+msgid "ERROR its not a BACKUP SET file"
+msgstr "FEL! Detta är ingen säkerhetskopia"
+
+#: schedule_functions.php:148
+msgid "Restored All Files in BackupSet"
+msgstr "Återställde alla filer i säkerhetskopian"
+
+#: schedule_functions.php:165
+msgid "Restored VoiceMail"
+msgstr "Återställde röstbrevlådorna"
+
+#: schedule_functions.php:180
+msgid "Restored System Recordings"
+msgstr "Återställde systeminspelningar"
+
+#: schedule_functions.php:203
+msgid "Restored System Configuration"
+msgstr "Återställde systemkonfigurationen"
+
+#: schedule_functions.php:218
+msgid "Restored Operator Panel"
+msgstr "Återställde operatörspanelen"
+
+#: schedule_functions.php:239
+msgid "Restored CDR logs"
+msgstr "Återställde smatalsloggen"
+
+#: schedule_functions.php:244
+msgid "Restore Failed, see System Status Notification for details"
+msgstr "Återställningen misslyckades, se i noteringar för systemstatus för detaljer"
+
+#: schedule_functions.php:407
+msgid "Schedule Name:"
+msgstr "Schemanamn: "
+
+#: schedule_functions.php:407
+msgid "Give this Backup Schedule a brief name to help you identify it."
+msgstr "Namnge detta schema"
+
+#: schedule_functions.php:412
+msgid "VoiceMail"
+msgstr "Röstbrevlådor"
+
+#: schedule_functions.php:412
+msgid "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
+msgstr "Säkerhetskopiera dina röstbrevlådor... VARNING: Detta kan resultera i en stor fil"
+
+#: schedule_functions.php:414
+#: schedule_functions.php:416
+#: schedule_functions.php:422
+#: schedule_functions.php:424
+#: schedule_functions.php:430
+#: schedule_functions.php:432
+#: schedule_functions.php:438
+#: schedule_functions.php:440
+#: schedule_functions.php:446
+#: schedule_functions.php:448
+msgid "yes"
+msgstr "ja"
+
+#: schedule_functions.php:414
+#: schedule_functions.php:416
+#: schedule_functions.php:422
+#: schedule_functions.php:424
+#: schedule_functions.php:430
+#: schedule_functions.php:432
+#: schedule_functions.php:438
+#: schedule_functions.php:440
+#: schedule_functions.php:446
+#: schedule_functions.php:448
+msgid "no"
+msgstr "nej"
+
+#: schedule_functions.php:420
+msgid "System Recordings"
+msgstr "Systeminspelningar"
+
+#: schedule_functions.php:420
+msgid "Backup the System Recordings (AutoAttendent, Music On Hold, System Recordings)"
+msgstr "Säkerhetskopiera Systeminspelningar (AutoAttendent, Pausmusik, Systeminspelningar)"
+
+#: schedule_functions.php:428
+msgid "System Configuration"
+msgstr "Systemkonfiguration"
+
+#: schedule_functions.php:428
+msgid "Backup the System Configurations (Database, etc files, SQL Database, astdb)"
+msgstr "Säkerhetskopiera Systemkonfiguration (databasen, etc-filer, SQL-databasen, astdb)"
+
+#: schedule_functions.php:436
+msgid "CDR"
+msgstr "Samtalsrapporten"
+
+#: schedule_functions.php:436
+msgid "Backup the System Call Detail Reporting (HTML and Database)"
+msgstr "Säkerhetskopiera Samtalsrapporten (HTML och databas)"
+
+#: schedule_functions.php:444
+msgid "Operator Panel"
+msgstr "Operatörspanel"
+
+#: schedule_functions.php:444
+msgid "Backup the Operator Panel (HTML and Database)"
+msgstr "Säkerhetskopiera Operatörspanelen (HTML och databas)"
+
+#: schedule_functions.php:495
+#: schedule_functions.php:499
+#: schedule_functions.php:524
+#: schedule_functions.php:528
+#: schedule_functions.php:553
+#: schedule_functions.php:557
+msgid "All"
+msgstr "Allt"
+
+#: schedule_functions.php:496
+#: schedule_functions.php:500
+#: schedule_functions.php:525
+#: schedule_functions.php:529
+#: schedule_functions.php:554
+#: schedule_functions.php:558
+msgid "Selected"
+msgstr "Valda"
+
+#: schedule_functions.php:533
+msgid "January"
+msgstr "Januari"
+
+#: schedule_functions.php:534
+msgid "February"
+msgstr "Februari"
+
+#: schedule_functions.php:535
+msgid "March"
+msgstr "Mars"
+
+#: schedule_functions.php:536
+msgid "April"
+msgstr "April"
+
+#: schedule_functions.php:537
+msgid "May"
+msgstr "Maj"
+
+#: schedule_functions.php:538
+msgid "June"
+msgstr "Juni"
+
+#: schedule_functions.php:539
+msgid "July"
+msgstr "Juli"
+
+#: schedule_functions.php:540
+msgid "August"
+msgstr "Augusti"
+
+#: schedule_functions.php:541
+msgid "September"
+msgstr "Spetember"
+
+#: schedule_functions.php:542
+msgid "October"
+msgstr "Oktober"
+
+#: schedule_functions.php:543
+msgid "November"
+msgstr "November"
+
+#: schedule_functions.php:544
+msgid "December"
+msgstr "December"
+
+#: schedule_functions.php:562
+msgid "Monday"
+msgstr "Måndag"
+
+#: schedule_functions.php:563
+msgid "Tuesday"
+msgstr "Tisdag"
+
+#: schedule_functions.php:564
+msgid "Wednesday"
+msgstr "Onsdag"
+
+#: schedule_functions.php:565
+msgid "Thursday"
+msgstr "Torsdag"
+
+#: schedule_functions.php:566
+msgid "Friday"
+msgstr "Fredag"
+
+#: schedule_functions.php:567
+msgid "Saturday"
+msgstr "Lördag"
+
+#: schedule_functions.php:568
+msgid "Sunday"
+msgstr "Söndag"
+
+#: schedule_functions.php:576
+msgid "Run Backup"
+msgstr "Kör säkerhetskopia"
+
+#: schedule_functions.php:578
+msgid "Follow Schedule Below"
+msgstr "Följ schemat nedan"
+
+#: schedule_functions.php:579
+msgid "Now"
+msgstr "Nu"
+
+#: schedule_functions.php:580
+msgid "Daily (at midnight)"
+msgstr "Daglig (vid midnatt)"
+
+#: schedule_functions.php:581
+msgid "Weekly (on Sunday)"
+msgstr "Veckoschema (söndag)"
+
+#: schedule_functions.php:582
+msgid "Monthly (on the 1st)"
+msgstr "Månadsschema (den 1:e i månaden)"
+
+#: schedule_functions.php:583
+msgid "Yearly (on 1st Jan)"
+msgstr "Årligt schema (den 1:e januari)"
+
+#: schedule_functions.php:608
+msgid "Minutes"
+msgstr "Minut"
+
+#: schedule_functions.php:608
+msgid "Hours"
+msgstr "Timme"
+
+#: schedule_functions.php:608
+msgid "Days"
+msgstr "Dag"
+
+#: schedule_functions.php:608
+msgid "Months"
+msgstr "Månad"
+
+#: schedule_functions.php:608
+msgid "Weekdays"
+msgstr "Veckodag"
+

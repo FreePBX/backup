@@ -4,6 +4,7 @@
 	<version>2.5.1.2</version>
 	<type>tool</type>
 	<category>System Administration</category>
+	<description>Backup &amp; Restore for your FreePBX environment</description>
 	<menuitems>
 		<backup>Backup &amp; Restore</backup>
 	</menuitems>

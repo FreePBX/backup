@@ -1,7 +1,7 @@
 <module>
 	<rawname>backup</rawname>
 	<name>Backup &amp; Restore</name>
-	<version>2.5.1.1</version>
+	<version>2.5.1.2</version>
 	<type>tool</type>
 	<category>System Administration</category>
 	<menuitems>
@@ -11,6 +11,7 @@
 		<module>core</module>
 	</depends>
 	<changelog>
+		*2.5.1.2* #3077 (DAHDI Support), Swedish Translations
 		*2.5.1.1* spelling
 		*2.5.1* #2987, #2995, #3037 sqlite3 support, removal of retrieve_backup_cron.pl
 		*2.5.0.2* #2743 don't delete the current astdb entries if the new astdb.dump is empty
@@ -20,6 +21,6 @@
 		*2.4.1* #2269 clear several of the astdb objects before restore, and other bug fixes
 		*2.4.0* CHANGELOG TRUNCATED See SVN Repository
 	</changelog>
-	<location>release/2.5/backup-2.5.1.1.tgz</location>
-	<md5sum>899da4d7bc5be20577fc39eb35f00a74</md5sum>
+	<location>release/2.5/backup-2.5.1.2.tgz</location>
+	<md5sum>d90d4cf6c50a52774fb313b5e9c9c00b</md5sum>
 </module>

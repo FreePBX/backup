@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-04 22:12+0200\n"
-"PO-Revision-Date: 2008-09-04 23:20+0100\n"
+"PO-Revision-Date: 2008-09-17 09:45+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -80,7 +80,7 @@ msgstr "Återställ röstbrevlådorna"
 
 #: schedule_functions.php:61
 msgid "Restore your Voicemail files from this backup set.  NOTE! This will delete any voicemail currently in the voicemail boxes."
-msgstr "Återställ dina röstbrevlådor från detta kopia. NOTERA! Detta tar bort allt innehåll som nu finns i röstbrevlådorna."
+msgstr "Återställ dina röstbrevlådor från denna kopia. NOTERA! Detta tar bort allt innehåll som nu finns i röstbrevlådorna."
 
 #: schedule_functions.php:68
 msgid "Restore System Recordings Files"
@@ -140,7 +140,7 @@ msgstr "Återställde operatörspanelen"
 
 #: schedule_functions.php:239
 msgid "Restored CDR logs"
-msgstr "Återställde smatalsloggen"
+msgstr "Återställde samtalsloggen"
 
 #: schedule_functions.php:244
 msgid "Restore Failed, see System Status Notification for details"
@@ -272,7 +272,7 @@ msgstr "Augusti"
 
 #: schedule_functions.php:541
 msgid "September"
-msgstr "Spetember"
+msgstr "September"
 
 #: schedule_functions.php:542
 msgid "October"

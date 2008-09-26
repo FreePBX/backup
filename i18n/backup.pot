@@ -357,3 +357,7 @@ msgstr ""
 #: schedule_functions.php:608
 msgid "Weekdays"
 msgstr ""
+
+#: module.xml
+msgid "Backup & Restore"
+msgstr ""

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-04 22:12+0200\n"
-"PO-Revision-Date: 2008-09-17 09:45+0100\n"
+"PO-Revision-Date: 2008-09-26 23:50+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -206,7 +206,7 @@ msgstr "Säkerhetskopiera Systemkonfiguration (databasen, etc-filer, SQL-databas
 
 #: schedule_functions.php:436
 msgid "CDR"
-msgstr "Samtalsrapporten"
+msgstr "Samtalsrapporter"
 
 #: schedule_functions.php:436
 msgid "Backup the System Call Detail Reporting (HTML and Database)"
@@ -214,7 +214,7 @@ msgstr "Säkerhetskopiera Samtalsrapporten (HTML och databas)"
 
 #: schedule_functions.php:444
 msgid "Operator Panel"
-msgstr "Operatörspanel"
+msgstr "Operatörspanelen"
 
 #: schedule_functions.php:444
 msgid "Backup the Operator Panel (HTML and Database)"
@@ -227,7 +227,7 @@ msgstr "Säkerhetskopiera Operatörspanelen (HTML och databas)"
 #: schedule_functions.php:553
 #: schedule_functions.php:557
 msgid "All"
-msgstr "Allt"
+msgstr "Alla"
 
 #: schedule_functions.php:496
 #: schedule_functions.php:500
@@ -361,4 +361,8 @@ msgstr "Månad"
 #: schedule_functions.php:608
 msgid "Weekdays"
 msgstr "Veckodag"
+
+#: module.xml
+msgid "Backup & Restore"
+msgstr "Säkerhetskopiering"
 

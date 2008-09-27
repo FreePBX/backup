@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-04 22:12+0200\n"
-"PO-Revision-Date: 2008-09-26 23:50+0100\n"
+"POT-Creation-Date: 2008-09-27 15:00+0200\n"
+"PO-Revision-Date: 2008-09-27 15:10+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: swedish\n"
 "X-Poedit-Country: SWEDEN\n"
+
+#: install.php:68
+msgid "removing retrieve_backup_cron_from_mysql.pl.."
+msgstr "tar bort retrieve_backup_cron_from_mysql.pl.."
+
+#: install.php:70
+msgid "removed"
+msgstr "borttagen"
+
+#: install.php:72
+msgid "failed"
+msgstr "misslyckades"
 
 #: page.backup.php:106
 msgid "Add Backup Schedule"

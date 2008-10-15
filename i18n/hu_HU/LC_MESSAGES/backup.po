@@ -1,0 +1,388 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-27 15:00+0200\n"
+"PO-Revision-Date: 2008-02-06 21:38+0100\n"
+"Last-Translator: Lónyai Gergely <alephlg@gmail.com>\n"
+"Language-Team: Magyar <support@freepbx.hu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Hungarian\n"
+"X-Poedit-Country: HUNGARY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: install.php:68
+msgid "removing retrieve_backup_cron_from_mysql.pl.."
+msgstr ""
+
+#: install.php:70
+msgid "removed"
+msgstr ""
+
+#: install.php:72
+msgid "failed"
+msgstr ""
+
+#: page.backup.php:106
+msgid "Add Backup Schedule"
+msgstr "Időzített mentés hozzáadása"
+
+#: page.backup.php:107
+msgid "Restore from Backup"
+msgstr "Helyreállítás mentésből"
+
+#: page.backup.php:128 page.backup.php:151 page.backup.php:198
+msgid "System Backup"
+msgstr "Rendszermentés"
+
+#: page.backup.php:136 page.backup.php:167
+msgid "Run Schedule"
+msgstr "Időzítés futtatása"
+
+#: page.backup.php:140 page.backup.php:171
+msgid "Submit Changes"
+msgstr ""
+
+#: page.backup.php:154
+#, php-format
+msgid "Delete Backup Schedule %s"
+msgstr "Időzített mentés törlése %s"
+
+#: page.backup.php:182
+msgid "System Restore"
+msgstr "Rendszer-visszaállítás"
+
+#: schedule_functions.php:22
+msgid "DELETE ALL THE DATA IN THIS SET"
+msgstr "A BACKUPFÁJL TÖRLÉSE"
+
+#: schedule_functions.php:22
+msgid "Delete this backup set and all data associated with this backup set.."
+msgstr "A bizonsági mentés törlése, minden adattal, amit tartalmaz..."
+
+#: schedule_functions.php:47
+msgid "Delete File Set"
+msgstr "Minden fájl törlése"
+
+#: schedule_functions.php:47
+msgid "Delete this backup set."
+msgstr "Backup törlése"
+
+#: schedule_functions.php:52
+msgid "Restore Entire Backup Set"
+msgstr "Helyreállítás ebből a mentésből"
+
+#: schedule_functions.php:54
+msgid "Restore your Complete Backup set overwriting all files."
+msgstr "A teljes rendszer visszaállítása a biztonsági mentésből."
+
+#: schedule_functions.php:59
+msgid "Restore VoiceMail Files"
+msgstr "Hangposta helyreállítása"
+
+#: schedule_functions.php:61
+msgid ""
+"Restore your Voicemail files from this backup set.  NOTE! This will delete "
+"any voicemail currently in the voicemail boxes."
+msgstr ""
+"A Hangpostavisszaállítása a mentésből. FIGYELEM: EZ TŐRŐL MINDEN HANGPOSTÁT."
+
+#: schedule_functions.php:68
+msgid "Restore System Recordings Files"
+msgstr "A rendszerfelvételek helyreállítása"
+
+#: schedule_functions.php:70
+msgid ""
+"Restore your system Voice Recordings including AutoAttendent files from this "
+"backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the "
+"system. It will NOT delete new files not currently in the backup set"
+msgstr ""
+"A rögzített hangok, az AutoAttendenttel együtt,  visszaállítása a mentésből. "
+"FIGYELEM: EZ TŐRŐL MINDEN EDDIGI rögzített hangot, amit nem tartalmaz a "
+"mentés. NEM törli azokat a felvételeket, amiket nem tartalmaz a mentés."
+
+#: schedule_functions.php:75
+msgid "Restore System Configuration"
+msgstr "A rendszerbeállítások helyreállítása"
+
+#: schedule_functions.php:75
+msgid ""
+"Restore your system configuration from this backup set.  NOTE! This will "
+"OVERWRITE any System changes you have made since this backup... ALL Itemes "
+"will be reset to what they were at the time of this backup set.."
+msgstr ""
+"A rendszerbeállítások visszaállítása a mentésből. FIGYELEM: EZ TŐRŐL MINDEN "
+"EDDIGI rendszerbeállítást, amit nem tartalmaz a mentés. MINDEN beállítás a "
+"mentés időpontjában érvényes beállítással felül lesz írva."
+
+#: schedule_functions.php:80
+msgid "Restore Operator Panel"
+msgstr "Operator Panel helyreállítása"
+
+#: schedule_functions.php:82
+msgid ""
+"Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE "
+"any Operator Panel Changes you have made since this backup... ALL Itemes "
+"will be reset to what they were at the time of this backup set.."
+msgstr ""
+"A Operator Panel visszaállítása a mentésből. FIGYELEM: EZ TŐRŐL MINDEN "
+"EDDIGI Operátor Panel beállítást, amit nem tartalmaz a mentés. MINDEN "
+"beállítás a mentés időpontjában érvényes beállítással felül lesz írva."
+
+#: schedule_functions.php:88
+msgid "Restore Call Detail Report"
+msgstr "Hívásrészletezés visszaállítása"
+
+#: schedule_functions.php:90
+msgid ""
+"Restore the Call Detail Records from this backup set.  NOTE! This will "
+"DELETE ALL CALL RECORDS that have been saved since this backup set.."
+msgstr ""
+"A Hívásrészletezés visszaállítása a mentésből. FIGYELEM: EZ TŐRŐL MINDEN "
+"EDDIGI Hívásrészletezést, amit nem tartalmaz a mentés."
+
+#: schedule_functions.php:95
+msgid "ERROR its not a BACKUP SET file"
+msgstr "HIBA: ez nem MENTÉSI fájl"
+
+#: schedule_functions.php:148
+msgid "Restored All Files in BackupSet"
+msgstr ""
+
+#: schedule_functions.php:165
+msgid "Restored VoiceMail"
+msgstr ""
+
+#: schedule_functions.php:180
+msgid "Restored System Recordings"
+msgstr ""
+
+#: schedule_functions.php:203
+msgid "Restored System Configuration"
+msgstr ""
+
+#: schedule_functions.php:218
+msgid "Restored Operator Panel"
+msgstr ""
+
+#: schedule_functions.php:239
+msgid "Restored CDR logs"
+msgstr ""
+
+#: schedule_functions.php:244
+msgid "Restore Failed, see System Status Notification for details"
+msgstr ""
+
+#: schedule_functions.php:407
+msgid "Schedule Name:"
+msgstr "Időzítés neve:"
+
+#: schedule_functions.php:407
+msgid "Give this Backup Schedule a brief name to help you identify it."
+msgstr ""
+"Adj egy olyan nevet az időzített mentésnek, amivel később könnyű lesz "
+"azonosítani."
+
+#: schedule_functions.php:412
+msgid "VoiceMail"
+msgstr "Hangposta"
+
+#: schedule_functions.php:412
+msgid ""
+"Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
+msgstr "Hangposta fiókok mentése... FIGYELEM: Nagyon nagy fájl lehet"
+
+#: schedule_functions.php:414 schedule_functions.php:416
+#: schedule_functions.php:422 schedule_functions.php:424
+#: schedule_functions.php:430 schedule_functions.php:432
+#: schedule_functions.php:438 schedule_functions.php:440
+#: schedule_functions.php:446 schedule_functions.php:448
+msgid "yes"
+msgstr "igen"
+
+#: schedule_functions.php:414 schedule_functions.php:416
+#: schedule_functions.php:422 schedule_functions.php:424
+#: schedule_functions.php:430 schedule_functions.php:432
+#: schedule_functions.php:438 schedule_functions.php:440
+#: schedule_functions.php:446 schedule_functions.php:448
+msgid "no"
+msgstr "nem"
+
+#: schedule_functions.php:420
+msgid "System Recordings"
+msgstr "Rendszerfelvételek"
+
+#: schedule_functions.php:420
+msgid ""
+"Backup the System Recordings (AutoAttendent, Music On Hold, System "
+"Recordings)"
+msgstr ""
+"Rendszerfelvételek mentése (AutoAttendent, Háttérzene, Rendszerfelvételek)"
+
+#: schedule_functions.php:428
+msgid "System Configuration"
+msgstr "Rendszerbeállítások"
+
+#: schedule_functions.php:428
+msgid ""
+"Backup the System Configurations (Database, etc files, SQL Database, astdb)"
+msgstr ""
+"Rendszerkofiguráció mentése (Adadtbázis, etc fájlok, SQL adatbázis, astdb)"
+
+#: schedule_functions.php:436
+msgid "CDR"
+msgstr "CDR"
+
+#: schedule_functions.php:436
+msgid "Backup the System Call Detail Reporting (HTML and Database)"
+msgstr "Hívásrészletezés mentése (HTML és adatbázis)"
+
+#: schedule_functions.php:444
+msgid "Operator Panel"
+msgstr "Operator Panel"
+
+#: schedule_functions.php:444
+msgid "Backup the Operator Panel (HTML and Database)"
+msgstr "Operator Panel mentése (HTML és adatbázis)"
+
+#: schedule_functions.php:495 schedule_functions.php:499
+#: schedule_functions.php:524 schedule_functions.php:528
+#: schedule_functions.php:553 schedule_functions.php:557
+msgid "All"
+msgstr "Minden"
+
+#: schedule_functions.php:496 schedule_functions.php:500
+#: schedule_functions.php:525 schedule_functions.php:529
+#: schedule_functions.php:554 schedule_functions.php:558
+msgid "Selected"
+msgstr "Kiválasztva"
+
+#: schedule_functions.php:533
+msgid "January"
+msgstr "Január"
+
+#: schedule_functions.php:534
+msgid "February"
+msgstr "Február"
+
+#: schedule_functions.php:535
+msgid "March"
+msgstr "Március"
+
+#: schedule_functions.php:536
+msgid "April"
+msgstr "Április"
+
+#: schedule_functions.php:537
+msgid "May"
+msgstr "Május"
+
+#: schedule_functions.php:538
+msgid "June"
+msgstr "Június"
+
+#: schedule_functions.php:539
+msgid "July"
+msgstr "Július"
+
+#: schedule_functions.php:540
+msgid "August"
+msgstr "Augusztus"
+
+#: schedule_functions.php:541
+msgid "September"
+msgstr "Szeptember"
+
+#: schedule_functions.php:542
+msgid "October"
+msgstr "Október"
+
+#: schedule_functions.php:543
+msgid "November"
+msgstr "November"
+
+#: schedule_functions.php:544
+msgid "December"
+msgstr "December"
+
+#: schedule_functions.php:562
+msgid "Monday"
+msgstr "Hétfő"
+
+#: schedule_functions.php:563
+msgid "Tuesday"
+msgstr "Kedd"
+
+#: schedule_functions.php:564
+msgid "Wednesday"
+msgstr "Szerda"
+
+#: schedule_functions.php:565
+msgid "Thursday"
+msgstr "Csütörtök"
+
+#: schedule_functions.php:566
+msgid "Friday"
+msgstr "Péntek"
+
+#: schedule_functions.php:567
+msgid "Saturday"
+msgstr "Szombat"
+
+#: schedule_functions.php:568
+msgid "Sunday"
+msgstr "Vasárnap"
+
+#: schedule_functions.php:576
+msgid "Run Backup"
+msgstr "Backup készítése"
+
+#: schedule_functions.php:578
+msgid "Follow Schedule Below"
+msgstr "Alább részletezve"
+
+#: schedule_functions.php:579
+msgid "Now"
+msgstr "Most"
+
+#: schedule_functions.php:580
+msgid "Daily (at midnight)"
+msgstr "Napi (éjjel)"
+
+#: schedule_functions.php:581
+msgid "Weekly (on Sunday)"
+msgstr "Heti (Vasárnap)"
+
+#: schedule_functions.php:582
+msgid "Monthly (on the 1st)"
+msgstr "Havi (mindig 1-én)"
+
+#: schedule_functions.php:583
+msgid "Yearly (on 1st Jan)"
+msgstr "Évi (minden Január 1-én)"
+
+#: schedule_functions.php:608
+msgid "Minutes"
+msgstr "Perc"
+
+#: schedule_functions.php:608
+msgid "Hours"
+msgstr "Óra"
+
+#: schedule_functions.php:608
+msgid "Days"
+msgstr "Nap"
+
+#: schedule_functions.php:608
+msgid "Months"
+msgstr "Hónap"
+
+#: schedule_functions.php:608
+msgid "Weekdays"
+msgstr "Hét napjai"
+
+#: module.xml
+msgid "Backup & Restore"
+msgstr ""

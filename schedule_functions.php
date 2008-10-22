@@ -268,10 +268,7 @@ function Delete_Backup_Set($ID="") {
         if(DB::IsError($result)) {
                 die_freepbx($result->getMessage());
         }
-	//$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/retrieve_backup_cron.php";
-	//exec($Cron_Script);
-	//TODO: should we check and act on false return
-	backup_retrieve_backup_cron();
+  needreload();
 }
 function Save_Backup_Schedule($Backup_Parms, $backup_options )
 {
@@ -302,10 +299,8 @@ function Save_Backup_Schedule($Backup_Parms, $backup_options )
         if(DB::IsError($result)) {
                 die_freepbx($result->getMessage().'<hr>'.$sql);
         }
-	//$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/retrieve_backup_cron.php";
-	//exec($Cron_Script);
-	backup_retrieve_backup_cron();
-	
+
+	needreload();
 }
 function Get_Backup_String($name, $backup_schedule, $ALL_days, $ALL_months, $ALL_weekdays, $mins="", $hours="", $days="", $months="", $weekdays="") {
 	global $asterisk_conf;

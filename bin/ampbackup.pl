@@ -191,7 +191,10 @@ else
 	}
 	if ( $Backup_Configurations eq "yes" ){
 		system ($ast{'astvarlibdir'}."/bin/dumpastdb.php $Stamp > /dev/null");
-		system ("/bin/tar -Pcz -f /tmp/ampbackups.$Stamp/configurations.tar.gz ".$ast{'astvarlibdir'}."/agi-bin/ ".$ast{'astvarlibdir'}."/bin/ /etc/asterisk $webroot/admin /etc/amportal.conf /etc/zaptel.conf /etc/dahdi /tmp/ampbackups.$Stamp/astdb.dump ");
+		$config_files = "";
+		$config_files .= "/etc/zaptel.conf" if -r "/etc/zaptel.conf";
+		$config_files .= "/etc/dahdi" if -r "/etc/dahdi";
+		system ("/bin/tar -Pcz -f /tmp/ampbackups.$Stamp/configurations.tar.gz ".$ast{'astvarlibdir'}."/agi-bin/ ".$ast{'astvarlibdir'}."/bin/ /etc/asterisk $webroot/admin /etc/amportal.conf $config_files /tmp/ampbackups.$Stamp/astdb.dump ");
 
 		if ($provroot ne "") {
 			$excludearg = "";

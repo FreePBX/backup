@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-27 15:00+0200\n"
-"PO-Revision-Date: 2008-09-27 15:10+0100\n"
+"POT-Creation-Date: 2008-11-23 14:54+0100\n"
+"PO-Revision-Date: 2008-11-23 15:09+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -62,6 +62,11 @@ msgstr "Ta bort schema för säkerhetskopia %s"
 msgid "System Restore"
 msgstr "Systemåterställning"
 
+#: schedule_functions.php:21
+#: schedule_functions.php:46
+msgid "Are you sure you want to delete this File Set?"
+msgstr "Är du säker på att du vill ta bort denna säkerhetskopia?"
+
 #: schedule_functions.php:22
 msgid "DELETE ALL THE DATA IN THIS SET"
 msgstr "TA BORT ALL DATA I DENNA SÄKERHETSKOPIA"
@@ -78,6 +83,16 @@ msgstr "Ta bort säkerhetskopian"
 msgid "Delete this backup set."
 msgstr "Ta bort denna säkerhetskopia"
 
+#: schedule_functions.php:51
+msgid ""
+"Are you sure you want to restore this COMPLETE file set?\\n"
+"Doing so will permanently over-write all FreePBX and Asterisk files\\n"
+"You will lose all Your Call Detail Records and any Voicemail that was recorded between the BACKUP DATE and NOW!"
+msgstr ""
+"Är du säker på att du vill återställa denna FULLSTÄNDIGA säkerhetskopia?\\n"
+"Detta kommmer permanent skriva över alla filer för FreePBX och Asterisk\\n"
+"Du kommer att förlora alla samtalsloggar och röstmeddelande som har registrerats från det att säkerhetskopian togs och nu!"
+
 #: schedule_functions.php:52
 msgid "Restore Entire Backup Set"
 msgstr "Återställ hela säkerhetskopian"
@@ -85,6 +100,16 @@ msgstr "Återställ hela säkerhetskopian"
 #: schedule_functions.php:54
 msgid "Restore your Complete Backup set overwriting all files."
 msgstr "Återställ din kompletta säkerhetskopia och skriv över alla filer. NOTERA! Detta kommer att återställa ditt system till samma status det hade vid tiden för denna säkerhetskopia. ALLT KOMMER ATT SKRIVAS ÖVER!!"
+
+#: schedule_functions.php:58
+msgid ""
+"Are you sure you want to Restore this file set?\\n"
+"Doing so will permanently delete any new voicemail you have in your mailbox\\n"
+"since this backup on"
+msgstr ""
+"Är du säker på att du vill återställa denna säkerhetskopia?\\n"
+"Detta kommer att permanent ta bort alla nya röstbesked som finns i röstbrevlådorna\\n"
+"sedan denna säkerhestkopia togs den"
 
 #: schedule_functions.php:59
 msgid "Restore VoiceMail Files"
@@ -94,6 +119,14 @@ msgstr "Återställ röstbrevlådorna"
 msgid "Restore your Voicemail files from this backup set.  NOTE! This will delete any voicemail currently in the voicemail boxes."
 msgstr "Återställ dina röstbrevlådor från denna kopia. NOTERA! Detta tar bort allt innehåll som nu finns i röstbrevlådorna."
 
+#: schedule_functions.php:67
+msgid ""
+"Are you sure you want to Restore this file set?\\n"
+"NOTE! This will OVERWRITE any voicerecordings currently on the system. It will NOT delete new files not currently in the backup set"
+msgstr ""
+"Är du säker på att du vill återställa denna säkerhetskopia?\\n"
+"OBS! Detta kommer att skriva över de röstbesked som finns i systemet. Nyare filer än de som finns i säkerhetskopian kommer INTE att skrivas över."
+
 #: schedule_functions.php:68
 msgid "Restore System Recordings Files"
 msgstr "Återställ systeminspelningarna"
@@ -101,6 +134,14 @@ msgstr "Återställ systeminspelningarna"
 #: schedule_functions.php:70
 msgid "Restore your system Voice Recordings including AutoAttendent files from this backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the system. It will NOT delete new files not currently in the backup set"
 msgstr "Återställer dina systeminspelningar inklusive filerna för AutoAttendent . NOTERA! Detta kommer att SKRIVA ÖVER alla systeminspelningar i systemet, men kommer INTE att ta bort nya filer som inte finns i denna säkerhetskopia."
+
+#: schedule_functions.php:74
+msgid ""
+"Are you sure you want to Restore this File Set?\\n"
+"Doing so will Permanently Over-Write all FreePBX and Asterisk Files!"
+msgstr ""
+"Är du säker på att du vill återställa denna säkerhetskopia?\\n"
+"Detta kommer att skriva över alla filer för FreePBX och Asterisk!"
 
 #: schedule_functions.php:75
 msgid "Restore System Configuration"
@@ -110,6 +151,14 @@ msgstr "Återställ systemkonfigurationen"
 msgid "Restore your system configuration from this backup set.  NOTE! This will OVERWRITE any System changes you have made since this backup... ALL Itemes will be reset to what they were at the time of this backup set.."
 msgstr "Återställer din systemkonfiguration från denna säkerhetskopia. NOTERA! Detta kommer att SKRIVA ÖVER alla förändringar i ditt system du gjort efter denna säkerhetskopia... ALLT kommer att återställas till den status systemet hade vid tiden för denna säkerhetskopia."
 
+#: schedule_functions.php:79
+msgid ""
+"Are you sure you want to Restore the Operator Panel Files?\\n"
+"Doing so will Permanently Over-Write all Operator Panel Files!"
+msgstr ""
+"Är du säker på att du vill återställa Operatörspanelen?\\n"
+"Detta kommer permanent skriva över alla förändringar gjorda efter denna säkerhestkopia!"
+
 #: schedule_functions.php:80
 msgid "Restore Operator Panel"
 msgstr "Återställ Operatörspanelen"
@@ -117,6 +166,14 @@ msgstr "Återställ Operatörspanelen"
 #: schedule_functions.php:82
 msgid "Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE any Operator Panel Changes you have made since this backup... ALL Itemes will be reset to what they were at the time of this backup set.."
 msgstr "Återställer operatörspanelen från denna säkerhetskopia. NOTERA! Detta kommer att SKRIVA ÖVER alla förändringar som skett i operatörspanelen sedan säkerhetskopian togs... ALLT kommer att återställas till den status operatörspanelen hade vid tiden för denna säkerhetskopia."
+
+#: schedule_functions.php:87
+msgid ""
+"Are you sure you want to Restore the CALL DETAIL FILES?\\n"
+"Doing so will Permanently DELETE all CALL RECORDS!"
+msgstr ""
+"Är du säker på att du vill återställa all samtalslogg?\\n"
+"Detta kommer att permanent ta bort alla loggar sedan datumen för säkerhetskopian!"
 
 #: schedule_functions.php:88
 msgid "Restore Call Detail Report"

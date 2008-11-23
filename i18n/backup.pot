@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-27 15:00+0200\n"
+"POT-Creation-Date: 2008-11-23 14:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,6 +57,10 @@ msgstr ""
 msgid "System Restore"
 msgstr ""
 
+#: schedule_functions.php:21 schedule_functions.php:46
+msgid "Are you sure you want to delete this File Set?"
+msgstr ""
+
 #: schedule_functions.php:22
 msgid "DELETE ALL THE DATA IN THIS SET"
 msgstr ""
@@ -73,12 +77,26 @@ msgstr ""
 msgid "Delete this backup set."
 msgstr ""
 
+#: schedule_functions.php:51
+msgid ""
+"Are you sure you want to restore this COMPLETE file set?\\nDoing so will "
+"permanently over-write all FreePBX and Asterisk files\\nYou will lose all "
+"Your Call Detail Records and any Voicemail that was recorded between the "
+"BACKUP DATE and NOW!"
+msgstr ""
+
 #: schedule_functions.php:52
 msgid "Restore Entire Backup Set"
 msgstr ""
 
 #: schedule_functions.php:54
 msgid "Restore your Complete Backup set overwriting all files."
+msgstr ""
+
+#: schedule_functions.php:58
+msgid ""
+"Are you sure you want to Restore this file set?\\nDoing so will permanently "
+"delete any new voicemail you have in your mailbox\\nsince this backup on"
 msgstr ""
 
 #: schedule_functions.php:59
@@ -89,6 +107,13 @@ msgstr ""
 msgid ""
 "Restore your Voicemail files from this backup set.  NOTE! This will delete "
 "any voicemail currently in the voicemail boxes."
+msgstr ""
+
+#: schedule_functions.php:67
+msgid ""
+"Are you sure you want to Restore this file set?\\nNOTE! This will OVERWRITE "
+"any voicerecordings currently on the system. It will NOT delete new files "
+"not currently in the backup set"
 msgstr ""
 
 #: schedule_functions.php:68
@@ -102,6 +127,12 @@ msgid ""
 "system. It will NOT delete new files not currently in the backup set"
 msgstr ""
 
+#: schedule_functions.php:74
+msgid ""
+"Are you sure you want to Restore this File Set?\\nDoing so will Permanently "
+"Over-Write all FreePBX and Asterisk Files!"
+msgstr ""
+
 #: schedule_functions.php:75
 msgid "Restore System Configuration"
 msgstr ""
@@ -113,6 +144,12 @@ msgid ""
 "will be reset to what they were at the time of this backup set.."
 msgstr ""
 
+#: schedule_functions.php:79
+msgid ""
+"Are you sure you want to Restore the Operator Panel Files?\\nDoing so will "
+"Permanently Over-Write all Operator Panel Files!"
+msgstr ""
+
 #: schedule_functions.php:80
 msgid "Restore Operator Panel"
 msgstr ""
@@ -122,6 +159,12 @@ msgid ""
 "Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE "
 "any Operator Panel Changes you have made since this backup... ALL Itemes "
 "will be reset to what they were at the time of this backup set.."
+msgstr ""
+
+#: schedule_functions.php:87
+msgid ""
+"Are you sure you want to Restore the CALL DETAIL FILES?\\nDoing so will "
+"Permanently DELETE all CALL RECORDS!"
 msgstr ""
 
 #: schedule_functions.php:88

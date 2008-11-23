@@ -18,7 +18,7 @@ function Get_Tar_Files($dir="", $display="", $file="") {
 	global $amp_conf;
 		if (is_dir($dir)) {
 			if (($file!=".") && ($file!="..") && ($file!="")){
-				echo "<li><a class=\"info\" href=\"javascript:decision('Are you sure you want to delete this File Set?','config.php?type=$type&display=$display&action=deletedataset&dir=$dir')\">";
+				echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to delete this File Set?")."','config.php?type=$type&display=$display&action=deletedataset&dir=$dir')\">";
 				echo _("DELETE ALL THE DATA IN THIS SET"); echo "<span>"; echo _("Delete this backup set and all data associated with this backup set..");echo "</span></a><br></li>";
 				echo "<br>";
 			}
@@ -43,19 +43,19 @@ function Get_Tar_Files($dir="", $display="", $file="") {
 				}
 			}
 		} else if (substr($dir, -6)=="tar.gz" ){
-			echo "<li><a class=\"info\" href=\"javascript:decision('Are you sure you want to delete this File Set?','config.php?type=$type&display=$display&action=deletefileset&dir=$dir&file=$file')\">";
+			echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to delete this File Set?")."','config.php?type=$type&display=$display&action=deletefileset&dir=$dir&file=$file')\">";
 			echo _("Delete File Set"); echo "<span>"; echo _("Delete this backup set."); echo "</span></a><br></li>";
 			echo "<br>";
 			$tar_string="tar tfz \"$dir\" | cut -d'/' -f4";
 			exec($tar_string,$restore_files,$error);
-			echo "<li><a class=\"info\" href=\"javascript:decision('Are you sure you want to restore this COMPLETE file set?\n Doing so will permanently over-write all FreePBX and Asterisk files\n You will lose all Your Call Detail Records and any Voicemail that was recorded between the BACKUP DATE and NOW.','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=ALL&file=$file')\">";
+			echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to restore this COMPLETE file set?\\nDoing so will permanently over-write all FreePBX and Asterisk files\\nYou will lose all Your Call Detail Records and any Voicemail that was recorded between the BACKUP DATE and NOW!")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=ALL&file=$file')\">";
 			echo _("Restore Entire Backup Set"); 
 			echo "<span>"; 
 			echo _("Restore your Complete Backup set overwriting all files."); 
 			echo "</span></a><br></li>";
 			echo "<br>";
 			if (array_search('voicemail.tar.gz',$restore_files)){
-				echo "<li><a class=\"info\" href=\"javascript:decision('Are you sure you want to Restore this file set?\n Doing so will permanently delete any new voicemail you have in your mailbox\n since this backup on $file?','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=VoiceMail&file=$file')\">";
+ 				echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore this file set?\\nDoing so will permanently delete any new voicemail you have in your mailbox\\nsince this backup on")." $file!','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=VoiceMail&file=$file')\">";
 				echo _("Restore VoiceMail Files");
 				echo "<span>"; 
 				echo _("Restore your Voicemail files from this backup set.  NOTE! This will delete any voicemail currently in the voicemail boxes.");
@@ -64,19 +64,19 @@ function Get_Tar_Files($dir="", $display="", $file="") {
 			}
 
 			if (array_search('recordings.tar.gz',$restore_files)){
-				echo "<li><a class=\"info\" href=\"config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=Recordings&file=$file\">";
+ 				echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore this file set?\\nNOTE! This will OVERWRITE any voicerecordings currently on the system. It will NOT delete new files not currently in the backup set")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=Recordings&file=$file')\">";
 				echo _("Restore System Recordings Files"); 
 				echo "<span>"; 
 				echo _("Restore your system Voice Recordings including AutoAttendent files from this backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the system. It will NOT delete new files not currently in the backup set"); echo "</span></a><br></li>";
 				echo "<br>";
 			}
 			if (array_search('configurations.tar.gz',$restore_files)){
-				echo "<li><a class=\"info\" href=\"javascript:decision('Are you sure you want to Restore this File Set\n Doing so will Permanently Over-Write all AMP and Asterisk Files?','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=Configurations&file=$file')\">";
+				echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore this File Set?\\nDoing so will Permanently Over-Write all FreePBX and Asterisk Files!")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=Configurations&file=$file')\">";
 				echo _("Restore System Configuration"); echo "<span>"; echo _("Restore your system configuration from this backup set.  NOTE! This will OVERWRITE any System changes you have made since this backup... ALL Itemes will be reset to what they were at the time of this backup set.."); echo "</span></a><br></li>";
 				echo "<br>";
 			}
 			if (array_search('fop.tar.gz',$restore_files)){
-				echo "<li><a class=\"info\" href=\"javascript:decision('Are you sure you want to Restore the Operator Panel Files\n Doing so will Permanently Over-Write all Operator Panel Files?','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=FOP&file=$file')\">";
+				echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore the Operator Panel Files?\\nDoing so will Permanently Over-Write all Operator Panel Files!")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=FOP&file=$file')\">";
 				echo _("Restore Operator Panel"); 
 				echo "<span>"; 
 				echo _("Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE any Operator Panel Changes you have made since this backup... ALL Itemes will be reset to what they were at the time of this backup set.."); 
@@ -84,7 +84,7 @@ function Get_Tar_Files($dir="", $display="", $file="") {
 				echo "<br>";
 			}
 			if (array_search('cdr.tar.gz',$restore_files)){
-				echo "<li><a class=\"info\" href=\"javascript:decision('Are you sure you want to Restore the CALL DETAIL FILES\n Doing so will Permanently DELETE  all CALL RECORDS.?','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=CDR&file=$file')\">";
+				echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore the CALL DETAIL FILES?\\nDoing so will Permanently DELETE all CALL RECORDS!")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=CDR&file=$file')\">";
 				echo _("Restore Call Detail Report"); 
 				echo "<span>"; 
 				echo _("Restore the Call Detail Records from this backup set.  NOTE! This will DELETE ALL CALL RECORDS that have been saved since this backup set.."); 

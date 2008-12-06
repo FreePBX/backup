@@ -62,6 +62,8 @@ $User_Preferences{"AMPDBNAME"}  = "asterisk";
 $User_Preferences{"AMPWEBROOT"} = "/var/www/html";
 $User_Preferences{"ASTETCDIR"} = "/etc/asterisk";
 
+$User_Preferences{"CDRDBNAME"} = "asteriskcdrdb";
+
 $User_Preferences{"AMPPROVROOT"} = "";
 $User_Preferences{"AMPPROVEXCLUDE"} = "";
 
@@ -113,8 +115,10 @@ $database = $User_Preferences{"AMPDBNAME"};
 $hostname = $User_Preferences{"AMPDBHOST"};
 # the WEB ROOT directory 
 $webroot = $User_Preferences{"AMPWEBROOT"};
+# CDR database 
+$cdrdatabase = $User_Preferences{"CDRDBNAME"};
 
-# Provisioning root(s) and exclude list, if phone configuratoins should be backed up
+# Provisioning root(s) and exclude list, if phone configurations should be backed up
 #
 $provroot = $User_Preferences{"AMPPROVROOT"};
 $excludefile = $User_Preferences{"AMPPROVEXCLUDE"};
@@ -208,7 +212,7 @@ else
 	}
 	if ( $Backup_CDR eq "yes" ){
 		system ("/bin/tar -Pcz -f /tmp/ampbackups.$Stamp/cdr.tar.gz $webroot/admin/cdr");
-		system ("mysqldump --add-drop-table -h $hostname -u $username -p$password --database asteriskcdrdb > /tmp/ampbackups.$Stamp/asteriskcdr.sql");
+		system ("mysqldump --add-drop-table -h $hostname -u $username -p$password --database $cdrdatabase > /tmp/ampbackups.$Stamp/asteriskcdr.sql");
 	}
 	if ( $Backup_FOP eq "yes" ){
 		system ("/bin/tar -Pcz -f /tmp/ampbackups.$Stamp/fop.tar.gz $webroot/panel");

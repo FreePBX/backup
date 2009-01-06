@@ -1,0 +1,379 @@
+# Russian freePBX ver. translation
+# Copyright (c) 2006-2008 PostMet Corporation
+# This file is distributed under the same license as the freePBX package.
+# Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
+#
+# Использовать iconv yourfile.new -f UTF-8 -t ISO-8859-5 -o yourfile.po
+# fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-28 01:45+0100\n"
+"PO-Revision-Date: 2008-09-28 16:38+0100\n"
+"Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
+"Language-Team: Russian <faq@postmet.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-5\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: install.php:68
+msgid "removing retrieve_backup_cron_from_mysql.pl.."
+msgstr "удаляется retrieve_backup_cron_from_mysql.pl.."
+
+#: install.php:70
+msgid "removed"
+msgstr "удалено"
+
+#: install.php:72
+msgid "failed"
+msgstr "сбой"
+
+#: page.backup.php:106
+msgid "Add Backup Schedule"
+msgstr "Добавить сценарий резервного копирования"
+
+#: page.backup.php:107
+msgid "Restore from Backup"
+msgstr "Восстановиться с резервной копии"
+
+#: page.backup.php:128 page.backup.php:151 page.backup.php:198
+msgid "System Backup"
+msgstr "Резервное копирование системы"
+
+#: page.backup.php:136 page.backup.php:167
+msgid "Run Schedule"
+msgstr "Выполнить задание"
+
+#: page.backup.php:140 page.backup.php:171
+msgid "Submit Changes"
+msgstr "Принять изменения"
+
+#: page.backup.php:154
+#, php-format
+msgid "Delete Backup Schedule %s"
+msgstr "Удалить задание резервного копирования %s"
+
+#: page.backup.php:182
+msgid "System Restore"
+msgstr "Восстановление системы"
+
+#: schedule_functions.php:22
+msgid "DELETE ALL THE DATA IN THIS SET"
+msgstr "УДАЛИТЬ ВСЕ ДАННЫЕ В ШАБЛОНЕ"
+
+#: schedule_functions.php:22
+msgid "Delete this backup set and all data associated with this backup set.."
+msgstr "Удалить этот шаблон и все данные, ассоциированные с этим шаблоном.. "
+
+#: schedule_functions.php:47
+msgid "Delete File Set"
+msgstr "Удалить комплект файлов"
+
+#: schedule_functions.php:47
+msgid "Delete this backup set."
+msgstr "Удалить этот шаблон резервного копирования"
+
+#: schedule_functions.php:52
+msgid "Restore Entire Backup Set"
+msgstr "Восстановить полный шаблон"
+
+#: schedule_functions.php:54
+msgid "Restore your Complete Backup set overwriting all files."
+msgstr "Восстановление с полной резервной копии, все файлы будут перезаписаны."
+
+#: schedule_functions.php:59
+msgid "Restore VoiceMail Files"
+msgstr "Восстановить файлы головой почты" 
+
+#: schedule_functions.php:61
+msgid ""
+"Restore your Voicemail files from this backup set.  NOTE! This will delete "
+"any voicemail currently in the voicemail boxes."
+msgstr ""
+"Восстановить файлы голосовой почты из этого комплекта резервного копирования. "
+"ВНИМАНИЕ! Все текущие сообщения в ящиках будут удалены."
+
+#: schedule_functions.php:68
+msgid "Restore System Recordings Files"
+msgstr "Восстановить файлы записи ситемных сообщений."
+
+#: schedule_functions.php:70
+msgid ""
+"Restore your system Voice Recordings including AutoAttendent files from this "
+"backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the "
+"system. It will NOT delete new files not currently in the backup set"
+msgstr ""
+"Восстановить файлы записи ситемных сообщений из этого комплекта резервного копирования."
+"ВНИМАНИЕ! Все записи в системе будут перезаписаны. При этом новые файлы записей не удаляются"
+" при восстановлении."
+
+#: schedule_functions.php:75
+msgid "Restore System Configuration"
+msgstr "Восстановить конфигурацию системы"
+
+#: schedule_functions.php:75
+msgid ""
+"Restore your system configuration from this backup set.  NOTE! This will "
+"OVERWRITE any System changes you have made since this backup... ALL Itemes "
+"will be reset to what they were at the time of this backup set.."
+msgstr ""
+"Восстановить конфигурационные файлы ситемы из этого комплекта резервного копирования."
+"ВНИМАНИЕ! Все изменения в системе, сделанные после этой резервной копии будут утрачены. "
+"ВСЕ установки примут значения, соответствующие состоянию системы на момент резервирования.."
+
+#: schedule_functions.php:80
+msgid "Restore Operator Panel"
+msgstr "Восстановить панель оператора"
+
+#: schedule_functions.php:82
+msgid ""
+"Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE "
+"any Operator Panel Changes you have made since this backup... ALL Itemes "
+"will be reset to what they were at the time of this backup set.."
+msgstr ""
+"Восстановить Панель оператора из этого комплекта резервного копирования."
+"ВНИМАНИЕ! Все изменения в Панели оператора сделанные после этой резервной копии будут утрачены. "
+"ВСЕ установки примут значения, соответствующие состоянию системы на момент резервирования.."
+
+#: schedule_functions.php:88
+msgid "Restore Call Detail Report"
+msgstr "Восстановить Отчет о соединениях"
+
+#: schedule_functions.php:90
+msgid ""
+"Restore the Call Detail Records from this backup set.  NOTE! This will "
+"DELETE ALL CALL RECORDS that have been saved since this backup set.."
+msgstr ""
+"Восстановить Отчёт о соединениях из этого комплекта резервного копирования."
+"ВНИМАНИЕ! Все записи о соединениях сделанные после этой резервной копии будут утрачены. "
+
+#: schedule_functions.php:95
+msgid "ERROR its not a BACKUP SET file"
+msgstr "ОШИБКА - это не файл резервной копии"
+
+#: schedule_functions.php:148
+msgid "Restored All Files in BackupSet"
+msgstr "Восстановлены все файлы из резервного комплекта"
+
+#: schedule_functions.php:165
+msgid "Restored VoiceMail"
+msgstr "Восстановлена голосовая почта"
+
+#: schedule_functions.php:180
+msgid "Restored System Recordings"
+msgstr "Восстановлены системные записи"
+
+#: schedule_functions.php:203
+msgid "Restored System Configuration"
+msgstr "Восстановлена конфигурация системы"
+
+#: schedule_functions.php:218
+msgid "Restored Operator Panel"
+msgstr "Восстановлена Панель оператора"
+
+#: schedule_functions.php:239
+msgid "Restored CDR logs"
+msgstr "Восстановлен журнал записи соединений"
+
+#: schedule_functions.php:244
+msgid "Restore Failed, see System Status Notification for details"
+msgstr "Ошибка при восстановлении, смотри в журнал системных сообщений о причинах ошибки"
+
+#: schedule_functions.php:407
+msgid "Schedule Name:"
+msgstr "Название сценария:"
+
+#: schedule_functions.php:407
+msgid "Give this Backup Schedule a brief name to help you identify it."
+msgstr "Присвоить этому сценарию короткое названия для удобства идентификации."
+
+#: schedule_functions.php:412
+msgid "VoiceMail"
+msgstr "Голосовая почта"
+
+#: schedule_functions.php:412
+msgid ""
+"Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
+msgstr "Резервирование ящиков голосовой почты... ВНИМАНИЕ: в результате может получиться очень большой файл"
+
+#: schedule_functions.php:446 schedule_functions.php:448
+msgid "yes"
+msgstr "да"
+
+#: schedule_functions.php:446 schedule_functions.php:448
+msgid "no"
+msgstr "нет"
+
+#: schedule_functions.php:420
+msgid "System Recordings"
+msgstr "Системные записи"
+
+#: schedule_functions.php:420
+msgid ""
+"Backup the System Recordings (AutoAttendent, Music On Hold, System "
+"Recordings)"
+msgstr ""
+"Резервировать системные записи (Автосекретарь, Музыка в ожидании, Приветствия)"
+
+#: schedule_functions.php:428
+msgid "System Configuration"
+msgstr "Конфигурация системы"
+
+#: schedule_functions.php:428
+msgid ""
+"Backup the System Configurations (Database, etc files, SQL Database, astdb)"
+msgstr ""
+"Резервировать кофигурацию системы (базу данных Астериск, конфигурационные файлы, SQL дамп)"
+
+#: schedule_functions.php:436
+msgid "CDR"
+msgstr "CDR"
+
+#: schedule_functions.php:436
+msgid "Backup the System Call Detail Reporting (HTML and Database)"
+msgstr "Резервировать системные записи о соединениях (HTML и база данных)"
+
+#: schedule_functions.php:444
+msgid "Operator Panel"
+msgstr "Панель оператора"
+
+#: schedule_functions.php:444
+msgid "Backup the Operator Panel (HTML and Database)"
+msgstr "Резервировать Панель оператора (HTML и база данных)"
+
+#: schedule_functions.php:553 schedule_functions.php:557
+msgid "All"
+msgstr "Все"
+
+#: schedule_functions.php:554 schedule_functions.php:558
+msgid "Selected"
+msgstr "Выбранные"
+
+#: schedule_functions.php:533
+msgid "January"
+msgstr "Январь"
+
+#: schedule_functions.php:534
+msgid "February"
+msgstr "Февраль"
+
+#: schedule_functions.php:535
+msgid "March"
+msgstr "Март"
+
+#: schedule_functions.php:536
+msgid "April"
+msgstr "Апрель"
+
+#: schedule_functions.php:537
+msgid "May"
+msgstr "Май"
+
+#: schedule_functions.php:538
+msgid "June"
+msgstr "Июнь"
+
+#: schedule_functions.php:539
+msgid "July"
+msgstr "Июль"
+
+#: schedule_functions.php:540
+msgid "August"
+msgstr "Август"
+
+#: schedule_functions.php:541
+msgid "September"
+msgstr "Сентябрь"
+
+#: schedule_functions.php:542
+msgid "October"
+msgstr "Октябрь"
+
+#: schedule_functions.php:543
+msgid "November"
+msgstr "Ноябрь"
+
+#: schedule_functions.php:544
+msgid "December"
+msgstr "Декабрь"
+
+#: schedule_functions.php:562
+msgid "Monday"
+msgstr "Понедельник"
+
+#: schedule_functions.php:563
+msgid "Tuesday"
+msgstr "Вторник"
+
+#: schedule_functions.php:564
+msgid "Wednesday"
+msgstr "Среда"
+
+#: schedule_functions.php:565
+msgid "Thursday"
+msgstr "Четверг"
+
+#: schedule_functions.php:566
+msgid "Friday"
+msgstr "Пятница"
+
+#: schedule_functions.php:567
+msgid "Saturday"
+msgstr "Суббота"
+
+#: schedule_functions.php:568
+msgid "Sunday"
+msgstr "Воскресенье"
+
+#: schedule_functions.php:576
+msgid "Run Backup"
+msgstr "Создать резервную копию"
+
+#: schedule_functions.php:578
+msgid "Follow Schedule Below"
+msgstr "Следовать сценарию ниже"
+
+#: schedule_functions.php:579
+msgid "Now"
+msgstr "Сейчас"
+
+#: schedule_functions.php:580
+msgid "Daily (at midnight)"
+msgstr "Ежедневно (в полночь)"
+
+#: schedule_functions.php:581
+msgid "Weekly (on Sunday)"
+msgstr "Еженедельно (в Воскресенье)"
+
+#: schedule_functions.php:582
+msgid "Monthly (on the 1st)"
+msgstr "Ежемесячно (1-го числа)"
+
+#: schedule_functions.php:583
+msgid "Yearly (on 1st Jan)"
+msgstr "Ежегодно (1-го Января)"
+
+#: schedule_functions.php:608
+msgid "Minutes"
+msgstr "Минуты"
+
+#: schedule_functions.php:608
+msgid "Hours"
+msgstr "Часы"
+
+#: schedule_functions.php:608
+msgid "Days"
+msgstr "Дни"
+
+#: schedule_functions.php:608
+msgid "Months"
+msgstr "Месяцы"
+
+#: schedule_functions.php:608
+msgid "Weekdays"
+msgstr "Дни недели"
+
+#: module.xml
+msgid "Backup & Restore"
+msgstr "Резервное копирование и восстановление"

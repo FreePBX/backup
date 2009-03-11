@@ -1,248 +1,306 @@
-# translation of backup.po to
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: backup\n"
+"Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-27 15:00+0200\n"
-"PO-Revision-Date: 2008-10-27 21:09+0100\n"
-"Last-Translator: \n"
-"Language-Team:  <es@li.org>\n"
+"POT-Creation-Date: 2008-11-23 14:54+0100\n"
+"PO-Revision-Date: 2009-01-22 12:34+0100\n"
+"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: install.php:68
 msgid "removing retrieve_backup_cron_from_mysql.pl.."
-msgstr "borrando retrieve_backup_cron_from_mysql.pl.."
+msgstr "eliminando retrieve_backup_cron_from_mysql.pl.."
 
 #: install.php:70
 msgid "removed"
-msgstr "borrado"
+msgstr "eliminado"
 
 #: install.php:72
 msgid "failed"
-msgstr "fall&oacute;"
+msgstr "falló"
 
 #: page.backup.php:106
 msgid "Add Backup Schedule"
-msgstr "A&ntilde;adir programaci&oacute;n para copias de seguridad"
+msgstr "Añadir programación de copia de seguridad"
 
 #: page.backup.php:107
 msgid "Restore from Backup"
 msgstr "Restaurar desde copia de seguridad"
 
-#: page.backup.php:128 page.backup.php:151 page.backup.php:198
+#: page.backup.php:128
+#: page.backup.php:151
+#: page.backup.php:198
 msgid "System Backup"
 msgstr "Copia de seguridad del sistema"
 
-#: page.backup.php:136 page.backup.php:167
+#: page.backup.php:136
+#: page.backup.php:167
 msgid "Run Schedule"
-msgstr "Ejecutar programaci&oacute;n"
+msgstr "Ejecutar programación"
 
-#: page.backup.php:140 page.backup.php:171
+#: page.backup.php:140
+#: page.backup.php:171
 msgid "Submit Changes"
 msgstr "Enviar cambios"
 
 #: page.backup.php:154
 #, php-format
 msgid "Delete Backup Schedule %s"
-msgstr "Borrar programaci&oacute;n %s"
+msgstr "Eliminar programación de copia de seguridad %s"
 
 #: page.backup.php:182
 msgid "System Restore"
 msgstr "Restaurar sistema"
 
+#: schedule_functions.php:21
+#: schedule_functions.php:46
+msgid "Are you sure you want to delete this File Set?"
+msgstr "¿Está seguro de que desea eliminar esta copia de seguridad?"
+
 #: schedule_functions.php:22
 msgid "DELETE ALL THE DATA IN THIS SET"
-msgstr "BORRAR TODOS LOS DATOS DE ESTE CONJUNTO"
+msgstr "ELIMINAR TODOS LOS DATOS DE ESTA COPIA DE SEGURIDAD"
 
 #: schedule_functions.php:22
 msgid "Delete this backup set and all data associated with this backup set.."
-msgstr "Borrar esta copia de seguridad y todos los datos asociados con ella.."
+msgstr "Eliminar esta de copia de seguridad y todos los datos asociados..."
 
 #: schedule_functions.php:47
 msgid "Delete File Set"
-msgstr "Borrar conjunto de archivos"
+msgstr "Eliminar copia de seguridad"
 
 #: schedule_functions.php:47
 msgid "Delete this backup set."
-msgstr "Borrar esta copia de seguridad"
+msgstr "Eliminar esta copia de seguridad"
+
+#: schedule_functions.php:51
+msgid ""
+"Are you sure you want to restore this COMPLETE file set?\\n"
+"Doing so will permanently over-write all FreePBX and Asterisk files\\n"
+"You will lose all Your Call Detail Records and any Voicemail that was recorded between the BACKUP DATE and NOW!"
+msgstr ""
+"¿Está seguro de que desea restaurar completamente este conjunto de archivos?\\n"
+"Al hacer esto, eliminará definitivamente los archivos de configuración de Asterisk actuales.\\n"
+"Además perderá los informes de llamadas y cualquier mensaje del buzón de voz grabado entre la fecha de realización de la copia de seguridad y ahora."
 
 #: schedule_functions.php:52
 msgid "Restore Entire Backup Set"
-msgstr "Restaurar toda la copia de seguridad"
+msgstr "Restaurar copia de seguridad completa"
 
 #: schedule_functions.php:54
 msgid "Restore your Complete Backup set overwriting all files."
-msgstr "Restaurar tu copia de seguridad completa sobreescribiendo todos los archivos."
+msgstr "La restauración de la copia de seguridad completa sobreescribirá todos sus archivos"
+
+#: schedule_functions.php:58
+msgid ""
+"Are you sure you want to Restore this file set?\\n"
+"Doing so will permanently delete any new voicemail you have in your mailbox\\n"
+"since this backup on"
+msgstr ""
+"¿Está seguro de que desea restaurar este conjunto de archivos?\\n"
+"Al hacer esto, eliminará definitivamente los mensajes del buzón de voz de su cuenta desde que se hizo la copia de seguridad."
 
 #: schedule_functions.php:59
 msgid "Restore VoiceMail Files"
-msgstr "Restaurar archivos de mensajes de voz"
+msgstr "Restaurar archivos del buzón de voz"
 
 #: schedule_functions.php:61
+msgid "Restore your Voicemail files from this backup set.  NOTE! This will delete any voicemail currently in the voicemail boxes."
+msgstr "Restaura los archivos del buzón de voz de este conjunto de archivos de esta copia de seguridad. Tenga en cuenta que esto eliminará cualquier mensaje del buzón de voz que haya actualmente en su cuenta."
+
+#: schedule_functions.php:67
 msgid ""
-"Restore your Voicemail files from this backup set.  NOTE! This will delete "
-"any voicemail currently in the voicemail boxes."
-msgstr "Restaura tus archivos de mensajes de voz desde esta copia de seguridad.  NOTA! Esto borrar&aacute; cualquier mensaje de voz actualmente en los buzones."
+"Are you sure you want to Restore this file set?\\n"
+"NOTE! This will OVERWRITE any voicerecordings currently on the system. It will NOT delete new files not currently in the backup set"
+msgstr ""
+"¿Está seguro de que desea restaurar este conjunto de archivos?\\n"
+"Tenga en cuenta que esto sobreescribirá cualquier mensaje del buzón de voz del sistema. No eliminará los nuevos archivos que se encuentren en el sistema y que no se encuentren en el conjunto de archivos de la copia de seguridad."
 
 #: schedule_functions.php:68
 msgid "Restore System Recordings Files"
-msgstr "Restaurar archivos de las grabaciones del sistema"
+msgstr "Restaurar archivos de grabaciones del sistema"
 
 #: schedule_functions.php:70
+msgid "Restore your system Voice Recordings including AutoAttendent files from this backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the system. It will NOT delete new files not currently in the backup set"
+msgstr "Restaura las grabaciones de voz, incluyendo los archivos de recepcionista digital desde este conjunto de archivos. Tenga en cuenta que esto sobreescribirá cualquier grabación de voz que se encuentre actualmente en el sistema. No eliminará nuevos archivos que se encuentren en el sistema y que no se encuentren en el conjunto de archivos de la copia de seguridad."
+
+#: schedule_functions.php:74
 msgid ""
-"Restore your system Voice Recordings including AutoAttendent files from this "
-"backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the "
-"system. It will NOT delete new files not currently in the backup set"
-msgstr "Restaura tus grabaciones de voz del sistema incluyendo los archivos de Atenci&oacute;n Autom&aacute;tica desde esta copia de seguridad.  NOTA! Esto SOBREESCRIBIR&Aacute; cualquier grabaci&oacute;n de voz actualmente en el sistema. NO borrar&aacute; archivos nuevos que actualemnte no est&eacute; en la copia de seguridad."
+"Are you sure you want to Restore this File Set?\\n"
+"Doing so will Permanently Over-Write all FreePBX and Asterisk Files!"
+msgstr ""
+"¿Está seguro de que desea rastaurar este conjunto de archivos?\\n"
+"Al hacer esto, sobreescribirá definitivamente todos los archivos FreePBX y Asterisk."
 
 #: schedule_functions.php:75
 msgid "Restore System Configuration"
-msgstr "Restaurar configuraci&oacute;n del sistema"
+msgstr "Restaurar configuración del sistema"
 
 #: schedule_functions.php:75
+msgid "Restore your system configuration from this backup set.  NOTE! This will OVERWRITE any System changes you have made since this backup... ALL Itemes will be reset to what they were at the time of this backup set.."
+msgstr "Restaura la configuración del sistema desde este conjunto de archivos de la copia de seguridad. Tenga en cuenta que esto sobreescribirá cualquier cambio que se haya realizado desde que se hizo la copia de seguridad. Todos los elementos serán restaurados a su estado tal y como se encontraban cuando se hizo la copia de seguridad."
+
+#: schedule_functions.php:79
 msgid ""
-"Restore your system configuration from this backup set.  NOTE! This will "
-"OVERWRITE any System changes you have made since this backup... ALL Itemes "
-"will be reset to what they were at the time of this backup set.."
-msgstr "Restaura tu configuraci&oacute;n de sistema desde esta copia de seguridad.   NOTA! Esto SOBREESCRIBIRA cualquier cambio del sistema que hayas hecho despu&eacute;s de hacer esta copia de seguridad... TODOS los campos ser&aacute;n inicializado a los valores que ten&iacute;an en el momento de hacer la copia."
+"Are you sure you want to Restore the Operator Panel Files?\\n"
+"Doing so will Permanently Over-Write all Operator Panel Files!"
+msgstr ""
+"¿Está seguro de que desea restaurar los archivos del panel de operador?\\n"
+"Al hacer esto, sobreescribirá definitivamente todos los archivos del panel de operador."
 
 #: schedule_functions.php:80
 msgid "Restore Operator Panel"
 msgstr "Restaurar panel de operador"
 
 #: schedule_functions.php:82
+msgid "Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE any Operator Panel Changes you have made since this backup... ALL Itemes will be reset to what they were at the time of this backup set.."
+msgstr "Restaura los archivos del panel de operador Flash desde este conjunto de archivos de la copia de seguridad. Tenga en cuenta que esto sobreescribirá cualquier cambio que se haya realizado en el panel de operador Flash desde que se hizo la copia de seguridad. Todos los elementos serán restaurados a su estado tal y como se encontraban cuando se hizo la copia de seguridad."
+
+#: schedule_functions.php:87
 msgid ""
-"Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE "
-"any Operator Panel Changes you have made since this backup... ALL Itemes "
-"will be reset to what they were at the time of this backup set.."
-msgstr "Restaura el panel de operador desde esta copia de seguridad.  NOTA! Esto SOBREESCRIBIRA cualquier cambio hecho en el panel de operador despu&eacute;s de hacer esta copia... TODOS los campos ser&aacute;n inicializados al valor que ten&iacute;an en el momento de hacer la copia de seguridad."
+"Are you sure you want to Restore the CALL DETAIL FILES?\\n"
+"Doing so will Permanently DELETE all CALL RECORDS!"
+msgstr ""
+"¿Está seguro de que desea restaurar los archivos del registro de llamadas?\\n"
+"Al hacer esto eliminará permanentemente todos los registros de llamadas que se encuentran actualmente en la base de datos."
 
 #: schedule_functions.php:88
 msgid "Restore Call Detail Report"
-msgstr "Restaurar informe detallado de llamadas"
+msgstr "Restaurar registro de llamadas"
 
 #: schedule_functions.php:90
-msgid ""
-"Restore the Call Detail Records from this backup set.  NOTE! This will "
-"DELETE ALL CALL RECORDS that have been saved since this backup set.."
-msgstr "Restaurar los informes detallados de las llamadas desde esta copia de seguridad.  NOTA! Esto BORRARA TODOS LOS REGISTROS que hayan sido salvados despu&eacute;s de hacer esta copia..."
+msgid "Restore the Call Detail Records from this backup set.  NOTE! This will DELETE ALL CALL RECORDS that have been saved since this backup set.."
+msgstr "Restaura el registro de llamadas desde este conjunto de archivos de la copia de seguridad. Tenga en cuenta que esto eliminará todos los registros de llamadas que se hayan realizado desde que se hizo esta copia de seguridad."
 
 #: schedule_functions.php:95
 msgid "ERROR its not a BACKUP SET file"
-msgstr "ERROR no se trata de un archivo de copia de seguridad"
+msgstr "ERROR: El archivo no es una copia de seguridad"
 
 #: schedule_functions.php:148
 msgid "Restored All Files in BackupSet"
-msgstr "Restaurados todos los archivos de la copia de seguridad"
+msgstr "Se han restaurado todos los archivos"
 
 #: schedule_functions.php:165
 msgid "Restored VoiceMail"
-msgstr "Mensajes de voz restaurados"
+msgstr "Se ha restaurado el buzón de voz"
 
 #: schedule_functions.php:180
 msgid "Restored System Recordings"
-msgstr "Grabaciones del sistema restauradas"
+msgstr "Se han restaurado las grabaciones del sistema"
 
 #: schedule_functions.php:203
 msgid "Restored System Configuration"
-msgstr "Configuraci&oacute;n del sistema restaurado"
+msgstr "Se ha restaurado la configuración del sistema"
 
 #: schedule_functions.php:218
 msgid "Restored Operator Panel"
-msgstr "Panel de operador restaurado"
+msgstr "Se ha restaurado el panel de operador Flash"
 
 #: schedule_functions.php:239
 msgid "Restored CDR logs"
-msgstr "Trazas CDR restauradas"
+msgstr "Se han restaurado los registros de llamadas"
 
 #: schedule_functions.php:244
 msgid "Restore Failed, see System Status Notification for details"
-msgstr "Restauraci&oacute;n fallida, ver la notificaci&oacute;n del estado del sistema para m&aacute;s detalles"
+msgstr "La restauración ha fallado, revise las notificaciones del estado del sistema para obtener más detallles"
 
 #: schedule_functions.php:407
 msgid "Schedule Name:"
-msgstr "Nombre programaci&oacute;:"
+msgstr "Nombre de la programación:"
 
 #: schedule_functions.php:407
 msgid "Give this Backup Schedule a brief name to help you identify it."
-msgstr "D&eacute; un nombre a esta copia de seguridad que le ayude a identificarla."
+msgstr "Asigne un nombre a la programación de esta copia de seguridad para ayudarle a identificarla"
 
 #: schedule_functions.php:412
 msgid "VoiceMail"
-msgstr "Mensajes de voz"
+msgstr "Buzón de voz"
 
 #: schedule_functions.php:412
 msgid "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
-msgstr "Copia de seguridad de los mensajes de voz de los buzones del sistema... PRECAUCI&Oacute;N: Podr&iacute;a resultar un archivo muy grande"
+msgstr "Realiza una copia de seguridad de los buzones de voz. Tenga en cuenta que esto puede hacer que el archivo de la copia de seguridad sea muy grande."
 
-#: schedule_functions.php:414 schedule_functions.php:416
-#: schedule_functions.php:422 schedule_functions.php:424
-#: schedule_functions.php:430 schedule_functions.php:432
-#: schedule_functions.php:438 schedule_functions.php:440
-#: schedule_functions.php:446 schedule_functions.php:448
+#: schedule_functions.php:414
+#: schedule_functions.php:416
+#: schedule_functions.php:422
+#: schedule_functions.php:424
+#: schedule_functions.php:430
+#: schedule_functions.php:432
+#: schedule_functions.php:438
+#: schedule_functions.php:440
+#: schedule_functions.php:446
+#: schedule_functions.php:448
 msgid "yes"
-msgstr "s&iacute;"
+msgstr "Sí"
 
-#: schedule_functions.php:414 schedule_functions.php:416
-#: schedule_functions.php:422 schedule_functions.php:424
-#: schedule_functions.php:430 schedule_functions.php:432
-#: schedule_functions.php:438 schedule_functions.php:440
-#: schedule_functions.php:446 schedule_functions.php:448
+#: schedule_functions.php:414
+#: schedule_functions.php:416
+#: schedule_functions.php:422
+#: schedule_functions.php:424
+#: schedule_functions.php:430
+#: schedule_functions.php:432
+#: schedule_functions.php:438
+#: schedule_functions.php:440
+#: schedule_functions.php:446
+#: schedule_functions.php:448
 msgid "no"
-msgstr "no"
+msgstr "No"
 
 #: schedule_functions.php:420
 msgid "System Recordings"
 msgstr "Grabaciones del sistema"
 
 #: schedule_functions.php:420
-msgid ""
-"Backup the System Recordings (AutoAttendent, Music On Hold, System "
-"Recordings)"
-msgstr "Copia de seguridad de las grabaciones del sistema (Operadora autom&aacute;tica, m&uacute;sica en espera, grabaciones del sistema)"
+msgid "Backup the System Recordings (AutoAttendent, Music On Hold, System Recordings)"
+msgstr "Realiza una copia de seguridad de las grabaciones del sistema (recepcionista digital, música en espera, grabaciones del sistema)."
 
 #: schedule_functions.php:428
 msgid "System Configuration"
-msgstr "Configuraci&oacute;n del sistema"
+msgstr "Configuración del sistema"
 
 #: schedule_functions.php:428
 msgid "Backup the System Configurations (Database, etc files, SQL Database, astdb)"
-msgstr "Copia de seguridad de la configuraci&oacute;n del sistema (BBDD, archivos, BBDD SQL, astdb)"
+msgstr "Realiza una copia de seguridad de la configuración del sistema (base de datos, archivos de configuración, etc.)."
 
 #: schedule_functions.php:436
 msgid "CDR"
-msgstr "CDR"
+msgstr "Registro de llamadas"
 
 #: schedule_functions.php:436
 msgid "Backup the System Call Detail Reporting (HTML and Database)"
-msgstr "Copia de seguridad de los informes detallados de llamadas del sistema (HTML y BBDD)"
+msgstr "Realiza una copia de seguridad del registro de llamadas (archivos HTML y base de datos)."
 
 #: schedule_functions.php:444
 msgid "Operator Panel"
-msgstr "Panel de operadora"
+msgstr "Panel de operador Flash"
 
 #: schedule_functions.php:444
 msgid "Backup the Operator Panel (HTML and Database)"
-msgstr "Hacer copia del panel de operador (BBDD y HTML)"
+msgstr "Realiza una copia de seguridad del panel de operador Flash (archivos HTML y base de datos)"
 
-#: schedule_functions.php:495 schedule_functions.php:499
-#: schedule_functions.php:524 schedule_functions.php:528
-#: schedule_functions.php:553 schedule_functions.php:557
+#: schedule_functions.php:495
+#: schedule_functions.php:499
+#: schedule_functions.php:524
+#: schedule_functions.php:528
+#: schedule_functions.php:553
+#: schedule_functions.php:557
 msgid "All"
-msgstr "Todo"
+msgstr "Todos"
 
-#: schedule_functions.php:496 schedule_functions.php:500
-#: schedule_functions.php:525 schedule_functions.php:529
-#: schedule_functions.php:554 schedule_functions.php:558
+#: schedule_functions.php:496
+#: schedule_functions.php:500
+#: schedule_functions.php:525
+#: schedule_functions.php:529
+#: schedule_functions.php:554
+#: schedule_functions.php:558
 msgid "Selected"
-msgstr "Seleccionado"
+msgstr "Seleccionados"
 
 #: schedule_functions.php:533
 msgid "January"
@@ -302,7 +360,7 @@ msgstr "Martes"
 
 #: schedule_functions.php:564
 msgid "Wednesday"
-msgstr "Mi&eacute;rcoles"
+msgstr "Miércoles"
 
 #: schedule_functions.php:565
 msgid "Thursday"
@@ -314,7 +372,7 @@ msgstr "Viernes"
 
 #: schedule_functions.php:567
 msgid "Saturday"
-msgstr "S&aacute;bado"
+msgstr "Sábado"
 
 #: schedule_functions.php:568
 msgid "Sunday"
@@ -322,11 +380,11 @@ msgstr "Domingo"
 
 #: schedule_functions.php:576
 msgid "Run Backup"
-msgstr "Hacer copia de seguridad"
+msgstr "Ejecutar copia de seguridad"
 
 #: schedule_functions.php:578
 msgid "Follow Schedule Below"
-msgstr "Seguir la programaci&oacute;n que figura a continuaci&oacute;n"
+msgstr "Seguir la programación siguiente"
 
 #: schedule_functions.php:579
 msgid "Now"
@@ -338,15 +396,15 @@ msgstr "Diariamente (a medianoche)"
 
 #: schedule_functions.php:581
 msgid "Weekly (on Sunday)"
-msgstr "Semanalmente (en Domingo)"
+msgstr "Semanalmente (los domingos)"
 
 #: schedule_functions.php:582
 msgid "Monthly (on the 1st)"
-msgstr "Mensualmente (el primer d&iacute;a de cada mes)"
+msgstr "Mensualmente (el día 1)"
 
 #: schedule_functions.php:583
 msgid "Yearly (on 1st Jan)"
-msgstr "Anualmente (el 1 de Enero)"
+msgstr "Anualmente (el 1 de enero)"
 
 #: schedule_functions.php:608
 msgid "Minutes"
@@ -358,7 +416,7 @@ msgstr "Horas"
 
 #: schedule_functions.php:608
 msgid "Days"
-msgstr "D&iacute;as"
+msgstr "Días"
 
 #: schedule_functions.php:608
 msgid "Months"
@@ -366,9 +424,9 @@ msgstr "Meses"
 
 #: schedule_functions.php:608
 msgid "Weekdays"
-msgstr "D&iacute;as de la semana"
+msgstr "Semanas"
 
 #: module.xml
 msgid "Backup & Restore"
-msgstr "Copiar y restaurar"
+msgstr "Copias de seguridad"
 

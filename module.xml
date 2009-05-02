@@ -12,6 +12,7 @@
 		<module>core</module>
 	</depends>
 	<changelog>
+		*2.5.1.6* #3640
 		*2.5.1.5* #3323 backup fails if zaptel.conf or dahdi directory not present
 		*2.5.1.4* #3238, spelling
 		*2.5.1.3* description added to xml, Swedish

@@ -1,7 +1,9 @@
 <module>
 	<rawname>backup</rawname>
 	<name>Backup &amp; Restore</name>
-	<version>2.6.0.0</version>
+	<version>2.6.0.1</version>
+	<publisher>FreePBX</publisher>
+	<license>GPLv2+</license>
 	<type>tool</type>
 	<category>System Administration</category>
 	<description>Backup &amp; Restore for your FreePBX environment</description>
@@ -12,6 +14,7 @@
 		<module>core</module>
 	</depends>
 	<changelog>
+		*2.6.0.1* added publisher/lic
 		*2.6.0.0* #3224, #3640
 		*2.5.1.6* localization updates
 		*2.5.1.5* #3323 backup fails if zaptel.conf or dahdi directory not present
@@ -27,6 +30,6 @@
 		*2.4.1* #2269 clear several of the astdb objects before restore, and other bug fixes
 		*2.4.0* CHANGELOG TRUNCATED See SVN Repository
 	</changelog>
-	<location>release/2.6/backup-2.6.0.0.tgz</location>
-	<md5sum>2fb81d4b82b460ad23ce7ed195bc1f6b</md5sum>
+	<location>release/2.6/backup-2.6.0.1.tgz</location>
+	<md5sum>d6cbfb23d3c586489affd3991b1a4100</md5sum>
 </module>

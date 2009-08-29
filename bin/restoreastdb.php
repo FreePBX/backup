@@ -46,13 +46,14 @@ function getconf($filename) {
 $amportalconf = (isset($_ENV["FREEPBXCONFIG"]) && strlen($_ENV["FREEPBXCONFIG"])) ? $_ENV["FREEPBXCONFIG"] : "/etc/amportal.conf";
 $amp_conf = getconf($amportalconf);
 
-if (isset($amp_conf["ASTMANAGERHOST"])) {
+if (!isset($amp_conf["ASTMANAGERHOST"])) {
   $amp_conf["ASTMANAGERHOST"] = '127.0.0.1';
 }
-if (isset($amp_conf["ASTMANAGERPORT"])) {
+if (!isset($amp_conf["ASTMANAGERPORT"])) {
   $amp_conf["ASTMANAGERPORT"] = '5038';
 }
 
+require_once($amp_conf['AMPWEBROOT']."/admin/functions.inc.php");
 require_once($amp_conf['AMPWEBROOT']."/admin/common/php-asmanager.php");
 
 $astman         = new AGI_AsteriskManager();

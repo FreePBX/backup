@@ -106,7 +106,8 @@ function Restore_Tar_Files($dir="", $file="",$filetype="", $display="") {
 	global $asterisk_conf;
 	global $amp_conf;
 	$error = false;
-
+	$tar='/bin/tar';
+	if($amp_conf['AMPBACKUPSUDO']==true){$sudo='/usr/bin/sudo';}
 	if($filetype=="ALL") {
 
 		$fileholder=substr($file, 0,-7);
@@ -117,25 +118,25 @@ function Restore_Tar_Files($dir="", $file="",$filetype="", $display="") {
 		//
 		exec('/bin/rm -rf '.$amp_conf['ASTSPOOLDIR'].'/voicemail 2>&1',$out_arr,$ret);
 		$error = ($error || ($ret != 0));
-		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/voicemail.tar.gz | tar -Pxvz";
+		$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/voicemail.tar.gz | $tar -Pxvz";
 		exec($tar_cmd,$out_arr,$ret);
 		$error = ($error || ($ret != 0));
 
 		// Next, recordings cause same issue as above
 		//
-		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/recordings.tar.gz | tar -Pxvz";
+		$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/recordings.tar.gz | $tar -Pxvz";
 		exec($tar_cmd,$out_arr,$ret);
 		$error = ($error || ($ret != 0));
 
 		// Now the rest and then we'll get on with the databases
 		//
-		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/configurations.tar.gz | tar -Pxvz";
+		$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/configurations.tar.gz | $tar -Pxvz";
 		exec($tar_cmd,$out_arr,$ret);
 		$error = ($error || ($ret != 0));
-		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/fop.tar.gz /tmp/ampbackups.$fileholder/cdr.tar.gz  | tar -Pxvz";
+		$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/fop.tar.gz /tmp/ampbackups.$fileholder/cdr.tar.gz  | $tar -Pxvz";
 		exec($tar_cmd,$out_arr,$ret);
 		$error = ($error || ($ret != 0));
-		$tar_cmd="tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql /tmp/ampbackups.$fileholder/asteriskcdr.sql /tmp/ampbackups.$fileholder/astdb.dump";
+		$tar_cmd="$tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql /tmp/ampbackups.$fileholder/asteriskcdr.sql /tmp/ampbackups.$fileholder/astdb.dump";
 		exec($tar_cmd,$out_arr,$ret);
 		$error = ($error || ($ret != 0));
 
@@ -146,6 +147,11 @@ function Restore_Tar_Files($dir="", $file="",$filetype="", $display="") {
 		exec($sql_cmd,$out_arr,$ret);
 		$error = ($error || ($ret != 0));
 		exec($amp_conf['AMPBIN']."/restoreastdb.php $fileholder 2>&1",$out_arr,$ret);
+		$error = ($error || ($ret != 0));
+		
+		//restore additional file (aka AMPPROVROOT), using sudo if requested
+		$tar_cmd="$sudo $tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/phoneconfig.tar.gz |$sudo $tar -Pxvz";
+		exec($tar_cmd,$out_arr,$ret);
 		$error = ($error || ($ret != 0));
 		exec("/bin/rm -rf /tmp/ampbackups.$fileholder",$out_arr,$ret);
 		$error = ($error || ($ret != 0));
@@ -161,7 +167,7 @@ function Restore_Tar_Files($dir="", $file="",$filetype="", $display="") {
 		$error = ($error || ($ret != 0));
 		exec('/bin/rm -rf '.$amp_conf['ASTSPOOLDIR'].'/voicemail 2>&1',$out_arr,$ret);
 		$error = ($error || ($ret != 0));
-		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/voicemail.tar.gz | tar -Pxvz";
+		$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/voicemail.tar.gz | $tar -Pxvz";
 		exec($tar_cmd,$out_arr,$ret);
 		$error = ($error || ($ret != 0));
 		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
@@ -176,7 +182,7 @@ function Restore_Tar_Files($dir="", $file="",$filetype="", $display="") {
 		$fileholder=substr($file, 0,-7);
 		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
 		$error = ($error || ($ret != 0));
-		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/recordings.tar.gz | tar -Pxvz";
+		$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/recordings.tar.gz | $tar -Pxvz";
 		exec($tar_cmd,$out_arr,$ret);
 		$error = ($error || ($ret != 0));
 		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
@@ -191,10 +197,10 @@ function Restore_Tar_Files($dir="", $file="",$filetype="", $display="") {
 		$fileholder=substr($file, 0,-7);
 		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
 		$error = ($error || ($ret != 0));
-		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/configurations.tar.gz | tar -Pxvz";
+		$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/configurations.tar.gz | $tar -Pxvz";
 		exec($tar_cmd,$out_arr,$ret);
 		$error = ($error || ($ret != 0));
-		$tar_cmd="tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql /tmp/ampbackups.$fileholder/astdb.dump";
+		$tar_cmd="$$tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql /tmp/ampbackups.$fileholder/astdb.dump";
 		exec($tar_cmd,$out_arr,$ret);
 		$error = ($error || ($ret != 0));
 		$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asterisk.sql";
@@ -202,6 +208,10 @@ function Restore_Tar_Files($dir="", $file="",$filetype="", $display="") {
 		$error = ($error || ($ret != 0));
 		exec($amp_conf['AMPBIN']."/restoreastdb.php $fileholder 2>&1",$out_arr,$ret);
 		$error = ($error || ($ret != 0));
+		//restore additional file (aka AMPPROVROOT), using sudo if requested
+		$tar_cmd="$sudo $tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/phoneconfig.tar.gz |$sudo $tar -Pxvz";
+		exec($tar_cmd,$out_arr,$ret);
+		
 		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
 		$error = ($error || ($ret != 0));
 
@@ -214,7 +224,7 @@ function Restore_Tar_Files($dir="", $file="",$filetype="", $display="") {
 		$fileholder=substr($file, 0,-7);
 		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
 		$error = ($error || ($ret != 0));
-		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/fop.tar.gz | tar -Pxvz";
+		$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/fop.tar.gz | $tar -Pxvz";
 		exec($tar_cmd,$out_arr,$ret);
 		$error = ($error || ($ret != 0));
 		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
@@ -229,10 +239,10 @@ function Restore_Tar_Files($dir="", $file="",$filetype="", $display="") {
 		$fileholder=substr($file, 0,-7);
 		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
 		$error = ($error || ($ret != 0));
-		$tar_cmd="tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/cdr.tar.gz | tar -Pxvz";
+		$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/cdr.tar.gz | $tar -Pxvz";
 		exec($tar_cmd,$out_arr,$ret);
 		$error = ($error || ($ret != 0));
-		$tar_cmd="tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asteriskcdr.sql";
+		$tar_cmd="$tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asteriskcdr.sql";
 		exec($tar_cmd,$out_arr,$ret);
 		$error = ($error || ($ret != 0));
 		$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asteriskcdr.sql 2>&1";

@@ -37,7 +37,7 @@ if(!isset($amp_conf['AMPBACKADMIN'])){$amp_conf['AMPBACKADMIN']=true;}
 $opts['ftpfile']="/tmp/freepbx-backup.ftp";
 $opts['budir']=$amp_conf['ASTVARLIBDIR']."/backups";
 $opts['now']=date('Ymd.h.i.s');
-
+if($amp_conf['AMPBACKUPSUDO']==true){$sudo='/usr/bin/sudo';}
 //connect to database
 include('DB.php');
 $db = DB::connect('mysql://'.$amp_conf['AMPDBUSER'].':'.$amp_conf['AMPDBPASS'].'@'.$amp_conf['AMPDBHOST'].'/'.$amp_conf['AMPDBNAME']); // attempt connection
@@ -92,15 +92,15 @@ if($opts['configs']){
 	system($cmd);
 	if ($amp_conf['AMPPROVROOT']){
 	$xfile='';
-		if($amp_conf['AMPPROVEXCLUDE']){$xfile='--exclude-from '.$amp_conf['AMPPROVEXCLUDE'];};
+		if($amp_conf['AMPPROVEXCLUDE']){$xfile='--exclude-from '.$amp_conf['AMPPROVEXCLUDE'];};//file containing exclude list
 		if($amp_conf['AMPPROVEXCLUDELIST']){
 			$exclude='';
 			$ex=explode(' ',$amp_conf['AMPPROVEXCLUDELIST']);
-			foreach($ex as $x){
+			foreach($ex as $x){ //exclude each option in the space delimited list
 				$exclude.='--exclude='.$x.' ';
 			} 
 		}
-		system('/bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/phoneconfig.tar.gz '.$amp_conf['AMPPROVROOT'].' '.$xfile.' '.$exclude);
+		system($sudo.' /bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/phoneconfig.tar.gz '.$amp_conf['AMPPROVROOT'].' '.$xfile.' '.$exclude);
 	}
 	system('mysqldump --add-drop-table -h'.$amp_conf['AMPDBHOST'].' -u'.$amp_conf['AMPDBUSER'].' -p'.$amp_conf['AMPDBPASS'].' --database '.$amp_conf['AMPDBNAME'].' > /tmp/ampbackups.'.$opts['now'].'/asterisk.sql');
 }

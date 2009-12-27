@@ -31,7 +31,10 @@
 //get options
 $amp_conf=getconf((isset($_ENV['FREEPBXCONFIG']) && strlen($_ENV['FREEPBXCONFIG']))?$_ENV['FREEPBXCONFIG']:'/etc/amportal.conf');
 $ast_conf=getconf((isset($_ENV['ASTERISKCONFIG']) && strlen($_ENV['ASTERISKCONFIG']))?$_ENV['ASTERISKCONFIG']:'/etc/asterisk/asterisk.conf');
+//default some options if they are blank
 if(!isset($amp_conf['AMPBACKADMIN'])){$amp_conf['AMPBACKADMIN']=true;}
+if(!isset($amp_conf['AMPBACKUPEMAILFROM'])){$amp_conf['AMPBACKUPEMAILFROM']='backup@freepbx.org';}
+if(!isset($amp_conf['AMPBACKUPEMAILMAX'])){$amp_conf['AMPBACKUPEMAILMAX']='10MB';}
 //var_dump($amp_conf);
 //$opts=getOpts();
 $opts['ftpfile']="/tmp/freepbx-backup.ftp";
@@ -39,19 +42,11 @@ $opts['budir']=$amp_conf['ASTVARLIBDIR']."/backups";
 $opts['now']=date('Ymd.h.i.s');
 if($amp_conf['AMPBACKUPSUDO']==true){$sudo='/usr/bin/sudo';}
 //connect to database
-include('DB.php');
-$db = DB::connect('mysql://'.$amp_conf['AMPDBUSER'].':'.$amp_conf['AMPDBPASS'].'@'.$amp_conf['AMPDBHOST'].'/'.$amp_conf['AMPDBNAME']); // attempt connection
+include_once('DB.php');
+if(!isset($db)){$db = DB::connect('mysql://'.$amp_conf['AMPDBUSER'].':'.$amp_conf['AMPDBPASS'].'@'.$amp_conf['AMPDBHOST'].'/'.$amp_conf['AMPDBNAME']);} // attempt connection
 
 if($argc == 1){//no args recieved - show help text
-	echo "\n";
-	echo "# ampbackup.php Backup-set-ID \n";
-	echo "This script Reads the backup options from the BackupTable then runs the backup picking up the items that were turned.\n";
-	echo "\n";echo "                         --OR--                         \n";echo "\n";
-	echo "The program is called from the backup.php script and implemented immediately as such:\n";
-	echo "# ampbackup.php Name Voicemail(yes/no) Recordings(yes/no) Config_files(yes/no) CDR(yes/no) FOP(yes/no)\n";
-	echo " \n";
-	echo "example: ampbackup.php \"My_Nightly_Backup\" yes yes no no yes\n";
-	exit(1);
+	showopts();
 }elseif($argc == 2){//one arg recievied. Hmm, this sounds like a backup schedules id... Lets look in the DB for more details
 	$sql = "SELECT Name, Voicemail, Recordings, Configurations, CDR, FOP from Backup where ID= ?";
 	$res=$db->getRow($sql,array($argv[1]), DB_FETCHMODE_ASSOC);
@@ -73,7 +68,7 @@ $opts['fop']=(isset($argv[6])&& $argv[6]=='yes')?true:false;
 //var_dump($opts);
 
 //if all options are set to no/false, return an error
-if(!$opts['voicemail']&&!$opts['recordings']&&!$opts['configs']&&!$opts['cdr']&&!$opts['fop']){echo "You need to set at least one option to yes\n";exit(1);}
+if(!$opts['voicemail']&&!$opts['recordings']&&!$opts['configs']&&!$opts['cdr']&&!$opts['fop']){echo "Backup Error: You need to set at least one option to yes\n";showopts();}
 system('/bin/rm -rf /tmp/ampbackups.'.$opts['now'].' > /dev/null  2>&1');//remove stale backup
 system('/bin/mkdir /tmp/ampbackups.'.$opts['now'].' > /dev/null  2>&1');//create directory for current backup
 //backup voicmail if requested
@@ -92,8 +87,8 @@ if($opts['configs']){
 	system($cmd);
 	if ($amp_conf['AMPPROVROOT']){
 	$xfile='';
-		if($amp_conf['AMPPROVEXCLUDE']){$xfile='--exclude-from '.$amp_conf['AMPPROVEXCLUDE'];};//file containing exclude list
-		if($amp_conf['AMPPROVEXCLUDELIST']){
+		if(isset($amp_conf['AMPPROVEXCLUDE']) && $amp_conf['AMPPROVEXCLUDE']){$xfile='--exclude-from '.$amp_conf['AMPPROVEXCLUDE'];};//file containing exclude list
+		if(isset($amp_conf['AMPPROVEXCLUDELIST']) && $amp_conf['AMPPROVEXCLUDELIST']){
 			$exclude='';
 			$ex=explode(' ',$amp_conf['AMPPROVEXCLUDELIST']);
 			foreach($ex as $x){ //exclude each option in the space delimited list
@@ -135,6 +130,7 @@ if(isset($amp_conf['FTPBACKUP']) && $amp_conf['FTPBACKUP']=='yes'){
 	system ('ftp -n '.$amp_conf['FTPSERVER'].' < '.$opts['ftpfile'].' > /dev/null  2>&1');
 }
 
+//SSH backup
 if(isset($amp_conf['SSHBACKUP']) && $amp_conf['SSHBACKUP']=='yes'){
 	if(($amp_conf['SSHRSAKEY']!='') && ($amp_conf['SSHSERVER']!='')){
 		if ($amp_conf['SSHUSER']!=''){
@@ -147,7 +143,80 @@ if(isset($amp_conf['SSHBACKUP']) && $amp_conf['SSHBACKUP']=='yes'){
 	}
 }
 
+//EMAIL backup
+if($amp_conf['AMPBACKUPEMAIL']=='yes' && isset($amp_conf['AMPBACKUPEMAILADDR'])){
+	if(filesize($opts['budir'].'/'.$opts['name']) <= size2bytes(strtoupper($amp_conf['AMPBACKUPEMAILMAX']))){
+		//credit to: http://articles.sitepoint.com/print/advanced-email-php
+		$hostname=exec('/bin/hostname',$name);
+		$subject = 'FreePBX backup of '.$hostname;
+		$emessage = sprintf("Hello. Attached, please find your FreePBX backup file from backup set: %s, run on %s, at %s",$opts['name'],$hostname,date('Y-m-d h:i:sa')); 
+		
+		// Obtain file info
+		$filename=$opts['budir'].'/'.$opts['name'].'/'.$opts['now'].'.tar.gz';
+		exec('file -bi '.$filename,$type);
+		$file_type=$type[0];
+		
+		$headers = 'From: '.$amp_conf['AMPBACKUPEMAILFROM'];
+		// Read the file to be attached ('rb' = read binary)
+		$file = fopen($filename,'rb');
+		$data = fread($file,filesize($filename));
+		fclose($file);
+		
+		// Generate a random boundary string
+		$mime_boundary='==Multipart_Boundary_x'.md5(time()).'x';
+		// Add the headers for a file attachment
+		$headers.="\nMIME-Version: 1.0\n";
+		$headers.="Content-Type: multipart/mixed;\n";
+		$headers.=" boundary=\"{$mime_boundary}\"";
+		// Add a multipart boundary above the plain message
+		$message="This is a multi-part message in MIME format.\n\n";
+		$message.="--{$mime_boundary}\n";
+		$message.="Content-Type: text/plain; charset=\"iso-8859-1\"\n";
+		$message.="Content-Transfer-Encoding: 7bit\n\n";
+		$message.=$emessage . "\n\n";
+		// Base64 encode the file data
+		$data = chunk_split(base64_encode($data));
+		// Add file attachment to the message
+		$message.="--{$mime_boundary}\n";
+		$message.="Content-Type: {$file_type};\n";
+		$message.=' name="'.$opts['now'].'.tar.gz'."\"\n";
+		//$message.="Content-Disposition: attachment;\n";
+		//$message.=" filename=\"{$file}\"\n";
+		$message.="Content-Transfer-Encoding: base64\n\n";
+		$message.=$data . "\n\n";
+		$message.="--{$mime_boundary}--\n";
+		
+		//debug output
+		//echo "To:\n";echo $amp_conf['AMPBACKUPEMAILADDR'];echo "\n\nSubject:\n";echo $subject;echo "\n\nMessage:\n";echo $message;echo "\n\nHeaders:\n";echo $headers."\n";
+		// Send the message
+		mail($amp_conf['AMPBACKUPEMAILADDR'], $subject, $message, $headers);
+	}
+}
 
+
+function size2bytes($str){ 
+  $bytes=0; 
+  $bytes_array=array('B' => 1, 'KB' => 1024, 'MB' => 1024 * 1024, 'GB' => 1024 * 1024 * 1024, 
+								'TB' => 1024 * 1024 * 1024 * 1024, 'PB' => 1024 * 1024 * 1024 * 1024 * 1024,); 
+  $bytes=floatval($str);
+  if(preg_match('#([KMGTP]?B)$#si', $str, $matches) && !empty($bytes_array[$matches[1]])){ 
+      $bytes*=$bytes_array[$matches[1]]; 
+  } 
+  $bytes=intval(round($bytes, 2)); 
+  return $bytes; 
+} 
+
+function showopts(){
+	echo "\n";
+	echo "# ampbackup.php Backup-set-ID \n";
+	echo "This script Reads the backup options from the BackupTable then runs the backup picking up the items that were turned.\n";
+	echo "\n";echo "                         --OR--                         \n";echo "\n";
+	echo "The program is called from the backup.php script and implemented immediately as such:\n";
+	echo "# ampbackup.php Name Voicemail(yes/no) Recordings(yes/no) Config_files(yes/no) CDR(yes/no) FOP(yes/no)\n";
+	echo " \n";
+	echo "example: ampbackup.php \"My_Nightly_Backup\" yes yes no no yes\n";
+	exit(1);
+}
 function getconf($filename) {
   $file = file($filename);
   foreach($file as $line => $cont){
@@ -171,7 +240,7 @@ function getOpts(){
 }
 
 function dbug($disc=null,$msg=null){
-	$debug=false;
+	$debug=true;
 	if ($debug){
 	$fh = fopen("/tmp/freepbx_debug.log", 'a') or die("can't open file");
 	if($disc){$disc=' \''.$disc.'\':';}

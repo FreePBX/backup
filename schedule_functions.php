@@ -296,9 +296,13 @@ function Save_Backup_Schedule($Backup_Parms, $backup_options )
 	global $amp_conf;
 	if ($Backup_Parms[1]=="now")
 	{
-		$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/ampbackup.pl '$Backup_Parms[0]' $backup_options[0] $backup_options[1] $backup_options[2] $backup_options[3] $backup_options[4]";
+		$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/ampbackup.php '$Backup_Parms[0]' $backup_options[0] $backup_options[1] $backup_options[2] $backup_options[3] $backup_options[4]";
 		//echo "$Cron_Script";
-		exec($Cron_Script);
+		 //list($Backup_Parms[0], $backup_options[0], $backup_options[1], $backup_options[2], $backup_options[3], $backup_options[4])=$argv;
+		 $argv=array('', $Backup_Parms[0], $backup_options[0], $backup_options[1], $backup_options[2], $backup_options[3], $backup_options[4]);
+		$argc=count($argv);
+		include($asterisk_conf['astvarlibdir'].'/bin/ampbackup.php');
+		//exec($Cron_Script);
 	}
 	$sql = "INSERT INTO Backup (Name, Voicemail, Recordings, Configurations, CDR, FOP, Minutes, Hours, Days, Months,Weekdays, Command, Method ) VALUES (";
         $sql .= "'".$Backup_Parms[0]."',";
@@ -326,15 +330,15 @@ function Save_Backup_Schedule($Backup_Parms, $backup_options )
 function Get_Backup_String($name, $backup_schedule, $ALL_days, $ALL_months, $ALL_weekdays, $mins="", $hours="", $days="", $months="", $weekdays="") {
 	global $asterisk_conf;
 	if ($backup_schedule=="hourly")
-		$Cron_String="0 * * * * ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.pl";
+		$Cron_String="0 * * * * ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.php";
 	else if ($backup_schedule=="daily")
-		$Cron_String="0 0 * * * ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.pl";
+		$Cron_String="0 0 * * * ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.php";
 	else if ($backup_schedule=="weekly")
-		$Cron_String="0 0 * * 0 ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.pl";
+		$Cron_String="0 0 * * 0 ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.php";
 	else if ($backup_schedule=="monthly")
-		$Cron_String="0 0 1 * * ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.pl";
+		$Cron_String="0 0 1 * * ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.php";
 	else if ($backup_schedule=="yearly")
-		$Cron_String="0 0 1 1 * ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.pl";
+		$Cron_String="0 0 1 1 * ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.php";
 	else if ($backup_schedule=="follow_schedule")
 	{
 		
@@ -368,24 +372,23 @@ function Get_Backup_String($name, $backup_schedule, $ALL_days, $ALL_months, $ALL
 			foreach ($weekdays as $value)
 		        	$weekdays_string.=":$value:";
 		}
-
-	       	$cron_mins_string=trim($mins_string,":");
+	  $cron_mins_string=trim($mins_string,":");
 		$cron_hours_string=trim($hours_string,":");
 		$cron_days_string=trim($days_string,":");
 		$cron_months_string=trim($months_string,":");
 		$cron_weekdays_string=trim($weekdays_string,":");
-		$Cron_String=str_replace("::", ",", "$cron_mins_string $cron_hours_string $cron_days_string $cron_months_string $cron_weekdays_string ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.pl");
+		$Cron_String=str_replace("::", ",", "$cron_mins_string $cron_hours_string $cron_days_string $cron_months_string $cron_weekdays_string ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.php");
 	}
 	else if ($backup_schedule=="now")
-		$Cron_String="0 0 0 0 0 ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.pl";
-	$Backup_String[]="$name";
-	$Backup_String[]="$backup_schedule";
-	$Backup_String[]="$mins_string";
-	$Backup_String[]="$hours_string";
-	$Backup_String[]="$days_string";
-	$Backup_String[]="$months_string";
-	$Backup_String[]="$weekdays_string";
-	$Backup_String[]="$Cron_String";
+	$Cron_String="0 0 0 0 0 ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.php";
+	$Backup_String[]=$name;
+	$Backup_String[]=$backup_schedule;
+	$Backup_String[]=isset($mins_string)?$mins_string:'';
+	$Backup_String[]=isset($hours_string)?$hours_string:'';
+	$Backup_String[]=isset($days_string)?$days_string:'';
+	$Backup_String[]=isset($months_string)?$months_string:'';
+	$Backup_String[]=isset($weekdays_string)?$weekdays_string:'';
+	$Backup_String[]=$Cron_String;
 
 	return ($Backup_String);
 }
@@ -411,6 +414,7 @@ function Get_Backup_Options($BackupID)
 }
 function Show_Backup_Options($ID="")
 {
+	$tabindex=0;
 	if ($ID==""){
 		$name=""; $voicemail="no"; $sysrecordings="no"; $sysconfig="no"; $cdr="no"; $fop="no";}
 	else{
@@ -614,7 +618,12 @@ function show_schedule($quickbar="no", $BackupID="")
 	else{
 		$backup_times=Get_Backup_Times($BackupID);
 		foreach ($backup_times as $bk_times) 
-			$Minutes="$bk_times[0]"; $Hours="$bk_times[1]"; $Days="$bk_times[2]"; $Months="$bk_times[3]"; $Weekdays="$bk_times[4]"; $Method="$bk_times[5]";
+			$Minutes=$bk_times[0]?"$bk_times[0]":'';
+			$Hours=$bk_times[1]?"$bk_times[1]":'';
+			$Days=$bk_times[2]?"$bk_times[2]":'';
+			$Months=$bk_times[3]?"$bk_times[3]":'';
+			$Weekdays=$bk_times[4]?"$bk_times[4]":'';
+			$Method=$bk_times[5]?"$bk_times[5]":'';
 		
 	}
 	if ($quickbar=="yes")

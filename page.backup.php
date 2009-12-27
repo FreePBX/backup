@@ -73,11 +73,11 @@ switch ($action) {
 		$ALL_weekdays=$_REQUEST['all_weekdays'];
 
 		$backup_schedule=$_REQUEST['backup_schedule'];
-		$mins=$_REQUEST['mins'];
-		$hours=$_REQUEST['hours'];
-		$days=$_REQUEST['days'];
-		$months=$_REQUEST['months'];
-		$weekdays=$_REQUEST['weekdays'];
+		$mins=isset($_REQUEST['mins'])?$_REQUEST['mins']:'';
+		$hours=isset($_REQUEST['hours'])?$_REQUEST['hours']:'';
+		$days=isset($_REQUEST['days'])?$_REQUEST['days']:'';
+		$months=isset($_REQUEST['months'])?$_REQUEST['months']:'';
+		$weekdays=isset($_REQUEST['weekdays'])?$_REQUEST['weekdays']:'';
 		
 		$backup_options[]=$_REQUEST['bk_voicemail'];
 		$backup_options[]=$_REQUEST['bk_sysrecordings'];

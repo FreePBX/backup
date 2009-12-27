@@ -33,6 +33,6 @@
 		*2.4.1* #2269 clear several of the astdb objects before restore, and other bug fixes
 		*2.4.0* CHANGELOG TRUNCATED See SVN Repository
 	</changelog>
-	<location>release/2.6/backup-2.6.0.3.tgz</location>
-	<md5sum>bf2af41ca5afadd2f5a4bc9f012f445c</md5sum>
+	<location>release/2.6/backup-2.6.0.4.tgz</location>
+	<md5sum>3d773c3c8fd243366397becc4a932b47</md5sum>
 </module>

@@ -239,18 +239,20 @@ function getOpts(){
 	return isset($opts)?$opts:false;
 }
 
-function dbug($disc=null,$msg=null){
-	$debug=true;
-	if ($debug){
-	$fh = fopen("/tmp/freepbx_debug.log", 'a') or die("can't open file");
-	if($disc){$disc=' \''.$disc.'\':';}
-	fwrite($fh,date("Y-M-d H:i:s").$disc."\n"); //add timestamp
-	if (is_array($msg)) {
-		fwrite($fh,print_r($msg,true)."\n");
-	} else {
-		fwrite($fh,$msg."\n");
-	}
-	fclose($fh);
+if(!function_exists('dbug')){
+	function dbug($disc=null,$msg=null){
+		$debug=true;
+		if ($debug){
+		$fh = fopen("/tmp/freepbx_debug.log", 'a') or die("can't open file");
+		if($disc){$disc=' \''.$disc.'\':';}
+		fwrite($fh,date("Y-M-d H:i:s").$disc."\n"); //add timestamp
+		if (is_array($msg)) {
+			fwrite($fh,print_r($msg,true)."\n");
+		} else {
+			fwrite($fh,$msg."\n");
+		}
+		fclose($fh);
+		}
 	}
 }
 ?>

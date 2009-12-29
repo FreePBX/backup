@@ -298,11 +298,14 @@ function Save_Backup_Schedule($Backup_Parms, $backup_options )
 	{
 		$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/ampbackup.php '$Backup_Parms[0]' $backup_options[0] $backup_options[1] $backup_options[2] $backup_options[3] $backup_options[4]";
 		//echo "$Cron_Script";
-		 //list($Backup_Parms[0], $backup_options[0], $backup_options[1], $backup_options[2], $backup_options[3], $backup_options[4])=$argv;
-		 $argv=array('', $Backup_Parms[0], $backup_options[0], $backup_options[1], $backup_options[2], $backup_options[3], $backup_options[4]);
-		$argc=count($argv);
-		include($asterisk_conf['astvarlibdir'].'/bin/ampbackup.php');
-		//exec($Cron_Script);
+		/* 
+		 * ***** Next few lines would execute the script nativly, but will show the shebang in the web page *****
+		 * 		 
+		 * $argv=array('', $Backup_Parms[0], $backup_options[0], $backup_options[1], $backup_options[2], $backup_options[3], $backup_options[4]);
+		 * $argc=count($argv);
+		 * include($asterisk_conf['astvarlibdir'].'/bin/ampbackup.php')
+		 */		 
+		exec($Cron_Script);
 	}
 	$sql = "INSERT INTO Backup (Name, Voicemail, Recordings, Configurations, CDR, FOP, Minutes, Hours, Days, Months,Weekdays, Command, Method ) VALUES (";
         $sql .= "'".$Backup_Parms[0]."',";

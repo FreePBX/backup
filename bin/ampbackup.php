@@ -57,14 +57,14 @@ if($argc == 1){//no args recieved - show help text
 	$opts['configs']=(isset($res['Configurations'])&& $res['Configurations']=='yes')?true:false;
 	$opts['cdr']=(isset($res['CDR'])&& $res['CDR']=='yes')?true:false;
 	$opts['fop']=(isset($res['FOP'])&& $res['FOP']=='yes')?true:false;
+}else{
+	$opts['name']=isset($argv[1])?$argv[1]:false;
+	$opts['voicemail']=(isset($argv[2])&& $argv[2]=='yes')?true:false;
+	$opts['recordings']=(isset($argv[3])&& $argv[3]=='yes')?true:false;
+	$opts['configs']=(isset($argv[4])&& $argv[4]=='yes')?true:false;
+	$opts['cdr']=(isset($argv[5])&& $argv[5]=='yes')?true:false;
+	$opts['fop']=(isset($argv[6])&& $argv[6]=='yes')?true:false;
 }
-
-$opts['name']=isset($argv[1])?$argv[1]:false;
-$opts['voicemail']=(isset($argv[2])&& $argv[2]=='yes')?true:false;
-$opts['recordings']=(isset($argv[3])&& $argv[3]=='yes')?true:false;
-$opts['configs']=(isset($argv[4])&& $argv[4]=='yes')?true:false;
-$opts['cdr']=(isset($argv[5])&& $argv[5]=='yes')?true:false;
-$opts['fop']=(isset($argv[6])&& $argv[6]=='yes')?true:false;
 //var_dump($opts);
 
 //if all options are set to no/false, return an error

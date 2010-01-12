@@ -344,7 +344,8 @@ function Get_Backup_String($name, $backup_schedule, $ALL_days, $ALL_months, $ALL
 		$Cron_String="0 0 1 1 * ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.php";
 	else if ($backup_schedule=="follow_schedule")
 	{
-		
+		$mins_string='';
+		$hours_string='';
 		if (count($mins)<1)
         		$mins_string=":0:";
 		else{

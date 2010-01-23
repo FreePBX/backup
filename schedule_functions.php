@@ -73,19 +73,19 @@ function Get_Tar_Files($dir="", $display="", $file="") {
  				echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore this file set?\\nNOTE! This will OVERWRITE any voicerecordings currently on the system. It will NOT delete new files not currently in the backup set")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=Recordings&file=$file')\">";
 				echo _("Restore System Recordings Files"); 
 				echo "<span>"; 
-				echo _("Restore your system Voice Recordings including AutoAttendent files from this backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the system. It will NOT delete new files not currently in the backup set"); echo "</span></a><br></li>";
+				echo _("Restore your system Voice Recordings including AutoAttendant files from this backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the system. It will NOT delete new files not currently in the backup set"); echo "</span></a><br></li>";
 				echo "<br>";
 			}
 			if (array_search('configurations.tar.gz',$restore_files)){
 				echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore this File Set?\\nDoing so will Permanently Over-Write all FreePBX and Asterisk Files!")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=Configurations&file=$file')\">";
-				echo _("Restore System Configuration"); echo "<span>"; echo _("Restore your system configuration from this backup set.  NOTE! This will OVERWRITE any System changes you have made since this backup... ALL Itemes will be reset to what they were at the time of this backup set.."); echo "</span></a><br></li>";
+				echo _("Restore System Configuration"); echo "<span>"; echo _("Restore your system configuration from this backup set.  NOTE! This will OVERWRITE any System changes you have made since this backup... ALL items will be reset to what they were at the time of this backup set.."); echo "</span></a><br></li>";
 				echo "<br>";
 			}
 			if (array_search('fop.tar.gz',$restore_files)){
 				echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore the Operator Panel Files?\\nDoing so will Permanently Over-Write all Operator Panel Files!")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=FOP&file=$file')\">";
 				echo _("Restore Operator Panel"); 
 				echo "<span>"; 
-				echo _("Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE any Operator Panel Changes you have made since this backup... ALL Itemes will be reset to what they were at the time of this backup set.."); 
+				echo _("Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE any Operator Panel Changes you have made since this backup... ALL items will be reset to what they were at the time of this backup set.."); 
 				echo "</span></a><br></li>";
 				echo "<br>";
 			}
@@ -157,7 +157,7 @@ function Restore_Tar_Files($dir="", $file="",$filetype="", $display="") {
 		$error = ($error || ($ret != 0));
 
 		if (!error) {
-			$Message=_("Restored All Files in BackupSet");
+			$Message=_("Restored All Files in Backup Set");
 		}
 
 	} else if($filetype=="VoiceMail") {
@@ -441,7 +441,7 @@ function Show_Backup_Options($ID="")
  		<?php } ?>
  	</tr>
 	<tr>
- 		<td><a href="#" class="info"><?php echo _("System Recordings");?><span><?php echo _("Backup the System Recordings (AutoAttendent, Music On Hold, System Recordings)");?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _("System Recordings");?><span><?php echo _("Backup the System Recordings (AutoAttendant, Music On Hold, System Recordings)");?></span></a>: </td>
  		<?php if ($sysrecordings == "yes"){?>
  			<td><input type="radio" name="bk_sysrecordings" value="yes" checked=checked/> <?php echo _("yes");?> &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="bk_sysrecordings" value="no"/> <?php echo _("no");?></td>
  		<?php } else{ ?>

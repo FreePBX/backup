@@ -1,14 +1,26 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# This file is part of FreePBX.
+#
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2008, 2009 Mikael Carlsson <mickecamino@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-23 14:54+0100\n"
-"PO-Revision-Date: 2008-11-23 15:09+0100\n"
+"PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -132,8 +144,8 @@ msgid "Restore System Recordings Files"
 msgstr "Återställ systeminspelningarna"
 
 #: schedule_functions.php:70
-msgid "Restore your system Voice Recordings including AutoAttendent files from this backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the system. It will NOT delete new files not currently in the backup set"
-msgstr "Återställer dina systeminspelningar inklusive filerna för AutoAttendent . NOTERA! Detta kommer att SKRIVA ÖVER alla systeminspelningar i systemet, men kommer INTE att ta bort nya filer som inte finns i denna säkerhetskopia."
+msgid "Restore your system Voice Recordings including AutoAttendant files from this backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the system. It will NOT delete new files not currently in the backup set"
+msgstr "Återställer dina systeminspelningar inklusive filerna för AutoAttendant . NOTERA! Detta kommer att SKRIVA ÖVER alla systeminspelningar i systemet, men kommer INTE att ta bort nya filer som inte finns i denna säkerhetskopia."
 
 #: schedule_functions.php:74
 msgid ""
@@ -148,7 +160,7 @@ msgid "Restore System Configuration"
 msgstr "Återställ systemkonfigurationen"
 
 #: schedule_functions.php:75
-msgid "Restore your system configuration from this backup set.  NOTE! This will OVERWRITE any System changes you have made since this backup... ALL Itemes will be reset to what they were at the time of this backup set.."
+msgid "Restore your system configuration from this backup set.  NOTE! This will OVERWRITE any System changes you have made since this backup... ALL items will be reset to what they were at the time of this backup set.."
 msgstr "Återställer din systemkonfiguration från denna säkerhetskopia. NOTERA! Detta kommer att SKRIVA ÖVER alla förändringar i ditt system du gjort efter denna säkerhetskopia... ALLT kommer att återställas till den status systemet hade vid tiden för denna säkerhetskopia."
 
 #: schedule_functions.php:79
@@ -164,7 +176,7 @@ msgid "Restore Operator Panel"
 msgstr "Återställ Operatörspanelen"
 
 #: schedule_functions.php:82
-msgid "Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE any Operator Panel Changes you have made since this backup... ALL Itemes will be reset to what they were at the time of this backup set.."
+msgid "Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE any Operator Panel Changes you have made since this backup... ALL items will be reset to what they were at the time of this backup set.."
 msgstr "Återställer operatörspanelen från denna säkerhetskopia. NOTERA! Detta kommer att SKRIVA ÖVER alla förändringar som skett i operatörspanelen sedan säkerhetskopian togs... ALLT kommer att återställas till den status operatörspanelen hade vid tiden för denna säkerhetskopia."
 
 #: schedule_functions.php:87
@@ -188,7 +200,7 @@ msgid "ERROR its not a BACKUP SET file"
 msgstr "FEL! Detta är ingen säkerhetskopia"
 
 #: schedule_functions.php:148
-msgid "Restored All Files in BackupSet"
+msgid "Restored All Files in Backup Set"
 msgstr "Återställde alla filer i säkerhetskopian"
 
 #: schedule_functions.php:165
@@ -262,8 +274,8 @@ msgid "System Recordings"
 msgstr "Systeminspelningar"
 
 #: schedule_functions.php:420
-msgid "Backup the System Recordings (AutoAttendent, Music On Hold, System Recordings)"
-msgstr "Säkerhetskopiera Systeminspelningar (AutoAttendent, Pausmusik, Systeminspelningar)"
+msgid "Backup the System Recordings (AutoAttendant, Music On Hold, System Recordings)"
+msgstr "Säkerhetskopiera Systeminspelningar (AutoAttendant, Pausmusik, Systeminspelningar)"
 
 #: schedule_functions.php:428
 msgid "System Configuration"

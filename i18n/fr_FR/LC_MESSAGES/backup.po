@@ -15,13 +15,12 @@
 #
 # Copyright (C) 2009 Séverine GUTIERREZ, severine@medialsace.fr
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-23 14:54+0100\n"
-"PO-Revision-Date: 2009-04-15 18:22+0100\n"
+"PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
 "Language-Team: Français <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -146,11 +145,11 @@ msgstr "Restaurer les Fichiers d'Enregistrement Système"
 
 #: schedule_functions.php:70
 msgid ""
-"Restore your system Voice Recordings including AutoAttendent files from this "
+"Restore your system Voice Recordings including AutoAttendant files from this "
 "backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the "
 "system. It will NOT delete new files not currently in the backup set"
 msgstr ""
-"Restaurer les Enregistrements Vocaux du sytème, en incluant les fichiers AutoAttendent "
+"Restaurer les Enregistrements Vocaux du sytème, en incluant les fichiers AutoAttendant "
 "de ce jeu de sauvegardes. ATTENTION ! Ceci ECRASERA tout enregistrement vocal actuellement "
 "présent sur le système. Ceci ne supprimera PAS les nouveaux fichiers qui ne font pas partie "
 "de ce jeu d'enregistrement."
@@ -168,7 +167,7 @@ msgstr "Restaurer la Configuration du Système"
 #: schedule_functions.php:75
 msgid ""
 "Restore your system configuration from this backup set.  NOTE! This will "
-"OVERWRITE any System changes you have made since this backup... ALL Itemes "
+"OVERWRITE any System changes you have made since this backup... ALL items "
 "will be reset to what they were at the time of this backup set.."
 msgstr ""
 "Restaurer la configuration du système à partir de ce jeu de sauvegarde. ATTENTION ! "
@@ -191,7 +190,7 @@ msgstr "Restaurer le Panneau"
 #: schedule_functions.php:82
 msgid ""
 "Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE "
-"any Operator Panel Changes you have made since this backup... ALL Itemes "
+"any Operator Panel Changes you have made since this backup... ALL items "
 "will be reset to what they were at the time of this backup set.."
 msgstr ""
 "Restaurer le Panneau à partir de ce jeu de sauvegardes. ATTENTION ! Cette action "
@@ -225,7 +224,7 @@ msgid "ERROR its not a BACKUP SET file"
 msgstr "ERREUR ce n'est pas un fichier de JEU DE SAUVEGARDES"
 
 #: schedule_functions.php:148
-msgid "Restored All Files in BackupSet"
+msgid "Restored All Files in Backup Set"
 msgstr "Fichiers du Jeu de Sauvegardes Restaurés"
 
 #: schedule_functions.php:165
@@ -294,10 +293,10 @@ msgstr "Enregistrements Système"
 
 #: schedule_functions.php:420
 msgid ""
-"Backup the System Recordings (AutoAttendent, Music On Hold, System "
+"Backup the System Recordings (AutoAttendant, Music On Hold, System "
 "Recordings)"
 msgstr ""
-"Sauvegarder les Enregistrements Système (AutoAttendent, Musique d'Attente, "
+"Sauvegarder les Enregistrements Système (AutoAttendant, Musique d'Attente, "
 "Enregistrements Système)"
 
 #: schedule_functions.php:428

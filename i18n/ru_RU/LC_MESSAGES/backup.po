@@ -1,3 +1,18 @@
+# This file is part of FreePBX.
+#
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
 # Russian freePBX ver. translation
 # Copyright (c) 2006-2008 PostMet Corporation
 # This file is distributed under the same license as the freePBX package.
@@ -10,7 +25,7 @@ msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-28 01:45+0100\n"
-"PO-Revision-Date: 2008-09-28 16:38+0100\n"
+"PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
 "Language-Team: Russian <faq@postmet.com>\n"
 "MIME-Version: 1.0\n"
@@ -100,7 +115,7 @@ msgstr "Восстановить файлы записи ситемных сообщений."
 
 #: schedule_functions.php:70
 msgid ""
-"Restore your system Voice Recordings including AutoAttendent files from this "
+"Restore your system Voice Recordings including AutoAttendant files from this "
 "backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the "
 "system. It will NOT delete new files not currently in the backup set"
 msgstr ""
@@ -115,7 +130,7 @@ msgstr "Восстановить конфигурацию системы"
 #: schedule_functions.php:75
 msgid ""
 "Restore your system configuration from this backup set.  NOTE! This will "
-"OVERWRITE any System changes you have made since this backup... ALL Itemes "
+"OVERWRITE any System changes you have made since this backup... ALL items "
 "will be reset to what they were at the time of this backup set.."
 msgstr ""
 "Восстановить конфигурационные файлы ситемы из этого комплекта резервного копирования."
@@ -129,7 +144,7 @@ msgstr "Восстановить панель оператора"
 #: schedule_functions.php:82
 msgid ""
 "Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE "
-"any Operator Panel Changes you have made since this backup... ALL Itemes "
+"any Operator Panel Changes you have made since this backup... ALL tems "
 "will be reset to what they were at the time of this backup set.."
 msgstr ""
 "Восстановить Панель оператора из этого комплекта резервного копирования."
@@ -153,7 +168,7 @@ msgid "ERROR its not a BACKUP SET file"
 msgstr "ОШИБКА - это не файл резервной копии"
 
 #: schedule_functions.php:148
-msgid "Restored All Files in BackupSet"
+msgid "Restored All Files in Backup Set"
 msgstr "Восстановлены все файлы из резервного комплекта"
 
 #: schedule_functions.php:165
@@ -211,7 +226,7 @@ msgstr "Системные записи"
 
 #: schedule_functions.php:420
 msgid ""
-"Backup the System Recordings (AutoAttendent, Music On Hold, System "
+"Backup the System Recordings (AutoAttendant, Music On Hold, System "
 "Recordings)"
 msgstr ""
 "Резервировать системные записи (Автосекретарь, Музыка в ожидании, Приветствия)"

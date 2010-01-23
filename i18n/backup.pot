@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-23 14:54+0100\n"
+"POT-Creation-Date: 2010-01-23 00:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -134,7 +134,7 @@ msgstr ""
 
 #: schedule_functions.php:70
 msgid ""
-"Restore your system Voice Recordings including AutoAttendent files from this "
+"Restore your system Voice Recordings including AutoAttendant files from this "
 "backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the "
 "system. It will NOT delete new files not currently in the backup set"
 msgstr ""
@@ -152,7 +152,7 @@ msgstr ""
 #: schedule_functions.php:75
 msgid ""
 "Restore your system configuration from this backup set.  NOTE! This will "
-"OVERWRITE any System changes you have made since this backup... ALL Itemes "
+"OVERWRITE any System changes you have made since this backup... ALL items "
 "will be reset to what they were at the time of this backup set.."
 msgstr ""
 
@@ -169,7 +169,7 @@ msgstr ""
 #: schedule_functions.php:82
 msgid ""
 "Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE "
-"any Operator Panel Changes you have made since this backup... ALL Itemes "
+"any Operator Panel Changes you have made since this backup... ALL items "
 "will be reset to what they were at the time of this backup set.."
 msgstr ""
 
@@ -194,7 +194,7 @@ msgid "ERROR its not a BACKUP SET file"
 msgstr ""
 
 #: schedule_functions.php:148
-msgid "Restored All Files in BackupSet"
+msgid "Restored All Files in Backup Set"
 msgstr ""
 
 #: schedule_functions.php:165
@@ -260,7 +260,7 @@ msgstr ""
 
 #: schedule_functions.php:420
 msgid ""
-"Backup the System Recordings (AutoAttendent, Music On Hold, System "
+"Backup the System Recordings (AutoAttendant, Music On Hold, System "
 "Recordings)"
 msgstr ""
 

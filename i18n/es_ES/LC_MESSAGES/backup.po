@@ -1,9 +1,26 @@
+# This file is part of FreePBX.
+#
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+#  Copyright 2008, 2009 Juan Asensio Sánchez <okelet@gmail.com>
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-23 14:54+0100\n"
-"PO-Revision-Date: 2009-01-22 12:34+0100\n"
+"PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
 "Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -127,7 +144,7 @@ msgid "Restore System Recordings Files"
 msgstr "Restaurar archivos de grabaciones del sistema"
 
 #: schedule_functions.php:70
-msgid "Restore your system Voice Recordings including AutoAttendent files from this backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the system. It will NOT delete new files not currently in the backup set"
+msgid "Restore your system Voice Recordings including AutoAttendant files from this backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the system. It will NOT delete new files not currently in the backup set"
 msgstr "Restaura las grabaciones de voz, incluyendo los archivos de recepcionista digital desde este conjunto de archivos. Tenga en cuenta que esto sobreescribirá cualquier grabación de voz que se encuentre actualmente en el sistema. No eliminará nuevos archivos que se encuentren en el sistema y que no se encuentren en el conjunto de archivos de la copia de seguridad."
 
 #: schedule_functions.php:74
@@ -143,7 +160,7 @@ msgid "Restore System Configuration"
 msgstr "Restaurar configuración del sistema"
 
 #: schedule_functions.php:75
-msgid "Restore your system configuration from this backup set.  NOTE! This will OVERWRITE any System changes you have made since this backup... ALL Itemes will be reset to what they were at the time of this backup set.."
+msgid "Restore your system configuration from this backup set.  NOTE! This will OVERWRITE any System changes you have made since this backup... ALL items will be reset to what they were at the time of this backup set.."
 msgstr "Restaura la configuración del sistema desde este conjunto de archivos de la copia de seguridad. Tenga en cuenta que esto sobreescribirá cualquier cambio que se haya realizado desde que se hizo la copia de seguridad. Todos los elementos serán restaurados a su estado tal y como se encontraban cuando se hizo la copia de seguridad."
 
 #: schedule_functions.php:79
@@ -159,7 +176,7 @@ msgid "Restore Operator Panel"
 msgstr "Restaurar panel de operador"
 
 #: schedule_functions.php:82
-msgid "Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE any Operator Panel Changes you have made since this backup... ALL Itemes will be reset to what they were at the time of this backup set.."
+msgid "Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE any Operator Panel Changes you have made since this backup... ALL items will be reset to what they were at the time of this backup set.."
 msgstr "Restaura los archivos del panel de operador Flash desde este conjunto de archivos de la copia de seguridad. Tenga en cuenta que esto sobreescribirá cualquier cambio que se haya realizado en el panel de operador Flash desde que se hizo la copia de seguridad. Todos los elementos serán restaurados a su estado tal y como se encontraban cuando se hizo la copia de seguridad."
 
 #: schedule_functions.php:87
@@ -183,7 +200,7 @@ msgid "ERROR its not a BACKUP SET file"
 msgstr "ERROR: El archivo no es una copia de seguridad"
 
 #: schedule_functions.php:148
-msgid "Restored All Files in BackupSet"
+msgid "Restored All Files in Backup Set"
 msgstr "Se han restaurado todos los archivos"
 
 #: schedule_functions.php:165
@@ -257,7 +274,7 @@ msgid "System Recordings"
 msgstr "Grabaciones del sistema"
 
 #: schedule_functions.php:420
-msgid "Backup the System Recordings (AutoAttendent, Music On Hold, System Recordings)"
+msgid "Backup the System Recordings (AutoAttendant, Music On Hold, System Recordings)"
 msgstr "Realiza una copia de seguridad de las grabaciones del sistema (recepcionista digital, música en espera, grabaciones del sistema)."
 
 #: schedule_functions.php:428

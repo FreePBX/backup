@@ -30,66 +30,34 @@ $dir=isset($_REQUEST['dir'])?$_REQUEST['dir']:'';
 $extdisplay=isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
 $file=isset($_REQUEST['file'])?$_REQUEST['file']:'';
 $filetype=isset($_REQUEST['filetype'])?$_REQUEST['filetype']:'';
-$ID=isset($_REQUEST['backupid'])?$_REQUEST['backupid']:'';
-$name=isset($_REQUEST['name'])?$_REQUEST['name']:'backup';
+$id=isset($_REQUEST['backupid'])?$_REQUEST['backupid']:'';
 
 // Santity check passed params
 if (strstr($dir, '..') || strpos($dir, '\'') || strpos($dir, '"') || strpos($dir, '\'') || strpos($dir,'\`') ||
     strstr($file, '..') || strpos($file, '\'') || strpos($file, '"') || strpos($file, '\'') || strpos($file,'\`') ||
-    strpos($ID, '.') || strpos($ID, '\'') || strpos($ID, '"') || strpos($ID, '\'') || strpos($ID,'\`') ||
+    strpos($id, '.') || strpos($id, '\'') || strpos($id, '"') || strpos($id, '\'') || strpos($id,'\`') ||
     strpos($filetype, '.') || strpos($filetype, '\'') || strpos($filetype, '"') || strpos($filetype, '\'') || strpos($filetype,'\`')) {
 	print "You're trying to use an invalid character. Please don't.\n";
 	exit;
 }
 
-
 switch ($action) {
-	case "addednew":
-		$ALL_days=isset($_POST['all_days'])?$_POST['all_days']:'';
-		$ALL_months=isset($_POST['all_months'])?$_POST['all_months']:'';
-		$ALL_weekdays=isset($_POST['all_weekdays'])?$_POST['all_weekdays']:'';
-
-		$backup_schedule=isset($_REQUEST['backup_schedule'])?$_REQUEST['backup_schedule']:'';
-		$name=(empty($_REQUEST['name'])?'backup':$_REQUEST['name']);
-		$mins=isset($_REQUEST['mins'])?$_REQUEST['mins']:'';
-		$hours=isset($_REQUEST['hours'])?$_REQUEST['hours']:'';
-		$days=isset($_REQUEST['days'])?$_REQUEST['days']:'';
-		$months=isset($_REQUEST['months'])?$_REQUEST['months']:'';
-		$weekdays=isset($_REQUEST['weekdays'])?$_REQUEST['weekdays']:'';
-		
-		$backup_options[]=$_REQUEST['bk_voicemail'];
-		$backup_options[]=$_REQUEST['bk_sysrecordings'];
-		$backup_options[]=$_REQUEST['bk_sysconfig'];
-		$backup_options[]=$_REQUEST['bk_cdr'];
-		$backup_options[]=$_REQUEST['bk_fop'];
-	
-		$Backup_Parms=Get_Backup_String($name,$backup_schedule, $ALL_days, $ALL_months, $ALL_weekdays, $mins, $hours, $days, $months, $weekdays);
-		Save_Backup_Schedule($Backup_Parms, $backup_options);
-	break;
 	case "edited":
-		Delete_Backup_set($ID);
-		$ALL_days=$_REQUEST['all_days'];
-		$ALL_months=$_REQUEST['all_months'];
-		$ALL_weekdays=$_REQUEST['all_weekdays'];
-
-		$backup_schedule=$_REQUEST['backup_schedule'];
-		$mins=isset($_REQUEST['mins'])?$_REQUEST['mins']:'';
-		$hours=isset($_REQUEST['hours'])?$_REQUEST['hours']:'';
-		$days=isset($_REQUEST['days'])?$_REQUEST['days']:'';
-		$months=isset($_REQUEST['months'])?$_REQUEST['months']:'';
-		$weekdays=isset($_REQUEST['weekdays'])?$_REQUEST['weekdays']:'';
-		
-		$backup_options[]=$_REQUEST['bk_voicemail'];
-		$backup_options[]=$_REQUEST['bk_sysrecordings'];
-		$backup_options[]=$_REQUEST['bk_sysconfig'];
-		$backup_options[]=$_REQUEST['bk_cdr'];
-		$backup_options[]=$_REQUEST['bk_fop'];
-	
-		$Backup_Parms=Get_Backup_String($name,$backup_schedule, $ALL_days, $ALL_months, $ALL_weekdays, $mins, $hours, $days, $months, $weekdays);
-		Save_Backup_Schedule($Backup_Parms, $backup_options);
+		backup_delete_set($id);
+	case "addednew":
+		$parms=array('all_days','all_months','all_weekdays','backup_schedule', 'name',
+								'mins','hours','days','months','weekdays','voicemail',
+								'recordings','configurations','cdr','fop', 'ftpuser',
+								'ftppass','ftphost','ftpdir','sshuser','sshkey','sshhost','sshdir',
+								'emailaddr','emailmaxsize','emailmaxtype','admin','include','exclude','sudo');
+		foreach($parms as $p){
+			$backup_parms[$p]=(isset($_REQUEST[$p]))?$_REQUEST[$p]:'';
+			}
+		if($backup_parms['name']==''){$backup_parms['name']='backup'.rand(000,999);}//handel missing names gracefully
+		backup_save_schedule(backup_get_string($backup_parms));
 	break;
 	case "delete":
-		Delete_Backup_set($ID);
+		backup_delete_set($id);
 	break;
 	case "deletedataset":
 		exec("/bin/rm -rf '$dir'");
@@ -98,7 +66,7 @@ switch ($action) {
 		exec("/bin/rm -rf '$dir'");
 	break;
 	case "restored":
-		$Message=Restore_Tar_Files($dir, $file, $filetype, $display);
+		$message=backup_restore_tar($dir, $file, $filetype, $display);
 		// Regenerate all the ASTDB stuff. Note, we need a way to do speedials and other astdb stuff here.
 		needreload();
 		redirect_standard();
@@ -114,7 +82,7 @@ switch ($action) {
 
 <?php 
 //get unique account rows for navigation menu
-$results = Get_Backup_Sets();
+$results = backup_get();
 
 if (isset($results)) {
 	foreach ($results as $result) {
@@ -137,7 +105,7 @@ if ($action == 'add')
 	<input type="hidden" name="type" value="<?php echo $type?>">
 	<input type="hidden" name="action" value="addednew">
         <table>
-	<?php Show_Backup_Options(); ?>
+	<?php backup_showopts(); ?>
         </table>
     <h5><?php echo _("Run Schedule")?><hr></h5>
         <table>
@@ -168,7 +136,7 @@ else if ($action == 'edit')
 	<input type="hidden" name="backupid" value="<?php echo $_REQUEST['backupid']; ?>">
 	<input type="hidden" name="type" value="<?php echo $type?>">
         <table>
-	<?php Show_Backup_Options($_REQUEST['backupid']); ?>
+	<?php backup_showopts($_REQUEST['backupid']); ?>
         </table>
     <h5><?php echo _("Run Schedule")?><hr></h5>
         <table>
@@ -191,13 +159,13 @@ else if ($action == 'restore')
 		$dir = $asterisk_conf['astvarlibdir']."/backups";
 		if(!is_dir($dir)) mkdir($dir);
 	}
-	Get_Tar_Files($dir, $display, $file);
+	backup_list_files($dir, $display, $file);
 }
 else
 {
-	if (isset($Message)){
+	if (isset($message)){
 	?>
-		<h3><?php echo $Message ?></h3>
+		<h3><?php echo $message ?></h3>
 	<?php }
 	else{
 	?>

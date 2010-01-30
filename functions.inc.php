@@ -23,19 +23,16 @@
 // The program preserves any other cron jobs (Not part of the backup) that are installed for the user asterisk 
 //
 
-function backup_retrieve_backup_cron() {
-	global $amp_conf;
-	global $db;
+function backup_retrieve_backup_cron(){
+	global $amp_conf,$db;
+	$table_name = "backup";
 
-	$table_name = "Backup";
-
-	$sql = "SELECT Command, ID from $table_name WHERE Method NOT LIKE 'now%'";
+	$sql = "SELECT command, id from $table_name WHERE method NOT LIKE 'now%'";
 	$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 
-	if(empty($results))  {
+	if(empty($results)){
 		// grab any other cronjobs that are running as asterisk and NOT associated with backups
 		// and issue the schedule to the cron scheduler
-		//
 		exec("/usr/bin/crontab -l | grep -v ^#\ | grep -v ampbackup.pl",$cron_out,$ret1);
 		$cron_out_string = implode("\n",$cron_out);
 		exec("/bin/echo '$cron_out_string' | /usr/bin/crontab -",$out_arr,$ret2);
@@ -43,13 +40,10 @@ function backup_retrieve_backup_cron() {
 	}
 
 	$backup_string = "";
-	foreach ($results as $result) {
-		$backup_string .= $result['Command']." ".$result['ID']."\n";
-	}
+	foreach($results as $result){$backup_string.=$result['command'].' '.$result['id']."\n";}
 
 	// grab any other cronjobs that are running as asterisk and NOT associated with backups,
 	// combine with above and re-issue the schedule to the cron scheduler
-	//
 	exec("/usr/bin/crontab -l | grep -v '^# DO NOT' | grep -v ^'# ('  |  grep -v ampbackup.php",$cron_out,$ret1);
 	$cron_out_string = implode("\n",$cron_out);
 	$backup_string .= $cron_out_string;

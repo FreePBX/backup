@@ -1,491 +1,511 @@
 <?php
-//This file is part of FreePBX.
-//
-//    FreePBX is free software: you can redistribute it and/or modify
-//    it under the terms of the GNU General Public License as published by
-//    the Free Software Foundation, either version 2 of the License, or
-//    (at your option) any later version.
-//
-//    FreePBX is distributed in the hope that it will be useful,
-//    but WITHOUT ANY WARRANTY; without even the implied warranty of
-//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//    GNU General Public License for more details.
-//
-//    You should have received a copy of the GNU General Public License
-//    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
-//
-// schedule_functions.php Copyright (C) 2005 VerCom Systems, Inc. & Ron Hartmann (rhartmann@vercomsystems.com)
-// Asterisk Management Portal Copyright (C) 2004 Coalescent Systems Inc. (info@coalescentsystems.ca)
-//
+/*
+ * This file is part of FreePBX.
+ *
+ * FreePBX is free software: you can redist
+ * ribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * FreePBX is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with FreePBX.  If not, see <http: *www.gnu.org/licenses/>.
+ *
+ * schedule_functions.php Copyright (C) 2005 VerCom Systems, Inc. & Ron Hartmann (rhartmann@vercomsystems.com)
+ * Asterisk Management Portal Copyright (C) 2004 Coalescent Systems Inc. (info@coalescentsystems.ca)
+ * FreePBX Backup Module - major renovations  Copyright (C) 2010 Moshe Brevda
+ */
 
-function Get_Tar_Files($dir="", $display="", $file="") {
-	global $type;
-	global $asterisk_conf;
-	global $amp_conf;
-		if (is_dir($dir)) {
-			if (($file!=".") && ($file!="..") && ($file!="")){
-				echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to delete this File Set?")."','config.php?type=$type&display=$display&action=deletedataset&dir=$dir')\">";
-				echo _("DELETE ALL THE DATA IN THIS SET"); echo "<span>"; echo _("Delete this backup set and all data associated with this backup set..");echo "</span></a><br></li>";
-				echo "<br>";
-			}
-			if ($dh = opendir($dir)){
-				while (($file = readdir($dh)) !== false) {
-					$file_arr[] = $file;
-				}
-				rsort($file_arr);
-				$count = 25;
-				foreach ($file_arr as $file) {
-					if (($file!=".") && ($file!="..") && ($dir==$amp_conf['ASTVARLIBDIR']."/backups/")) {
-						echo "<li><a href=\"config.php?type=$type&display=$display&action=restore&dir=$dir/$file\">$file</a><br></li>";
-						$count--;
-					} else if (($file!=".") && ($file!="..") ) {
-						echo "<li><a href=\"config.php?type=$type&display=$display&action=restore&dir=$dir/$file&file=$file\">$file</a><br></li>";
-						$count--;
-					}
-				}
-				closedir($dh);
-				for ($i = $count; $i > 0; $i--) {
-					echo "<br />";
-				}
-			}
-		} else if (substr($dir, -6)=="tar.gz" ){
-			echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to delete this File Set?")."','config.php?type=$type&display=$display&action=deletefileset&dir=$dir&file=$file')\">";
-			echo _("Delete File Set"); echo "<span>"; echo _("Delete this backup set."); echo "</span></a><br></li>";
-			echo "<br>";
-			$tar_string="tar tfz \"$dir\" | cut -d'/' -f4";
-			exec($tar_string,$restore_files,$error);
-			echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to restore this COMPLETE file set?\\nDoing so will permanently over-write all FreePBX and Asterisk files\\nYou will lose all Your Call Detail Records and any Voicemail that was recorded between the BACKUP DATE and NOW!")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=ALL&file=$file')\">";
-			echo _("Restore Entire Backup Set"); 
-			echo "<span>"; 
-			echo _("Restore your Complete Backup set overwriting all files."); 
-			echo "</span></a><br></li>";
-			echo "<br>";
-			if (array_search('voicemail.tar.gz',$restore_files)){
- 				echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore this file set?\\nDoing so will permanently delete any new voicemail you have in your mailbox\\nsince this backup on")." $file!','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=VoiceMail&file=$file')\">";
-				echo _("Restore VoiceMail Files");
-				echo "<span>"; 
-				echo _("Restore your Voicemail files from this backup set.  NOTE! This will delete any voicemail currently in the voicemail boxes.");
-				echo "</span></a><br></li>";
-				echo "<br>";
-			}
-
-			if (array_search('recordings.tar.gz',$restore_files)){
- 				echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore this file set?\\nNOTE! This will OVERWRITE any voicerecordings currently on the system. It will NOT delete new files not currently in the backup set")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=Recordings&file=$file')\">";
-				echo _("Restore System Recordings Files"); 
-				echo "<span>"; 
-				echo _("Restore your system Voice Recordings including AutoAttendant files from this backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the system. It will NOT delete new files not currently in the backup set"); echo "</span></a><br></li>";
-				echo "<br>";
-			}
-			if (array_search('configurations.tar.gz',$restore_files)){
-				echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore this File Set?\\nDoing so will Permanently Over-Write all FreePBX and Asterisk Files!")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=Configurations&file=$file')\">";
-				echo _("Restore System Configuration"); echo "<span>"; echo _("Restore your system configuration from this backup set.  NOTE! This will OVERWRITE any System changes you have made since this backup... ALL items will be reset to what they were at the time of this backup set.."); echo "</span></a><br></li>";
-				echo "<br>";
-			}
-			if (array_search('fop.tar.gz',$restore_files)){
-				echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore the Operator Panel Files?\\nDoing so will Permanently Over-Write all Operator Panel Files!")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=FOP&file=$file')\">";
-				echo _("Restore Operator Panel"); 
-				echo "<span>"; 
-				echo _("Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE any Operator Panel Changes you have made since this backup... ALL items will be reset to what they were at the time of this backup set.."); 
-				echo "</span></a><br></li>";
-				echo "<br>";
-			}
-			if (array_search('cdr.tar.gz',$restore_files)){
-				echo "<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore the CALL DETAIL FILES?\\nDoing so will Permanently DELETE all CALL RECORDS!")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=CDR&file=$file')\">";
-				echo _("Restore Call Detail Report"); 
-				echo "<span>"; 
-				echo _("Restore the Call Detail Records from this backup set.  NOTE! This will DELETE ALL CALL RECORDS that have been saved since this backup set.."); 
-				echo "</span></a><br></li>";
-				echo "<br>";
-			}
-		} else {
-			echo "<h2>"; echo _("ERROR its not a BACKUP SET file");echo "</h2>";
+function backup_list_files($dir='', $display='', $file='') {
+	global $type,$asterisk_conf,$amp_conf;
+	$html='';
+	if(is_dir($dir)){
+		if(($file!=".") && ($file!="..") && ($file!="")){
+			$html.="<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to delete this File Set?")."','config.php?type=$type&display=$display&action=deletedataset&dir=$dir')\">";
+			$html.=_("DELETE ALL THE DATA IN THIS SET").'<span>'._("Delete this backup set and all data associated with this backup set..").'</span></a><br></li><br>';
 		}
+		if($dh = opendir($dir)){
+			while(($file = readdir($dh))!== false){
+				$file_arr[]=$file;
+			}
+			rsort($file_arr);
+			$count=25;
+			foreach($file_arr as $file){
+				if(($file!=".") && ($file!="..") && ($dir==$amp_conf['ASTVARLIBDIR']."/backups/")){
+					$html.="<li><a href=\"config.php?type=$type&display=$display&action=restore&dir=$dir/$file\">$file</a><br></li>";
+					$count--;
+				}elseif(($file!=".") && ($file!="..")){
+					$html.="<li><a href=\"config.php?type=$type&display=$display&action=restore&dir=$dir/$file&file=$file\">$file</a><br></li>";
+					$count--;
+				}
+			}
+			closedir($dh);
+			for ($i = $count; $i > 0; $i--){
+				$html.='<br />';
+			}
+		}
+	}elseif(substr($dir, -6)=="tar.gz" ){
+		$html.="<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to delete this File Set?")."','config.php?type=$type&display=$display&action=deletefileset&dir=$dir&file=$file')\">";
+		$html.=_("Delete File Set").'<span>'._("Delete this backup set.").'</span></a><br></li><br>';
+		$tar_string="tar tfz \"$dir\" | cut -d'/' -f4";
+		exec($tar_string,$restore_files,$error);
+		$html.="<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to restore this COMPLETE file set?\\nDoing so will permanently over-write all FreePBX and Asterisk files\\nYou will lose all Your Call Detail Records and any Voicemail that was recorded between the BACKUP DATE and NOW!")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=ALL&file=$file')\">";
+		$html.=_("Restore Entire Backup Set").'<span>'; 
+		$html.=_("Restore your Complete Backup set overwriting all files.").'</span></a><br></li><br>';
+		if(array_search('voicemail.tar.gz',$restore_files)){
+			$html.="<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore this file set?\\nDoing so will permanently delete any new voicemail you have in your mailbox\\nsince this backup on")." $file!','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=VoiceMail&file=$file')\">";
+			$html.=_('Restore VoiceMail Files').'<span>'; 
+			$html.=_('Restore your Voicemail files from this backup set.  NOTE! This will delete any voicemail currently in the voicemail boxes.');
+			$html.='</span></a><br></li><br>';
+		}
+		if(array_search('recordings.tar.gz',$restore_files)){
+			$html.="<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore this file set?\\nNOTE! This will OVERWRITE any voicerecordings currently on the system. It will NOT delete new files not currently in the backup set")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=Recordings&file=$file')\">";
+			$html.=_('Restore System Recordings Files').'<span>'; 
+			$html.=_("Restore your system Voice Recordings including AutoAttendent files from this backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the system. It will NOT delete new files not currently in the backup set").'</span></a><br></li><br>';
+		}
+		if(array_search('configurations.tar.gz',$restore_files)){
+			$html.="<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore this File Set?\\nDoing so will Permanently Over-Write all FreePBX and Asterisk Files!")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=Configurations&file=$file')\">";
+			$html.=_("Restore System Configuration").'<span>'._("Restore your system configuration from this backup set.  NOTE! This will OVERWRITE any System changes you have made since this backup... ALL Itemes will be reset to what they were at the time of this backup set..").'</span></a><br></li><br>';
+		}
+		if(array_search('fop.tar.gz',$restore_files)){
+			$html.="<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore the Operator Panel Files?\\nDoing so will Permanently Over-Write all Operator Panel Files!")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=FOP&file=$file')\">";
+			$html.=_("Restore Operator Panel").'<span>'; 
+			$html.=_('Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE any Operator Panel Changes you have made since this backup... ALL Itemes will be reset to what they were at the time of this backup set..').'</span></a><br></li><br>';
+		}
+		if(array_search('cdr.tar.gz',$restore_files)){
+			$html.="<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore the CALL DETAIL FILES?\\nDoing so will Permanently DELETE all CALL RECORDS!")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=CDR&file=$file')\">";
+			$html.=_("Restore Call Detail Report").'<span>'; 
+			$html.=_("Restore the Call Detail Records from this backup set.  NOTE! This will DELETE ALL CALL RECORDS that have been saved since this backup set.."); 
+			$html.='</span></a><br></li><br>';
+		}
+	}else{
+		$html.='<h2>'._("ERROR its not a BACKUP SET file").'</h2>';
 	}
+	echo $html;
+}
 
-function Restore_Tar_Files($dir="", $file="",$filetype="", $display="") {
-	global $asterisk_conf;
-	global $amp_conf;
+function backup_restore_tar($dir="", $file="",$filetype="", $display="") {
+	global $asterisk_conf,$amp_conf;
 	$error = false;
 	$tar='/bin/tar';
-	if($amp_conf['AMPBACKUPSUDO']==true){$sudo='/usr/bin/sudo';}
-	if($filetype=="ALL") {
-
-		$fileholder=substr($file, 0,-7);
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-
-		// First restore voicemial (for some reason if you do it all at once these don't get restored
-		//
-		exec('/bin/rm -rf '.$amp_conf['ASTSPOOLDIR'].'/voicemail 2>&1',$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/voicemail.tar.gz | $tar -Pxvz";
-		exec($tar_cmd,$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-
-		// Next, recordings cause same issue as above
-		//
-		$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/recordings.tar.gz | $tar -Pxvz";
-		exec($tar_cmd,$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-
-		// Now the rest and then we'll get on with the databases
-		//
-		$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/configurations.tar.gz | $tar -Pxvz";
-		exec($tar_cmd,$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/fop.tar.gz /tmp/ampbackups.$fileholder/cdr.tar.gz  | $tar -Pxvz";
-		exec($tar_cmd,$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		$tar_cmd="$tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql /tmp/ampbackups.$fileholder/asteriskcdr.sql /tmp/ampbackups.$fileholder/astdb.dump";
-		exec($tar_cmd,$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-
-		$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asterisk.sql 2>&1";
-		exec($sql_cmd,$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asteriskcdr.sql 2>&1";
-		exec($sql_cmd,$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		exec($amp_conf['AMPBIN']."/restoreastdb.php $fileholder 2>&1",$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		
-		//restore additional file (aka AMPPROVROOT), using sudo if requested
-		$tar_cmd="$sudo $tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/phoneconfig.tar.gz |$sudo $tar -Pxvz";
-		exec($tar_cmd,$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder",$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-
-		if (!error) {
-			$Message=_("Restored All Files in Backup Set");
-		}
-
-	} else if($filetype=="VoiceMail") {
-
-		$fileholder=substr($file, 0,-7);
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		exec('/bin/rm -rf '.$amp_conf['ASTSPOOLDIR'].'/voicemail 2>&1',$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/voicemail.tar.gz | $tar -Pxvz";
-		exec($tar_cmd,$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-
-		if (!error) {
-			$Message=_("Restored VoiceMail");
-		}
-
-	} else if($filetype=="Recordings") {
-
-		$fileholder=substr($file, 0,-7);
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/recordings.tar.gz | $tar -Pxvz";
-		exec($tar_cmd,$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-
-		if (!error) {
-			$Message=_("Restored System Recordings");
-		}
-
-	} else if($filetype=="Configurations"){
-
-		$fileholder=substr($file, 0,-7);
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/configurations.tar.gz | $tar -Pxvz";
-		exec($tar_cmd,$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		$tar_cmd="$$tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql /tmp/ampbackups.$fileholder/astdb.dump";
-		exec($tar_cmd,$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asterisk.sql";
-		exec($sql_cmd,$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		exec($amp_conf['AMPBIN']."/restoreastdb.php $fileholder 2>&1",$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		//restore additional file (aka AMPPROVROOT), using sudo if requested
-		$tar_cmd="$sudo $tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/phoneconfig.tar.gz |$sudo $tar -Pxvz";
-		exec($tar_cmd,$out_arr,$ret);
-		
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-
-		if (!error) {
-			$Message=_("Restored System Configuration");
-		}
-
-	} else if($filetype=="FOP"){
-
-		$fileholder=substr($file, 0,-7);
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/fop.tar.gz | $tar -Pxvz";
-		exec($tar_cmd,$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-
-		if (!error) {
-			$Message=_("Restored Operator Panel");
-		}
-
-	} else if($filetype=="CDR"){
-
-		$fileholder=substr($file, 0,-7);
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/cdr.tar.gz | $tar -Pxvz";
-		exec($tar_cmd,$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		$tar_cmd="$tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asteriskcdr.sql";
-		exec($tar_cmd,$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asteriskcdr.sql 2>&1";
-		exec($sql_cmd,$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-		exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-		$error = ($error || ($ret != 0));
-
-		if (!error) {
-			$Message=_("Restored CDR logs");
-		}
-
+	if($amp_conf['AMPBACKUPSUDO']==true){$sudo='/usr/bin/sudo';}else{$sudo='';}//use sudo if requested - DANGEROUS!!!
+	switch($filetype){
+		case 'ALL':
+			$fileholder=substr($file, 0,-7);
+			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+	
+			// First restore voicemial (for some reason if you do it all at once these don't get restored
+			exec('/bin/rm -rf '.$amp_conf['ASTSPOOLDIR'].'/voicemail 2>&1',$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/voicemail.tar.gz | $tar -Pxvz";
+			exec($tar_cmd,$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+	
+			// Next, recordings cause same issue as above
+			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/recordings.tar.gz | $tar -Pxvz";
+			exec($tar_cmd,$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+	
+			// Now the rest and then we'll get on with the databases
+			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/configurations.tar.gz | $tar -Pxvz";
+			exec($tar_cmd,$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/fop.tar.gz /tmp/ampbackups.$fileholder/cdr.tar.gz  | $tar -Pxvz";
+			exec($tar_cmd,$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			$tar_cmd="$tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql /tmp/ampbackups.$fileholder/asteriskcdr.sql /tmp/ampbackups.$fileholder/astdb.dump";
+			exec($tar_cmd,$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+	
+			$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asterisk.sql 2>&1";
+			exec($sql_cmd,$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asteriskcdr.sql 2>&1";
+			exec($sql_cmd,$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			exec($amp_conf['AMPBIN']."/restoreastdb.php $fileholder 2>&1",$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			
+			//restore additional file (aka AMPPROVROOT), using sudo if requested
+			$tar_cmd="$sudo $tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/phoneconfig.tar.gz |$sudo $tar -Pxvz";
+			exec($tar_cmd,$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			exec("/bin/rm -rf /tmp/ampbackups.$fileholder",$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			if(!error){$message=_("Restored All Files in BackupSet");}
+			break;
+		case 'VoiceMail':
+			$fileholder=substr($file, 0,-7);
+			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			exec('/bin/rm -rf '.$amp_conf['ASTSPOOLDIR'].'/voicemail 2>&1',$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/voicemail.tar.gz | $tar -Pxvz";
+			exec($tar_cmd,$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			if(!error){$message=_("Restored VoiceMail");}
+		break;
+		case 'Recordings':
+			$fileholder=substr($file, 0,-7);
+			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/recordings.tar.gz | $tar -Pxvz";
+			exec($tar_cmd,$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			if(!error){$message=_("Restored System Recordings");}
+		break;
+		case 'Configurations':
+			$fileholder=substr($file, 0,-7);
+			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/configurations.tar.gz | $tar -Pxvz";
+			exec($tar_cmd,$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			$tar_cmd="$$tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql /tmp/ampbackups.$fileholder/astdb.dump";
+			exec($tar_cmd,$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asterisk.sql";
+			exec($sql_cmd,$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			exec($amp_conf['AMPBIN']."/restoreastdb.php $fileholder 2>&1",$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			//restore additional file (aka AMPPROVROOT), using sudo if requested
+			$tar_cmd="$sudo $tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/phoneconfig.tar.gz |$sudo $tar -Pxvz";
+			exec($tar_cmd,$out_arr,$ret);
+			
+			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			if(!error){$message=_("Restored System Configuration");}
+		break;
+		case 'FOP':
+			$fileholder=substr($file, 0,-7);
+			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/fop.tar.gz | $tar -Pxvz";
+			exec($tar_cmd,$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			if(!error){$message=_("Restored Operator Panel");}
+		break;
+		case 'CDR':
+			$fileholder=substr($file, 0,-7);
+			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/cdr.tar.gz | $tar -Pxvz";
+			exec($tar_cmd,$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			$tar_cmd="$tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asteriskcdr.sql";
+			exec($tar_cmd,$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asteriskcdr.sql 2>&1";
+			exec($sql_cmd,$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
+			$error = ($error || ($ret != 0));
+			if(!error){$message=_("Restored CDR logs");}
+		break;
 	}
-	if (! $error) {
-		$Message=_("Restore Failed, see System Status Notification for details");
-		return ($Message);
-	} else {
-		// TODO: put in notification error and add code above to collect details
-		//       along the way to put something meaningful in it
-		//
-		return ($Message);
-	}
+	return ($error)?$message:_('Restore Failed, see System Status Notification for details');
 }
-function Get_Backup_Sets() {
-        global $db;
-        $sql = "SELECT * FROM Backup";
-        $results = $db->getAll($sql);
-        if(DB::IsError($results)) {
-                $results = null;
-        }
-        return $results;
+
+function backup_get(){
+  global $db;
+  $sql = "SELECT * FROM backup ORDER BY name ASC";
+  $results = $db->getAll($sql);
+  if(DB::IsError($results)) {
+    $results = null;
+  }
+  return $results;
 }
-function Delete_Backup_Set($ID="") {
-        global $db;
-	global $asterisk_conf;
-	global $amp_conf;
-	$sql = "DELETE FROM Backup  WHERE ID = '$ID'";
-        $result = $db->query($sql);
-        if(DB::IsError($result)) {
-                die_freepbx($result->getMessage());
-        }
-	//$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/retrieve_backup_cron.php";
-	//exec($Cron_Script);
-	//TODO: should we check and act on false return
+
+function backup_delete_set($id=''){
+  global $db,$asterisk_conf,$amp_conf;
+	$sql = "DELETE FROM backup WHERE id =?";
+  $result = $db->query($sql,array($id));
+  if(DB::IsError($result)) {
+    die_freepbx($result->getMessage());
+  }
 	backup_retrieve_backup_cron();
 }
-function Save_Backup_Schedule($Backup_Parms, $backup_options )
-{
-        global $db;
-	global $asterisk_conf;
-	global $amp_conf;
-	if ($Backup_Parms[1]=="now")
-	{
-		$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/ampbackup.php '$Backup_Parms[0]' $backup_options[0] $backup_options[1] $backup_options[2] $backup_options[3] $backup_options[4]";
-		//echo "$Cron_Script";
-		/* 
-		 * ***** Next few lines would execute the script nativly, but will show the shebang in the web page *****
-		 * 		 
-		 * $argv=array('', $Backup_Parms[0], $backup_options[0], $backup_options[1], $backup_options[2], $backup_options[3], $backup_options[4]);
-		 * $argc=count($argv);
-		 * include($asterisk_conf['astvarlibdir'].'/bin/ampbackup.php')
-		 */		 
-		exec($Cron_Script);
+
+function backup_save_schedule($parms){
+	global $db,$asterisk_conf,$amp_conf;
+	//build query based on the following keys
+	$parms_num=array('admin','cdr','command','configurations','days','emailaddr',
+									'emailmaxsize','emailmaxtype','exclude','fop','ftpdir','ftphost',
+									'ftppass','ftpuser','hours','id','include','method','minutes',
+									'months','name','recordings','sshdir','sshhost','sshkey','sshuser',
+									'sudo','voicemail','weekdays');
+	foreach($parms_num as $dprm){$db_parms[$dprm]=isset($parms[$dprm])?$parms[$dprm]:'';}
+	$keys=$vals='';
+	//dont include empty values in the query
+	foreach(array_keys($db_parms) as $key){
+		if($db_parms[$key]!=''){
+			$keys.=$key.',';
+		}
 	}
-	$sql = "INSERT INTO Backup (Name, Voicemail, Recordings, Configurations, CDR, FOP, Minutes, Hours, Days, Months,Weekdays, Command, Method ) VALUES (";
-        $sql .= "'".$Backup_Parms[0]."',";
-        $sql .= "'".$backup_options[0]."',";
-        $sql .= "'".$backup_options[1]."',";
-        $sql .= "'".$backup_options[2]."',";
-        $sql .= "'".$backup_options[3]."',";
-        $sql .= "'".$backup_options[4]."',";
-        $sql .= "'".$Backup_Parms[2]."',";
-        $sql .= "'".$Backup_Parms[3]."',";
-        $sql .= "'".$Backup_Parms[4]."',";
-        $sql .= "'".$Backup_Parms[5]."',";
-        $sql .= "'".$Backup_Parms[6]."',";
-        $sql .= "'".$Backup_Parms[7]."',";
-        $sql .= "'".$Backup_Parms[1]."');";
-        $result = $db->query($sql);
-        if(DB::IsError($result)) {
-                die_freepbx($result->getMessage().'<hr>'.$sql);
-        }
-	//$Cron_Script=$asterisk_conf['astvarlibdir']."/bin/retrieve_backup_cron.php";
-	//exec($Cron_Script);
+  foreach(array_values($db_parms) as $val){
+		if($val!=''){
+			$vals.='"'.$db->escapeSimple($val).'",';
+		}
+	}
+  $keys=substr($keys,0,-1);$vals=substr($vals,0,-1);
+	$sql='INSERT INTO backup ('.$keys.') VALUES ('.$vals.')';
+	$result = $db->query($sql);
+  if(DB::IsError($result)) {
+    die_freepbx($result->getMessage().'<hr>'.$sql);
+  }
+	if($parms['method']=='now' && $result){
+		$latest=$db->getOne('select last_insert_id()');
+		$backup_script=$asterisk_conf['astvarlibdir'].'/bin/ampbackup.php '.$latest;
+		exec($backup_script);
+	}
 	backup_retrieve_backup_cron();
 	
 }
-function Get_Backup_String($name, $backup_schedule, $ALL_days, $ALL_months, $ALL_weekdays, $mins="", $hours="", $days="", $months="", $weekdays="") {
+function backup_get_string($parms){
 	global $asterisk_conf;
-	if ($backup_schedule=="hourly")
-		$Cron_String="0 * * * * ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.php";
-	else if ($backup_schedule=="daily")
-		$Cron_String="0 0 * * * ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.php";
-	else if ($backup_schedule=="weekly")
-		$Cron_String="0 0 * * 0 ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.php";
-	else if ($backup_schedule=="monthly")
-		$Cron_String="0 0 1 * * ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.php";
-	else if ($backup_schedule=="yearly")
-		$Cron_String="0 0 1 1 * ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.php";
-	else if ($backup_schedule=="follow_schedule")
-	{
-		$mins_string='';
-		$hours_string='';
-		if (count($mins)<1)
-        		$mins_string=":0:";
-		else{
-			foreach ($mins as $value)
-        			$mins_string.=":$value:";
-		}
-		if (count($hours)<1)
-        		$hours_string=":0:";
-		else{
-			foreach ($hours as $value)
-		        	$hours_string.=":$value:";
-		}
-		if(($ALL_days=="1")||(count($days)<1))
-			$days_string="*";
-		else{
-			foreach ($days as $value)
-		        	$days_string.=":$value:";
-		}
-		if(($ALL_months=="1")||(count($months)<1))
-			$months_string="*";
-		else{
-			foreach ($months as $value)
-		        	$months_string.=":$value:";
-		}
-		if($ALL_weekdays=="1"||(count($weekdays)<1))
-			$weekdays_string="*";
-		else{
-			foreach ($weekdays as $value)
-		        	$weekdays_string.=":$value:";
-		}
-	  $cron_mins_string=trim($mins_string,":");
-		$cron_hours_string=trim($hours_string,":");
-		$cron_days_string=trim($days_string,":");
-		$cron_months_string=trim($months_string,":");
-		$cron_weekdays_string=trim($weekdays_string,":");
-		$Cron_String=str_replace("::", ",", "$cron_mins_string $cron_hours_string $cron_days_string $cron_months_string $cron_weekdays_string ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.php");
+	switch($parms['backup_schedule']){
+		case 'hourly':
+			$cron_string='0 * * * * ';
+		break;
+		case 'daily':
+			$cron_string='0 0 * * * ';
+		break;
+		case 'weekly':
+			$cron_string='0 0 * * 0 ';
+		break;
+		case 'monthly':
+			$cron_string='0 0 1 * * ';
+		break;
+		case 'yearly':
+			$cron_string='0 0 1 1 * ';
+		break;
+		case 'now':
+			$cron_string='0 0 0 0 0 ';
+		break;
+		case 'follow_schedule':
+			$mins_string=$hours_string=$days_string=$months_string=$weekdays_string='';
+			if(is_array($parms['mins'])){
+				foreach($parms['mins'] as $value){
+	        $mins_string.=":$value:";
+	      }
+	    }else{
+	    	$mins_string=":0:";
+	    }
+			if(is_array($parms['hours'])){
+				foreach($parms['hours'] as $value){
+			    $hours_string.=":$value:";
+			  }
+			}else{
+				$hours_string=":0:";
+			}
+			if(isset($parms['all_days']) && $parms['all_days']=='0'){
+				foreach($parms['days'] as $value){
+			   	$days_string.=":$value:";
+			  }
+			}else{
+				$days_string="*";
+			}
+			if(isset($parms['all_months']) && $parms['all_months']=='0'){
+				foreach($parms['months'] as $value){
+			    $months_string.=":$value:";
+			  }
+			}else{
+				$months_string="*";
+			}
+			if(isset($parms['all_weekdays']) && $parms['all_weekdays']=='0'){
+				foreach($parms['weekdays'] as $value){
+			   $weekdays_string.=":$value:";
+			  }
+			}else{
+				$weekdays_string="*";
+			}
+		  $cron_mins_string=trim($mins_string,":");
+			$cron_hours_string=trim($hours_string,":");
+			$cron_days_string=trim($days_string,":");
+			$cron_months_string=trim($months_string,":");
+			$cron_weekdays_string=trim($weekdays_string,":");
+			$cron_string=str_replace("::", ",", "$cron_mins_string $cron_hours_string $cron_days_string $cron_months_string $cron_weekdays_string");
+		break;
 	}
-	else if ($backup_schedule=="now")
-	$Cron_String="0 0 0 0 0 ".$asterisk_conf['astvarlibdir']."/bin/ampbackup.php";
-	$Backup_String[]=$name;
-	$Backup_String[]=$backup_schedule;
-	$Backup_String[]=isset($mins_string)?$mins_string:'';
-	$Backup_String[]=isset($hours_string)?$hours_string:'';
-	$Backup_String[]=isset($days_string)?$days_string:'';
-	$Backup_String[]=isset($months_string)?$months_string:'';
-	$Backup_String[]=isset($weekdays_string)?$weekdays_string:'';
-	$Backup_String[]=$Cron_String;
-
-	return ($Backup_String);
+	$backup_string['name']=$parms['name'];
+	$backup_string['method']=$parms['backup_schedule'];
+	$backup_string['minutes']=isset($mins_string)?$mins_string:'';
+	$backup_string['hours']=isset($hours_string)?$hours_string:'';
+	$backup_string['days']=isset($days_string)?$days_string:'';
+	$backup_string['months']=isset($months_string)?$months_string:'';
+	$backup_string['weekdays']=isset($weekdays_string)?$weekdays_string:'';
+	$backup_string['command']=$cron_string.' '.$asterisk_conf['astvarlibdir'].'/bin/ampbackup.php';
+	$ret=array_merge($parms,$backup_string);
+	return ($ret);
 }
-function Get_Backup_Times($BackupID)
-{
-        global $db;
-        $sql = "SELECT Minutes, Hours, Days, Months, Weekdays, Method From Backup where ID=\"$BackupID\"";
-        $results = $db->getAll($sql);
-        if(DB::IsError($results)) {
-                $results = Array(null, null, null, null, null, null);
-        }
-        return $results;
+function Get_Backup_Times($id){
+  global $db;
+  $sql = "SELECT minutes, hours, days, months, weekdays, method From backup where id=?";
+  $results = $db->getAll($sql,array($id));
+  if(DB::IsError($results)) {
+    $results = Array(null, null, null, null, null, null);
+  }
+  return $results;
 }
-function Get_Backup_Options($BackupID)
-{
-        global $db;
-        $sql = "SELECT Name, Voicemail, Recordings, Configurations, CDR, FOP FROM Backup where ID=\"$BackupID\"";
-        $results = $db->getAll($sql);
-        if(DB::IsError($results)) {
-                $results = Array(null, null, null, null, null, null);
-        }
-        return $results;
+function Get_Backup_Options($id){
+  global $db;
+  $sql = "SELECT * FROM backup WHERE id=?";
+  $results = $db->getAll($sql,array($id),DB_FETCHMODE_ASSOC);
+  if(DB::IsError($results)) {
+    $results = Array(null, null, null, null, null, null);
+  }
+  return $results[0];
 }
-function Show_Backup_Options($ID="")
-{
+function backup_showopts($id=''){
 	$tabindex=0;
-	if ($ID==""){
-		$name=""; $voicemail="no"; $sysrecordings="no"; $sysconfig="no"; $cdr="no"; $fop="no";}
-	else{
-		$backup_options=Get_Backup_Options($ID);
-		foreach ($backup_options as $bk_options) 
-			$name="$bk_options[0]";$voicemail="$bk_options[1]"; $sysrecordings="$bk_options[2]"; $sysconfig="$bk_options[3]"; $cdr="$bk_options[4]"; $fop="$bk_options[5]";
+	if ($id==''){
+		$opts=array('name','voicemail','recordings','configurations','cdr','fop');
+		foreach($opts as $o){$opts[$o]='';}//set defaults to ''
+	}else{
+		$opts=Get_Backup_Options($id);
 	}
 	?>
-        <tr>
-                <td><a href="#" class="info"><?php echo _("Schedule Name:")?><span><?php echo _("Give this Backup Schedule a brief name to help you identify it.");?></span></a></td>
-                <td><input type="text" name="name" value="<?php echo (isset($name) ? $name : ''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
-        </tr>
-
+	<table>
+	<tr><td colspan="2"><h5><?php echo _("Basic Settings")?><hr></h5></td></tr>
+  <tr>
+      <td><a href="#" class="info"><?php echo _("Schedule Name:")?><span><?php echo _("Give this Backup Schedule a brief name to help you identify it.");?></span></a></td>
+      <td><input type="text" name="name" value="<?php echo (isset($opts['name'])?$opts['name']:''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
+  </tr>
 	<tr>
  		<td><a href="#" class="info"><?php echo _("VoiceMail");?><span><?php echo _("Backup the System VoiceMail Boxes... CAUTION: Could result in large file");?></span></a>: </td>
- 		<?php if ($voicemail == "yes"){?>
- 			<td><input type="radio" name="bk_voicemail"  tabindex="<?php echo ++$tabindex;?>" value="yes" checked=checked /> <?php echo _("yes");?> &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="bk_voicemail" value="no"/> <?php echo _("no");?></td>
- 		<?php } else{ ?>
- 			<td><input type="radio" name="bk_voicemail"  tabindex="<?php echo ++$tabindex;?>" value="yes" /> <?php echo _("yes");?> &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="bk_voicemail" value="no" checked=checked/> <?php echo _("no");?></td>
- 		<?php } ?>
+ 		<td><input type="checkbox" name="voicemail"  tabindex="<?php echo ++$tabindex;?>" value="yes" <?php echo ($opts['voicemail']=='yes')?'checked':''; ?> /></td>
  	</tr>
 	<tr>
- 		<td><a href="#" class="info"><?php echo _("System Recordings");?><span><?php echo _("Backup the System Recordings (AutoAttendant, Music On Hold, System Recordings)");?></span></a>: </td>
- 		<?php if ($sysrecordings == "yes"){?>
- 			<td><input type="radio" name="bk_sysrecordings" value="yes" checked=checked/> <?php echo _("yes");?> &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="bk_sysrecordings" value="no"/> <?php echo _("no");?></td>
- 		<?php } else{ ?>
- 			<td><input type="radio" name="bk_sysrecordings" value="yes" /> <?php echo _("yes");?> &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="bk_sysrecordings" value="no" checked=checked/> <?php echo _("no");?></td>
- 		<?php } ?>
+ 		<td><a href="#" class="info"><?php echo _("System Recordings");?><span><?php echo _("Backup the System Recordings (AutoAttendent, Music On Hold, System Recordings)");?></span></a>: </td>
+ 		<td><input type="checkbox" name="recordings" value="yes" <?php echo ($opts['recordings']=='yes')?'checked':''; ?> /></td>
  	</tr>
 	<tr>
  		<td><a href="#" class="info"><?php echo _("System Configuration");?><span><?php echo _("Backup the System Configurations (Database, etc files, SQL Database, astdb)");?></span></a>: </td>
- 		<?php if ($sysconfig == "yes"){?>
- 			<td><input type="radio" name="bk_sysconfig" value="yes" checked=checked/> <?php echo _("yes");?> &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="bk_sysconfig" value="no"/> <?php echo _("no");?></td>
- 		<?php } else{ ?>
- 			<td><input type="radio" name="bk_sysconfig" value="yes" /> <?php echo _("yes");?> &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="bk_sysconfig" value="no" checked=checked/> <?php echo _("no");?></td>
- 		<?php } ?>
+ 		<td><input type="checkbox" name="configurations" value="yes" <?php echo ($opts['configurations']=='yes')?'checked':''; ?>/></td>
+ 	</tr>
+ 	<tr>
+ 		<td><a href="#" class="info"><?php echo _("Admin Web Directory");?><span><?php echo _("Backup the admin web directory (i.e. the static FreePBX web files). This is usefull to have durring a restore to prevent a version mismatch, but can baloon the backup size.");?></span></a>: </td>
+ 		<td><input type="checkbox" name="admin" value="yes" <?php echo ($opts['admin']=='yes')?'checked':''; ?>/></td>
  	</tr>
 	<tr>
  		<td><a href="#" class="info"><?php echo _("CDR");?><span><?php echo _("Backup the System Call Detail Reporting (HTML and Database)");?></span></a>: </td>
- 		<?php if ($cdr == "yes"){?>
- 			<td><input type="radio" name="bk_cdr" value="yes" checked=checked/> <?php echo _("yes");?> &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="bk_cdr" value="no"/> <?php echo _("no");?></td>
- 		<?php } else{ ?>
- 			<td><input type="radio" name="bk_cdr" value="yes" /> <?php echo _("yes");?> &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="bk_cdr" value="no" checked=checked/> <?php echo _("no");?></td>
- 		<?php } ?>
+ 		<td><input type="checkbox" name="cdr" value="yes" <?php echo ($opts['cdr']=='yes')?'checked':''; ?>/></td>
  	</tr>
 	<tr>
  		<td><a href="#" class="info"><?php echo _("Operator Panel");?><span><?php echo _("Backup the Operator Panel (HTML and Database)");?></span></a>: </td>
- 		<?php if ($fop == "yes"){?>
- 			<td><input type="radio" name="bk_fop" value="yes" checked=checked/> <?php echo _("yes");?> &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="bk_fop" value="no"/> <?php echo _("no");?></td>
- 		<?php } else{ ?>
- 			<td><input type="radio" name="bk_fop" value="yes" /> <?php echo _("yes");?> &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="bk_fop" value="no" checked=checked/> <?php echo _("no");?></td>
- 		<?php } ?>
- 	</tr>
+ 		<td><input type="checkbox" name="fop" value="yes" <?php echo ($opts['fop']=='yes')?'checked':''; ?>/></td>
+	</tr>
+
+	<tr><td colspan="2"><h5><span class="tog files">+</span><?php echo _(' Additonal Files')?><hr></h5></td></tr>
+	<tr class="hide files">
+ 		<td><a href="#" class="info"><?php echo _("Additional files and folders");?><span><?php echo _("Backup any additional files and folders listed here.");?></span></a>: </td>
+ 		<td><textarea name="include" /><?php echo $opts['include']; ?></textarea></td>
+	</tr>
+	<tr class="hide files">
+ 		<td><a href="#" class="info"><?php echo _("Exclude files and folders");?><span><?php echo _("Exclude any  files and folders from the include listed above.");?></span></a>: </td>
+ 		<td><textarea name="exclude" /><?php echo $opts['exclude']; ?></textarea></td>
+	</tr>
+	
+	<tr><td colspan="2"><h5><span class="tog ftp">+</span><?php echo _(' FTP Settings')?><hr></h5></td></tr>
+	<tr class="hide ftp">
+ 		<td><a href="#" class="info"><?php echo _("Ftp User Name");?><span><?php echo _('');?></span></a>: </td>
+ 		<td><input type="text" name="ftpuser" value="<?php echo $opts['ftpuser']; ?>" /></td>
+	</tr>
+	<tr class="hide ftp">
+ 		<td><a href="#" class="info"><?php echo _("Ftp Password");?><span><?php echo _('');?></span></a>: </td>
+ 		<td><input type="text" name="ftppass" value="<?php echo $opts['ftppass']; ?>" /></td>
+	</tr>
+	<tr class="hide ftp">
+ 		<td><a href="#" class="info"><?php echo _("Ftp Hostname");?><span><?php echo _('IP address or FQDN of FTP server');?></span></a>: </td>
+ 		<td><input type="text" name="ftphost" value="<?php echo $opts['ftphost']; ?>" /></td>
+	</tr>
+	<tr class="hide ftp">
+ 		<td><a href="#" class="info"><?php echo _("Ftp Directory");?><span><?php echo _('Directory on FTP server where the backup should be copied to');?></span></a>: </td>
+ 		<td><input type="text" name="ftpdir" value="<?php echo $opts['ftpdir']; ?>" /></td>
+	</tr>
+	<tr><td colspan="2"><h5><span class="tog ssh">+</span><?php echo _(' SSH Settings')?><hr></h5></td></tr>
+	<tr class="hide ssh">
+ 		<td><a href="#" class="info"><?php echo _("SSH User Name");?><span><?php echo _('');?></span></a>: </td>
+ 		<td><input type="text" name="sshuser" value="<?php echo $opts['sshuser']; ?>" /></td>
+	</tr>
+	<tr class="hide ssh">
+ 		<td><a href="#" class="info"><?php echo _("SSH Key");?><span><?php echo _('Location of ssh private key to be used when connect to hossst');?></span></a>: </td>
+ 		<td><input type="text" name="sshkey" value="<?php echo $opts['sshkey']; ?>" /></td>
+	</tr>
+	<tr class="hide ssh">
+ 		<td><a href="#" class="info"><?php echo _("SSH Hostname");?><span><?php echo _('IP address or FQDN of remote ssh host');?></span></a>: </td>
+ 		<td><input type="text" name="sshhost" value="<?php echo $opts['sshhost']; ?>" /></td>
+	</tr>
+	<tr class="hide ssh">
+ 		<td><a href="#" class="info"><?php echo _("SSH Directory");?><span><?php echo _('Directory on remote server where the backup should be copied t');?></span></a>: </td>
+ 		<td><input type="text" name="sshdir" value="<?php echo $opts['sshdir']; ?>" /></td>
+	</tr>	
+	<tr><td colspan="2"><h5><span class="tog email">+</span><?php echo _(' Email Settings')?><hr></h5></td></tr>
+	<tr class="hide email">
+ 		<td><a href="#" class="info"><?php echo _("Email Address");?><span><?php echo _('Email address where backups should be emailed to');?></span></a>: </td>
+ 		<td><input type="text" name="emailaddr" value="<?php echo $opts['emailaddr']; ?>" /></td>
+	</tr>	
+	<tr class="hide email">
+ 		<td><a href="#" class="info"><?php echo _("Max email size");?><span><?php echo _('The maximum size a backup can be and still be emailed. Some email servers limit the size of email atttachments, this will make sure that files larger than the max size are not sent. Valid options include: xB, xKB, xMB');?></span></a>: </td>
+ 		<td><select name="emailmaxsize">
+ 				<?php if($opts['emailmaxsize']==''){$opts['emailmaxsize']=25;}//default max email size to 25
+				 for($i=1;$i<21;$i++){	  echo '<option value="'.$i.'" '.($opts['emailmaxsize']==$i?'selected':'').' >'.$i.'</option>';}
+ 				 for($i=25;$i<51;$i+=5){	echo '<option value="'.$i.'" '.($opts['emailmaxsize']==$i?'selected':'').' >'.$i.'</option>';}
+ 				 for($i=60;$i<101;$i+=10){echo '<option value="'.$i.'" '.($opts['emailmaxsize']==$i?'selected':'').' >'.$i.'</option>';}?>
+				</select>
+				<select name="emailmaxtype">
+ 				<?php if($opts['emailmaxtype']==''){$opts['emailmaxtype']='MB';}//default max type to MB
+				 $maxtypes=array('B','KB','MB');
+ 				foreach($maxtypes as $max){echo '<option value="'.$max.'" '.($opts['emailmaxtype']==$max?'selected':'').' >'.$max.'</option>';	}	?>
+			</select>
+ 			</td>
+	</tr>
+	<style type="text/css">
+	.tog{cursor:pointer;color:black}
+	.hide{display:none}
+	h5{margin-top:10px;margin-bottom:10px}
+	</style>
+	<script language="javascript" type="text/javascript">
+		$(document).ready(function() {
+   		$('.tog').click(function(){
+   			var tclass = $(this).attr('class'); tclass = tclass.replace('tog ', '');
+   			if($(this).text()=='+'){
+   				$(this).text('- ');
+		 			$('.'+tclass).show();
+		 		}else{
+		 			$(this).text('+');
+		 			$('.'+tclass).not('.tog').hide();
+		 		}
+
+			 })
+		});
+
+	</script>
+
+
 	<?php
 }
-function Schedule_Show_Minutes($Minutes_Set="")
-{
+function Schedule_Show_Minutes($Minutes_Set=""){
 	echo "<br><br><table> <tr>";
 	echo "<td valign=top><select multiple size=12 name=mins[]>";
-	for ($minutes=0; $minutes<=59; $minutes++)
-	{
-/*		if (($minutes==12)||($minutes==24)||($minutes==36)||($minutes==48))
-		{
-			echo "</select></td>";
-			echo "<td width=2 valign=top><select multiple size=12 name=mins[]>";
-		}
-*/		if (strstr($Minutes_Set,":$minutes:"))
+	for ($minutes=0; $minutes<=59; $minutes++){
+/* if (($minutes==12)||($minutes==24)||($minutes==36)||($minutes==48)) { echo 
+"</select></td>"; echo "<td width=2 valign=top><select multiple size=12 
+name=mins[]>"; } */ 
+		if (strstr($Minutes_Set,":$minutes:"))
 			echo "<option value=\"$minutes\" selected>$minutes";
 		else
 			echo "<option value=\"$minutes\" >$minutes";
@@ -493,18 +513,13 @@ function Schedule_Show_Minutes($Minutes_Set="")
 	echo "</select></td>";
 	echo "</tr></table></td>";
 }
-function Schedule_Show_Hours($Hours_Set="")
-{
+function Schedule_Show_Hours($Hours_Set=""){
 	echo "<br><br><table> <tr>";
 	echo "<td valign=top><select multiple size=12 name=hours[]>";
 	for ($hours=0; $hours<=23; $hours++)
 	{
-/*		if ($hours==12)
-		{
-			echo "</select></td>";
-			echo "<td valign=top><select multiple size=12 name=hours[]>";
-		}
-*/		if (strstr($Hours_Set,":$hours:"))
+	/* if ($hours==12) { echo "</select></td>"; echo "<td valign=top><select multiple size=12 name=hours[]>"; } */ 
+		if (strstr($Hours_Set,":$hours:"))
 			echo "<option value=\"$hours\" selected>$hours";
 		else
 			echo "<option value=\"$hours\" >$hours";
@@ -513,8 +528,7 @@ function Schedule_Show_Hours($Hours_Set="")
 	echo "</tr></table></td>";
 }
 
-function Schedule_Show_Days($Days_Set="")
-{
+function Schedule_Show_Days($Days_Set=""){
 	if (($Days_Set=="") || ($Days_Set=="*")){
 	echo "<input type=radio name=all_days value=1 checked>"; echo _("All"); echo "<br>";
 	echo "<input type=radio name=all_days value=0 >"; echo _("Selected"); echo "<br>";
@@ -528,12 +542,8 @@ function Schedule_Show_Days($Days_Set="")
 	echo "<td valign=top><select multiple size=12 name=days[]>";
 	for ($days=1; $days<=31; $days++)
 	{
-/*		if (($days==13)||($days==25))
-		{
-			echo "</select></td>";
-			echo "<td valign=top><select multiple size=12 name=days[]>";
-		}
-*/		if ((strstr($Days_Set,":$days:")) || ($Days_Set=="*"))
+/* if (($days==13)||($days==25)) { echo "</select></td>"; echo "<td valign=top><select multiple size=12 name=days[]>"; } */ 
+	if ((strstr($Days_Set,":$days:"))|| ($Days_Set=="*"))
 			echo "<option value=\"$days\" selected>$days";
 		else
 			echo "<option value=\"$days\" >$days";
@@ -542,8 +552,7 @@ function Schedule_Show_Days($Days_Set="")
 	echo "</tr></table></td>";
 }
 
-function Schedule_Show_Months($Months_Set="")
-{
+function Schedule_Show_Months($Months_Set=""){
 	if (($Months_Set=="") || ($Months_Set=="*")){
 	echo "<input type=radio name=all_months value=1 checked>"; echo _("All"); echo "<br>";
 	echo "<input type=radio name=all_months value=0 >"; echo _("Selected"); echo "<br>";
@@ -571,8 +580,7 @@ function Schedule_Show_Months($Months_Set="")
 	echo "</tr></table></td>";
 }
 
-function Schedule_Show_Weekdays($Weekdays_Set="")
-{
+function Schedule_Show_Weekdays($Weekdays_Set=""){
 	if (($Weekdays_Set=="") || ($Weekdays_Set=="*")){
 	echo "<input type=radio name=all_weekdays value=1 checked>";echo _("All"); echo "<br>";
 	echo "<input type=radio name=all_weekdays value=0 >";echo _("Selected"); echo "<br>";
@@ -594,23 +602,21 @@ function Schedule_Show_Weekdays($Weekdays_Set="")
 	echo "</select></td>";
 	echo "</tr></table></td>";
 }
-function show_quickbar($Method="")
-{
+function show_quickbar($method=''){
 ?>
 	<tr bgcolor=#b7b7b7> <td colspan=6><?php echo _("Run Backup");?> 
 	<select name=backup_schedule>
-	<option value=follow_schedule <?php echo ($Method == "follow_schedule" ? "SELECTED" : "")?>><?php echo _("Follow Schedule Below");?>
-	<option value=now <?php echo ($Method == "now" ? "SELECTED" : "")?>><?php echo _("Now");?>
-	<option value=daily <?php echo ($Method == "daily" ? "SELECTED" : "")?>><?php echo _("Daily (at midnight)");?>
-	<option value=weekly <?php echo ($Method == "weekly" ? "SELECTED" : "")?>><?php echo _("Weekly (on Sunday)");?>
-	<option value=monthly <?php echo ($Method == "monthly" ? "SELECTED" : "")?>><?php echo _("Monthly (on the 1st)");?>
-	<option value=yearly <?php echo ($Method == "yearly" ? "SELECTED" : "")?>><?php echo _("Yearly (on 1st Jan)");?>
+	<option value=follow_schedule <?php echo ($method=="follow_schedule"?"SELECTED":'')?>><?php echo _("Follow Schedule Below");?>
+	<option value=now <?php echo ($method=="now"?"SELECTED":'')?>><?php echo _("Now");?>
+	<option value=daily <?php echo ($method=="daily"?"SELECTED":'')?>><?php echo _("Daily (at midnight)");?>
+	<option value=weekly <?php echo ($method=="weekly"?"SELECTED":'')?>><?php echo _("Weekly (on Sunday)");?>
+	<option value=monthly <?php echo ($method=="monthly"?"SELECTED":'')?>><?php echo _("Monthly (on the 1st)");?>
+	<option value=yearly <?php echo ($method=="yearly"?"SELECTED":'')?>><?php echo _("Yearly (on 1st Jan)");?>
 	</select>
 	</td></tr>
 <?php
 }
-function show_schedule($quickbar="no", $BackupID="")
-{
+function show_schedule($quickbar="no", $BackupID=""){
 	if ($BackupID==""){
 		$Minutes="";
 		$Hours="";
@@ -618,8 +624,7 @@ function show_schedule($quickbar="no", $BackupID="")
 		$Months="";
 		$Weekdays="";
 		$Method="follow_schedule";
-	}
-	else{
+	}else{
 		$backup_times=Get_Backup_Times($BackupID);
 		foreach ($backup_times as $bk_times) 
 			$Minutes=$bk_times[0]?"$bk_times[0]":'';
@@ -646,4 +651,3 @@ function show_schedule($quickbar="no", $BackupID="")
 	echo "<td valign=top>";
 	Schedule_Show_Weekdays($Weekdays);
 }
-

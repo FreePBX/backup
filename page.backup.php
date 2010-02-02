@@ -20,7 +20,7 @@
 ?>
 
 <?php
-include_once "schedule_functions.php";
+
 global $asterisk_conf;
 $action = isset($_REQUEST['action'])?$_REQUEST['action']:'';
 $display='backup';
@@ -147,7 +147,16 @@ else if ($action == 'edit')
         </table>
 	</form>
 	<br><br><br><br><br>
-
+	<script language="javascript" type="text/javascript">
+		$(document).ready(function() {
+			$("[name='Submit']").click(function(){
+				if($("[name='name']").val().split(' ').length > 1){
+					alert('<?php echo _('Backup names cannot contain spaces.'); ?>');
+				return false;
+				}
+			})
+		});
+	</script>
 <?php
 }
 else if ($action == 'restore')

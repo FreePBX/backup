@@ -114,12 +114,12 @@ if(DB::IsError($check)) {
 
 $migrate=$db->getAll('show tables like "Backup"');
 if(DB::IsError($check)) {
-	die_freepbx("Can check for Backup table");
+	die_freepbx("Can check for Backup table \n".$result->getMessage());
 }
 if(count($migrate) > 0){//migrate to new backup structure
-	$sql=$db->query('insert into backup (Name, Voicemail, Recordings, Configurations, CDR, FOP, Minutes, Hours, Days, Months, Weekdays, Command, Method, ID) select * from Backup;');
+	$sql=$db->query('insert into backup (name, voicemail, recordings, configurations, cdr, fop, minutes, hours, days, months, weekdays, command, method, id) select * from Backup;');
 	if(DB::IsError($sql)) {
-		die_freepbx("Cannot migrate Backup table");
+		die_freepbx("Cannot migrate Backup table\n".$sql->getMessage());
 	}
 	//get data from amportal and populate the table with it
 	//ftp

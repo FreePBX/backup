@@ -97,16 +97,16 @@ function backup_list_files($dir='', $display='', $file='') {
 		if(array_search('recordings.tar.gz',$restore_files)){
 			$html.="<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore this file set?\\nNOTE! This will OVERWRITE any voicerecordings currently on the system. It will NOT delete new files not currently in the backup set")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=Recordings&file=$file')\">";
 			$html.=_('Restore System Recordings Files').'<span>'; 
-			$html.=_("Restore your system Voice Recordings including AutoAttendent files from this backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the system. It will NOT delete new files not currently in the backup set").'</span></a><br></li><br>';
+			$html.=_("Restore your system Voice Recordings including AutoAttendant files from this backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the system. It will NOT delete new files not currently in the backup set").'</span></a><br></li><br>';
 		}
 		if(array_search('configurations.tar.gz',$restore_files)){
 			$html.="<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore this File Set?\\nDoing so will Permanently Over-Write all FreePBX and Asterisk Files!")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=Configurations&file=$file')\">";
-			$html.=_("Restore System Configuration").'<span>'._("Restore your system configuration from this backup set.  NOTE! This will OVERWRITE any System changes you have made since this backup... ALL Itemes will be reset to what they were at the time of this backup set..").'</span></a><br></li><br>';
+			$html.=_("Restore System Configuration").'<span>'._("Restore your system configuration from this backup set.  NOTE! This will OVERWRITE any System changes you have made since this backup... ALL items will be reset to what they were at the time of this backup set..").'</span></a><br></li><br>';
 		}
 		if(array_search('fop.tar.gz',$restore_files)){
 			$html.="<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore the Operator Panel Files?\\nDoing so will Permanently Over-Write all Operator Panel Files!")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=FOP&file=$file')\">";
 			$html.=_("Restore Operator Panel").'<span>'; 
-			$html.=_('Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE any Operator Panel Changes you have made since this backup... ALL Itemes will be reset to what they were at the time of this backup set..').'</span></a><br></li><br>';
+			$html.=_('Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE any Operator Panel Changes you have made since this backup... ALL items will be reset to what they were at the time of this backup set..').'</span></a><br></li><br>';
 		}
 		if(array_search('cdr.tar.gz',$restore_files)){
 			$html.="<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore the CALL DETAIL FILES?\\nDoing so will Permanently DELETE all CALL RECORDS!")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=CDR&file=$file')\">";
@@ -169,7 +169,7 @@ function backup_restore_tar($dir="", $file="",$filetype="", $display="") {
 			$error = ($error || ($ret != 0));
 			exec("/bin/rm -rf /tmp/ampbackups.$fileholder",$out_arr,$ret);
 			$error = ($error || ($ret != 0));
-			if(!error){$message=_("Restored All Files in BackupSet");}
+			if(!error){$message=_("Restored All Files in Backup Set");}
 			break;
 		case 'VoiceMail':
 			$fileholder=substr($file, 0,-7);
@@ -429,7 +429,7 @@ function backup_showopts($id=''){
  		<td><input type="checkbox" name="configurations" value="yes" <?php echo ($opts['configurations']=='yes')?'checked':''; ?>/></td>
  	</tr>
  	<tr>
- 		<td><a href="#" class="info"><?php echo _("Admin Web Directory");?><span><?php echo _("Backup the admin web directory (i.e. the static FreePBX web files). This is usefull to have durring a restore to prevent a version mismatch, but can baloon the backup size.");?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _("Admin Web Directory");?><span><?php echo _("Backup the admin web directory (i.e. the static FreePBX web files). This is useful to have during a restore to prevent a version mismatch, but can dramatically increase the backup size.");?></span></a>: </td>
  		<td><input type="checkbox" name="admin" value="yes" <?php echo ($opts['admin']=='yes')?'checked':''; ?>/></td>
  	</tr>
 	<tr>
@@ -441,7 +441,7 @@ function backup_showopts($id=''){
  		<td><input type="checkbox" name="fop" value="yes" <?php echo ($opts['fop']=='yes')?'checked':''; ?>/></td>
 	</tr>
 
-	<tr><td colspan="2"><h5><span class="tog files">+</span><?php echo _(' Additonal Files')?><hr></h5></td></tr>
+	<tr><td colspan="2"><h5><span class="tog files">+</span><?php echo _(' Additional Files')?><hr></h5></td></tr>
 	<tr class="hide files">
  		<td><a href="#" class="info"><?php echo _("Additional files and folders");?><span><?php echo _("Backup any additional files and folders listed here.");?></span></a>: </td>
  		<td><textarea name="include" style="width: 400px" /><?php echo $opts['include']; ?></textarea></td>
@@ -453,11 +453,11 @@ function backup_showopts($id=''){
 	
 	<tr><td colspan="2"><h5><span class="tog ftp">+</span><?php echo _(' FTP Settings')?><hr></h5></td></tr>
 	<tr class="hide ftp">
- 		<td><a href="#" class="info"><?php echo _("Ftp User Name");?><span><?php echo _('');?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _("Ftp User Name");?><span><?php echo _('Enter your FTP user name');?></span></a>: </td>
  		<td><input type="text" name="ftpuser" value="<?php echo $opts['ftpuser']; ?>" /></td>
 	</tr>
 	<tr class="hide ftp">
- 		<td><a href="#" class="info"><?php echo _("Ftp Password");?><span><?php echo _('');?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _("Ftp Password");?><span><?php echo _('Enter your FTP password');?></span></a>: </td>
  		<td><input type="text" name="ftppass" value="<?php echo $opts['ftppass']; ?>" /></td>
 	</tr>
 	<tr class="hide ftp">
@@ -470,11 +470,11 @@ function backup_showopts($id=''){
 	</tr>
 	<tr><td colspan="2"><h5><span class="tog ssh">+</span><?php echo _(' SSH Settings')?><hr></h5></td></tr>
 	<tr class="hide ssh">
- 		<td><a href="#" class="info"><?php echo _("SSH User Name");?><span><?php echo _('');?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _("SSH User Name");?><span><?php echo _('Enter your SSH user name');?></span></a>: </td>
  		<td><input type="text" name="sshuser" value="<?php echo $opts['sshuser']; ?>" /></td>
 	</tr>
 	<tr class="hide ssh">
- 		<td><a href="#" class="info"><?php echo _("SSH Key");?><span><?php echo _('Location of ssh private key to be used when connect to hossst');?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _("SSH Key");?><span><?php echo _('Location of ssh private key to be used when connect to a host');?></span></a>: </td>
  		<td><input type="text" name="sshkey" value="<?php echo $opts['sshkey']; ?>" /></td>
 	</tr>
 	<tr class="hide ssh">
@@ -491,7 +491,7 @@ function backup_showopts($id=''){
  		<td><input type="text" name="emailaddr" value="<?php echo $opts['emailaddr']; ?>" /></td>
 	</tr>	
 	<tr class="hide email">
- 		<td><a href="#" class="info"><?php echo _("Max email size");?><span><?php echo _('The maximum size a backup can be and still be emailed. Some email servers limit the size of email atttachments, this will make sure that files larger than the max size are not sent. Valid options include: xB, xKB, xMB');?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _("Max email size");?><span><?php echo _('The maximum size a backup can be and still be emailed. Some email servers limit the size of email attachments, this will make sure that files larger than the max size are not sent. Valid options include: xB, xKB, xMB');?></span></a>: </td>
  		<td><select name="emailmaxsize">
  				<?php if($opts['emailmaxsize']==''){$opts['emailmaxsize']=25;}//default max email size to 25
 				 for($i=1;$i<21;$i++){	  echo '<option value="'.$i.'" '.($opts['emailmaxsize']==$i?'selected':'').' >'.$i.'</option>';}

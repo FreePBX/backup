@@ -402,6 +402,7 @@ function Get_Backup_Options($id){
   return $results[0];
 }
 function backup_showopts($id=''){
+	global $amp_conf;
 	$tabindex=0;
 	if ($id==''){
 		$opts=array('name','voicemail','recordings','configurations','cdr','fop');
@@ -504,6 +505,11 @@ function backup_showopts($id=''){
  				foreach($maxtypes as $max){echo '<option value="'.$max.'" '.($opts['emailmaxtype']==$max?'selected':'').' >'.$max.'</option>';	}	?>
 			</select>
  			</td>
+	</tr>
+	<tr <?php echo $amp_conf['AMPBACKUPADVANCED']?'':'class="hide"'; ?>><td colspan="2"><h5><span class="tog advanced">+</span><?php echo _(' Advanced Options')?><hr></h5></td></tr>
+	<tr class="hide advanced">
+		<td><a href="#" class="info"><?php echo _("Sudo");?><span><?php echo _("Use sudo when performing a backup. NOTE: THIS HAS SEVER SECUEIRY IMPLACATIONS!");?></span></a>: </td>
+ 		<td><input type="checkbox" name="sudo"  tabindex="<?php echo ++$tabindex;?>" value="yes" <?php echo ($opts['sudo']=='yes')?'checked':''; ?> /></td>
 	</tr>
 	<style type="text/css">
 	.tog{cursor:pointer;color:black}

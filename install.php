@@ -123,7 +123,7 @@ if(count($migrate) > 0){//migrate to new backup structure
 	}
 	//get data from amportal and populate the table with it
 	//ftp
-	if($amp_conf['FTPBACKUP']==strtolower('yes')){
+	if(isset($amp_conf['FTPBACKUP']) && $amp_conf['FTPBACKUP']==strtolower('yes')){
 		$data['ftpuser']=$amp_conf['FTPUSER'];
 		$data['ftppass']=$amp_conf['FTPPASSWORD'];
 		$data['ftphost']=$amp_conf['FTPSERVER'];
@@ -146,27 +146,31 @@ if(count($migrate) > 0){//migrate to new backup structure
 			@$data['exclude']=implode("\r",file($amp_conf['AMPPROVEXCLUDE']));
 		}
 	}
-
-	$db_parms=$data;
-	$data='';
-	//dont include empty values in the query
-	foreach(array_keys($db_parms) as $key){
-		if($db_parms[$key]!=''){
-			$data.=$key.'="'.$db->escapeSimple($db_parms[$key]).'",';
+	if(isset($data)){
+		$db_parms=$data;
+		$data='';
+		//dont include empty values in the query
+		foreach(array_keys($db_parms) as $key){
+			if($db_parms[$key]!=''){
+				$data.=$key.'="'.$db->escapeSimple($db_parms[$key]).'",';
+			}
 		}
+	  $data=substr($data,0,-1);//remove trailing ,
+		$sql='UPDATE backup set '.$data;
+		$check = $db->query($sql);
+		if(DB::IsError($check)) {
+			die_freepbx('Can not migrate Backup table');
+		}
+		
+		out(_('Backup migration completed'));
+	}else{
+		out(_('Nothing to migrate'));
 	}
-  $data=substr($data,0,-1);//remove trailing ,
-	$sql='UPDATE backup set '.$data;
-	$check = $db->query($sql);
-	if(DB::IsError($check)) {
-		die_freepbx("Can not migrate Backup table");
-	}
-	
 	$sql='DROP TABLE Backup';
-	$check = $db->query($sql);
+/*	$check = $db->query($sql);
 	if(DB::IsError($check)) {
-		die_freepbx("Old Backup table not removed. Migration script will run again on next install.");
-	}
+		die_freepbx('Old Backup table not removed. Migration script will run again on next install.');
+	}*/
 }
 
 // Remove retrieve_backup_cron_from_mysql.pl if still there and a link

@@ -422,7 +422,7 @@ function backup_showopts($id=''){
  		<td><input type="checkbox" name="voicemail"  tabindex="<?php echo ++$tabindex;?>" value="yes" <?php echo ($opts['voicemail']=='yes')?'checked':''; ?> /></td>
  	</tr>
 	<tr>
- 		<td><a href="#" class="info"><?php echo _("System Recordings");?><span><?php echo _("Backup the System Recordings (AutoAttendent, Music On Hold, System Recordings)");?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _("System Recordings");?><span><?php echo _("Backup the System Recordings (AutoAttendant, Music On Hold, System Recordings)");?></span></a>: </td>
  		<td><input type="checkbox" name="recordings" value="yes" <?php echo ($opts['recordings']=='yes')?'checked':''; ?> /></td>
  	</tr>
 	<tr>
@@ -508,7 +508,7 @@ function backup_showopts($id=''){
 	</tr>
 	<tr <?php echo $amp_conf['AMPBACKUPADVANCED']?'':'class="hide"'; ?>><td colspan="2"><h5><span class="tog advanced">+</span><?php echo _(' Advanced Options')?><hr></h5></td></tr>
 	<tr class="hide advanced">
-		<td><a href="#" class="info"><?php echo _("Sudo");?><span><?php echo _("Use sudo when performing a backup. NOTE: THIS HAS SEVER SECUEIRY IMPLACATIONS!");?></span></a>: </td>
+		<td><a href="#" class="info"><?php echo _("Sudo");?><span><?php echo _("Use sudo when performing a backup. NOTE: THIS HAS SEVER SECURITY IMPLICATIONS!");?></span></a>: </td>
  		<td><input type="checkbox" name="sudo"  tabindex="<?php echo ++$tabindex;?>" value="yes" <?php echo ($opts['sudo']=='yes')?'checked':''; ?> /></td>
 	</tr>
 	<style type="text/css">

@@ -167,10 +167,12 @@ if(count($migrate) > 0){//migrate to new backup structure
 		out(_('Nothing to migrate'));
 	}
 	$sql='DROP TABLE Backup';
-/*	$check = $db->query($sql);
+	$check = $db->query($sql);
 	if(DB::IsError($check)) {
 		die_freepbx('Old Backup table not removed. Migration script will run again on next install.');
-	}*/
+	}else{
+		out(_('Old Backup table removed!'));
+	}
 }
 
 // Remove retrieve_backup_cron_from_mysql.pl if still there and a link

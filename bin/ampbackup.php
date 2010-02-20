@@ -75,15 +75,15 @@ if($opts['configurations']){
 	if($opts['include']){
 		$exclude='';
 		if(isset($opts['exclude']) && $opts['exclude']!=''){
-			$exclude=str_replace(array("\n","\r","\r\n"),' ',$opts['exclude']);
-			$ex=explode(' ',$exclude);
+			$excludes=str_replace(array("\n","\r","\r\n"),' ',$opts['exclude']);
+			$ex=explode('  ',$excludes);
 			foreach($ex as $x){ //exclude each option in the space delimited list
 				$exclude.='--exclude='.$x.' ';
 			} 
 		}
 		$inculde=str_replace(array("\n","\r","\r\n"),' ',$opts['include']);
-		$exec=$sudo.' /bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/phoneconfig.tar.gz '.$inculde.' '.$exclude;
-		system($exec);
+		$exec=$sudo.' /bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/phoneconfig.tar.gz '.$inculde.'  '.$exclude;
+		exec($exec,$ret);
 	}
 	system('mysqldump --add-drop-table -h'.$amp_conf['AMPDBHOST'].' -u'.$amp_conf['AMPDBUSER'].' -p'.$amp_conf['AMPDBPASS'].' --database '.$amp_conf['AMPDBNAME'].' > /tmp/ampbackups.'.$opts['now'].'/asterisk.sql');
 }

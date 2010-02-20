@@ -129,7 +129,7 @@ if($opts['sshkey'] && $opts['sshhost']){
 
 //email backup
 if($opts['emailaddr']){
-	if(filesize($opts['budir'].'/'.$opts['name']) <= $opts['emailmaxsize'].$opts['emailmaxtype']){
+	if(filesize($opts['budir'].'/'.$opts['name']) <= size2bytes($opts['emailmaxsize'].$opts['emailmaxtype'])){
 		//credit to: http://articles.sitepoint.com/print/advanced-email-php
 		$hostname=exec('/bin/hostname',$name);
 		$subject = 'FreePBX backup of '.$hostname;

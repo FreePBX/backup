@@ -186,4 +186,7 @@ if (is_link($amp_conf['AMPBIN'].'/retrieve_backup_cron_from_mysql.pl') && readli
 	}
 }
 
+require_once dirname(__FILE__)."/functions.inc.php";
+backup_retrieve_backup_cron();
+
 ?>

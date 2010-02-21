@@ -32,7 +32,7 @@ function backup_retrieve_backup_cron(){
 	if(empty($results)){
 		// grab any other cronjobs that are running as asterisk and NOT associated with backups
 		// and issue the schedule to the cron scheduler
-		exec("/usr/bin/crontab -l | grep -v ^#\ | grep -v ampbackup.pl",$cron_out,$ret1);
+		exec("/usr/bin/crontab -l|grep -v '^# DO NOT'|grep -v ^'# ('|grep -v ampbackup.pl|grep -v ampbackup.php",$cron_out,$ret1);
 		$cron_out_string = implode("\n",$cron_out);
 		exec("/bin/echo '$cron_out_string' | /usr/bin/crontab -",$out_arr,$ret2);
 		return ($ret1 == 0 && $ret2 == 0);
@@ -43,7 +43,7 @@ function backup_retrieve_backup_cron(){
 
 	// grab any other cronjobs that are running as asterisk and NOT associated with backups,
 	// combine with above and re-issue the schedule to the cron scheduler
-	exec("/usr/bin/crontab -l | grep -v '^# DO NOT' | grep -v ^'# ('  |  grep -v ampbackup.php",$cron_out,$ret1);
+	exec("/usr/bin/crontab -l|grep -v '^# DO NOT'|grep -v ^'# ('|grep -v ampbackup.pl|grep -v ampbackup.php",$cron_out,$ret1);
 	$cron_out_string = implode("\n",$cron_out);
 	$backup_string .= $cron_out_string;
 

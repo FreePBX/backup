@@ -175,6 +175,16 @@ if(count($migrate) > 0){//migrate to new backup structure
 	}
 }
 
+// This should only be needed once. But the original migration did not do it and there is no harm in cleansing the database anyhow
+outn(_('Replacing ampbackup.pl in db..'));
+$sql=$db->query("UPDATE backup SET command = REPLACE(command,'ampbackup.pl','ampbackup.php')");
+if(DB::IsError($sql)) {
+  out(_('an error has occured, update not done'));
+  out($sql->getMessage());
+} else {
+  out(_('ok'));
+}
+
 // Remove retrieve_backup_cron_from_mysql.pl if still there and a link
 //
 if (is_link($amp_conf['AMPBIN'].'/retrieve_backup_cron_from_mysql.pl') && readlink($amp_conf['AMPBIN'].'/retrieve_backup_cron_from_mysql.pl') == $amp_conf['AMPWEBROOT'].'/admin/modules/backup/bin/retrieve_backup_cron_from_mysql.pl') {

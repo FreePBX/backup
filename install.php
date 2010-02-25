@@ -186,7 +186,34 @@ if (is_link($amp_conf['AMPBIN'].'/retrieve_backup_cron_from_mysql.pl') && readli
 	}
 }
 
-require_once dirname(__FILE__)."/functions.inc.php";
-backup_retrieve_backup_cron();
+backup_install_retrieve_backup_cron();
 
+function backup_install_retrieve_backup_cron(){
+	global $amp_conf,$db;
+
+	$sql = "SELECT command, id from backup WHERE method NOT LIKE 'now%'";
+	$results = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+
+	if(empty($results)){
+		// grab any other cronjobs that are running as asterisk and NOT associated with backups
+		// and issue the schedule to the cron scheduler
+		exec("/usr/bin/crontab -l|grep -v '^# DO NOT'|grep -v ^'# ('|grep -v ampbackup.pl|grep -v ampbackup.php",$cron_out,$ret1);
+		$cron_out_string = implode("\n",$cron_out);
+		exec("/bin/echo '$cron_out_string' | /usr/bin/crontab -",$out_arr,$ret2);
+		return ($ret1 == 0 && $ret2 == 0);
+	}
+
+	$backup_string = "";
+	foreach($results as $result){$backup_string.=$result['command'].' '.$result['id']."\n";}
+
+	// grab any other cronjobs that are running as asterisk and NOT associated with backups,
+	// combine with above and re-issue the schedule to the cron scheduler
+	exec("/usr/bin/crontab -l|grep -v '^# DO NOT'|grep -v ^'# ('|grep -v ampbackup.pl|grep -v ampbackup.php",$cron_out,$ret1);
+	$cron_out_string = implode("\n",$cron_out);
+	$backup_string .= $cron_out_string;
+
+	exec("/bin/echo '$backup_string' | /usr/bin/crontab -",$out_arr,$ret2);
+
+	return ($ret1 == 0 && $ret2 == 0);
+}
 ?>

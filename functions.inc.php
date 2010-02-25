@@ -483,7 +483,7 @@ function backup_showopts($id=''){
  		<td><input type="text" name="sshhost" value="<?php echo $opts['sshhost']; ?>" /></td>
 	</tr>
 	<tr class="hide ssh">
- 		<td><a href="#" class="info"><?php echo _("SSH Directory");?><span><?php echo _('Directory on remote server where the backup should be copied t');?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _("SSH Directory");?><span><?php echo _('Directory on remote server where the backup should be copied to');?></span></a>: </td>
  		<td><input type="text" name="sshdir" value="<?php echo $opts['sshdir']; ?>" /></td>
 	</tr>	
 	<tr><td colspan="2"><h5><span class="tog email">+</span><?php echo _(' Email Settings')?><hr></h5></td></tr>

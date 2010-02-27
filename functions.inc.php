@@ -448,7 +448,7 @@ function backup_showopts($id=''){
  		<td><textarea name="include" style="width: 400px" /><?php echo $opts['include']; ?></textarea></td>
 	</tr>
 	<tr class="hide files">
- 		<td><a href="#" class="info"><?php echo _("Exclude files and folders");?><span><?php echo _("Exclude any  files and folders from the include listed above.");?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _("Exclude files and folders");?><span><?php echo _("Exclude any files and folders from the include listed above.");?></span></a>: </td>
  		<td><textarea name="exclude" style="width: 400px" /><?php echo $opts['exclude']; ?></textarea></td>
 	</tr>
 	

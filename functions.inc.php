@@ -454,19 +454,19 @@ function backup_showopts($id=''){
 	
 	<tr><td colspan="2"><h5><span class="tog ftp">+</span><?php echo _(' FTP Settings')?><hr></h5></td></tr>
 	<tr class="hide ftp">
- 		<td><a href="#" class="info"><?php echo _("Ftp User Name");?><span><?php echo _('Enter your FTP user name');?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _("FTP User Name");?><span><?php echo _('Enter your FTP user name');?></span></a>: </td>
  		<td><input type="text" name="ftpuser" value="<?php echo $opts['ftpuser']; ?>" /></td>
 	</tr>
 	<tr class="hide ftp">
- 		<td><a href="#" class="info"><?php echo _("Ftp Password");?><span><?php echo _('Enter your FTP password');?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _("FTP Password");?><span><?php echo _('Enter your FTP password');?></span></a>: </td>
  		<td><input type="text" name="ftppass" value="<?php echo $opts['ftppass']; ?>" /></td>
 	</tr>
 	<tr class="hide ftp">
- 		<td><a href="#" class="info"><?php echo _("Ftp Hostname");?><span><?php echo _('IP address or FQDN of FTP server');?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _("FTP Hostname");?><span><?php echo _('IP address or FQDN of FTP server');?></span></a>: </td>
  		<td><input type="text" name="ftphost" value="<?php echo $opts['ftphost']; ?>" /></td>
 	</tr>
 	<tr class="hide ftp">
- 		<td><a href="#" class="info"><?php echo _("Ftp Directory");?><span><?php echo _('Directory on FTP server where the backup should be copied to');?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _("FTP Directory");?><span><?php echo _('Directory on FTP server where the backup should be copied to');?></span></a>: </td>
  		<td><input type="text" name="ftpdir" value="<?php echo $opts['ftpdir']; ?>" /></td>
 	</tr>
 	<tr><td colspan="2"><h5><span class="tog ssh">+</span><?php echo _(' SSH Settings')?><hr></h5></td></tr>

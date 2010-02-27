@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-27 13:44+0100\n"
+"POT-Creation-Date: 2010-02-27 17:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,39 +28,30 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: backup/backup.i18n.php:5 backup/backup.i18n.php:11
 msgid "Backup & Restore"
 msgstr ""
 
-#: backup/backup.i18n.php:7
 msgid "System Administration"
 msgstr ""
 
-#: backup/backup.i18n.php:9
 msgid "Backup & Restore for your FreePBX environment"
 msgstr ""
 
-#: backup/functions.inc.php:60 backup/functions.inc.php:84
 msgid "Are you sure you want to delete this File Set?"
 msgstr ""
 
-#: backup/functions.inc.php:61
 msgid "DELETE ALL THE DATA IN THIS SET"
 msgstr ""
 
-#: backup/functions.inc.php:61
 msgid "Delete this backup set and all data associated with this backup set.."
 msgstr ""
 
-#: backup/functions.inc.php:85
 msgid "Delete File Set"
 msgstr ""
 
-#: backup/functions.inc.php:85
 msgid "Delete this backup set."
 msgstr ""
 
-#: backup/functions.inc.php:88
 msgid ""
 "Are you sure you want to restore this COMPLETE file set?\\nDoing so will "
 "permanently over-write all FreePBX and Asterisk files\\nYou will lose all "
@@ -68,528 +59,402 @@ msgid ""
 "BACKUP DATE and NOW!"
 msgstr ""
 
-#: backup/functions.inc.php:89
 msgid "Restore Entire Backup Set"
 msgstr ""
 
-#: backup/functions.inc.php:90
 msgid "Restore your Complete Backup set overwriting all files."
 msgstr ""
 
-#: backup/functions.inc.php:92
 msgid ""
 "Are you sure you want to Restore this file set?\\nDoing so will permanently "
 "delete any new voicemail you have in your mailbox\\nsince this backup on"
 msgstr ""
 
-#: backup/functions.inc.php:93
 msgid "Restore VoiceMail Files"
 msgstr ""
 
-#: backup/functions.inc.php:94
 msgid ""
 "Restore your Voicemail files from this backup set.  NOTE! This will delete "
 "any voicemail currently in the voicemail boxes."
 msgstr ""
 
-#: backup/functions.inc.php:98
 msgid ""
 "Are you sure you want to Restore this file set?\\nNOTE! This will OVERWRITE "
 "any voicerecordings currently on the system. It will NOT delete new files "
 "not currently in the backup set"
 msgstr ""
 
-#: backup/functions.inc.php:99
 msgid "Restore System Recordings Files"
 msgstr ""
 
-#: backup/functions.inc.php:100
 msgid ""
 "Restore your system Voice Recordings including AutoAttendant files from this "
 "backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the "
 "system. It will NOT delete new files not currently in the backup set"
 msgstr ""
 
-#: backup/functions.inc.php:103
 msgid ""
 "Are you sure you want to Restore this File Set?\\nDoing so will Permanently "
 "Over-Write all FreePBX and Asterisk Files!"
 msgstr ""
 
-#: backup/functions.inc.php:104
 msgid "Restore System Configuration"
 msgstr ""
 
-#: backup/functions.inc.php:104
 msgid ""
 "Restore your system configuration from this backup set.  NOTE! This will "
 "OVERWRITE any System changes you have made since this backup... ALL items "
 "will be reset to what they were at the time of this backup set.."
 msgstr ""
 
-#: backup/functions.inc.php:107
 msgid ""
 "Are you sure you want to Restore the Operator Panel Files?\\nDoing so will "
 "Permanently Over-Write all Operator Panel Files!"
 msgstr ""
 
-#: backup/functions.inc.php:108
 msgid "Restore Operator Panel"
 msgstr ""
 
-#: backup/functions.inc.php:109
 msgid ""
 "Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE "
 "any Operator Panel Changes you have made since this backup... ALL items will "
 "be reset to what they were at the time of this backup set.."
 msgstr ""
 
-#: backup/functions.inc.php:112
 msgid ""
 "Are you sure you want to Restore the CALL DETAIL FILES?\\nDoing so will "
 "Permanently DELETE all CALL RECORDS!"
 msgstr ""
 
-#: backup/functions.inc.php:113
 msgid "Restore Call Detail Report"
 msgstr ""
 
-#: backup/functions.inc.php:114
 msgid ""
 "Restore the Call Detail Records from this backup set.  NOTE! This will "
 "DELETE ALL CALL RECORDS that have been saved since this backup set.."
 msgstr ""
 
-#: backup/functions.inc.php:118
 msgid "ERROR its not a BACKUP SET file"
 msgstr ""
 
-#: backup/functions.inc.php:172
 msgid "Restored All Files in Backup Set"
 msgstr ""
 
-#: backup/functions.inc.php:185
 msgid "Restored VoiceMail"
 msgstr ""
 
-#: backup/functions.inc.php:196
 msgid "Restored System Recordings"
 msgstr ""
 
-#: backup/functions.inc.php:219
 msgid "Restored System Configuration"
 msgstr ""
 
-#: backup/functions.inc.php:230
 msgid "Restored Operator Panel"
 msgstr ""
 
-#: backup/functions.inc.php:247
 msgid "Restored CDR logs"
 msgstr ""
 
-#: backup/functions.inc.php:250
 msgid "Restore Failed, see System Status Notification for details"
 msgstr ""
 
-#: backup/functions.inc.php:415
 msgid "Basic Settings"
 msgstr ""
 
-#: backup/functions.inc.php:417
 msgid "Schedule Name:"
 msgstr ""
 
-#: backup/functions.inc.php:417
 msgid "Give this Backup Schedule a brief name to help you identify it."
 msgstr ""
 
-#: backup/functions.inc.php:421
 msgid "VoiceMail"
 msgstr ""
 
-#: backup/functions.inc.php:421
 msgid ""
 "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
 msgstr ""
 
-#: backup/functions.inc.php:425
 msgid "System Recordings"
 msgstr ""
 
-#: backup/functions.inc.php:425
 msgid ""
 "Backup the System Recordings (AutoAttendant, Music On Hold, System "
 "Recordings)"
 msgstr ""
 
-#: backup/functions.inc.php:429
 msgid "System Configuration"
 msgstr ""
 
-#: backup/functions.inc.php:429
 msgid ""
 "Backup the System Configurations (Database, etc files, SQL Database, astdb)"
 msgstr ""
 
-#: backup/functions.inc.php:433
 msgid "Admin Web Directory"
 msgstr ""
 
-#: backup/functions.inc.php:433
 msgid ""
 "Backup the admin web directory (i.e. the static FreePBX web files). This is "
 "useful to have during a restore to prevent a version mismatch, but can "
 "dramatically increase the backup size."
 msgstr ""
 
-#: backup/functions.inc.php:437
 msgid "CDR"
 msgstr ""
 
-#: backup/functions.inc.php:437
 msgid "Backup the System Call Detail Reporting (HTML and Database)"
 msgstr ""
 
-#: backup/functions.inc.php:441
 msgid "Operator Panel"
 msgstr ""
 
-#: backup/functions.inc.php:441
 msgid "Backup the Operator Panel (HTML and Database)"
 msgstr ""
 
-#: backup/functions.inc.php:445
 msgid " Additional Files"
 msgstr ""
 
-#: backup/functions.inc.php:447
 msgid "Additional files and folders"
 msgstr ""
 
-#: backup/functions.inc.php:447
 msgid "Backup any additional files and folders listed here."
 msgstr ""
 
-#: backup/functions.inc.php:451
 msgid "Exclude files and folders"
 msgstr ""
 
-#: backup/functions.inc.php:451
-msgid "Exclude any  files and folders from the include listed above."
+msgid "Exclude any files and folders from the include listed above."
 msgstr ""
 
-#: backup/functions.inc.php:455
 msgid " FTP Settings"
 msgstr ""
 
-#: backup/functions.inc.php:457
-msgid "Ftp User Name"
+msgid "FTP User Name"
 msgstr ""
 
-#: backup/functions.inc.php:457
 msgid "Enter your FTP user name"
 msgstr ""
 
-#: backup/functions.inc.php:461
-msgid "Ftp Password"
+msgid "FTP Password"
 msgstr ""
 
-#: backup/functions.inc.php:461
 msgid "Enter your FTP password"
 msgstr ""
 
-#: backup/functions.inc.php:465
-msgid "Ftp Hostname"
+msgid "FTP Hostname"
 msgstr ""
 
-#: backup/functions.inc.php:465
 msgid "IP address or FQDN of FTP server"
 msgstr ""
 
-#: backup/functions.inc.php:469
-msgid "Ftp Directory"
+msgid "FTP Directory"
 msgstr ""
 
-#: backup/functions.inc.php:469
 msgid "Directory on FTP server where the backup should be copied to"
 msgstr ""
 
-#: backup/functions.inc.php:472
 msgid " SSH Settings"
 msgstr ""
 
-#: backup/functions.inc.php:474
 msgid "SSH User Name"
 msgstr ""
 
-#: backup/functions.inc.php:474
 msgid "Enter your SSH user name"
 msgstr ""
 
-#: backup/functions.inc.php:478
 msgid "SSH Key"
 msgstr ""
 
-#: backup/functions.inc.php:478
 msgid "Location of ssh private key to be used when connect to a host"
 msgstr ""
 
-#: backup/functions.inc.php:482
 msgid "SSH Hostname"
 msgstr ""
 
-#: backup/functions.inc.php:482
 msgid "IP address or FQDN of remote ssh host"
 msgstr ""
 
-#: backup/functions.inc.php:486
 msgid "SSH Directory"
 msgstr ""
 
-#: backup/functions.inc.php:486
 msgid "Directory on remote server where the backup should be copied to"
 msgstr ""
 
-#: backup/functions.inc.php:489
 msgid " Email Settings"
 msgstr ""
 
-#: backup/functions.inc.php:491
 msgid "Email Address"
 msgstr ""
 
-#: backup/functions.inc.php:491
 msgid "Email address where backups should be emailed to"
 msgstr ""
 
-#: backup/functions.inc.php:495
 msgid "Max email size"
 msgstr ""
 
-#: backup/functions.inc.php:495
 msgid ""
 "The maximum size a backup can be and still be emailed. Some email servers "
 "limit the size of email attachments, this will make sure that files larger "
 "than the max size are not sent. Valid options include: xB, xKB, xMB"
 msgstr ""
 
-#: backup/functions.inc.php:509
 msgid " Advanced Options"
 msgstr ""
 
-#: backup/functions.inc.php:511
 msgid "Sudo"
 msgstr ""
 
-#: backup/functions.inc.php:511
 msgid ""
 "Use sudo when performing a backup. NOTE: THIS HAS SEVER SECURITY "
 "IMPLICATIONS!"
 msgstr ""
 
-#: backup/functions.inc.php:568 backup/functions.inc.php:572
-#: backup/functions.inc.php:592 backup/functions.inc.php:596
-#: backup/functions.inc.php:620 backup/functions.inc.php:624
 msgid "All"
 msgstr ""
 
-#: backup/functions.inc.php:569 backup/functions.inc.php:573
-#: backup/functions.inc.php:593 backup/functions.inc.php:597
-#: backup/functions.inc.php:621 backup/functions.inc.php:625
 msgid "Selected"
 msgstr ""
 
-#: backup/functions.inc.php:601
 msgid "January"
 msgstr ""
 
-#: backup/functions.inc.php:602
 msgid "February"
 msgstr ""
 
-#: backup/functions.inc.php:603
 msgid "March"
 msgstr ""
 
-#: backup/functions.inc.php:604
 msgid "April"
 msgstr ""
 
-#: backup/functions.inc.php:605
 msgid "May"
 msgstr ""
 
-#: backup/functions.inc.php:606
 msgid "June"
 msgstr ""
 
-#: backup/functions.inc.php:607
 msgid "July"
 msgstr ""
 
-#: backup/functions.inc.php:608
 msgid "August"
 msgstr ""
 
-#: backup/functions.inc.php:609
 msgid "September"
 msgstr ""
 
-#: backup/functions.inc.php:610
 msgid "October"
 msgstr ""
 
-#: backup/functions.inc.php:611
 msgid "November"
 msgstr ""
 
-#: backup/functions.inc.php:612
 msgid "December"
 msgstr ""
 
-#: backup/functions.inc.php:629
 msgid "Monday"
 msgstr ""
 
-#: backup/functions.inc.php:630
 msgid "Tuesday"
 msgstr ""
 
-#: backup/functions.inc.php:631
 msgid "Wednesday"
 msgstr ""
 
-#: backup/functions.inc.php:632
 msgid "Thursday"
 msgstr ""
 
-#: backup/functions.inc.php:633
 msgid "Friday"
 msgstr ""
 
-#: backup/functions.inc.php:634
 msgid "Saturday"
 msgstr ""
 
-#: backup/functions.inc.php:635
 msgid "Sunday"
 msgstr ""
 
-#: backup/functions.inc.php:642
 msgid "Run Backup"
 msgstr ""
 
-#: backup/functions.inc.php:644
 msgid "Follow Schedule Below"
 msgstr ""
 
-#: backup/functions.inc.php:645
 msgid "Now"
 msgstr ""
 
-#: backup/functions.inc.php:646
 msgid "Daily (at midnight)"
 msgstr ""
 
-#: backup/functions.inc.php:647
 msgid "Weekly (on Sunday)"
 msgstr ""
 
-#: backup/functions.inc.php:648
 msgid "Monthly (on the 1st)"
 msgstr ""
 
-#: backup/functions.inc.php:649
 msgid "Yearly (on 1st Jan)"
 msgstr ""
 
-#: backup/functions.inc.php:677
 msgid "Minutes"
 msgstr ""
 
-#: backup/functions.inc.php:677
 msgid "Hours"
 msgstr ""
 
-#: backup/functions.inc.php:677
 msgid "Days"
 msgstr ""
 
-#: backup/functions.inc.php:677
 msgid "Months"
 msgstr ""
 
-#: backup/functions.inc.php:677
 msgid "Weekdays"
 msgstr ""
 
-#: backup/install.php:165
 msgid "Backup migration completed"
 msgstr ""
 
-#: backup/install.php:167
 msgid "Nothing to migrate"
 msgstr ""
 
-#: backup/install.php:174
 msgid "Old Backup table removed!"
 msgstr ""
 
-#: backup/install.php:179
 msgid "Replacing ampbackup.pl in db.."
 msgstr ""
 
-#: backup/install.php:182
 msgid "an error has occured, update not done"
 msgstr ""
 
-#: backup/install.php:185
 msgid "ok"
 msgstr ""
 
-#: backup/install.php:191
 msgid "removing retrieve_backup_cron_from_mysql.pl.."
 msgstr ""
 
-#: backup/install.php:193
 msgid "removed"
 msgstr ""
 
-#: backup/install.php:195
 msgid "failed"
 msgstr ""
 
-#: backup/page.backup.php:80
 msgid "Add Backup Schedule"
 msgstr ""
 
-#: backup/page.backup.php:81
 msgid "Restore from Backup"
 msgstr ""
 
-#: backup/page.backup.php:102 backup/page.backup.php:125
-#: backup/page.backup.php:181
 msgid "System Backup"
 msgstr ""
 
-#: backup/page.backup.php:110 backup/page.backup.php:141
 msgid "Run Schedule"
 msgstr ""
 
-#: backup/page.backup.php:114 backup/page.backup.php:145
 msgid "Submit Changes"
 msgstr ""
 
-#: backup/page.backup.php:128
 #, php-format
 msgid "Delete Backup Schedule %s"
 msgstr ""
 
-#: backup/page.backup.php:154
 msgid "Backup names cannot contain spaces."
 msgstr ""
 
-#: backup/page.backup.php:165
 msgid "System Restore"
 msgstr ""

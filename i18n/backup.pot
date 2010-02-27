@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-18 22:37+0100\n"
+"POT-Creation-Date: 2010-02-27 13:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -348,7 +348,7 @@ msgid "SSH Directory"
 msgstr ""
 
 #: backup/functions.inc.php:486
-msgid "Directory on remote server where the backup should be copied t"
+msgid "Directory on remote server where the backup should be copied to"
 msgstr ""
 
 #: backup/functions.inc.php:489
@@ -536,15 +536,27 @@ msgstr ""
 msgid "Old Backup table removed!"
 msgstr ""
 
-#: backup/install.php:181
-msgid "removing retrieve_backup_cron_from_mysql.pl.."
+#: backup/install.php:179
+msgid "Replacing ampbackup.pl in db.."
 msgstr ""
 
-#: backup/install.php:183
-msgid "removed"
+#: backup/install.php:182
+msgid "an error has occured, update not done"
 msgstr ""
 
 #: backup/install.php:185
+msgid "ok"
+msgstr ""
+
+#: backup/install.php:191
+msgid "removing retrieve_backup_cron_from_mysql.pl.."
+msgstr ""
+
+#: backup/install.php:193
+msgid "removed"
+msgstr ""
+
+#: backup/install.php:195
 msgid "failed"
 msgstr ""
 

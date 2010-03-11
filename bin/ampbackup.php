@@ -171,7 +171,7 @@ if($opts['emailaddr']){
 		$message.="--{$mime_boundary}--\n";
 		
 		//debug output
-		//echo "To:\n";echo $amp_conf['AMPBACKUPEMAILADDR'];echo "\n\nSubject:\n";echo $subject;echo "\n\nMessage:\n";echo $message;echo "\n\nHeaders:\n";echo $headers."\n";
+		//echo "To:\n";echo $opts['emailaddr'];echo "\n\nSubject:\n";echo $subject;echo "\n\nMessage:\n";echo $message;echo "\n\nHeaders:\n";echo $headers."\n";
 		// Send the message
 		mail($opts['emailaddr'], $subject, $message, $headers);
 	}

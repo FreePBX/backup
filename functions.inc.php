@@ -277,6 +277,7 @@ function backup_save_schedule($parms){
 									'emailmaxsize','emailmaxtype','exclude','fop','ftpdir','ftphost',
 									'ftppass','ftpuser','hours','id','include','method','minutes',
 									'months','name','recordings','sshdir','sshhost','sshkey','sshuser',
+									'remotesshhost','remotesshuser','remotesshkey','remoterestore',
 									'sudo','voicemail','weekdays');
 	foreach($parms_num as $dprm){$db_parms[$dprm]=isset($parms[$dprm])?$parms[$dprm]:'';}
 	$keys=$vals='';
@@ -410,6 +411,12 @@ function backup_showopts($id=''){
 	}else{
 		$opts=Get_Backup_Options($id);
 	}
+	$files=($opts['include']||$opts['exclude']);
+	$ftp=($opts['ftpuser']||$opts['ftppass']||$opts['ftphost']||$opts['ftpdir']);
+	$ssh=($opts['sshuser']||$opts['sshkey']||$opts['sshhost']||$opts['sshdir']);
+	$email=($opts['emailaddr']);
+	$remote=($opts['remotesshhost']||$opts['remotesshuser']||$opts['remotesshkey']||$opts['remoterestore']);
+	$advanced=($amp_conf['AMPBACKUPADVANCED']||$opts['sudo']);
 	?>
 	<table>
 	<tr><td colspan="2"><h5><?php echo _("Basic Settings")?><hr></h5></td></tr>
@@ -442,7 +449,7 @@ function backup_showopts($id=''){
  		<td><input type="checkbox" name="fop" value="yes" <?php echo ($opts['fop']=='yes')?'checked':''; ?>/></td>
 	</tr>
 
-	<tr><td colspan="2"><h5><span class="tog files">+</span><?php echo _(' Additional Files')?><hr></h5></td></tr>
+	<tr><td colspan="2" class="tog files"><h5><span><?php echo $files?'-':'+';?></span><?php echo _(' Additional Files')?><hr></h5></td></tr>
 	<tr class="hide files">
  		<td><a href="#" class="info"><?php echo _("Additional files and folders");?><span><?php echo _("Backup any additional files and folders listed here.");?></span></a>: </td>
  		<td><textarea name="include" style="width: 400px" /><?php echo $opts['include']; ?></textarea></td>
@@ -452,7 +459,7 @@ function backup_showopts($id=''){
  		<td><textarea name="exclude" style="width: 400px" /><?php echo $opts['exclude']; ?></textarea></td>
 	</tr>
 	
-	<tr><td colspan="2"><h5><span class="tog ftp">+</span><?php echo _(' FTP Settings')?><hr></h5></td></tr>
+	<tr><td colspan="2" class="tog ftp"><h5><span><?php echo $ftp?'-':'+';?></span><?php echo _(' FTP Settings')?><hr></h5></td></tr>
 	<tr class="hide ftp">
  		<td><a href="#" class="info"><?php echo _("FTP User Name");?><span><?php echo _('Enter your FTP user name');?></span></a>: </td>
  		<td><input type="text" name="ftpuser" value="<?php echo $opts['ftpuser']; ?>" /></td>
@@ -469,7 +476,8 @@ function backup_showopts($id=''){
  		<td><a href="#" class="info"><?php echo _("FTP Directory");?><span><?php echo _('Directory on FTP server where the backup should be copied to');?></span></a>: </td>
  		<td><input type="text" name="ftpdir" value="<?php echo $opts['ftpdir']; ?>" /></td>
 	</tr>
-	<tr><td colspan="2"><h5><span class="tog ssh">+</span><?php echo _(' SSH Settings')?><hr></h5></td></tr>
+	
+	<tr><td colspan="2" class="tog ssh"><h5><span><?php echo $ssh?'-':'+';?></span><?php echo _(' SSH Settings')?><hr></h5></td></tr>
 	<tr class="hide ssh">
  		<td><a href="#" class="info"><?php echo _("SSH User Name");?><span><?php echo _('Enter your SSH user name');?></span></a>: </td>
  		<td><input type="text" name="sshuser" value="<?php echo $opts['sshuser']; ?>" /></td>
@@ -486,7 +494,8 @@ function backup_showopts($id=''){
  		<td><a href="#" class="info"><?php echo _("SSH Directory");?><span><?php echo _('Directory on remote server where the backup should be copied to');?></span></a>: </td>
  		<td><input type="text" name="sshdir" value="<?php echo $opts['sshdir']; ?>" /></td>
 	</tr>	
-	<tr><td colspan="2"><h5><span class="tog email">+</span><?php echo _(' Email Settings')?><hr></h5></td></tr>
+	
+	<tr><td colspan="2" class="tog email"><h5><span><?php echo $email?'-':'+';?></span><?php echo _(' Email Settings')?><hr></h5></td></tr>
 	<tr class="hide email">
  		<td><a href="#" class="info"><?php echo _("Email Address");?><span><?php echo _('Email address where backups should be emailed to');?></span></a>: </td>
  		<td><input type="text" name="emailaddr" value="<?php echo $opts['emailaddr']; ?>" /></td>
@@ -506,29 +515,54 @@ function backup_showopts($id=''){
 			</select>
  			</td>
 	</tr>
-	<tr <?php echo $amp_conf['AMPBACKUPADVANCED']?'':'class="hide"'; ?>><td colspan="2"><h5><span class="tog advanced">+</span><?php echo _(' Advanced Options')?><hr></h5></td></tr>
-	<tr class="hide advanced">
-		<td><a href="#" class="info"><?php echo _("Sudo");?><span><?php echo _("Use sudo when performing a backup. NOTE: THIS HAS SEVER SECURITY IMPLICATIONS!");?></span></a>: </td>
+	
+	<tr><td colspan="2" class="tog remote"><h5><span><?php echo $remote?'-':'+';?></span><?php echo _(' Remote Backup Options')?><hr></h5></td></tr>
+	<tr class="hide remote">
+		<td><a href="#" class="info"><?php echo _('Remote SSH Hostname');?><span><?php echo _('Run this backup on a remote server. The backup will then be copied over to this server');?></span></a>: </td>
+ 		<td><input type="input" name="remotesshhost"  tabindex="<?php echo ++$tabindex;?>" value="<?php echo $opts['remotesshhost']; ?>"/></td>
+	</tr>
+	<tr class="hide remote">
+		<td><a href="#" class="info"><?php echo _('Remote SSH User');?><span><?php echo _('Username to use when connecting to remote user. Defualts to the user appache is running as on this system.');?></span></a>: </td>
+ 		<td><input type="input" name="remotesshuser"  tabindex="<?php echo ++$tabindex;?>" value="<?php echo $opts['remotesshuser']; ?>"/></td>
+	</tr>
+	<tr class="hide remote">
+ 		<td><a href="#" class="info"><?php echo _('Remote SSH Key');?><span><?php echo _('Location of ssh private key to be used when connect to a host');?></span></a>: </td>
+ 		<td><input type="text" name="remotesshkey" tabindex="<?php echo ++$tabindex;?>" value="<?php echo $opts['remotesshkey']; ?>" /></td>
+	</tr>
+	<tr class="hide remote">
+ 		<td><a href="#" class="info"><?php echo _('Restore to this server');?><span><?php echo _('Restore the backup to this server. Use this option to create a delayed time backup of another server on this one.');?></span></a>: </td>
+ 		<td><input type="checkbox" name="remoterestore" tabindex="<?php echo ++$tabindex;?>" value="yes" <?php echo ($opts['remoterestore']=='yes')?'checked':''; ?> /></td>
+	</tr>
+	<tr class="advanced"><td colspan="2" class="tog advanced" ><h5><span><?php echo $advanced?'-':'+';?></span><?php echo _(' Advanced Options')?><hr></h5></td></tr>
+	<tr  class="hide advanced">
+		<td><a href="#" class="info"><?php echo _("Sudo");?><span><?php echo _('Use sudo when performing a backup. NOTE: THIS HAS SEVER SECURITY IMPLICATIONS!');?></span></a>: </td>
  		<td><input type="checkbox" name="sudo"  tabindex="<?php echo ++$tabindex;?>" value="yes" <?php echo ($opts['sudo']=='yes')?'checked':''; ?> /></td>
 	</tr>
 	<style type="text/css">
-	.tog{cursor:pointer;color:black}
-	.hide{display:none}
+	tr .tog{cursor:pointer;}
+	tr .tog span{color:black}
+	<?php
+		$sections=array('files','ftp','ssh','email','remote','advanced');
+		foreach($sections as $sec){
+			if(!$$sec){echo '.hide.'.$sec.'{display:none}'."\n";}
+		}
+		if(!$advanced){echo '.advanced{display:none}'."\n";}
+	?>
 	h5{margin-top:10px;margin-bottom:10px}
 	</style>
 	<script language="javascript" type="text/javascript">
 		$(document).ready(function() {
    		$('.tog').click(function(){
    			var tclass = $(this).attr('class'); tclass = tclass.replace('tog ', '');
-   			if($(this).text()=='+'){
-   				$(this).text('- ');
+   			var togspan = $(this).find('span');
+   			if(togspan.text()=='+'){
+   				togspan.text('- ');
 		 			$('.'+tclass).show();
 		 		}else{
-		 			$(this).text('+');
+		 			togspan.text('+');
 		 			$('.'+tclass).not('.tog').hide();
 		 		}
-
-			 })
+			 });
 		});
 	</script>
 	<?php

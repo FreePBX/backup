@@ -69,7 +69,11 @@ if($amp_conf["AMPDBENGINE"] == "sqlite3")  {
 		admin varchar(10),
 		include blob,
 		exclude blob,
-		sudo varchar(25)
+		sudo varchar(25),
+		emotesshhost varchar(50) default NULL, 
+		remotesshuser varchar(50) default NULL, 
+		remotesshkey varchar(150) default NULL, 
+		remoterestore varchar(5) default NULL
 	);
 	";
 }else{
@@ -104,6 +108,10 @@ if($amp_conf["AMPDBENGINE"] == "sqlite3")  {
 		include blob,
 		exclude blob,
 		sudo varchar(25),
+		remotesshhost varchar(50) default NULL,
+		remotesshuser varchar(50) default NULL,
+		remotesshkey varchar(150) default NULL,
+		remoterestore varchar(5) default NULL,
 	PRIMARY KEY (id) );
 	";
 }
@@ -226,4 +234,8 @@ function backup_install_retrieve_backup_cron(){
 
 	return ($ret1 == 0 && $ret2 == 0);
 }
+
+//TODO:
+//alter table backup add remotesshhost varchar(50) default NULL, add remotesshuser varchar(50) default NULL, add remotesshkey varchar(150) default NULL, add remoterestore varchar(5) default NULL;
+
 ?>

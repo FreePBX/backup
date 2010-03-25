@@ -49,7 +49,8 @@ switch ($action) {
 								'mins','hours','days','months','weekdays','voicemail',
 								'recordings','configurations','cdr','fop', 'ftpuser',
 								'ftppass','ftphost','ftpdir','sshuser','sshkey','sshhost','sshdir',
-								'emailaddr','emailmaxsize','emailmaxtype','admin','include','exclude','sudo');
+								'emailaddr','emailmaxsize','emailmaxtype','admin','include','exclude',
+								'remotesshhost','remotesshuser','remotesshkey','remoterestore','sudo');
 		foreach($parms as $p){
 			$backup_parms[$p]=(isset($_REQUEST[$p]))?$_REQUEST[$p]:'';
 			}

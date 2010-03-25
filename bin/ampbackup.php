@@ -31,72 +31,133 @@
 //get options
 $amp_conf=getconf((isset($_ENV['FREEPBXCONFIG']) && strlen($_ENV['FREEPBXCONFIG']))?$_ENV['FREEPBXCONFIG']:'/etc/amportal.conf');
 $ast_conf=getconf((isset($_ENV['ASTERISKCONFIG']) && strlen($_ENV['ASTERISKCONFIG']))?$_ENV['ASTERISKCONFIG']:'/etc/asterisk/asterisk.conf');
-
 //connect to database
 include_once('DB.php');
 if(!isset($db)){$db = DB::connect('mysql://'.$amp_conf['AMPDBUSER'].':'.$amp_conf['AMPDBPASS'].'@'.$amp_conf['AMPDBHOST'].'/'.$amp_conf['AMPDBNAME']);} // attempt connection
-if($argc == 1){//no args recieved - show help text
-	showopts();
-}elseif($argc == 2){//one arg recievied. Hmm, this sounds like a backup schedules id... Lets look in the DB for more details
-	$sql = "SELECT * FROM backup WHERE id= ?";
-	$opts=$db->getRow($sql,array($argv[1]), DB_FETCHMODE_ASSOC);
-	if(!$opts){echo "No Backup Schedules defined in backup table or you may need to run this program with more arguments.\n";exit;}
-}else{
-	$opts['name']=isset($argv[1])?$argv[1]:false;
-	$opts['voicemail']=(isset($argv[2])&& $argv[2]=='yes')?true:false;
-	$opts['recordings']=(isset($argv[3])&& $argv[3]=='yes')?true:false;
-	$opts['configurations']=(isset($argv[4])&& $argv[4]=='yes')?true:false;
-	$opts['cdr']=(isset($argv[5])&& $argv[5]=='yes')?true:false;
-	$opts['fop']=(isset($argv[6])&& $argv[6]=='yes')?true:false;
+
+switch (true){
+	case $argc == 1://no args recieved - show help text
+			showopts();
+	break;
+	case $argv[1] == 'cli'://args passed on cli
+		for($i=2;$i<$argc;$i++){
+			if(substr($argv[$i],0,2)=='--'){
+				$arg=explode('=',substr($argv[$i],2));
+				$opts[$arg[0]]=trim($arg[1]);
+			}
+		}
+	break;
+	case $argc == 2: //got backup id, do a db lookup
+		$sql = "SELECT * FROM backup WHERE id= ?";
+		$opts=$db->getRow($sql,array($argv[1]), DB_FETCHMODE_ASSOC);
+		
+		dbug('opts',$opts);
+		if(!$opts){echo "No Backup Schedules defined in backup table or you may need to run this program with more arguments.\n";exit;}
+	break;
+	default: //legacy method of calling script
+		$opts['name']=isset($argv[1])?$argv[1]:false;
+		$opts['voicemail']=(isset($argv[2])&& $argv[2]=='yes')?true:false;
+		$opts['recordings']=(isset($argv[3])&& $argv[3]=='yes')?true:false;
+		$opts['configurations']=(isset($argv[4])&& $argv[4]=='yes')?true:false;
+		$opts['cdr']=(isset($argv[5])&& $argv[5]=='yes')?true:false;
+		$opts['fop']=(isset($argv[6])&& $argv[6]=='yes')?true:false;
+	break;
 }
+
 $opts['ftpfile']='/tmp/freepbx-backup.ftp';
 $opts['budir']=$amp_conf['ASTVARLIBDIR'].'/backups';
-$opts['now']=date('Ymd.h.i.s');
+if($opts['now']==''){$opts['now']=date('Ymd.h.i.s');}//only set if not already set
+
+//get arguments 
 
 if($opts['sudo']==true){$sudo='/usr/bin/sudo';}else{$sudo='';}
 //if all options are set to no/false, return an error
-if(!$opts['voicemail']&&!$opts['recordings']&&!$opts['configurations']&&!$opts['cdr']&&!$opts['fop']&&!$opts['include']){echo "Backup Error: You need to set at least one option to yes\n";showopts();}
-system('/bin/rm -rf /tmp/ampbackups.'.$opts['now'].' > /dev/null  2>&1');//remove stale backup
-system('/bin/mkdir /tmp/ampbackups.'.$opts['now'].' > /dev/null  2>&1');//create directory for current backup
-//backup voicmail if requested
-if($opts['voicemail']){system('/bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/voicemail.tar.gz '.$amp_conf['ASTSPOOLDIR'].'/voicemail');}
-//backup recordings in requested
-if($opts['recordings']){system('/bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/recordings.tar.gz '.$amp_conf['ASTVARLIBDIR'].'/sounds/custom');}
-//backup configurations if requested
-if($opts['configurations']){
-	system($amp_conf['ASTVARLIBDIR'].'/bin/dumpastdb.php '.$opts['now'].' > /dev/null');
+if(!$opts['voicemail']&&!$opts['recordings']&&!$opts['configurations']&&!$opts['cdr']&&!$opts['fop']&&!$opts['include']){echo "Backup Error: You need to set at least one option\n";showopts();}
 
-	$cmd='/bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/configurations.tar.gz '.$amp_conf['ASTVARLIBDIR'].'/agi-bin/ ';
-	$cmd.=$amp_conf['ASTVARLIBDIR'].'/bin/ '.$amp_conf['ASTETCDIR'].' /etc/amportal.conf ';
-	if($opts['admin']=='yes'){$cmd.=$amp_conf['AMPWEBROOT'].'/admin ';}//include admin/ unless otherwise requested
-	if(isset($amp_conf['ZAP2DAHDICOMPAT']) && $amp_conf['ZAP2DAHDICOMPAT']==true){$cmd.='/etc/dahdi ';}else{$cmd.='/etc/zaptel.conf ';}//include zap OR dahdi
-	$cmd.='/tmp/ampbackups.'.$opts['now'].'/astdb.dump';
-	system($cmd);
-	if($opts['include']){
-		$exclude='';
-		if(isset($opts['exclude']) && $opts['exclude']!=''){
-			$excludes=str_replace(array("\n","\r","\r\n"),' ',$opts['exclude']);
-			$ex=explode('  ',$excludes);
-			foreach($ex as $x){ //exclude each option in the space delimited list
-				$exclude.='--exclude='.$x.' ';
-			} 
+//run backup remotly if requested
+if($opts['remotesshhost'] && $opts['remotesshkey']){
+	$opts['now']=$opts['remotesshhost'].'.'.$opts['now'];
+	$user=(isset($opts['remoteuser']) && $opts['remotesshuser']!='')?$opts['remoteuser'].'\@':'';
+	$exec='/usr/bin/ssh -o StrictHostKeyChecking=no -i '.$opts['remotesshkey'].' '.$user.$opts['remotesshhost'];
+	$exec.=' \'. /etc/amportal.conf;';
+	$exec.='$ASTVARLIBDIR/bin/ampbackup.php cli';
+	print_r($opts);
+	foreach($opts as $key => $val){
+		switch($key){
+			case 'remotesshhost':
+			case 'remotesshkey':
+			case 'remoteuser':
+			case 'remotesshkey':
+			case 'budir':
+			case 'id':
+				$exec.=' --'.$key.'=';
+			break;
+			default:
+				$exec.=' --'.$key.'='.$val;
+			break;
 		}
-		$inculde=str_replace(array("\n","\r","\r\n"),' ',$opts['include']);
-		$exec=$sudo.' /bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/phoneconfig.tar.gz '.$inculde.'  '.$exclude;
+	}
+	$exec.='; echo $ASTVARLIBDIR';
+	$exec.='\'';
+	exec($exec,$rbudir,$execok);
+	//if the ssh completed with exit code 0, copy backup over to this server
+	if($execok==0){
+		$exec='/usr/bin/scp -i '.$opts['remotesshkey'].' -c blowfish '.$user.$opts['remotesshhost'].':'.$rbudir[0].'/backups/'.$opts['name'].'/'.$opts['now'].'.tar.gz '.$opts['budir'].'/'.$opts['name'];
 		exec($exec,$ret);
 	}
-	system('mysqldump --add-drop-table -h'.$amp_conf['AMPDBHOST'].' -u'.$amp_conf['AMPDBUSER'].' -p'.$amp_conf['AMPDBPASS'].' --database '.$amp_conf['AMPDBNAME'].' > /tmp/ampbackups.'.$opts['now'].'/asterisk.sql');
+	//if we have the backup file localy, delete it from the remote server
+	if(is_file($amp_conf['ASTSPOOLDIR'].'/tmp/'.$opts['now'].'.tar.gz')){
+		$exec='/usr/bin/ssh -o StrictHostKeyChecking=no -i '.$opts['remotesshkey'].' '.$user.$opts['remotesshhost'];
+		$exec.=' \'rm -f '.$rbudir[0].'/backups/'.$opts['name'].'/'.$opts['now'].'.tar.gz\'';
+		exec($exec,$ret);
+	}
+	if($opts['remoterestore']=='yes'){//restore to local machine if requested
+		include_once($amp_conf['AMPWEBROOT'].'/admin/modules/backup/functions.inc.php');
+		backup_restore_tar($opts['budir'].'/'.$opts['name'].'/'.$opts['now'].'.tar.gz', $opts['now'].'.tar.gz','ALL');
+	}
+}else{//otherwise, run it localy
+	system('/bin/rm -rf /tmp/ampbackups.'.$opts['now'].' > /dev/null  2>&1');//remove stale backup
+	system('/bin/mkdir /tmp/ampbackups.'.$opts['now'].' > /dev/null  2>&1');//create directory for current backup
+	//backup voicmail if requested
+	if($opts['voicemail']){system('/bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/voicemail.tar.gz '.$amp_conf['ASTSPOOLDIR'].'/voicemail');}
+	//backup recordings in requested
+	if($opts['recordings']){system('/bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/recordings.tar.gz '.$amp_conf['ASTVARLIBDIR'].'/sounds/custom');}
+	//backup configurations if requested
+	if($opts['configurations']){
+		system($amp_conf['ASTVARLIBDIR'].'/bin/dumpastdb.php '.$opts['now'].' > /dev/null');
+	
+		$cmd='/bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/configurations.tar.gz '.$amp_conf['ASTVARLIBDIR'].'/agi-bin/ ';
+		$cmd.=$amp_conf['ASTVARLIBDIR'].'/bin/ '.$amp_conf['ASTETCDIR'].' /etc/amportal.conf ';
+		if($opts['admin']=='yes'){$cmd.=$amp_conf['AMPWEBROOT'].'/admin ';}//include admin/ unless otherwise requested
+		if(isset($amp_conf['ZAP2DAHDICOMPAT']) && $amp_conf['ZAP2DAHDICOMPAT']==true){$cmd.='/etc/dahdi ';}else{$cmd.='/etc/zaptel.conf ';}//include zap OR dahdi
+		$cmd.='/tmp/ampbackups.'.$opts['now'].'/astdb.dump';
+		system($cmd);
+		if($opts['include']){
+			$exclude='';
+			if(isset($opts['exclude']) && $opts['exclude']!=''){
+				$excludes=str_replace(array("\n","\r","\r\n"),' ',$opts['exclude']);
+				$ex=explode('  ',$excludes);
+				foreach($ex as $x){ //exclude each option in the space delimited list
+					$exclude.='--exclude='.$x.' ';
+				} 
+			}
+			$inculde=str_replace(array("\n","\r","\r\n"),' ',$opts['include']);
+			$exec=$sudo.' /bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/phoneconfig.tar.gz '.$inculde.'  '.$exclude;
+			exec($exec,$ret);
+		}
+		system('mysqldump --add-drop-table -h'.$amp_conf['AMPDBHOST'].' -u'.$amp_conf['AMPDBUSER'].' -p'.$amp_conf['AMPDBPASS'].' --database '.$amp_conf['AMPDBNAME'].' > /tmp/ampbackups.'.$opts['now'].'/asterisk.sql');
+	}
+	//backup cdr if requested
+	if($opts['cdr']){
+		system('/bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/cdr.tar.gz '.$amp_conf['AMPWEBROOT'].'/admin/cdr');
+		system('mysqldump --add-drop-table -h '.$amp_conf['AMPDBHOST'].' -u '.$amp_conf['AMPDBUSER'].' -p'.$amp_conf['AMPDBPASS'].' --database asteriskcdrdb > /tmp/ampbackups.'.$opts['now'].'/asteriskcdr.sql');
+	}
+	//backup FOP if requested
+	if($opts['fop']){system('/bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/fop.tar.gz '.$amp_conf['AMPWEBROOT'].'/panel');}
+	system('/bin/mkdir -p '.$opts['budir'].'/'.$opts['name'].' > /dev/null  2>&1');
+	system('/bin/tar -Pcz -f '.$opts['budir'].'/'.$opts['name'].'/'.$opts['now'].'.tar.gz /tmp/ampbackups.'.$opts['now']);
+	system('/bin/rm -rf /tmp/ampbackups.'.$opts['now'].' > /dev/null  2>&1');
 }
-//backup cdr if requested
-if($opts['cdr']){
-	system('/bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/cdr.tar.gz '.$amp_conf['AMPWEBROOT'].'/admin/cdr');
-	system('mysqldump --add-drop-table -h '.$amp_conf['AMPDBHOST'].' -u '.$amp_conf['AMPDBUSER'].' -p'.$amp_conf['AMPDBPASS'].' --database asteriskcdrdb > /tmp/ampbackups.'.$opts['now'].'/asteriskcdr.sql');
-}
-//backup FOP if requested
-if($opts['fop']){system('/bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/fop.tar.gz '.$amp_conf['AMPWEBROOT'].'/panel');}
-system('/bin/mkdir -p '.$opts['budir'].'/'.$opts['name'].' > /dev/null  2>&1');
-system('/bin/tar -Pcz -f '.$opts['budir'].'/'.$opts['name'].'/'.$opts['now'].'.tar.gz /tmp/ampbackups.'.$opts['now']);
-system('/bin/rm -rf /tmp/ampbackups.'.$opts['now'].' > /dev/null  2>&1');
 
 /*
  FTP Sucessfull Backup's to FTPSERVER
@@ -177,7 +238,6 @@ if($opts['emailaddr']){
 	}
 }
 
-
 function size2bytes($str){ 
   $bytes=0; 
   $bytes_array=array('B'=>1, 'KB'=>1024, 'MB'=>1024*1024, 'GB'=>1024*1024*1024, 
@@ -225,19 +285,56 @@ function getOpts(){
 }
 
 
-function dbug($disc=null,$msg=null){
-	$debug=true;
-	if ($debug){
-	$fh = fopen("/tmp/freepbx_debug.log", 'a') or die("can't open file");
+function dbug(){
+	$opts=func_get_args();
+	//call_user_func_array('freepbx_debug',$opts);
+	$dump=0;
+	//sort arguments
+	switch(count($opts)){
+		case 1:
+			$msg=$opts[0];
+		break;
+		case 2:
+			if(is_array($opts[0])||is_object($opts[0])){
+				$msg=$opts[0];
+				$dump=$opts[1];
+			}else{
+				$disc=$opts[0];
+				$msg=$opts[1];
+			}
+		break;
+		case 3:
+			$disc=$opts[0];
+			$msg=$opts[1];
+			$dump=$opts[2];
+		break;	
+	}
 	if($disc){$disc=' \''.$disc.'\':';}
-	fwrite($fh,date("Y-M-d H:i:s").$disc."\n"); //add timestamp
-	if (is_array($msg)) {
-		fwrite($fh,print_r($msg,true)."\n");
-	} else {
-		fwrite($fh,$msg."\n");
+	$txt=date("Y-M-d H:i:s").$disc."\n"; //add timestamp
+	dbug_write($txt,1);
+	if($dump==1){//force output via var_dump
+		ob_start();
+		var_dump($msg);
+		$msg=ob_get_contents();
+		ob_end_clean();
+		dbug_write($msg."\n");
+	}elseif(is_array($msg)||is_object($msg)){
+		dbug_write(print_r($msg,true)."\n");
+	}else{
+		dbug_write($msg."\n");
 	}
-	fclose($fh);
+}
+
+function dbug_write($txt,$check=''){
+	global $amp_conf;
+	$append=FILE_APPEND;
+	//optionaly ensure that dbug file is smaller than $max_size
+	if($check){
+		$max_size=52428800;//hardcoded to 50MB. is that bad? not enough?
+		$size=filesize('/tmp/freepbx_debug.log');
+		$append=(($size > $max_size)?'':FILE_APPEND);
 	}
+	file_put_contents('/tmp/freepbx_debug.log',$txt, $append);
 }
 
 ?>

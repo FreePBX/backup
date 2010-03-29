@@ -235,7 +235,22 @@ function backup_install_retrieve_backup_cron(){
 	return ($ret1 == 0 && $ret2 == 0);
 }
 
-//TODO:
-//alter table backup add remotesshhost varchar(50) default NULL, add remotesshuser varchar(50) default NULL, add remotesshkey varchar(150) default NULL, add remoterestore varchar(5) default NULL;
+//check for 2.6-style tables
+$sql='describe backup';
+$fields=$db->getAssoc($sql);
+if(!array_key_exists('remotesshhost',$fields)){
+	out(_('Migrating backup table...'));
+	$sql='alter table backup add remotesshhost varchar(50) default NULL,
+				add remotesshuser varchar(50) default NULL,
+				add remotesshkey varchar(150) default NULL,
+				add remoterestore varchar(5) default NULL';
+	$q=$db->query($sql);
+	if(DB::IsError($q)){
+    out(_('WARINING: backup table not migrated'));
+  } else {
+    out(_('Sucsessfuly migraded fax_incoming table!'));
+  }
+}
+
 
 ?>

@@ -122,12 +122,12 @@ if(DB::IsError($check)) {
 
 $migrate=$db->getAll('show tables like "Backup"');
 if(DB::IsError($check)) {
-	die_freepbx("Can check for Backup table \n".$result->getMessage());
+	die_freepbx("Can not check for Backup table \n".$result->getMessage());
 }
 if(count($migrate) > 0){//migrate to new backup structure
 	$sql=$db->query('insert into backup (name, voicemail, recordings, configurations, cdr, fop, minutes, hours, days, months, weekdays, command, method, id) select * from Backup;');
 	if(DB::IsError($sql)) {
-		die_freepbx("Cannot migrate Backup table\n".$sql->getMessage());
+		die_freepbx("Can not migrate Backup table\n".$sql->getMessage());
 	}
 	//get data from amportal and populate the table with it
 	//ftp
@@ -246,9 +246,9 @@ if(!array_key_exists('remotesshhost',$fields)){
 				add remoterestore varchar(5) default NULL';
 	$q=$db->query($sql);
 	if(DB::IsError($q)){
-    out(_('WARINING: backup table not migrated'));
+    out(_('WARNING: backup table not migrated'));
   } else {
-    out(_('Sucsessfuly migraded fax_incoming table!'));
+    out(_('Successfully migrated fax_incoming table!'));
   }
 }
 

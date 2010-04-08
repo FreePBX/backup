@@ -51,7 +51,6 @@ switch (true){
 		$sql = "SELECT * FROM backup WHERE id= ?";
 		$opts=$db->getRow($sql,array($argv[1]), DB_FETCHMODE_ASSOC);
 		
-		dbug('opts',$opts);
 		if(!$opts){echo "No Backup Schedules defined in backup table or you may need to run this program with more arguments.\n";exit;}
 	break;
 	default: //legacy method of calling script
@@ -77,6 +76,7 @@ if(!$opts['voicemail']&&!$opts['recordings']&&!$opts['configurations']&&!$opts['
 //run backup remotly if requested
 if($opts['remotesshhost'] && $opts['remotesshkey']){
 	$opts['now']=$opts['remotesshhost'].'.'.$opts['now'];
+	chmod($opts['remotesshkey'],0400);
 	$user=(isset($opts['remotesshuser']) && $opts['remotesshuser']!='')?$opts['remotesshuser'].'\@':'';
 	$exec='/usr/bin/ssh -o StrictHostKeyChecking=no -i '.$opts['remotesshkey'].' '.$user.$opts['remotesshhost'];
 	$exec.=' \'. /etc/amportal.conf;';

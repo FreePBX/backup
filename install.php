@@ -67,10 +67,11 @@ if($amp_conf["AMPDBENGINE"] == "sqlite3")  {
 		emailmaxsize varchar(25),
 		emailmaxtype varchar(5),
 		admin varchar(10),
+		overwritebackup varchar(5) default NULL,
 		include blob,
 		exclude blob,
 		sudo varchar(25),
-		emotesshhost varchar(50) default NULL, 
+		remotesshhost varchar(50) default NULL, 
 		remotesshuser varchar(50) default NULL, 
 		remotesshkey varchar(150) default NULL, 
 		remoterestore varchar(5) default NULL
@@ -105,6 +106,7 @@ if($amp_conf["AMPDBENGINE"] == "sqlite3")  {
 		emailmaxsize varchar(25),
 		emailmaxtype varchar(5),
 		admin varchar(10),
+		overwritebackup varchar(5) default NULL,
 		include blob,
 		exclude blob,
 		sudo varchar(25),
@@ -235,7 +237,7 @@ function backup_install_retrieve_backup_cron(){
 	return ($ret1 == 0 && $ret2 == 0);
 }
 
-//check for 2.6-style tables
+//check remote backup fields
 $sql='describe backup';
 $fields=$db->getAssoc($sql);
 if(!array_key_exists('remotesshhost',$fields)){
@@ -248,9 +250,21 @@ if(!array_key_exists('remotesshhost',$fields)){
 	if(DB::IsError($q)){
     out(_('WARNING: backup table not migrated'));
   } else {
-    out(_('Successfully migrated fax_incoming table!'));
+    out(_('Successfully migrated backup table!'));
   }
 }
 
-
+//check for overwritebackup filed
+$sql='describe backup';
+$fields=$db->getAssoc($sql);
+if(!array_key_exists('overwritebackup',$fields)){
+	out(_('Migrating backup table...'));
+	$sql='alter table backup add overwritebackup varchar(5) default NULL';
+	$q=$db->query($sql);
+	if(DB::IsError($q)){
+    out(_('WARNING: backup table not migrated'));
+  } else {
+    out(_('Successfully migrated backup table!'));
+  }
+}
 ?>

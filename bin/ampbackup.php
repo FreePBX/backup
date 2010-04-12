@@ -91,6 +91,9 @@ if($opts['remotesshhost'] && $opts['remotesshkey']){
 			case 'id':
 				$exec.=' --'.$key.'=';
 			break;
+			case 'overwritebackup':
+				$exec.=' --'.$key.'=yes';
+			break;
 			default:
 				$exec.=' --'.$key.'='.$val;
 			break;
@@ -108,7 +111,7 @@ if($opts['remotesshhost'] && $opts['remotesshkey']){
 	//if we have the backup file localy, delete it from the remote server
 	if(is_file($opts['budir'].'/'.$opts['name'].'/'.$opts['now'].'.tar.gz')){
 		$exec='/usr/bin/ssh -o StrictHostKeyChecking=no -i '.$opts['remotesshkey'].' '.$user.$opts['remotesshhost'];
-		$exec.=' \'dir='.$rbudir[0].'/backups/'.$opts['name'].'; rm -f $dir/'.$opts['now'].'.tar.gz; if [ ! "$(ls -A $dir)" ]; then rmdir $dir; fi'\'';
+		$exec.=' \'dir='.$rbudir[0].'/backups/'.$opts['name'].'; rm -f $dir/'.$opts['now'].'.tar.gz; if [ ! "$(ls -A $dir)" ]; then rmdir $dir; fi\'';
 		exec($exec,$ret);
 	}
 	if($opts['remoterestore']=='yes'){//restore to local machine if requested
@@ -145,7 +148,8 @@ if($opts['remotesshhost'] && $opts['remotesshkey']){
 			$exec=$sudo.' /bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/phoneconfig.tar.gz '.$inculde.'  '.$exclude;
 			exec($exec,$ret);
 		}
-		system('mysqldump --add-drop-table -h'.$amp_conf['AMPDBHOST'].' -u'.$amp_conf['AMPDBUSER'].' -p'.$amp_conf['AMPDBPASS'].' --database '.$amp_conf['AMPDBNAME'].' > /tmp/ampbackups.'.$opts['now'].'/asterisk.sql');
+		$ignorbackup=(($opts['overwritebackup']=='yes')?' --ignore-table='.$amp_conf['AMPDBNAME'].'.backup ':' ');
+		system('mysqldump --add-drop-table -h'.$amp_conf['AMPDBHOST'].' -u'.$amp_conf['AMPDBUSER'].' -p'.$amp_conf['AMPDBPASS'].' --database '.$amp_conf['AMPDBNAME'].$ignorbackup.' > /tmp/ampbackups.'.$opts['now'].'/asterisk.sql');
 	}
 	//backup cdr if requested
 	if($opts['cdr']){

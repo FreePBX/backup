@@ -418,6 +418,43 @@ function backup_showopts($id=''){
 	$remote=($opts['remotesshhost']||$opts['remotesshuser']||$opts['remotesshkey']||$opts['remoterestore']);
 	$advanced=($amp_conf['AMPBACKUPADVANCED']||$opts['sudo']);
 	?>
+	<style type="text/css">
+		tr .tog{cursor:pointer;}
+		tr .tog span{color:black}
+		<?php
+			$sections=array('files','ftp','ssh','email','remote','advanced');
+			foreach($sections as $sec){
+				if(!$$sec){echo '.hide.'.$sec.'{display:none}'."\n";}
+			}
+			if(!$advanced){echo '.advanced{display:none}'."\n";}
+		?>
+		h5{margin-top:10px;margin-bottom:10px}
+	</style>
+	<script language="javascript" type="text/javascript">
+		$(document).ready(function() {
+   		$('.tog').click(function(){
+   			var tclass = $(this).attr('class'); tclass = tclass.replace('tog ', '');
+   			var togspan = $(this).find('span');
+   			if(togspan.text()=='+'){
+   				togspan.text('- ');
+		 			$('.'+tclass).show();
+		 		}else{
+		 			togspan.text('+');
+		 			$('.'+tclass).not('.tog').hide();
+		 		}
+			 });
+			 $('.sysconfigdep').click(function(){
+			 		if($(this).is(':checked')){
+			 			$('.sysconfig').attr('checked', true);
+			 		}
+			 })
+			 $('.sysconfig').click(function(){
+			 		if(!$(this).is(':checked')){
+			 			$('.sysconfigdep').attr('checked', false);
+			 		}
+			 })
+		});
+	</script>
 	<table>
 	<tr><td colspan="2"><h5><?php echo _("Basic Settings")?><hr></h5></td></tr>
   <tr>
@@ -425,22 +462,10 @@ function backup_showopts($id=''){
       <td><input type="text" name="name" value="<?php echo (isset($opts['name'])?$opts['name']:''); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
   </tr>
 	<tr>
- 		<td><a href="#" class="info"><?php echo _("VoiceMail");?><span><?php echo _("Backup the System VoiceMail Boxes... CAUTION: Could result in large file");?></span></a>: </td>
- 		<td><input type="checkbox" name="voicemail"  tabindex="<?php echo ++$tabindex;?>" value="yes" <?php echo ($opts['voicemail']=='yes')?'checked':''; ?> /></td>
- 	</tr>
-	<tr>
- 		<td><a href="#" class="info"><?php echo _("System Recordings");?><span><?php echo _("Backup the System Recordings (AutoAttendant, Music On Hold, System Recordings)");?></span></a>: </td>
- 		<td><input type="checkbox" name="recordings" value="yes" <?php echo ($opts['recordings']=='yes')?'checked':''; ?> /></td>
- 	</tr>
-	<tr>
- 		<td><a href="#" class="info"><?php echo _("System Configuration");?><span><?php echo _("Backup the System Configurations (Database, etc files, SQL Database, astdb)");?></span></a>: </td>
- 		<td><input type="checkbox" name="configurations" value="yes" <?php echo ($opts['configurations']=='yes')?'checked':''; ?>/></td>
+ 		<td><a href="#" class="info"><?php echo _("Admin Web Directory");?><span><?php echo _("Backup the admin web directory (i.e. the static FreePBX web files). This is useful to have during a restore to prevent a version mismatch, but can dramatically increase the backup size.");?></span></a>: </td>
+ 		<td><input type="checkbox" name="admin" value="yes" class="sysconfigdep" <?php echo ($opts['admin']=='yes')?'checked':''; ?>/></td>
  	</tr>
  	<tr>
- 		<td><a href="#" class="info"><?php echo _("Admin Web Directory");?><span><?php echo _("Backup the admin web directory (i.e. the static FreePBX web files). This is useful to have during a restore to prevent a version mismatch, but can dramatically increase the backup size.");?></span></a>: </td>
- 		<td><input type="checkbox" name="admin" value="yes" <?php echo ($opts['admin']=='yes')?'checked':''; ?>/></td>
- 	</tr>
-	<tr>
  		<td><a href="#" class="info"><?php echo _("CDR");?><span><?php echo _("Backup the System Call Detail Reporting (HTML and Database)");?></span></a>: </td>
  		<td><input type="checkbox" name="cdr" value="yes" <?php echo ($opts['cdr']=='yes')?'checked':''; ?>/></td>
  	</tr>
@@ -448,6 +473,22 @@ function backup_showopts($id=''){
  		<td><a href="#" class="info"><?php echo _("Operator Panel");?><span><?php echo _("Backup the Operator Panel (HTML and Database)");?></span></a>: </td>
  		<td><input type="checkbox" name="fop" value="yes" <?php echo ($opts['fop']=='yes')?'checked':''; ?>/></td>
 	</tr>
+	<tr>
+ 		<td><a href="#" class="info"><?php echo _("Ovewrite Backup Settings");?><span><?php echo _("When restoring the backup, if this option is selected, all saved backups and their scheduals will be overwriten. Leaving this unchecked will restore all other configurations EXCEPT for thoes related to backup. WHen doing a remote backup and restore, this option is always forced.");?></span></a>: </td>
+ 		<td><input type="checkbox" name="overwritebackup" value="yes" class="sysconfigdep" <?php echo ($opts['overwritebackup']=='yes')?'checked':''; ?>/></td>
+ 	</tr>	
+	<tr>
+ 		<td><a href="#" class="info"><?php echo _("System Recordings");?><span><?php echo _("Backup the System Recordings (AutoAttendant, Music On Hold, System Recordings)");?></span></a>: </td>
+ 		<td><input type="checkbox" name="recordings" value="yes" <?php echo ($opts['recordings']=='yes')?'checked':''; ?> /></td>
+ 	</tr>
+	<tr>
+ 		<td><a href="#" class="info"><?php echo _("VoiceMail");?><span><?php echo _("Backup the System VoiceMail Boxes... CAUTION: Could result in large file");?></span></a>: </td>
+ 		<td><input type="checkbox" name="voicemail"  tabindex="<?php echo ++$tabindex;?>" value="yes" <?php echo ($opts['voicemail']=='yes')?'checked':''; ?> /></td>
+ 	</tr>
+ 	<tr>
+ 		<td><a href="#" class="info"><?php echo _("System Configuration");?><span><?php echo _("Backup the System Configurations (Database, etc files, SQL Database, astdb)");?></span></a>: </td>
+ 		<td><input type="checkbox" name="configurations" value="yes" class="sysconfig" <?php echo ($opts['configurations']=='yes')?'checked':''; ?>/></td>
+ 	</tr>
 
 	<tr><td colspan="2" class="tog files"><h5><span><?php echo $files?'-':'+';?></span><?php echo _(' Additional Files')?><hr></h5></td></tr>
 	<tr class="hide files">
@@ -538,33 +579,6 @@ function backup_showopts($id=''){
 		<td><a href="#" class="info"><?php echo _("Sudo");?><span><?php echo _('Use sudo when performing a backup. NOTE: THIS HAS SEVER SECURITY IMPLICATIONS!');?></span></a>: </td>
  		<td><input type="checkbox" name="sudo"  tabindex="<?php echo ++$tabindex;?>" value="yes" <?php echo ($opts['sudo']=='yes')?'checked':''; ?> /></td>
 	</tr>
-	<style type="text/css">
-	tr .tog{cursor:pointer;}
-	tr .tog span{color:black}
-	<?php
-		$sections=array('files','ftp','ssh','email','remote','advanced');
-		foreach($sections as $sec){
-			if(!$$sec){echo '.hide.'.$sec.'{display:none}'."\n";}
-		}
-		if(!$advanced){echo '.advanced{display:none}'."\n";}
-	?>
-	h5{margin-top:10px;margin-bottom:10px}
-	</style>
-	<script language="javascript" type="text/javascript">
-		$(document).ready(function() {
-   		$('.tog').click(function(){
-   			var tclass = $(this).attr('class'); tclass = tclass.replace('tog ', '');
-   			var togspan = $(this).find('span');
-   			if(togspan.text()=='+'){
-   				togspan.text('- ');
-		 			$('.'+tclass).show();
-		 		}else{
-		 			togspan.text('+');
-		 			$('.'+tclass).not('.tog').hide();
-		 		}
-			 });
-		});
-	</script>
 	<?php
 }
 function Schedule_Show_Minutes($Minutes_Set=""){

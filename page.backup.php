@@ -50,7 +50,8 @@ switch ($action) {
 								'recordings','configurations','cdr','fop', 'ftpuser',
 								'ftppass','ftphost','ftpdir','sshuser','sshkey','sshhost','sshdir',
 								'emailaddr','emailmaxsize','emailmaxtype','admin','include','exclude',
-								'remotesshhost','remotesshuser','remotesshkey','remoterestore','sudo');
+								'remotesshhost','remotesshuser','remotesshkey','remoterestore','sudo',
+								'overwritebackup');
 		foreach($parms as $p){
 			$backup_parms[$p]=(isset($_REQUEST[$p]))?$_REQUEST[$p]:'';
 			}

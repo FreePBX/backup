@@ -278,7 +278,7 @@ function backup_save_schedule($parms){
 									'ftppass','ftpuser','hours','id','include','method','minutes',
 									'months','name','recordings','sshdir','sshhost','sshkey','sshuser',
 									'remotesshhost','remotesshuser','remotesshkey','remoterestore',
-									'sudo','voicemail','weekdays');
+									'sudo','voicemail','weekdays','overwritebackup');
 	foreach($parms_num as $dprm){$db_parms[$dprm]=isset($parms[$dprm])?$parms[$dprm]:'';}
 	$keys=$vals='';
 	//dont include empty values in the query
@@ -474,7 +474,7 @@ function backup_showopts($id=''){
  		<td><input type="checkbox" name="fop" value="yes" <?php echo ($opts['fop']=='yes')?'checked':''; ?>/></td>
 	</tr>
 	<tr>
- 		<td><a href="#" class="info"><?php echo _("Ovewrite Backup Settings");?><span><?php echo _("When restoring the backup, if this option is selected, all saved backups and their scheduals will be overwriten. Leaving this unchecked will restore all other configurations EXCEPT for thoes related to backup. WHen doing a remote backup and restore, this option is always forced.");?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _("Overwrite Backup Settings");?><span><?php echo _("When restoring the backup, if this option is selected, all saved backups and their scheduals will be overwriten. Leaving this unchecked will restore all other configurations EXCEPT for thoes related to backup. When doing a remote backup and restore, this option is always forced to no.");?></span></a>: </td>
  		<td><input type="checkbox" name="overwritebackup" value="yes" class="sysconfigdep" <?php echo ($opts['overwritebackup']=='yes')?'checked':''; ?>/></td>
  	</tr>	
 	<tr>

@@ -89,10 +89,8 @@ if($opts['remotesshhost'] && $opts['remotesshkey']){
 			case 'remotesshkey':
 			case 'budir':
 			case 'id':
-				$exec.=' --'.$key.'=';
-			break;
 			case 'overwritebackup':
-				$exec.=' --'.$key.'=yes';
+				$exec.=' --'.$key.'=';
 			break;
 			default:
 				$exec.=' --'.$key.'='.$val;
@@ -148,7 +146,7 @@ if($opts['remotesshhost'] && $opts['remotesshkey']){
 			$exec=$sudo.' /bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/phoneconfig.tar.gz '.$inculde.'  '.$exclude;
 			exec($exec,$ret);
 		}
-		$ignorbackup=(($opts['overwritebackup']=='yes')?' --ignore-table='.$amp_conf['AMPDBNAME'].'.backup ':' ');
+		$ignorbackup=(($opts['overwritebackup']!='yes')?' --ignore-table='.$amp_conf['AMPDBNAME'].'.backup ':' ');
 		system('mysqldump --add-drop-table -h'.$amp_conf['AMPDBHOST'].' -u'.$amp_conf['AMPDBUSER'].' -p'.$amp_conf['AMPDBPASS'].' --database '.$amp_conf['AMPDBNAME'].$ignorbackup.' > /tmp/ampbackups.'.$opts['now'].'/asterisk.sql');
 	}
 	//backup cdr if requested

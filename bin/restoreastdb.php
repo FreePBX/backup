@@ -58,12 +58,13 @@ require_once($amp_conf['AMPWEBROOT']."/admin/common/php-asmanager.php");
 
 $astman         = new AGI_AsteriskManager();
 if (! $res = $astman->connect($amp_conf["ASTMANAGERHOST"] . ":".$amp_conf["ASTMANAGERPORT"], $amp_conf["AMPMGRUSER"] , $amp_conf["AMPMGRPASS"])) {
-        unset( $astman );
+  unset( $astman );
+  exit(10);
 }
 
 if (!$argv[1] || strstr($argv[1], "/") || strstr($argv[1], "..")) {
 	// You must supply a single filename, which will be written to /tmp
-	exit;
+	exit(1);
 }
 $dump = file_get_contents("/tmp/ampbackups.".$argv[1]."/astdb.dump");
 
@@ -86,6 +87,8 @@ if (!empty($dump)) {
 		$famkey[1]=trim($famkey[1], '/');
 		$astman->database_put($famkey[1], $famkey[2], '"'.$matches[2].'"');
 	}
+} else {
+  exit(20);
 }
 
 ?>

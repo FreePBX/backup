@@ -8,7 +8,7 @@
 	<category>System Administration</category>
 	<description>Backup &amp; Restore for your FreePBX environment</description>
 	<menuitems>
-		<backup>Backup &amp; Restore</backup>
+		<backup needsenginedb="yes">Backup &amp; Restore</backup>
 	</menuitems>
 	<depends>
 		<module>core</module>

@@ -120,134 +120,141 @@ function backup_list_files($dir='', $display='', $file='') {
 	echo $html;
 }
 
+function backup_errors(&$error_cause, $ret, $cause) {
+  if ($ret) {
+    $error_cause[] = array('ret' => $ret, 'description' => $cause);
+  }
+}
+
 function backup_restore_tar($dir="", $file="",$filetype="", $display="") {
 	global $asterisk_conf,$amp_conf;
-	$error = false;
 	$tar='/bin/tar';
+  $error_cause = array();
 	if($amp_conf['AMPBACKUPSUDO']==true){$sudo='/usr/bin/sudo';}else{$sudo='';}//use sudo if requested - DANGEROUS!!!
 	switch($filetype){
 		case 'ALL':
 			$fileholder=substr($file, 0,-7);
 			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to remove previous backup set'));
 	
 			// First restore voicemial (for some reason if you do it all at once these don't get restored
 			exec('/bin/rm -rf '.$amp_conf['ASTSPOOLDIR'].'/voicemail 2>&1',$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to remove voicemail directory'));
 			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/voicemail.tar.gz | $tar -Pxvz";
 			exec($tar_cmd,$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to untar voicemail.tar.gz'));
 	
 			// Next, recordings cause same issue as above
 			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/recordings.tar.gz | $tar -Pxvz";
 			exec($tar_cmd,$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to untar recordings.tar.gz'));
 	
 			// Now the rest and then we'll get on with the databases
 			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/configurations.tar.gz | $tar -Pxvz";
 			exec($tar_cmd,$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to untar configurations.tar.gz'));
 			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/fop.tar.gz /tmp/ampbackups.$fileholder/cdr.tar.gz  | $tar -Pxvz";
 			exec($tar_cmd,$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to untar fop.tar.gz and cdr.tar.gz'));
 			$tar_cmd="$tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql /tmp/ampbackups.$fileholder/asteriskcdr.sql /tmp/ampbackups.$fileholder/astdb.dump";
 			exec($tar_cmd,$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to untar astdb.dump, asterisk.sql and asteriskcdr.sql'));
 	
 			$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asterisk.sql 2>&1";
 			exec($sql_cmd,$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to untar asterisk.sql'));
 			$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asteriskcdr.sql 2>&1";
 			exec($sql_cmd,$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to restore asteriskcdr.sql'));
 			exec($amp_conf['AMPBIN']."/restoreastdb.php $fileholder 2>&1",$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to restore the astdb'));
 			
 			//restore additional file (aka AMPPROVROOT), using sudo if requested
 			$tar_cmd="$sudo $tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/phoneconfig.tar.gz |$sudo $tar -Pxvz";
 			exec($tar_cmd,$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to untar phoneconfig.tar.gz'));
 			exec("/bin/rm -rf /tmp/ampbackups.$fileholder",$out_arr,$ret);
-			$error = ($error || ($ret != 0));
-			if(!error){$message=_("Restored All Files in Backup Set");}
+      backup_errors($error_cause, $ret, _('failed to remove exploded backup sets from tmp'));
+			if(!count($error_cause)){$message=_("Restored All Files in Backup Set");}
 			break;
 		case 'VoiceMail':
 			$fileholder=substr($file, 0,-7);
 			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to remove previous backup set'));
 			exec('/bin/rm -rf '.$amp_conf['ASTSPOOLDIR'].'/voicemail 2>&1',$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to remove voicemail directory'));
 			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/voicemail.tar.gz | $tar -Pxvz";
 			exec($tar_cmd,$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to untar voicemail.tar.gz'));
 			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-			$error = ($error || ($ret != 0));
-			if(!error){$message=_("Restored VoiceMail");}
+      backup_errors($error_cause, $ret, _('failed to remove exploded backup sets from tmp'));
+			if(!count($error_cause)){$message=_("Restored VoiceMail");}
 		break;
 		case 'Recordings':
 			$fileholder=substr($file, 0,-7);
 			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to remove previous backup set'));
 			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/recordings.tar.gz | $tar -Pxvz";
 			exec($tar_cmd,$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to untar recordings.tar.gz'));
 			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-			$error = ($error || ($ret != 0));
-			if(!error){$message=_("Restored System Recordings");}
+      backup_errors($error_cause, $ret, _('failed to remove exploded backup sets from tmp'));
+			if(!count($error_cause)){$message=_("Restored System Recordings");}
 		break;
 		case 'Configurations':
 			$fileholder=substr($file, 0,-7);
 			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to remove previous backup set'));
 			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/configurations.tar.gz | $tar -Pxvz";
 			exec($tar_cmd,$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to untar configurations.tar.gz'));
 			$tar_cmd="$$tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asterisk.sql /tmp/ampbackups.$fileholder/astdb.dump";
 			exec($tar_cmd,$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to untar asterisk.sql and astdb.dump'));
 			$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asterisk.sql";
 			exec($sql_cmd,$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to restore asterisk.sql'));
 			exec($amp_conf['AMPBIN']."/restoreastdb.php $fileholder 2>&1",$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to restore the astdb'));
 			//restore additional file (aka AMPPROVROOT), using sudo if requested
 			$tar_cmd="$sudo $tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/phoneconfig.tar.gz |$sudo $tar -Pxvz";
 			exec($tar_cmd,$out_arr,$ret);
+      backup_errors($error_cause, $ret, _('failed to untar phoneconfig.tar.gz'));
 			
 			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-			$error = ($error || ($ret != 0));
-			if(!error){$message=_("Restored System Configuration");}
+      backup_errors($error_cause, $ret, _('failed to remove exploded backup sets from tmp'));
+			if(!count($error_cause)){$message=_("Restored System Configuration");}
 		break;
 		case 'FOP':
 			$fileholder=substr($file, 0,-7);
 			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to remove previous backup set'));
 			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/fop.tar.gz | $tar -Pxvz";
 			exec($tar_cmd,$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to untar fop.tar.gz'));
 			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-			$error = ($error || ($ret != 0));
-			if(!error){$message=_("Restored Operator Panel");}
+      backup_errors($error_cause, $ret, _('failed to remove exploded backup sets from tmp'));
+			if(!count($error_cause)){$message=_("Restored Operator Panel");}
 		break;
 		case 'CDR':
 			$fileholder=substr($file, 0,-7);
 			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to remove previous backup set'));
 			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/cdr.tar.gz | $tar -Pxvz";
 			exec($tar_cmd,$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to untar cdr.tar.gz'));
 			$tar_cmd="$tar -Pxvz -f \"$dir\" /tmp/ampbackups.$fileholder/asteriskcdr.sql";
 			exec($tar_cmd,$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to untar asteriskcdr.sql'));
 			$sql_cmd="mysql -u ".$amp_conf['AMPDBUSER']." -p".$amp_conf['AMPDBPASS']." < /tmp/ampbackups.$fileholder/asteriskcdr.sql 2>&1";
 			exec($sql_cmd,$out_arr,$ret);
-			$error = ($error || ($ret != 0));
+      backup_errors($error_cause, $ret, _('failed to restore asteriskcdr.sql'));
 			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
-			$error = ($error || ($ret != 0));
-			if(!error){$message=_("Restored CDR logs");}
+      backup_errors($error_cause, $ret, _('failed to remove exploded backup sets from tmp'));
+			if(!count($error_cause)){$message=_("Restored CDR logs");}
 		break;
 	}
-	return ($error)?$message:_('Restore Failed, see System Status Notification for details');
+	return (count($error_cause))?$error_cause:$message;
 }
 
 function backup_get(){

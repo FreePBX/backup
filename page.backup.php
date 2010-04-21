@@ -70,6 +70,7 @@ switch ($action) {
 	case "restored":
 		$message=backup_restore_tar($dir, $file, $filetype, $display);
 		// Regenerate all the ASTDB stuff. Note, we need a way to do speedials and other astdb stuff here.
+    // TODO: should this be doing a redirect_standard, doesn't that avoid the status result?
 		needreload();
 		redirect_standard();
 	break;
@@ -174,7 +175,15 @@ else if ($action == 'restore')
 }
 else
 {
-	if (isset($message)){
+  //TODO: test to see if any of this is printed or if the above redirect_standard needs to be removed
+  if (isset($message) && is_array($message)) {
+    echo '<h3>'._('ERROR Restoring Backup Set')."</h3>\n";
+    echo "<ul>\n";
+    foreach ($message as $error) {
+      echo '<li>'.sprintf(_('%s (Return Code: %s)'),$error['description'],$error['ret'])."</li>\n";
+    }
+    echo "<\ul>\n";
+  } elseif (isset($message)){
 	?>
 		<h3><?php echo $message ?></h3>
 	<?php }

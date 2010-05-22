@@ -119,70 +119,78 @@ if($amp_conf["AMPDBENGINE"] == "sqlite3")  {
 }
 $check = $db->query($sql);
 if(DB::IsError($check)) {
-	die_freepbx("Can not create Backup table");
+	die_freepbx(_("Can not create backup table"));
 }
 
 $migrate=$db->getAll('show tables like "Backup"');
 if(DB::IsError($check)) {
-	die_freepbx("Can not check for Backup table \n".$result->getMessage());
+	die_freepbx(_("Can't check for Backup table")."\n".$result->getMessage());
 }
 if(count($migrate) > 0){//migrate to new backup structure
 	$sql=$db->query('insert into backup (name, voicemail, recordings, configurations, cdr, fop, minutes, hours, days, months, weekdays, command, method, id) select * from Backup;');
 	if(DB::IsError($sql)) {
-		die_freepbx("Can not migrate Backup table\n".$sql->getMessage());
-	}
-	//get data from amportal and populate the table with it
-	//ftp
-	if(isset($amp_conf['FTPBACKUP']) && $amp_conf['FTPBACKUP']==strtolower('yes')){
-		$data['ftpuser']=$amp_conf['FTPUSER'];
-		$data['ftppass']=$amp_conf['FTPPASSWORD'];
-		$data['ftphost']=$amp_conf['FTPSERVER'];
-		$data['ftpdir']=$amp_conf['FTPSUBDIR'];
-	}
-	//ssh
-	if(isset($amp_conf['SSHBACKUP']) && $amp_conf['SSHBACKUP']==strtolower('yes')){
-		$data['sshuser']=$amp_conf['SSHUSER'];
-		$data['sshkey']=$amp_conf['SSHRSAKEY'];
-		$data['sshhost']=$amp_conf['SSHSERVER'];
-		$data['sshdir']=$amp_conf['SSHSUBDIR'];
-	}
-	//includes & excludes
-	if(isset($amp_conf['AMPPROVROOT']) && $amp_conf['AMPPROVROOT']!=''){
-		$data['include']=str_replace(' ',"\n",$amp_conf['AMPPROVROOT']);
-		if(isset($amp_conf['AMPPROVEXCLUDELIST']) && $amp_conf['AMPPROVEXCLUDELIST']!=''){
-			$data['exclude']=str_replace('',"\r",trim($opts['AMPPROVEXCLUDELIST']));
-		}
-		if(isset($amp_conf['AMPPROVEXCLUDE']) && $amp_conf['AMPPROVEXCLUDE']!=''){
-			@$data['exclude']=implode("\r",file($amp_conf['AMPPROVEXCLUDE']));
-		}
-	}
-	if(isset($data)){
-		$db_parms=$data;
-		$data='';
-		//dont include empty values in the query
-		foreach(array_keys($db_parms) as $key){
-			if($db_parms[$key]!=''){
-				$data.=$key.'="'.$db->escapeSimple($db_parms[$key]).'",';
-			}
-		}
-	  $data=substr($data,0,-1);//remove trailing ,
-		$sql='UPDATE backup set '.$data;
-		$check = $db->query($sql);
-		if(DB::IsError($check)) {
-			die_freepbx('Can not migrate Backup table');
-		}
+    out(_('ERROR: failed to migrate from old "Backup" table to new "backup" table'));
+    out(_('This error can result from a previous incomplete/failed install of'));
+    out(_('this module. You should probably uninstall and reinstall this module'));
+    out(_('doing so will result in a loss of all your backup settings though previous'));
+    out(_('backup data will be preserved.'));
+		out(_("Failure Message:")."\n".$sql->getMessage());
+	} else {
+	  //get data from amportal and populate the table with it
+	  //ftp
+	  if(isset($amp_conf['FTPBACKUP']) && $amp_conf['FTPBACKUP']==strtolower('yes')){
+		  $data['ftpuser']=$amp_conf['FTPUSER'];
+		  $data['ftppass']=$amp_conf['FTPPASSWORD'];
+		  $data['ftphost']=$amp_conf['FTPSERVER'];
+		  $data['ftpdir']=$amp_conf['FTPSUBDIR'];
+	  }
+	  //ssh
+	  if(isset($amp_conf['SSHBACKUP']) && $amp_conf['SSHBACKUP']==strtolower('yes')){
+		  $data['sshuser']=$amp_conf['SSHUSER'];
+		  $data['sshkey']=$amp_conf['SSHRSAKEY'];
+		  $data['sshhost']=$amp_conf['SSHSERVER'];
+		  $data['sshdir']=$amp_conf['SSHSUBDIR'];
+	  }
+	  //includes & excludes
+	  if(isset($amp_conf['AMPPROVROOT']) && $amp_conf['AMPPROVROOT']!=''){
+		  $data['include']=str_replace(' ',"\n",$amp_conf['AMPPROVROOT']);
+		  if(isset($amp_conf['AMPPROVEXCLUDELIST']) && $amp_conf['AMPPROVEXCLUDELIST']!=''){
+			  $data['exclude']=str_replace('',"\r",trim($opts['AMPPROVEXCLUDELIST']));
+		  }
+		  if(isset($amp_conf['AMPPROVEXCLUDE']) && $amp_conf['AMPPROVEXCLUDE']!=''){
+			  @$data['exclude']=implode("\r",file($amp_conf['AMPPROVEXCLUDE']));
+		  }
+	  }
+	  if(isset($data)){
+		  $db_parms=$data;
+		  $data='';
+		  //dont include empty values in the query
+		  foreach(array_keys($db_parms) as $key){
+			  if($db_parms[$key]!=''){
+				  $data.=$key.'="'.$db->escapeSimple($db_parms[$key]).'",';
+			  }
+		  }
+	    $data=substr($data,0,-1);//remove trailing ,
+		  $sql='UPDATE backup set '.$data;
+		  $check = $db->query($sql);
+		  if(DB::IsError($check)) {
+			  die_freepbx(_('Can not migrate Backup table'));
+		  }
 		
-		out(_('Backup migration completed'));
-	}else{
-		out(_('Nothing to migrate'));
-	}
-	$sql='DROP TABLE Backup';
-	$check = $db->query($sql);
-	if(DB::IsError($check)) {
-		die_freepbx('Old Backup table not removed. Migration script will run again on next install.');
-	}else{
-		out(_('Old Backup table removed!'));
-	}
+		  out(_('Backup migration completed'));
+	  }else{
+		  out(_('Nothing to migrate'));
+	  }
+	  $sql='DROP TABLE Backup';
+	  $check = $db->query($sql);
+	  if(DB::IsError($check)) {
+		  out(_('ERROR: Failed to remove old "Backup" table. You should uninstall'));
+		  out(_('and then re-install this module. Settings will be lost but old'));
+		  out(_('backup data will be retained.'));
+	  }else{
+		  out(_('Old Backup table removed'));
+	  }
+  }
 }
 
 // This should only be needed once. But the original migration did not do it and there is no harm in cleansing the database anyhow

@@ -111,7 +111,7 @@ function backup_list_files($dir='', $display='', $file='') {
 		if(array_search('cdr.tar.gz',$restore_files)){
 			$html.="<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore the CALL DETAIL FILES?\\nDoing so will Permanently DELETE all CALL RECORDS!")."','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=CDR&file=$file')\">";
 			$html.=_("Restore Call Detail Report").'<span>'; 
-			$html.=_("Restore the Call Detail Records from this backup set.  NOTE! This will DELETE ALL CALL RECORDS that have been saved since this backup set.."); 
+			$html.=_("Restore the Call Detail Records from this backup set.  NOTE! This will DELETE ALL CALL RECORDS that have been saved since this backup set."); 
 			$html.='</span></a><br></li><br>';
 		}
 	}else{
@@ -481,7 +481,7 @@ function backup_showopts($id=''){
  		<td><input type="checkbox" name="fop" value="yes" <?php echo ($opts['fop']=='yes')?'checked':''; ?>/></td>
 	</tr>
 	<tr>
- 		<td><a href="#" class="info"><?php echo _("Overwrite Backup Settings");?><span><?php echo _("When restoring the backup, if this option is selected, all saved backups and their scheduals will be overwriten. Leaving this unchecked will restore all other configurations EXCEPT for thoes related to backup. When doing a remote backup and restore, this option is always forced to no.");?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _("Overwrite Backup Settings");?><span><?php echo _("When restoring the backup, if this option is selected, all saved backups and their schedules will be overwriten. Leaving this unchecked will restore all other configurations EXCEPT for those related to backup. When doing a remote backup and restore, this option is always forced to no.");?></span></a>: </td>
  		<td><input type="checkbox" name="overwritebackup" value="yes" class="sysconfigdep" <?php echo ($opts['overwritebackup']=='yes')?'checked':''; ?>/></td>
  	</tr>	
 	<tr>
@@ -570,11 +570,11 @@ function backup_showopts($id=''){
  		<td><input type="input" name="remotesshhost"  tabindex="<?php echo ++$tabindex;?>" value="<?php echo $opts['remotesshhost']; ?>"/></td>
 	</tr>
 	<tr class="hide remote">
-		<td><a href="#" class="info"><?php echo _('Remote SSH User');?><span><?php echo _('Username to use when connecting to remote user. Defualts to the user appache is running as on this system.');?></span></a>: </td>
+		<td><a href="#" class="info"><?php echo _('Remote SSH User');?><span><?php echo _('Username to use when connecting to remote user. Defaults to the user apache is running as on this system.');?></span></a>: </td>
  		<td><input type="input" name="remotesshuser"  tabindex="<?php echo ++$tabindex;?>" value="<?php echo $opts['remotesshuser']; ?>"/></td>
 	</tr>
 	<tr class="hide remote">
- 		<td><a href="#" class="info"><?php echo _('Remote SSH Key');?><span><?php echo _('Location of ssh private key to be used when connect to a host');?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _('Remote SSH Key');?><span><?php echo _('Location of ssh private key to be used when connecting to a host');?></span></a>: </td>
  		<td><input type="text" name="remotesshkey" tabindex="<?php echo ++$tabindex;?>" value="<?php echo $opts['remotesshkey']; ?>" /></td>
 	</tr>
 	<tr class="hide remote">
@@ -583,7 +583,7 @@ function backup_showopts($id=''){
 	</tr>
 	<tr class="advanced"><td colspan="2" class="tog advanced" ><h5><span><?php echo $advanced?'-':'+';?></span><?php echo _(' Advanced Options')?><hr></h5></td></tr>
 	<tr  class="hide advanced">
-		<td><a href="#" class="info"><?php echo _("Sudo");?><span><?php echo _('Use sudo when performing a backup. NOTE: THIS HAS SEVER SECURITY IMPLICATIONS!');?></span></a>: </td>
+		<td><a href="#" class="info"><?php echo _("Sudo");?><span><?php echo _('Use sudo when performing a backup. NOTE: THIS HAS SEVERE SECURITY IMPLICATIONS!');?></span></a>: </td>
  		<td><input type="checkbox" name="sudo"  tabindex="<?php echo ++$tabindex;?>" value="yes" <?php echo ($opts['sudo']=='yes')?'checked':''; ?> /></td>
 	</tr>
 	<?php

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-27 13:44+0100\n"
+"POT-Creation-Date: 2010-06-22 19:14+0200\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -164,14 +164,50 @@ msgstr "Återställer samtalsdatabasen"
 
 msgid ""
 "Restore the Call Detail Records from this backup set.  NOTE! This will "
-"DELETE ALL CALL RECORDS that have been saved since this backup set.."
+"DELETE ALL CALL RECORDS that have been saved since this backup set."
 msgstr ""
-"Återställer samtalsdatabasen från denna säkerhetskopia. NOTERA! Detta kommer "
-"att TA BORT ALLA SAMTALSLOGGAR som har tillkommit efter att denna "
+"Återställer samtalsdatabasen från denna säkerhetskopia. NOTERA! Detta "
+"kommer att TA BORT ALLA SAMTALSLOGGAR som har tillkommit efter att denna "
 "säkerhetskopia togs."
 
 msgid "ERROR its not a BACKUP SET file"
 msgstr "FEL! Detta är ingen säkerhetskopia"
+
+msgid "failed to remove previous backup set"
+msgstr "kunde inte ta bort föregående backupset"
+
+msgid "failed to remove voicemail directory"
+msgstr "kunde inte ta bort katalogen voicemail"
+
+msgid "failed to untar voicemail.tar.gz"
+msgstr "kunde inte packa upp (untar) voicemail.tar.gz"
+
+msgid "failed to untar recordings.tar.gz"
+msgstr "kunde inte packa upp (untar) recordings.tar.gz"
+
+msgid "failed to untar configurations.tar.gz"
+msgstr "kunde inte packa upp (untar) configurations.tar.gz"
+
+msgid "failed to untar fop.tar.gz and cdr.tar.gz"
+msgstr "kunde inte packa upp (untar) fop.tar.gz och cdr.tar.gz"
+
+msgid "failed to untar astdb.dump, asterisk.sql and asteriskcdr.sql"
+msgstr "kunde inte packa upp (untar) astdb.dump, asterisk.sql och asteriskcdr.sql"
+
+msgid "failed to untar asterisk.sql"
+msgstr "kunde inte packa upp (untar) asterisk.sql"
+
+msgid "failed to restore asteriskcdr.sql"
+msgstr "kunde inte återställa asteriskcdr.sql"
+
+msgid "failed to restore the astdb"
+msgstr "kunde inte återställa astdb "
+
+msgid "failed to untar phoneconfig.tar.gz"
+msgstr "kunde inte packa upp (untar) phoneconfig.tar.gz"
+
+msgid "failed to remove exploded backup sets from tmp"
+msgstr "kunde inte ta bort det uppackade backupsetet från tmp"
 
 msgid "Restored All Files in Backup Set"
 msgstr "Återställde alla filer i säkerhetskopian"
@@ -182,18 +218,29 @@ msgstr "Återställde röstbrevlådorna"
 msgid "Restored System Recordings"
 msgstr "Återställde systeminspelningar"
 
+msgid "failed to untar asterisk.sql and astdb.dump"
+msgstr "kunde inta packa upp (untar) asterisk.sql and astdb.dump"
+
+msgid "failed to restore asterisk.sql"
+msgstr "kunde inte återställa asterisk.sql"
+
 msgid "Restored System Configuration"
 msgstr "Återställde systemkonfigurationen"
+
+msgid "failed to untar fop.tar.gz"
+msgstr "kunde inte packa upp (untar) fop.tar.gz"
 
 msgid "Restored Operator Panel"
 msgstr "Återställde operatörspanelen"
 
+msgid "failed to untar cdr.tar.gz"
+msgstr "kunde inte packa upp (untar) cdr.tar.gz"
+
+msgid "failed to untar asteriskcdr.sql"
+msgstr "kunde inte packa upp (untar) asteriskcdr.sql"
+
 msgid "Restored CDR logs"
 msgstr "Återställde samtalsloggen"
-
-msgid "Restore Failed, see System Status Notification for details"
-msgstr ""
-"Återställningen misslyckades, se i noteringar för systemstatus för detaljer"
 
 msgid "Basic Settings"
 msgstr "Standardinställningar"
@@ -203,34 +250,6 @@ msgstr "Schemanamn: "
 
 msgid "Give this Backup Schedule a brief name to help you identify it."
 msgstr "Namnge detta schema"
-
-msgid "VoiceMail"
-msgstr "Röstbrevlådor"
-
-msgid ""
-"Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
-msgstr ""
-"Säkerhetskopiera dina röstbrevlådor... VARNING: Detta kan resultera i en "
-"stor fil"
-
-msgid "System Recordings"
-msgstr "Systeminspelningar"
-
-msgid ""
-"Backup the System Recordings (AutoAttendant, Music On Hold, System "
-"Recordings)"
-msgstr ""
-"Säkerhetskopiera Systeminspelningar (AutoAttendant, Pausmusik, "
-"Systeminspelningar)"
-
-msgid "System Configuration"
-msgstr "Systemkonfiguration"
-
-msgid ""
-"Backup the System Configurations (Database, etc files, SQL Database, astdb)"
-msgstr ""
-"Säkerhetskopiera Systemkonfiguration (databasen, etc-filer, SQL-databasen, "
-"astdb)"
 
 msgid "Admin Web Directory"
 msgstr "Webkatalogen admin"
@@ -255,6 +274,48 @@ msgstr "Operatörspanelen"
 
 msgid "Backup the Operator Panel (HTML and Database)"
 msgstr "Säkerhetskopiera Operatörspanelen (HTML och databas)"
+
+msgid "Overwrite Backup Settings"
+msgstr "Skriv över backupinställningar"
+
+msgid ""
+"When restoring the backup, if this option is selected, all saved backups and "
+"their schedules will be overwriten. Leaving this unchecked will restore all "
+"other configurations EXCEPT for those related to backup. When doing a remote "
+"backup and restore, this option is always forced to no."
+msgstr ""
+"Vid återställning av säkerhetskopia, om detta val är aktiverat, kommer alla sparade "
+"säkerhetskopior och deras schemaläggning att skrivas över. Om detta val är avaktiverat "
+"kommer alla andra inställningar UTOM de som hör till säkerhetskopieringen att skrivas över. "
+"Vid en säkerhetskopiering/återställning för en fjärrserver kommer detta val alltid att vara avaktiverat."
+
+msgid "System Recordings"
+msgstr "Systeminspelningar"
+
+msgid ""
+"Backup the System Recordings (AutoAttendant, Music On Hold, System "
+"Recordings)"
+msgstr ""
+"Säkerhetskopiera Systeminspelningar (AutoAttendant, Pausmusik, "
+"Systeminspelningar)"
+
+msgid "VoiceMail"
+msgstr "Röstbrevlådor"
+
+msgid ""
+"Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
+msgstr ""
+"Säkerhetskopiera dina röstbrevlådor... VARNING: Detta kan resultera i en "
+"stor fil"
+
+msgid "System Configuration"
+msgstr "Systemkonfiguration"
+
+msgid ""
+"Backup the System Configurations (Database, etc files, SQL Database, astdb)"
+msgstr ""
+"Säkerhetskopiera Systemkonfiguration (databasen, etc-filer, SQL-databasen, "
+"astdb)"
 
 msgid " Additional Files"
 msgstr "Extra filer"
@@ -311,7 +372,9 @@ msgid "SSH Key"
 msgstr "SSH-nyckel"
 
 msgid "Location of ssh private key to be used when connect to a host"
-msgstr "Placeringen av din privata nyckel för SSH som ska användas vid kontakt med värden"
+msgstr ""
+"Placeringen av din privata nyckel för SSH som ska användas vid kontakt med "
+"värden"
 
 msgid "SSH Hostname"
 msgstr "SSH-värdnamn"
@@ -342,9 +405,49 @@ msgid ""
 "limit the size of email attachments, this will make sure that files larger "
 "than the max size are not sent. Valid options include: xB, xKB, xMB"
 msgstr ""
-"Den maximala storlek på säkerhetskopian som kan e-postas. Vissa e-postservrar "
-"begränsar storleken på bilagor i e-post. Denna inställning gör att inga filer "
-"större än inställningen skickas. Giltiga val är xB, xKB och xMB"
+"Den maximala storlek på säkerhetskopian som kan e-postas. Vissa e-"
+"postservrar begränsar storleken på bilagor i e-post. Denna inställning gör "
+"att inga filer större än inställningen skickas. Giltiga val är xB, xKB och "
+"xMB"
+
+msgid " Remote Backup Options"
+msgstr " Val för fjärrsäkerhetskopiering"
+
+msgid "Remote SSH Hostname"
+msgstr "Värdnamn för SSH fjärrserver"
+
+msgid ""
+"Run this backup on a remote server. The backup will then be copied over to "
+"this server"
+msgstr ""
+"Utför denna säkerhetskopiering på en fjärrserver. Säkerhetskopian kommer att "
+"kopieras till denna server"
+
+msgid "Remote SSH User"
+msgstr "Användarnamn för SSH fjärrserver"
+
+msgid ""
+"Username to use when connecting to remote server. Defaults to the user apache "
+"is running as on this system."
+msgstr ""
+"Användarnamn att använda när uppkoppling sker mot fjärrserver. Standard är användarnamnet "
+"som apache körs under på denna server"
+
+msgid "Remote SSH Key"
+msgstr "SSH-nyckel för fjärrserver"
+
+msgid "Location of ssh private key to be used when connecting to a host"
+msgstr "Sökväg för den privata ssh-nyckeln att användas när uppkoppling sker mot fjärrserver"
+
+msgid "Restore to this server"
+msgstr "Återställ till denna server"
+
+msgid ""
+"Restore the backup to this server. Use this option to create a delayed time "
+"backup of another server on this one."
+msgstr ""
+"Återstll säkerhetskopian till denna server. Använd detta val för att göra en återställning "
+"av en säkerhetskopia från en annan server till denna server."
 
 msgid " Advanced Options"
 msgstr "Avancerade inställningar"
@@ -353,10 +456,11 @@ msgid "Sudo"
 msgstr "Sudo"
 
 msgid ""
-"Use sudo when performing a backup. NOTE: THIS HAS SEVER SECURITY "
+"Use sudo when performing a backup. NOTE: THIS HAS SEVERE SECURITY "
 "IMPLICATIONS!"
 msgstr ""
-"Använ sudo vid säkerhetskoppiering. NOTERA: DETTA KAN HA STORA SÄKERHETSRISKER!"
+"Använd sudo vid säkerhetskoppiering. NOTERA: DETTA KAN HA STORA "
+"SÄKERHETSRISKER!"
 
 msgid "All"
 msgstr "Alla"
@@ -457,14 +561,52 @@ msgstr "Månad"
 msgid "Weekdays"
 msgstr "Veckodag"
 
+msgid "Can not create backup table"
+msgstr "Kan inte skapa backuptabell"
+
+msgid "Can't check for Backup table"
+msgstr "Kan inte kontrollera tabellen Backup"
+
+msgid ""
+"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+msgstr "FEL: kunde inte migrera från den gamla tabellen \"Backup\" till den nya tabellen \"backup\""
+
+msgid "This error can result from a previous incomplete/failed install of"
+msgstr "Detta kan uppstå från en tidigare ofullständig/felaktig installation av"
+
+msgid "this module. You should probably uninstall and reinstall this module"
+msgstr "denna modul. Du bör först avinstallera sedan installera denna modul igen."
+
+msgid ""
+"doing so will result in a loss of all your backup settings though previous"
+msgstr "Tyvärr kommer då alla dina inställningar att förloras, men alla"
+
+msgid "backup data will be preserved."
+msgstr "säkerhetskopior kommer att vara kvar"
+
+msgid "Failure Message:"
+msgstr "Felmeddelande:"
+
+msgid "Can not migrate Backup table"
+msgstr "Kunde inte migrera tabellen Backup"
+
 msgid "Backup migration completed"
 msgstr "Migreringen av Backup klar"
 
 msgid "Nothing to migrate"
 msgstr "Inget att migrera"
 
-msgid "Old Backup table removed!"
-msgstr "Gammal tabell Backup borttagen!"
+msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
+msgstr "FEL: Kunde inte ta bort den gamla tabellen \"Backup\". Du måste avinstallera"
+
+msgid "and then re-install this module. Settings will be lost but old"
+msgstr "och återinstallera denna modul. Alla inställningar kommer att förloras men"
+
+msgid "backup data will be retained."
+msgstr "backupdata kommer att vara kvar"
+
+msgid "Old Backup table removed"
+msgstr "Den gamla backuptabellen togs bort"
 
 msgid "Replacing ampbackup.pl in db.."
 msgstr "Ersätter anpbackup.pl i databasen.."
@@ -483,6 +625,15 @@ msgstr "borttagen"
 
 msgid "failed"
 msgstr "misslyckades"
+
+msgid "Migrating backup table..."
+msgstr "Migrerad backuptabell..."
+
+msgid "WARNING: backup table not migrated"
+msgstr "VARNING: backuptabellen migrerades inte"
+
+msgid "Successfully migrated backup table!"
+msgstr "Migreringen av backuptabellen lyckades!"
 
 msgid "Add Backup Schedule"
 msgstr "Lägg till schema för säkerhetskopia"
@@ -508,3 +659,10 @@ msgstr "Backupnamnet kan inte innehålla mellanslag"
 
 msgid "System Restore"
 msgstr "Systemåterställning"
+
+msgid "ERROR Restoring Backup Set"
+msgstr "FEL vid återställande av backup-set"
+
+#, php-format
+msgid "%s (Return Code: %s)"
+msgstr "%s (returkod: %s)"

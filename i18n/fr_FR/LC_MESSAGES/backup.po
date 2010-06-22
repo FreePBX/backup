@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-27 17:34+0100\n"
+"POT-Creation-Date: 2010-06-22 19:14+0200\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
 "Language-Team: Français <LL@li.org>\n"
@@ -163,7 +163,7 @@ msgstr "Restaurer le Rapport de Détail des Appels"
 
 msgid ""
 "Restore the Call Detail Records from this backup set.  NOTE! This will "
-"DELETE ALL CALL RECORDS that have been saved since this backup set.."
+"DELETE ALL CALL RECORDS that have been saved since this backup set."
 msgstr ""
 "Restaurer les Enregistrements du Détail des Appels à partir de ce jeu de "
 "sauvegardes. ATTENTION ! Cette action SUPPRIMERA TOUS LES ENREGISTREMENTS "
@@ -171,6 +171,42 @@ msgstr ""
 
 msgid "ERROR its not a BACKUP SET file"
 msgstr "ERREUR ce n'est pas un fichier de JEU DE SAUVEGARDES"
+
+msgid "failed to remove previous backup set"
+msgstr ""
+
+msgid "failed to remove voicemail directory"
+msgstr ""
+
+msgid "failed to untar voicemail.tar.gz"
+msgstr ""
+
+msgid "failed to untar recordings.tar.gz"
+msgstr ""
+
+msgid "failed to untar configurations.tar.gz"
+msgstr ""
+
+msgid "failed to untar fop.tar.gz and cdr.tar.gz"
+msgstr ""
+
+msgid "failed to untar astdb.dump, asterisk.sql and asteriskcdr.sql"
+msgstr ""
+
+msgid "failed to untar asterisk.sql"
+msgstr ""
+
+msgid "failed to restore asteriskcdr.sql"
+msgstr ""
+
+msgid "failed to restore the astdb"
+msgstr ""
+
+msgid "failed to untar phoneconfig.tar.gz"
+msgstr ""
+
+msgid "failed to remove exploded backup sets from tmp"
+msgstr ""
 
 msgid "Restored All Files in Backup Set"
 msgstr "Fichiers du Jeu de Sauvegardes Restaurés"
@@ -181,19 +217,29 @@ msgstr "Messagerie Vocale Restaurée"
 msgid "Restored System Recordings"
 msgstr "Enregistrements Systèmes Restaurés"
 
+msgid "failed to untar asterisk.sql and astdb.dump"
+msgstr ""
+
+msgid "failed to restore asterisk.sql"
+msgstr ""
+
 msgid "Restored System Configuration"
 msgstr "Configuration Système Restaurée"
+
+msgid "failed to untar fop.tar.gz"
+msgstr ""
 
 msgid "Restored Operator Panel"
 msgstr "Panneau Restauré"
 
+msgid "failed to untar cdr.tar.gz"
+msgstr ""
+
+msgid "failed to untar asteriskcdr.sql"
+msgstr ""
+
 msgid "Restored CDR logs"
 msgstr "Logs CDR Restaurés"
-
-msgid "Restore Failed, see System Status Notification for details"
-msgstr ""
-"Restauration Echouée, reportez-vous aux Notifications de Statut du Système "
-"pour plus de détails"
 
 msgid "Basic Settings"
 msgstr ""
@@ -205,34 +251,6 @@ msgid "Give this Backup Schedule a brief name to help you identify it."
 msgstr ""
 "Donnez un nom court à ce Calendrier de Sauvegarde pour vous aider à "
 "l'identifier."
-
-msgid "VoiceMail"
-msgstr "Boîte Vocale"
-
-msgid ""
-"Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
-msgstr ""
-"Sauvegarder les Boîtes Vocales du Système... ATTENTION : Peut donner un "
-"fichier volumineux"
-
-msgid "System Recordings"
-msgstr "Enregistrements Système"
-
-msgid ""
-"Backup the System Recordings (AutoAttendant, Music On Hold, System "
-"Recordings)"
-msgstr ""
-"Sauvegarder les Enregistrements Système (AutoAttendant, Musique d'Attente, "
-"Enregistrements Système)"
-
-msgid "System Configuration"
-msgstr "Configuartion Système"
-
-msgid ""
-"Backup the System Configurations (Database, etc files, SQL Database, astdb)"
-msgstr ""
-"Sauvegarder les Configurations Système (Base de Données, fichiers etc, Base "
-"de Données SQL, astdb)"
 
 msgid "Admin Web Directory"
 msgstr ""
@@ -256,6 +274,44 @@ msgstr "Panneau"
 
 msgid "Backup the Operator Panel (HTML and Database)"
 msgstr "Sauvegarder le Panneau (HTML et Base de Données)"
+
+msgid "Overwrite Backup Settings"
+msgstr ""
+
+msgid ""
+"When restoring the backup, if this option is selected, all saved backups and "
+"their schedules will be overwriten. Leaving this unchecked will restore all "
+"other configurations EXCEPT for those related to backup. When doing a remote "
+"backup and restore, this option is always forced to no."
+msgstr ""
+
+msgid "System Recordings"
+msgstr "Enregistrements Système"
+
+msgid ""
+"Backup the System Recordings (AutoAttendant, Music On Hold, System "
+"Recordings)"
+msgstr ""
+"Sauvegarder les Enregistrements Système (AutoAttendant, Musique d'Attente, "
+"Enregistrements Système)"
+
+msgid "VoiceMail"
+msgstr "Boîte Vocale"
+
+msgid ""
+"Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
+msgstr ""
+"Sauvegarder les Boîtes Vocales du Système... ATTENTION : Peut donner un "
+"fichier volumineux"
+
+msgid "System Configuration"
+msgstr "Configuartion Système"
+
+msgid ""
+"Backup the System Configurations (Database, etc files, SQL Database, astdb)"
+msgstr ""
+"Sauvegarder les Configurations Système (Base de Données, fichiers etc, Base "
+"de Données SQL, astdb)"
 
 msgid " Additional Files"
 msgstr ""
@@ -344,6 +400,39 @@ msgid ""
 "than the max size are not sent. Valid options include: xB, xKB, xMB"
 msgstr ""
 
+msgid " Remote Backup Options"
+msgstr ""
+
+msgid "Remote SSH Hostname"
+msgstr ""
+
+msgid ""
+"Run this backup on a remote server. The backup will then be copied over to "
+"this server"
+msgstr ""
+
+msgid "Remote SSH User"
+msgstr ""
+
+msgid ""
+"Username to use when connecting to remote server. Defaults to the user apache "
+"is running as on this system."
+msgstr ""
+
+msgid "Remote SSH Key"
+msgstr ""
+
+msgid "Location of ssh private key to be used when connecting to a host"
+msgstr ""
+
+msgid "Restore to this server"
+msgstr ""
+
+msgid ""
+"Restore the backup to this server. Use this option to create a delayed time "
+"backup of another server on this one."
+msgstr ""
+
 msgid " Advanced Options"
 msgstr ""
 
@@ -351,7 +440,7 @@ msgid "Sudo"
 msgstr ""
 
 msgid ""
-"Use sudo when performing a backup. NOTE: THIS HAS SEVER SECURITY "
+"Use sudo when performing a backup. NOTE: THIS HAS SEVERE SECURITY "
 "IMPLICATIONS!"
 msgstr ""
 
@@ -454,13 +543,51 @@ msgstr "Mois"
 msgid "Weekdays"
 msgstr "Jours Ouvrables"
 
+msgid "Can not create backup table"
+msgstr ""
+
+msgid "Can't check for Backup table"
+msgstr ""
+
+msgid ""
+"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+msgstr ""
+
+msgid "This error can result from a previous incomplete/failed install of"
+msgstr ""
+
+msgid "this module. You should probably uninstall and reinstall this module"
+msgstr ""
+
+msgid ""
+"doing so will result in a loss of all your backup settings though previous"
+msgstr ""
+
+msgid "backup data will be preserved."
+msgstr ""
+
+msgid "Failure Message:"
+msgstr ""
+
+msgid "Can not migrate Backup table"
+msgstr ""
+
 msgid "Backup migration completed"
 msgstr ""
 
 msgid "Nothing to migrate"
 msgstr ""
 
-msgid "Old Backup table removed!"
+msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
+msgstr ""
+
+msgid "and then re-install this module. Settings will be lost but old"
+msgstr ""
+
+msgid "backup data will be retained."
+msgstr ""
+
+msgid "Old Backup table removed"
 msgstr ""
 
 msgid "Replacing ampbackup.pl in db.."
@@ -480,6 +607,15 @@ msgstr "supprimé"
 
 msgid "failed"
 msgstr "echec"
+
+msgid "Migrating backup table..."
+msgstr ""
+
+msgid "WARNING: backup table not migrated"
+msgstr ""
+
+msgid "Successfully migrated backup table!"
+msgstr ""
 
 msgid "Add Backup Schedule"
 msgstr "Ajouter un Calendrier de Sauvegarde"
@@ -505,3 +641,11 @@ msgstr ""
 
 msgid "System Restore"
 msgstr "Restauration Système"
+
+msgid "ERROR Restoring Backup Set"
+msgstr ""
+
+#, php-format
+msgid "%s (Return Code: %s)"
+msgstr ""
+

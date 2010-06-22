@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-27 17:34+0100\n"
+"POT-Creation-Date: 2010-06-22 19:14+0200\n"
 "PO-Revision-Date: 2010-01-23 00:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: Chavdar Iliev <chavdar_75@yahoo.com>\n"
@@ -162,14 +162,50 @@ msgstr "Възстанови Детайлни Отчети на Разговор
 
 msgid ""
 "Restore the Call Detail Records from this backup set.  NOTE! This will "
-"DELETE ALL CALL RECORDS that have been saved since this backup set.."
-msgstr ""
+"DELETE ALL CALL RECORDS that have been saved since this backup set."
+msgstr""
 "Възстановява Детайлните Отчети на Разговорите ви от този архив. ВНИМАНИЕ! "
-"Това ще ИЗТРИЕ ВСИЧКИ ОТЧЕТИ НА РАЗГОВОРИТЕ които са били записани след този "
-"архив."
+"Това ще ИЗТРИЕ ВСИЧКИ ОТЧЕТИ НА РАЗГОВОРИТЕ които са били записани след "
+"този архив."
 
 msgid "ERROR its not a BACKUP SET file"
 msgstr "ГРЕШКА не е АРХИВЕН файл"
+
+msgid "failed to remove previous backup set"
+msgstr ""
+
+msgid "failed to remove voicemail directory"
+msgstr ""
+
+msgid "failed to untar voicemail.tar.gz"
+msgstr ""
+
+msgid "failed to untar recordings.tar.gz"
+msgstr ""
+
+msgid "failed to untar configurations.tar.gz"
+msgstr ""
+
+msgid "failed to untar fop.tar.gz and cdr.tar.gz"
+msgstr ""
+
+msgid "failed to untar astdb.dump, asterisk.sql and asteriskcdr.sql"
+msgstr ""
+
+msgid "failed to untar asterisk.sql"
+msgstr ""
+
+msgid "failed to restore asteriskcdr.sql"
+msgstr ""
+
+msgid "failed to restore the astdb"
+msgstr ""
+
+msgid "failed to untar phoneconfig.tar.gz"
+msgstr ""
+
+msgid "failed to remove exploded backup sets from tmp"
+msgstr ""
 
 msgid "Restored All Files in Backup Set"
 msgstr "Възстановени са Всички Файлове от Архива"
@@ -180,19 +216,29 @@ msgstr "Възстановени са Гласови Пощи"
 msgid "Restored System Recordings"
 msgstr "Възстановени са Системни Записи"
 
+msgid "failed to untar asterisk.sql and astdb.dump"
+msgstr ""
+
+msgid "failed to restore asterisk.sql"
+msgstr ""
+
 msgid "Restored System Configuration"
 msgstr "Възстановени са Настройките на Системата"
+
+msgid "failed to untar fop.tar.gz"
+msgstr ""
 
 msgid "Restored Operator Panel"
 msgstr "Възстановени са Файловете на Оператор Панел"
 
+msgid "failed to untar cdr.tar.gz"
+msgstr ""
+
+msgid "failed to untar asteriskcdr.sql"
+msgstr ""
+
 msgid "Restored CDR logs"
 msgstr "Възстановени са Детайлните Отчети на Разговорите"
-
-msgid "Restore Failed, see System Status Notification for details"
-msgstr ""
-"Взстановяването се провали, вижте Предупреждения в Системен Статус за "
-"подробности"
 
 msgid "Basic Settings"
 msgstr ""
@@ -202,33 +248,6 @@ msgstr "Име на Плана:"
 
 msgid "Give this Backup Schedule a brief name to help you identify it."
 msgstr "Дайте на Плана за Архивиране име с което да го идентифицирате."
-
-msgid "VoiceMail"
-msgstr "Гласова Поща"
-
-msgid ""
-"Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
-msgstr ""
-"Архивира Системните Кутии за Гласова Поша... ВНИМАНИЕ: Може да доведе до "
-"голям файл"
-
-msgid "System Recordings"
-msgstr "Системни Записи"
-
-msgid ""
-"Backup the System Recordings (AutoAttendant, Music On Hold, System "
-"Recordings)"
-msgstr ""
-"Архивира Системните записи (IVR, Музика при Задържане, Системни Записи)"
-
-msgid "System Configuration"
-msgstr "Системни Настройки"
-
-msgid ""
-"Backup the System Configurations (Database, etc files, SQL Database, astdb)"
-msgstr ""
-"Архивира Системните Настройки (База Данни, etc файлове, SQL База Данни, "
-"astdb)"
 
 msgid "Admin Web Directory"
 msgstr ""
@@ -250,6 +269,43 @@ msgstr "Оператор Панел"
 
 msgid "Backup the Operator Panel (HTML and Database)"
 msgstr "Архивира Оператор Панела  (HTML и База Данни)"
+
+msgid "Overwrite Backup Settings"
+msgstr ""
+
+msgid ""
+"When restoring the backup, if this option is selected, all saved backups and "
+"their schedules will be overwriten. Leaving this unchecked will restore all "
+"other configurations EXCEPT for those related to backup. When doing a remote "
+"backup and restore, this option is always forced to no."
+msgstr ""
+
+msgid "System Recordings"
+msgstr "Системни Записи"
+
+msgid ""
+"Backup the System Recordings (AutoAttendant, Music On Hold, System "
+"Recordings)"
+msgstr ""
+"Архивира Системните записи (IVR, Музика при Задържане, Системни Записи)"
+
+msgid "VoiceMail"
+msgstr "Гласова Поща"
+
+msgid ""
+"Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
+msgstr ""
+"Архивира Системните Кутии за Гласова Поша... ВНИМАНИЕ: Може да доведе до "
+"голям файл"
+
+msgid "System Configuration"
+msgstr "Системни Настройки"
+
+msgid ""
+"Backup the System Configurations (Database, etc files, SQL Database, astdb)"
+msgstr ""
+"Архивира Системните Настройки (База Данни, etc файлове, SQL База Данни, "
+"astdb)"
 
 msgid " Additional Files"
 msgstr ""
@@ -338,6 +394,39 @@ msgid ""
 "than the max size are not sent. Valid options include: xB, xKB, xMB"
 msgstr ""
 
+msgid " Remote Backup Options"
+msgstr ""
+
+msgid "Remote SSH Hostname"
+msgstr ""
+
+msgid ""
+"Run this backup on a remote server. The backup will then be copied over to "
+"this server"
+msgstr ""
+
+msgid "Remote SSH User"
+msgstr ""
+
+msgid ""
+"Username to use when connecting to remote server. Defaults to the user apache "
+"is running as on this system."
+msgstr ""
+
+msgid "Remote SSH Key"
+msgstr ""
+
+msgid "Location of ssh private key to be used when connecting to a host"
+msgstr ""
+
+msgid "Restore to this server"
+msgstr ""
+
+msgid ""
+"Restore the backup to this server. Use this option to create a delayed time "
+"backup of another server on this one."
+msgstr ""
+
 msgid " Advanced Options"
 msgstr ""
 
@@ -345,7 +434,7 @@ msgid "Sudo"
 msgstr ""
 
 msgid ""
-"Use sudo when performing a backup. NOTE: THIS HAS SEVER SECURITY "
+"Use sudo when performing a backup. NOTE: THIS HAS SEVERE SECURITY "
 "IMPLICATIONS!"
 msgstr ""
 
@@ -448,13 +537,51 @@ msgstr "Месеца"
 msgid "Weekdays"
 msgstr "Дни от Седмицата"
 
+msgid "Can not create backup table"
+msgstr ""
+
+msgid "Can't check for Backup table"
+msgstr ""
+
+msgid ""
+"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+msgstr ""
+
+msgid "This error can result from a previous incomplete/failed install of"
+msgstr ""
+
+msgid "this module. You should probably uninstall and reinstall this module"
+msgstr ""
+
+msgid ""
+"doing so will result in a loss of all your backup settings though previous"
+msgstr ""
+
+msgid "backup data will be preserved."
+msgstr ""
+
+msgid "Failure Message:"
+msgstr ""
+
+msgid "Can not migrate Backup table"
+msgstr ""
+
 msgid "Backup migration completed"
 msgstr ""
 
 msgid "Nothing to migrate"
 msgstr ""
 
-msgid "Old Backup table removed!"
+msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
+msgstr ""
+
+msgid "and then re-install this module. Settings will be lost but old"
+msgstr ""
+
+msgid "backup data will be retained."
+msgstr ""
+
+msgid "Old Backup table removed"
 msgstr ""
 
 msgid "Replacing ampbackup.pl in db.."
@@ -474,6 +601,15 @@ msgstr "премахнат"
 
 msgid "failed"
 msgstr "неуспех"
+
+msgid "Migrating backup table..."
+msgstr ""
+
+msgid "WARNING: backup table not migrated"
+msgstr ""
+
+msgid "Successfully migrated backup table!"
+msgstr ""
 
 msgid "Add Backup Schedule"
 msgstr "Добави План за Архивиране"
@@ -499,3 +635,10 @@ msgstr ""
 
 msgid "System Restore"
 msgstr "Възстановяване на Системата"
+
+msgid "ERROR Restoring Backup Set"
+msgstr ""
+
+#, php-format
+msgid "%s (Return Code: %s)"
+msgstr ""

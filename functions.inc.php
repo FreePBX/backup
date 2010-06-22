@@ -570,7 +570,7 @@ function backup_showopts($id=''){
  		<td><input type="input" name="remotesshhost"  tabindex="<?php echo ++$tabindex;?>" value="<?php echo $opts['remotesshhost']; ?>"/></td>
 	</tr>
 	<tr class="hide remote">
-		<td><a href="#" class="info"><?php echo _('Remote SSH User');?><span><?php echo _('Username to use when connecting to remote user. Defaults to the user apache is running as on this system.');?></span></a>: </td>
+		<td><a href="#" class="info"><?php echo _('Remote SSH User');?><span><?php echo _('Username to use when connecting to remote server. Defaults to the user apache is running as on this system.');?></span></a>: </td>
  		<td><input type="input" name="remotesshuser"  tabindex="<?php echo ++$tabindex;?>" value="<?php echo $opts['remotesshuser']; ?>"/></td>
 	</tr>
 	<tr class="hide remote">

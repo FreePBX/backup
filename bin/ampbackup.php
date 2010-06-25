@@ -65,7 +65,7 @@ switch (true){
 
 $opts['ftpfile']='/tmp/freepbx-backup.ftp';
 $opts['budir']=$amp_conf['ASTVARLIBDIR'].'/backups';
-if($opts['now']==''){$opts['now']=date('Ymd.h.i.s');}//only set if not already set
+if(!isset($opts['now']) || $opts['now']==''){$opts['now']=date('Ymd.H.i.s');}//only set if not already set
 
 //get arguments 
 

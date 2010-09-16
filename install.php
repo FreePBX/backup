@@ -275,4 +275,14 @@ if(!array_key_exists('overwritebackup',$fields)){
     out(_('Successfully migrated backup table!'));
   }
 }
+
+if (!is_dir($amp_conf['ASTVARLIBDIR'].'/backups')) {
+  outn(_('Creating backups directory..'));
+  if (mkdir($amp_conf['ASTVARLIBDIR'].'/backups')) {
+    out(_('ok'));
+  } else {
+    out(_('failed'));
+    out(sprintf(_('WARNING: failed to create backup directory: %s'),$amp_conf['ASTVARLIBDIR'].'/backups'));
+  }
+}
 ?>

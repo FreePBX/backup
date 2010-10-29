@@ -102,7 +102,7 @@ if($opts['remotesshhost'] && $opts['remotesshkey']){
 	exec($exec,$rbudir,$execok);
 	//if the ssh completed with exit code 0, copy backup over to this server
 	if($execok==0){
-		mkdir($opts['budir'].'/'.$opts['name']);//ensure dir structure
+		mkdir($opts['budir'].'/'.$opts['name'], 0755, true);//ensure dir structure
 		$exec='/usr/bin/scp -i '.$opts['remotesshkey'].' -c blowfish '.$user.$opts['remotesshhost'].':'.$rbudir[0].'/backups/'.$opts['name'].'/'.$opts['now'].'.tar.gz '.$opts['budir'].'/'.$opts['name'];
 		exec($exec,$ret);
 	}

@@ -57,6 +57,8 @@ $astdb = $astman->database_show();
 foreach ($astdb as $key => $val) {
 	if ($key == "") { continue; }
 	if ($key == "Privilege") { continue; }
+	if ($key == "RG") { continue; }
+	if ($key == "BLKVM") { continue; }
 	fwrite($fh, "[$key] [$val]\n");
 }
 fclose($fh);

@@ -418,12 +418,12 @@ function backup_showopts($id=''){
 	}else{
 		$opts=Get_Backup_Options($id);
 	}
-	$files=($opts['include']||$opts['exclude']);
-	$ftp=($opts['ftpuser']||$opts['ftppass']||$opts['ftphost']||$opts['ftpdir']);
-	$ssh=($opts['sshuser']||$opts['sshkey']||$opts['sshhost']||$opts['sshdir']);
-	$email=($opts['emailaddr']);
-	$remote=($opts['remotesshhost']||$opts['remotesshuser']||$opts['remotesshkey']||$opts['remoterestore']);
-	$advanced=($amp_conf['AMPBACKUPADVANCED']||$opts['sudo']);
+	$files		= ($opts['include'] || $opts['exclude']);
+	$ftp		= ($opts['ftpuser'] || $opts['ftppass'] || $opts['ftphost'] || $opts['ftpdir']);
+	$ssh		= ($opts['sshuser'] || $opts['sshkey'] || $opts['sshhost'] || $opts['sshdir']);
+	$email		= ($opts['emailaddr']);
+	$remote		= ($opts['remotesshhost'] || $opts['remotesshuser'] || $opts['remotesshkey'] || $opts['remoterestore']);
+	$advanced	= ($amp_conf['AMPBACKUPADVANCED'] || $opts['sudo']);
 	?>
 	<style type="text/css">
 		tr .tog{cursor:pointer;}
@@ -476,10 +476,13 @@ function backup_showopts($id=''){
  		<td><a href="#" class="info"><?php echo _("CDR");?><span><?php echo _("Backup the System Call Detail Reporting (HTML and Database)");?></span></a>: </td>
  		<td><input type="checkbox" name="cdr" value="yes" <?php echo ($opts['cdr']=='yes')?'checked':''; ?>/></td>
  	</tr>
+	<?php //dont shoe FOP back option if FOP is disabled 
+		if ($amp_conf['FOPDISABLE'] != 'true') { ?>
 	<tr>
  		<td><a href="#" class="info"><?php echo _("Operator Panel");?><span><?php echo _("Backup the Operator Panel (HTML and Database)");?></span></a>: </td>
  		<td><input type="checkbox" name="fop" value="yes" <?php echo ($opts['fop']=='yes')?'checked':''; ?>/></td>
 	</tr>
+	<?php } ?>
 	<tr>
  		<td><a href="#" class="info"><?php echo _("Overwrite Backup Settings");?><span><?php echo _("When restoring the backup, if this option is selected, all saved backups and their schedules will be overwriten. Leaving this unchecked will restore all other configurations EXCEPT for those related to backup. When doing a remote backup and restore, this option is always forced to no.");?></span></a>: </td>
  		<td><input type="checkbox" name="overwritebackup" value="yes" class="sysconfigdep" <?php echo ($opts['overwritebackup']=='yes')?'checked':''; ?>/></td>

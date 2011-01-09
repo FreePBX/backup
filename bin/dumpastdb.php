@@ -16,21 +16,13 @@
 //    You should have received a copy of the GNU General Public License
 //    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
 //
-
+$restrict_mods = true;
+$bootstrap_settings['freepbx_auth'] = false;
+if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
+	include_once('/etc/asterisk/freepbx.conf');
+}
 global $argv;
 
-function getconf($filename) {
-        $file = file($filename);
-        foreach ($file as $line) {
-                if (preg_match("/^\s*([\w]+)\s*=\s*\"?([\w\/\:\.\%-]*)\"?\s*([;#].*)?/",$line,$matches)) {
-                        $conf[ $matches[1] ] = $matches[2];
-                }
-        }
-        return $conf;
-}
-
-$amportalconf = (isset($_ENV["FREEPBXCONFIG"]) && strlen($_ENV["FREEPBXCONFIG"])) ? $_ENV["FREEPBXCONFIG"] : "/etc/amportal.conf";
-$amp_conf = getconf($amportalconf);
 
 if (!isset($amp_conf["ASTMANAGERHOST"])) {
   $amp_conf["ASTMANAGERHOST"] = '127.0.0.1';
@@ -39,13 +31,6 @@ if (!isset($amp_conf["ASTMANAGERPORT"])) {
   $amp_conf["ASTMANAGERPORT"] = '5038';
 }
 
-require_once($amp_conf['AMPWEBROOT']."/admin/functions.inc.php");
-require_once($amp_conf['AMPWEBROOT']."/admin/common/php-asmanager.php");
-$astman         = new AGI_AsteriskManager();
-if (! $res = $astman->connect($amp_conf["ASTMANAGERHOST"] . ":".$amp_conf["ASTMANAGERPORT"], $amp_conf["AMPMGRUSER"] , $amp_conf["AMPMGRPASS"])) {
-        unset( $astman );
-        echo "failed to open using".$amp_conf["ASTMANAGERHOST"] .":".$amp_conf["ASTMANAGERPORT"]." ". $amp_conf["AMPMGRUSER"] ." ". $amp_conf["AMPMGRPASS"]."\n";
-}
 
 if (!$argv[1] || strstr($argv[1], "/") || strstr($argv[1], "..")) {
 	// You must supply a single filename, which will be written to /tmp

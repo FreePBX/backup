@@ -27,13 +27,11 @@
  GNU General Public License for more details.
 */
 
-
-//get options
-$amp_conf=getconf((isset($_ENV['FREEPBXCONFIG']) && strlen($_ENV['FREEPBXCONFIG']))?$_ENV['FREEPBXCONFIG']:'/etc/amportal.conf');
-$ast_conf=getconf((isset($_ENV['ASTERISKCONFIG']) && strlen($_ENV['ASTERISKCONFIG']))?$_ENV['ASTERISKCONFIG']:'/etc/asterisk/asterisk.conf');
-//connect to database
-include_once('DB.php');
-if(!isset($db)){$db = DB::connect('mysql://'.$amp_conf['AMPDBUSER'].':'.$amp_conf['AMPDBPASS'].'@'.$amp_conf['AMPDBHOST'].'/'.$amp_conf['AMPDBNAME']);} // attempt connection
+$restrict_mods = true;
+$bootstrap_settings['freepbx_auth'] = false;
+if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
+	include_once('/etc/asterisk/freepbx.conf');
+}
 
 switch (true){
 	case $argc == 1://no args recieved - show help text
@@ -102,7 +100,7 @@ if($opts['remotesshhost'] && $opts['remotesshkey']){
 	exec($exec,$rbudir,$execok);
 	//if the ssh completed with exit code 0, copy backup over to this server
 	if($execok==0){
-		mkdir($opts['budir'].'/'.$opts['name'], 0755, true);//ensure dir structure
+		mkdir($opts['budir'].'/'.$opts['name']);//ensure dir structure
 		$exec='/usr/bin/scp -i '.$opts['remotesshkey'].' -c blowfish '.$user.$opts['remotesshhost'].':'.$rbudir[0].'/backups/'.$opts['name'].'/'.$opts['now'].'.tar.gz '.$opts['budir'].'/'.$opts['name'];
 		exec($exec,$ret);
 	}
@@ -264,17 +262,6 @@ function showopts(){
 	exit(1);
 }
 
-function getconf($filename) {
-  $file = file($filename);
-  foreach($file as $line => $cont){
-  	if(substr($cont,0,1)!='#'){
-  		$d=explode('=',$cont);
-  		if(isset($d['0'])&& isset($d['1'])){$conf[trim($d['0'])]=trim($d['1']);}
-  	}
-  }
-  return $conf;
-}
-
 function getOpts(){
 	array_shift($_SERVER['argv']);
 	foreach($_SERVER['argv'] as $arg){
@@ -284,59 +271,6 @@ function getOpts(){
 		$opts[$arg['0']]=isset($arg['1'])?$arg['1']:null;
 	}
 	return isset($opts)?$opts:false;
-}
-
-
-function dbug(){
-	$opts=func_get_args();
-	//call_user_func_array('freepbx_debug',$opts);
-	$dump=0;
-	//sort arguments
-	switch(count($opts)){
-		case 1:
-			$msg=$opts[0];
-		break;
-		case 2:
-			if(is_array($opts[0])||is_object($opts[0])){
-				$msg=$opts[0];
-				$dump=$opts[1];
-			}else{
-				$disc=$opts[0];
-				$msg=$opts[1];
-			}
-		break;
-		case 3:
-			$disc=$opts[0];
-			$msg=$opts[1];
-			$dump=$opts[2];
-		break;	
-	}
-	if($disc){$disc=' \''.$disc.'\':';}
-	$txt=date("Y-M-d H:i:s").$disc."\n"; //add timestamp
-	dbug_write($txt,1);
-	if($dump==1){//force output via var_dump
-		ob_start();
-		var_dump($msg);
-		$msg=ob_get_contents();
-		ob_end_clean();
-		dbug_write($msg."\n");
-	}elseif(is_array($msg)||is_object($msg)){
-		dbug_write(print_r($msg,true)."\n");
-	}else{
-		dbug_write($msg."\n");
-	}
-}
-
-function dbug_write($txt,$check=''){
-	global $amp_conf;
-	$append=FILE_APPEND;
-	//optionaly ensure that dbug file is smaller than $max_size
-	if($check){
-		$max_size=52428800;//hardcoded to 50MB. is that bad? not enough?
-		$size=filesize('/tmp/freepbx_debug.log');
-		$append=(($size > $max_size)?'':FILE_APPEND);
-	}
-	file_put_contents('/tmp/freepbx_debug.log',$txt, $append);
 }
 
 ?>

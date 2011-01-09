@@ -1,5 +1,6 @@
 <module>
 	<rawname>backup</rawname>
+	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
 	<version>2.8.0.7</version>
 	<publisher>FreePBX</publisher>

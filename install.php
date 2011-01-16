@@ -286,6 +286,8 @@ if (!is_dir($amp_conf['ASTVARLIBDIR'].'/backups')) {
   }
 }
 
+$freepbx_conf =& freepbx_conf::create();
+
   // AMPBACKUPEMAILFROM
   //
   $set['value'] = '';

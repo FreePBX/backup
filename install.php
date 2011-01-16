@@ -285,4 +285,47 @@ if (!is_dir($amp_conf['ASTVARLIBDIR'].'/backups')) {
     out(sprintf(_('WARNING: failed to create backup directory: %s'),$amp_conf['ASTVARLIBDIR'].'/backups'));
   }
 }
-?>
+
+  // AMPBACKUPEMAILFROM
+  //
+  $set['value'] = '';
+  $set['defaultval'] =& $set['value'];
+  $set['readonly'] = 0;
+  $set['hidden'] = 0;
+  $set['level'] = 0;
+  $set['module'] = 'backup';
+  $set['category'] = '';
+  $set['emptyok'] = 1;
+  $set['description'] = 'The From: field for emails when using the backup email feature.';
+  $set['type'] = CONF_TYPE_TEXT;
+  $freepbx_conf->define_conf_setting('AMPBACKUPEMAILFROM',$set);
+
+  // AMPBACKUPSUDO
+  //
+  $set['value'] = false;
+  $set['defaultval'] =& $set['value'];
+  $set['readonly'] = 0;
+  $set['hidden'] = 0;
+  $set['level'] = 2;
+  $set['module'] = 'backup';
+  $set['category'] = '';
+  $set['emptyok'] = 1;
+  $set['description'] = 'Specifies that sudo should be used with backup functions, requires proper sudo configuration which can constitute a security compromise when setup.';
+  $set['type'] = CONF_TYPE_BOOL;
+  $freepbx_conf->define_conf_setting('AMPBACKUPSUDO',$set);
+
+  // AMPBACKUPADVANCED
+  //
+  $set['value'] = false;
+  $set['defaultval'] =& $set['value'];
+  $set['readonly'] = 0;
+  $set['hidden'] = 0;
+  $set['level'] = 2;
+  $set['module'] = 'backup';
+  $set['category'] = '';
+  $set['emptyok'] = 1;
+  $set['description'] = 'Adds some advanced and somewhat unspported features to the backup utility. This needs further clarification (or to be removed?)';
+  $set['type'] = CONF_TYPE_BOOL;
+  $freepbx_conf->define_conf_setting('AMPBACKUPADVANCED',$set);
+
+  $freepbx_conf->commit_conf_settings();

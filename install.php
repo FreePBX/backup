@@ -298,7 +298,7 @@ $freepbx_conf =& freepbx_conf::create();
   $set['module'] = 'backup';
   $set['category'] = 'Backup Module';
   $set['emptyok'] = 1;
-  $set['name'] = 'Email From Address';
+  $set['name'] = 'Email "From:" Address';
   $set['description'] = 'The From: field for emails when using the backup email feature.';
   $set['type'] = CONF_TYPE_TEXT;
   $freepbx_conf->define_conf_setting('AMPBACKUPEMAILFROM',$set);

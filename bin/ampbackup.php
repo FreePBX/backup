@@ -77,7 +77,7 @@ if($opts['remotesshhost'] && $opts['remotesshkey']){
 	chmod($opts['remotesshkey'],0400);
 	$user=(isset($opts['remotesshuser']) && $opts['remotesshuser']!='')?$opts['remotesshuser'].'\@':'';
 	$exec='/usr/bin/ssh -o StrictHostKeyChecking=no -i '.$opts['remotesshkey'].' '.$user.$opts['remotesshhost'];
-	$exec.=' \'. /etc/amportal.conf;';
+	$exec.=' \'. /usr/sbin/amportal;';
 	$exec.='$ASTVARLIBDIR/bin/ampbackup.php cli ';
 	foreach($opts as $key => $val){
 		switch($key){
@@ -89,10 +89,14 @@ if($opts['remotesshhost'] && $opts['remotesshkey']){
 			case 'id':
 			case 'overwritebackup':
 				$exec.=' --'.$key.'=';
-			break;
+				break;
+			case 'exclude':
+			case 'include':
+				$exec.=' --'.$key.'='.str_replace(array("\n","\r","\r\n"),' ',$val);
+				break;
 			default:
 				$exec.=' --'.$key.'='.$val;
-			break;
+				break;
 		}
 	}
 	$exec.='; echo $ASTVARLIBDIR';

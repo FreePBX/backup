@@ -291,21 +291,6 @@ $freepbx_conf =& freepbx_conf::create();
   $set['type'] = CONF_TYPE_TEXT;
   $freepbx_conf->define_conf_setting('AMPBACKUPEMAILFROM',$set);
 
-  // AMPBACKUPSUDO
-  //
-  $set['value'] = false;
-  $set['defaultval'] =& $set['value'];
-  $set['readonly'] = 0;
-  $set['hidden'] = 0;
-  $set['level'] = 2;
-  $set['module'] = 'backup';
-  $set['category'] = 'Backup Module';
-  $set['emptyok'] = 1;
-  $set['name'] = 'Use sudo Priviledge';
-  $set['description'] = 'Specifies that sudo should be used with all backups. This has serious security risks and is strongly discouraged unless you are very comfortable with the implication that this may have. This could be necessary if backing up certain system files on your PBX that apache normally would not have access to. It also requres that your sudo permissions be setup for the apache user and should be restricted to the minimum commands required.';
-  $set['type'] = CONF_TYPE_BOOL;
-  $freepbx_conf->define_conf_setting('AMPBACKUPSUDO',$set);
-
   // AMPBACKUPADVANCED
   //
   $set['value'] = false;

@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>2.9.0.0</version>
+	<version>2.9.0.1</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<type>tool</type>
@@ -15,6 +15,7 @@
 		<module>core</module>
 	</depends>
 	<changelog>
+		*2.9.0.1* #4740, #4772
 		*2.9.0.0* #4463, #4610, #4642, #4675, #4566
 		*2.8.0.6* #4371
 		*2.8.0.5* #4079, #4290
@@ -46,6 +47,6 @@
 		*2.4.1* #2269 clear several of the astdb objects before restore, and other bug fixes
 		*2.4.0* CHANGELOG TRUNCATED See SVN Repository
 	</changelog>
-	<location>release/2.9/backup-2.9.0.0.tgz</location>
-	<md5sum>0af03a41c7d7830a3b39977fc5445697</md5sum>
+	<location>release/2.9/backup-2.9.0.1.tgz</location>
+	<md5sum>2acb0efffce93d28e1d91097a4709920</md5sum>
 </module>

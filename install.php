@@ -302,7 +302,7 @@ $freepbx_conf =& freepbx_conf::create();
   $set['category'] = 'Backup Module';
   $set['emptyok'] = 1;
   $set['name'] = 'Use sudo Priviledge';
-  $set['description'] = 'Specifies that sudo should be used with backup functions, requires proper sudo configuration which can constitute a security compromise when setup.';
+  $set['description'] = 'Specifies that sudo should be used with all backups. This has serious security risks and is strongly discouraged unless you are very comfortable with the implication that this may have. This could be necessary if backing up certain system files on your PBX that apache normally would not have access to. It also requres that your sudo permissions be setup for the apache user and should be restricted to the minimum commands required.';
   $set['type'] = CONF_TYPE_BOOL;
   $freepbx_conf->define_conf_setting('AMPBACKUPSUDO',$set);
 
@@ -317,7 +317,7 @@ $freepbx_conf =& freepbx_conf::create();
   $set['category'] = 'Backup Module';
   $set['emptyok'] = 1;
   $set['name'] = 'Enable Advanced Options';
-  $set['description'] = 'Adds some advanced and somewhat unspported features to the backup utility. This needs further clarification (or to be removed?)';
+  $set['description'] = 'This setting currenly exposed an option to use sudo on a give backup set when saving/restoring. This has serious security risks and is strongly discouraged unless you are very comfortable with the implication that this may have. This could be necessary if backing up certain system files on your PBX that apache normally would not have access to. It also requres that your sudo permissions be setup for the apache user and should be restricted to the minimum commands required.';
   $set['type'] = CONF_TYPE_BOOL;
   $freepbx_conf->define_conf_setting('AMPBACKUPADVANCED',$set);
 

@@ -185,7 +185,7 @@ if(count($migrate) > 0){//migrate to new backup structure
 outn(_('Replacing ampbackup.pl in db..'));
 $sql=$db->query("UPDATE backup SET command = REPLACE(command,'ampbackup.pl','ampbackup.php')");
 if(DB::IsError($sql)) {
-  out(_('an error has occured, update not done'));
+  out(_('an error has occurred, update not done'));
   out($sql->getMessage());
 } else {
   out(_('ok'));

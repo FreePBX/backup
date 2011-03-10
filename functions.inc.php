@@ -484,7 +484,7 @@ function backup_showopts($id=''){
 	</tr>
 	<?php } ?>
 	<tr>
- 		<td><a href="#" class="info"><?php echo _("Overwrite Backup Settings");?><span><?php echo _("When restoring the backup, if this option is selected, all saved backups and their schedules will be overwriten. Leaving this unchecked will restore all other configurations EXCEPT for those related to backup. When doing a remote backup and restore, this option is always forced to no.");?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _("Overwrite Backup Settings");?><span><?php echo _("When restoring the backup, if this option is selected, all saved backups and their schedules will be overwritten. Leaving this unchecked will restore all other configurations EXCEPT for those related to backup. When doing a remote backup and restore, this option is always forced to no.");?></span></a>: </td>
  		<td><input type="checkbox" name="overwritebackup" value="yes" class="sysconfigdep" <?php echo ($opts['overwritebackup']=='yes')?'checked':''; ?>/></td>
  	</tr>	
 	<tr>

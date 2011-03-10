@@ -89,9 +89,9 @@ function backup_list_files($dir='', $display='', $file='') {
 		$html.=_("Restore Entire Backup Set").'<span>'; 
 		$html.=_("Restore your Complete Backup set overwriting all files.").'</span></a><br></li><br>';
 		if(array_search('voicemail.tar.gz',$restore_files)){
-			$html.="<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore this file set?\\nDoing so will permanently delete any new voicemail you have in your mailbox\\nsince this backup on")." $file!','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=VoiceMail&file=$file')\">";
-			$html.=_('Restore VoiceMail Files').'<span>'; 
-			$html.=_('Restore your Voicemail files from this backup set.  NOTE! This will delete any voicemail currently in the voicemail boxes.');
+			$html.="<li><a class=\"info\" href=\"javascript:decision('"._("Are you sure you want to Restore this file set?\\nDoing so will permanently delete any new Voicemail you have in your mailbox\\nsince this backup on")." $file!','config.php?type=$type&display=$display&action=restored&dir=$dir&filetype=VoiceMail&file=$file')\">";
+			$html.=_('Restore Voicemail Files').'<span>'; 
+			$html.=_('Restore your Voicemail files from this backup set.  NOTE! This will delete any Voicemail currently in the Voicemail boxes.');
 			$html.='</span></a><br></li><br>';
 		}
 		if(array_search('recordings.tar.gz',$restore_files)){
@@ -139,7 +139,7 @@ function backup_restore_tar($dir="", $file="",$filetype="", $display="") {
 	
 			// First restore voicemial (for some reason if you do it all at once these don't get restored
 			exec('/bin/rm -rf '.$amp_conf['ASTSPOOLDIR'].'/voicemail 2>&1',$out_arr,$ret);
-      backup_errors($error_cause, $ret, _('failed to remove voicemail directory'));
+      backup_errors($error_cause, $ret, _('failed to remove Voicemail directory'));
 			$tar_cmd="$tar -PxvOz -f \"$dir\" /tmp/ampbackups.$fileholder/voicemail.tar.gz | $tar -Pxvz";
 			exec($tar_cmd,$out_arr,$ret);
       backup_errors($error_cause, $ret, _('failed to untar voicemail.tar.gz'));
@@ -188,7 +188,7 @@ function backup_restore_tar($dir="", $file="",$filetype="", $display="") {
       backup_errors($error_cause, $ret, _('failed to untar voicemail.tar.gz'));
 			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
       backup_errors($error_cause, $ret, _('failed to remove exploded backup sets from tmp'));
-			if(!count($error_cause)){$message=_("Restored VoiceMail");}
+			if(!count($error_cause)){$message=_("Restored Voicemail");}
 		break;
 		case 'Recordings':
 			$fileholder=substr($file, 0,-7);
@@ -492,7 +492,7 @@ function backup_showopts($id=''){
  		<td><input type="checkbox" name="recordings" value="yes" <?php echo ($opts['recordings']=='yes')?'checked':''; ?> /></td>
  	</tr>
 	<tr>
- 		<td><a href="#" class="info"><?php echo _("VoiceMail");?><span><?php echo _("Backup the System VoiceMail Boxes... CAUTION: Could result in large file");?></span></a>: </td>
+ 		<td><a href="#" class="info"><?php echo _("Voicemail");?><span><?php echo _("Backup the System Voicemail Boxes... CAUTION: Could result in large file");?></span></a>: </td>
  		<td><input type="checkbox" name="voicemail"  tabindex="<?php echo ++$tabindex;?>" value="yes" <?php echo ($opts['voicemail']=='yes')?'checked':''; ?> /></td>
  	</tr>
  	<tr>

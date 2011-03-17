@@ -181,6 +181,7 @@ if( $opts['ftpuser'] && $opts['ftppass'] && $opts['ftphost']){
 	fwrite($fh, $data);
 	fclose($fh);
 	exec('ftp -n '.$opts['ftphost'].' < '.$opts['ftpfile'].' ',$ftpres);
+	unlink($opts['ftpfile']);
 }
 
 //ssh backup

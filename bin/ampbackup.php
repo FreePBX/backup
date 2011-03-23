@@ -129,7 +129,7 @@ if($opts['remotesshhost'] && $opts['remotesshkey']){
 	if($opts['configurations']){
 		system($amp_conf['ASTVARLIBDIR'].'/bin/dumpastdb.php '.$opts['now'].' > /dev/null');
 	
-		$cmd='/bin/tar -Pcz -f /tmp/ampbackups.'.$opts['now'].'/configurations.tar.gz '.$amp_conf['ASTVARLIBDIR'].'/agi-bin/ ';
+		$cmd='/bin/tar -Pcz --exclude "modules/_cache" -f /tmp/ampbackups.'.$opts['now'].'/configurations.tar.gz '.$amp_conf['ASTVARLIBDIR'].'/agi-bin/ ';
 		$cmd.=$amp_conf['ASTVARLIBDIR'].'/bin/ '.$amp_conf['ASTETCDIR'].' /etc/amportal.conf ';
 		if($opts['admin']=='yes'){$cmd.=$amp_conf['AMPWEBROOT'].'/admin ';}//include admin/ unless otherwise requested
 		if(isset($amp_conf['ZAP2DAHDICOMPAT']) && $amp_conf['ZAP2DAHDICOMPAT']==true){$cmd.='/etc/dahdi ';}else{$cmd.='/etc/zaptel.conf ';}//include zap OR dahdi

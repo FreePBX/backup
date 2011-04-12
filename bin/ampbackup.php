@@ -77,8 +77,7 @@ if($opts['remotesshhost'] && $opts['remotesshkey']){
 	chmod($opts['remotesshkey'],0400);
 	$user=(isset($opts['remotesshuser']) && $opts['remotesshuser']!='')?$opts['remotesshuser'].'\@':'';
 	$exec='/usr/bin/ssh -o StrictHostKeyChecking=no -i '.$opts['remotesshkey'].' '.$user.$opts['remotesshhost'];
-	$exec.=' \'. /usr/sbin/amportal;';
-	$exec.='$ASTVARLIBDIR/bin/ampbackup.php cli ';
+	$exec.=' \'' . $amp_conf['ASTVARLIBDIR'] . '/bin/ampbackup.php cli ';
 	foreach($opts as $key => $val){
 		switch($key){
 			case 'remotesshhost':
@@ -99,19 +98,21 @@ if($opts['remotesshhost'] && $opts['remotesshkey']){
 				break;
 		}
 	}
-	$exec.='; echo $ASTVARLIBDIR';
 	$exec.='\'';
 	exec($exec,$rbudir,$execok);
 	//if the ssh completed with exit code 0, copy backup over to this server
 	if($execok==0){
 		mkdir($opts['budir'].'/'.$opts['name']);//ensure dir structure
-		$exec='/usr/bin/scp -i '.$opts['remotesshkey'].' -c blowfish '.$user.$opts['remotesshhost'].':'.$rbudir[0].'/backups/'.$opts['name'].'/'.$opts['now'].'.tar.gz '.$opts['budir'].'/'.$opts['name'];
+		$exec = '/usr/bin/scp -i ' . $opts['remotesshkey'] . ' -c blowfish ' . $user 
+				. $opts['remotesshhost'] . ':' 
+				. $amp_conf['ASTVARLIBDIR'] . '/backups/' . $opts['name'] . '/' . $opts['now'] . '.tar.gz '
+				.$opts['budir'] . '/' . $opts['name'];
 		exec($exec,$ret);
 	}
 	//if we have the backup file localy, delete it from the remote server
 	if(is_file($opts['budir'].'/'.$opts['name'].'/'.$opts['now'].'.tar.gz')){
 		$exec='/usr/bin/ssh -o StrictHostKeyChecking=no -i '.$opts['remotesshkey'].' '.$user.$opts['remotesshhost'];
-		$exec.=' \'dir='.$rbudir[0].'/backups/'.$opts['name'].'; rm -f $dir/'.$opts['now'].'.tar.gz; if [ ! "$(ls -A $dir)" ]; then rmdir $dir; fi\'';
+		$exec.=' \'dir='.$amp_conf['ASTVARLIBDIR'].'/backups/'.$opts['name'].'; rm -f $dir/'.$opts['now'].'.tar.gz; if [ ! "$(ls -A $dir)" ]; then rmdir $dir; fi\'';
 		exec($exec,$ret);
 	}
 	if($opts['remoterestore']=='yes'){//restore to local machine if requested

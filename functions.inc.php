@@ -127,7 +127,7 @@ function backup_errors(&$error_cause, $ret, $cause) {
 }
 
 function backup_restore_tar($dir="", $file="",$filetype="", $display="") {
-	global $asterisk_conf,$amp_conf;
+	global $asterisk_conf, $amp_conf, $astman;
 	$tar='/bin/tar';
 	$error_cause = array();
 	if($amp_conf['AMPBACKUPSUDO']==true){$sudo='/usr/bin/sudo';}else{$sudo='';}//use sudo if requested - DANGEROUS!!!
@@ -175,7 +175,7 @@ function backup_restore_tar($dir="", $file="",$filetype="", $display="") {
 			backup_errors($error_cause, $ret, _('failed to untar phoneconfig.tar.gz'));
 			exec("/bin/rm -rf /tmp/ampbackups.$fileholder",$out_arr,$ret);
 			backup_errors($error_cause, $ret, _('failed to remove exploded backup sets from tmp'));
-			exec('asterisk -rx "module reload manager"');
+			$astman->Command('module reload manager');
 			if(!count($error_cause)){$message=_("Restored All Files in Backup Set");}
 			
 			break;
@@ -225,7 +225,7 @@ function backup_restore_tar($dir="", $file="",$filetype="", $display="") {
 			
 			exec("/bin/rm -rf /tmp/ampbackups.$fileholder 2>&1",$out_arr,$ret);
 			backup_errors($error_cause, $ret, _('failed to remove exploded backup sets from tmp'));
-			exec('asterisk -rx "module reload manager"');
+			$astman->Command('module reload manager');
 			if(!count($error_cause)){$message=_("Restored System Configuration");}
 		break;
 		case 'FOP':

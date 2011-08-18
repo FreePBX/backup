@@ -27,14 +27,14 @@ if ($vars['id']) {
 		$s = backup_get_server('all_detailed');
 		$b = new Backup($bu, $s);		
 		$b->init();
-		//TODO: WAIT for the lock
-		if($b->acquire_lock()){
-			echo 'LOCKED!' . "\n";
-		} else {
-			echo 'bahhhhh' . "\n";
-		}
-		print_r($b->b);
-		if ($b->b['bu_server'] == '0') {
+				
+		if ($b->b['bu_server'] == "0") {
+			//get lock to prevent backups from being run cuncurently
+			while (!$b->acquire_lock()) {
+				echo _('waiting for lock...') . "\n";
+				sleep(10);
+			}
+			echo _('Backup Lock acquired!') . "\n";
 			$b->run_hooks('pre-backup');
 			$b->add_items();
 			$b->build_manifest();
@@ -95,12 +95,6 @@ if ($vars['id']) {
 	$b->b['_file']		= $r->b->b['_file'];
 	$b->b['_dirname']	= $r->b->b['_dirname'];
 	$b->init();
-	//TODO: WAIT for the lock
-	if($b->acquire_lock()){
-		echo 'LOCKED!' . "\n";
-	} else {
-		echo 'bahhhhh' . "\n";
-	}
 	$b->run_hooks('pre-backup');
 	$b->add_items();
 	$b->build_manifest();

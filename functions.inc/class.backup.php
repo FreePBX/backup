@@ -99,9 +99,15 @@ class Backup {
 	
 	function acquire_lock() {
 		//acquire file handler on lock file
-
+		
 		//TODO: use 'c+' once the project require php > 5.2.8
-		$this->lock	= fopen($this->lock_file, 'x+');
+		
+		if (file_exists($this->lock_file)) {
+			return false;
+		} else {
+			$this->lock	= fopen($this->lock_file, 'x+');
+		}
+		
 		if (flock($this->lock, LOCK_EX | LOCK_NB)) {
 			return true;
 		} else {

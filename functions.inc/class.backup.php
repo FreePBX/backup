@@ -367,6 +367,9 @@ class Backup {
 		//TODO: add fpnx/asterisk/backup verions
 		//TODO: add format version, same as backup module version
 		//get all files in the directory
+		$ret['pbx_framework_version']	= get_framework_version();
+		$ret['backup_version']			= modules_getversion('backup');
+		$ret['pbx_version']	= getversion();
 		$ret['file_list']	= scandirr($this->b['_tmpdir']);
 
 		//remove the mysql/astdb files, add them seperatly

@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	$.jstree._themes = 'assets/js/themes/';
+	$.jstree._themes = 'modules/backup/assets/js/themes/';
+	
 	//backup picker
 	$('#list_tree').jstree({
 		'plugins': ['themes', 'json_data', 'ui', 'types'],

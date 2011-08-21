@@ -85,7 +85,7 @@ switch ($var['action']) {
 		}
 		break;
 }
-dbug('backup_restore_path, ', $_SESSION['backup_restore_path']);
+
 //rnav
 $var['servers'] = backup_get_server('all');
 echo load_view(dirname(__FILE__) . '/views/rnav/restore.php', $var);;
@@ -102,7 +102,7 @@ switch ($var['action']) {
 		$var['templates'] = backup_get_template('all_detailed');
 		
 		//transalate variables
-		//TODO: make this ananomous once we require php 5.3
+		//TODO: make this anonymous once we require php 5.3
 		function callback(&$var) {
 			$var = backup__($var);
 		}

@@ -55,6 +55,7 @@ $html .= br(2);
 $html .= form_submit('submit', _('Restore'));
 $html .= form_close();
 $html .= br(15);
+$html .= '<script type="text/javascript" src="modules/backup/assets/js/jquery.jstree.min.js.php"></script>';
 echo $html;
 
 ?>

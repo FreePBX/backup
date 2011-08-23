@@ -61,4 +61,21 @@ function backup__($var) {
 	}
 }
 
+
+function backup_log($msg) {
+	$cli = php_sapi_name() == 'cli' ? true : false;
+	
+	$str = '';
+	$str .= $cli ? '' : 'data: ';
+	$str .= $msg;
+	$str .= $cli ? "\n" : "\n\n";
+	
+	echo $str;
+	
+	if (!$cli) {
+		ob_flush();
+		flush();
+	}
+	
+}
 ?>

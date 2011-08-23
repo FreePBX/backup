@@ -212,8 +212,15 @@ if ($immortal != 'true') {
 	$html .= form_submit('submit', _('Save'));
 	$html .= form_submit('submit', _('Delete'));
 }
-//$html .= form_submit('submit', _('Run now'));
-$html	.= form_close(). PHP_EOL;
+
+//can only run saved backups
+if ($id) {
+	$html .= form_button(array('content' => _('Run now'), 'id' => 'run_backup'));
+}
+
+$html .= form_close(). PHP_EOL;
+
+$html .= '<script type="text/javascript" src="modules/backup/assets/js/views/backup.js"></script>';
 
 echo $html;
 

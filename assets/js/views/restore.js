@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$.jstree._themes = 'modules/backup/assets/js/themes/';
+	$.jstree._themes = 'modules/backup/assets/js/views/themes/';
 	
 	//backup picker
 	$('#list_tree').jstree({
@@ -105,9 +105,9 @@ $(document).ready(function(){
 		drop: function(event, ui) {
 			current_items_over_helper('show');
 			var data = JSON.parse(decodeURIComponent(ui.draggable.data('template')));
-			console.log(data)
+			//console.log(data)
 			for (var i in data) {
-				console.log(data[i].type, data[i].path);
+				//console.log(data[i].type, data[i].path);
 				if (data[i].type == 'dir' || data[i].type == 'file') {
 					new check_node()($("#backup_files"), data[i].path);
 				}

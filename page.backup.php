@@ -39,6 +39,8 @@ foreach ($get_vars as $k => $v) {
 //set action to delete if delete was pressed instead of submit
 if ($var['submit'] == _('Delete') && $var['action'] == 'save') {
 	$var['action'] = 'delete';
+} elseif($var['submit'] == _('Run now') && $var['action'] == 'save') {
+	$var['action'] = 'run';
 }
 
 //action actions
@@ -48,6 +50,40 @@ switch ($var['action']) {
 		break;
 	case 'delete':
 		$var['id'] = backup_del_backup($var['id']);
+		break;
+	case 'run':
+		//dont stop untill were all done
+		//backup will compelte EVEN IS USER NAVIGATES AWAY FROM PAGE!!
+		ignore_user_abort(true);
+		
+		//clear all buffers, those will interfere with the stream
+		while (ob_get_level()) {
+			ob_end_clean();
+		}
+
+		ob_start($amp_conf['buffering_callback']);
+		header('Content-Type: text/event-stream');
+		header('Cache-Control: no-cache');
+		//header('Expires: ' . date('r', time() + 60));
+		//header('Last-Modified: ' . date('r', time() - 60));
+		//header('Pragma: no-cache');
+		$cmd = $amp_conf['ASTVARLIBDIR'] . '/bin/backup.php --id=' 
+				. escapeshellcmd($var['id']) . ' 2>&1';
+				
+		//start running backup
+		$run = popen($cmd, 'r');
+		while (($msg = fgets($run)) !== false) {
+			//dbug('backup', $msg);
+			//send results back to the user
+			backup_log($msg);
+		}
+		
+		pclose($run);
+		
+		//send messgae to browser that were done
+		backup_log('END');
+
+		exit();
 		break;
 }
 

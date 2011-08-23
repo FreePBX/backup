@@ -23,23 +23,32 @@ if ($vars['id']) {
 	//bu = backup settings
 	//s= servers
 	//b= backup object
-	if ($bu =  backup_get_backup($vars['id'])) {
+	if ($bu = backup_get_backup($vars['id'])) {
 		$s = backup_get_server('all_detailed');
 		$b = new Backup($bu, $s);		
+		backup_log(_('Intializing Backup') . ' ' .$vars['id']);
 		$b->init();
 				
 		if ($b->b['bu_server'] == "0") {
 			//get lock to prevent backups from being run cuncurently
 			while (!$b->acquire_lock()) {
-				echo _('waiting for lock...') . "\n";
+				backup_log(_('waiting for lock...'));
 				sleep(10);
 			}
-			echo _('Backup Lock acquired!') . "\n";
+			backup_log(_('Backup Lock acquired!'));
+			
+			backup_log(_('Running pre-backup hooks...'));
 			$b->run_hooks('pre-backup');
+			
+			backup_log(_('Adding items...'));
 			$b->add_items();
+			
+			backup_log(_('Bulding manifest...'));
 			$b->build_manifest();
 			$b->save_manifest('local');
 			$b->save_manifest('db');
+			
+			backup_log(_('Creating backup...'));
 			$b->create_backup_file();
 		} else {
 			$opts = array(
@@ -76,11 +85,17 @@ if ($vars['id']) {
 			$b->b['manifest'] = backup_get_manifest_tarball($b->b['_tmpfile']);
 			$b->save_manifest('db');
 		}	
+		
+			backup_log(_('Storing backup...'));
 			$b->store_backup();
+			
+			backup_log(_('Running post-backup hooks...'));
 			$b->run_hooks('post-backup');
+			
+			backup_log(_('Backup successfully completed!'));
 			//TODO: restore to this server if requested
 		} else {
-		echo 'backup id ' . $vars['id'] . ' not found!'."\n";
+		backup_log('backup id ' . $vars['id'] . ' not found!');
 	}
 	
 //if the opts option was passed, used for remote backup (warm spare)

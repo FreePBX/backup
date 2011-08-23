@@ -230,10 +230,8 @@ if (!array_key_exists('remotesshhost',$fields) && array_key_exists('command',$fi
 //migration to 2.10
 
 //migrate pre 2.10 backups
-$sql	= 'describe backup';
-$fields	= $db->getAssoc($sql);
-db_e($fields);
-if (array_key_exists('command', $fields)) {
+if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
+	require_once(dirname(__FILE__) . '/functions.inc.php');
 	//create default servers
 	$server['legacy'] = array(
 					'id'		=> '',
@@ -425,195 +423,201 @@ if (array_key_exists('command', $fields)) {
 	//lock this all down so that their readonly
 	out(_('added default backup templates'));
 
-
-	//migrate backup table
-	$sql = 'sELECT * FROM backup';
-	$backup = $db->getAll($sql, DB_FETCHMODE_ASSOC);
-	sql('RENAME TABLE backup TO backup_old', 'query');
-	sql($bu_table);
 	
-	//if we currently have backups, migrate them
-	if (count($backup)) {
-		foreach ($backup as $b) {
-			out('migrating backup ' . $b['name']);
-			//prapre old values
-			$b['minutes']				= trim($b['minutes'], ':');
-			$b['days']					= trim($b['days'], ':');
-			$b['weekdays']				= trim($b['weekdays'], ':');
-			$b['hours']					= trim($b['hours'], ':');
-			$b['months']				= trim($b['months'], ':');
+	$sql	= 'describe backup';
+	$fields	= $db->getAssoc($sql);
+	db_e($fields);
+	if (array_key_exists('command', $fields)) {
+		//migrate backup table
+		$sql = 'SELECT * FROM backup';
+		$backup = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+		sql('RENAME TABLE backup TO backup_old', 'query');
+		sql($bu_table);
+	
 
-			//set up array for insertion
-			$new['name']				= _('MIGRATED') . ' ' . $b['name'];
-			$new['id']					= '';
-			$new['desc']				= _('migrated backup') . ' ' . $b['name'];
+	
+		//if we currently have backups, migrate them
+		if (count($backup)) {
+			foreach ($backup as $b) {
+				out('migrating backup ' . $b['name']);
+				//prapre old values
+				$b['minutes']				= trim($b['minutes'], ':');
+				$b['days']					= trim($b['days'], ':');
+				$b['weekdays']				= trim($b['weekdays'], ':');
+				$b['hours']					= trim($b['hours'], ':');
+				$b['months']				= trim($b['months'], ':');
 
-			if (substr($b['command'], 0, 9) == '0 0 0 0 0') {//formerly "now"
-				$new['cron_schedule']	= 'never';
-			} else {
-				$new['cron_schedule']	= 'custom';
-				$new['cron_minute']		= explode('::', $b['minutes']);
-				$new['cron_dom']		= explode('::', $b['days']);
-				$new['cron_dow']		= explode('::', $b['weekdays']);
-				$new['cron_hour']		= explode('::', $b['hours']);
-				$new['cron_month']		= explode('::', $b['months']);
-			}
+				//set up array for insertion
+				$new['name']				= _('MIGRATED') . ' ' . $b['name'];
+				$new['id']					= '';
+				$new['desc']				= _('migrated backup') . ' ' . $b['name'];
 
-			//include items
-			foreach ($b as $k => $v) {
-				if (!isset($v) || $v != 'yes') {
-					continue;
+				if (substr($b['command'], 0, 9) == '0 0 0 0 0') {//formerly "now"
+					$new['cron_schedule']	= 'never';
+				} else {
+					$new['cron_schedule']	= 'custom';
+					$new['cron_minute']		= explode('::', $b['minutes']);
+					$new['cron_dom']		= explode('::', $b['days']);
+					$new['cron_dow']		= explode('::', $b['weekdays']);
+					$new['cron_hour']		= explode('::', $b['hours']);
+					$new['cron_month']		= explode('::', $b['months']);
 				}
-				switch ($k) {
-					case 'voicemail':
-						$new['type'][]		= 'dir';
-						$new['path'][]		= '__ASTSPOOLDIR__/voicemail';
-						$new['exclude'][]	= '';
-						break;
-					case 'recordings':
-						$new['type'][]		= 'dir';
-						$new['path'][]		= '__ASTVARLIBDIR__/moh';
-						$new['exclude'][]	= '';
 
-						$new['type'][]		= 'dir';
-						$new['path'][]		= '__ASTVARLIBDIR__/sounds/custom';
-						$new['exclude'][]	= '';
-						break;
-					case 'configurations':
-						$new['type'][]		= 'mysql';
-						$new['path'][]		= 'server-' . $server['mysql'];
-						$new['exclude'][]	= '';
-
-						$new['type'][]		= 'astdb';
-						$new['path'][]		= '';
-						$new['exclude'][]	= '';
-
-						$new['type'][]		= 'dir';
-						$new['path'][]		= '__ASTETCDIR__';
-						$new['exclude'][]	= '';
-						break;
-					case 'cdr':
-						$new['type'][]		= 'mysql';
-						$new['path'][]		= 'server-' . $server['cdr'];
-						if ($b['overwritebackup'] == 'yes') {
-							$new['exclude'][]	= "backup\n"
-												. "backup_cache\n"
-												. "backup_details\n"
-												. "backup_items\n"
-												. "backup_server_details\n"
-												. "backup_servers\n"
-												. "backup_template_details\n"
-												. "backup_templates\n";
-						} else {
+				//include items
+				foreach ($b as $k => $v) {
+					if (!isset($v) || $v != 'yes') {
+						continue;
+					}
+					switch ($k) {
+						case 'voicemail':
+							$new['type'][]		= 'dir';
+							$new['path'][]		= '__ASTSPOOLDIR__/voicemail';
 							$new['exclude'][]	= '';
-						}
+							break;
+						case 'recordings':
+							$new['type'][]		= 'dir';
+							$new['path'][]		= '__ASTVARLIBDIR__/moh';
+							$new['exclude'][]	= '';
 
-						break;
-					case 'fop':
-						$new['type'][]		= 'dir';
-						$new['path'][]		= '__AMPWEBROOT__/panel';
-						$new['exclude'][]	= '';
-						break;
-					case 'admin':
-						$new['type'][]		= 'dir';
-						$new['path'][]		= '__AMPWEBROOT__/admin';
-						$new['exclude'][]	= '';
-						break;
+							$new['type'][]		= 'dir';
+							$new['path'][]		= '__ASTVARLIBDIR__/sounds/custom';
+							$new['exclude'][]	= '';
+							break;
+						case 'configurations':
+							$new['type'][]		= 'mysql';
+							$new['path'][]		= 'server-' . $server['mysql'];
+							$new['exclude'][]	= '';
+
+							$new['type'][]		= 'astdb';
+							$new['path'][]		= '';
+							$new['exclude'][]	= '';
+
+							$new['type'][]		= 'dir';
+							$new['path'][]		= '__ASTETCDIR__';
+							$new['exclude'][]	= '';
+							break;
+						case 'cdr':
+							$new['type'][]		= 'mysql';
+							$new['path'][]		= 'server-' . $server['cdr'];
+							if ($b['overwritebackup'] == 'yes') {
+								$new['exclude'][]	= "backup\n"
+													. "backup_cache\n"
+													. "backup_details\n"
+													. "backup_items\n"
+													. "backup_server_details\n"
+													. "backup_servers\n"
+													. "backup_template_details\n"
+													. "backup_templates\n";
+							} else {
+								$new['exclude'][]	= '';
+							}
+
+							break;
+						case 'fop':
+							$new['type'][]		= 'dir';
+							$new['path'][]		= '__AMPWEBROOT__/panel';
+							$new['exclude'][]	= '';
+							break;
+						case 'admin':
+							$new['type'][]		= 'dir';
+							$new['path'][]		= '__AMPWEBROOT__/admin';
+							$new['exclude'][]	= '';
+							break;
+					}
+
 				}
 
+				//include/exclude
+				$includes = explode("\n", $b['include']);
+				foreach ($includes as $include) {
+					$new['type'][]			= 'dir';
+					$new['path'][]			= $include;
+					$new['exclude'][]		= $b['exclude'];
+				}
+
+				//storage
+				//always assume local
+				$new['storage_servers'][]	= $server['local'];
+				$new['bu_server'] 			= 0;//not remote. will get reset later if needed
+
+				//ftp server
+				if ($b['ftpuser'] && $b['ftppass'] && $b['ftphost']) {
+					$s = array(
+								'id'		=> '',
+								'name'		=> 'Migrated FTP server',
+								'desc'		=> _('Migrated FTP server for backup ') . $b['name'],
+								'type'		=> 'ftp',
+								'host'		=> $b['ftphost'],
+								'port'		=> 21,
+								'user'		=> $b['ftpuser'],
+								'password'	=> $b['ftppass'],
+								'path'		=> $b['ftpdir'],
+					);
+					$new['storage_servers'][] = backup_put_server($s);
+				}
+
+				//sshserver
+				if ($b['sshkey'] && $b['sshhost'] ) {
+					$s = array(
+								'id'		=> '',
+								'name'		=> 'Migrated SSH server',
+								'desc'		=> _('Migrated SSH server for backup ') . $b['name'],
+								'type'		=> 'ssh',
+								'host'		=> $b['sshhost'],
+								'port'		=> 22,
+								'user'		=> $b['sshuser'],
+								'key'		=> $b['sshkey'],
+								'path'		=> $b['sshdir'],
+					);
+					$new['storage_servers'][] = backup_put_server($s);
+				}
+
+				//email server
+				if ($b['sshkey'] && $b['sshhost'] ) {
+					$s = array(
+								'id'		=> '',
+								'name'		=> 'Migrated EMAIL server',
+								'desc'		=> _('Migrated EMAIL server for backup ') . $b['name'],
+								'type'		=> 'email',
+								'addr'		=> $b['emailaddr'],
+								'maxsize'	=> string2bytes($b['emailmaxsize'], $b['emailmaxtype'])
+					);
+					$new['storage_servers'][]= backup_put_server($s);
+				}
+
+				//remote ssh server
+				if ($b['remoterestore']) {
+					$s = array(
+								'id'		=> '',
+								'name'		=> 'Migrated SSH server',
+								'desc'		=> _('Migrated remote SSH server for backup ') 
+												. $b['name'],
+								'type'		=> 'ssh',
+								'host'		=> $b['remotesshhost'],
+								'port'		=> 22,
+								'user'		=> $b['remotesshuser'],
+								'key'		=> $b['remotesshkey'],
+								'path'		=> '',
+					);
+					$s = backup_put_server($s);
+					$new['storage_servers'][] = $s;
+					$new['bu_server'] = $s;
+				}
+
+				//insert backup
+				backup_put_backup($new);
+				unset($new);
 			}
 
-			//include/exclude
-			$includes = explode("\n", $b['include']);
-			foreach ($includes as $include) {
-				$new['type'][]			= 'dir';
-				$new['path'][]			= $include;
-				$new['exclude'][]		= $b['exclude'];
-			}
-
-			//storage
-			//always assume local
-			$new['storage_servers'][]	= $server['local'];
-			$new['bu_server'] 			= 0;//not remote. will get reset later if needed
-
-			//ftp server
-			if ($b['ftpuser'] && $b['ftppass'] && $b['ftphost']) {
-				$s = array(
-							'id'		=> '',
-							'name'		=> 'Migrated FTP server',
-							'desc'		=> _('Migrated FTP server for backup ') . $b['name'],
-							'type'		=> 'ftp',
-							'host'		=> $b['ftphost'],
-							'port'		=> 21,
-							'user'		=> $b['ftpuser'],
-							'password'	=> $b['ftppass'],
-							'path'		=> $b['ftpdir'],
-				);
-				$new['storage_servers'][] = backup_put_server($s);
-			}
-
-			//sshserver
-			if ($b['sshkey'] && $b['sshhost'] ) {
-				$s = array(
-							'id'		=> '',
-							'name'		=> 'Migrated SSH server',
-							'desc'		=> _('Migrated SSH server for backup ') . $b['name'],
-							'type'		=> 'ssh',
-							'host'		=> $b['sshhost'],
-							'port'		=> 22,
-							'user'		=> $b['sshuser'],
-							'key'		=> $b['sshkey'],
-							'path'		=> $b['sshdir'],
-				);
-				$new['storage_servers'][] = backup_put_server($s);
-			}
-
-			//email server
-			if ($b['sshkey'] && $b['sshhost'] ) {
-				$s = array(
-							'id'		=> '',
-							'name'		=> 'Migrated EMAIL server',
-							'desc'		=> _('Migrated EMAIL server for backup ') . $b['name'],
-							'type'		=> 'email',
-							'addr'		=> $b['emailaddr'],
-							'maxsize'	=> string2bytes($b['emailmaxsize'], $b['emailmaxtype'])
-				);
-				$new['storage_servers'][]= backup_put_server($s);
-			}
-
-			//remote ssh server
-			if ($b['remoterestore']) {
-				$s = array(
-							'id'		=> '',
-							'name'		=> 'Migrated SSH server',
-							'desc'		=> _('Migrated remote SSH server for backup ') 
-											. $b['name'],
-							'type'		=> 'ssh',
-							'host'		=> $b['remotesshhost'],
-							'port'		=> 22,
-							'user'		=> $b['remotesshuser'],
-							'key'		=> $b['remotesshkey'],
-							'path'		=> '',
-				);
-				$s = backup_put_server($s);
-				$new['storage_servers'][] = $s;
-				$new['bu_server'] = $s;
-			}
-
-			//insert backup
-			backup_put_backup($new);
-			unset($new);
+			//drop tem backup table
+			sql('DROP TABLE backup_old');
 		}
-
-		//drop tem backup table
-		sql('DROP TABLE backup_old');
-		
 		
 	} else {//no items to migrate, just install a default backup
-	
+
 		//remove the legacy backup location
 		backup_del_server($server['legacy']);
-		
+	
 		//add a default backup
 		$new['id']					= '';
 		$new['name']				= 'Default backup';
@@ -633,6 +637,7 @@ if (array_key_exists('command', $fields)) {
 		backup_put_backup($new);
 		unset($new);
 	}
+
 	
 
 }

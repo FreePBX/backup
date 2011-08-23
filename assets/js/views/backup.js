@@ -40,6 +40,29 @@ $(document).ready(function(){
 			current_items_over_helper('show');
 		}
 	});
+	var eventSource = '';
+	//run backup
+	$('#run_backup').click(function(){
+		console.log('clicked');
+		id = $('#backup_form').find('[name=id]').val();
+		if (typeof id == 'undefined' || !id) {
+			return false;
+		}
+		var eventSource = new EventSource(window.location.pathname 
+							+ '?display=backup&action=run&id=' + id);
+		eventSource.addEventListener('message', function (event) {
+			if (event.data == 'END') {
+				eventSource.close();
+			} 
+			console.log(event.data);
+		    
+		}, false);
+		eventSource.addEventListener('onerror', function (event) {
+		    console.log('e', event.data);
+		}, false);
+		return false;
+	});
+
 
 })
 function restore() {

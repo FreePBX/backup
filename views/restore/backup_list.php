@@ -1,7 +1,7 @@
 <?php
 
 $html = '';
-$html .= heading(_('Restore'), 3) . '<hr />';
+$html .= heading(_('Restore'), 3) . '<hr class="backup-hr"/>';
 $html .= form_open($_SERVER['REQUEST_URI'], array('id' => 'files_browes_frm'));
 $html .= form_hidden('action', 'restore');
 $table = new CI_Table;
@@ -13,8 +13,11 @@ foreach ($templates as $t) {
 	$template_list .= '<li data-template="' . rawurlencode(json_encode($t['items'])) . '"'
 					. ' title="' . $t['desc'] . '"'
 					.'>' 
+					. '<a href="#">'
 					. '<span class="dragable"></span>'
-					. $t['name'] . '</li>';
+					. $t['name'] 
+					. '</a>'
+					. '</li>';
 }
 $template_list .= '</ul>';
 

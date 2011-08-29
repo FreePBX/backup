@@ -15,23 +15,9 @@
 	content:"";
     display:table;
 }
-hr {
+.backup-hr{
 	width: 50%;
 	margin-left: 0;
-}
-
-.sortable {
-    list-style-type: none;
-    max-width:275px;
-    padding: 0;
-    margin: 0;
-}
-
-.sortable li {
-    padding:2px 10px;
-    margin:2px;
-    background: #ecf6ff;
-    border:1px solid #ccc;
 }
 
 .storage_servers {
@@ -40,6 +26,7 @@ hr {
 .storage_servers:empty {
 	border-radius: 10px;
 	border: 5px dashed lightgrey;
+	min-width: 100px;
 }
 .dragable{
 	background: url(/admin/modules/backup/assets/images/move.png) no-repeat center center;

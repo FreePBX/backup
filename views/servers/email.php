@@ -1,6 +1,6 @@
 <?php
 $html = '';
-$html .= heading('Email Server', 3) . '<hr />';
+$html .= heading('Email Server', 3) . '<hr class="backup-hr"/>';
 $html .= form_hidden('server_type', 'email');
 $html .= form_open($_SERVER['REQUEST_URI']);
 $html .= form_hidden('action', 'save');

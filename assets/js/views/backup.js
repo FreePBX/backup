@@ -23,8 +23,7 @@ $(document).ready(function(){
 	//templates
 	$('#templates > li').draggable({
 		revert: true,
-		cursor: 'move',
-
+		cursor: 'move'
 	}).disableSelection();
 	
 	$('#template_table').droppable({
@@ -46,6 +45,10 @@ $(document).ready(function(){
 		console.log('clicked');
 		id = $('#backup_form').find('[name=id]').val();
 		if (typeof id == 'undefined' || !id) {
+			return false;
+		}
+		if (!window.EventSource) {
+			//TODO: run ajax call instead
 			return false;
 		}
 		var eventSource = new EventSource(window.location.pathname 

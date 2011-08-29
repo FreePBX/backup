@@ -1,7 +1,7 @@
 <?php
 $html = '';
 
-$html .= heading('Backup Template', 3) . '<hr />';
+$html .= heading('Backup Template', 3) . '<hr class="backup-hr"/>';
 $html .= form_open($_SERVER['REQUEST_URI']);
 $html .= form_hidden('action', 'save');
 $html .= form_hidden('id', $id);

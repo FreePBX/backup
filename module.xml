@@ -5,8 +5,7 @@
 	<version>2.9.0.3</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
-	<type>tool</type>
-	<category>System Administration</category>
+	<category>Admin</category>
 	<description>Backup &amp; Restore for your FreePBX environment</description>
 	<menuitems>
 		<backup needsenginedb="yes">Backup &amp; Restore</backup>

@@ -1,6 +1,6 @@
 <?php
 $html = '';
-$html .= heading(_('Restore'), 3) . '<hr />';
+$html .= heading(_('Restore'), 3) . '<hr class="backup-hr"/>';
 //$html .= form_hidden('restore_source', 'upload');
 //$html .= form_hidden('post_max_size ', '1048576000');
 $html .= form_open_multipart($_SERVER['REQUEST_URI']);

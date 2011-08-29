@@ -1,6 +1,6 @@
 <?php
 $html = '';
-$html .= heading('Backup', 3) . '<hr />';
+$html .= heading('Backup', 3) . '<hr class="backup-hr"/>';
 $html .= form_open($_SERVER['REQUEST_URI'], 'id="backup_form"');
 $html .= form_hidden('action', 'save');
 $html .= form_hidden('id', $id);
@@ -28,7 +28,7 @@ $html .= $table->generate();
 $html .= $table->clear();
 
 //ITEMS
-$html .= heading('Items', 5) . '<hr />';
+$html .= heading('Items', 5) . '<hr class="backup-hr"/>';
 $current = load_view(dirname(__FILE__) . '/../item_table.php', 
 			array('items' => $items, 'immortal' => ''));
 $current .= '<div id="items_over">' . _('drop here') . '</div>';
@@ -37,8 +37,11 @@ foreach ($templates as $t) {
 	$template_list .= '<li data-template="' . rawurlencode(json_encode($t['items'])) . '"'
 					. ' title="' . $t['desc'] . '"'
 					.'>' 
+					. '<a href="#">'
 					. '<span class="dragable"></span>'
-					. $t['name'] . '</li>';
+					. $t['name'] 
+					. '</a>'
+					. '</li>';
 }
 $template_list .= '</ul>';
 
@@ -53,7 +56,7 @@ $html .= $table->clear();
 
 //HOOKS
 //pre backup hook
-$html .= heading('Hooks', 5) . '<hr />';
+$html .= heading('Hooks', 5) . '<hr class="backup-hr"/>';
 $label	= fpbx_label(_('Pre-backup Hook'), _('A script to be run BEFORE a backup is started.'));
 $data 	= array(
 			'name' => 'prebu_hook', 
@@ -93,7 +96,7 @@ $html .= $table->clear();
 
 
 //BACKUP Server
-$html .= heading('Backup Server', 5) . '<hr />';
+$html .= heading('Backup Server', 5) . '<hr class="backup-hr"/>';
 $data = array();
 
 //hardcode THIS server, as there isnt really any other way of relating to it
@@ -129,7 +132,7 @@ $html .= $table->clear();
 
 
 //SERVERS
-$html .= heading('Storage Locations', 5) . '<hr />';
+$html .= heading('Storage Locations', 5) . '<hr class="backup-hr"/>';
 foreach ($storage_servers as $s) {
 	$html .= '<input type="hidden" name="storage_servers[]" value="' . $s . '">';
 }
@@ -137,9 +140,11 @@ $current_servers = '<ul id="storage_used_servers" class="sortable storage_server
 
 foreach ($storage_servers as $idx => $s) {
 	$current_servers .= '<li data-server-id="' . $servers[$s]['id'] . '">' 
+					. '<a href="#">'
 					. '<span class="dragable"></span>'
 					. $servers[$s]['name'] 
 					. ' (' . $servers[$s]['type'] . ')'
+					. '</a>'
 					. '</li>';
 	unset($servers[$s]);
 }
@@ -148,9 +153,11 @@ $avalible_servers = '<ul id="storage_avail_servers" class="sortable storage_serv
 foreach ($servers as $s) {
 	if (in_array($s['type'], array('ftp', 'ssh', 'email', 'local'))) {
 		$avalible_servers .= '<li data-server-id="' . $s['id'] . '">' 
+						. '<a href="#">'
 						. '<span class="dragable"></span>'
 						. $s['name'] 
 						. ' (' . $s['type'] . ')'
+						. '</a>'
 						. '</li>';
 	}
 }
@@ -164,7 +171,7 @@ $html .= $table->generate();
 $html .= $table->clear();
 
 //SCHEDULE
-$html .= heading('Backup Schedule', 5) . '<hr />';
+$html .= heading('Backup Schedule', 5) . '<hr class="backup-hr"/>';
 $cron = array(
 	'cron_dom'			=> $cron_dom,
 	'cron_dow'			=> $cron_dow,
@@ -177,7 +184,7 @@ $cron = array(
 $html .= load_view(dirname(__FILE__) . '/../cron.php', $cron);
 
 //MAINTENANCE
-$html .= heading('Maintenance', 5) . '<hr />';
+$html .= heading('Maintenance', 5) . '<hr class="backup-hr"/>';
 $label	= fpbx_label(_('Delete after'), _('Delete this backup after X amount of minuets/hours/days/weeks/months/years. Please note that deletes aren\'t time based and will only happen after a backup was run. Setting the value to 0 will disable any deleting'));
 $data 	= array(
 			'name' 	=> 'delete_time', 

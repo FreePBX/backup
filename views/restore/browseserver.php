@@ -1,7 +1,7 @@
 <?php
 
 $html = '';
-$html .= heading(_('Restore'), 3) . '<hr />';
+$html .= heading(_('Restore'), 3) . '<hr class="backup-hr"/>';
 $html .= form_open($_SERVER['REQUEST_URI'], array('id' => 'restore_browes_frm'));
 $html .= form_hidden('restore_source', 'file');
 $html .= form_hidden('restore_path', '');

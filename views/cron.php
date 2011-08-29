@@ -37,10 +37,10 @@ $html .= br() . form_label('Randomize', 'cron_random') . form_checkbox($data);
 
 $html .= '<div id="crondiv">';
 //minutes
-$html .= form_fieldset(_('Minutes'), ' class="cronset" ');
+$html .= form_fieldset(_('Minutes'), ' class="cronset sortable storage_servers ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ');
 $html .= '<div class="cronsetdiv">';
 for($i = 0; $i < 60; $i++) {
-	$html .= form_label($i, 'cron_minute' . $i);
+	$html .= form_label(sprintf("%02d", $i), 'cron_minute' . $i);
 	$data = array(
 		'name'	=> 'cron_minute[]',
 		'id'	=> 'cron_minute' . $i,
@@ -53,10 +53,10 @@ $html .= '</div>';
 $html .= form_fieldset_close();
 
 //hours
-$html .= form_fieldset(_('Hour'), ' class="cronset" ');
+$html .= form_fieldset(_('Hour'), ' class="cronset sortable storage_servers ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ');
 $html .= '<div class="cronsetdiv">';
 for($i = 0; $i < 24; $i++) {
-	$html .= form_label($i, 'cron_hour' . $i);
+	$html .= form_label(sprintf("%02d", $i), 'cron_hour' . $i);
 	$data = array(
 		'name'	=> 'cron_hour[]',
 		'id'	=> 'cron_hour' . $i,
@@ -69,7 +69,7 @@ $html .= '</div>';
 $html .= form_fieldset_close();
 
 //day of week
-$html .= form_fieldset(_('Day of Week'), ' class="cronset" ');
+$html .= form_fieldset(_('Day of Week'), ' class="cronset narrow sortable storage_servers ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ');
 $html .= '<div class="cronsetdiv">';
 $doy = array(
 		'0' => _('Sunday'),
@@ -94,7 +94,7 @@ $html .= '</div>';
 $html .= form_fieldset_close();
 
 //month
-$html .= form_fieldset(_('Month'), ' class="cronset" ');
+$html .= form_fieldset(_('Month'), ' class="cronset narrow sortable storage_servers ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ');
 $html .= '<div class="cronsetdiv">';
 $doy = array(
 		'1' => _('January'),
@@ -124,14 +124,14 @@ $html .= '</div>';
 $html .= form_fieldset_close();
 
 //day of month
-$html .= form_fieldset(_('Day of Month'), ' class="cronset" ');
+$html .= form_fieldset(_('Day of Month'), ' class="cronset sortable storage_servers ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ');
 $html .= '<div class="cronsetdiv">';
 for($i = 1; $i < 32; $i++) {
-	$html .= form_label($i, 'cron_dom' . $i);
+	$html .= form_label(sprintf("%02d", $i), 'cron_dom' . $i);
 	$data = array(
 		'name'	=> 'cron_dom[]',
 		'id'	=> 'cron_dom' . $i,
-		'value'	=> $i,
+		'value'	=> i,
 	);
 	in_array($i, $cron_dom) ? $data['checked'] = 'checked' : '';
 	$html .= form_checkbox($data) . ' ';

@@ -1,14 +1,21 @@
 .cronset {
 	float:left;
-	width: 15%;
-	height: 185px;
+	height: 220px;
 	padding-left: 5px;
 	padding-right: 5px;
+	margin-right: 5px;
+	width: 150px;
 	/*overflow-x: hidden;*/
 }
+.narrow{
+	width: 110px;
+}
 .cronsetdiv {
-	height: 175px;
+	height: 200px;
 	overflow-y: auto;
+}
+.cronsetdiv > label{
+	margin-bottom: 3px;
 }
 #crondiv:after {
 	clear:both;

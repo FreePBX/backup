@@ -39,26 +39,48 @@ $(document).ready(function(){
 			current_items_over_helper('show');
 		}
 	});
-	var eventSource = '';
 	//run backup
 	$('#run_backup').click(function(){
-		console.log('clicked');
+
 		id = $('#backup_form').find('[name=id]').val();
 		if (typeof id == 'undefined' || !id) {
 			return false;
-		}
+		} 
+		 box = $('<div></div>')
+			.html('<span id="backup_status"></span>'
+				+ '<progress style="width: 100%">'
+				+ 'Please wait...'
+				+ '</progress>')
+			.dialog({
+				title: 'Run backup',
+				resizable: false,
+				modal: true,
+				position: ['center', 50],
+				width: 500,
+				close: function (e) {
+					$(e.target).dialog("destroy").remove();
+				}
+			});
+		url = window.location.pathname 
+			+ '?display=backup&action=run&id=' + id
+		
 		if (!window.EventSource) {
-			//TODO: run ajax call instead
+			$.get(url, function(){
+				$('#backup_status').next('progress').append('done!');
+				setTimeout('box.dialog("close").dialog("destroy").remove();', 5000);
+			});
 			return false;
 		}
-		var eventSource = new EventSource(window.location.pathname 
-							+ '?display=backup&action=run&id=' + id);
+		var eventSource = new EventSource(url);
 		eventSource.addEventListener('message', function (event) {
+			console.log(event.data);
 			if (event.data == 'END') {
 				eventSource.close();
-			} 
-			console.log(event.data);
-		    
+				$('#backup_status').next('progress').remove();
+				setTimeout('box.dialog("close").dialog("destroy").remove();', 5000);
+			} else {
+				$('#backup_status').append(event.data + '<br>');
+			}
 		}, false);
 		eventSource.addEventListener('onerror', function (event) {
 		    console.log('e', event.data);
@@ -66,7 +88,8 @@ $(document).ready(function(){
 		return false;
 	});
 
-
+	//style cron custom times
+	$('#crondiv').find('input[type=checkbox]').button()
 })
 function restore() {
 	if ($('select[name=bu_server]').val() == 0) {

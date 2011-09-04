@@ -50,7 +50,7 @@ if ($vars['id']) {
 			
 			backup_log(_('Creating backup...'));
 			$b->create_backup_file();
-		} else {
+		} else {//run backup remotly
 			$opts = array(
 					'bu'	=> $bu,
 					's'		=> $s,
@@ -86,15 +86,20 @@ if ($vars['id']) {
 			$b->save_manifest('db');
 		}	
 		
-			backup_log(_('Storing backup...'));
-			$b->store_backup();
-			
-			backup_log(_('Running post-backup hooks...'));
-			$b->run_hooks('post-backup');
-			
+		backup_log(_('Storing backup...'));
+		$b->store_backup();
+		
+		backup_log(_('Running post-backup hooks...'));
+		$b->run_hooks('post-backup');
+		
+		if ($b->b['bu_server'] == "0") { //local backup? Were done!
 			backup_log(_('Backup successfully completed!'));
-			//TODO: restore to this server if requested
 		} else {
+			//TODO: restore to this server if requested
+			dbug($b->b['manifest']);
+		}
+			
+	} else { //invalid backup
 		backup_log('backup id ' . $vars['id'] . ' not found!');
 	}
 	

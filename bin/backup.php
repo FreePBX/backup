@@ -60,10 +60,10 @@ if (isset($vars['id']) && $vars['id']) {
 			
 			//dont run if there are no items to backup
 			if (!$opts['bu']['items']) {
-				backup_log(_('CNo items in backup set. Aborting.'));
+				backup_log(_('No items in backup set. Aborting.'));
 				exit();
 			}
-			
+			backup_log(_('Connecting to remote server...'));
 			$cmd[] = fpbx_which('ssh');
 			$cmd[] = '-o StrictHostKeyChecking=no -i';
 			$cmd[] = backup__($s[$b->b['bu_server']]['key']);
@@ -79,7 +79,7 @@ if (isset($vars['id']) && $vars['id']) {
 				}
 				system($amp_conf["AMPBIN"] . "/backup.php --opts=' . base64_encode(serialize($opts)) . '");
 				';
-			$cmd[] = addcslashes(str_replace(array(), '', $escape), '"$');
+			$cmd[] = addcslashes(str_replace(array("\n", "\t"), '', $escape), '"$');
 			$cmd[] = '"\'';
 			$cmd[] = '> ' . $b->b['_tmpfile'];
 			//backup_log(implode(' ', $cmd));
@@ -89,6 +89,7 @@ if (isset($vars['id']) && $vars['id']) {
 				exit($status);
 			}
 			unset($cmd);
+			backup_log(_('Prossesing received file...'));
 			$b->b['manifest'] = backup_get_manifest_tarball($b->b['_tmpfile']);
 			$b->save_manifest('db');
 		}	
@@ -103,8 +104,24 @@ if (isset($vars['id']) && $vars['id']) {
 			backup_log(_('Backup successfully completed!'));
 		} else {
 			//TODO: restore to this server if requested
-			dbug($b->b['manifest']);
-		}
+			if (isset($b->b['manifest']['file_list'])) {
+				foreach ($b->b['manifest']['file_list'] as $dir => $file) {
+					$files[] = $dir;
+				}
+			}
+			$restore['settings'] = true;
+			if (isset($files)) {
+				$restore['files'] = $files;
+			}
+			
+			backup_log(_('Restoring backup...'));
+			backup_restore($b->b['_tmpfile'], $restore);
+			
+			backup_log(_('Running post-backup hooks...'));
+			$b->run_hooks('post-backup');
+			
+			backup_log(_('Backup successfully completed!'));
+		} 
 			
 	} else { //invalid backup
 		backup_log('backup id ' . $vars['id'] . ' not found!');
@@ -117,7 +134,7 @@ if (isset($vars['id']) && $vars['id']) {
 		echo 'invalid opts';
 		exit(1);
 	}
-	dbug($r);
+
 	$b = new Backup($r['bu'], $r['s']);
 	$b->b['_ctime']		= $r['b']->b['_ctime'];
 	$b->b['_file']		= $r['b']->b['_file'];

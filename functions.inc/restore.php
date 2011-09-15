@@ -464,7 +464,7 @@ function backup_restore($bu, $items) {
 	$manifest = backup_get_manifest_tarball($bu);
 	
 	//run hooks
-	if (isset($manifest['hooks']['pre_restore'])) {
+	if (isset($manifest['hooks']['pre_restore']) && $manifest['hooks']['pre_restore']) {
 		exec($manifest['hooks']['pre_restore']);
 	}
 	mod_func_iterator('backup_pre_restore_hook', $manifest);
@@ -473,9 +473,12 @@ function backup_restore($bu, $items) {
 		$cmd[] = fpbx_which('tar');
 		$cmd[] = 'zxf';
 		$cmd[] = $bu;
-		$cmd[] = '-C /';//switch to root so that files get put back where they belong
+		//switch to root so that files get put back where they belong
+		//aslo, dont preseve access/modified times, as we may not always have the perms to do this
+		//across the entire heirachy of a file we are restoring
+		$cmd[] = '--atime-preserve -m -C /';
 		foreach ($items['files'] as $f) {
-			$cmd[] = '.' . $f;
+			$cmd[] = './' . $f;
 		}
 		exec(implode(' ', $cmd));
 		dbug('restoring backup!', implode(' ', $cmd));
@@ -544,7 +547,7 @@ function backup_restore($bu, $items) {
 		//dbug($file);
 		
 		//run hooks
-		if (isset($manifest['hooks']['post_restore'])) {
+		if (isset($manifest['hooks']['post_restore']) && $manifest['hooks']['post_restore']) {
 			exec($manifest['hooks']['post_restore']);
 		}
 		mod_func_iterator('backup_post_restore_hook', $manifest);

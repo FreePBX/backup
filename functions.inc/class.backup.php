@@ -46,7 +46,14 @@ class Backup {
 		$this->amp_conf['CDRDBPASS']	= $this->cdrdb->dsn['password'];
 		$this->amp_conf['CDRDBPORT']	= $this->cdrdb->dsn['port'];
 		$this->amp_conf['CDRDBNAME']	= $this->cdrdb->dsn['database'];
-
+		
+		//defualt properties
+		$this->b['prebu_hook']			= isset($b['prebu_hook'])	? $b['prebu_hook']	: '';
+		$this->b['postbu_hook']			= isset($b['postbu_hook'])	? $b['postbu_hook']	: '';
+		$this->b['prere_hook']			= isset($b['prere_hook'])	? $b['prere_hook']	: '';
+		$this->b['postre_hook']			= isset($b['postre_hook'])	? $b['postre_hook']	: '';
+		
+		
 		ksort($this->b);
 	}
 	
@@ -219,14 +226,14 @@ class Backup {
 	function run_hooks($hook) {
 		switch ($hook) {
 			case 'pre-backup':
-				if ($b['prebu_hook']) {
-					exec($b['prebu_hook']);
+				if ($this->b['prebu_hook']) {
+					exec($this->b['prebu_hook']);
 				}
 				mod_func_iterator('backup_pre_backup_hook', $this);
 				break;
 			case 'post-backup':
-				if ($b['postbu_hook']) {
-					exec($b['postbu_hook']);
+				if ($this->b['postbu_hook']) {
+					exec($this->b['postbu_hook']);
 				}
 				mod_func_iterator('backup_post_backup_hook', $this);
 				break;
@@ -240,7 +247,13 @@ class Backup {
 		$cmd[] = $to_stdout ? '-' : $this->b['_tmpfile'];
 		$cmd[] = '-C ' . $this->b['_tmpdir'];
 		$cmd[] = '.';
-		exec(implode(' ', $cmd));
+		dbug('create_backup', implode(' ', $cmd));
+		if ($to_stdout) {
+			system(implode(' ', $cmd));
+		} else {
+			exec(implode(' ', $cmd));
+		}
+		
 	}
 	
 	function store_backup() {
@@ -369,9 +382,12 @@ class Backup {
 		//get all files in the directory
 		$ret['pbx_framework_version']	= get_framework_version();
 		$ret['backup_version']			= modules_getversion('backup');
-		$ret['pbx_version']	= getversion();
-		$ret['file_list']	= scandirr($this->b['_tmpdir']);
-
+		$ret['pbx_version']				= getversion();
+		$ret['file_list']				= scandirr($this->b['_tmpdir']);
+		$ret['mysql']					= '';
+		$ret['astdb']					= '';
+		
+		
 		//remove the mysql/astdb files, add them seperatly
 		foreach($ret['file_list'] as $key => $file) {
 			if (!is_array($file)) {

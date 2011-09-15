@@ -131,7 +131,7 @@ for($i = 1; $i < 32; $i++) {
 	$data = array(
 		'name'	=> 'cron_dom[]',
 		'id'	=> 'cron_dom' . $i,
-		'value'	=> i,
+		'value'	=> $i,
 	);
 	in_array($i, $cron_dom) ? $data['checked'] = 'checked' : '';
 	$html .= form_checkbox($data) . ' ';

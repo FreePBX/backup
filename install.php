@@ -237,7 +237,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 					'id'		=> '',
 					'name'		=> 'Legacy Backup',
 					'desc'		=> _('Location of backups pre 2.10'),
-					'immortal'	=> 'true',
+					'immortal'	=> '',
 					'type'		=> 'local',
 					'path'		=> '__ASTVARLIBDIR__/backup',
 	);

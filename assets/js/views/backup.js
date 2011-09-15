@@ -77,7 +77,7 @@ $(document).ready(function(){
 			if (event.data == 'END') {
 				eventSource.close();
 				$('#backup_status').next('progress').remove();
-				setTimeout('box.dialog("close").dialog("destroy").remove();', 5000);
+				//setTimeout('box.dialog("close").dialog("destroy").remove();', 5000);
 			} else {
 				$('#backup_status').append(event.data + '<br>');
 			}

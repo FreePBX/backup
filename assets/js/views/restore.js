@@ -1,36 +1,118 @@
 $(document).ready(function(){
-	//resotre
-	restore();
-	$('select[name=bu_server]').change(restore)
-	//cron_custom
-	cron_custom();
-	$('select[name=cron_schedule]').change(cron_custom);
+	$.jstree._themes = 'modules/backup/assets/js/views/themes/';
 	
-	//cron_schedule
-	cron_random();
-	$('select[name=cron_schedule]').change(cron_random);
+	//backup picker
+	$('#list_tree').jstree({
+		'plugins': ['themes', 'json_data', 'ui', 'types'],
+		'themes': {
+			'theme': 'default',
+			'dots': false,
+			'icons': true
+		},
+		'json_data': { 
+			'ajax': {
+				'url': window.href,
+				'data': function (n) { 
+					return { 
+						'action': 'list_dir', 
+						'path': $(n).data('path')
+					}; 
+				}
+			}
+		},
+		'types': { 
+			'types': { 
+				'default': { 
+					'select_node': function(e) {
+						var info = e.data('manifest');
+						if (info && typeof info == 'object') {
+							$('#picker_name').text(info.name);
+							$('#picker_ctime').text(new Date(info.ctime * 1000).toString());
+							$('#picker_nfiles').text(info.file_count);
+							$('#picker_nmdb').text(info.mysql_count);
+							$('#picker_nadb').text(info.astdb_count);
+							$('#list_data').show();
+						} else {
+							$('#list_data').hide();
+							this.toggle_node(e);
+						}
+					} 
+				},	
+			} 
+		},
+	});
 	
-	//storage servers
-	$('#storage_used_servers').sortable({
-		connectWith: '.storage_servers',
-		update: save_storage_servers,
-	}).disableSelection();
+	//set path before clicking submit
+	$('#restore_browes_frm').submit(function(){
+		file = $('#list_tree').jstree('get_selected');
+		if (file && file.hasClass('jstree-leaf')) {
+			$('input[name=restore_path]').val(file.data('path'));
+		} else {
+			alert('Please select a file!');
+			return false;
+		}
+	});
 	
-	$('#storage_avail_servers').sortable({
-		connectWith: '.storage_servers'
-	}).disableSelection();
+	//backup file picker
+	if ($('#backup_files').length > 0) {
+		$('#backup_files').jstree({
+			'plugins': ['themes', 'json_data', 'ui', 'types', 'checkbox'],
+			'themes': {
+				'theme': 'default',
+				'dots': false,
+				'icons': true
+			},
+			'json_data': { 
+				'data' : FILE_LIST,
+				'progressive_render': true
+			},
+			'types': { 
+				'types': { 
+					'default': { 
+						'select_node': function(e) {
+							this.toggle_node(e);
+						} 
+					},	
+				} 
+			},
+		})
+	}
 	
-	//templates
+	//include items to restore
+	$('#files_browes_frm').submit(function(){
+		//remove stale file entires
+		$('input[name^=restore_items[files]]').remove();
+		
+		//get checked files
+		$("#backup_files").jstree("get_checked",null,false).each(function() {
+			
+			//add them to the form
+			$('#files_browes_frm').append(
+				'<input type="hidden" name="restore[files][]" value="'
+				+ $(this).data('path')
+				+ '" >'
+			);
+		 });
+	});
+
+	//restore templates
 	$('#templates > li').draggable({
 		revert: true,
 		cursor: 'move'
 	}).disableSelection();
 	
-	$('#template_table').droppable({
+	$("#backup_files").droppable({
 		drop: function(event, ui) {
 			current_items_over_helper('show');
 			var data = JSON.parse(decodeURIComponent(ui.draggable.data('template')));
-			add_template(data);
+			//console.log(data)
+			for (var i in data) {
+				//console.log(data[i].type, data[i].path);
+				if (data[i].type == 'dir' || data[i].type == 'file') {
+					new check_node()($("#backup_files"), data[i].path);
+				}
+			}
+			//add_template(data);
 		},
 		over: function(event, ui) {
 			current_items_over_helper('hide');
@@ -39,99 +121,54 @@ $(document).ready(function(){
 			current_items_over_helper('show');
 		}
 	});
-	//run backup
-	$('#run_backup').click(function(){
-
-		id = $('#backup_form').find('[name=id]').val();
-		if (typeof id == 'undefined' || !id) {
-			return false;
-		} 
-		 box = $('<div></div>')
-			.html('<span id="backup_status"></span>'
-				+ '<progress style="width: 100%">'
-				+ 'Please wait...'
-				+ '</progress>')
-			.dialog({
-				title: 'Run backup',
-				resizable: false,
-				modal: true,
-				position: ['center', 50],
-				width: 500,
-				close: function (e) {
-					$(e.target).dialog("destroy").remove();
-				}
-			});
-		url = window.location.pathname 
-			+ '?display=backup&action=run&id=' + id
-		
-		if (!window.EventSource) {
-			$.get(url, function(){
-				$('#backup_status').next('progress').append('done!');
-				setTimeout('box.dialog("close").dialog("destroy").remove();', 5000);
-			});
-			return false;
-		}
-		var eventSource = new EventSource(url);
-		eventSource.addEventListener('message', function (event) {
-			console.log(event.data);
-			if (event.data == 'END') {
-				eventSource.close();
-				$('#backup_status').next('progress').remove();
-				//setTimeout('box.dialog("close").dialog("destroy").remove();', 5000);
-			} else {
-				$('#backup_status').append(event.data + '<br>');
-			}
-		}, false);
-		eventSource.addEventListener('onerror', function (event) {
-		    console.log('e', event.data);
-		}, false);
-		return false;
-	});
-
-	//style cron custom times
-	$('#crondiv').find('input[type=checkbox]').button()
+	
 })
-function restore() {
-	if ($('select[name=bu_server]').val() == 0) {
-		$('#restore').removeAttr("checked");
-		$('.restore').hide()
-	} else {
-		$('.restore').show()
-	}
-}
+//
 
-function cron_custom() {
-	if ($('select[name=cron_schedule]').val() == 'custom') {
-		$('#crondiv').show();
-	} else {
-		$('#crondiv').hide();
-	}
-}
+function check_node() {
+	var level	= typeof level == 'undefined' ? 1 : level;
+	var worker	= function(el, path) {
+		
+		root	= level == 1 ? el : root;
+		path	= path.slice(-1) == '/' ? path.slice(0, - 1) : path;
+		tempath	= '/' + path.substring(1).split('/').splice(0, level).toString().replace(/,/g, '/');
+		//console.log('looking for', tempath, "in", $(el), 'root', root, 'level', level)
 
-function cron_random() {
-	switch($('select[name=cron_schedule]').val()) {
-		case 'never':
-		case 'custom':
-		case 'reboot':
-			$('label[for=cron_random]').hide();
-			$('#cron_random').removeAttr("checked").hide();
-			break;
-		default:
-			$('label[for=cron_random]').show();
-			$('#cron_random').show();
-			break;
-	}
-}
+		//look through all the child nodes of el
+		$(el).children().children().each(function(){
+			//console.log($(this), tempath, $(this).data('path'), 'at level', level)
 
-function save_storage_servers(){
-	$('#backup_form > input[name^=storage_servers]').remove();
-	$('#storage_used_servers > li').each(function(){
-		field		= document.createElement('input');
-		field.name	= 'storage_servers[]';
-		field.type	= 'hidden';
-		field.value	= $(this).data('server-id');
-		$('#backup_form').append(field);
-	})
+			//if we have a node with a matching path
+			if ($(this).data('path') == tempath) {
+				//console.log('searching', $(this).data('path'));
+				
+				//if this node is checked, everything deep will be included, so no need to traverse deeper
+				if (root.jstree("is_checked", this)) {
+					return false;
+				}
+
+				//if this is the node we are looking for, check it and break
+				if ($(this).data('path') == path) {
+
+					$.jstree._reference(root).check_node($(this));
+					return false;
+
+					//otherwise, open the node and keep on looking
+				} else {
+					root.jstree("open_node", this);
+					level++;
+					worker($(this), path, level);
+				}
+			}
+		})
+
+		//cleanup: close all unchecked nodes
+		root.jstree("get_unchecked",null,false).each(function(){
+			root.jstree("close_node", this);
+		})
+	}
+	
+	return worker;
 }
 
 
@@ -139,87 +176,21 @@ function current_items_over_helper(action) {
 	switch (action) {
 		case 'show':
 			$('#items_over').hide();
-			$('#template_table').show();
-			$('#add_entry').show();
+			$("#restore_items").show();
+			//$('#add_entry').show();
 			break;
 		case 'hide':
-			width = $('#template_table').width();
-			height = $('#template_table').height();
-			height2 = $('#templates').height();
+			width = $("#restore_items").width();
+			//height = $("#backup_files").height();
+			//height2 = $("#backup_files").height();
 			
-			$('#items_over').width(width - 10);
-			$('#items_over').height(height > height2 ? height : height2);
+			$('#items_over').width(width);
+			$('#items_over').height('200px');
 			
 			
-			$('#template_table').hide();
-			$('#add_entry').hide();
+			$("#restore_items").hide();
+			//$('#add_entry').hide();
 			$('#items_over').show();
 			break;
 	}
-}
-function add_template(template) {
-
-	
-	//clone the object so that we dont destroy the origional when we delete from it
-	var template = $.extend({}, template);
-	for (var item in template) {
-		if (!template.hasOwnProperty(item)) { //skip non properties, such as __proto__
-			continue;
-		}
-		$('#template_table > tbody > tr:not(:first)').each(function(){
-			row = {};
-			row.type 	= $(this).find('td').eq(0).find('input').val();
-			if ($(this).find('td').eq(1).find('select').length > 0) {
-				row.path = $(this).find('td').eq(1).find('select').val();
-			} else if ($(this).find('td').eq(1).find('input').length > 0) {
-				row.path = $(this).find('td').eq(1).find('input').val();
-			} else {
-				row.path = '';
-			}
-
-			row.exclude	= $(this).find('td').eq(2).find('textarea').val();
-			if (row.type == template[item].type && row.path == template[item].path) {
-				//merge excludes if we have any
-				if (template[item].exclude) {
-					//merge current and template's exclude
-					row.exclude = row.exclude.split("\n") //split string by line breaks
-									.concat(template[item].exclude) //merge template and row
-									.filter(function(element){return element}) //remove blanks
-									.sort() 
-									.filter(function(element, index, array){ //remove duplicates
-										if ($.trim(element) != $.trim(array[index + 1])) {
-											return $.trim(element);
-										}
-									});
-					
-					//add excludes to row
-					$(this).find('td').eq(2).find('textarea')
-							.attr('rows',row.exclude.length)
-							.val(row.exclude.join("\n"));
-				}
-
-				delete template[item];
-				return false;
-			}
-
-		});	
-	}
-
-	//add new items
-	if (typeof template != "undefined") {
-		for (var item in template) {
-			if (!template.hasOwnProperty(item)) {
-				continue;
-			}
-			add_template_row(template[item].type);
-			new_row = $('#template_table > tbody:last').find('tr:last');
-			if (new_row.find('td').eq(1).find('select').length > 0) {
-				new_row.find('td').eq(1).find('select').val(template[item].path);
-			} else if (new_row.find('td').eq(1).find('input').length > 0) {
-				new_row.find('td').eq(1).find('input').val(template[item].path);
-			}
-			new_row.find('td').eq(2).find('textarea').val(template[item].exclude)
-		}
-	}
-
 }

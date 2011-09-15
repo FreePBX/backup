@@ -7,6 +7,7 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
 	include_once('/etc/asterisk/freepbx.conf');
 }
 
+
 /**
  * OPTIONS
  * opts - if we have opts, run the backup from it, passing the file back when finisehed
@@ -19,7 +20,7 @@ $getopt = (function_exists('_getopt') ? '_' : '') . 'getopt';
 $vars = $getopt($short = '', $long = array('opts::', 'id::', 'astdb::', 'data::'));
 
 //if the id option was passed
-if ($vars['id']) {
+if (isset($vars['id']) && $vars['id']) {
 	//bu = backup settings
 	//s= servers
 	//b= backup object
@@ -56,31 +57,37 @@ if ($vars['id']) {
 					's'		=> $s,
 					'b'		=> $b
 			);
+			
+			//dont run if there are no items to backup
+			if (!$opts['bu']['items']) {
+				backup_log(_('CNo items in backup set. Aborting.'));
+				exit();
+			}
+			
 			$cmd[] = fpbx_which('ssh');
 			$cmd[] = '-o StrictHostKeyChecking=no -i';
 			$cmd[] = backup__($s[$b->b['bu_server']]['key']);
 			$cmd[] = backup__($s[$b->b['bu_server']]['user']) 
 					. '\@' 
 					. backup__($s[$b->b['bu_server']]['host']);
-			$cmd[] = '`php -r \'
-				$bootstrap_settings["freepbx_auth"] = false;
+			$cmd[] = '\'php -r "';
+			$escape = '$bootstrap_settings["freepbx_auth"] = false;
 				$bootstrap_settings["skip_astman"] = true;
 				$restrict_mods = true;
 				if (!@include_once(getenv("FREEPBX_CONF") ? getenv("FREEPBX_CONF") : "/etc/freepbx.conf")) {
 					include_once("/etc/asterisk/freepbx.conf");
 				}
-				foreach($amp_conf as $key => $val) {
-					if (is_bool($val)) {
-						echo "export " . trim($key) . "=" . ($val?"TRUE":"FALSE") ."\n";
-					} else {
-						echo "export " . trim($key) . "=" . escapeshellcmd(trim($val)) ."\n";
-					}
-				}
-				\'
-				`';
-			$cmd[] = '$AMPSBIN/backup.php --opts=' . base64_encode(serialize($opts)) . '\'';
+				system($amp_conf["AMPBIN"] . "/backup.php --opts=' . base64_encode(serialize($opts)) . '");
+				';
+			$cmd[] = addcslashes(str_replace(array(), '', $escape), '"$');
+			$cmd[] = '"\'';
 			$cmd[] = '> ' . $b->b['_tmpfile'];
+			//backup_log(implode(' ', $cmd));
 			exec(implode(' ', $cmd), $ret, $status);
+			if ($status !== 0) {
+				backup_log(_('Something went wrong when connecting to remote server. Aborting!'));
+				exit($status);
+			}
 			unset($cmd);
 			$b->b['manifest'] = backup_get_manifest_tarball($b->b['_tmpfile']);
 			$b->save_manifest('db');
@@ -104,16 +111,17 @@ if ($vars['id']) {
 	}
 	
 //if the opts option was passed, used for remote backup (warm spare)
-} elseif($vars['opts']) {
+} elseif(isset($vars['opts']) && $vars['opts']) {
 	//r = remote options
-	if(!$r = base64_decode(unserialize($vars['opts']))) {
+	if(!$r = unserialize(base64_decode($vars['opts']))) {
 		echo 'invalid opts';
 		exit(1);
 	}
-	$b = new Backup($r->bu, $r->s);
-	$b->b['_ctime']		= $r->b->b['_ctime'];
-	$b->b['_file']		= $r->b->b['_file'];
-	$b->b['_dirname']	= $r->b->b['_dirname'];
+	dbug($r);
+	$b = new Backup($r['bu'], $r['s']);
+	$b->b['_ctime']		= $r['b']->b['_ctime'];
+	$b->b['_file']		= $r['b']->b['_file'];
+	$b->b['_dirname']	= $r['b']->b['_dirname'];
 	$b->init();
 	$b->run_hooks('pre-backup');
 	$b->add_items();
@@ -121,7 +129,7 @@ if ($vars['id']) {
 	$b->save_manifest('local');
 	$b->create_backup_file(true);
 	exit();
-} elseif($var['astdb']) {
+} elseif(isset($var['astdb']) && $var['astdb']) {
 	switch ($var['astdb']) {
 		case 'dump':
 			echo astdb_get(array('RG', 'BLKVM', 'FM', 'dundi'));

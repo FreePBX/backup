@@ -226,13 +226,13 @@ class Backup {
 	function run_hooks($hook) {
 		switch ($hook) {
 			case 'pre-backup':
-				if ($this->b['prebu_hook']) {
+				if (isset($this->b['prebu_hook']) && $this->b['prebu_hook']) {
 					exec($this->b['prebu_hook']);
 				}
 				mod_func_iterator('backup_pre_backup_hook', $this);
 				break;
 			case 'post-backup':
-				if ($this->b['postbu_hook']) {
+				if (isset($this->b['postbu_hook']) && $this->b['postbu_hook']) {
 					exec($this->b['postbu_hook']);
 				}
 				mod_func_iterator('backup_post_backup_hook', $this);

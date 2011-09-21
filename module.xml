@@ -2,8 +2,8 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>2.9.0.3</version>
-	<publisher>FreePBX</publisher>
+	<version>2.10.0.0</version>
+	<publisher>Schmoozecom.com</publisher>
 	<license>GPLv2+</license>
 	<category>Admin</category>
 	<description>Backup &amp; Restore for your FreePBX environment</description>
@@ -17,8 +17,9 @@
 		<module>core</module>
 	</depends>
 	<changelog>
+		*2.10.0.0* Backup Module Rewrite
 		*2.9.0* CHANGELOG TRUNCATED See SVN Repository
 	</changelog>
-	<location>release/2.9/backup-2.9.0.3.tgz</location>
-	<md5sum>73c8292467ae3e8cf7d6e43cdbd98f43</md5sum>
+	<location>release/2.10/backup-2.10.0.0.tgz</location>
+	<md5sum>2bd9f6e86db3fcaaf220874cd421a459</md5sum>
 </module>

@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-22 19:14+0200\n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -30,489 +30,13 @@ msgstr ""
 msgid "Backup & Restore"
 msgstr ""
 
-msgid "System Administration"
+msgid "Admin"
 msgstr ""
 
 msgid "Backup & Restore for your FreePBX environment"
 msgstr ""
 
-msgid "Are you sure you want to delete this File Set?"
-msgstr ""
-
-msgid "DELETE ALL THE DATA IN THIS SET"
-msgstr "<em>מחק את כל הנתונים בסט זה</em>"
-
-msgid "Delete this backup set and all data associated with this backup set.."
-msgstr "מחק סט גיבוי זה ואת כל הנתונים המשוייכים לסט גיבוי זה.."
-
-msgid "Delete File Set"
-msgstr "מחק סט קבצים"
-
-msgid "Delete this backup set."
-msgstr "מחק סט גיבויים זה"
-
-msgid ""
-"Are you sure you want to restore this COMPLETE file set?\\nDoing so will "
-"permanently over-write all FreePBX and Asterisk files\\nYou will lose all "
-"Your Call Detail Records and any Voicemail that was recorded between the "
-"BACKUP DATE and NOW!"
-msgstr ""
-
-msgid "Restore Entire Backup Set"
-msgstr "שחזר סט גיבוי מלא"
-
-msgid "Restore your Complete Backup set overwriting all files."
-msgstr "שחזר סט גיבוי מלא ובכך דרוס את כל הקבצים הקיימים."
-
-msgid ""
-"Are you sure you want to Restore this file set?\\nDoing so will permanently "
-"delete any new voicemail you have in your mailbox\\nsince this backup on"
-msgstr ""
-
-msgid "Restore VoiceMail Files"
-msgstr "שחזר קבצי תא קולי"
-
-msgid ""
-"Restore your Voicemail files from this backup set.  NOTE! This will delete "
-"any voicemail currently in the voicemail boxes."
-msgstr ""
-"שחזר את כל קבצי הדואר הקולי מסט גיבוי זה. <em>שים לב!</em> פעולה זו תמחק את "
-"כל הודעות הדואר הקולי אשר נמצאות כעת בתיבות הדואר הקולי."
-
-msgid ""
-"Are you sure you want to Restore this file set?\\nNOTE! This will OVERWRITE "
-"any voicerecordings currently on the system. It will NOT delete new files "
-"not currently in the backup set"
-msgstr ""
-
-msgid "Restore System Recordings Files"
-msgstr "שחזר קבצי הקלטות מערכת"
-
-msgid ""
-"Restore your system Voice Recordings including AutoAttendant files from this "
-"backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the "
-"system. It will NOT delete new files not currently in the backup set"
-msgstr ""
-"שחזר את קבצי הקלטות המערכת כולל את אלו של מערכת המענה הקולי האוטומטי מסט "
-"גיבוי זה. <em>שים לב!</em> פעולה זו <em>תדרוס</em> את כל ההקלטות שיש כרגע "
-"במערכת. היא <em>לא</em> תמחוק קבצים חדשים שאינם קיימים בסט הגיבוי"
-
-msgid ""
-"Are you sure you want to Restore this File Set?\\nDoing so will Permanently "
-"Over-Write all FreePBX and Asterisk Files!"
-msgstr ""
-
-msgid "Restore System Configuration"
-msgstr "שחזר תצורת מערכת"
-
-msgid ""
-"Restore your system configuration from this backup set.  NOTE! This will "
-"OVERWRITE any System changes you have made since this backup... ALL items "
-"will be reset to what they were at the time of this backup set.."
-msgstr ""
-"שחזר את תצורת המערכת מסט גיבוי זה. <em>שים לב!</em> פעולה זו <em>תדרוס</em> "
-"כל שינוי שעשית במערכת מאז גיבוי זה... <em>כל</em> ההגדרות ישוחזרו למה שהן "
-"היו בזמן יצירת סט גיבוי זה.."
-
-msgid ""
-"Are you sure you want to Restore the Operator Panel Files?\\nDoing so will "
-"Permanently Over-Write all Operator Panel Files!"
-msgstr ""
-
-msgid "Restore Operator Panel"
-msgstr "שחזר פאנל ניהול"
-
-msgid ""
-"Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE "
-"any Operator Panel Changes you have made since this backup... ALL items will "
-"be reset to what they were at the time of this backup set.."
-msgstr ""
-"שחזר את פאנל המפעיל מסט גיבוי זה. <em>שים לב!</em> פעולה זו <em>תדרוס</em> "
-"כל שינוי שעשית בפאנל המפעיל מאז שבוצע גיבוי זה... <em>כל</em> ההגדרות יוחזרו "
-"למצב שבו הן היו בזמן יצירת סט גיבוי זה.."
-
-msgid ""
-"Are you sure you want to Restore the CALL DETAIL FILES?\\nDoing so will "
-"Permanently DELETE all CALL RECORDS!"
-msgstr ""
-
-msgid "Restore Call Detail Report"
-msgstr "שחזר דוח פרטי שיחות"
-
-msgid ""
-"Restore the Call Detail Records from this backup set.  NOTE! This will "
-"DELETE ALL CALL RECORDS that have been saved since this backup set."
-msgstr ""
-"שחזר את רשומות פרטי השיחות מסט גיבוי זה. <em>שים לב!</em> פעולה זו <em>תמחק "
-"את כל רישומי השיחות</em> שנשמרו מאז יצירת סט גיבוי זה.."
-
-msgid "ERROR its not a BACKUP SET file"
-msgstr "<em>שגיאה:</em> זהו לא קובץ <em>סט גיבוי</em>"
-
-msgid "failed to remove previous backup set"
-msgstr ""
-
-msgid "failed to remove voicemail directory"
-msgstr ""
-
-msgid "failed to untar voicemail.tar.gz"
-msgstr ""
-
-msgid "failed to untar recordings.tar.gz"
-msgstr ""
-
-msgid "failed to untar configurations.tar.gz"
-msgstr ""
-
-msgid "failed to untar fop.tar.gz and cdr.tar.gz"
-msgstr ""
-
-msgid "failed to untar astdb.dump, asterisk.sql and asteriskcdr.sql"
-msgstr ""
-
-msgid "failed to untar asterisk.sql"
-msgstr ""
-
-msgid "failed to restore asteriskcdr.sql"
-msgstr ""
-
-msgid "failed to restore the astdb"
-msgstr ""
-
-msgid "failed to untar phoneconfig.tar.gz"
-msgstr ""
-
-msgid "failed to remove exploded backup sets from tmp"
-msgstr ""
-
-msgid "Restored All Files in Backup Set"
-msgstr ""
-
-msgid "Restored VoiceMail"
-msgstr ""
-
-msgid "Restored System Recordings"
-msgstr ""
-
-msgid "failed to untar asterisk.sql and astdb.dump"
-msgstr ""
-
-msgid "failed to restore asterisk.sql"
-msgstr ""
-
-msgid "Restored System Configuration"
-msgstr ""
-
-msgid "failed to untar fop.tar.gz"
-msgstr ""
-
-msgid "Restored Operator Panel"
-msgstr ""
-
-msgid "failed to untar cdr.tar.gz"
-msgstr ""
-
-msgid "failed to untar asteriskcdr.sql"
-msgstr ""
-
-msgid "Restored CDR logs"
-msgstr ""
-
-msgid "Basic Settings"
-msgstr ""
-
-msgid "Schedule Name:"
-msgstr "שם התזמון:"
-
-msgid "Give this Backup Schedule a brief name to help you identify it."
-msgstr "תן לתיזמון גיבוי זה שם קצר שיעזור לך לזהות אותו בעתיד."
-
-msgid "Admin Web Directory"
-msgstr ""
-
-msgid ""
-"Backup the admin web directory (i.e. the static FreePBX web files). This is "
-"useful to have during a restore to prevent a version mismatch, but can "
-"dramatically increase the backup size."
-msgstr ""
-
-msgid "CDR"
-msgstr "דוח רישום שיחות (CDR)"
-
-msgid "Backup the System Call Detail Reporting (HTML and Database)"
-msgstr "גבה את דיווח פרטי השיחות שבמערכת (HTML ומסד נתונים)"
-
-msgid "Operator Panel"
-msgstr "פאנל מפעיל"
-
-msgid "Backup the Operator Panel (HTML and Database)"
-msgstr "גבה את פאנל המנהל (HTML ומסד נתונים)"
-
-msgid "Overwrite Backup Settings"
-msgstr ""
-
-msgid ""
-"When restoring the backup, if this option is selected, all saved backups and "
-"their schedules will be overwriten. Leaving this unchecked will restore all "
-"other configurations EXCEPT for those related to backup. When doing a remote "
-"backup and restore, this option is always forced to no."
-msgstr ""
-
-msgid "System Recordings"
-msgstr "הקלטות מערכת"
-
-msgid ""
-"Backup the System Recordings (AutoAttendant, Music On Hold, System "
-"Recordings)"
-msgstr "גבה את הקלטות המערכת (מענה קולי, מוסיקת המתנה, הקלטות מערכת)"
-
-msgid "VoiceMail"
-msgstr "דואר קולי"
-
-msgid ""
-"Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
-msgstr ""
-"גבה את תיבות הדואר הקולי שבמערכת... <em>אזהרה:</em> עשוי להיווצר קובץ גדול "
-"למדי"
-
-msgid "System Configuration"
-msgstr "תצורת מערכת"
-
-msgid ""
-"Backup the System Configurations (Database, etc files, SQL Database, astdb)"
-msgstr "גבה את תצורות המערכת (מסד נתונים, קבצי etc, SQL ו-astdb)"
-
-msgid " Additional Files"
-msgstr ""
-
-msgid "Additional files and folders"
-msgstr ""
-
-msgid "Backup any additional files and folders listed here."
-msgstr ""
-
-msgid "Exclude files and folders"
-msgstr ""
-
-msgid "Exclude any files and folders from the include listed above."
-msgstr ""
-
-msgid " FTP Settings"
-msgstr ""
-
-msgid "FTP User Name"
-msgstr ""
-
-msgid "Enter your FTP user name"
-msgstr ""
-
-msgid "FTP Password"
-msgstr ""
-
-msgid "Enter your FTP password"
-msgstr ""
-
-msgid "FTP Hostname"
-msgstr ""
-
-msgid "IP address or FQDN of FTP server"
-msgstr ""
-
-msgid "FTP Directory"
-msgstr ""
-
-msgid "Directory on FTP server where the backup should be copied to"
-msgstr ""
-
-msgid " SSH Settings"
-msgstr ""
-
-msgid "SSH User Name"
-msgstr ""
-
-msgid "Enter your SSH user name"
-msgstr ""
-
-msgid "SSH Key"
-msgstr ""
-
-msgid "Location of ssh private key to be used when connect to a host"
-msgstr ""
-
-msgid "SSH Hostname"
-msgstr ""
-
-msgid "IP address or FQDN of remote ssh host"
-msgstr ""
-
-msgid "SSH Directory"
-msgstr ""
-
-msgid "Directory on remote server where the backup should be copied to"
-msgstr ""
-
-msgid " Email Settings"
-msgstr ""
-
-msgid "Email Address"
-msgstr ""
-
-msgid "Email address where backups should be emailed to"
-msgstr ""
-
-msgid "Max email size"
-msgstr ""
-
-msgid ""
-"The maximum size a backup can be and still be emailed. Some email servers "
-"limit the size of email attachments, this will make sure that files larger "
-"than the max size are not sent. Valid options include: xB, xKB, xMB"
-msgstr ""
-
-msgid " Remote Backup Options"
-msgstr ""
-
-msgid "Remote SSH Hostname"
-msgstr ""
-
-msgid ""
-"Run this backup on a remote server. The backup will then be copied over to "
-"this server"
-msgstr ""
-
-msgid "Remote SSH User"
-msgstr ""
-
-msgid ""
-"Username to use when connecting to remote server. Defaults to the user apache "
-"is running as on this system."
-msgstr ""
-
-msgid "Remote SSH Key"
-msgstr ""
-
-msgid "Location of ssh private key to be used when connecting to a host"
-msgstr ""
-
-msgid "Restore to this server"
-msgstr ""
-
-msgid ""
-"Restore the backup to this server. Use this option to create a delayed time "
-"backup of another server on this one."
-msgstr ""
-
-msgid " Advanced Options"
-msgstr ""
-
-msgid "Sudo"
-msgstr ""
-
-msgid ""
-"Use sudo when performing a backup. NOTE: THIS HAS SEVERE SECURITY "
-"IMPLICATIONS!"
-msgstr ""
-
-msgid "All"
-msgstr "הכל"
-
-msgid "Selected"
-msgstr "נבחר"
-
-msgid "January"
-msgstr "ינואר"
-
-msgid "February"
-msgstr "פברואר"
-
-msgid "March"
-msgstr "מרץ"
-
-msgid "April"
-msgstr "אפריל"
-
-msgid "May"
-msgstr "מאי"
-
-msgid "June"
-msgstr "יוני"
-
-msgid "July"
-msgstr "יולי"
-
-msgid "August"
-msgstr "אוגוסט"
-
-msgid "September"
-msgstr "ספטמבר"
-
-msgid "October"
-msgstr "אוקטובר"
-
-msgid "November"
-msgstr "נובמבר"
-
-msgid "December"
-msgstr "דצמבר"
-
-msgid "Monday"
-msgstr "שני"
-
-msgid "Tuesday"
-msgstr "שלישי"
-
-msgid "Wednesday"
-msgstr "רביעי"
-
-msgid "Thursday"
-msgstr "חמישי"
-
-msgid "Friday"
-msgstr "שישי"
-
-msgid "Saturday"
-msgstr "שבת"
-
-msgid "Sunday"
-msgstr "ראשון"
-
-msgid "Run Backup"
-msgstr "הרץ גיבוי"
-
-msgid "Follow Schedule Below"
-msgstr "עקוב אחר התזמון לקמן"
-
-msgid "Now"
-msgstr "עכשיו"
-
-msgid "Daily (at midnight)"
-msgstr "כל יום (בחצות)"
-
-msgid "Weekly (on Sunday)"
-msgstr "פעם בשבוע (ביום ראשון)"
-
-msgid "Monthly (on the 1st)"
-msgstr "פעם בחודש (בראשון לחודש)"
-
-msgid "Yearly (on 1st Jan)"
-msgstr "פעם בשנה (ב 1 בינואר)"
-
-msgid "Minutes"
-msgstr "דקות"
-
-msgid "Hours"
-msgstr "שעות"
-
-msgid "Days"
-msgstr "ימים"
-
-msgid "Months"
-msgstr "חודשים"
-
-msgid "Weekdays"
-msgstr "ימים בשבוע"
-
-msgid "Can not create backup table"
+msgid "Can not create backup tables"
 msgstr ""
 
 msgid "Can't check for Backup table"
@@ -562,7 +86,7 @@ msgstr ""
 msgid "Replacing ampbackup.pl in db.."
 msgstr ""
 
-msgid "an error has occured, update not done"
+msgid "an error has occurred, update not done"
 msgstr ""
 
 msgid "ok"
@@ -586,34 +110,309 @@ msgstr ""
 msgid "Successfully migrated backup table!"
 msgstr ""
 
-msgid "Add Backup Schedule"
-msgstr "הוסף תיזמון גיבויים"
-
-msgid "Restore from Backup"
-msgstr "שחזר מגיבוי"
-
-msgid "System Backup"
-msgstr "גיבוי מערכת"
-
-msgid "Run Schedule"
-msgstr "הרץ גיבוי"
-
-msgid "Submit Changes"
+msgid "Creating backups directory.."
 msgstr ""
 
 #, php-format
-msgid "Delete Backup Schedule %s"
-msgstr "מחק תיזמון גיבויים %s"
-
-msgid "Backup names cannot contain spaces."
+msgid "WARNING: failed to create backup directory: %s"
 msgstr ""
 
-msgid "System Restore"
-msgstr "שחזור מערכת"
-
-msgid "ERROR Restoring Backup Set"
+msgid "Location of backups pre 2.10"
 msgstr ""
 
-#, php-format
-msgid "%s (Return Code: %s)"
+msgid "Storage location for backups"
 msgstr ""
+
+msgid "PBX config server, generally a local database server"
+msgstr ""
+
+msgid "CDR server, generally a local database server"
+msgstr ""
+
+msgid "added default backup servers"
+msgstr ""
+
+#, fuzzy
+msgid "Configurations only"
+msgstr "תצורת מערכת"
+
+msgid "A full backup of core settings and web files"
+msgstr ""
+
+#, fuzzy
+msgid "Call Detail Records"
+msgstr "שחזר דוח פרטי שיחות"
+
+#, fuzzy
+msgid "Voice Mail Storage"
+msgstr "דואר קולי"
+
+msgid "All system audio - including IVR prompts and Music On Hold."
+msgstr ""
+
+msgid " DOES NOT BACKUP VOICEMAIL"
+msgstr ""
+
+msgid "Doesn't backup Backup's settings so that they dont get restored"
+msgstr ""
+
+msgid "added default backup templates"
+msgstr ""
+
+msgid "MIGRATED"
+msgstr ""
+
+msgid "migrated backup"
+msgstr ""
+
+msgid "Migrated FTP server for backup "
+msgstr ""
+
+msgid "Migrated SSH server for backup "
+msgstr ""
+
+msgid "Migrated EMAIL server for backup "
+msgstr ""
+
+msgid "Migrated remote SSH server for backup "
+msgstr ""
+
+msgid "Default backup; automatically installed"
+msgstr ""
+
+#, fuzzy
+msgid "Delete"
+msgstr "נבחר"
+
+msgid "Run now"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+#~ msgid "DELETE ALL THE DATA IN THIS SET"
+#~ msgstr "<em>מחק את כל הנתונים בסט זה</em>"
+
+#~ msgid ""
+#~ "Delete this backup set and all data associated with this backup set.."
+#~ msgstr "מחק סט גיבוי זה ואת כל הנתונים המשוייכים לסט גיבוי זה.."
+
+#~ msgid "Delete File Set"
+#~ msgstr "מחק סט קבצים"
+
+#~ msgid "Delete this backup set."
+#~ msgstr "מחק סט גיבויים זה"
+
+#~ msgid "Restore Entire Backup Set"
+#~ msgstr "שחזר סט גיבוי מלא"
+
+#~ msgid "Restore your Complete Backup set overwriting all files."
+#~ msgstr "שחזר סט גיבוי מלא ובכך דרוס את כל הקבצים הקיימים."
+
+#~ msgid "Restore VoiceMail Files"
+#~ msgstr "שחזר קבצי תא קולי"
+
+#~ msgid ""
+#~ "Restore your Voicemail files from this backup set.  NOTE! This will "
+#~ "delete any voicemail currently in the voicemail boxes."
+#~ msgstr ""
+#~ "שחזר את כל קבצי הדואר הקולי מסט גיבוי זה. <em>שים לב!</em> פעולה זו תמחק "
+#~ "את כל הודעות הדואר הקולי אשר נמצאות כעת בתיבות הדואר הקולי."
+
+#~ msgid "Restore System Recordings Files"
+#~ msgstr "שחזר קבצי הקלטות מערכת"
+
+#~ msgid ""
+#~ "Restore your system Voice Recordings including AutoAttendant files from "
+#~ "this backup set.  NOTE! This will OVERWRITE any voicerecordings  "
+#~ "currently on the system. It will NOT delete new files not currently in "
+#~ "the backup set"
+#~ msgstr ""
+#~ "שחזר את קבצי הקלטות המערכת כולל את אלו של מערכת המענה הקולי האוטומטי מסט "
+#~ "גיבוי זה. <em>שים לב!</em> פעולה זו <em>תדרוס</em> את כל ההקלטות שיש כרגע "
+#~ "במערכת. היא <em>לא</em> תמחוק קבצים חדשים שאינם קיימים בסט הגיבוי"
+
+#~ msgid "Restore System Configuration"
+#~ msgstr "שחזר תצורת מערכת"
+
+#~ msgid ""
+#~ "Restore your system configuration from this backup set.  NOTE! This will "
+#~ "OVERWRITE any System changes you have made since this backup... ALL items "
+#~ "will be reset to what they were at the time of this backup set.."
+#~ msgstr ""
+#~ "שחזר את תצורת המערכת מסט גיבוי זה. <em>שים לב!</em> פעולה זו <em>תדרוס</"
+#~ "em> כל שינוי שעשית במערכת מאז גיבוי זה... <em>כל</em> ההגדרות ישוחזרו למה "
+#~ "שהן היו בזמן יצירת סט גיבוי זה.."
+
+#~ msgid "Restore Operator Panel"
+#~ msgstr "שחזר פאנל ניהול"
+
+#~ msgid ""
+#~ "Restore the Operator Panel from this backup set.  NOTE! This will "
+#~ "OVERWRITE any Operator Panel Changes you have made since this backup... "
+#~ "ALL items will be reset to what they were at the time of this backup set.."
+#~ msgstr ""
+#~ "שחזר את פאנל המפעיל מסט גיבוי זה. <em>שים לב!</em> פעולה זו <em>תדרוס</"
+#~ "em> כל שינוי שעשית בפאנל המפעיל מאז שבוצע גיבוי זה... <em>כל</em> ההגדרות "
+#~ "יוחזרו למצב שבו הן היו בזמן יצירת סט גיבוי זה.."
+
+#~ msgid ""
+#~ "Restore the Call Detail Records from this backup set.  NOTE! This will "
+#~ "DELETE ALL CALL RECORDS that have been saved since this backup set."
+#~ msgstr ""
+#~ "שחזר את רשומות פרטי השיחות מסט גיבוי זה. <em>שים לב!</em> פעולה זו "
+#~ "<em>תמחק את כל רישומי השיחות</em> שנשמרו מאז יצירת סט גיבוי זה.."
+
+#~ msgid "ERROR its not a BACKUP SET file"
+#~ msgstr "<em>שגיאה:</em> זהו לא קובץ <em>סט גיבוי</em>"
+
+#~ msgid "Schedule Name:"
+#~ msgstr "שם התזמון:"
+
+#~ msgid "Give this Backup Schedule a brief name to help you identify it."
+#~ msgstr "תן לתיזמון גיבוי זה שם קצר שיעזור לך לזהות אותו בעתיד."
+
+#~ msgid "CDR"
+#~ msgstr "דוח רישום שיחות (CDR)"
+
+#~ msgid "Backup the System Call Detail Reporting (HTML and Database)"
+#~ msgstr "גבה את דיווח פרטי השיחות שבמערכת (HTML ומסד נתונים)"
+
+#~ msgid "Operator Panel"
+#~ msgstr "פאנל מפעיל"
+
+#~ msgid "Backup the Operator Panel (HTML and Database)"
+#~ msgstr "גבה את פאנל המנהל (HTML ומסד נתונים)"
+
+#~ msgid "System Recordings"
+#~ msgstr "הקלטות מערכת"
+
+#~ msgid ""
+#~ "Backup the System Recordings (AutoAttendant, Music On Hold, System "
+#~ "Recordings)"
+#~ msgstr "גבה את הקלטות המערכת (מענה קולי, מוסיקת המתנה, הקלטות מערכת)"
+
+#~ msgid ""
+#~ "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
+#~ msgstr ""
+#~ "גבה את תיבות הדואר הקולי שבמערכת... <em>אזהרה:</em> עשוי להיווצר קובץ "
+#~ "גדול למדי"
+
+#~ msgid ""
+#~ "Backup the System Configurations (Database, etc files, SQL Database, "
+#~ "astdb)"
+#~ msgstr "גבה את תצורות המערכת (מסד נתונים, קבצי etc, SQL ו-astdb)"
+
+#~ msgid "All"
+#~ msgstr "הכל"
+
+#~ msgid "January"
+#~ msgstr "ינואר"
+
+#~ msgid "February"
+#~ msgstr "פברואר"
+
+#~ msgid "March"
+#~ msgstr "מרץ"
+
+#~ msgid "April"
+#~ msgstr "אפריל"
+
+#~ msgid "May"
+#~ msgstr "מאי"
+
+#~ msgid "June"
+#~ msgstr "יוני"
+
+#~ msgid "July"
+#~ msgstr "יולי"
+
+#~ msgid "August"
+#~ msgstr "אוגוסט"
+
+#~ msgid "September"
+#~ msgstr "ספטמבר"
+
+#~ msgid "October"
+#~ msgstr "אוקטובר"
+
+#~ msgid "November"
+#~ msgstr "נובמבר"
+
+#~ msgid "December"
+#~ msgstr "דצמבר"
+
+#~ msgid "Monday"
+#~ msgstr "שני"
+
+#~ msgid "Tuesday"
+#~ msgstr "שלישי"
+
+#~ msgid "Wednesday"
+#~ msgstr "רביעי"
+
+#~ msgid "Thursday"
+#~ msgstr "חמישי"
+
+#~ msgid "Friday"
+#~ msgstr "שישי"
+
+#~ msgid "Saturday"
+#~ msgstr "שבת"
+
+#~ msgid "Sunday"
+#~ msgstr "ראשון"
+
+#~ msgid "Run Backup"
+#~ msgstr "הרץ גיבוי"
+
+#~ msgid "Follow Schedule Below"
+#~ msgstr "עקוב אחר התזמון לקמן"
+
+#~ msgid "Now"
+#~ msgstr "עכשיו"
+
+#~ msgid "Daily (at midnight)"
+#~ msgstr "כל יום (בחצות)"
+
+#~ msgid "Weekly (on Sunday)"
+#~ msgstr "פעם בשבוע (ביום ראשון)"
+
+#~ msgid "Monthly (on the 1st)"
+#~ msgstr "פעם בחודש (בראשון לחודש)"
+
+#~ msgid "Yearly (on 1st Jan)"
+#~ msgstr "פעם בשנה (ב 1 בינואר)"
+
+#~ msgid "Minutes"
+#~ msgstr "דקות"
+
+#~ msgid "Hours"
+#~ msgstr "שעות"
+
+#~ msgid "Days"
+#~ msgstr "ימים"
+
+#~ msgid "Months"
+#~ msgstr "חודשים"
+
+#~ msgid "Weekdays"
+#~ msgstr "ימים בשבוע"
+
+#~ msgid "Add Backup Schedule"
+#~ msgstr "הוסף תיזמון גיבויים"
+
+#~ msgid "Restore from Backup"
+#~ msgstr "שחזר מגיבוי"
+
+#~ msgid "System Backup"
+#~ msgstr "גיבוי מערכת"
+
+#~ msgid "Run Schedule"
+#~ msgstr "הרץ גיבוי"
+
+#~ msgid "Delete Backup Schedule %s"
+#~ msgstr "מחק תיזמון גיבויים %s"
+
+#~ msgid "System Restore"
+#~ msgstr "שחזור מערכת"

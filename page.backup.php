@@ -1,5 +1,4 @@
 <?php 
-dbug($_REQUEST);
 $get_vars = array(
 				'action'			=> '',
 				'bu_server'			=> '',
@@ -61,7 +60,7 @@ switch ($var['action']) {
 			ob_end_clean();
 		}
 
-		ob_start($amp_conf['buffering_callback']);
+		ob_start();
 		header('Content-Type: text/event-stream');
 		header('Cache-Control: no-cache');
 		//header('Expires: ' . date('r', time() + 60));

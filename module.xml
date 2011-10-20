@@ -21,6 +21,6 @@
 		*2.10.0.0* Backup Module Rewrite
 		*2.9.0* CHANGELOG TRUNCATED See SVN Repository
 	</changelog>
-	<location>release/2.10/backup-2.10.0.0.tgz</location>
-	<md5sum>2bd9f6e86db3fcaaf220874cd421a459</md5sum>
+	<location>release/2.10/backup-2.10.0.1.tgz</location>
+	<md5sum>e89008814d67a018ae03da967ce771e9</md5sum>
 </module>

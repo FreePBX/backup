@@ -231,7 +231,15 @@ if (!array_key_exists('remotesshhost',$fields) && array_key_exists('command',$fi
 
 //migrate pre 2.10 backups
 if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
-	require_once(dirname(__FILE__) . '/functions.inc.php');
+	// Don't know which of these it needs, but including functions.inc.php won't work when ugprading form earlier releases as the old version will
+	// already be there.
+	$dir = dirname(__FILE__);
+	require_once($dir . '/functions.inc/class.backup.php');
+	require_once($dir . '/functions.inc/backup.php');
+	require_once($dir . '/functions.inc/servers.php');
+	require_once($dir . '/functions.inc/templates.php');
+	require_once($dir . '/functions.inc/restore.php');
+	
 	//create default servers
 	$server['legacy'] = array(
 					'id'		=> '',

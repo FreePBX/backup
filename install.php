@@ -18,8 +18,7 @@
  * 
  */ 
 
-global $db;
-global $amp_conf;
+global $db, $amp_conf;
 
 $autoincrement = ($amp_conf["AMPDBENGINE"] == "sqlite3") ? "AUTOINCREMENT" : "AUTO_INCREMENT";
 $sql[] = $bu_table = 'CREATE TABLE IF NOT EXISTS `backup` (
@@ -27,6 +26,7 @@ $sql[] = $bu_table = 'CREATE TABLE IF NOT EXISTS `backup` (
 			`name` varchar(50) default NULL,
 			`description` varchar(150) default NULL,
 			`immortal` varchar(25) default NULL,
+			`data` longtext default NULL,
 			PRIMARY KEY  (`id`)
 			)';
 
@@ -57,6 +57,7 @@ $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_servers` (
 			`type` varchar(50) default NULL,
 			`readonly` varchar(250) default NULL,
 			`immortal` varchar(25) default NULL,
+			`data` longtext default NULL,
 			PRIMARY KEY  (`id`)
 			)';
 
@@ -71,6 +72,7 @@ $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_templates` (
 			`name` varchar(50) default NULL,
 			`desc` varchar(150) default NULL,
 			`immortal` varchar(25) default NULL,
+			`data` longtext default NULL,
 			PRIMARY KEY  (`id`)
 			)';
 			
@@ -290,6 +292,9 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 	}
 	sql('UPDATE backup_servers SET readonly = "a:1:{i:0;s:1:\"*\";}"');
 	sql('UPDATE backup_servers SET immortal = "true"');
+	$createdby = serialize(array('created_by' => 'install.php'));
+	sql('UPDATE backup_servers SET data = "' . addslashes($createdby) . '"');
+	
 	out(_('added default backup servers'));
 	
 	//create default temaplates
@@ -336,7 +341,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 	$temp['full']['exclude'][]	= '';
 		
 	$temp['full']['type'][]		= 'dir';
-	$temp['full']['path'][]		= '__AMPSBIN__';
+	$temp['full']['path'][]		= '__AMPBIN__';
 	$temp['full']['exclude'][]	= '';
 	
 	$temp['full']['type'][]		= 'dir';
@@ -423,12 +428,14 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 					)
 	);
 	
-	foreach ($temp as $not_this => $t) {
-		$temp[$not_this] = backup_put_template($t);
+	foreach ($temp as $that => $t) {
+		$temp[$that] = backup_put_template($t);
 	}
-	sql('UPDATE backup_templates SET immortal = "true"');
 	
 	//lock this all down so that their readonly
+	sql('UPDATE backup_templates SET immortal = "true"');
+	$createdby = serialize(array('created_by' => 'install.php'));
+	sql('UPDATE backup_templates SET data = "' . addslashes($createdby) . '"');
 	out(_('added default backup templates'));
 
 	
@@ -643,11 +650,25 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 
 		//insert backup
 		backup_put_backup($new);
+		$createdby = serialize(array('created_by' => 'install.php'));
+		sql('UPDATE backup SET data = "' . addslashes($createdby) . '"');
 		unset($new);
 	}
 
-	
+}
 
+//add data fields if they dont exists
+//2.10 beta
+if (!array_key_exists('data', $db->getAssoc('describe backup'))) {
+	sql('ALTER TABLE backup ADD COLUMN `data` longtext default NULL');
+}
+
+if (!array_key_exists('data', $db->getAssoc('describe backup_servers'))) {
+	sql('ALTER TABLE backup_servers ADD COLUMN `data` longtext default NULL');
+}
+
+if (!array_key_exists('data', $db->getAssoc('describe backup_templates'))) {
+	sql('ALTER TABLE backup_templates ADD COLUMN `data` longtext default NULL');
 }
 
 

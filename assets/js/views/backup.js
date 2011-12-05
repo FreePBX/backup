@@ -177,7 +177,7 @@ function add_template(template) {
 				row.path = '';
 			}
 
-			row.exclude	= $(this).find('td').eq(2).find('textarea').val();
+			row.exclude	= $(this).find('td').eq(2).find('textarea').val() || '';
 			if (row.type == template[item].type && row.path == template[item].path) {
 				//merge excludes if we have any
 				if (template[item].exclude) {

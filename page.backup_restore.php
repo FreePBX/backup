@@ -42,7 +42,10 @@ switch ($var['action']) {
 				substr($_FILES['upload']['name'], -7) == '.tar.gz' 
 				|| substr($_FILES['upload']['name'], -4) == '.tgz'
 			)
-			&& $_FILES['upload']['type'] == 'application/x-gzip'
+			&& (
+				$_FILES['upload']['type'] == 'application/x-gzip'
+				|| $_FILES['upload']['type'] == 'application/octet-stream'
+			)
 		) {
 			$dest = $amp_conf['ASTSPOOLDIR'] 
 					. '/tmp/' 
@@ -52,10 +55,11 @@ switch ($var['action']) {
 			move_uploaded_file($_FILES['upload']['tmp_name'], $dest);
 			
 			//$var['restore_path'] = $dest;
-			//$_SESSION['backup_restore_path'] = $dest;
+			$_SESSION['backup_restore_path'] = $dest;
 			
 		} else {
-			//TODO: alert the user of an invalid backup file
+			echo _('Error uploading file!');
+			$var['action'] = '';
 		}
 		break;
 	case 'list_dir':

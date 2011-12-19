@@ -35,32 +35,32 @@ switch ($var['action']) {
 		download_file($var['restore_path']);
 		break;
 	case 'upload':
-		//only accept .tar.gz or .tgz
-		
-		if (is_uploaded_file($_FILES['upload']['tmp_name']) 
-			&& (
-				substr($_FILES['upload']['name'], -7) == '.tar.gz' 
-				|| substr($_FILES['upload']['name'], -4) == '.tgz'
-			)
-			&& (
-				$_FILES['upload']['type'] == 'application/x-gzip'
-				|| $_FILES['upload']['type'] == 'application/octet-stream'
-			)
-		) {
-			$dest = $amp_conf['ASTSPOOLDIR'] 
-					. '/tmp/' 
-					. 'backuptmp-suser-'
-					. time() . '-'
-					. basename($_FILES['upload']['name']);
-			move_uploaded_file($_FILES['upload']['tmp_name'], $dest);
-			
-			//$var['restore_path'] = $dest;
-			$_SESSION['backup_restore_path'] = $dest;
-			
-		} else {
+
+		//make sure our file was uploaded
+		if (!is_uploaded_file($_FILES['upload']['tmp_name'])) {
 			echo _('Error uploading file!');
 			$var['action'] = '';
+			break;
+
 		}
+		
+		//ensure uploaded file is a valid tar file
+		exec(fpbx_which('tar') . ' -tf ' . $_FILES['upload']['tmp_name'], $array, $ret_code);
+		if ($ret_code !== 0) {
+			echo _('Error verifying uploaded file!');
+			$var['action'] = '';
+			break;
+		}
+		
+		$dest = $amp_conf['ASTSPOOLDIR'] 
+				. '/tmp/' 
+				. 'backuptmp-suser-'
+				. time() . '-'
+				. basename($_FILES['upload']['name']);
+		move_uploaded_file($_FILES['upload']['tmp_name'], $dest);
+		
+		//$var['restore_path'] = $dest;
+		$_SESSION['backup_restore_path'] = $dest;
 		break;
 	case 'list_dir':
 		echo json_encode(backup_jstree_list_dir($var['id'], $var['path']));

@@ -1,6 +1,6 @@
 <?php
 $html = '';
-$html .= heading('SSH Server', 3) . '<hr class="backup-hr"/>';
+$html .= heading('Local Server', 3) . '<hr class="backup-hr"/>';
 $html .= form_hidden('server_type', 'ssh');
 $html .= form_open($_SERVER['REQUEST_URI']);
 $html .= form_hidden('action', 'save');

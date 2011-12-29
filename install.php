@@ -250,7 +250,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 					'desc'		=> _('Location of backups pre 2.10'),
 					'immortal'	=> '',
 					'type'		=> 'local',
-					'path'		=> '__ASTVARLIBDIR__/backup',
+					'path'		=> '__ASTVARLIBDIR__/backups',
 	);
 	
 	$server['local'] = array(

@@ -1,6 +1,5 @@
 <?php 
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
-
 $get_vars = array(
 				'action'			=> '',
 				'display'			=> '',
@@ -122,20 +121,19 @@ switch ($var['action']) {
 			if (!$var['manifest'] = backup_get_manifest_tarball($_SESSION['backup_restore_path'])) {
 				
 				//we didnt get a manifet. is this a legacy backup?
-				if($var['restore_path'] = backup_migrate_legacy($dest)) {
+				if($var['restore_path'] = backup_migrate_legacy($_SESSION['backup_restore_path'])) {
 					if(!$var['manifest'] = backup_get_manifest_tarball($var['restore_path'])) {
 						//nope, doesnt seem like legacy either. Guess we cant read this file
-						//TODO:alert the user
-						
+						echo _('Invalid backup for or undefined error');
 					} else {
 						$_SESSION['backup_restore_path'] = $var['restore_path'];
+						echo load_view(dirname(__FILE__) . '/views/restore/backup_list.php', $var);
 					}
 				}
 				
 			}
 		}
-		//dbug($var['restore_path'], $var['manifest']);
-		echo load_view(dirname(__FILE__) . '/views/restore/backup_list.php', $var);
+		//dbug($_SESSION['backup_restore_path'], $var);
 		break;
 	default:
 		echo load_view(dirname(__FILE__) . '/views/restore/restore.php', $var);

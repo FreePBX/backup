@@ -305,7 +305,6 @@ function backup_restore_locate_file($id, $path) {
 	if (is_file($path)) {
 		return $path;
 	} else {
-		return array('error_msg' => _('File not found! ' . $path));
 	}
 }
 
@@ -314,29 +313,30 @@ function backup_restore_locate_file($id, $path) {
  */
 function backup_migrate_legacy($bu) {
 	global $amp_conf;
-	
+
 	$name = pathinfo($bu, PATHINFO_BASENAME);
 	if (!substr($name, -7) == '.tar.gz' ) {
 		return false;
 	}
 	
-	$legacy_name = substr($name, strrpos($name, '-') + 1, -7);
-	
+	$legacy_name = substr($name, 0, -7);
 	
 	$dir = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . $legacy_name;
 	mkdir($dir, 0755, true);
+
 	$cmd[] = fpbx_which('tar');
-	$cmd[] = 'zxf';
+	$cmd[] = '-zxf';
 	$cmd[] = $bu;
 	$cmd[] = ' -C ' . $dir;
 	exec(implode(' ', $cmd));
 	unset($cmd);
-	
+
 	$dir2 = $dir . '/tmp/ampbackups.' . $legacy_name;
+
 	foreach (scandir($dir2) as $file) {
 		if (substr($file, -7) == '.tar.gz') {
 			$cmd[] = fpbx_which('tar');
-			$cmd[] = 'zxf';
+			$cmd[] = '-zxf';
 			$cmd[] = $dir2 . '/' . $file;
 			$cmd[] = ' -C ' . $dir2;
 			exec(implode(' ', $cmd));
@@ -346,7 +346,7 @@ function backup_migrate_legacy($bu) {
 		}
 		
 	}
-	
+
 	//add files to manifest
 	$ret['file_list']	= scandirr($dir2);
 	$ret['file_count']	= count($ret['file_list'], COUNT_RECURSIVE);
@@ -359,7 +359,7 @@ function backup_migrate_legacy($bu) {
 		//rename file
 		rename($dir2 . '/astdb.dump', $dir2 . '/astdb');
 		
-		//removie it from the file_list
+		//remove it from the file_list
 		unset($ret['file_list'][array_search('astdb.dump', $ret['file_list'])]);
 
 		//set the manifest
@@ -370,7 +370,8 @@ function backup_migrate_legacy($bu) {
 	}
 	
 	//serialize the astdb
-	if ($ret['astdb']) {
+	if (!empty($ret['astdb'])) {
+		$astdb = array();
 		foreach(file($dir2 . '/astdb') as $line) {
 			$line = explode('] [', trim($line, '[]/'));
 
@@ -437,7 +438,7 @@ function backup_migrate_legacy($bu) {
 			. $legacy_name
 			. '.tgz';
 	$cmd[] = fpbx_which('tar');
-	$cmd[] = 'zcf';
+	$cmd[] = '-zcf';
 	$cmd[] = $dest;
 	$cmd[] = '-C ' . $dir2;
 	$cmd[] = '.';

@@ -305,6 +305,7 @@ function backup_restore_locate_file($id, $path) {
 	if (is_file($path)) {
 		return $path;
 	} else {
+		return array('error_msg' => _('File not found! ' . $path));
 	}
 }
 

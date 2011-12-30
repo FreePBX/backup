@@ -479,7 +479,7 @@ function backup_restore($bu, $items) {
 		//across the entire heirachy of a file we are restoring
 		$cmd[] = '--atime-preserve -m -C /';
 		foreach ($items['files'] as $f) {
-			$cmd[] = './' . $f;
+			$cmd[] = '.' . $f;
 		}
 		exec(implode(' ', $cmd));
 		dbug('restoring backup!', implode(' ', $cmd));

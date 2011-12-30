@@ -81,7 +81,7 @@ $(document).ready(function(){
 	//include items to restore
 	$('#files_browes_frm').submit(function(){
 		//remove stale file entires
-		$('input[name^=restore_items[files]]').remove();
+		$('input[name^="restore[files]"]').remove();
 		
 		//get checked files
 		$("#backup_files").jstree("get_checked",null,false).each(function() {

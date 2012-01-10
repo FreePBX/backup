@@ -129,6 +129,9 @@ function backup_get_backup($id = '') {
 			//default a name
 			$ret['name'] = $ret['name'] ? $ret['name'] : 'Backup ' . $ret['id'];
 			
+			//ensure bool's are initialized
+			$ret['restore'] = isset($ret['restore']) ? $ret['restore'] : false;
+			
 			//get items
 			$sql = 'SELECT type, path, exclude FROM backup_items WHERE backup_id = ?';
 			$ret2 = $db->getAll($sql, array($id), DB_FETCHMODE_ASSOC);

@@ -47,7 +47,7 @@ $(document).ready(function(){
 			return false;
 		} 
 		 box = $('<div></div>')
-			.html('<span id="backup_status"></span>'
+			.html('<span class="backup_status"></span>'
 				+ '<progress style="width: 100%">'
 				+ 'Please wait...'
 				+ '</progress>')
@@ -66,7 +66,7 @@ $(document).ready(function(){
 		
 		if (!window.EventSource) {
 			$.get(url, function(){
-				$('#backup_status').next('progress').append('done!');
+				$('.backup_status').next('progress').append('done!');
 				setTimeout('box.dialog("close").dialog("destroy").remove();', 5000);
 			});
 			return false;
@@ -76,12 +76,13 @@ $(document).ready(function(){
 			console.log(event.data);
 			if (event.data == 'END') {
 				eventSource.close();
-				$('#backup_status').next('progress').remove();
+				$('.backup_status').next('progress').val('1');
 				//setTimeout('box.dialog("close").dialog("destroy").remove();', 5000);
 			} else {
-				$('#backup_status').append(event.data + '<br>');
+				$('.backup_status').append(event.data + '<br>');
 			}
 		}, false);
+		console.log(eventSource)
 		eventSource.addEventListener('onerror', function (event) {
 		    console.log('e', event.data);
 		}, false);
@@ -218,7 +219,7 @@ function add_template(template) {
 			} else if (new_row.find('td').eq(1).find('input').length > 0) {
 				new_row.find('td').eq(1).find('input').val(template[item].path);
 			}
-			new_row.find('td').eq(2).find('textarea').val(template[item].exclude)
+			new_row.find('td').eq(2).find('textarea').val(template[item].exclude.join("\n"))
 		}
 	}
 

@@ -25,6 +25,7 @@ if (isset($vars['id']) && $vars['id']) {
 	//s= servers
 	//b= backup object
 	if ($bu = backup_get_backup($vars['id'])) {
+		
 		$s = backup_get_server('all_detailed');
 		$b = new Backup($bu, $s);		
 		backup_log(_('Intializing Backup') . ' ' .$vars['id']);
@@ -103,20 +104,21 @@ if (isset($vars['id']) && $vars['id']) {
 		if ($b->b['bu_server'] == "0") { //local backup? Were done!
 			backup_log(_('Backup successfully completed!'));
 		} else {
-			//TODO: restore to this server if requested
-			if (isset($b->b['manifest']['file_list'])) {
-				foreach ($b->b['manifest']['file_list'] as $dir => $file) {
-					$files[] = $dir;
+			if ($b->b['restore']) {
+				if (isset($b->b['manifest']['file_list'])) {
+					foreach ($b->b['manifest']['file_list'] as $dir => $file) {
+						$files[] = $dir;
+					}
 				}
+				$restore['settings'] = true;
+				if (isset($files)) {
+					$restore['files'] = $files;
+				}
+
+				backup_log(_('Restoring backup...'));
+				backup_restore($b->b['_tmpfile'], $restore);
 			}
-			$restore['settings'] = true;
-			if (isset($files)) {
-				$restore['files'] = $files;
-			}
-			
-			backup_log(_('Restoring backup...'));
-			backup_restore($b->b['_tmpfile'], $restore);
-			
+
 			backup_log(_('Running post-backup hooks...'));
 			$b->run_hooks('post-backup');
 			

@@ -247,7 +247,7 @@ class Backup {
 		$cmd[] = $to_stdout ? '-' : $this->b['_tmpfile'];
 		$cmd[] = '-C ' . $this->b['_tmpdir'];
 		$cmd[] = '.';
-		dbug('create_backup', implode(' ', $cmd));
+//		dbug('create_backup', implode(' ', $cmd));
 		if ($to_stdout) {
 			system(implode(' ', $cmd));
 		} else {

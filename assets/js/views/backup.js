@@ -82,7 +82,6 @@ $(document).ready(function(){
 				$('.backup_status').append(event.data + '<br>');
 			}
 		}, false);
-		console.log(eventSource)
 		eventSource.addEventListener('onerror', function (event) {
 		    console.log('e', event.data);
 		}, false);

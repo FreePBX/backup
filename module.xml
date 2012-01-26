@@ -23,6 +23,6 @@
 		*2.10.0.6* fixed legacy restore and per file restore bugs
 		*2.10.0.5* fixes upload and legacy restore
 	</changelog>
-	<location>release/2.10/backup-2.10.0.6.tgz</location>
-	<md5sum>b419434300b500fb61724fe089066b00</md5sum>
+	<location>release/2.10/backup-2.10.0.9.tgz</location>
+	<md5sum>58a5c954e7419b6a4895b7bfd5d7b5ad</md5sum>
 </module>

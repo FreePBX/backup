@@ -112,28 +112,31 @@ switch ($var['action']) {
 		array_walk_recursive($var['servers'], 'callback');
 		array_walk_recursive($var['templates'], 'callback');
 		
-		
-		//TODO: if $var['restore_path'] is an array, that means it contains an error + error
-		// message. Do something with the error meesage
-		if (!is_array($var['restore_path'])) {
-			//try to get a manifest, and continue if we did
-			//dbug($var['restore_path'], backup_get_manifest_tarball($_SESSION['backup_restore_path']));
-			if (!$var['manifest'] = backup_get_manifest_tarball($_SESSION['backup_restore_path'])) {
-				
-				//we didnt get a manifet. is this a legacy backup?
-				if($var['restore_path'] = backup_migrate_legacy($_SESSION['backup_restore_path'])) {
-					if(!$var['manifest'] = backup_get_manifest_tarball($var['restore_path'])) {
-						//nope, doesnt seem like legacy either. Guess we cant read this file
-						echo _('Invalid backup for or undefined error');
-					} else {
-						$_SESSION['backup_restore_path'] = $var['restore_path'];
-						echo load_view(dirname(__FILE__) . '/views/restore/backup_list.php', $var);
-					}
-				}
-				
-			}
+		if (is_array($var['restore_path'])) {
+			//TODO: if $var['restore_path'] is an array, that means it contains an error + error
+			// message. Do something with the error meesage
+			break;
 		}
-		//dbug($_SESSION['backup_restore_path'], $var);
+		
+		//try to get a manifest, and continue if we did
+		if ($var['manifest'] = backup_get_manifest_tarball($_SESSION['backup_restore_path'])) {
+			echo load_view(dirname(__FILE__) . '/views/restore/backup_list.php', $var);
+			break;
+		}
+		
+		//we didnt get a manifest. Maybe this is a legacy backup?
+		$var['restore_path']	= backup_migrate_legacy($_SESSION['backup_restore_path']);
+		$var['manifest']		= backup_get_manifest_tarball($var['restore_path']);
+		if ($var['restore_path'] && $var['manifest']) {
+			$_SESSION['backup_restore_path'] = $var['restore_path'];
+			echo load_view(dirname(__FILE__) . '/views/restore/backup_list.php', $var);
+			break;
+		}
+		
+		//still here? oops, something is really broken
+		echo _('Invalid backup for or undefined error');
+
+		dbug($_SESSION['backup_restore_path'], $var);
 		break;
 	default:
 		echo load_view(dirname(__FILE__) . '/views/restore/restore.php', $var);

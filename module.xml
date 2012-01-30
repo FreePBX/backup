@@ -23,6 +23,6 @@
 		2.10.0.9 improve eventstream log 
 		2.10.0.8 bug fixes
 	</changelog>
-	<location>release/2.10/backup-2.10.0.11.tgz</location>
-	<md5sum>a93096d917797e70fed3add126e608d5</md5sum>
+	<location>release/2.10/backup-2.10.0.12.tgz</location>
+	<md5sum>82614ad88795f21e9c7261ba0fac2a0a</md5sum>
 </module>

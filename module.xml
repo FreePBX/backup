@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>2.10.0.10</version>
+	<version>2.10.0.11</version>
 	<publisher>Schmoozecom.com</publisher>
 	<license>GPLv2+</license>
 	<category>Admin</category>
@@ -17,12 +17,12 @@
 		<module>core</module>
 	</depends>
 	<changelog>
+		2.10.0.11 bug fixes 
 		2.10.0.10 bug fixes 
 		2.10.0.9 improve eventstream log 
 		2.10.0.8 bug fixes 
-		2.10.0.7 bug fixes 
-		*2.10.0.6* fixed legacy restore and per file restore bugs
+		2.10.0.7 bug fixes
 	</changelog>
-	<location>release/2.10/backup-2.10.0.9.tgz</location>
-	<md5sum>a3c0838daa027409e334bb2c9a3e3f35</md5sum>
+	<location>release/2.10/backup-2.10.0.10.tgz</location>
+	<md5sum>d4a39792d4702aa012cb35bf165575dc</md5sum>
 </module>

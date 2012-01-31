@@ -17,11 +17,21 @@
 		<module>core</module>
 	</depends>
 	<changelog>
-		2.10.0.14 bug fixes 
-		2.10.0.13 bug fixes 
-		2.10.0.12 bug fixes 
-		2.10.0.11 bug fixes 
-		2.10.0.10 bug fixes
+		*2.10.0.14* bug fixes 
+		*2.10.0.13* bug fixes 
+		*2.10.0.12* bug fixes 
+		*2.10.0.11* bug fixes 
+		*2.10.0.10* bug fixes
+		*2.10.0.9* improve eventstream log 
+		*2.10.0.8* bug fixes 
+		*2.10.0.7* bug fixes 
+		*2.10.0.6* fixed legacy restore and per file restore bugs
+ 		*2.10.0.5* fixes upload and legacy restore
+ 		*2.10.0.4* small, critical variable 
+ 		*2.10.0.3* misc bug fixes
+		*2.10.0.2* #5418
+		*2.10.0.1* don't make jquery.jstree.min.js dynamic it blocks caching
+		*2.10.0.0* Backup Module Rewrite
 	</changelog>
 	<location>release/2.10/backup-2.10.0.14.tgz</location>
 	<md5sum>f498d47fbce4bd2faf470f6fa0394a0e</md5sum>

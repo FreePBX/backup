@@ -47,8 +47,10 @@ $template_list .= '</ul>';
 
 $table->set_heading(
 			fpbx_label(_('Backup Items'), 
-				_('drag templates and drop them in the items table to add the templates items to the table'))
-			, _('Templates'));
+				_('Drag templates and drop them in the items table to add the templates items to the table'))
+			, 
+			fpbx_label(_('Templates'), _('Drag templates and drop them in the Backup Items table. '
+										. 'Add as many templates as you need')));
 $table->add_row($current, array('data' => $template_list, 'style' => 'padding-left: 100px;padding-right: 100px'));
 $html .= $table->generate();
 $html .= $table->clear();

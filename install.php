@@ -319,7 +319,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 	);
 	$temp['full']				= $temp['basic'];
 	$temp['full']['name']		= 'Full Backup';
-	$temp['full']['desc']		= _('A full backup of core settings and web files');
+	$temp['full']['desc']		= _('A full backup of core settings and web files, dosen\'t include system sounds or recordings.');
 
 	$temp['full']['type'][]		= 'mysql';
 	$temp['full']['path'][]		= 'server-' . $server['cdr'];
@@ -343,7 +343,8 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 		
 	$temp['full']['type'][]		= 'dir';
 	$temp['full']['path'][]		= '__AMPBIN__';
-	$temp['full']['exclude'][]	= '';
+	$temp['full']['exclude'][]	= '__ASTVARLIBDIR__/moh';
+	$temp['full']['exclude'][]	= '__ASTVARLIBDIR__/sounds';
 	
 	$temp['full']['type'][]		= 'dir';
 	$temp['full']['path'][]		= '/etc/dahdi';
@@ -408,8 +409,8 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 	
 	$temp['safe_backup'] = array(
 					'id'		=> '',
-					'name'		=> 'Safe Remote Restore',
-					'desc'		=>	_('Doesn\'t backup Backup\'s settings so that they dont get restored'),
+					'name'		=> 'Exclude Backup Settings',
+					'desc'		=>	_('Exclude Backup\'s settings so that they dont get restored, usefull for a remote restore'),
 					'immortal'	=> 'true',
 					'type'		=> array(
 									'mysql',

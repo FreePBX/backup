@@ -21,7 +21,7 @@ function backup_del_template($id) {
 		die_freepbx($ret->getDebugInfo());
 	}
 	
-	/*todo: selete servers from backups
+	/*todo: select servers from backups
 	$sql = 'DELETE FROM backup_details WHERE server = ?';
 	$ret = $db->query($sql, $id);
 	if ($db->IsError($ret)){
@@ -34,43 +34,85 @@ function backup_del_template($id) {
 function backup_get_template($id = '') {
 	global $db;
 	
-	//return a blank if no id was set, all servers if 'all' was passed
-	//otherwise, a specifc server
+	//return a blank if no id was set, all templates if 'all' was passed
+	//otherwise, a specifc template
 
 	switch ($id) {
 		case '':
-			$ret = array(
+			return array(
 					'id'		=> '',
 					'name'		=> '',
+					'data'		=> array(),
 					'desc'		=> '',
 					'items'		=> array(),
 					'immortal'	=> ''
 					);
-			return $ret;
 			break;
 		case 'all':
 		case 'all_detailed':
-			$ret = sql('SELECT * FROM backup_templates ORDER BY name', 'getAll', DB_FETCHMODE_ASSOC);
 			$templates = array();
-			//set index to server id for easy retrieval
-			foreach ($ret as $s) {
-				//set index to  id for easy retrieval
-				$templates[$s['id']] = $s;
-				
-				//default name in one is missing
-				if (!$templates[$s['id']]['name']) {
-					$templates[$s['id']]['name'] = _('Template') . ' ' . $s['id'];
+			$ret = sql('SELECT * FROM backup_templates ORDER BY name', 'getAll', DB_FETCHMODE_ASSOC);
+		
+			//get hooks from other modules
+			$hook_temps = mod_func_iterator('hook_backup_get_template');
+			
+			//sanatizes hooks and push them in to the stack
+			foreach ($hook_temps as $mod => $template) {
+				foreach ($template as $my => $temp) {
+					$ret[] = backup_template_sanitize($temp, $mod);
 				}
 				
-				//add details if requested
+			}
+		
+			//sanatize/argument templates
+			foreach ($ret as $temp) {
 				if ($id == 'all_detailed') {
-					$templates[$s['id']] = backup_get_template($s['id']);
+					//backup_get_template() dose its own sanatization
+					$templates[$temp['id']] = backup_get_template($temp['id']);
+				} else {
+					$templates[$temp['id']] = backup_template_sanitize($temp);
 				}
 			}
-
+		
+			//this ugliness is here pending requiring php-53
+			//to migrate, just copy the functions in place of the string of same name
+			 function _anon_func1($val) {
+				return $val;
+			}
+			
+			 function _anon_func2($a, $b) {
+				if ($a['name'] == $b['name']) {
+					return 0;
+				} else {
+					return $a['name'] > $b['name'] ? 1 : -1;
+				}
+			}
+			
+			//remove any false values (templates that didnt pass sanitization)
+			$templates = array_filter($templates, '_anon_func1');
+		
+			//sort templaes based on template name
+			uasort($templates, '_anon_func2');
+	
 			return $templates;
 			break;
 		default:
+			//if the id is preceded by a module name, ask that module for the details
+			if (strpos($id, '-') !== false) {
+				
+				//get data by breaking up backup id
+				list($mod, $id) = explode('-', $id);
+		
+				//return template data if $mod's function exsists
+				if (function_exists($mod . '_hook_backup_get_template')) {
+					return backup_template_sanitize(
+								call_user_func($mod . '_hook_backup_get_template', $id),
+								$mod
+							);
+				}
+				
+			}
+			
 			$sql = 'SELECT * FROM backup_templates WHERE id = ?';
 			$ret = $db->getAll($sql, array($id), DB_FETCHMODE_ASSOC);
 			if ($db->IsError($ret)){
@@ -104,10 +146,8 @@ function backup_get_template($id = '') {
 				$ret['items'] = array();
 			}
 
+			$ret = backup_template_sanitize($ret);
 
-			//default a name
-			$ret['name'] = $ret['name'] ? $ret['name'] : 'Template ' . $ret['id'];
-			
 			return $ret;
 			break;
 	}
@@ -276,5 +316,42 @@ function backup_template_generate_tr($c, $i, $immortal = 'false', $build_tr = fa
 		return array('type' => $type, 'path' => $path, 'exclude' => $exclude, 'delete' => $delete);
 	}
  	
+}
+
+/**
+ *
+ * Sanatize a template and ensures it is in format we excpet
+ * @pram array - a template
+ * @pram string - module name, default to backup
+ *
+ * @returns mixed - the sanatized template or fals on error
+ */
+function backup_template_sanitize($temp, $mod = 'backup') {
+
+	//backup's id's are just a number. Add the module name for consistancy with hooks
+	//this can get a bit tricky - make sure we dotn already have a mod name set!
+	if ($mod == 'backup' && strpos($temp['id'], '-') === false) {
+		$temp['id'] = 'backup-' . $temp['id'];
+	}
+	$id = explode('-', $temp['id']);
+
+	//ensure we have a name
+	$temp['name'] = $temp['name'] ? $temp['name'] : $id[0] . ' ' . $id[1];
+							
+	//hooked templates are ALWAYS immortal
+	//partly as we dont have delete hooks, and partly because there is no
+	//need for modules to create templates that are NOT hard coded
+	if ($mod != 'backup') {
+		$temp['immortal'] = 'true';
+	}
+	
+	//unserialize data
+	if (!isset($temp['data'])) {
+		$temp['data'] = array();
+	} elseif(is_string($temp['data'])) {
+		$temp['data'] = unserialize($temp['data']);
+	} 
+
+	return $temp;
 }
 ?>

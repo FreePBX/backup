@@ -178,6 +178,7 @@ class Backup {
 				case 'mysql':
 					//build command
 					$s = str_replace('server-', '', $i['path']);
+					$sql_file = $this->b['_tmpdir'] . '/' . 'mysql-' . $s . '.sql';
 					$cmd[] = fpbx_which('mysqldump');
 					$cmd[] = '--host='		. backup__($this->s[$s]['host']);
 					$cmd[] = '--port='		. backup__($this->s[$s]['port']);
@@ -192,24 +193,29 @@ class Backup {
 						}
 					}
 					$cmd[] = ' --opt --skip-comments';
-					//$cmd[] = ' > ' . $this->b['_tmpdir'] . '/' . 'mysql-' . $s . '.sql';
-					exec(implode(' ', $cmd), $file, $status);
 
-					//dont keep the file if the command failed somehow
-					if ($status !== 0) {
-						unlink($this->b['_tmpdir'] . '/' . 'mysql-' . $s);
-					} else {
-						//remove comments from the file, otherwise we have difficulty restoring
-						foreach ($file as $f => $line) {
-							if (substr($line, 0, 2) == '/*' || substr($line, 0, 3) == 'SET') {
-								unset($file[$f]);
-							}
-						}
-						file_put_contents($this->b['_tmpdir'] . '/' . 'mysql-' . $s . '.sql', 
-											implode("\n", $file));
-					}
-;
+					// Need to grep out leading /* comments and SET commands as they create problems
+					// restoring using the PEAR $db class
+					//
+					$cmd[] = ' | ';
+					$cmd[] = fpbx_which('grep');
+					$cmd[] = "-v '^\/\*\|^SET'";
+					$cmd[] = ' > ' .  $sql_file;
+					
+					exec(implode(' ', $cmd), $file, $status);
 					unset($cmd, $file);
+
+					// remove file and log error information if it failed.
+					//
+					if ($status !== 0) {
+						unlink($sql_file);
+						$error_string = sprintf(
+							_("Backup failed dumping SQL database [%s] to file [%s], you have a corrupted backup from server [%s]."),
+							backup__($this->s[$s]['dbname']), $sql_file, backup__($this->s[$s]['host']) 
+						);
+						backup_log($error_string);
+						freepbx_log(FPBX_LOG_FATAL, $error_string);
+					}
 					break;
 				case 'astdb':
 					$exclude = array('RG', 'BLKVM', 'FM', 'dundi');
@@ -219,8 +225,6 @@ class Backup {
 					break;
 			}
 		}
-		
-		
 	}
 	
 	function run_hooks($hook) {

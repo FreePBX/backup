@@ -23,6 +23,11 @@ Reboot &nbsp&nbspRun at startup of the server OR of the cron deamon (i.e. after 
 If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved
 <br/><br/>
 Never will never run the backup automatically
+<br/><br/>
+If a custom schedule is selected, any section not specficed will be considered to be "any" (aka: wildcard).
+I.e. if Day of Month is set to 12 and Day of Week is not set, the Backup will be run on ANY 12th of
+the month - regardless of the day of the week. If Day of Week is set to, say, Monday, the Backup will run ONLY
+ on a Monday, and ONLY if it's the 12th of the month.
 EOM;
 $label = fpbx_label(_('Run'), _($txt));
 $html .= $label . ' ' . form_dropdown('cron_schedule', $data, $cron_schedule);

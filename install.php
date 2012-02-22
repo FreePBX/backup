@@ -343,8 +343,10 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 		
 	$temp['full']['type'][]		= 'dir';
 	$temp['full']['path'][]		= '__AMPBIN__';
-	$temp['full']['exclude'][]	= '__ASTVARLIBDIR__/moh';
-	$temp['full']['exclude'][]	= '__ASTVARLIBDIR__/sounds';
+	$temp['full']['exclude'][]	= array(
+									'__ASTVARLIBDIR__/moh',
+									'__ASTVARLIBDIR__/sounds'
+									);
 	
 	$temp['full']['type'][]		= 'dir';
 	$temp['full']['path'][]		= '/etc/dahdi';

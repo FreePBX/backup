@@ -108,14 +108,25 @@ class Backup {
 		//acquire file handler on lock file
 		
 		//TODO: use 'c+' once the project require php > 5.2.8
-		
 		if (file_exists($this->lock_file)) {
-			return false;
-		} else {
-			$this->lock	= fopen($this->lock_file, 'x+');
+			//get pid that set the lock and ensure its still running
+			$pid = file_get_contents($this->lock_file);
+			
+			exec(fpbx_which('ps') . ' h ' . $pid, $ret, $status);
+			//exit code ($status) will be 0 if running, or 1 if pid not found
+			if ($status === 0) {
+				return false;
+			} else {
+				//if we dont see the prosses running, remove the lock
+				unlink($this->lock_file);
+			}
 		}
 		
+		$this->lock	= fopen($this->lock_file, 'x+');
+
+		
 		if (flock($this->lock, LOCK_EX | LOCK_NB)) {
+			fwrite($this->lock, getmypid());
 			return true;
 		} else {
 			fclose($this->lock);

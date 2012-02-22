@@ -187,7 +187,7 @@ $html .= load_view(dirname(__FILE__) . '/../cron.php', $cron);
 
 //MAINTENANCE
 $html .= heading('Maintenance', 5) . '<hr class="backup-hr"/>';
-$label	= fpbx_label(_('Delete after'), _('Delete this backup after X amount of minuets/hours/days/weeks/months/years. Please note that deletes aren\'t time based and will only happen after a backup was run. Setting the value to 0 will disable any deleting'));
+$label	= fpbx_label(_('Delete after'), _('Delete this backup after X amount of minutes/hours/days/weeks/months/years. Please note that deletes aren\'t time based and will only happen after a backup was run. Setting the value to 0 will disable any deleting'));
 $data 	= array(
 			'name' 	=> 'delete_time', 
 			'value' => $delete_time,

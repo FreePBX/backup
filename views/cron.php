@@ -12,7 +12,7 @@ $data = array(
 			'custom'	=> _('Custom')
 );
 $txt = <<<EOM
-Select how often to run this backup. The following schedual will be followed for all but custom:<br/>
+Select how often to run this backup. The following schedule will be followed for all but custom:<br/>
 Hourly &nbsp&nbspRun once an hour, beginning of hour<br/>
 Daily &nbsp&nbsp&nbsp&nbspRun once a day, at midnight<br/>
 Weekly &nbsp&nbspRun once a week, midnight on Sun<br/>

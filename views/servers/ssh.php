@@ -56,7 +56,7 @@ $data = backup_server_writeable('user', $readonly, $data);
 $table->add_row(fpbx_label(_('User Name')), form_input($data));
 		
 //ssh key
-$label	= fpbx_label(_('Key'), _('Location of ssh private key to be used when connect to a host'));
+$label	= fpbx_label(_('Key'), _('Location of ssh private key to be used when connecting to a host'));
 $data 	= array(
 			'name' => 'key', 
 			'value' => $key,

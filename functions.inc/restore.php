@@ -316,7 +316,7 @@ function backup_migrate_legacy($bu) {
 	global $amp_conf;
 
 	$name = pathinfo($bu, PATHINFO_BASENAME);
-	if (!substr($name, -7) == '.tar.gz' ) {
+	if (substr($name, -7) != '.tar.gz' ) {
 		return false;
 	}
 	
@@ -452,7 +452,6 @@ function backup_migrate_legacy($bu) {
 	return $dest;
 }
 
-
 /*
  * do the actualy restore
  */
@@ -526,9 +525,6 @@ function backup_restore($bu, $items) {
 				//dont spill the buffer if its emtpy
 				if ($buffer) {
 					$q = $db->query(implode("\n", $buffer));
-					/*if ($db->IsError($q)){
-						dbug($q->getDebugInfo());
-					}*/
 					db_e($q);
 					//dbug($db->last_query);
 					$buffer = array();
@@ -553,6 +549,11 @@ function backup_restore($bu, $items) {
 			exec($manifest['hooks']['post_restore']);
 		}
 		mod_func_iterator('backup_post_restore_hook', $manifest);
+		
+		//ensure that manager username and password are whatever we think they should be
+		//the DB is authoritative, fetch whatever we have set there
+		$freepbx_conf =& freepbx_conf::create();
+		fpbx_ami_update($freepbx_conf->conf['AMPMGRUSER'], $freepbx_conf->conf['AMPMGRPASS']);
 		needreload();
 		
 		//delete backup file if it was a temp file

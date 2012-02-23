@@ -36,6 +36,7 @@ function backup_get_backup($id = '') {
 	switch ($id) {
 		case '':
 			$ret = array(
+				'applyconfigs'		=> '',
 				'bu_server'			=> '',
 				'cron_dom'			=> array(),
 				'cron_dow'			=> array(),
@@ -48,6 +49,7 @@ function backup_get_backup($id = '') {
 				'delete_amount'		=> 0,
 				'delete_time_type'	=> '',
 				'delete_time'		=> 0,
+				'diabletrunks'		=> '',
 				'exclude'			=> '',
 				'host'				=> '',
 				'id'				=> '',
@@ -130,7 +132,9 @@ function backup_get_backup($id = '') {
 			$ret['name'] = $ret['name'] ? $ret['name'] : 'Backup ' . $ret['id'];
 			
 			//ensure bool's are initialized
-			$ret['restore'] = isset($ret['restore']) ? $ret['restore'] : false;
+			$ret['restore']			= isset($ret['restore'])		? $ret['restore'] : false;
+			$ret['applyconfigs']	= isset($ret['applyconfigs'])	? $ret['applyconfigs'] : false;
+			$ret['diabletrunks']	= isset($ret['diabletrunks'])	? $ret['diabletrunks'] : false;
 			
 			//get items
 			$sql = 'SELECT type, path, exclude FROM backup_items WHERE backup_id = ?';
@@ -219,9 +223,20 @@ function backup_put_backup($var) {
 			case 'postre_hook':
 			case 'prebu_hook':
 			case 'prere_hook':
-			case 'restore':
-				//only save if we have a value
 				if ($value !== '') {
+					$data[] = array($var['id'],  $key, '', $value);
+				}
+				break;
+			case 'restore':
+				//only save if we have a value and we didnt select the local server
+				if ($value !== '' && $var['bu_server'] > 0) {
+					$data[] = array($var['id'],  $key, '', $value);
+				}
+				break;
+			case 'diabletrunks':
+			case 'applyconfigs':
+				//only save if we have a value, we didnt select the local server, and were doing a restore
+				if ($value !== '' && $var['bu_server'] > 0 && $var['restore'] == 'true') {
 					$data[] = array($var['id'],  $key, '', $value);
 				}
 				break;

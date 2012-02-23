@@ -30,7 +30,6 @@ if (isset($vars['id']) && $vars['id']) {
 		$b = new Backup($bu, $s);		
 		backup_log(_('Intializing Backup') . ' ' .$vars['id']);
 		$b->init();
-				
 		if ($b->b['bu_server'] == "0") {
 			//get lock to prevent backups from being run cuncurently
 			while (!$b->acquire_lock()) {
@@ -122,6 +121,15 @@ if (isset($vars['id']) && $vars['id']) {
 			backup_log(_('Running post-backup hooks...'));
 			$b->run_hooks('post-backup');
 			
+			//disable registered trunks if requested
+			if ($b->b['diabletrunks'] == 'true') {
+				//TODO: do soemthing
+			}
+			
+			//apply configs if requested
+			if ($b->b['applyconfigs'] == 'true') {
+				do_reload();
+			} 
 			backup_log(_('Backup successfully completed!'));
 		} 
 			

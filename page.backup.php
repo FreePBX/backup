@@ -1,7 +1,9 @@
 <?php 
+
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 $get_vars = array(
 				'action'			=> '',
+				'applyconfigs'		=> '',
 				'bu_server'			=> '',
 				'cron_dom'			=> array(),
 				'cron_dow'			=> array(),
@@ -14,6 +16,7 @@ $get_vars = array(
 				'delete_amount'		=> '',
 				'delete_time_type'	=> '',
 				'delete_time'		=> '',
+				'diabletrunks'		=> '',
 				'display'			=> '',
 				'exclude'			=> '',
 				'host'				=> '',

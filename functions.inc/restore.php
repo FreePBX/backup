@@ -553,7 +553,7 @@ function backup_restore($bu, $items) {
 		//ensure that manager username and password are whatever we think they should be
 		//the DB is authoritative, fetch whatever we have set there
 		$freepbx_conf =& freepbx_conf::create();
-		fpbx_ami_update($freepbx_conf->conf['AMPMGRUSER'], $freepbx_conf->conf['AMPMGRPASS']);
+		fpbx_ami_update($freepbx_conf->get_conf_setting('AMPMGRUSER', true), $freepbx_conf->get_conf_setting('AMPMGRPASS', true));
 		
 		//regenerate css. While this will be done on the next relaod, the gui might get out of wack until then
 		//due to a different comressed file being reoprted in the db

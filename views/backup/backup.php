@@ -82,6 +82,7 @@ $data 	= array(
 			'name' => 'prere_hook', 
 			'value' => $prere_hook
 		);
+	
 //$immortal ? $data['disabled'] = '' : '';
 $table->add_row($label, form_input($data));
 
@@ -125,9 +126,38 @@ $data = array(
 	'checked'	=> ($restore == 'true' ? true : false),
 );
 $label = fpbx_label(_('Restore Here'), 'Restored backup to this server after the backup is complete');
-$label = array('data' => form_label($label, 'restore'), 'class' => 'restore');
-$data = array('data' => form_checkbox($data), 'class' => 'restore');
+$label = array('data' => form_label($label, 'restore'), 'class' => 'remote ');
+$data = array('data' => form_checkbox($data), 'class' => 'remote ');
 $table->add_row($label, $data);
+
+//disbale trunks
+$label = fpbx_label(_('Disable Registered trunks'), 
+		'After a restore, disable any trunks that use registration. This is helpfull to '
+		. 'prevent the Primary sytem and the Standby systems from "fighting"  for the '
+		. 'registration with your provider, and posibly have calls routed to your Standby system.');
+$data = array(
+	'name'		=> 'diabletrunks',
+	'id'		=> 'diabletrunks',
+	'value'		=> 'true',
+	'checked'	=> ($diabletrunks == 'true' ? true : false),
+);
+$label = array('data' => form_label($label, 'diabletrunks'), 'class' => 'remote restore');
+$data = array('data' => form_checkbox($data), 'class' => 'remote restore');
+$table->add_row($label, $data);
+
+//apply configs
+$label = fpbx_label(_('Apply Config after Restore'), 
+		'Equivalence of clicking the red button, will happen automatically after a restore on a Standby system');
+$data = array(
+	'name'		=> 'applyconfigs',
+	'id'		=> 'applyconfigs',
+	'value'		=> 'true',
+	'checked'	=> ($applyconfigs == 'true' ? true : false),
+);
+$label = array('data' => form_label($label, 'applyconfigs'), 'class' => 'remote restore');
+$data = array('data' => form_checkbox($data), 'class' => 'remote restore');
+$table->add_row($label, $data);
+
 
 $html .= $table->generate();
 $html .= $table->clear();

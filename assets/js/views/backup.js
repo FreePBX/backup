@@ -1,7 +1,9 @@
 $(document).ready(function(){
-	//resotre
+	//remote
+	remote();
+	$('select[name=bu_server]').change(remote);
 	restore();
-	$('select[name=bu_server]').change(restore)
+	$('input[type=checkbox][name=restore]').change(restore);
 	//cron_custom
 	cron_custom();
 	$('select[name=cron_schedule]').change(cron_custom);
@@ -91,13 +93,22 @@ $(document).ready(function(){
 	//style cron custom times
 	$('#crondiv').find('input[type=checkbox]').button()
 })
-function restore() {
+function remote() {
 	if ($('select[name=bu_server]').val() == 0) {
 		$('#restore').removeAttr("checked");
-		$('.restore').hide()
+		$('.remote').hide()
 	} else {
-		$('.restore').show()
+		$('.remote').show()
+		restore();
 	}
+}
+
+function restore() {
+	if ($('input[type=checkbox][name=restore]').is(':checked')) {
+			$('.restore').show();
+		} else {
+			$('.restore').hide();
+		}
 }
 
 function cron_custom() {

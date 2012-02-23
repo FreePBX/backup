@@ -131,6 +131,7 @@ $data = array('data' => form_checkbox($data), 'class' => 'remote ');
 $table->add_row($label, $data);
 
 //disbale trunks
+/*
 $label = fpbx_label(_('Disable Trunks'), 
 		'After a restore, disable any trunks that use registration. This is helpfull to '
 		. 'prevent the Primary sytem and the Standby systems from "fighting"  for the '
@@ -144,6 +145,7 @@ $data = array(
 $label = array('data' => form_label($label, 'diabletrunks'), 'class' => 'remote restore');
 $data = array('data' => form_checkbox($data), 'class' => 'remote restore');
 $table->add_row($label, $data);
+ */
 
 //apply configs
 $label = fpbx_label(_('Apply Configs'), 

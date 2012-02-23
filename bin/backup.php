@@ -128,7 +128,7 @@ if (isset($vars['id']) && $vars['id']) {
 			
 			//apply configs if requested
 			if ($b->b['applyconfigs'] == 'true') {
-				do_reload();
+				do_reload(true);
 			} 
 			backup_log(_('Backup successfully completed!'));
 		} 

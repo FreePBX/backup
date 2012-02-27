@@ -49,7 +49,7 @@ function backup_get_backup($id = '') {
 				'delete_amount'		=> 0,
 				'delete_time_type'	=> '',
 				'delete_time'		=> 0,
-				'diabletrunks'		=> '',
+				'disabletrunks'		=> '',
 				'exclude'			=> '',
 				'host'				=> '',
 				'id'				=> '',
@@ -134,7 +134,7 @@ function backup_get_backup($id = '') {
 			//ensure bool's are initialized
 			$ret['restore']			= isset($ret['restore'])		? $ret['restore'] : false;
 			$ret['applyconfigs']	= isset($ret['applyconfigs'])	? $ret['applyconfigs'] : false;
-			$ret['diabletrunks']	= isset($ret['diabletrunks'])	? $ret['diabletrunks'] : false;
+			$ret['disabletrunks']	= isset($ret['disabletrunks'])	? $ret['disabletrunks'] : false;
 			
 			//get items
 			$sql = 'SELECT type, path, exclude FROM backup_items WHERE backup_id = ?';
@@ -233,7 +233,7 @@ function backup_put_backup($var) {
 					$data[] = array($var['id'],  $key, '', $value);
 				}
 				break;
-			case 'diabletrunks':
+			case 'disabletrunks':
 			case 'applyconfigs':
 				//only save if we have a value, we didnt select the local server, and were doing a restore
 				if ($value !== '' && $var['bu_server'] > 0 && $var['restore'] == 'true') {

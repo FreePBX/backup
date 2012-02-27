@@ -122,9 +122,9 @@ if (isset($vars['id']) && $vars['id']) {
 			$b->run_hooks('post-backup');
 			
 			//disable registered trunks if requested
-			if ($b->b['diabletrunks'] == 'true') {
-				//disables all trunks. Is there a good reason to only do registered trunks?
-				core_trunks_toggle_state('all', 'on');
+			if ($b->b['disabletrunks'] == 'true') {
+				//disables registered trunks
+				core_trunks_disable('reg', true);
 			}
 			
 			//apply configs if requested

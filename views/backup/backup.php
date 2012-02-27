@@ -131,10 +131,10 @@ $data = array('data' => form_checkbox($data), 'class' => 'remote ');
 $table->add_row($label, $data);
 
 //disbale trunks
-$label = fpbx_label(_('Disable Trunks'), 
+$label = fpbx_label(_('Disable Registered Trunks'), 
 		'After a restore, disable any trunks that use registration. This is helpfull to '
-		. 'prevent the Primary sytem and the Standby systems from "fighting"  for the '
-		. 'registration with your provider, and posibly have calls routed to your Standby system.');
+		. 'prevent the Primary and Standby systems from "fighting" for the '
+		. 'registration, resulting in some calls routed to the Standby system.');
 $data = array(
 	'name'		=> 'disabletrunks',
 	'id'		=> 'disabletrunks',

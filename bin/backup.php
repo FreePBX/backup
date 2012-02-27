@@ -123,7 +123,8 @@ if (isset($vars['id']) && $vars['id']) {
 			
 			//disable registered trunks if requested
 			if ($b->b['diabletrunks'] == 'true') {
-				//TODO: do soemthing
+				//disables all trunks. Is there a good reason to only do registered trunks?
+				core_trunks_toggle_state('all', 'on');
 			}
 			
 			//apply configs if requested

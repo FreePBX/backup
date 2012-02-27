@@ -80,6 +80,7 @@ switch ($var['action']) {
 		break;
 	case 'restore':
 		backup_restore($_SESSION['backup_restore_path'], $var['restore']);
+		do_reload(true);//reload freepbx //TODO: make this optional from the resotre page
 		break;
 	default:
 		//if backup_restore_path is already set, we probobly dont want that any more. delete it

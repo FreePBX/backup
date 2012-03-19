@@ -314,14 +314,34 @@ function backup_restore_locate_file($id, $path) {
  */
 function backup_migrate_legacy($bu) {
 	global $amp_conf;
-
+	$legacy_name = '';
 	$name = pathinfo($bu, PATHINFO_BASENAME);
 	if (substr($name, -7) != '.tar.gz' ) {
 		return false;
 	}
 	
-	$legacy_name = substr($name, 0, -7);
+	//get legacy name based on the directory the legacy backup was origionally created in
+	//were expcecting to see something like: /tmp/ampbackups.20110310.16.00.00/
+	//in the tarball
+	$cmd[] = fpbx_which('tar');
+	$cmd[] = 'tf';
+	$cmd[] = $bu;
+	exec(implode(' ', $cmd), $res);
+	unset($cmd);
 	
+	foreach ($res as $r) {
+		if (preg_match('/\/tmp\/ampbackups\.([\d]{8}(\.[\d]{2}){3})\//', $r, $legacy_name)) {
+			if (isset($legacy_name[1])) {
+				$legacy_name = $legacy_name[1];
+				break;
+			}
+		}
+	}
+	if (!$legacy_name) {
+		return false;
+	}
+	
+	//create directory where tarball will be exctracted to
 	$dir = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . $legacy_name;
 	mkdir($dir, 0755, true);
 
@@ -333,7 +353,8 @@ function backup_migrate_legacy($bu) {
 	unset($cmd);
 
 	$dir2 = $dir . '/tmp/ampbackups.' . $legacy_name;
-
+	
+	//exctract sub tarballs
 	foreach (scandir($dir2) as $file) {
 		if (substr($file, -7) == '.tar.gz') {
 			$cmd[] = fpbx_which('tar');
@@ -393,31 +414,59 @@ function backup_migrate_legacy($bu) {
 	}
 	
 	//migrate mysql files to a format that we can restore from
-	if (is_file($dir2 . '/asterisk.sql')) {
-		rename($dir2 . '/asterisk.sql', $dir2 . '/mysql-db.sql');
+	$src = $dir2 . '/asterisk.sql';
+	if (is_file($src)) {
+		$dst = $dir2 . '/mysql-db.sql';
+		
 		unset($ret['file_list'][array_search('asterisk.sql', $ret['file_list'])]);//remove from manifest
 		$ret['fpbx_db'] = 'mysql-db';
 		$ret['mysql']['db'] = array('file' => 'mysql-db.sql');
-		foreach($file = file($dir2 . '/mysql-db.sql') as $num => $line) {
-			if (in_array(substr($line, 0, 2), array('--', '/*'))) {
-				unset($file[$num]);
-			}
-		}
 
-		file_put_contents($dir2 . '/mysql-db.sql', $file);
+		// remove SET and comments that later break restores when using pear
+		$cmd[] = fpbx_which('grep');
+		$cmd[] = "-v '^\/\*\|^SET\|^--'";
+		$cmd[] = $src;
+		$cmd[] = ' > ' .  $dst;
+		exec(implode(' ', $cmd), $file, $status);
+		if ($status) {
+			// The grep failed, if there is a $dst file remove it and either way rename the $src
+			freepbx_log(FPBX_LOG_ERROR, 
+				_("Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in current state"));
+			if (is_file($dst)) {
+				unlink($dst);
+			}
+			rename($src,$dst);
+		} else {
+			unlink($src);
+		}
+		unset($cmd, $file);
 	}
 	
-	if (is_file($dir2 . '/asteriskcdr.sql')) {
-		rename($dir2 . '/asteriskcdr.sql', $dir2 . '/mysql-cdr.sql');
+	$src = $dir2 . '/asteriskcdr.sql';
+	if (is_file($src)) {
+		$dst = $dir2 . '/mysql-cdr.sql';
 		unset($ret['file_list'][array_search('asteriskcdr.sql', $ret['file_list'])]);//remove from manifest
 		$ret['fpbx_cdrdb'] = 'mysql-cdr';
 		$ret['mysql']['cdr'] = array('file' => 'mysql-cdr.sql');
-		foreach($file = file($dir2 . '/mysql-cdr.sql') as $num => $line) {
-			if (in_array(substr($line, 0, 2), array('--', '/*'))) {
-				unset($file[$num]);
+
+
+		// remove SET and comments that later break restores when using pear
+		$cmd[] = fpbx_which('grep');
+		$cmd[] = "-v '^\/\*\|^SET\|^--'";
+		$cmd[] = $src;
+		$cmd[] = ' > ' .  $dst;
+		exec(implode(' ', $cmd), $file, $status);
+		if ($status) {
+			// The grep failed, if there is a $dst file remove it and either way rename the $src
+			freepbx_log(FPBX_LOG_ERROR, _("Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr.sql in current state"));
+			if (is_file($dst)) {
+				unlink($dst);
 			}
+			rename($src,$dst);
+		} else {
+			unlink($src);
 		}
-		file_put_contents($dir2 . '/mysql-cdr.sql', $file);
+		unset($cmd, $file);
 	}
 	
 	$ret['mysql_count']	= $ret['mysql'] ? count($ret['mysql']) : 0;

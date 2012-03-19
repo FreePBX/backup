@@ -48,6 +48,13 @@ if ($var['submit'] == _('Delete') && $var['action'] == 'save') {
 
 //action actions
 switch ($var['action']) {
+	case 'ajax_save':
+		//clear all buffers, we dont want to return any html
+		while (ob_get_level()) {
+			ob_end_clean();
+		}
+		$var['id'] = backup_put_backup($var);
+		exit();//no need to do anything else, get out
 	case 'save':
 		$var['id'] = backup_put_backup($var);
 		break;
@@ -67,9 +74,6 @@ switch ($var['action']) {
 		ob_start();
 		header('Content-Type: text/event-stream');
 		header('Cache-Control: no-cache');
-		//header('Expires: ' . date('r', time() + 60));
-		//header('Last-Modified: ' . date('r', time() - 60));
-		//header('Pragma: no-cache');
 		$cmd = $amp_conf['ASTVARLIBDIR'] . '/bin/backup.php --id=' 
 				. escapeshellcmd($var['id']) . ' 2>&1';
 				

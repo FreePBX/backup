@@ -43,7 +43,7 @@ $(document).ready(function(){
 	});
 	//run backup
 	$('#run_backup').click(function(){
-
+		
 		id = $('#backup_form').find('[name=id]').val();
 		if (typeof id == 'undefined' || !id) {
 			return false;
@@ -63,6 +63,33 @@ $(document).ready(function(){
 					$(e.target).dialog("destroy").remove();
 				}
 			});
+		
+		//first, save the backup
+		$('.backup_status').append('Saving Backup ' + id + '...');
+		//get form data and change action to 'ajax_save'
+		var data = $('#backup_form').serializeArray();
+		for(var i=0; i < data.length; i++) {
+			if (data[i].name == 'action') {
+				data[i].value = 'ajax_save';
+				break;
+			}
+		}
+
+		$.ajax({
+			type: $('#backup_form').attr('method'),
+			url: $('#backup_form').attr('action'),
+			data: data,
+			success: function() {
+				$('.backup_status').append('done!' + '<br>');
+				
+			},
+			error: function() {
+				$('.backup_status').append('<br>' + 'Error: could not save backup. Aborting!' + '<br>');
+				$('.backup_status').next('progress').val('1');
+				return true;
+			}
+		});
+
 		url = window.location.pathname 
 			+ '?display=backup&action=run&id=' + id
 		

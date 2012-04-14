@@ -323,8 +323,8 @@ class Backup {
 					$s['path'] = backup__($s['path']);
 					$ftp = ftp_connect($s['host'], $s['port']);
 					if (ftp_login($ftp, $s['user'], $s['password'])) {
-						//use pasive mode
-						ftp_pasv($ftp, true);
+						//chose pasive/active transfer mode
+						ftp_pasv($ftp, ($s['transfer'] == 'passive'));
 						
 						//switch to directory. If we fail, build directory structure and try again
 						if (!ftp_chdir($ftp, $s['path'] . '/' . $this->b['_dirname'])) {

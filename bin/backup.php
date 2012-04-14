@@ -122,7 +122,7 @@ if (isset($vars['id']) && $vars['id']) {
 			$b->run_hooks('post-backup');
 			
 			//disable registered trunks if requested
-			if ($b->b['disabletrunks'] == 'true') {
+			if ($b->b['disabletrunks'] == 'true' && function_exists('core_trunks_disable')) {
 				//disables registered trunks
 				core_trunks_disable('reg', true);
 			}

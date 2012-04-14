@@ -11,15 +11,11 @@ function backup_del_template($id) {
 	
 	$sql = 'DELETE FROM backup_templates WHERE id = ?';
 	$ret = $db->query($sql, $id);
-	if ($db->IsError($ret)){
-		die_freepbx($ret->getDebugInfo());
-	}
+	db_e($ret);
 	
 	$sql = 'DELETE FROM backup_template_details WHERE template_id = ?';
 	$ret = $db->query($sql, $id);
-	if ($db->IsError($ret)){
-		die_freepbx($ret->getDebugInfo());
-	}
+	db_e($ret);
 	
 	/*todo: select servers from backups
 	$sql = 'DELETE FROM backup_details WHERE server = ?';

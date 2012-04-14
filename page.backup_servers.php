@@ -20,6 +20,7 @@ $get_vars = array(
 				'user'			=> '',
 				'server_type'	=> '',
 				'submit'		=> '',
+				'transfer'		=> '',
 				'type'			=> ''	
 				);
 

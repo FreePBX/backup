@@ -75,6 +75,30 @@ $data 	= array(
 $data = backup_server_writeable('path', $readonly, $data);
 $table->add_row($label, form_input($data));
 
+//connection type key
+$label	= fpbx_label(_('Transfer Mode'));
+$lableactive = form_label('Active', 'transferactive');
+$active = array(
+			'name'	=> 'transfer', 
+			'value'	=> 'active',
+			'id'	=> 'transferactive'
+);
+$transfer == 'active' ? $active['checked'] = 'checked' : '';
+$active = backup_server_writeable('transfer', $readonly, $active);
+$lablepassive = form_label('Passive', 'transferpassive');
+$passive = array(
+			'name' => 'transfer', 
+			'value' => 'passive',
+			'id'	=> 'transferpassive'
+);
+$transfer == 'passive' ? $passive['checked'] = 'checked' : '';
+$passive = backup_server_writeable('transfer', $readonly, $passive);
+$table->add_row($label, 
+	'<span class="radioset">' 
+		. $lableactive . form_radio($active)
+		. $lablepassive . form_radio($passive)
+	. '</span>');
+
 $html .= $table->generate();
 
 if ($readonly != array('*')) {

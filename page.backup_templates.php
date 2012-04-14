@@ -41,6 +41,12 @@ switch ($var['action']) {
 	case 'edit':
 	case 'save':
 		$var = array_merge($var, backup_get_template($var['id']));
+		
+		//template id's are all prefixed by their module name for hooking reasons. Clear that past this point
+		if (strpos($var['id'], 'backup-') === 0) {
+			$var['id'] = substr($var['id'], 7);
+		}
+
 		echo load_view(dirname(__FILE__) . '/views/templates/template.php', $var);
 		break;
 	default:

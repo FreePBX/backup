@@ -22,6 +22,7 @@ $backup_server_blanks['ftp'] =
 		'user'		=> '',
 		'password'	=> '',
 		'path'		=> '',
+		'transfer'	=> 'passive',
 		'type'		=> 'ftp',
 		'readonly'	=> array(),
 		'immortal'	=> ''
@@ -74,45 +75,34 @@ function backup_del_server($id) {
 
 	//dont delete if deleting has been blocked
 	$immortal = $db->getOne('SELECT immortal FROM backup_servers WHERE id = ?', $id);
+	db_e($immortal);
 	if ($immortal && $immortal == 'true') {
 		return $id;
-	} else {
-		return false;//db error
 	}
 	
 	$sql = 'DELETE FROM backup_servers WHERE id = ?';
 	$ret = $db->query($sql, $id);
-	if ($db->IsError($ret)){
-		die_freepbx($ret->getDebugInfo());
-	}
+	db_e($ret);
 	
 	$sql = 'DELETE FROM backup_server_details WHERE server_id = ?';
 	$ret = $db->query($sql, $id);
-	if ($db->IsError($ret)){
-		die_freepbx($ret->getDebugInfo());
-	}
+	db_e($ret);
 	
 	//delete from backups_details
 	$sql = 'DELETE FROM backup_details WHERE `key` = "storage_servers" and value = ?';
 	$ret = $db->query($sql, $id);
-	if ($db->IsError($ret)){
-		die_freepbx($ret->getDebugInfo());
-	}
+	db_e($ret);
 	
 	//delete from backups_items
-	$sql = 'DELETE FROM backup_details WHERE type = "mysql" AND path = CONCAT("server-", ?)';
+	$sql = 'DELETE FROM backup_items WHERE type = "mysql" AND path = CONCAT("server-", ?)';
 	$ret = $db->query($sql, $id);
-	if ($db->IsError($ret)){
-		die_freepbx($ret->getDebugInfo());
-	}
+	db_e($ret);
 	
 	//delete from templates
 	$sql = 'DELETE FROM backup_template_details WHERE type = "mysql" AND path = CONCAT("server-", ?)';
 	$ret = $db->query($sql, $id);
-	dbug('temp', $db->last_query);
-	if ($db->IsError($ret)){
-		die_freepbx($ret->getDebugInfo());
-	}
+	//dbug('temp', $db->last_query);
+	db_e($ret);
 	
 	return '';
 }
@@ -174,7 +164,8 @@ function backup_put_server($var) {
 						array($var['id'], 'port', $var['port']),
 						array($var['id'], 'user', $var['user']),
 						array($var['id'], 'path', $var['path']),
-						array($var['id'], 'password', $var['password'])
+						array($var['id'], 'password', $var['password']),
+						array($var['id'], 'transfer', $var['transfer'])
 					);
 			break;
 		

@@ -203,7 +203,7 @@ class Backup {
 									. '.' . backup__($x);
 						}
 					}
-					$cmd[] = ' --opt --skip-comments';
+					$cmd[] = ' --opt --skip-comments --skip-extended-insert';
 
 					// Need to grep out leading /* comments and SET commands as they create problems
 					// restoring using the PEAR $db class
@@ -221,7 +221,8 @@ class Backup {
 					if ($status !== 0) {
 						unlink($sql_file);
 						$error_string = sprintf(
-							_("Backup failed dumping SQL database [%s] to file [%s], you have a corrupted backup from server [%s]."),
+							_("Backup failed dumping SQL database [%s] to file [%s], "
+							. "you have a corrupted backup from server [%s]."),
 							backup__($this->s[$s]['dbname']), $sql_file, backup__($this->s[$s]['host']) 
 						);
 						backup_log($error_string);
@@ -229,9 +230,9 @@ class Backup {
 					}
 					break;
 				case 'astdb':
-					$exclude = array('RG', 'BLKVM', 'FM', 'dundi');
-					$exclude = array_merge(explode("\n", $i['exclude']), $exclude);
-					$astdb = astdb_get($exclude);
+					$hard_exclude	= array('RG', 'BLKVM', 'FM', 'dundi');
+					$exclude		= array_merge($i['exclude'], $hard_exclude);
+					$astdb			= astdb_get($exclude);
 					file_put_contents($this->b['_tmpdir'] . '/astdb', serialize($astdb));
 					break;
 			}
@@ -262,7 +263,7 @@ class Backup {
 		$cmd[] = $to_stdout ? '-' : $this->b['_tmpfile'];
 		$cmd[] = '-C ' . $this->b['_tmpdir'];
 		$cmd[] = '.';
-//		dbug('create_backup', implode(' ', $cmd));
+		//dbug('create_backup', implode(' ', $cmd));
 		if ($to_stdout) {
 			system(implode(' ', $cmd));
 		} else {
@@ -276,12 +277,13 @@ class Backup {
 			$s = $this->s[$s];
 			switch ($s['type']) {
 				case 'local':
+					$path = backup__($s['path']) . '/' . $this->b['_dirname'];
 					//ensure directory structure
-					if (!is_dir($this->b['_dirpath'])) {
-						mkdir($this->b['_dirpath'], 0755, true);
+					if (!is_dir($path)) {
+						mkdir($path, 0755, true);
 					}
 					
-					copy($this->b['_tmpfile'], $this->b['_dirpath'] . '/' . $this->b['_file'] . '.tgz');
+					copy($this->b['_tmpfile'], $path . '/' . $this->b['_file'] . '.tgz');
 					
 					//run maintenance on the directory
 					$this->maintenance($s['type'], $s);
@@ -357,6 +359,7 @@ class Backup {
 					$cmd[] = '-o StrictHostKeyChecking=no -i';
 					$cmd[] = $s['key'];
 					$cmd[] = $s['user'] . '\@' . $s['host'];
+					$cmd[] = '-p ' . $s['port'];
 					$cmd[] = 'mkdir -p ' . $s['path'] 
 							. '/' . $this->b['_dirname'];
 
@@ -367,6 +370,7 @@ class Backup {
 					$cmd[] = fpbx_which('scp');
 					$cmd[] = '-o StrictHostKeyChecking=no -i';
 					$cmd[] = $s['key'];
+					$cmd[] = '-P ' . $s['port'];
 					$cmd[] = $this->b['_tmpfile'];
 					$cmd[] = $s['user'] . '\@' . $s['host'] 
 							. ':' . $s['path'] . '/' . $this->b['_dirname'];
@@ -498,7 +502,7 @@ class Backup {
 		//get file list
 		switch ($type) {
 			case 'local':
-				$dir = scandir($this->b['_dirpath']);
+				$dir = scandir(backup__($data['path']) . '/' . $this->b['_dirname']);
 				break;
 			case 'ftp':
 				$dir = ftp_nlist($handle, '.');
@@ -508,6 +512,7 @@ class Backup {
 				$cmd[] = '-o StrictHostKeyChecking=no -i';
 				$cmd[] = $data['key'];
 				$cmd[] = $data['user'] . '\@' . $data['host'];
+				$cmd[] = '-p ' . $data['port'];
 				$cmd[] = 'ls -1 ' . $data['path'] . '/' . $this->b['_dirname'];
 				exec(implode(' ', $cmd), $dir);
 				unset($cmd);
@@ -565,6 +570,7 @@ class Backup {
 					$cmd[] = '-o StrictHostKeyChecking=no -i';
 					$cmd[] = $data['key'];
 					$cmd[] = $data['user'] . '\@' . $data['host'];
+					$cmd[] = '-p ' . $data['port'];
 					$cmd[] = 'rm ' . $data['path'] . '/' . '/' . $this->b['_dirname'] . '/' . $file;
 					exec(implode(' ', $cmd));
 					unset($delete[$key]);

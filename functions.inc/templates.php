@@ -187,7 +187,11 @@ function backup_put_template($var) {
 				$saved[$type][$var['path'][$e_id]] = true;
 				
 				//ensure excludes are unique and clean
-				$excludes = explode("\n", $var['exclude'][$e_id]);
+				if (!is_array($var['exclude'][$e_id])) {
+					$excludes = explode("\n", $var['exclude'][$e_id]);
+				} else {
+					$excludes = $var['exclude'][$e_id];
+				}
 				foreach ($excludes as $my => $e) {
 					$excludes[$my] = trim($e);
 				}

@@ -216,6 +216,7 @@ function backup_put_backup($var) {
 			case 'bu_server':
 			case 'cron_random':
 			case 'cron_schedule':
+			case 'desc':
 			case 'delete_amount':
 			case 'delete_time_type':
 			case 'delete_time':
@@ -274,8 +275,11 @@ function backup_put_backup($var) {
 				//mark row as saved so that we can check for dups
 				$saved[$type][$var['path'][$e_id]] = true;
 				
-				//ensure excludes are unique and clean
-				$excludes = explode("\n", $var['exclude'][$e_id]);
+				//ensure excludes are unique and clean, dont explode if the string is blank
+				$excludes = trim($var['exclude'][$e_id])
+							? explode("\n", $var['exclude'][$e_id])
+							: array();
+
 				foreach ($excludes as $my => $e) {
 					$excludes[$my] = trim($e);
 				}
@@ -322,11 +326,11 @@ function backup_set_backup_cron() {
 					$cron['event']		= $b['cron_schedule'];
 					break;
 				case 'custom':
-					$cron['minute']		= isset($b['cron_minute'])	? implode(',', $b['cron_minute'])	: '';
-					$cron['dom']		= isset($b['cron_dom'])		? implode(',', $b['cron_dom'])		: '';
-					$cron['dow']		= isset($b['cron_dow'])		? implode(',', $b['cron_dow'])		: '';
-					$cron['hour']		= isset($b['cron_hour'])	? implode(',', $b['cron_hour'])		: '';
-					$cron['month']		= isset($b['cron_month'])	? implode(',', $b['cron_month'])	: '';
+					$cron['minute']		= isset($b['cron_minute'])	? implode(',', $b['cron_minute'])	: '*';
+					$cron['dom']		= isset($b['cron_dom'])		? implode(',', $b['cron_dom'])		: '*';
+					$cron['dow']		= isset($b['cron_dow'])		? implode(',', $b['cron_dow'])		: '*';
+					$cron['hour']		= isset($b['cron_hour'])	? implode(',', $b['cron_hour'])		: '*';
+					$cron['month']		= isset($b['cron_month'])	? implode(',', $b['cron_month'])	: '*';
 					break;
 			}
 		} else {

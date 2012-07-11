@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>2.10.0.23</version>
+	<version>2.10.0.31</version>
 	<publisher>Schmoozecom.com</publisher>
 	<license>GPLv2+</license>
 	<category>Admin</category>
@@ -16,7 +16,16 @@
 	<depends>
 		<module>core</module>
 	</depends>
-	<changelog>
+    <changelog>
+		*2.10.0.31* bug fixes 
+		*2.10.0.30* bug fixes 
+		*2.10.0.29* re #5907 - fix astdb backup/restore commands 
+		*2.10.0.28* #5871, #5823, #5615, #5825, #5573
+		*2.10.0.27* include core to allow trunks to be disabled
+		*2.10.0.26* implement cdr restore 
+		*2.10.0.26* implement cdr restore 
+		*2.10.0.25* re #5659 - seems r14000 is missing a chunk of the fix. Here it is. 
+		*2.10.0.24* re #5659 - set correct path on local servers; fix array being passed in astdb excludes; visual improvement to run button onhover 
 		*2.10.0.23* r13797 was using wrong index 
 		*2.10.0.22* #5598
 		*2.10.0.21* revert (and improve) more of r13141 which broke restoring legacy backups 
@@ -42,6 +51,6 @@
 		*2.10.0.1* don't make jquery.jstree.min.js dynamic it blocks caching
 		*2.10.0.0* Backup Module Rewrite
 	</changelog>
-	<location>release/2.10/backup-2.10.0.23.tgz</location>
-	<md5sum>9322965f5bc0ae8f4f0aa792ca8eb772</md5sum>
+	<location>release/2.10/backup-2.10.0.31.tgz</location>
+	<md5sum>0fbd648d6efba1c1ab3eebd0f28689e5</md5sum>
 </module>

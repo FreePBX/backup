@@ -536,10 +536,22 @@ function backup_restore($bu, $items) {
 	}
 	unset($manifest['file_list']);
 	//dbug('$manifest', $manifest);
-	if (isset($items['settings']) && $items['settings'] == 'true') {
-		$s = explode('-', $manifest['fpbx_db']);
+	
+	//restore cdr's if requested
+	if (isset($items['cdr']) && $items['cdr'] == 'true') {
+		$s = explode('-', $manifest['fpbx_cdrdb']);
 		$file = $manifest['mysql'][$s[1]]['file'];
-		
+		 //create cdrdb handler
+		$dsn = array(
+				'phptype'  => $amp_conf['CDRDBTYPE'] ? $amp_conf['CDRDBTYPE'] : $amp_conf['AMPDBENGINE'],
+				'hostspec' => $amp_conf['CDRDBHOST'] ? $amp_conf['CDRDBHOST'] : $amp_conf['AMPDBHOST'],
+				'username' => $amp_conf['CDRDBUSER'] ? $amp_conf['CDRDBUSER'] : $amp_conf['AMPDBUSER'],
+				'password' => $amp_conf['CDRDBPASS'] ? $amp_conf['CDRDBPASS'] : $amp_conf['AMPDBPASS'],
+				'port'     => $amp_conf['CDRDBPORT'] ? $amp_conf['CDRDBPORT'] : '3306',
+				//'socket'   => $amp_conf['CDRDBTYPE'] ? $amp_conf['CDRDBTYPE'] : 'mysql',
+				'database' => $amp_conf['CDRDBNAME'] ? $amp_conf['CDRDBNAME'] : 'asteriskcdrdb',
+		);  
+		$cdrdb = DB::connect($dsn);	
 		//get db
 		$cmd[] = fpbx_which('tar');
 		$cmd[] = 'zxOf';
@@ -547,12 +559,12 @@ function backup_restore($bu, $items) {
 		$cmd[] = './' . $file;
 		exec(implode(' ', $cmd), $file);
 		unset($cmd);
-		
+
 		//TODO: should restore-to server should be configurable from the gui at restore time?
 		$path = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . time() . '.sql';
 		$buffer = array();
 		foreach($file as $line) {
-			
+
 			switch (true) {
 				case ($line == ''):
 				//clear the buffer every time we hit a blank line
@@ -568,7 +580,57 @@ function backup_restore($bu, $items) {
 					break;
 			}
 
-			
+
+			//if $flush is true, we need to flush the buffer
+			if ($flush) {
+				//dont spill the buffer if its emtpy
+				if ($buffer) {
+					$q = $cdrdb->query(implode("\n", $buffer));
+					db_e($q);
+					//dbug($db->last_query);
+					$buffer = array();
+				}
+				$flush = false;
+			}
+		}
+		unset($file);
+	}
+	
+	//restore settings
+	if (isset($items['settings']) && $items['settings'] == 'true') {
+		
+		$s = explode('-', $manifest['fpbx_db']);
+		$file = $manifest['mysql'][$s[1]]['file'];
+	
+		//get db
+		$cmd[] = fpbx_which('tar');
+		$cmd[] = 'zxOf';
+		$cmd[] = $bu;
+		$cmd[] = './' . $file;
+		exec(implode(' ', $cmd), $file);
+		unset($cmd);
+	
+		//TODO: should restore-to server should be configurable from the gui at restore time?
+		$path = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . time() . '.sql';
+		$buffer = array();
+		foreach($file as $line) {
+		
+			switch (true) {
+				case ($line == ''):
+				//clear the buffer every time we hit a blank line
+					$flush = true;
+					break;
+				case (substr($line, -1) == ';'):
+					//clear the buffer if the end of this line is the end of a statement
+					$buffer[] = $line;
+					$flush = true;
+					break;
+				default:
+					$buffer[] = $line;
+					break;
+			}
+
+		
 			//if $flush is true, we need to flush the buffer
 			if ($flush) {
 				//dont spill the buffer if its emtpy
@@ -582,7 +644,7 @@ function backup_restore($bu, $items) {
 			}
 		}
 		unset($file);
-		
+	
 		//restore astdb
 		$cmd[] = fpbx_which('tar');
 		$cmd[] = 'zxOf';
@@ -591,39 +653,39 @@ function backup_restore($bu, $items) {
 		exec(implode(' ', $cmd), $file);
 		astdb_put(unserialize($file[0]), array('RINGGROUP', 'BLKVM', 'FM', 'dundi'));
 		unset($cmd);
-		//dbug($file);
-		
-		//run hooks
-		if (isset($manifest['hooks']['post_restore']) && $manifest['hooks']['post_restore']) {
-			exec($manifest['hooks']['post_restore']);
-		}
-		mod_func_iterator('backup_post_restore_hook', $manifest);
-		
-		//ensure that manager username and password are whatever we think they should be
-		//the DB is authoritative, fetch whatever we have set there
-		$freepbx_conf =& freepbx_conf::create();
-		fpbx_ami_update($freepbx_conf->get_conf_setting('AMPMGRUSER', true), 
-						$freepbx_conf->get_conf_setting('AMPMGRPASS', true));
-		
-		needreload();
-		
-		//delete backup file if it was a temp file
-		if (dirname($bu) == $amp_conf['ASTSPOOLDIR'] . '/tmp/') {
-			unlink($bu);
-		}
-		
-		/* 
-		 * cleanup stale backup files (older than one day)
-		 * usually, backups will be deleted after a restore
-		 * these files are those that were downloaded from a remote server
-		 * but the user aborted the restore
-		 */
-		$files = scandir($amp_conf['ASTSPOOLDIR'] . '/tmp/');
-		foreach ($files as $file) {
-			$f = explode('-', $file);
-			if ($f[0] == 'backuptmp' && $f[2] < strtotime('yesterday')) {
-				unlink($amp_conf['ASTSPOOLDIR'] . '/tmp/' . $file);
-			}
+	}
+	//dbug($file);
+	
+	//run hooks
+	if (isset($manifest['hooks']['post_restore']) && $manifest['hooks']['post_restore']) {
+		exec($manifest['hooks']['post_restore']);
+	}
+	mod_func_iterator('backup_post_restore_hook', $manifest);
+	
+	//ensure that manager username and password are whatever we think they should be
+	//the DB is authoritative, fetch whatever we have set there
+	$freepbx_conf =& freepbx_conf::create();
+	fpbx_ami_update($freepbx_conf->get_conf_setting('AMPMGRUSER', true), 
+					$freepbx_conf->get_conf_setting('AMPMGRPASS', true));
+	
+	needreload();
+	
+	//delete backup file if it was a temp file
+	if (dirname($bu) == $amp_conf['ASTSPOOLDIR'] . '/tmp/') {
+		unlink($bu);
+	}
+	
+	/* 
+	 * cleanup stale backup files (older than one day)
+	 * usually, backups will be deleted after a restore
+	 * these files are those that were downloaded from a remote server
+	 * but the user aborted the restore
+	 */
+	$files = scandir($amp_conf['ASTSPOOLDIR'] . '/tmp/');
+	foreach ($files as $file) {
+		$f = explode('-', $file);
+		if ($f[0] == 'backuptmp' && $f[2] < strtotime('yesterday')) {
+			unlink($amp_conf['ASTSPOOLDIR'] . '/tmp/' . $file);
 		}
 	}
 	

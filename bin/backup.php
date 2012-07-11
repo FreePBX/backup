@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-$restrict_mods						= array('backup' => true);
+$restrict_mods						= array('backup' => true, 'core' => true);
 $bootstrap_settings['cdrdb']		= true;
 $bootstrap_settings['freepbx_auth']	= false;
 if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
@@ -25,7 +25,11 @@ if (isset($vars['id']) && $vars['id']) {
 	//s= servers
 	//b= backup object
 	if ($bu = backup_get_backup($vars['id'])) {
-		
+		//dont run if no storage servers were found
+		if (!isset($bu['storage_servers']) || count($bu['storage_servers']) < 1) {
+			backup_log(_('No storage servers found! Aborting.'));
+			exit();
+		}	
 		$s = backup_get_server('all_detailed');
 		$b = new Backup($bu, $s);		
 		backup_log(_('Intializing Backup') . ' ' .$vars['id']);
@@ -157,16 +161,16 @@ if (isset($vars['id']) && $vars['id']) {
 	$b->save_manifest('local');
 	$b->create_backup_file(true);
 	exit();
-} elseif(isset($var['astdb']) && $var['astdb']) {
-	switch ($var['astdb']) {
+} elseif(isset($vars['astdb']) && $vars['astdb']) {
+	switch ($vars['astdb']) {
 		case 'dump':
 			echo astdb_get(array('RG', 'BLKVM', 'FM', 'dundi'));
 			break;
 		case 'restore':
-			if (is_file($data)) {
-				$data = file_get_contents($data);
+			if (is_file($vars['data'])) {
+				$vars['data'] = file_get_contents($vars['data']);
 			}
-			astdb_put(unserialize($data), array('RINGGROUP', 'BLKVM', 'FM', 'dundi'));
+			astdb_put(unserialize($vars['data']), array('RINGGROUP', 'BLKVM', 'FM', 'dundi'));
 			break;
 	}
 } else {

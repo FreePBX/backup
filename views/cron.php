@@ -92,7 +92,7 @@ foreach ($doy as $k => $v) {
 		'id'	=> 'cron_dow' . $k,
 		'value'	=> $k,
 	);
-	in_array($k, $cron_dow) ? $data['checked'] = 'checked' : '';
+	in_array((string) $k, $cron_dow) ? $data['checked'] = 'checked' : '';
 	$html .= form_checkbox($data) . ' ';
 }
 $html .= '</div>';

@@ -118,7 +118,17 @@ $(document).ready(function(){
 	});
 
 	//style cron custom times
-	$('#crondiv').find('input[type=checkbox]').button()
+	$('#crondiv').find('input[type=checkbox]').button();
+	
+	//highlight save when run is hovered
+	$('#run_backup').hover(
+		function(){
+			$('#save_backup').addClass('ui-state-hover');
+		},
+		function(){
+			$('#save_backup').removeClass('ui-state-hover');
+		}
+	);
 })
 function remote() {
 	if ($('select[name=bu_server]').val() == 0) {

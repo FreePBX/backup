@@ -249,7 +249,11 @@ $html .= $table->clear();
 $html .= br(3);
 if ($immortal != 'true') {
 	$html .= '<span class="radioset">';
-	$html .= form_submit('submit', _('Save'));
+	$html .= form_submit(array(
+					'name'	=> 'submit',
+					'value'	=> _('Save'),
+					'id'	=> 'save_backup'
+	));
 	//can only run saved backups
 	if ($id) {
 		$html .= form_button(array('content' => _('and Run'), 'id' => 'run_backup'));

@@ -59,7 +59,7 @@ class Backup {
 	
 	function __destruct() {
 		//remove temp files and directories
-		if (is_file($this->b['_tmpfile'])) {
+		if (file_exists($this->b['_tmpfile'])) {
 			unlink($this->b['_tmpfile']);
 		}
 		
@@ -143,7 +143,7 @@ class Backup {
 					$i['path'] = backup__($i['path']);
 					
 					//make sure file exists
-					if (!is_file($i['path']) && !is_link($i['path'])) {
+					if (!file_exists($i['path'])) {
 						break;
 					}
 					
@@ -154,7 +154,12 @@ class Backup {
 					}
 					
 					//copy file
-					copy($i['path'], $dest);
+					$cmd[] = fpbx_which('cp');
+					$cmd[] = $i['path'];
+					$cmd[] = $dest;
+
+					exec(implode(' ', $cmd));
+					unset($cmd);
 					break;
 				case 'dir':
 				
@@ -177,7 +182,9 @@ class Backup {
 					//b. it offers excludes
 					$cmd[] = fpbx_which('tar') . ' cf - ' . $i['path'];
 					if ($i['exclude']) {
-						$excludes = explode("\n", $i['exclude']);
+						$excludes = is_array($i['exclude'])
+									? $i['exclude']
+									: explode("\n", $i['exclude']);
 						foreach ($excludes as $x) {
 							$cmd[] = " --exclude='$x'";
 						}
@@ -283,8 +290,21 @@ class Backup {
 						mkdir($path, 0755, true);
 					}
 					
-					copy($this->b['_tmpfile'], $path . '/' . $this->b['_file'] . '.tgz');
+					//would rather use the native copy() here, but by defualt
+					//php doesnt support files > 2GB
+					//see here for a posible solution:
+					//http://ca3.php.net/manual/en/function.fopen.php#37791
+					$cmd[] = fpbx_which('cp');
+					$cmd[] = $this->b['_tmpfile'];
+					$cmd[] = $path . '/' . $this->b['_file'] . '.tgz';
 					
+					exec(implode(' ', $cmd), $error, $status);
+					unset($cmd, $error);
+					if ($status !== 0) {
+						backup_log('Error copying ' . $this->b['_tmpfile'] 
+								. ' to ' . $path . '/' . $this->b['_file'] 
+								. '.tgz: ' . $error);
+					}	
 					//run maintenance on the directory
 					$this->maintenance($s['type'], $s);
 					break;

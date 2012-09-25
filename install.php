@@ -675,7 +675,21 @@ if (!array_key_exists('data', $db->getAssoc('describe backup_templates'))) {
 	sql('ALTER TABLE backup_templates ADD COLUMN `data` longtext default NULL');
 }
 
+//fix for schmooze#1388, __AMPBIN__ excludes were being set to null
+$ex = $db->getOne('SELECT exclude FROM backup_template_details '
+	. 'WHERE template_id = 2 AND path =  "__AMPBIN__"');
+db_e($ex);
 
+if ($ex = 'N;') {
+	$value = serialize(array(
+			'__ASTVARLIBDIR__/moh',
+			'__ASTVARLIBDIR__/sounds'
+	));
+	$sql = 'UPDATE backup_template_details SET exclude = ? '
+		. 'WHERE template_id = 2 AND path = "__AMPBIN__"';
+	$res = $db->query($sql, array($value));
+	db_e($res);
+}
 
 $freepbx_conf =& freepbx_conf::create();
 

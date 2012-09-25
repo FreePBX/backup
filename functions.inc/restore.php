@@ -104,6 +104,7 @@ function backup_jstree_list_dir($id, $path = '') {
 			$cmd[] = '-o StrictHostKeyChecking=no -i';
 			$cmd[] = $s['key'];
 			$cmd[] = $s['user'] . '\@' . $s['host'];
+			$cmd[] = '-p ' . $s['port']; 
 			$cmd[] = '"cd ' . $s['path'] . '/' . $path . ';';
 			$cmd[] = 'find * -maxdepth 0 -type f -exec echo f:"{}" \;;';
 			$cmd[] = 'find * -maxdepth 0 -type d -exec echo d:"{}" \;"';
@@ -288,6 +289,7 @@ function backup_restore_locate_file($id, $path) {
 			$cmd[] = fpbx_which('scp');
 			$cmd[] = '-o StrictHostKeyChecking=no -i';
 			$cmd[] = $s['key'];
+			$cmd[] = '-P ' . $s['port'];
 			$cmd[] = $s['user'] . '\@' . $s['host'] 
 					. ':' . $s['path'] . '/' . $path;
 			$cmd[] = $dest;
@@ -302,7 +304,7 @@ function backup_restore_locate_file($id, $path) {
 			break;
 	}
 
-	if (is_file($path)) {
+	if (file_exists($path)) {
 		return $path;
 	} else {
 		return array('error_msg' => _('File not found! ' . $path));
@@ -499,196 +501,6 @@ function backup_migrate_legacy($bu) {
 	system('rm -rf '.$dir);
 
 	return $dest;
-}
-
-/*
- * do the actualy restore
- */
-function backup_restore($bu, $items) {
-	global $amp_conf, $db;
-	if (!is_file($bu)) {
-		return false;
-	}
-	//TODO: should we use the manifest to ensure that all 
-	//files exists before trying to restore them?
-	$manifest = backup_get_manifest_tarball($bu);
-	
-	//run hooks
-	if (isset($manifest['hooks']['pre_restore']) && $manifest['hooks']['pre_restore']) {
-		exec($manifest['hooks']['pre_restore']);
-	}
-	mod_func_iterator('backup_pre_restore_hook', $manifest);
-	
-	if (isset($items['files']) && $items['files']) {
-		$cmd[] = fpbx_which('tar');
-		$cmd[] = 'zxf';
-		$cmd[] = $bu;
-		//switch to root so that files get put back where they belong
-		//aslo, dont preseve access/modified times, as we may not always have the perms to do this
-		//across the entire heirachy of a file we are restoring
-		$cmd[] = '--atime-preserve -m -C /';
-		foreach ($items['files'] as $f) {
-			$cmd[] = './' . trim($f, '/');
-		}
-		exec(implode(' ', $cmd));
-	
-		unset($cmd);
-	}
-	unset($manifest['file_list']);
-	//dbug('$manifest', $manifest);
-	
-	//restore cdr's if requested
-	if (isset($items['cdr']) && $items['cdr'] == 'true') {
-		$s = explode('-', $manifest['fpbx_cdrdb']);
-		$file = $manifest['mysql'][$s[1]]['file'];
-		 //create cdrdb handler
-		$dsn = array(
-				'phptype'  => $amp_conf['CDRDBTYPE'] ? $amp_conf['CDRDBTYPE'] : $amp_conf['AMPDBENGINE'],
-				'hostspec' => $amp_conf['CDRDBHOST'] ? $amp_conf['CDRDBHOST'] : $amp_conf['AMPDBHOST'],
-				'username' => $amp_conf['CDRDBUSER'] ? $amp_conf['CDRDBUSER'] : $amp_conf['AMPDBUSER'],
-				'password' => $amp_conf['CDRDBPASS'] ? $amp_conf['CDRDBPASS'] : $amp_conf['AMPDBPASS'],
-				'port'     => $amp_conf['CDRDBPORT'] ? $amp_conf['CDRDBPORT'] : '3306',
-				//'socket'   => $amp_conf['CDRDBTYPE'] ? $amp_conf['CDRDBTYPE'] : 'mysql',
-				'database' => $amp_conf['CDRDBNAME'] ? $amp_conf['CDRDBNAME'] : 'asteriskcdrdb',
-		);  
-		$cdrdb = DB::connect($dsn);	
-		//get db
-		$cmd[] = fpbx_which('tar');
-		$cmd[] = 'zxOf';
-		$cmd[] = $bu;
-		$cmd[] = './' . $file;
-		exec(implode(' ', $cmd), $file);
-		unset($cmd);
-
-		//TODO: should restore-to server should be configurable from the gui at restore time?
-		$path = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . time() . '.sql';
-		$buffer = array();
-		foreach($file as $line) {
-
-			switch (true) {
-				case ($line == ''):
-				//clear the buffer every time we hit a blank line
-					$flush = true;
-					break;
-				case (substr($line, -1) == ';'):
-					//clear the buffer if the end of this line is the end of a statement
-					$buffer[] = $line;
-					$flush = true;
-					break;
-				default:
-					$buffer[] = $line;
-					break;
-			}
-
-
-			//if $flush is true, we need to flush the buffer
-			if ($flush) {
-				//dont spill the buffer if its emtpy
-				if ($buffer) {
-					$q = $cdrdb->query(implode("\n", $buffer));
-					db_e($q);
-					//dbug($db->last_query);
-					$buffer = array();
-				}
-				$flush = false;
-			}
-		}
-		unset($file);
-	}
-	
-	//restore settings
-	if (isset($items['settings']) && $items['settings'] == 'true') {
-		
-		$s = explode('-', $manifest['fpbx_db']);
-		$file = $manifest['mysql'][$s[1]]['file'];
-	
-		//get db
-		$cmd[] = fpbx_which('tar');
-		$cmd[] = 'zxOf';
-		$cmd[] = $bu;
-		$cmd[] = './' . $file;
-		exec(implode(' ', $cmd), $file);
-		unset($cmd);
-	
-		//TODO: should restore-to server should be configurable from the gui at restore time?
-		$path = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . time() . '.sql';
-		$buffer = array();
-		foreach($file as $line) {
-		
-			switch (true) {
-				case ($line == ''):
-				//clear the buffer every time we hit a blank line
-					$flush = true;
-					break;
-				case (substr($line, -1) == ';'):
-					//clear the buffer if the end of this line is the end of a statement
-					$buffer[] = $line;
-					$flush = true;
-					break;
-				default:
-					$buffer[] = $line;
-					break;
-			}
-
-		
-			//if $flush is true, we need to flush the buffer
-			if ($flush) {
-				//dont spill the buffer if its emtpy
-				if ($buffer) {
-					$q = $db->query(implode("\n", $buffer));
-					db_e($q);
-					//dbug($db->last_query);
-					$buffer = array();
-				}
-				$flush = false;
-			}
-		}
-		unset($file);
-	
-		//restore astdb
-		$cmd[] = fpbx_which('tar');
-		$cmd[] = 'zxOf';
-		$cmd[] = $bu;
-		$cmd[] = './' . $manifest['astdb'];
-		exec(implode(' ', $cmd), $file);
-		astdb_put(unserialize($file[0]), array('RINGGROUP', 'BLKVM', 'FM', 'dundi'));
-		unset($cmd);
-	}
-	//dbug($file);
-	
-	//run hooks
-	if (isset($manifest['hooks']['post_restore']) && $manifest['hooks']['post_restore']) {
-		exec($manifest['hooks']['post_restore']);
-	}
-	mod_func_iterator('backup_post_restore_hook', $manifest);
-	
-	//ensure that manager username and password are whatever we think they should be
-	//the DB is authoritative, fetch whatever we have set there
-	$freepbx_conf =& freepbx_conf::create();
-	fpbx_ami_update($freepbx_conf->get_conf_setting('AMPMGRUSER', true), 
-					$freepbx_conf->get_conf_setting('AMPMGRPASS', true));
-	
-	needreload();
-	
-	//delete backup file if it was a temp file
-	if (dirname($bu) == $amp_conf['ASTSPOOLDIR'] . '/tmp/') {
-		unlink($bu);
-	}
-	
-	/* 
-	 * cleanup stale backup files (older than one day)
-	 * usually, backups will be deleted after a restore
-	 * these files are those that were downloaded from a remote server
-	 * but the user aborted the restore
-	 */
-	$files = scandir($amp_conf['ASTSPOOLDIR'] . '/tmp/');
-	foreach ($files as $file) {
-		$f = explode('-', $file);
-		if ($f[0] == 'backuptmp' && $f[2] < strtotime('yesterday')) {
-			unlink($amp_conf['ASTSPOOLDIR'] . '/tmp/' . $file);
-		}
-	}
-	
 }
 
 ?>

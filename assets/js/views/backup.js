@@ -49,7 +49,7 @@ $(document).ready(function(){
 			return false;
 		} 
 		 box = $('<div></div>')
-			.html('<span class="backup_status"></span>'
+			.html('<div class="backup_status"></div>'
 				+ '<progress style="width: 100%">'
 				+ 'Please wait...'
 				+ '</progress>')
@@ -65,7 +65,8 @@ $(document).ready(function(){
 			});
 		
 		//first, save the backup
-		$('.backup_status').append('Saving Backup ' + id + '...');
+		backup_log($('.backup_status'), 'Saving Backup ' + id + '...');
+		
 		//get form data and change action to 'ajax_save'
 		var data = $('#backup_form').serializeArray();
 		for(var i=0; i < data.length; i++) {
@@ -80,11 +81,11 @@ $(document).ready(function(){
 			url: $('#backup_form').attr('action'),
 			data: data,
 			success: function() {
-				$('.backup_status').append('done!' + '<br>');
+				backup_log($('.backup_status'),'done!' + '<br>');
 				
 			},
 			error: function() {
-				$('.backup_status').append('<br>' + 'Error: could not save backup. Aborting!' + '<br>');
+				backup_log($('.backup_status'), '<br>' + 'Error: could not save backup. Aborting!' + '<br>');
 				$('.backup_status').next('progress').val('1');
 				return true;
 			}
@@ -108,7 +109,7 @@ $(document).ready(function(){
 				$('.backup_status').next('progress').val('1');
 				//setTimeout('box.dialog("close").dialog("destroy").remove();', 5000);
 			} else {
-				$('.backup_status').append(event.data + '<br>');
+				backup_log($('.backup_status'), event.data + '<br>');
 			}
 		}, false);
 		eventSource.addEventListener('onerror', function (event) {

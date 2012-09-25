@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>2.10.0.31</version>
+	<version>2.10.0.36</version>
 	<publisher>Schmoozecom.com</publisher>
 	<license>GPLv2+</license>
 	<category>Admin</category>
@@ -17,6 +17,13 @@
 		<module>core</module>
 	</depends>
     <changelog>
+		*2.10.0.36* re #5996 - use new restore script on remote restores 
+		*2.10.0.35* re #5991 - 
+		*2.10.0.34* re #5988 - Allow intercom beep to be configurable 
+		*2.10.0.33* re #5963 - Make backup suport backups &gt; 2GB 
+		*2.10.0.32* version bump for file integrity
+		*2.10.0.31* re #5823 - add more ssh port support; better handeling of backups &gt; 2gb 
+		*2.10.0.31* re #5823 - add more ssh port support; better handeling of backups &gt; 2gb 
 		*2.10.0.31* bug fixes 
 		*2.10.0.30* bug fixes 
 		*2.10.0.29* re #5907 - fix astdb backup/restore commands 
@@ -51,6 +58,6 @@
 		*2.10.0.1* don't make jquery.jstree.min.js dynamic it blocks caching
 		*2.10.0.0* Backup Module Rewrite
 	</changelog>
-	<location>release/2.10/backup-2.10.0.31.tgz</location>
-	<md5sum>0fbd648d6efba1c1ab3eebd0f28689e5</md5sum>
+	<location>release/2.10/backup-2.10.0.36.tgz</location>
+	<md5sum>4cbfc1736fbcf7ac66145395daea99f5</md5sum>
 </module>

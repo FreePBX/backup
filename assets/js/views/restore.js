@@ -80,19 +80,8 @@ $(document).ready(function(){
 	
 	//include items to restore
 	$('#files_browes_frm').submit(function(){
-		//remove stale file entires
-		$('input[name^="restore[files]"]').remove();
-		
-		//get checked files
-		$("#backup_files").jstree("get_checked",null,false).each(function() {
-			
-			//add them to the form
-			$('#files_browes_frm').append(
-				'<input type="hidden" name="restore[files][]" value="'
-				+ $(this).data('path')
-				+ '" >'
-			);
-		 });
+		prepare_post();
+		return false;
 	});
 
 	//restore templates
@@ -121,10 +110,70 @@ $(document).ready(function(){
 			current_items_over_helper('show');
 		}
 	});
-	
-})
-//
 
+	//restore
+	$('#run_restore').click(function(){
+		if (!window.EventSource) {
+			//this should allow the form to be submited as a post, only without proper
+			//visual status updates
+			var msg = 'For real-time status of the restore prosses, it is '
+					+ 'recommend that use a moder browser. Would you like '
+					+ 'to continue anyway?';
+					
+			return confirm(msg);
+		}
+		
+		 box = $('<div></div>')
+			.html('<div class="restore_status"></div>'
+				+ '<progress style="width: 100%">'
+				+ 'Please wait...'
+				+ '</progress>')
+			.dialog({
+				title: 'Run restore',
+				resizable: false,
+				modal: true,
+				position: ['center', 50],
+				width: 500,
+				close: function (e) {
+					$(e.target).dialog("destroy").remove();
+				}
+			});
+		
+		//first, save the backup
+		//backup_log($('.restore_status'), 'Intializing Backup...<br>');
+		
+		//post data to server, as eventsource is a get request
+		//change action to restore_post
+		prepare_post();
+		var data = $('#files_browes_frm').serializeArray();
+		for(var i=0; i < data.length; i++) {
+			if (data[i].name == 'action') {
+				data[i].value = 'restore_post';
+				break;
+			}
+		}
+		
+		//console.log(data);
+		$.ajax({
+			type: 'POST',
+			url: $('#files_browes_frm').attr('action'),
+			data: data,
+			success: function() {
+				backup_log($('.restore_status'), 'Intialized!!' + '<br>');
+				restore_stage2();
+			},
+			error: function() {
+				//TODO: deal with errors
+				backup_log($('.restore_status'), 
+				'<br>' + 'Error: could not intialize restore.' + '<br>');
+				$('.restore_status').next('progress').val('1');
+				return false;
+			}
+		});
+	});	
+});
+
+//
 function check_node() {
 	var level	= typeof level == 'undefined' ? 1 : level;
 	var worker	= function(el, path) {
@@ -193,4 +242,45 @@ function current_items_over_helper(action) {
 			$('#items_over').show();
 			break;
 	}
+}
+
+//parse checked tree items and add them as hidden form elements
+function prepare_post() {
+	//remove stale file entires
+	$('input[name^="restore[files]"]').remove();
+	
+	//get checked files
+	$("#backup_files").jstree("get_checked",null,false).each(function() {
+		
+		//add them to the form
+		$('#files_browes_frm').append(
+			'<input type="hidden" name="restore[files][]" value="'
+			+ $(this).data('path')
+			+ '" >'
+		);
+	 });
+}
+
+//stage2 of restore
+function restore_stage2() {
+		//set eventsrouce url
+	url = window.location.pathname 
+		+ '?display=backup_restore&action=restore_get';
+	
+
+	var eventSource = new EventSource(url);
+	eventSource.addEventListener('message', function (event) {
+		console.log(event.data);
+		if (event.data == 'END') {
+			eventSource.close();
+			$('.restore_status').next('progress').val('1');
+			//setTimeout('box.dialog("close").dialog("destroy").remove();', 5000);
+		} else {
+			backup_log($('.restore_status'), event.data + '<br>');
+		}
+	}, false);
+	eventSource.addEventListener('onerror', function (event) {
+		console.log('e', event.data);
+	}, false);
+	return false;
 }

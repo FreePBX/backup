@@ -78,3 +78,9 @@ input[type=text] {
 	background-image: none;
 	width: 1px;
 }
+
+.restore_status, .backup_status {
+	height: 250px;
+	padding-bottom: 5px;
+	overflow-y: scroll;
+}

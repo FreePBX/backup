@@ -79,8 +79,10 @@ switch ($var['action']) {
 		}
 		break;
 	case 'restore':
-		backup_restore($_SESSION['backup_restore_path'], $var['restore']);
-		do_reload(true);//reload freepbx //TODO: make this optional from the resotre page
+	case 'restore_post':
+	case 'restore_get':
+		//dont clear $_SESSION['backup_restore_path'] which happnes every action
+		//that doesnt have a case here
 		break;
 	default:
 		//if backup_restore_path is already set, we probobly dont want that any more. delete it
@@ -113,9 +115,10 @@ switch ($var['action']) {
 		array_walk_recursive($var['servers'], 'callback');
 		array_walk_recursive($var['templates'], 'callback');
 		
-		if (is_array($var['restore_path'])) {
+		if (is_array($_SESSION['backup_restore_path'])) {
 			//TODO: if $var['restore_path'] is an array, that means it contains an error + error
 			// message. Do something with the error meesage
+			echo _('Invalid backup for or undefined error');
 			break;
 		}
 		
@@ -138,6 +141,53 @@ switch ($var['action']) {
 		echo _('Invalid backup for or undefined error');
 
 		dbug($_SESSION['backup_restore_path'], $var);
+		break;
+	case 'restore_post':
+		while (ob_get_level()) {
+			ob_end_clean();
+		}
+		$_SESSION['backup_restore_data'] = $var['restore'];
+		exit();
+		break;
+	case 'restore':
+	case 'restore_get':
+		
+		//if action is restore_get, get restore data from session
+		$restore = $var['action'] == 'restore_get' 
+					? $_SESSION['backup_restore_data']
+					: $var['restore'];
+		
+		//dont stop until were all done 
+        //restore will compelte EVEN IS USER NAVIGATES AWAY FROM PAGE!! 
+        ignore_user_abort(true); 
+ 
+        //clear all buffers, those will interfere with the stream 
+        while (ob_get_level()) { 
+            ob_end_clean(); 
+        } 
+  
+        ob_start(); 
+        header('Content-Type: text/event-stream'); 
+        header('Cache-Control: no-cache');
+        $cmd = $amp_conf['ASTVARLIBDIR'] . '/bin/restore.php --restore='
+                . $_SESSION['backup_restore_path'] 
+                . ' --items=' 
+                . base64_encode(serialize($restore))
+                . ' 2>&1';
+        
+        //start running backup
+        $run = popen($cmd, 'r');
+        while (($msg = fgets($run)) !== false) {
+            //dbug('backup', $msg);
+            //send results back to the user
+            backup_log($msg);
+        }
+
+        pclose($run);
+  
+        //send messgae to browser that were done
+        backup_log('END');
+        exit();	
 		break;
 	default:
 		echo load_view(dirname(__FILE__) . '/views/restore/restore.php', $var);

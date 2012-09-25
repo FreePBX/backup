@@ -71,6 +71,8 @@ if (isset($vars['id']) && $vars['id']) {
 			$cmd[] = fpbx_which('ssh');
 			$cmd[] = '-o StrictHostKeyChecking=no -i';
 			$cmd[] = backup__($s[$b->b['bu_server']]['key']);
+			$cmd[] = '-p';
+			$cmd[] = $s[$b->b['bu_server']]['port'];
 			$cmd[] = backup__($s[$b->b['bu_server']]['user']) 
 					. '\@' 
 					. backup__($s[$b->b['bu_server']]['host']);
@@ -119,7 +121,10 @@ if (isset($vars['id']) && $vars['id']) {
 				}
 
 				backup_log(_('Restoring backup...'));
-				backup_restore($b->b['_tmpfile'], $restore);
+				$cmd = $amp_conf['ASTVARLIBDIR'] . '/bin/restore.php '
+						. '--restore=' . $b->b['_tmpfile']
+						. ' --items=' . base64_encode(serialize($restore));
+				system($cmd);
 			}
 
 			backup_log(_('Running post-backup hooks...'));

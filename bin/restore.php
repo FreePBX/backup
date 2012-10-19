@@ -158,7 +158,7 @@ if (isset($vars['restore'], $vars['items'])) {
 				if ($buffer) {
 					$q = $cdrdb->query(implode("\n", $buffer));
 					db_e($q);
-					//dbug($db->last_query);
+					//dbug($cdrdb->last_query);
 					//once commited, clear the buffer
 					$buffer = array();
 					//and reset php's timeout, as large cdr's can take quite some time
@@ -189,6 +189,9 @@ if (isset($vars['restore'], $vars['items'])) {
 				}
 			}
 		}
+		if (!in_array(100, $notifed_for)) {
+			backup_log(_('Processed 100% of CDR\'s!'));
+		}
 
 		fclose($file);
 		unlink($path);
@@ -200,20 +203,42 @@ if (isset($vars['restore'], $vars['items'])) {
 		backup_log(_('Restoring settings...'));
 		$s = explode('-', $manifest['fpbx_db']);
 		$file = $manifest['mysql'][$s[1]]['file'];
-	
+		$settings_stat_time = time();//last time we sent status update
+		$notifed_for = array();//precentages we sent status updates for
+		$path = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . time() . '.sql';
+		
 		//get db
 		$cmd[] = fpbx_which('tar');
 		$cmd[] = 'zxOf';
 		$cmd[] = $vars['restore'];
 		$cmd[] = './' . $file;
+		$cmd[] = '>';
+		$cmd[] = $path;
+		
 		exec(implode(' ', $cmd), $file);
 		unset($cmd);
-	
-		//TODO: should restore-to server should be configurable from the gui at restore time?
-		$path = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . time() . '.sql';
-		$buffer = array();
-		foreach($file as $line) {
 		
+		backup_log(_('Getting Settings size...'));
+		$cmd[] = fpbx_which('wc');
+		$cmd[] = ' -l';
+		$cmd[] = $path;
+		
+		exec(implode(' ', $cmd), $lines);
+		unset($cmd);
+
+		$lines = explode(' ', $lines[0]);
+		$lines = $lines[0];
+
+		$pretty_lines = number_format($lines);
+		$buffer = array();
+		$file = fopen($path, 'r');
+		$linecount = 0;
+		
+		//TODO: should restore-to server should be configurable from the gui at restore time?
+		while(($line = fgets($file)) !== false) {
+			$line = trim($line);
+			$linecount++;
+
 			switch (true) {
 				case ($line == ''):
 				//clear the buffer every time we hit a blank line
@@ -225,11 +250,12 @@ if (isset($vars['restore'], $vars['items'])) {
 					$flush = true;
 					break;
 				default:
+					$flush = false;
 					$buffer[] = $line;
 					break;
 			}
 
-		
+
 			//if $flush is true, we need to flush the buffer
 			if ($flush) {
 				//dont spill the buffer if its emtpy
@@ -237,12 +263,43 @@ if (isset($vars['restore'], $vars['items'])) {
 					$q = $db->query(implode("\n", $buffer));
 					db_e($q);
 					//dbug($db->last_query);
+					//once commited, clear the buffer
 					$buffer = array();
+					//and reset php's timeout, as large queries can take quite some time
+					set_time_limit(30);
 				}
 				$flush = false;
 			}
+
+			//update the user once every 5% or at least every 60 seconds
+			$precent = floor((1 - ($lines - $linecount) / $lines) * 100);
+			$next_due = time() >= $settings_stat_time + 60;
+			if (
+				$precent > 1
+				&& $next_due
+				&& ($precent % 5 === 0 
+					&& !in_array($precent, $notifed_for)
+					|| $next_due)
+			) {
+				backup_log(_('Processed ' . $precent
+						. '% of Settings\'s (' 
+						. number_format($linecount) 
+						. '/' . $pretty_lines . ' lines)'));
+
+				//reset status update time
+				$settings_stat_time = time();
+				if ($precent % 5 === 0) {
+					$notifed_for[] = $precent;
+				}
+			}
 		}
-		unset($file);
+		if (!in_array(100, $notifed_for)) {
+			backup_log(_('Processed 100% of Settings\'s!'));
+		}
+
+		fclose($file);
+		unlink($path);
+		
 	
 		//restore astdb
 		backup_log(_('Restoring astDB...'));
@@ -253,6 +310,8 @@ if (isset($vars['restore'], $vars['items'])) {
 		exec(implode(' ', $cmd), $file);
 		astdb_put(unserialize($file[0]), array('RINGGROUP', 'BLKVM', 'FM', 'dundi'));
 		unset($cmd);
+		
+		backup_log(_('Restoring Settings\'s complete'));
 	}
 	//dbug($file);
 	

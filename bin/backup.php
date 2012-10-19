@@ -7,7 +7,13 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
 	include_once('/etc/asterisk/freepbx.conf');
 }
 
+//ensure the backup modules is avalible before continuing
+$mod_info = module_getinfo('backup', MODULE_STATUS_ENABLED);
 
+if (!isset($mod_info['backup'])) {
+	echo _('Backup module not found or is disabled. Aborting!' . PHP_EOL);	
+	exit(1);
+}
 /**
  * OPTIONS
  * opts - if we have opts, run the backup from it, passing the file back when finisehed
@@ -95,6 +101,35 @@ if (isset($vars['id']) && $vars['id']) {
 				exit($status);
 			}
 			unset($cmd);
+			
+			backup_log(_('Veryfing received file...'));
+			$cmd[] = fpbx_which('tar');
+			$cmd[] = '-zxOf';
+			$cmd[] = $b->b['_tmpfile'];
+			$cmd[] = '&> /dev/null';
+			exec(implode(' ', $cmd), $ret, $status);
+			unset($cmd);
+			
+			if ($status !== 0) {
+
+				//read out the first 10 lines of the file
+				//use the 'old fashtion' way of reading a file, as it
+				//guarenties that we dont load more than 1 line at a time
+				$file = fopen($b->b['_tmpfile'], 'r');
+				$linecount = 0;
+				backup_log(_('File verification failed. '));
+				backup_log(_('Here are the first few lines of the file '
+				. 'as sent by the remote server:'));
+				backup_log('');
+
+				while(($line = fgets($file)) !== false && $linecount < 10) {
+					backup_log(' > ' . $line);
+					$linecount++;
+				}
+
+				exit(1);
+			}
+			
 			backup_log(_('Prossesing received file...'));
 			$b->b['manifest'] = backup_get_manifest_tarball($b->b['_tmpfile']);
 			$b->save_manifest('db');
@@ -154,7 +189,7 @@ if (isset($vars['id']) && $vars['id']) {
 		echo 'invalid opts';
 		exit(1);
 	}
-
+	
 	$b = new Backup($r['bu'], $r['s']);
 	$b->b['_ctime']		= $r['b']->b['_ctime'];
 	$b->b['_file']		= $r['b']->b['_file'];

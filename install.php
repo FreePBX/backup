@@ -351,10 +351,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 	$temp['full']['type'][]		= 'dir';
 	$temp['full']['path'][]		= '/etc/dahdi';
 	$temp['full']['exclude'][]	= '';
-	
-	$temp['full']['type'][]		= 'file';
-	$temp['full']['path'][]		= '/etc/freepbx.conf';
-	$temp['full']['exclude'][]	= '';
+
 
 	
 	$temp['cdr'] = array(

@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>2.10.0.41</version>
+	<version>2.10.0.44</version>
 	<publisher>Schmoozecom.com</publisher>
 	<license>GPLv2+</license>
 	<category>Admin</category>
@@ -17,6 +17,9 @@
 		<module>core</module>
 	</depends>
     <changelog>
+		*2.10.0.44* clarify Run lable 
+		*2.10.0.43* clarify Run lable 
+		*2.10.0.42* Packaging of ver 2.10.0.42
 		*2.10.0.41* re #6028 - restore backup to correct server 
 		*2.10.0.40* re #6028 - restore backup to correct server 
 		*2.10.0.39* Handel large settings db\'s with grace 

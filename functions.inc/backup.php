@@ -3,18 +3,18 @@
 function backup_del_backup($id) {
 	global $db;
 	$data = backup_get_backup($id);
-	
+
 	//dont delete if deleting has been blocked
 	if ($data['immortal'] == 'true') {
 		return $id;
 	}
-	
+
 	$sql = 'DELETE FROM backup WHERE id = ?';
 	$ret = $db->query($sql, $id);
 	if ($db->IsError($ret)){
 		die_freepbx($ret->getDebugInfo());
 	}
-	
+
 	$sql = 'DELETE FROM backup_details WHERE backup_id = ?';
 	$ret = $db->query($sql, $id);
 	if ($db->IsError($ret)){
@@ -23,13 +23,13 @@ function backup_del_backup($id) {
 
 	//set backup cron
 	backup_set_backup_cron();
-	
+
 	return '';
 }
 
 function backup_get_backup($id = '') {
 	global $db;
-	
+
 	//return a blank if no id was set, all servers if 'all' was passed
 	//otherwise, a specifc server
 
@@ -61,7 +61,7 @@ function backup_get_backup($id = '') {
 				'postre_hook'		=> '',
 				'prebu_hook'		=> '',
 				'prere_hook'		=> '',
-				'resotre'			=> '',
+				'restore'			=> '',
 				'storage_servers'	=> array()
 				);
 			return $ret;
@@ -74,12 +74,12 @@ function backup_get_backup($id = '') {
 			foreach ($ret as $s) {
 				//set index to  id for easy retrieval
 				$backups[$s['id']] = $s;
-				
+
 				//default name in one is missing
 				if (!$backups[$s['id']]['name']) {
 					$backups[$s['id']]['name'] = _('Backup') . ' ' . $s['id'];
 				}
-				
+
 				//add details if requested
 				if ($id == 'all_detailed') {
 					$backups[$s['id']] = backup_get_backup($s['id']);
@@ -93,12 +93,12 @@ function backup_get_backup($id = '') {
 			if ($db->IsError($ret)){
 				die_freepbx($ret->getDebugInfo());
 			}
-			
+
 			//return a blank set if an invalid id was entered
 			if (!$ret) {
 				return false;
 			}
-			
+
 			//get details
 			$ret = $ret[0];
 			$sql = 'SELECT `key`, `index`, value FROM backup_details WHERE backup_id = ? ORDER BY `index`';
@@ -106,7 +106,7 @@ function backup_get_backup($id = '') {
 			if ($db->IsError($ret1)){
 				die_freepbx($ret1->getDebugInfo());
 			}
-			
+
 			if ($ret1) {
 				foreach ($ret1 as $r) {
 					switch ($r['key']) {
@@ -117,10 +117,10 @@ function backup_get_backup($id = '') {
 							$ret[$r['key']] = $r['value'];
 							break;
 					}
-					
+
 				}
 			}
-			
+
 			//explode cron items
 			$ret['cron_minute']	= isset($ret['cron_minute'])	? explode(',', $ret['cron_minute'])	: array();
 			$ret['cron_dom']	= isset($ret['cron_dom'])		? explode(',', $ret['cron_dom'])	: array();
@@ -130,19 +130,19 @@ function backup_get_backup($id = '') {
 
 			//default a name
 			$ret['name'] = $ret['name'] ? $ret['name'] : 'Backup ' . $ret['id'];
-			
+
 			//ensure bool's are initialized
 			$ret['restore']			= isset($ret['restore'])		? $ret['restore'] : false;
 			$ret['applyconfigs']	= isset($ret['applyconfigs'])	? $ret['applyconfigs'] : false;
 			$ret['disabletrunks']	= isset($ret['disabletrunks'])	? $ret['disabletrunks'] : false;
-			
+
 			//get items
 			$sql = 'SELECT type, path, exclude FROM backup_items WHERE backup_id = ?';
 			$ret2 = $db->getAll($sql, array($id), DB_FETCHMODE_ASSOC);
 			if ($db->IsError($ret2)){
 				die_freepbx($ret2->getDebugInfo());
 			}
-	
+
 			if ($ret2) {
 				foreach ($ret2 as $res) {
 					foreach($res as $key => $value) {
@@ -157,7 +157,7 @@ function backup_get_backup($id = '') {
 			} else {
 				$ret['items'] = array();
 			}
-			
+
 			return $ret;
 			break;
 	}
@@ -172,14 +172,14 @@ function backup_put_backup($var) {
 			return false;
 		}
 	}
-	
+
 	//save server
 	$sql = 'REPLACE INTO backup (id, name, description) VALUES (?, ?, ?)';
 	$ret = $db->query($sql, array($var['id'], $var['name'], $var['desc']));
 	if ($db->IsError($ret)){
 		die_freepbx($ret->getDebugInfo());
 	}
-	
+
 	$sql = ($amp_conf["AMPDBENGINE"] == "sqlite3") ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()';
 	$var['id'] = $var['id'] ? $var['id'] : $db->getOne($sql);
 
@@ -190,7 +190,7 @@ function backup_put_backup($var) {
 	if ($db->IsError($ret)){
 		die_freepbx($ret->getDebugInfo());
 	}
-	
+
 	//prepare details array for insertion
 	//enasure that were not setting a random cron for events that cannot be randomized
 	switch ($var['cron_schedule']) {
@@ -200,7 +200,7 @@ function backup_put_backup($var) {
 			$var['cron_random'] = '';
 			break;
 	}
-	
+
 	foreach ($var as $key => $value) {
 		switch ($key) {
 			case 'cron_minute':
@@ -256,8 +256,8 @@ function backup_put_backup($var) {
 	if ($db->IsError($ret)){
 		die_freepbx($ret->getDebugInfo());
 	}
-	
-	
+
+
 	//save server items
 	//first delete stale
 	unset($data);
@@ -266,7 +266,7 @@ function backup_put_backup($var) {
 	if ($db->IsError($ret)){
 		die_freepbx($ret->getDebugInfo());
 	}
-	
+
 	//prepare items array for insertion
 	$saved = array();
 	if (is_array($var['type'])) {
@@ -274,7 +274,7 @@ function backup_put_backup($var) {
 			if (!isset($saved[$type], $saved[$type][$var['path'][$e_id]])) {
 				//mark row as saved so that we can check for dups
 				$saved[$type][$var['path'][$e_id]] = true;
-				
+
 				//ensure excludes are unique and clean, dont explode if the string is blank
 				$excludes = trim($var['exclude'][$e_id])
 							? explode("\n", $var['exclude'][$e_id])
@@ -287,7 +287,7 @@ function backup_put_backup($var) {
 				$data[] = array($var['id'],  $type, $var['path'][$e_id], serialize($excludes));
 			}
 		}
-		
+
 		//then insert fresh
 		$sql = $db->prepare('INSERT INTO backup_items (backup_id, type, path, exclude) VALUES (?, ?, ?, ?)');
 		$ret = $db->executeMultiple($sql, $data);
@@ -295,10 +295,10 @@ function backup_put_backup($var) {
 			die_freepbx($ret->getDebugInfo());
 		}
 	}
-	
+
 	//set backup cron
 	backup_set_backup_cron();
-	
+
 	return $var['id'];
 }
 
@@ -307,7 +307,7 @@ function backup_set_backup_cron() {
 
 	//remove all stale backup's
 	edit_crontab($amp_conf['AMPBIN'] . '/backup.php');
-	
+
 	$backups = backup_get_backup('all_detailed');
 	foreach ($backups as $b) {
 		$cron = '';
@@ -356,7 +356,7 @@ function backup_set_backup_cron() {
 			//dbug('calling cron with ', $cron);
 			edit_crontab('', $cron);
 		}
-		
+
 	}
 }
 

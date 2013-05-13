@@ -67,6 +67,6 @@
 		*2.10.0.1* don't make jquery.jstree.min.js dynamic it blocks caching
 		*2.10.0.0* Backup Module Rewrite
 	</changelog>
-	<location>release/2.11/backup-2.10.0.44.tgz</location>
-	<md5sum>cdd959878519ed8d42ecfbbf535b938d</md5sum>
+	<location>release/2.11/backup-2.11.0.0.tgz</location>
+	<md5sum>8dc6983c9fb8ee0a8029160c844a2b24</md5sum>
 </module>

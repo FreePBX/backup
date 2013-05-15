@@ -353,7 +353,6 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 	$temp['full']['exclude'][]	= '';
 
 
-	
 	$temp['cdr'] = array(
 					'id'		=> '',
 					'name'		=> 'CDR\'s',
@@ -686,6 +685,14 @@ if ($ex = 'N;') {
 		. 'WHERE template_id = 2 AND path = "__AMPBIN__"';
 	$res = $db->query($sql, array($value));
 	db_e($res);
+}
+
+//fix for #6083
+$full_freepbx_conf = $db->getOne('select path FROM backup_template_details '
+			. 'WHERE template_id = 2 AND path = "/etc/freepbx.conf"');
+
+if ($full_freepbx_conf) {
+	sql('DELETE FROM backup_template_details WHERE type = "file" and path = "/etc/freepbx.conf" and template_id = 2');
 }
 
 $freepbx_conf =& freepbx_conf::create();

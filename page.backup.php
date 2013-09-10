@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 $get_vars = array(
@@ -32,7 +32,7 @@ $get_vars = array(
 				'restore'			=> '',
 				'storage_servers'	=> array(),
 				'submit'			=> '',
-				'type'				=> ''	
+				'type'				=> ''
 				);
 
 foreach ($get_vars as $k => $v) {
@@ -65,7 +65,7 @@ switch ($var['action']) {
 		//dont stop untill were all done
 		//backup will compelte EVEN IS USER NAVIGATES AWAY FROM PAGE!!
 		ignore_user_abort(true);
-		
+
 		//clear all buffers, those will interfere with the stream
 		while (ob_get_level()) {
 			ob_end_clean();
@@ -74,9 +74,9 @@ switch ($var['action']) {
 		ob_start();
 		header('Content-Type: text/event-stream');
 		header('Cache-Control: no-cache');
-		$cmd = $amp_conf['ASTVARLIBDIR'] . '/bin/backup.php --id=' 
+		$cmd = $amp_conf['AMPBIN'] . '/backup.php --id='
 				. escapeshellcmd($var['id']) . ' 2>&1';
-				
+
 		//start running backup
 		$run = popen($cmd, 'r');
 		while (($msg = fgets($run)) !== false) {
@@ -84,9 +84,9 @@ switch ($var['action']) {
 			//send results back to the user
 			backup_log($msg);
 		}
-		
+
 		pclose($run);
-		
+
 		//send messgae to browser that were done
 		backup_log('END');
 

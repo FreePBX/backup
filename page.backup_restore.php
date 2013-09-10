@@ -169,7 +169,7 @@ switch ($var['action']) {
         ob_start(); 
         header('Content-Type: text/event-stream'); 
         header('Cache-Control: no-cache');
-        $cmd = $amp_conf['ASTVARLIBDIR'] . '/bin/restore.php --restore='
+        $cmd = $amp_conf['AMPBIN'] . '/bin/restore.php --restore='
                 . $_SESSION['backup_restore_path'] 
                 . ' --items=' 
                 . base64_encode(serialize($restore))

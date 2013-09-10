@@ -156,7 +156,7 @@ if (isset($vars['id']) && $vars['id']) {
 				}
 
 				backup_log(_('Restoring backup...'));
-				$cmd = $amp_conf['ASTVARLIBDIR'] . '/bin/restore.php '
+				$cmd = $amp_conf['AMPBIN'] . '/bin/restore.php '
 						. '--restore=' . $b->b['_tmpfile']
 						. ' --items=' . base64_encode(serialize($restore));
 				system($cmd);

@@ -155,6 +155,11 @@ if (isset($vars['id']) && $vars['id']) {
 					$restore['files'] = $files;
 				}
 
+				//check if we have a cdr to restore
+				if ($b->b['manifest']['fpbx_cdrdb'] != '') {
+					$restore['cdr'] = true;
+				}
+				
 				backup_log(_('Restoring backup...'));
 				$cmd = $amp_conf['AMPBIN'] . '/bin/restore.php '
 						. '--restore=' . $b->b['_tmpfile']

@@ -201,117 +201,120 @@ if (isset($vars['restore'], $vars['items'])) {
 	//restore settings
 	if (isset($items['settings']) && $items['settings'] == 'true') {
 		backup_log(_('Restoring settings...'));
-		$s = explode('-', $manifest['fpbx_db']);
-		$file = $manifest['mysql'][$s[1]]['file'];
-		$settings_stat_time = time();//last time we sent status update
-		$notifed_for = array();//precentages we sent status updates for
-		$path = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . time() . '.sql';
+		if ($manifest['fpbx_db'] != '') {
+			$s = explode('-', $manifest['fpbx_db']);
+			$file = $manifest['mysql'][$s[1]]['file'];
+			$settings_stat_time = time();//last time we sent status update
+			$notifed_for = array();//precentages we sent status updates for
+			$path = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . time() . '.sql';
 		
-		//get db
-		$cmd[] = fpbx_which('tar');
-		$cmd[] = 'zxOf';
-		$cmd[] = $vars['restore'];
-		$cmd[] = './' . $file;
-		$cmd[] = '>';
-		$cmd[] = $path;
+			//get db
+			$cmd[] = fpbx_which('tar');
+			$cmd[] = 'zxOf';
+			$cmd[] = $vars['restore'];
+			$cmd[] = './' . $file;
+			$cmd[] = '>';
+			$cmd[] = $path;
 		
-		exec(implode(' ', $cmd), $file);
-		unset($cmd);
+			exec(implode(' ', $cmd), $file);
+			unset($cmd);
 		
-		backup_log(_('Getting Settings size...'));
-		$cmd[] = fpbx_which('wc');
-		$cmd[] = ' -l';
-		$cmd[] = $path;
+			backup_log(_('Getting Settings size...'));
+			$cmd[] = fpbx_which('wc');
+			$cmd[] = ' -l';
+			$cmd[] = $path;
 		
-		exec(implode(' ', $cmd), $lines);
-		unset($cmd);
+			exec(implode(' ', $cmd), $lines);
+			unset($cmd);
 
-		$lines = explode(' ', $lines[0]);
-		$lines = $lines[0];
+			$lines = explode(' ', $lines[0]);
+			$lines = $lines[0];
 
-		$pretty_lines = number_format($lines);
-		$buffer = array();
-		$file = fopen($path, 'r');
-		$linecount = 0;
+			$pretty_lines = number_format($lines);
+			$buffer = array();
+			$file = fopen($path, 'r');
+			$linecount = 0;
 		
-		//TODO: should restore-to server should be configurable from the gui at restore time?
-		while(($line = fgets($file)) !== false) {
-			$line = trim($line);
-			$linecount++;
+			//TODO: should restore-to server should be configurable from the gui at restore time?
+			while(($line = fgets($file)) !== false) {
+				$line = trim($line);
+				$linecount++;
 
-			switch (true) {
-				case ($line == ''):
-				//clear the buffer every time we hit a blank line
-					$flush = true;
-					break;
-				case (substr($line, -1) == ';'):
-					//clear the buffer if the end of this line is the end of a statement
-					$buffer[] = $line;
-					$flush = true;
-					break;
-				default:
+				switch (true) {
+					case ($line == ''):
+					//clear the buffer every time we hit a blank line
+						$flush = true;
+						break;
+					case (substr($line, -1) == ';'):
+						//clear the buffer if the end of this line is the end of a statement
+						$buffer[] = $line;
+						$flush = true;
+						break;
+					default:
+						$flush = false;
+						$buffer[] = $line;
+						break;
+				}
+
+
+				//if $flush is true, we need to flush the buffer
+				if ($flush) {
+					//dont spill the buffer if its emtpy
+					if ($buffer) {
+						$q = $db->query(implode("\n", $buffer));
+						db_e($q);
+						//dbug($db->last_query);
+						//once commited, clear the buffer
+						$buffer = array();
+						//and reset php's timeout, as large queries can take quite some time
+						set_time_limit(30);
+					}
 					$flush = false;
-					$buffer[] = $line;
-					break;
-			}
-
-
-			//if $flush is true, we need to flush the buffer
-			if ($flush) {
-				//dont spill the buffer if its emtpy
-				if ($buffer) {
-					$q = $db->query(implode("\n", $buffer));
-					db_e($q);
-					//dbug($db->last_query);
-					//once commited, clear the buffer
-					$buffer = array();
-					//and reset php's timeout, as large queries can take quite some time
-					set_time_limit(30);
 				}
-				$flush = false;
-			}
 
-			//update the user once every 5% or at least every 60 seconds
-			$precent = floor((1 - ($lines - $linecount) / $lines) * 100);
-			$next_due = time() >= $settings_stat_time + 60;
-			if (
-				$precent > 1
-				&& $next_due
-				&& ($precent % 5 === 0 
-					&& !in_array($precent, $notifed_for)
-					|| $next_due)
-			) {
-				backup_log(_('Processed ' . $precent
-						. '% of Settings\'s (' 
-						. number_format($linecount) 
-						. '/' . $pretty_lines . ' lines)'));
+				//update the user once every 5% or at least every 60 seconds
+				$precent = floor((1 - ($lines - $linecount) / $lines) * 100);
+				$next_due = time() >= $settings_stat_time + 60;
+				if (
+					$precent > 1
+					&& $next_due
+					&& ($precent % 5 === 0 
+						&& !in_array($precent, $notifed_for)
+						|| $next_due)
+				) {
+					backup_log(_('Processed ' . $precent
+							. '% of Settings\' (' 
+							. number_format($linecount) 
+							. '/' . $pretty_lines . ' lines)'));
 
-				//reset status update time
-				$settings_stat_time = time();
-				if ($precent % 5 === 0) {
-					$notifed_for[] = $precent;
+					//reset status update time
+					$settings_stat_time = time();
+					if ($precent % 5 === 0) {
+						$notifed_for[] = $precent;
+					}
 				}
 			}
-		}
-		if (!in_array(100, $notifed_for)) {
-			backup_log(_('Processed 100% of Settings\'s!'));
-		}
+			if (!in_array(100, $notifed_for)) {
+				backup_log(_('Processed 100% of Settings\'!'));
+			}
 
-		fclose($file);
-		unlink($path);
-		
+			fclose($file);
+			unlink($path);
+		}
 	
 		//restore astdb
-		backup_log(_('Restoring astDB...'));
-		$cmd[] = fpbx_which('tar');
-		$cmd[] = 'zxOf';
-		$cmd[] = $vars['restore'];
-		$cmd[] = './' . $manifest['astdb'];
-		exec(implode(' ', $cmd), $file);
-		astdb_put(unserialize($file[0]), array('RINGGROUP', 'BLKVM', 'FM', 'dundi'));
-		unset($cmd);
+		if ($manifest['astdb'] != '') {
+			backup_log(_('Restoring astDB...'));
+			$cmd[] = fpbx_which('tar');
+			$cmd[] = 'zxOf';
+			$cmd[] = $vars['restore'];
+			$cmd[] = './' . $manifest['astdb'];
+			exec(implode(' ', $cmd), $file);
+			astdb_put(unserialize($file[0]), array('RINGGROUP', 'BLKVM', 'FM', 'dundi'));
+			unset($cmd);
+		}
 		
-		backup_log(_('Restoring Settings\'s complete'));
+		backup_log(_('Restoring Settings\' complete'));
 	}
 	//dbug($file);
 	

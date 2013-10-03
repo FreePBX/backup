@@ -578,7 +578,7 @@ class Backup {
 		foreach($delete as $key => $file) {
 			switch($type) {
 				case 'local':
-					unlink($this->b['_dirpath'] . '/' . $file);
+					unlink(backup__($data['path']) . '/' . $file);
 					unset($delete[$key]);
 					break;
 				case 'ftp':

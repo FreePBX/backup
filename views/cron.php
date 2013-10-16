@@ -38,7 +38,7 @@ $data = array(
 	'checked'	=> ($cron_random == 'true' ? true : false),
 );
 
-$html .= br() . form_label('Randomize', 'cron_random') . form_checkbox($data);
+$html .= br() . form_label(_('Randomize'), 'cron_random') . form_checkbox($data);
 
 $html .= '<div id="crondiv">';
 //minutes

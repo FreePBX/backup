@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>2.11.0.4</version>
+	<version>2.11.0.5</version>
 	<publisher>Schmoozecom.com</publisher>
 	<license>GPLv2+</license>
 	<category>Admin</category>
@@ -17,6 +17,7 @@
 		<module>core</module>
 	</depends>
     	<changelog>
+    		*2.11.0.5* #6862, #6863
     		*2.11.0.4* #6761
     		*2.11.0.3* #6772
 		*2.11.0.2* #6730, #6549, #6553

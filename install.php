@@ -25,7 +25,7 @@ $autoincrement = ($amp_conf["AMPDBENGINE"] == "sqlite3") ? "AUTOINCREMENT" : "AU
 $sql[] = $bu_table = 'CREATE TABLE IF NOT EXISTS `backup` (
 			`id` int(11) NOT NULL ' . $autoincrement . ',
 			`name` varchar(50) default NULL,
-			`description` varchar(150) default NULL,
+			`description` varchar(255) default NULL,
 			`immortal` varchar(25) default NULL,
 			`data` longtext default NULL,
 			PRIMARY KEY  (`id`)
@@ -54,7 +54,7 @@ $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_cache` (
 $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_servers` (
 			`id` int(11) NOT NULL ' . $autoincrement . ',
 			`name` varchar(50) default NULL,
-			`desc` varchar(150) default NULL,
+			`desc` varchar(255) default NULL,
 			`type` varchar(50) default NULL,
 			`readonly` varchar(250) default NULL,
 			`immortal` varchar(25) default NULL,
@@ -71,7 +71,7 @@ $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_server_details` (
 $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_templates` (
 			`id` int(11) NOT NULL ' . $autoincrement . ',
 			`name` varchar(50) default NULL,
-			`desc` varchar(150) default NULL,
+			`desc` varchar(255) default NULL,
 			`immortal` varchar(25) default NULL,
 			`data` longtext default NULL,
 			PRIMARY KEY  (`id`)

@@ -25,4 +25,4 @@
 	</changelog>
 	<location>release/2.10/backup-2.10.0.12.tgz</location>
 	<md5sum>82614ad88795f21e9c7261ba0fac2a0a</md5sum>
-</module>
+<supported><version>2.10</version></supported></module>

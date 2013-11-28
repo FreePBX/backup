@@ -40,4 +40,4 @@
 	</changelog>
 	<location>release/2.10/backup-2.10.0.19.tgz</location>
 	<md5sum>4b16fbef7bf888e4fcf856fe77dd8659</md5sum>
-</module>
+<supported><version>2.10</version></supported></module>

@@ -71,4 +71,4 @@
 	</changelog>
 	<location>release/2.11/backup-2.11.0.2.tgz</location>
 	<md5sum>51bf3d7c7aa849dd4eb3cc3e90bbd35c</md5sum>
-</module>
+<supported><version>2.11</version></supported></module>

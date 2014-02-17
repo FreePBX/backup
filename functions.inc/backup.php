@@ -174,8 +174,14 @@ function backup_put_backup($var) {
 	}
 
 	//save server
-	$sql = 'REPLACE INTO backup (id, name, description) VALUES (?, ?, ?)';
-	$ret = $db->query($sql, array($var['id'], $var['name'], $var['desc']));
+	if (!empty($var['id'])) {
+	  $sql = 'UPDATE backup SET name = ?, description = ? WHERE id = ?';
+	  $sql_params = array($var['name'], $var['desc'], $var['id']);
+	} else {
+		$sql = 'INSERT INTO backup (name, description) VALUES (?, ?)';
+		$sql_params = array($var['name'], $var['desc']);
+	}
+	$ret = $db->query($sql, $sql_params);
 	if ($db->IsError($ret)){
 		die_freepbx($ret->getDebugInfo());
 	}

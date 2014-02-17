@@ -130,8 +130,14 @@ function backup_put_server($var) {
 	}
 	
 	//save server
-	$sql = 'REPLACE INTO backup_servers (id, name, `desc`, type) VALUES (?, ?, ?, ?)';
-	$ret = $db->query($sql, array($var['id'], $var['name'], $var['desc'], $var['server_type']));
+	if (!empty($var['id'])) {
+		$sql = 'UPDATE backup_servers SET name = ?, `desc` = ?, type = ? WHERE id = ?';
+		$sql_params = array($var['name'], $var['desc'], $var['server_type'], $var['id']);
+	} else {
+		$sql = 'INSERT INTO backup_servers (name, `desc`, type) VALUES (?, ?, ?)';
+		$sql_params = array($var['name'], $var['desc'], $var['server_type']);
+	}
+	$ret = $db->query($sql, $sql_params);
 	if ($db->IsError($ret)){
 		die_freepbx($ret->getDebugInfo());
 	}

@@ -161,8 +161,14 @@ function backup_put_template($var) {
 	}
 	
 	//save server
-	$sql = 'REPLACE INTO backup_templates (id, name, `desc`) VALUES (?, ?, ?)';
-	$ret = $db->query($sql, array($var['id'], $var['name'], $var['desc']));
+	if (!empty($var['id'])) {
+		$sql = 'UPDATE backup_templates SET name = ?, `desc` = ? WHERE id = ?';
+		$sql_params = array($var['name'], $var['desc'], $var['id']);
+	} else {
+		$sql = 'INSERT INTO backup_templates (name, `desc`) VALUES (?, ?)';
+		$sql_params = array($var['name'], $var['desc']);
+	}
+	$ret = $db->query($sql, $sql_params);
 	if ($db->IsError($ret)){
 		die_freepbx($ret->getDebugInfo());
 	}

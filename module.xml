@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>2.11.0.6</version>
+	<version>2.11.0.7</version>
 	<publisher>Schmoozecom.com</publisher>
 	<license>GPLv2+</license>
 	<category>Admin</category>
@@ -16,58 +16,59 @@
 	<depends>
 		<module>core</module>
 	</depends>
-    	<changelog>
-			*2.11.0.6* #6380
-    		*2.11.0.5* #6862, #6863
-    		*2.11.0.4* #6761
-    		*2.11.0.3* #6772
+	<changelog>
+		*2.11.0.7* #7155
+		*2.11.0.6* #6380
+    	*2.11.0.5* #6862, #6863
+    	*2.11.0.4* #6761
+    	*2.11.0.3* #6772
 		*2.11.0.2* #6730, #6549, #6553
 		*2.11.0.1* #6083
 		*2.11.0.0* #6555
-		*2.10.0.44* clarify Run lable 
-		*2.10.0.43* clarify Run lable 
+		*2.10.0.44* clarify Run lable
+		*2.10.0.43* clarify Run lable
 		*2.10.0.42* Packaging of ver 2.10.0.42
-		*2.10.0.41* re #6028 - restore backup to correct server 
-		*2.10.0.40* re #6028 - restore backup to correct server 
-		*2.10.0.39* Handel large settings db\'s with grace 
-		*2.10.0.38* Handel large settings db\'s with grace 
-		*2.10.0.37* Handel large settings db\'s with grace 
-		*2.10.0.36* re #5996 - use new restore script on remote restores 
-		*2.10.0.35* re #5991 - 
-		*2.10.0.34* re #5988 - Allow intercom beep to be configurable 
-		*2.10.0.33* re #5963 - Make backup suport backups &gt; 2GB 
+		*2.10.0.41* re #6028 - restore backup to correct server
+		*2.10.0.40* re #6028 - restore backup to correct server
+		*2.10.0.39* Handel large settings db\'s with grace
+		*2.10.0.38* Handel large settings db\'s with grace
+		*2.10.0.37* Handel large settings db\'s with grace
+		*2.10.0.36* re #5996 - use new restore script on remote restores
+		*2.10.0.35* re #5991 -
+		*2.10.0.34* re #5988 - Allow intercom beep to be configurable
+		*2.10.0.33* re #5963 - Make backup suport backups &gt; 2GB
 		*2.10.0.32* version bump for file integrity
-		*2.10.0.31* re #5823 - add more ssh port support; better handeling of backups &gt; 2gb 
-		*2.10.0.31* re #5823 - add more ssh port support; better handeling of backups &gt; 2gb 
-		*2.10.0.31* bug fixes 
-		*2.10.0.30* bug fixes 
-		*2.10.0.29* re #5907 - fix astdb backup/restore commands 
+		*2.10.0.31* re #5823 - add more ssh port support; better handeling of backups &gt; 2gb
+		*2.10.0.31* re #5823 - add more ssh port support; better handeling of backups &gt; 2gb
+		*2.10.0.31* bug fixes
+		*2.10.0.30* bug fixes
+		*2.10.0.29* re #5907 - fix astdb backup/restore commands
 		*2.10.0.28* #5871, #5823, #5615, #5825, #5573
 		*2.10.0.27* include core to allow trunks to be disabled
-		*2.10.0.26* implement cdr restore 
-		*2.10.0.26* implement cdr restore 
-		*2.10.0.25* re #5659 - seems r14000 is missing a chunk of the fix. Here it is. 
-		*2.10.0.24* re #5659 - set correct path on local servers; fix array being passed in astdb excludes; visual improvement to run button onhover 
-		*2.10.0.23* r13797 was using wrong index 
+		*2.10.0.26* implement cdr restore
+		*2.10.0.26* implement cdr restore
+		*2.10.0.25* re #5659 - seems r14000 is missing a chunk of the fix. Here it is.
+		*2.10.0.24* re #5659 - set correct path on local servers; fix array being passed in astdb excludes; visual improvement to run button onhover
+		*2.10.0.23* r13797 was using wrong index
 		*2.10.0.22* #5598
-		*2.10.0.21* revert (and improve) more of r13141 which broke restoring legacy backups 
+		*2.10.0.21* revert (and improve) more of r13141 which broke restoring legacy backups
 		*2.10.0.20* #5566
 		*2.10.0.19* #5618, add ability to disable registered trunks on restore
 		*2.10.0.18* #5615, #5619, #5620
 		*2.10.0.17* #5607, #5612, fixes issues with remote restores also
 		*2.10.0.16* #5598, #5599
 		*2.10.0.15* full template changes
-		*2.10.0.14* bug fixes 
-		*2.10.0.13* bug fixes 
-		*2.10.0.12* bug fixes 
-		*2.10.0.11* bug fixes 
+		*2.10.0.14* bug fixes
+		*2.10.0.13* bug fixes
+		*2.10.0.12* bug fixes
+		*2.10.0.11* bug fixes
 		*2.10.0.10* bug fixes
-		*2.10.0.9* improve eventstream log 
-		*2.10.0.8* bug fixes 
-		*2.10.0.7* bug fixes 
+		*2.10.0.9* improve eventstream log
+		*2.10.0.8* bug fixes
+		*2.10.0.7* bug fixes
 		*2.10.0.6* fixed legacy restore and per file restore bugs
  		*2.10.0.5* fixes upload and legacy restore
- 		*2.10.0.4* small, critical variable 
+ 		*2.10.0.4* small, critical variable
  		*2.10.0.3* misc bug fixes
 		*2.10.0.2* #5418
 		*2.10.0.1* don't make jquery.jstree.min.js dynamic it blocks caching

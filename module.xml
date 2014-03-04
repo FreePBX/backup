@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>2.11.0.7</version>
+	<version>2.11.0.8</version>
 	<publisher>Schmoozecom.com</publisher>
 	<license>GPLv2+</license>
 	<category>Admin</category>
@@ -17,6 +17,7 @@
 		<module>core</module>
 	</depends>
 	<changelog>
+		*2.11.0.8* #5832 Ensure AstDB is regenerated on restore
 		*2.11.0.7* #7155
 		*2.11.0.6* #6380
     	*2.11.0.5* #6862, #6863

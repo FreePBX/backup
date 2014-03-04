@@ -334,6 +334,10 @@ if (isset($vars['restore'], $vars['items'])) {
 	fpbx_ami_update($freepbx_conf->get_conf_setting('AMPMGRUSER', true), 
 					$freepbx_conf->get_conf_setting('AMPMGRPASS', true));
 	
+	// Update AstDB
+	core_users2astdb();
+	core_devices2astdb();
+
 	needreload();
 	
 	//delete backup file if it was a temp file

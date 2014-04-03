@@ -1,5 +1,0 @@
-2.11.0
- * Reworked Backup to support files > 2gb (r14347)
- * Added ftp option for active/passive
- * Fixed some ssh/scp commands that didnt account for port
- * Added modal box with live restore status

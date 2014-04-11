@@ -365,7 +365,7 @@ class Backup {
 						//release handel
 						ftp_close($ftp);
 					} else {
-						dbug('ftp connect error');
+						backup_log(_("Error connecting to the FTP Server..."));
 					}
 					break;
 				case 'ssh':

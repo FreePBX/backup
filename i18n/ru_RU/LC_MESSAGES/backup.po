@@ -18,212 +18,257 @@
 # This file is distributed under the same license as the freePBX package.
 # Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
 #
-# ∏·ﬂﬁ€Ï◊ﬁ“–‚Ï iconv yourfile.new -f UTF-8 -t ISO-8859-5 -o yourfile.po
-# fuzzy
+# –ò—Å–ø–æ–ª—å–∑–æ–≤–∞—Ç—å iconv yourfile.new -f UTF-8 -t ISO-8859-5 -o yourfile.po
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"POT-Creation-Date: 2012-10-30 00:04+0400\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
 "Language-Team: Russian <faq@postmet.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-5\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Backup & Restore"
-msgstr "¿’◊’‡“›ﬁ’ ⁄ﬁﬂÿ‡ﬁ“–›ÿ’ ÿ “ﬁ··‚–›ﬁ“€’›ÿ’"
+msgstr "–†–µ–∑–µ—Ä–≤–Ω–æ–µ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏–µ –∏ –≤–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω–∏–µ"
 
 msgid "Admin"
-msgstr ""
+msgstr "–ê–¥–º–∏–Ω"
 
 msgid "Backup & Restore for your FreePBX environment"
-msgstr ""
+msgstr "–†–µ–∑–µ—Ä–≤–Ω–æ–µ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏–µ –∏ –≤–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω–∏–µ –¥–ª—è –≤–∞—à–µ–≥–æ FreePBX"
+
+#, fuzzy
+msgid "Backup & Restore - Servers"
+msgstr "–†–µ–∑–µ—Ä–≤–Ω–æ–µ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏–µ –∏ –≤–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω–∏–µ"
+
+#, fuzzy
+msgid "Backup & Restore - Templates"
+msgstr "–†–µ–∑–µ—Ä–≤–Ω–æ–µ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏–µ –∏ –≤–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω–∏–µ"
+
+#, fuzzy
+msgid "Backup & Restore - Restore"
+msgstr "–†–µ–∑–µ—Ä–≤–Ω–æ–µ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏–µ –∏ –≤–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω–∏–µ"
+
+msgid "Email "
+msgstr "E-mail"
+
+#, fuzzy
+msgid "Backup Module"
+msgstr "–î–æ–±–∞–≤–∏—Ç—å —Å—Ü–µ–Ω–∞—Ä–∏–π —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è"
+
+msgid "The From: field for emails when using the backup email feature."
+msgstr "–§–æ—Ä–º–∞: –ø–æ–ª–µ –¥–ª—è e-mail's, –∫–æ–≥–¥–∞ –∏—Å–ø–æ–ª—å–∑—É–µ—Ç—Å—è —Ñ—É–Ω–∫—Ü–∏—è backup e-mail "
 
 msgid "Can not create backup tables"
-msgstr ""
+msgstr "–ù–µ–≤–æ–∑–º–æ–∂–Ω–æ —Å–æ–∑–¥–∞—Ç—å —Ç–∞–±–ª–∏—Ü—É —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è "
 
 msgid "Can't check for Backup table"
-msgstr ""
+msgstr "–ù–µ–≤–æ–∑–º–æ–∂–Ω–æ –ø—Ä–æ–≤–µ—Ä–∏—Ç—å —Ç–∞–±–ª–∏—Ü—É —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è "
 
 msgid ""
 "ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
 msgstr ""
+"–û—à–∏–±–∫–∞: –Ω–µ—É–¥–∞–ª–æ—Å—å –ø–µ—Ä–Ω–µ—Å—Ç–∏ —Å—Ç—Ä–∞—É—é —Ç–∞–±–ª–∏—Ü—É \"–†–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è\" "
+"–≤ –Ω–æ–≤—É—é —Ç–∞–±–ª–∏—Ü—É \"–†–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è \" "
 
 msgid "This error can result from a previous incomplete/failed install of"
-msgstr ""
+msgstr "–≠—Ç–∞ –æ—à–∏–±–∫–∞ –º–æ–≥–ª–∞ —Å—Ç–∞—Ç—å —Ä–µ–∑—É–ª—å—Ç–∞—Ç–æ–º —Ç–æ–≥–æ, —á—Ç–æ –ø—Ä–æ–∏–∑–æ—à–ª–∞ –Ω–µ–∑–∞–≤—Ä—à–µ–Ω–Ω–∞—è/–Ω–µ—É–¥–∞—á–Ω–∞—è —É—Å—Ç–∞–Ω–æ–≤–∫–∞ "
 
 msgid "this module. You should probably uninstall and reinstall this module"
-msgstr ""
+msgstr "—ç—Ç–æ–≥–æ –º–æ–¥—É–ª—è. –°–∫–æ—Ä–µ–µ –≤—Å–µ–≥–æ –≤–∞–º —Å–ª–µ–¥—É–µ—Ç —É–¥–∞–ª–∏—Ç—å –∏ –ø–µ—Ä–µ—É—Å—Ç–∞–Ω–æ–≤–∏—Ç—å —ç—Ç–æ—Ç –º–æ–¥—É–ª—å, "
 
 msgid ""
 "doing so will result in a loss of all your backup settings though previous"
 msgstr ""
+"—á—Ç–æ –ø—Ä–∏–≤–µ–¥–µ—Ç –∫ –ø–æ—Ç–µ—Ä–µ –≤—Å–µ—Ö –Ω–∞—Å—Ç—Ä–æ–µ–∫ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è "
 
 msgid "backup data will be preserved."
-msgstr ""
+msgstr "–¥–∞–Ω–Ω—ã–µ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è –±—É–¥—É—Ç —Å–æ—Ö—Ä–∞–Ω–µ–Ω—ã "
 
 msgid "Failure Message:"
-msgstr ""
+msgstr "–°–æ–æ–±—â–µ–Ω–∏–µ –æ–± –æ—à–∏–±–∫–µ"
 
 msgid "Can not migrate Backup table"
-msgstr ""
+msgstr "–ù–µ —É–¥–∞–µ—Ç—Å—è –ø–µ—Ä–µ–Ω–µ—Å—Ç–∏ —Ç–∞–±–ª–∏—Ü—É —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è"
 
 msgid "Backup migration completed"
-msgstr ""
+msgstr "–ü–µ—Ä–µ–Ω–æ—Å —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è –∑–∞–≤–µ—Ä—à–µ–Ω"
 
 msgid "Nothing to migrate"
-msgstr ""
+msgstr "–ù–µ—á–µ–≥–æ –ø–µ—Ä–µ–Ω–æ—Å–∏—Ç—å"
 
-msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
+msgid ""
+"ERROR: Failed to remove old \"Backup\" table. You should uninstall"
 msgstr ""
+"–û—à–∏–±–∫–∞: –ù–µ—É–¥–∞–ª–æ—Å—å —É–¥–∞–ª–∏—Ç—å —Å—Ç–∞—Ä—É—é —Ç–∞–±–ª–∏—Ü—É —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è "
+"–í–∞–º —Å–ª–µ–¥—É–µ—Ç —É–¥–∞–ª–∏—Ç—å "
 
 msgid "and then re-install this module. Settings will be lost but old"
-msgstr ""
+msgstr "–∏ –ø–µ—Ä–µ—É—Å—Ç–∞–Ω–æ–≤–∏—Ç—å —ç—Ç–æ—Ç –º–æ–¥—É–ª—å. –ù–∞—Å—Ç—Ä–æ–π–∫–∏ –±—É–¥—É—Ç —É—Ç–µ—Ä—è–Ω—ã –Ω–æ "
 
 msgid "backup data will be retained."
-msgstr ""
+msgstr "—Ä–µ–∑–µ—Ä–≤–Ω—ã–µ –∫–æ–ø–∏–∏ –¥–∞–Ω–Ω—ã—Ö –±—É–¥—É—Ç —Å–æ—Ö—Ä–∞–Ω–µ–Ω—ã"
 
 msgid "Old Backup table removed"
-msgstr ""
+msgstr "–°—Ç–∞—Ä–∞—è —Ç–∞–±–ª–∏—Ü–∞ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è —É–¥–∞–ª–µ–Ω–∞"
 
 msgid "Replacing ampbackup.pl in db.."
-msgstr ""
+msgstr "–ó–∞–º–µ–Ω—è–µ–º ampbackup.pl –≤ –ë–î"
 
 msgid "an error has occurred, update not done"
-msgstr ""
+msgstr "–ü—Ä–æ–∏–∑–æ—à–ª–∞ –æ—à–∏–±–∫–∞, –æ–±–Ω–æ–≤–ª–µ–Ω–∏–µ –Ω–µ –∑–∞–≤–µ—Ä—à–µ–Ω–æ"
 
 msgid "ok"
-msgstr ""
+msgstr "ok"
 
 msgid "removing retrieve_backup_cron_from_mysql.pl.."
-msgstr "„‘–€Ô’‚·Ô retrieve_backup_cron_from_mysql.pl.."
+msgstr "—É–¥–∞–ª—è–µ—Ç—Å—è retrieve_backup_cron_from_mysql.pl.."
 
 msgid "removed"
-msgstr "„‘–€’›ﬁ"
+msgstr "—É–¥–∞–ª–µ–Ω–æ"
 
 msgid "failed"
-msgstr "·—ﬁŸ"
+msgstr "—Å–±–æ–π"
 
 msgid "Migrating backup table..."
-msgstr ""
+msgstr "–ü–µ—Ä–µ–Ω–æ—Å —Ç–∞–±–ª–∏—Ü—ã —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è..."
 
 msgid "WARNING: backup table not migrated"
-msgstr ""
+msgstr "–í–Ω–∏–º–∞–Ω–∏–µ: —Ç–∞–±–ª–∏—Ü–∞ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è –Ω–µ –ø–µ—Ä–µ–Ω–µ—Å–µ–Ω–∞"
 
 msgid "Successfully migrated backup table!"
-msgstr ""
+msgstr "–¢–∞–±–ª–∏—Ü–∞ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è —É—Å–ø–µ—à–Ω–æ –ø–µ—Ä–µ–Ω–µ—Å–µ–Ω–∞"
 
 msgid "Creating backups directory.."
-msgstr ""
+msgstr "–°–æ–∑–¥–∞–µ—Ç—Å—è –∫–∞—Ç–∞–ª–æ–≥ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è"
 
 #, php-format
 msgid "WARNING: failed to create backup directory: %s"
-msgstr ""
+msgstr "–í–Ω–∏–º–∞–Ω–∏–µ: –Ω–µ—É–¥–∞–ª–æ—Å—å —Å–æ–∑–¥–∞—Ç—å –∫–∞—Ç–∞–ª–æ–≥ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è: %s"
 
 msgid "Location of backups pre 2.10"
-msgstr ""
+msgstr "–†–∞—Å–ø–æ–ª–æ–∂–µ–Ω–∏–µ —Ä–µ–∑–µ—Ä–≤–Ω—ã—Ö –∫–æ–ø–∏–π –¥–æ 2.10"
 
 msgid "Storage location for backups"
-msgstr ""
+msgstr "–†–∞—Å–ø–æ–ª–æ–∂–µ–Ω–∏–µ —Ö—Ä–∞–Ω–∏–ª–∏—â–∞ —Ä–µ–∑–µ—Ä–≤–Ω—ã—Ö –∫–æ–ø–∏–π"
 
 msgid "PBX config server, generally a local database server"
-msgstr ""
+msgstr "–°–µ—Ä–≤–µ—Ä –∫–æ–Ω—Ñ–∏–≥—É—Ä–∞—Ü–∏–∏ PBX, –æ–±—ã—á–Ω–æ –ª–æ–∫–∞–ª—å–Ω–∞—è –ë–î"
 
 msgid "CDR server, generally a local database server"
-msgstr ""
+msgstr "CDR —Å–µ—Ä–≤–µ—Ä, –æ–±—ã—á–Ω–æ –ª–æ–∫–∞–ª—å–Ω–∞—è –ë–î"
 
 msgid "added default backup servers"
-msgstr ""
+msgstr "–¥–æ–±–∞–≤–ª–µ–Ω—ã —Å–µ—Ä–≤–µ—Ä–∞ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è –ø–æ —É–º–æ–ª—á–∞–Ω–∏—é"
 
 msgid "Configurations only"
-msgstr ""
+msgstr "–¢–æ–ª—å–∫–æ –∫–æ–Ω—Ñ–∏–≥—É—Ä–∞—Ü–∏—è"
 
-msgid "A full backup of core settings and web files"
+msgid ""
+"A full backup of core settings and web files, dosen't include system sounds "
+"or recordings."
 msgstr ""
+"–ü–æ–ª–Ω–æ–µ —Ä–µ–∑–µ—Ä–≤–Ω–æ–µ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏–µ –Ω–∞—Å—Ç—Ä–æ–µ–∫ —è–¥—Ä–∞ –∏ web-–∏–Ω—Ç–µ—Ä—Ñ–µ–π—Å–∞, –∏—Å–∫–ª—é—á–∞—è —Å–∏—Å—Ç–µ–º–Ω—ã–µ –∑–≤—É–∫–∏ "
+"–∏–ª–∏ –∑–∞–ø–∏—Å–∏. "
 
 msgid "Call Detail Records"
-msgstr ""
+msgstr "–î–µ—Ç–∞–ª–∏–∑–∞—Ü–∏—è –∑–∞–ø–∏—Å–∏ –∑–≤–æ–Ω–∫–æ–≤"
 
 msgid "Voice Mail Storage"
-msgstr ""
+msgstr "–•—Ä–∞–Ω–∏–ª–∏—â–µ –≥–æ–ª–æ—Å–æ–≤–æ–π –ø–æ—á—Ç—ã"
 
-msgid "All system audio - including IVR prompts and Music On Hold."
+msgid ""
+"All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
+"VOICEMAIL"
 msgstr ""
+"–í—Å–µ —Å–∏—Å—Ç–µ–º–Ω—ã–µ –∞—É–¥–∏–æ –∑–∞–ø–∏—Å–∏ - –≤–∫–ª—é—á–∞—è –ò–Ω—Ç–µ—Ä–∞–∫—Ç–∏–≤–Ω–æ–µ –º–µ–Ω—é (IVR) –∏ –º—É–∑—ã–∫—É –≤ –æ–∂–∏–¥–∞–Ω–∏–∏. "
+"–ù–µ –¥–µ–ª–∞–µ—Ç —Ä–µ–∑–µ—Ä–≤–Ω—É—é –∫–æ–ø–∏—é –≥–æ–ª–æ—Å–æ–≤–æ–π –ø–æ—á—Ç—ã. "
 
-msgid " DOES NOT BACKUP VOICEMAIL"
+msgid ""
+"Exclude Backup's settings so that they dont get restored, usefull for a "
+"remote restore"
 msgstr ""
-
-msgid "Doesn't backup Backup's settings so that they dont get restored"
-msgstr ""
+"–ò—Å–∫–ª—é—á–∏—Ç—å –Ω–∞—Å—Ç—Ä–æ–π–∫–∏ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è —Ç–∞–∫ —á—Ç–æ –æ–Ω–∏ –Ω–µ –±—É–¥—É—Ç –≤–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω—ã, –ø–æ–ª–µ–∑–Ω–æ –¥–ª—è "
+"—É–¥–∞–ª–µ–Ω–Ω–æ–≥–æ –≤–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω–∏—è "
 
 msgid "added default backup templates"
-msgstr ""
+msgstr "–¥–æ–±–∞–≤–ª–µ–Ω—ã —à–∞–±–ª–æ–Ω—ã —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è –ø–æ —É–º–æ–ª—á–∞–Ω–∏—é"
 
 msgid "MIGRATED"
-msgstr ""
+msgstr "–ü–µ—Ä–µ–Ω–µ—Å–µ–Ω–æ"
 
 msgid "migrated backup"
-msgstr ""
+msgstr "–ü–µ—Ä–µ–Ω–æ—Å —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è"
 
 msgid "Migrated FTP server for backup "
-msgstr ""
+msgstr "–ü–∞—Ä–∞–º–µ—Ç—Ä—ã FTP —Å–µ—Ä–≤–µ—Ä–∞ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è –ø–µ—Ä–Ω–µ—Å–µ–Ω—ã"
 
 msgid "Migrated SSH server for backup "
-msgstr ""
+msgstr "–ü–∞—Ä–∞–º–µ—Ç—Ä—ã SSH —Å–µ—Ä–≤–µ—Ä–∞ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è –ø–µ—Ä–Ω–µ—Å–µ–Ω—ã"
 
 msgid "Migrated EMAIL server for backup "
-msgstr ""
+msgstr "–ü–∞—Ä–∞–º–µ—Ç—Ä—ã EMAIL —Å–µ—Ä–≤–µ—Ä–∞ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è –ø–µ—Ä–µ–Ω–µ—Å–µ–Ω—ã"
 
 msgid "Migrated remote SSH server for backup "
-msgstr ""
+msgstr "–ü–∞—Ä–∞–º–µ—Ç—Ä—ã —É–¥–∞–ª–µ–Ω–Ω–æ–≥–æ SSH —Å–µ—Ä–≤–µ—Ä–∞ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è –ø–µ—Ä–Ω–µ—Å–µ–Ω—ã"
 
 msgid "Default backup; automatically installed"
-msgstr ""
+msgstr "–†–µ–∑–µ—Ä–≤–Ω–æ–µ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏–µ –ø–æ —É–º–æ–ª—á–∞–Ω–∏—é: —É—Å—Ç–∞–Ω–∞–≤–ª–∏–≤–∞–µ—Ç—Å—è –∞–≤—Ç–æ–º–∞—Ç–∏—á–µ—Å–∫–∏"
 
 msgid "Delete"
-msgstr ""
+msgstr "–£–¥–∞–ª–∏—Ç—å "
 
 msgid "Run now"
-msgstr ""
+msgstr "–ó–∞–ø—É—Å—Ç–∏—Ç—å –Ω–µ–º–µ–¥–ª–µ–Ω–Ω–æ "
 
 msgid "Download"
-msgstr ""
+msgstr "–ó–∞–≥—Ä—É–∑–∏—Ç—å "
+
+msgid "Error uploading file!"
+msgstr "–û—à–∏–±–∫–∞ –∑–∞–≥—Ä—É–∑–∫–∏ —Ñ–∞–π–ª–æ–≤!"
+
+msgid "Error verifying uploaded file!"
+msgstr "–û—à–∏–±–∫–∞ –≤–µ—Ä–∏—Ñ–∏–∫–∞—Ü–∏–∏ –∑–≤–≥—Ä—É–∂–µ–Ω–Ω–æ–≥–æ —Ñ–∞–π–ª–∞!"
+
+msgid "Invalid backup for or undefined error"
+msgstr "–ù–µ–∫–æ—Ä—Ä–µ–∫—Ç–Ω–∞—è —Ä–µ–∑–µ—Ä–≤–Ω–∞—è –∫–æ–ø–∏—è –∏–ª–∏ –Ω–µ–∏–∑–≤–µ—Å—Ç–Ω–∞—è –æ—à–∏–±–∫–∞"
 
 #~ msgid "DELETE ALL THE DATA IN THIS SET"
-#~ msgstr "√¥∞ª∏¬Ã ≤¡µ ¥∞ΩΩÀµ ≤ »∞±ªæΩµ"
+#~ msgstr "–£–î–ê–õ–ò–¢–¨ –í–°–ï –î–ê–ù–ù–´–ï –í –®–ê–ë–õ–û–ù–ï"
 
 #~ msgid ""
 #~ "Delete this backup set and all data associated with this backup set.."
 #~ msgstr ""
-#~ "√‘–€ÿ‚Ï Ì‚ﬁ‚ Ë–—€ﬁ› ÿ “·’ ‘–››Î’, –··ﬁÊÿÿ‡ﬁ“–››Î’ · Ì‚ÿ‹ Ë–—€ﬁ›ﬁ‹.. "
+#~ "–£–¥–∞–ª–∏—Ç—å —ç—Ç–æ—Ç —à–∞–±–ª–æ–Ω –∏ –≤—Å–µ –¥–∞–Ω–Ω—ã–µ, –∞—Å—Å–æ—Ü–∏–∏—Ä–æ–≤–∞–Ω–Ω—ã–µ —Å —ç—Ç–∏–º —à–∞–±–ª–æ–Ω–æ–º.. "
 
 #~ msgid "Delete File Set"
-#~ msgstr "√‘–€ÿ‚Ï ⁄ﬁ‹ﬂ€’⁄‚ ‰–Ÿ€ﬁ“"
+#~ msgstr "–£–¥–∞–ª–∏—Ç—å –∫–æ–º–ø–ª–µ–∫—Ç —Ñ–∞–π–ª–æ–≤"
 
 #~ msgid "Delete this backup set."
-#~ msgstr "√‘–€ÿ‚Ï Ì‚ﬁ‚ Ë–—€ﬁ› ‡’◊’‡“›ﬁ”ﬁ ⁄ﬁﬂÿ‡ﬁ“–›ÿÔ"
+#~ msgstr "–£–¥–∞–ª–∏—Ç—å —ç—Ç–æ—Ç —à–∞–±–ª–æ–Ω —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è"
 
 #~ msgid "Restore Entire Backup Set"
-#~ msgstr "≤ﬁ··‚–›ﬁ“ÿ‚Ï ﬂﬁ€›ÎŸ Ë–—€ﬁ›"
+#~ msgstr "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–∏—Ç—å –ø–æ–ª–Ω—ã–π —à–∞–±–ª–æ–Ω"
 
 #~ msgid "Restore your Complete Backup set overwriting all files."
 #~ msgstr ""
-#~ "≤ﬁ··‚–›ﬁ“€’›ÿ’ · ﬂﬁ€›ﬁŸ ‡’◊’‡“›ﬁŸ ⁄ﬁﬂÿÿ, “·’ ‰–Ÿ€Î —„‘„‚ ﬂ’‡’◊–ﬂÿ·–›Î."
+#~ "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω–∏–µ —Å –ø–æ–ª–Ω–æ–π —Ä–µ–∑–µ—Ä–≤–Ω–æ–π –∫–æ–ø–∏–∏, –≤—Å–µ —Ñ–∞–π–ª—ã –±—É–¥—É—Ç –ø–µ—Ä–µ–∑–∞–ø–∏—Å–∞–Ω—ã."
 
 #~ msgid "Restore VoiceMail Files"
-#~ msgstr "≤ﬁ··‚–›ﬁ“ÿ‚Ï ‰–Ÿ€Î ”ﬁ€ﬁ“ﬁŸ ﬂﬁÁ‚Î"
+#~ msgstr "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–∏—Ç—å —Ñ–∞–π–ª—ã –≥–æ–ª–æ–≤–æ–π –ø–æ—á—Ç—ã"
 
 #~ msgid ""
 #~ "Restore your Voicemail files from this backup set.  NOTE! This will "
 #~ "delete any voicemail currently in the voicemail boxes."
 #~ msgstr ""
-#~ "≤ﬁ··‚–›ﬁ“ÿ‚Ï ‰–Ÿ€Î ”ﬁ€ﬁ·ﬁ“ﬁŸ ﬂﬁÁ‚Î ÿ◊ Ì‚ﬁ”ﬁ ⁄ﬁ‹ﬂ€’⁄‚– ‡’◊’‡“›ﬁ”ﬁ "
-#~ "⁄ﬁﬂÿ‡ﬁ“–›ÿÔ. ≤Ω∏º∞Ω∏µ! ≤·’ ‚’⁄„Èÿ’ ·ﬁﬁ—È’›ÿÔ “ ÔÈÿ⁄–Â —„‘„‚ „‘–€’›Î."
+#~ "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–∏—Ç—å —Ñ–∞–π–ª—ã –≥–æ–ª–æ—Å–æ–≤–æ–π –ø–æ—á—Ç—ã –∏–∑ —ç—Ç–æ–≥–æ –∫–æ–º–ø–ª–µ–∫—Ç–∞ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ "
+#~ "–∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è. –í–ù–ò–ú–ê–ù–ò–ï! –í—Å–µ —Ç–µ–∫—É—â–∏–µ —Å–æ–æ–±—â–µ–Ω–∏—è –≤ —è—â–∏–∫–∞—Ö –±—É–¥—É—Ç —É–¥–∞–ª–µ–Ω—ã."
 
 #~ msgid "Restore System Recordings Files"
-#~ msgstr "≤ﬁ··‚–›ﬁ“ÿ‚Ï ‰–Ÿ€Î ◊–ﬂÿ·ÿ ·ÿ‚’‹›ÎÂ ·ﬁﬁ—È’›ÿŸ."
+#~ msgstr "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–∏—Ç—å —Ñ–∞–π–ª—ã –∑–∞–ø–∏—Å–∏ —Å–∏—Ç–µ–º–Ω—ã—Ö —Å–æ–æ–±—â–µ–Ω–∏–π."
 
 #~ msgid ""
 #~ "Restore your system Voice Recordings including AutoAttendant files from "
@@ -231,232 +276,229 @@ msgstr ""
 #~ "currently on the system. It will NOT delete new files not currently in "
 #~ "the backup set"
 #~ msgstr ""
-#~ "≤ﬁ··‚–›ﬁ“ÿ‚Ï ‰–Ÿ€Î ◊–ﬂÿ·ÿ ·ÿ‚’‹›ÎÂ ·ﬁﬁ—È’›ÿŸ ÿ◊ Ì‚ﬁ”ﬁ ⁄ﬁ‹ﬂ€’⁄‚– "
-#~ "‡’◊’‡“›ﬁ”ﬁ ⁄ﬁﬂÿ‡ﬁ“–›ÿÔ.≤Ω∏º∞Ω∏µ! ≤·’ ◊–ﬂÿ·ÿ “ ·ÿ·‚’‹’ —„‘„‚ ﬂ’‡’◊–ﬂÿ·–›Î. "
-#~ "ø‡ÿ Ì‚ﬁ‹ ›ﬁ“Î’ ‰–Ÿ€Î ◊–ﬂÿ·’Ÿ ›’ „‘–€ÔÓ‚·Ô ﬂ‡ÿ “ﬁ··‚–›ﬁ“€’›ÿÿ."
+#~ "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–∏—Ç—å —Ñ–∞–π–ª—ã –∑–∞–ø–∏—Å–∏ —Å–∏—Ç–µ–º–Ω—ã—Ö —Å–æ–æ–±—â–µ–Ω–∏–π –∏–∑ —ç—Ç–æ–≥–æ –∫–æ–º–ø–ª–µ–∫—Ç–∞ "
+#~ "—Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è.–í–ù–ò–ú–ê–ù–ò–ï! –í—Å–µ –∑–∞–ø–∏—Å–∏ –≤ —Å–∏—Å—Ç–µ–º–µ –±—É–¥—É—Ç –ø–µ—Ä–µ–∑–∞–ø–∏—Å–∞–Ω—ã. "
+#~ "–ü—Ä–∏ —ç—Ç–æ–º –Ω–æ–≤—ã–µ —Ñ–∞–π–ª—ã –∑–∞–ø–∏—Å–µ–π –Ω–µ —É–¥–∞–ª—è—é—Ç—Å—è –ø—Ä–∏ –≤–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω–∏–∏."
 
 #~ msgid "Restore System Configuration"
-#~ msgstr "≤ﬁ··‚–›ﬁ“ÿ‚Ï ⁄ﬁ›‰ÿ”„‡–ÊÿÓ ·ÿ·‚’‹Î"
+#~ msgstr "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–∏—Ç—å –∫–æ–Ω—Ñ–∏–≥—É—Ä–∞—Ü–∏—é —Å–∏—Å—Ç–µ–º—ã"
 
 #~ msgid ""
 #~ "Restore your system configuration from this backup set.  NOTE! This will "
 #~ "OVERWRITE any System changes you have made since this backup... ALL items "
 #~ "will be reset to what they were at the time of this backup set.."
 #~ msgstr ""
-#~ "≤ﬁ··‚–›ﬁ“ÿ‚Ï ⁄ﬁ›‰ÿ”„‡–Êÿﬁ››Î’ ‰–Ÿ€Î ·ÿ‚’‹Î ÿ◊ Ì‚ﬁ”ﬁ ⁄ﬁ‹ﬂ€’⁄‚– ‡’◊’‡“›ﬁ”ﬁ "
-#~ "⁄ﬁﬂÿ‡ﬁ“–›ÿÔ.≤Ω∏º∞Ω∏µ! ≤·’ ÿ◊‹’›’›ÿÔ “ ·ÿ·‚’‹’, ·‘’€–››Î’ ﬂﬁ·€’ Ì‚ﬁŸ "
-#~ "‡’◊’‡“›ﬁŸ ⁄ﬁﬂÿÿ —„‘„‚ „‚‡–Á’›Î. ≤¡µ „·‚–›ﬁ“⁄ÿ ﬂ‡ÿ‹„‚ ◊›–Á’›ÿÔ, "
-#~ "·ﬁﬁ‚“’‚·‚“„ÓÈÿ’ ·ﬁ·‚ﬁÔ›ÿÓ ·ÿ·‚’‹Î ›– ‹ﬁ‹’›‚ ‡’◊’‡“ÿ‡ﬁ“–›ÿÔ.."
+#~ "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–∏—Ç—å –∫–æ–Ω—Ñ–∏–≥—É—Ä–∞—Ü–∏–æ–Ω–Ω—ã–µ —Ñ–∞–π–ª—ã —Å–∏—Ç–µ–º—ã –∏–∑ —ç—Ç–æ–≥–æ –∫–æ–º–ø–ª–µ–∫—Ç–∞ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ "
+#~ "–∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è.–í–ù–ò–ú–ê–ù–ò–ï! –í—Å–µ –∏–∑–º–µ–Ω–µ–Ω–∏—è –≤ —Å–∏—Å—Ç–µ–º–µ, —Å–¥–µ–ª–∞–Ω–Ω—ã–µ –ø–æ—Å–ª–µ —ç—Ç–æ–π "
+#~ "—Ä–µ–∑–µ—Ä–≤–Ω–æ–π –∫–æ–ø–∏–∏ –±—É–¥—É—Ç —É—Ç—Ä–∞—á–µ–Ω—ã. –í–°–ï —É—Å—Ç–∞–Ω–æ–≤–∫–∏ –ø—Ä–∏–º—É—Ç –∑–Ω–∞—á–µ–Ω–∏—è, "
+#~ "—Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤—É—é—â–∏–µ —Å–æ—Å—Ç–æ—è–Ω–∏—é —Å–∏—Å—Ç–µ–º—ã –Ω–∞ –º–æ–º–µ–Ω—Ç —Ä–µ–∑–µ—Ä–≤–∏—Ä–æ–≤–∞–Ω–∏—è.."
 
 #~ msgid "Restore Operator Panel"
-#~ msgstr "≤ﬁ··‚–›ﬁ“ÿ‚Ï ﬂ–›’€Ï ﬁﬂ’‡–‚ﬁ‡–"
+#~ msgstr "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–∏—Ç—å –ø–∞–Ω–µ–ª—å –æ–ø–µ—Ä–∞—Ç–æ—Ä–∞"
 
 #~ msgid ""
 #~ "Restore the Operator Panel from this backup set.  NOTE! This will "
 #~ "OVERWRITE any Operator Panel Changes you have made since this backup... "
 #~ "ALL items will be reset to what they were at the time of this backup set.."
 #~ msgstr ""
-#~ "≤ﬁ··‚–›ﬁ“ÿ‚Ï ø–›’€Ï ﬁﬂ’‡–‚ﬁ‡– ÿ◊ Ì‚ﬁ”ﬁ ⁄ﬁ‹ﬂ€’⁄‚– ‡’◊’‡“›ﬁ”ﬁ ⁄ﬁﬂÿ‡ﬁ“–›ÿÔ."
-#~ "≤Ω∏º∞Ω∏µ! ≤·’ ÿ◊‹’›’›ÿÔ “ ø–›’€ÿ ﬁﬂ’‡–‚ﬁ‡– ·‘’€–››Î’ ﬂﬁ·€’ Ì‚ﬁŸ ‡’◊’‡“›ﬁŸ "
-#~ "⁄ﬁﬂÿÿ —„‘„‚ „‚‡–Á’›Î. ≤¡µ „·‚–›ﬁ“⁄ÿ ﬂ‡ÿ‹„‚ ◊›–Á’›ÿÔ, ·ﬁﬁ‚“’‚·‚“„ÓÈÿ’ "
-#~ "·ﬁ·‚ﬁÔ›ÿÓ ·ÿ·‚’‹Î ›– ‹ﬁ‹’›‚ ‡’◊’‡“ÿ‡ﬁ“–›ÿÔ.."
+#~ "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–∏—Ç—å –ü–∞–Ω–µ–ª—å –æ–ø–µ—Ä–∞—Ç–æ—Ä–∞ –∏–∑ —ç—Ç–æ–≥–æ –∫–æ–º–ø–ª–µ–∫—Ç–∞ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è."
+#~ "–í–ù–ò–ú–ê–ù–ò–ï! –í—Å–µ –∏–∑–º–µ–Ω–µ–Ω–∏—è –≤ –ü–∞–Ω–µ–ª–∏ –æ–ø–µ—Ä–∞—Ç–æ—Ä–∞ —Å–¥–µ–ª–∞–Ω–Ω—ã–µ –ø–æ—Å–ª–µ —ç—Ç–æ–π —Ä–µ–∑–µ—Ä–≤–Ω–æ–π "
+#~ "–∫–æ–ø–∏–∏ –±—É–¥—É—Ç —É—Ç—Ä–∞—á–µ–Ω—ã. –í–°–ï —É—Å—Ç–∞–Ω–æ–≤–∫–∏ –ø—Ä–∏–º—É—Ç –∑–Ω–∞—á–µ–Ω–∏—è, —Å–æ–æ—Ç–≤–µ—Ç—Å—Ç–≤—É—é—â–∏–µ "
+#~ "—Å–æ—Å—Ç–æ—è–Ω–∏—é —Å–∏—Å—Ç–µ–º—ã –Ω–∞ –º–æ–º–µ–Ω—Ç —Ä–µ–∑–µ—Ä–≤–∏—Ä–æ–≤–∞–Ω–∏—è.."
 
 #~ msgid "Restore Call Detail Report"
-#~ msgstr "≤ﬁ··‚–›ﬁ“ÿ‚Ï æ‚Á’‚ ﬁ ·ﬁ’‘ÿ›’›ÿÔÂ"
+#~ msgstr "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–∏—Ç—å –û—Ç—á–µ—Ç –æ —Å–æ–µ–¥–∏–Ω–µ–Ω–∏—è—Ö"
 
 #~ msgid ""
 #~ "Restore the Call Detail Records from this backup set.  NOTE! This will "
 #~ "DELETE ALL CALL RECORDS that have been saved since this backup set."
 #~ msgstr ""
-#~ "≤ﬁ··‚–›ﬁ“ÿ‚Ï æ‚ÁÒ‚ ﬁ ·ﬁ’‘ÿ›’›ÿÔÂ ÿ◊ Ì‚ﬁ”ﬁ ⁄ﬁ‹ﬂ€’⁄‚– ‡’◊’‡“›ﬁ”ﬁ "
-#~ "⁄ﬁﬂÿ‡ﬁ“–›ÿÔ.≤Ω∏º∞Ω∏µ! ≤·’ ◊–ﬂÿ·ÿ ﬁ ·ﬁ’‘ÿ›’›ÿÔÂ ·‘’€–››Î’ ﬂﬁ·€’ Ì‚ﬁŸ "
-#~ "‡’◊’‡“›ﬁŸ ⁄ﬁﬂÿÿ —„‘„‚ „‚‡–Á’›Î. "
+#~ "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–∏—Ç—å –û—Ç—á—ë—Ç –æ —Å–æ–µ–¥–∏–Ω–µ–Ω–∏—è—Ö –∏–∑ —ç—Ç–æ–≥–æ –∫–æ–º–ø–ª–µ–∫—Ç–∞ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ "
+#~ "–∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è.–í–ù–ò–ú–ê–ù–ò–ï! –í—Å–µ –∑–∞–ø–∏—Å–∏ –æ —Å–æ–µ–¥–∏–Ω–µ–Ω–∏—è—Ö —Å–¥–µ–ª–∞–Ω–Ω—ã–µ –ø–æ—Å–ª–µ —ç—Ç–æ–π "
+#~ "—Ä–µ–∑–µ—Ä–≤–Ω–æ–π –∫–æ–ø–∏–∏ –±—É–¥—É—Ç —É—Ç—Ä–∞—á–µ–Ω—ã. "
 
 #~ msgid "ERROR its not a BACKUP SET file"
-#~ msgstr "æ»∏±∫∞ - Ì‚ﬁ ›’ ‰–Ÿ€ ‡’◊’‡“›ﬁŸ ⁄ﬁﬂÿÿ"
+#~ msgstr "–û–®–ò–ë–ö–ê - —ç—Ç–æ –Ω–µ —Ñ–∞–π–ª —Ä–µ–∑–µ—Ä–≤–Ω–æ–π –∫–æ–ø–∏–∏"
 
 #~ msgid "Restored All Files in Backup Set"
-#~ msgstr "≤ﬁ··‚–›ﬁ“€’›Î “·’ ‰–Ÿ€Î ÿ◊ ‡’◊’‡“›ﬁ”ﬁ ⁄ﬁ‹ﬂ€’⁄‚–"
+#~ msgstr "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω—ã –≤—Å–µ —Ñ–∞–π–ª—ã –∏–∑ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–º–ø–ª–µ–∫—Ç–∞"
 
 #~ msgid "Restored VoiceMail"
-#~ msgstr "≤ﬁ··‚–›ﬁ“€’›– ”ﬁ€ﬁ·ﬁ“–Ô ﬂﬁÁ‚–"
+#~ msgstr "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω–∞ –≥–æ–ª–æ—Å–æ–≤–∞—è –ø–æ—á—Ç–∞"
 
 #~ msgid "Restored System Recordings"
-#~ msgstr "≤ﬁ··‚–›ﬁ“€’›Î ·ÿ·‚’‹›Î’ ◊–ﬂÿ·ÿ"
+#~ msgstr "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω—ã —Å–∏—Å—Ç–µ–º–Ω—ã–µ –∑–∞–ø–∏—Å–∏"
 
 #~ msgid "Restored System Configuration"
-#~ msgstr "≤ﬁ··‚–›ﬁ“€’›– ⁄ﬁ›‰ÿ”„‡–ÊÿÔ ·ÿ·‚’‹Î"
+#~ msgstr "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω–∞ –∫–æ–Ω—Ñ–∏–≥—É—Ä–∞—Ü–∏—è —Å–∏—Å—Ç–µ–º—ã"
 
 #~ msgid "Restored Operator Panel"
-#~ msgstr "≤ﬁ··‚–›ﬁ“€’›– ø–›’€Ï ﬁﬂ’‡–‚ﬁ‡–"
+#~ msgstr "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω–∞ –ü–∞–Ω–µ–ª—å –æ–ø–µ—Ä–∞—Ç–æ—Ä–∞"
 
 #~ msgid "Restored CDR logs"
-#~ msgstr "≤ﬁ··‚–›ﬁ“€’› ÷„‡›–€ ◊–ﬂÿ·ÿ ·ﬁ’‘ÿ›’›ÿŸ"
+#~ msgstr "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω –∂—É—Ä–Ω–∞–ª –∑–∞–ø–∏—Å–∏ —Å–æ–µ–¥–∏–Ω–µ–Ω–∏–π"
 
 #~ msgid "Schedule Name:"
-#~ msgstr "Ω–◊“–›ÿ’ ·Ê’›–‡ÿÔ:"
+#~ msgstr "–ù–∞–∑–≤–∞–Ω–∏–µ —Å—Ü–µ–Ω–∞—Ä–∏—è:"
 
 #~ msgid "Give this Backup Schedule a brief name to help you identify it."
 #~ msgstr ""
-#~ "ø‡ÿ·“ﬁÿ‚Ï Ì‚ﬁ‹„ ·Ê’›–‡ÿÓ ⁄ﬁ‡ﬁ‚⁄ﬁ’ ›–◊“–›ÿÔ ‘€Ô „‘ﬁ—·‚“– ÿ‘’›‚ÿ‰ÿ⁄–Êÿÿ."
+#~ "–ü—Ä–∏—Å–≤–æ–∏—Ç—å —ç—Ç–æ–º—É —Å—Ü–µ–Ω–∞—Ä–∏—é –∫–æ—Ä–æ—Ç–∫–æ–µ –Ω–∞–∑–≤–∞–Ω–∏—è –¥–ª—è —É–¥–æ–±—Å—Ç–≤–∞ –∏–¥–µ–Ω—Ç–∏—Ñ–∏–∫–∞—Ü–∏–∏."
 
 #~ msgid "CDR"
 #~ msgstr "CDR"
 
 #~ msgid "Backup the System Call Detail Reporting (HTML and Database)"
-#~ msgstr "¿’◊’‡“ÿ‡ﬁ“–‚Ï ·ÿ·‚’‹›Î’ ◊–ﬂÿ·ÿ ﬁ ·ﬁ’‘ÿ›’›ÿÔÂ (HTML ÿ —–◊– ‘–››ÎÂ)"
+#~ msgstr "–†–µ–∑–µ—Ä–≤–∏—Ä–æ–≤–∞—Ç—å —Å–∏—Å—Ç–µ–º–Ω—ã–µ –∑–∞–ø–∏—Å–∏ –æ —Å–æ–µ–¥–∏–Ω–µ–Ω–∏—è—Ö (HTML –∏ –±–∞–∑–∞ –¥–∞–Ω–Ω—ã—Ö)"
 
 #~ msgid "Operator Panel"
-#~ msgstr "ø–›’€Ï ﬁﬂ’‡–‚ﬁ‡–"
+#~ msgstr "–ü–∞–Ω–µ–ª—å –æ–ø–µ—Ä–∞—Ç–æ—Ä–∞"
 
 #~ msgid "Backup the Operator Panel (HTML and Database)"
-#~ msgstr "¿’◊’‡“ÿ‡ﬁ“–‚Ï ø–›’€Ï ﬁﬂ’‡–‚ﬁ‡– (HTML ÿ —–◊– ‘–››ÎÂ)"
+#~ msgstr "–†–µ–∑–µ—Ä–≤–∏—Ä–æ–≤–∞—Ç—å –ü–∞–Ω–µ–ª—å –æ–ø–µ—Ä–∞—Ç–æ—Ä–∞ (HTML –∏ –±–∞–∑–∞ –¥–∞–Ω–Ω—ã—Ö)"
 
 #~ msgid "System Recordings"
-#~ msgstr "¡ÿ·‚’‹›Î’ ◊–ﬂÿ·ÿ"
+#~ msgstr "–°–∏—Å—Ç–µ–º–Ω—ã–µ –∑–∞–ø–∏—Å–∏"
 
 #~ msgid ""
 #~ "Backup the System Recordings (AutoAttendant, Music On Hold, System "
 #~ "Recordings)"
 #~ msgstr ""
-#~ "¿’◊’‡“ÿ‡ﬁ“–‚Ï ·ÿ·‚’‹›Î’ ◊–ﬂÿ·ÿ (∞“‚ﬁ·’⁄‡’‚–‡Ï, º„◊Î⁄– “ ﬁ÷ÿ‘–›ÿÿ, "
-#~ "ø‡ÿ“’‚·‚“ÿÔ)"
+#~ "–†–µ–∑–µ—Ä–≤–∏—Ä–æ–≤–∞—Ç—å —Å–∏—Å—Ç–µ–º–Ω—ã–µ –∑–∞–ø–∏—Å–∏ (–ê–≤—Ç–æ—Å–µ–∫—Ä–µ—Ç–∞—Ä—å, –ú—É–∑—ã–∫–∞ –≤ –æ–∂–∏–¥–∞–Ω–∏–∏, "
+#~ "–ü—Ä–∏–≤–µ—Ç—Å—Ç–≤–∏—è)"
 
 #~ msgid "VoiceMail"
-#~ msgstr "≥ﬁ€ﬁ·ﬁ“–Ô ﬂﬁÁ‚–"
+#~ msgstr "–ì–æ–ª–æ—Å–æ–≤–∞—è –ø–æ—á—Ç–∞"
 
 #~ msgid ""
 #~ "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
 #~ msgstr ""
-#~ "¿’◊’‡“ÿ‡ﬁ“–›ÿ’ ÔÈÿ⁄ﬁ“ ”ﬁ€ﬁ·ﬁ“ﬁŸ ﬂﬁÁ‚Î... ≤Ω∏º∞Ω∏µ: “ ‡’◊„€Ï‚–‚’ ‹ﬁ÷’‚ "
-#~ "ﬂﬁ€„Áÿ‚Ï·Ô ﬁÁ’›Ï —ﬁ€ÏËﬁŸ ‰–Ÿ€"
+#~ "–†–µ–∑–µ—Ä–≤–∏—Ä–æ–≤–∞–Ω–∏–µ —è—â–∏–∫–æ–≤ –≥–æ–ª–æ—Å–æ–≤–æ–π –ø–æ—á—Ç—ã... –í–ù–ò–ú–ê–ù–ò–ï: –≤ —Ä–µ–∑—É–ª—å—Ç–∞—Ç–µ –º–æ–∂–µ—Ç "
+#~ "–ø–æ–ª—É—á–∏—Ç—å—Å—è –æ—á–µ–Ω—å –±–æ–ª—å—à–æ–π —Ñ–∞–π–ª"
 
 #~ msgid "System Configuration"
-#~ msgstr "∫ﬁ›‰ÿ”„‡–ÊÿÔ ·ÿ·‚’‹Î"
+#~ msgstr "–ö–æ–Ω—Ñ–∏–≥—É—Ä–∞—Ü–∏—è —Å–∏—Å—Ç–µ–º—ã"
 
 #~ msgid ""
 #~ "Backup the System Configurations (Database, etc files, SQL Database, "
 #~ "astdb)"
 #~ msgstr ""
-#~ "¿’◊’‡“ÿ‡ﬁ“–‚Ï ⁄ﬁ‰ÿ”„‡–ÊÿÓ ·ÿ·‚’‹Î (—–◊„ ‘–››ÎÂ ∞·‚’‡ÿ·⁄, ⁄ﬁ›‰ÿ”„‡–Êÿﬁ››Î’ "
-#~ "‰–Ÿ€Î, SQL ‘–‹ﬂ)"
+#~ "–†–µ–∑–µ—Ä–≤–∏—Ä–æ–≤–∞—Ç—å –∫–æ—Ñ–∏–≥—É—Ä–∞—Ü–∏—é —Å–∏—Å—Ç–µ–º—ã (–±–∞–∑—É –¥–∞–Ω–Ω—ã—Ö –ê—Å—Ç–µ—Ä–∏—Å–∫, –∫–æ–Ω—Ñ–∏–≥—É—Ä–∞—Ü–∏–æ–Ω–Ω—ã–µ "
+#~ "—Ñ–∞–π–ª—ã, SQL –¥–∞–º–ø)"
 
 #~ msgid "All"
-#~ msgstr "≤·’"
+#~ msgstr "–í—Å–µ"
 
 #~ msgid "Selected"
-#~ msgstr "≤Î—‡–››Î’"
+#~ msgstr "–í—ã–±—Ä–∞–Ω–Ω—ã–µ"
 
 #~ msgid "January"
-#~ msgstr "œ›“–‡Ï"
+#~ msgstr "–Ø–Ω–≤–∞—Ä—å"
 
 #~ msgid "February"
-#~ msgstr "ƒ’“‡–€Ï"
+#~ msgstr "–§–µ–≤—Ä–∞–ª—å"
 
 #~ msgid "March"
-#~ msgstr "º–‡‚"
+#~ msgstr "–ú–∞—Ä—Ç"
 
 #~ msgid "April"
-#~ msgstr "∞ﬂ‡’€Ï"
+#~ msgstr "–ê–ø—Ä–µ–ª—å"
 
 #~ msgid "May"
-#~ msgstr "º–Ÿ"
+#~ msgstr "–ú–∞–π"
 
 #~ msgid "June"
-#~ msgstr "∏Ó›Ï"
+#~ msgstr "–ò—é–Ω—å"
 
 #~ msgid "July"
-#~ msgstr "∏Ó€Ï"
+#~ msgstr "–ò—é–ª—å"
 
 #~ msgid "August"
-#~ msgstr "∞“”„·‚"
+#~ msgstr "–ê–≤–≥—É—Å—Ç"
 
 #~ msgid "September"
-#~ msgstr "¡’›‚Ô—‡Ï"
+#~ msgstr "–°–µ–Ω—Ç—è–±—Ä—å"
 
 #~ msgid "October"
-#~ msgstr "æ⁄‚Ô—‡Ï"
+#~ msgstr "–û–∫—Ç—è–±—Ä—å"
 
 #~ msgid "November"
-#~ msgstr "ΩﬁÔ—‡Ï"
+#~ msgstr "–ù–æ—è–±—Ä—å"
 
 #~ msgid "December"
-#~ msgstr "¥’⁄–—‡Ï"
+#~ msgstr "–î–µ–∫–∞–±—Ä—å"
 
 #~ msgid "Monday"
-#~ msgstr "øﬁ›’‘’€Ï›ÿ⁄"
+#~ msgstr "–ü–æ–Ω–µ–¥–µ–ª—å–Ω–∏–∫"
 
 #~ msgid "Tuesday"
-#~ msgstr "≤‚ﬁ‡›ÿ⁄"
+#~ msgstr "–í—Ç–æ—Ä–Ω–∏–∫"
 
 #~ msgid "Wednesday"
-#~ msgstr "¡‡’‘–"
+#~ msgstr "–°—Ä–µ–¥–∞"
 
 #~ msgid "Thursday"
-#~ msgstr "«’‚“’‡”"
+#~ msgstr "–ß–µ—Ç–≤–µ—Ä–≥"
 
 #~ msgid "Friday"
-#~ msgstr "øÔ‚›ÿÊ–"
+#~ msgstr "–ü—è—Ç–Ω–∏—Ü–∞"
 
 #~ msgid "Saturday"
-#~ msgstr "¡„——ﬁ‚–"
+#~ msgstr "–°—É–±–±–æ—Ç–∞"
 
 #~ msgid "Sunday"
-#~ msgstr "≤ﬁ·⁄‡’·’›Ï’"
+#~ msgstr "–í–æ—Å–∫—Ä–µ—Å–µ–Ω—å–µ"
 
 #~ msgid "Run Backup"
-#~ msgstr "¡ﬁ◊‘–‚Ï ‡’◊’‡“›„Ó ⁄ﬁﬂÿÓ"
+#~ msgstr "–°–æ–∑–¥–∞—Ç—å —Ä–µ–∑–µ—Ä–≤–Ω—É—é –∫–æ–ø–∏—é"
 
 #~ msgid "Follow Schedule Below"
-#~ msgstr "¡€’‘ﬁ“–‚Ï ·Ê’›–‡ÿÓ ›ÿ÷’"
+#~ msgstr "–°–ª–µ–¥–æ–≤–∞—Ç—å —Å—Ü–µ–Ω–∞—Ä–∏—é –Ω–∏–∂–µ"
 
 #~ msgid "Now"
-#~ msgstr "¡’ŸÁ–·"
+#~ msgstr "–°–µ–π—á–∞—Å"
 
 #~ msgid "Daily (at midnight)"
-#~ msgstr "µ÷’‘›’“›ﬁ (“ ﬂﬁ€›ﬁÁÏ)"
+#~ msgstr "–ï–∂–µ–¥–Ω–µ–≤–Ω–æ (–≤ –ø–æ–ª–Ω–æ—á—å)"
 
 #~ msgid "Weekly (on Sunday)"
-#~ msgstr "µ÷’›’‘’€Ï›ﬁ (“ ≤ﬁ·⁄‡’·’›Ï’)"
+#~ msgstr "–ï–∂–µ–Ω–µ–¥–µ–ª—å–Ω–æ (–≤ –í–æ—Å–∫—Ä–µ—Å–µ–Ω—å–µ)"
 
 #~ msgid "Monthly (on the 1st)"
-#~ msgstr "µ÷’‹’·ÔÁ›ﬁ (1-”ﬁ Áÿ·€–)"
+#~ msgstr "–ï–∂–µ–º–µ—Å—è—á–Ω–æ (1-–≥–æ —á–∏—Å–ª–∞)"
 
 #~ msgid "Yearly (on 1st Jan)"
-#~ msgstr "µ÷’”ﬁ‘›ﬁ (1-”ﬁ œ›“–‡Ô)"
+#~ msgstr "–ï–∂–µ–≥–æ–¥–Ω–æ (1-–≥–æ –Ø–Ω–≤–∞—Ä—è)"
 
 #~ msgid "Minutes"
-#~ msgstr "ºÿ›„‚Î"
+#~ msgstr "–ú–∏–Ω—É—Ç—ã"
 
 #~ msgid "Hours"
-#~ msgstr "«–·Î"
+#~ msgstr "–ß–∞—Å—ã"
 
 #~ msgid "Days"
-#~ msgstr "¥›ÿ"
+#~ msgstr "–î–Ω–∏"
 
 #~ msgid "Months"
-#~ msgstr "º’·ÔÊÎ"
+#~ msgstr "–ú–µ—Å—è—Ü—ã"
 
 #~ msgid "Weekdays"
-#~ msgstr "¥›ÿ ›’‘’€ÿ"
-
-#~ msgid "Add Backup Schedule"
-#~ msgstr "¥ﬁ—–“ÿ‚Ï ·Ê’›–‡ÿŸ ‡’◊’‡“›ﬁ”ﬁ ⁄ﬁﬂÿ‡ﬁ“–›ÿÔ"
+#~ msgstr "–î–Ω–∏ –Ω–µ–¥–µ–ª–∏"
 
 #~ msgid "Restore from Backup"
-#~ msgstr "≤ﬁ··‚–›ﬁ“ÿ‚Ï·Ô · ‡’◊’‡“›ﬁŸ ⁄ﬁﬂÿÿ"
+#~ msgstr "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–∏—Ç—å—Å—è —Å —Ä–µ–∑–µ—Ä–≤–Ω–æ–π –∫–æ–ø–∏–∏"
 
 #~ msgid "System Backup"
-#~ msgstr "¿’◊’‡“›ﬁ’ ⁄ﬁﬂÿ‡ﬁ“–›ÿ’ ·ÿ·‚’‹Î"
+#~ msgstr "–†–µ–∑–µ—Ä–≤–Ω–æ–µ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏–µ —Å–∏—Å—Ç–µ–º—ã"
 
 #~ msgid "Run Schedule"
-#~ msgstr "≤Îﬂﬁ€›ÿ‚Ï ◊–‘–›ÿ’"
+#~ msgstr "–í—ã–ø–æ–ª–Ω–∏—Ç—å –∑–∞–¥–∞–Ω–∏–µ"
 
 #~ msgid "Submit Changes"
-#~ msgstr "ø‡ÿ›Ô‚Ï ÿ◊‹’›’›ÿÔ"
+#~ msgstr "–ü—Ä–∏–Ω—è—Ç—å –∏–∑–º–µ–Ω–µ–Ω–∏—è"
 
 #~ msgid "Delete Backup Schedule %s"
-#~ msgstr "√‘–€ÿ‚Ï ◊–‘–›ÿ’ ‡’◊’‡“›ﬁ”ﬁ ⁄ﬁﬂÿ‡ﬁ“–›ÿÔ %s"
+#~ msgstr "–£–¥–∞–ª–∏—Ç—å –∑–∞–¥–∞–Ω–∏–µ —Ä–µ–∑–µ—Ä–≤–Ω–æ–≥–æ –∫–æ–ø–∏—Ä–æ–≤–∞–Ω–∏—è %s"
 
 #~ msgid "System Restore"
-#~ msgstr "≤ﬁ··‚–›ﬁ“€’›ÿ’ ·ÿ·‚’‹Î"
+#~ msgstr "–í–æ—Å—Å—Ç–∞–Ω–æ–≤–ª–µ–Ω–∏–µ —Å–∏—Å—Ç–µ–º—ã"

@@ -1,7 +1,7 @@
 <?php
 /*
  * returns a json object of a directory in a jstree compatiable way
- * 
+ *
  */
 function backup_jstree_list_dir($id, $path = '') {
 
@@ -9,12 +9,12 @@ function backup_jstree_list_dir($id, $path = '') {
 	$path = trim($path, '/');
 	$path = str_replace(array('..', ':'), '', trim($path, '/'));
 	$path = escapeshellcmd($path);
-	
+
 	$ret = array();
 
 	$s = backup_get_server($id);
 	if(!$s) {
-		$ret[] = array('data' => _('error/not found!')); 
+		$ret[] = array('data' => _('error/not found!'));
 	}
 
 	switch ($s['type']) {
@@ -22,12 +22,12 @@ function backup_jstree_list_dir($id, $path = '') {
 			$s['path'] = backup__($s['path']);
 			$dir = scandir($s['path'] . '/' . $path);
 			foreach ($dir as $file) {
-				
+
 				//keep out the dots!
 				if (in_array($file, array('.', '..'))) {
 					continue;
 				}
-				
+
 				//if this file is a directory, set it to be expandable
 				if (is_dir($s['path'] . '/' . $path . '/' . $file)) {
 					$ret[] = array(
@@ -39,16 +39,16 @@ function backup_jstree_list_dir($id, $path = '') {
 					if (substr($file, -7) == '.tar.gz' || substr($file, -4) == '.tgz') {
 						$ret[] = array(
 									'attr' => array(
-												'data-manifest'	=> 
+												'data-manifest'	=>
 													json_encode(backup_get_manifest_db($file)),
 												'data-path'		=> $path . '/' . $file,
-												
+
 												),
 									'data' => array(
 												'title' => $file,
 												'icon'	=> 'noicon'
 									)
-									); 
+									);
 					}
 				}
 			}
@@ -69,7 +69,8 @@ function backup_jstree_list_dir($id, $path = '') {
 				$ls = ftp_nlist($ftp,  '');
 				$dir = ftp_rawlist($ftp, '-d1 */');
 				foreach ($ls as $file) {
-					if (in_array($file . '/', $dir)) {
+					//determine if we are a directory or not, rather than using rawlist
+					if (@ftp_chdir($ftp, '/'.$s['path'].'/'.$file)) {
 						$ret[] = array(
 									'attr'	=> array('data-path' => $path . '/' . $file),
 									'data'	=> $file,
@@ -92,7 +93,7 @@ function backup_jstree_list_dir($id, $path = '') {
 				//release handel
 				ftp_close($ftp);
 			} else {
-				$ret[] = array('data' => _('FTP Connection error!')); 
+				$ret[] = array('data' => _('FTP Connection error!'));
 				dbug('ftp connect error');
 			}
 			break;
@@ -104,7 +105,7 @@ function backup_jstree_list_dir($id, $path = '') {
 			$cmd[] = '-o StrictHostKeyChecking=no -i';
 			$cmd[] = $s['key'];
 			$cmd[] = $s['user'] . '\@' . $s['host'];
-			$cmd[] = '-p ' . $s['port']; 
+			$cmd[] = '-p ' . $s['port'];
 			$cmd[] = '"cd ' . $s['path'] . '/' . $path . ';';
 			$cmd[] = 'find * -maxdepth 0 -type f -exec echo f:"{}" \;;';
 			$cmd[] = 'find * -maxdepth 0 -type d -exec echo d:"{}" \;"';
@@ -127,7 +128,7 @@ function backup_jstree_list_dir($id, $path = '') {
 												'data-path' => $path . '/' . $f[1]
 												),
 									'data' => $f[1]
-									); 
+									);
 					}
 				}
 			}
@@ -147,19 +148,19 @@ function backup_get_manifest_db($bu) {
 	if (substr($bu, -4) == '.tgz') {
 		$bu = substr($bu, 0, -4);
 	}
-	
+
 	$sql = 'SELECT manifest from backup_cache WHERE id = ?';
 	$ret = $db->getOne($sql, $bu);
 	if ($db->IsError($ret)){
 		die_freepbx($ret->getDebugInfo());
 	}
-	
+
 	if ($ret) {
 		return unserialize($ret);
 	} else {
 		return _('manifest not found');
 	}
-	
+
 }
 
 /*
@@ -186,7 +187,7 @@ function backup_jstree_ul_backup_files($files, $path = '') {
 	$ret .= '<ul>';
 	foreach ($files as $dir => $f) {
 		if (is_array($f)) {
-			$ret .= '<li' 
+			$ret .= '<li'
 					. ' data-path="' . $path . '/' . $dir . '"'
 					//. ' data-name="' . $dir . '"'
 					//. ' data-node-type="branch"'
@@ -195,7 +196,7 @@ function backup_jstree_ul_backup_files($files, $path = '') {
 			$ret .= $dir;
 			$ret .= backup_jstree_list_backup_files($f, $path . '/' . $dir);
 		} else {
-			$ret .= '<li' 
+			$ret .= '<li'
 					. ' data-path="' . $path . '/' . $f . '"'
 					//. ' data-name="' . $f . '"'
 					//. ' data-node-type="leaf"'
@@ -243,15 +244,15 @@ function backup_restore_locate_file($id, $path) {
 	$path = trim($path, '/');
 	$path = str_replace(array('..', ':'), '', trim($path, '/'));
 	$path = escapeshellcmd($path);
-	
+
 	$s = backup_get_server($id);
 	if (!$s) {
 		return array('error_msg' => _('Backup Server not found!'));
 	}
-	
+
 	//dest is where we gona put backup files pulled infrom other servers
-	$dest = $amp_conf['ASTSPOOLDIR'] 
-			. '/tmp/' 
+	$dest = $amp_conf['ASTSPOOLDIR']
+			. '/tmp/'
 			. 'backuptmp-s' . $id .'-'
 			. time() . '-'
 			. basename($path);
@@ -290,7 +291,7 @@ function backup_restore_locate_file($id, $path) {
 			$cmd[] = '-o StrictHostKeyChecking=no -i';
 			$cmd[] = $s['key'];
 			$cmd[] = '-P ' . $s['port'];
-			$cmd[] = $s['user'] . '\@' . $s['host'] 
+			$cmd[] = $s['user'] . '\@' . $s['host']
 					. ':' . $s['path'] . '/' . $path;
 			$cmd[] = $dest;
 
@@ -321,7 +322,7 @@ function backup_migrate_legacy($bu) {
 	if (substr($name, -7) != '.tar.gz' ) {
 		return false;
 	}
-	
+
 	//get legacy name based on the directory the legacy backup was origionally created in
 	//were expcecting to see something like: /tmp/ampbackups.20110310.16.00.00/
 	//in the tarball
@@ -330,7 +331,7 @@ function backup_migrate_legacy($bu) {
 	$cmd[] = $bu;
 	exec(implode(' ', $cmd), $res);
 	unset($cmd);
-	
+
 	foreach ($res as $r) {
 		if (preg_match('/\/tmp\/ampbackups\.([\d]{8}(\.[\d]{2}){3})\//', $r, $legacy_name)) {
 			if (isset($legacy_name[1])) {
@@ -342,7 +343,7 @@ function backup_migrate_legacy($bu) {
 	if (!$legacy_name) {
 		return false;
 	}
-	
+
 	//create directory where tarball will be exctracted to
 	$dir = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . $legacy_name;
 	mkdir($dir, 0755, true);
@@ -355,7 +356,7 @@ function backup_migrate_legacy($bu) {
 	unset($cmd);
 
 	$dir2 = $dir . '/tmp/ampbackups.' . $legacy_name;
-	
+
 	//exctract sub tarballs
 	foreach (scandir($dir2) as $file) {
 		if (substr($file, -7) == '.tar.gz') {
@@ -365,10 +366,10 @@ function backup_migrate_legacy($bu) {
 			$cmd[] = ' -C ' . $dir2;
 			exec(implode(' ', $cmd));
 			unset($cmd);
-			
+
 			unlink($dir2 . '/' . $file);
 		}
-		
+
 	}
 
 	//add files to manifest
@@ -376,13 +377,13 @@ function backup_migrate_legacy($bu) {
 	$ret['file_count']	= count($ret['file_list'], COUNT_RECURSIVE);
 	$ret['fpbx_db']		= '';
 	$ret['fpbx_cdrdb']	= '';
-	
+
 	//format db's + add to manifest
 	if (is_file($dir2 . '/astdb.dump')) {
-		
+
 		//rename file
 		rename($dir2 . '/astdb.dump', $dir2 . '/astdb');
-		
+
 		//remove it from the file_list
 		unset($ret['file_list'][array_search('astdb.dump', $ret['file_list'])]);
 
@@ -392,7 +393,7 @@ function backup_migrate_legacy($bu) {
 		rename($dir2 . '/tmp/ampbackups.' . $legacy_name . '/astdb.dump', $dir2 . '/astdb');
 		$ret['astdb'] = 'astdb';
 	}
-	
+
 	//serialize the astdb
 	if (!empty($ret['astdb'])) {
 		$astdb = array();
@@ -403,23 +404,23 @@ function backup_migrate_legacy($bu) {
 			if ($line[1] == '<bad value>') {
 				continue;
 			}
-			
+
 			//expldoe the key
 			list($family, $key) = explode('/', $line[0], 2);
-			
+
 			//add to astdb array
 			$astdb[$family][$key] = trim(trim($line[1]), ']');
 		}
-		
-		
+
+
 		file_put_contents($dir2 . '/astdb', serialize($astdb));
 	}
-	
+
 	//migrate mysql files to a format that we can restore from
 	$src = $dir2 . '/asterisk.sql';
 	if (is_file($src)) {
 		$dst = $dir2 . '/mysql-db.sql';
-		
+
 		unset($ret['file_list'][array_search('asterisk.sql', $ret['file_list'])]);//remove from manifest
 		$ret['fpbx_db'] = 'mysql-db';
 		$ret['mysql']['db'] = array('file' => 'mysql-db.sql');
@@ -432,7 +433,7 @@ function backup_migrate_legacy($bu) {
 		exec(implode(' ', $cmd), $file, $status);
 		if ($status) {
 			// The grep failed, if there is a $dst file remove it and either way rename the $src
-			freepbx_log(FPBX_LOG_ERROR, 
+			freepbx_log(FPBX_LOG_ERROR,
 				_("Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in current state"));
 			if (is_file($dst)) {
 				unlink($dst);
@@ -443,7 +444,7 @@ function backup_migrate_legacy($bu) {
 		}
 		unset($cmd, $file);
 	}
-	
+
 	$src = $dir2 . '/asteriskcdr.sql';
 	if (is_file($src)) {
 		$dst = $dir2 . '/mysql-cdr.sql';
@@ -470,21 +471,21 @@ function backup_migrate_legacy($bu) {
 		}
 		unset($cmd, $file);
 	}
-	
+
 	$ret['mysql_count']	= $ret['mysql'] ? count($ret['mysql']) : 0;
 	$ret['astdb_count']	= $ret['astdb'] ? count($ret['astdb']) : 0;
-	
+
 	//delete legacy's tmp dir
 	system('rm -rf ' . $dir2 . '/tmp');
 	unset($ret['file_list']['tmp']);
-	
+
 	//store manifest
 	file_put_contents($dir2 . '/manifest', serialize($ret));
-	
-	
+
+
 	//build new tarball
-	$dest = $amp_conf['ASTSPOOLDIR'] 
-			. '/tmp/' 
+	$dest = $amp_conf['ASTSPOOLDIR']
+			. '/tmp/'
 			. 'backuptmp-slegacy-'
 			. time() . '-'
 			. $legacy_name

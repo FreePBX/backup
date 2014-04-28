@@ -7,27 +7,27 @@ $(document).ready(function(){
 	//cron_custom
 	cron_custom();
 	$('select[name=cron_schedule]').change(cron_custom);
-	
+
 	//cron_schedule
 	cron_random();
 	$('select[name=cron_schedule]').change(cron_random);
-	
+
 	//storage servers
 	$('#storage_used_servers').sortable({
 		connectWith: '.storage_servers',
 		update: save_storage_servers,
 	}).disableSelection();
-	
+
 	$('#storage_avail_servers').sortable({
 		connectWith: '.storage_servers'
 	}).disableSelection();
-	
+
 	//templates
 	$('#templates > li').draggable({
 		revert: true,
 		cursor: 'move'
 	}).disableSelection();
-	
+
 	$('#template_table').droppable({
 		drop: function(event, ui) {
 			current_items_over_helper('show');
@@ -43,11 +43,11 @@ $(document).ready(function(){
 	});
 	//run backup
 	$('#run_backup').click(function(){
-		
+
 		id = $('#backup_form').find('[name=id]').val();
 		if (typeof id == 'undefined' || !id) {
 			return false;
-		} 
+		}
 		 box = $('<div></div>')
 			.html('<div class="backup_status"></div>'
 				+ '<progress style="width: 100%">'
@@ -63,10 +63,10 @@ $(document).ready(function(){
 					$(e.target).dialog("destroy").remove();
 				}
 			});
-		
+
 		//first, save the backup
 		backup_log($('.backup_status'), 'Saving Backup ' + id + '...');
-		
+
 		//get form data and change action to 'ajax_save'
 		var data = $('#backup_form').serializeArray();
 		for(var i=0; i < data.length; i++) {
@@ -82,7 +82,7 @@ $(document).ready(function(){
 			data: data,
 			success: function() {
 				backup_log($('.backup_status'),'done!' + '<br>');
-				
+
 			},
 			error: function() {
 				backup_log($('.backup_status'), '<br>' + 'Error: could not save backup. Aborting!' + '<br>');
@@ -91,9 +91,9 @@ $(document).ready(function(){
 			}
 		});
 
-		url = window.location.pathname 
+		url = window.location.pathname
 			+ '?display=backup&action=run&id=' + id
-		
+
 		if (!window.EventSource) {
 			$.get(url, function(){
 				$('.backup_status').next('progress').append('done!');
@@ -120,7 +120,7 @@ $(document).ready(function(){
 
 	//style cron custom times
 	$('#crondiv').find('input[type=checkbox]').button();
-	
+
 	//highlight save when run is hovered
 	$('#run_backup').hover(
 		function(){
@@ -130,7 +130,17 @@ $(document).ready(function(){
 			$('#save_backup').removeClass('ui-state-hover');
 		}
 	);
-})
+
+	//Ensure we don't have a custom cron schedule with nothing selected
+	$('form#backup_form').on('submit', function() {
+		var custom_schedule = 0 + $("input[name='cron_minute[]']:checked").length + $("input[name='cron_hour[]']:checked").length + $("input[name='cron_month[]']:checked").length + $("input[name='cron_dom[]']:checked").length + $("input[name='cron_dow[]']:checked").length;
+		if ($("select[name='cron_schedule']").val() === 'custom' && custom_schedule <= 0) {
+			alert('You must choose a backup schedule');
+			return false;
+		}
+	});
+});
+
 function remote() {
 	if ($('select[name=bu_server]').val() == 0) {
 		$('#restore').removeAttr("checked");
@@ -195,11 +205,11 @@ function current_items_over_helper(action) {
 			width = $('#template_table').width();
 			height = $('#template_table').height();
 			height2 = $('#templates').height();
-			
+
 			$('#items_over').width(width - 10);
 			$('#items_over').height(height > height2 ? height : height2);
-			
-			
+
+
 			$('#template_table').hide();
 			$('#add_entry').hide();
 			$('#items_over').show();
@@ -208,7 +218,7 @@ function current_items_over_helper(action) {
 }
 function add_template(template) {
 
-	
+
 	//clone the object so that we dont destroy the origional when we delete from it
 	var template = $.extend({}, template);
 	for (var item in template) {
@@ -234,13 +244,13 @@ function add_template(template) {
 					row.exclude = row.exclude.split("\n") //split string by line breaks
 									.concat(template[item].exclude) //merge template and row
 									.filter(function(element){return element}) //remove blanks
-									.sort() 
+									.sort()
 									.filter(function(element, index, array){ //remove duplicates
 										if ($.trim(element) != $.trim(array[index + 1])) {
 											return $.trim(element);
 										}
 									});
-					
+
 					//add excludes to row
 					$(this).find('td').eq(2).find('textarea')
 							.attr('rows',row.exclude.length)
@@ -251,7 +261,7 @@ function add_template(template) {
 				return false;
 			}
 
-		});	
+		});
 	}
 
 	//add new items

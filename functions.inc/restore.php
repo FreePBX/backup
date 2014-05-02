@@ -63,8 +63,7 @@ function backup_jstree_list_dir($id, $path = '') {
 			$path = trim($path, '/') . '/';
 			$ftp = ftp_connect($s['host'], $s['port']);
 			if (ftp_login($ftp, $s['user'], $s['password'])) {
-				//use pasive mode
-				//ftp_pasv($ftp, true);
+				ftp_pasv($ftp, ($s['transfer'] == 'passive'));
 				ftp_chdir($ftp, $s['path'] . '/' . $path);
 				$ls = ftp_nlist($ftp,  '');
 				$dir = ftp_rawlist($ftp, '-d1 */');
@@ -271,8 +270,7 @@ function backup_restore_locate_file($id, $path) {
 			$s['path'] = backup__($s['path']);
 			$ftp = ftp_connect($s['host'], $s['port']);
 			if (ftp_login($ftp, $s['user'], $s['password'])) {
-				//use pasive mode
-				ftp_pasv($ftp, true);
+				ftp_pasv($ftp, ($s['transfer'] == 'passive'));
 				if (ftp_get($ftp, $dest, $s['path'] . '/' . $path, FTP_BINARY)) {
 					$path = $dest;
 				} else {

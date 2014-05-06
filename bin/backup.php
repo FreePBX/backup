@@ -11,7 +11,7 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
 $mod_info = module_getinfo('backup', MODULE_STATUS_ENABLED);
 
 if (!isset($mod_info['backup'])) {
-	echo _('Backup module not found or is disabled. Aborting!' . PHP_EOL);	
+	echo _('Backup module not found or is disabled. Aborting!' . PHP_EOL);
 	exit(1);
 }
 /**
@@ -35,9 +35,9 @@ if (isset($vars['id']) && $vars['id']) {
 		if (!isset($bu['storage_servers']) || count($bu['storage_servers']) < 1) {
 			backup_log(_('No storage servers found! Aborting.'));
 			exit();
-		}	
+		}
 		$s = backup_get_server('all_detailed');
-		$b = new Backup($bu, $s);		
+		$b = new Backup($bu, $s);
 		backup_log(_('Intializing Backup') . ' ' .$vars['id']);
 		$b->init();
 		if ($b->b['bu_server'] == "0") {
@@ -47,18 +47,18 @@ if (isset($vars['id']) && $vars['id']) {
 				sleep(10);
 			}
 			backup_log(_('Backup Lock acquired!'));
-			
+
 			backup_log(_('Running pre-backup hooks...'));
 			$b->run_hooks('pre-backup');
-			
+
 			backup_log(_('Adding items...'));
 			$b->add_items();
-			
+
 			backup_log(_('Bulding manifest...'));
 			$b->build_manifest();
 			$b->save_manifest('local');
 			$b->save_manifest('db');
-			
+
 			backup_log(_('Creating backup...'));
 			$b->create_backup_file();
 		} else {//run backup remotly
@@ -67,7 +67,7 @@ if (isset($vars['id']) && $vars['id']) {
 					's'		=> $s,
 					'b'		=> $b
 			);
-			
+
 			//dont run if there are no items to backup
 			if (!$opts['bu']['items']) {
 				backup_log(_('No items in backup set. Aborting.'));
@@ -79,8 +79,8 @@ if (isset($vars['id']) && $vars['id']) {
 			$cmd[] = backup__($s[$b->b['bu_server']]['key']);
 			$cmd[] = '-p';
 			$cmd[] = $s[$b->b['bu_server']]['port'];
-			$cmd[] = backup__($s[$b->b['bu_server']]['user']) 
-					. '\@' 
+			$cmd[] = backup__($s[$b->b['bu_server']]['user'])
+					. '\@'
 					. backup__($s[$b->b['bu_server']]['host']);
 			$cmd[] = '\'php -r "';
 			$escape = '$bootstrap_settings["freepbx_auth"] = false;
@@ -101,15 +101,15 @@ if (isset($vars['id']) && $vars['id']) {
 				exit($status);
 			}
 			unset($cmd);
-			
-			backup_log(_('Veryfing received file...'));
+
+			backup_log(_('Verifying received file...'));
 			$cmd[] = fpbx_which('tar');
 			$cmd[] = '-zxOf';
 			$cmd[] = $b->b['_tmpfile'];
 			$cmd[] = '&> /dev/null';
 			exec(implode(' ', $cmd), $ret, $status);
 			unset($cmd);
-			
+
 			if ($status !== 0) {
 
 				//read out the first 10 lines of the file
@@ -129,18 +129,18 @@ if (isset($vars['id']) && $vars['id']) {
 
 				exit(1);
 			}
-			
-			backup_log(_('Prossesing received file...'));
+
+			backup_log(_('Processing received file...'));
 			$b->b['manifest'] = backup_get_manifest_tarball($b->b['_tmpfile']);
 			$b->save_manifest('db');
-		}	
-		
+		}
+
 		backup_log(_('Storing backup...'));
 		$b->store_backup();
-		
+
 		backup_log(_('Running post-backup hooks...'));
 		$b->run_hooks('post-backup');
-		
+
 		if ($b->b['bu_server'] == "0") { //local backup? Were done!
 			backup_log(_('Backup successfully completed!'));
 		} else {
@@ -159,7 +159,7 @@ if (isset($vars['id']) && $vars['id']) {
 				if ($b->b['manifest']['fpbx_cdrdb'] != '') {
 					$restore['cdr'] = true;
 				}
-				
+
 				backup_log(_('Restoring backup...'));
 				$cmd = $amp_conf['AMPBIN'] . '/restore.php '
 						. '--restore=' . $b->b['_tmpfile']
@@ -169,24 +169,24 @@ if (isset($vars['id']) && $vars['id']) {
 
 			backup_log(_('Running post-backup hooks...'));
 			$b->run_hooks('post-backup');
-			
+
 			//disable registered trunks if requested
 			if ($b->b['disabletrunks'] == 'true' && function_exists('core_trunks_disable')) {
 				//disables registered trunks
 				core_trunks_disable('reg', true);
 			}
-			
+
 			//apply configs if requested
 			if ($b->b['applyconfigs'] == 'true') {
 				do_reload(true);
-			} 
+			}
 			backup_log(_('Backup successfully completed!'));
-		} 
-			
+		}
+
 	} else { //invalid backup
 		backup_log('backup id ' . $vars['id'] . ' not found!');
 	}
-	
+
 //if the opts option was passed, used for remote backup (warm spare)
 } elseif(isset($vars['opts']) && $vars['opts']) {
 	//r = remote options
@@ -194,7 +194,7 @@ if (isset($vars['id']) && $vars['id']) {
 		echo 'invalid opts';
 		exit(1);
 	}
-	
+
 	$b = new Backup($r['bu'], $r['s']);
 	$b->b['_ctime']		= $r['b']->b['_ctime'];
 	$b->b['_file']		= $r['b']->b['_file'];

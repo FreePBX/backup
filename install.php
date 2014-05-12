@@ -334,6 +334,10 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 	$temp['full']['path'][]		= '/etc/dahdi';
 	$temp['full']['exclude'][]	= '';
 
+	$temp['full']['type'][]		= 'dir';
+	$temp['full']['path'][]		= '/tftpboot';
+	$temp['full']['exclude'][]	= '';
+
 
 	$temp['cdr'] = array(
 					'id'		=> '',

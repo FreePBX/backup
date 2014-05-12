@@ -28,7 +28,7 @@ $(document).ready(function(){
 		cursor: 'move'
 	}).disableSelection();
 
-	$('#template_table').droppable({
+	$('#template_table, #items_over').droppable({
 		drop: function(event, ui) {
 			current_items_over_helper('show');
 			var data = JSON.parse(decodeURIComponent(ui.draggable.data('template')));

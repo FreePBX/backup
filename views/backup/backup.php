@@ -31,7 +31,7 @@ $label = fpbx_label(_('Status Email'), _('Email to send status messages to when 
 $data = array(
 			'name' => 'email',
 			'value' => $email
-			);
+		);
 //$immortal ? $data['disabled'] = '' : '';
 $table->add_row($label, form_input($data));
 $html .= $table->generate();

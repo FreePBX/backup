@@ -51,8 +51,7 @@ class Backup {
 		$this->b['postbu_hook']			= isset($b['postbu_hook'])	? $b['postbu_hook']	: '';
 		$this->b['prere_hook']			= isset($b['prere_hook'])	? $b['prere_hook']	: '';
 		$this->b['postre_hook']			= isset($b['postre_hook'])	? $b['postre_hook']	: '';
-		$this->b['email']				= isset($b['email'])		? $b['email']		: '';
-		
+		$this->b['email']				= isset($b['email'])		? $b['email']		: '';		
 		ksort($this->b);
 	}
 	
@@ -598,6 +597,16 @@ class Backup {
 			}
 		}
 		
+	}
+	function emailCheck() {
+		if(!empty($this->b['email'])) {
+			$from = $this->amp_conf['AMPBACKUPEMAILFROM'] 
+				? $this->amp_conf['AMPBACKUPEMAILFROM'] 
+				: 'root@localhost';
+			$subject = date("F j, Y, g:i a").'-'.$this->b['name'];
+			backup_email_log($this->b['email'], $from, $subject);
+			
+		}
 	}
 	
 }

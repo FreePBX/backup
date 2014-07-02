@@ -231,9 +231,13 @@ function backup_put_backup($var) {
 			case 'postre_hook':
 			case 'prebu_hook':
 			case 'prere_hook':
-			case 'email':
 				if ($value !== '') {
 					$data[] = array($var['id'],  $key, '', $value);
+				}
+				break;
+			case 'email':
+				if ($value !== '' && filter_var($value, FILTER_VALIDATE_EMAIL)) {
+						$data[] = array($var['id'],  $key, '', $value);
 				}
 				break;
 			case 'restore':

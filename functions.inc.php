@@ -58,7 +58,7 @@ function backup_log($msg) {
 	
 	echo $str;
 	$logmsg = date("F j, Y, g:i a").' - '. $str;
-	file_put_contents('/tmp/backup.log', $logmsg, FILE_APPEND);
+	file_put_contents(sys_get_temp_dir().'/backup.log', $logmsg, FILE_APPEND);
 	if (!$cli) {
 		ob_flush();
 		flush();
@@ -66,7 +66,7 @@ function backup_log($msg) {
 	
 }
 
-function email_log($to, $from, $subject) {
+function backup_email_log($to, $from, $subject) {
 	$email_options = array('useragent' => 'freepbx', 'protocol' => 'mail');
 	$email = new CI_Email();
 	$msg[] = _('BACKUP LOG ATTACHED');
@@ -74,13 +74,13 @@ function email_log($to, $from, $subject) {
 	$email->to($to);
 	$email->subject(_('Backup Log:') . $subject);
 	$email->message(implode("\n", $msg));
-	$email->attach('/tmp/backup.log');
+	$email->attach(sys_get_temp_dir().'/backup.log');
 	$email->send();
 	
 	unset($msg);
 }
 
-function clear_log() {
-	$fh = fopen( '/tmp/backup.log', 'w' );
+function backup_clear_log() {
+	$fh = fopen(sys_get_temp_dir().'/backup.log', 'w');
 	fclose($fh);
 }

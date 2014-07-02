@@ -39,7 +39,7 @@ if (isset($vars['id']) && $vars['id']) {
 		$s = backup_get_server('all_detailed');
 		$b = new Backup($bu, $s);
 		backup_log(_('Intializing Backup') . ' ' .$vars['id']);
-		clear_log();
+		backup_clear_log();
 		$b->init();
 		if ($b->b['bu_server'] == "0") {
 			//get lock to prevent backups from being run cuncurently
@@ -62,13 +62,7 @@ if (isset($vars['id']) && $vars['id']) {
 
 			backup_log(_('Creating backup...'));
 			$b->create_backup_file();
-			if(!empty($b->b['email'])) {
-				$from = $b->amp_conf['AMPBACKUPEMAILFROM'] 
-					? $this->amp_conf['AMPBACKUPEMAILFROM'] 
-					: 'freepbx@freepbx.org';
-				$subject = date("F j, Y, g:i a").'-'.$b->b['name'];
-				email_log($b->b['email'], $from, $subject);
-			}
+			$b->emailCheck();
 		} else {//run backup remotly
 			$opts = array(
 					'bu'	=> $bu,
@@ -206,20 +200,14 @@ if (isset($vars['id']) && $vars['id']) {
 	$b->b['_ctime']		= $r['b']->b['_ctime'];
 	$b->b['_file']		= $r['b']->b['_file'];
 	$b->b['_dirname']	= $r['b']->b['_dirname'];
-	clear_log();
+	backup_clear_log();
 	$b->init();
 	$b->run_hooks('pre-backup');
 	$b->add_items();
 	$b->build_manifest();
 	$b->save_manifest('local');
 	$b->create_backup_file(true);
-	if(!empty($b->b['email'])) {
-		$from = $b->amp_conf['AMPBACKUPEMAILFROM'] 
-			? $this->amp_conf['AMPBACKUPEMAILFROM'] 
-			: 'freepbx@freepbx.org';
-		$subject = $_SERVER['SERVER_ADDR'].' - '.date("F j, Y, g:i a").'-'.$b->b['name'];
-		email_log($b->d['email'], $from, $subject);
-	}
+	$b->emailCheck();
 	exit();
 } elseif(isset($vars['astdb']) && $vars['astdb']) {
 	switch ($vars['astdb']) {

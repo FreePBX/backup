@@ -145,4 +145,3 @@ $html .= '</div>';
 $html .= form_fieldset_close();
 $html .= '</div>';
 echo $html;
-?>

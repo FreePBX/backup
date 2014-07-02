@@ -21,5 +21,3 @@ if (isset($servers)){
 }	
 
 echo '<div class="rnav">' . ul($li) . '</div>';
-
-?>

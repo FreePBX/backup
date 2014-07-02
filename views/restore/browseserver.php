@@ -33,5 +33,3 @@ $html .= br(15);
 $html .= '<script type="text/javascript" src="modules/backup/assets/js/views/restore.js"></script>';
 $html .= '<script type="text/javascript" src="modules/backup/assets/js/views/jquery.jstree.min.js"></script>';
 echo $html;
-
-?>

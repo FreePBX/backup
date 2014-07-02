@@ -16,5 +16,3 @@ $html .= form_submit('submit', _('Go!'));
 $html .= form_close();
 $html .= br(15);
 echo $html;
-
-?>

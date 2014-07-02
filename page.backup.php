@@ -113,5 +113,3 @@ switch ($var['action']) {
 		echo load_view(dirname(__FILE__) . '/views/backup/backups.php', $var);
 		break;
 }
-
-?>

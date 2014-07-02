@@ -14,5 +14,3 @@ if (isset($templates)){
 }	
 
 echo '<div class="rnav">' . ul($li) . '</div>';
-
-?>

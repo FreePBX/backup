@@ -49,16 +49,15 @@ function backup__($var) {
 
 
 function backup_log($msg) {
+	$tmp = (function_exists('sys_get_temp_dir')) ? sys_get_temp_dir() : '/tmp';
 	$cli = php_sapi_name() == 'cli' ? true : false;
-	
 	$str = '';
 	$str .= $cli ? '' : 'data: ';
 	$str .= $msg;
 	$str .= $cli ? "\n" : "\n\n";
-	
 	echo $str;
 	$logmsg = date("F j, Y, g:i a").' - '. $str;
-	file_put_contents(sys_get_temp_dir().'/backup.log', $logmsg, FILE_APPEND);
+	file_put_contents($tmp.'/backup.log', $logmsg, FILE_APPEND);
 	if (!$cli) {
 		ob_flush();
 		flush();
@@ -67,6 +66,7 @@ function backup_log($msg) {
 }
 
 function backup_email_log($to, $from, $subject) {
+	$tmp = (function_exists('sys_get_temp_dir')) ? sys_get_temp_dir() : '/tmp';
 	$email_options = array('useragent' => 'freepbx', 'protocol' => 'mail');
 	$email = new CI_Email();
 	$msg[] = _('BACKUP LOG ATTACHED');
@@ -74,13 +74,14 @@ function backup_email_log($to, $from, $subject) {
 	$email->to($to);
 	$email->subject(_('Backup Log:') . $subject);
 	$email->message(implode("\n", $msg));
-	$email->attach(sys_get_temp_dir().'/backup.log');
+	$email->attach($tmp.'/backup.log');
 	$email->send();
 	
 	unset($msg);
 }
 
 function backup_clear_log() {
-	$fh = fopen(sys_get_temp_dir().'/backup.log', 'w');
+	$tmp = (function_exists('sys_get_temp_dir')) ? sys_get_temp_dir() : '/tmp';
+	$fh = fopen($tmp.'/backup.log', 'w');
 	fclose($fh);
 }

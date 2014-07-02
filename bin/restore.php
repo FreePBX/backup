@@ -386,4 +386,3 @@ function show_opts() {
 	$e[] = '';
 	echo implode("\n", $e);
 }
-?>

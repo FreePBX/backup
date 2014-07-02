@@ -278,6 +278,3 @@ $html .= form_close(). PHP_EOL;
 $html .= '<script type="text/javascript" src="modules/backup/assets/js/views/backup.js"></script>';
 
 echo $html;
-
-
-?>

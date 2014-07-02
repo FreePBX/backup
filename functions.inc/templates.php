@@ -360,4 +360,3 @@ function backup_template_sanitize($temp, $mod = 'backup') {
 
 	return $temp;
 }
-?>

@@ -325,4 +325,3 @@ function backup_server_writeable($item, $rule, $data) {
 	
 	return $data;
 }
-?>

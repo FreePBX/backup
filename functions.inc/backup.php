@@ -323,7 +323,9 @@ function backup_set_backup_cron() {
 	$backups = backup_get_backup('all_detailed');
 	foreach ($backups as $b) {
 		$cron = '';
-		$cron['command'] = $amp_conf['AMPBIN'] . '/backup.php --id=' . $b['id'];
+		// The ID porition of the command was added to better support other cron daemons (#7374)
+		// We should be using the format of ID=[vendor]_[module raw name]_[id]
+		$cron['command'] = 'ID=freepbx_backup_' . $b['id'] . ' ' . $amp_conf['AMPBIN'] . '/backup.php --id=' . $b['id'];
 		if (!isset($b['cron_random']) || $b['cron_random'] != 'true') {
 			switch ($b['cron_schedule']) {
 				case 'never':

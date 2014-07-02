@@ -56,6 +56,7 @@ function backup_get_backup($id = '') {
 				'immortal'			=> '',
 				'items'				=> array(),
 				'name'				=> '',
+				'email'				=> '',
 				'path'				=> '',
 				'postbu_hook'		=> '',
 				'postre_hook'		=> '',
@@ -175,11 +176,11 @@ function backup_put_backup($var) {
 
 	//save server
 	if (!empty($var['id'])) {
-	  $sql = 'UPDATE backup SET name = ?, description = ? WHERE id = ?';
-	  $sql_params = array($var['name'], $var['desc'], $var['id']);
+	  $sql = 'UPDATE backup SET name = ?, description = ?, email = ? WHERE id = ?';
+	  $sql_params = array($var['name'], $var['desc'], $var['email'], $var['id']);
 	} else {
-		$sql = 'INSERT INTO backup (name, description) VALUES (?, ?)';
-		$sql_params = array($var['name'], $var['desc']);
+		$sql = 'INSERT INTO backup (name, description, email) VALUES (?, ?, ?)';
+		$sql_params = array($var['name'], $var['desc'], $var['email']);
 	}
 	$ret = $db->query($sql, $sql_params);
 	if ($db->IsError($ret)){
@@ -230,6 +231,7 @@ function backup_put_backup($var) {
 			case 'postre_hook':
 			case 'prebu_hook':
 			case 'prere_hook':
+			case 'email':
 				if ($value !== '') {
 					$data[] = array($var['id'],  $key, '', $value);
 				}
@@ -365,7 +367,3 @@ function backup_set_backup_cron() {
 
 	}
 }
-
-
-
-?>

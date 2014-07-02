@@ -24,6 +24,7 @@ $get_vars = array(
 				'items'				=> array(),
 				'menu'				=> '',
 				'name'				=> '',
+				'email'				=> '',
 				'path'				=> '',
 				'postbu_hook'		=> '',
 				'postre_hook'		=> '',

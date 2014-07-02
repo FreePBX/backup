@@ -37,7 +37,6 @@ class Backup {
 		$this->b['_ctime']				= time();
 		$this->b['_file']				= date("Ymd-His-") . $this->b['_ctime'] . '-' . rand();
 		$this->b['_dirname']			= trim(preg_replace('/[^a-zA-Z0-9]+/', '_', $this->b['name']), '_');
-		
 		$this->db						= $db;
 		$this->cdrdb					= $cdrdb;
 		$this->amp_conf['CDRDBTYPE']	= $this->cdrdb->dsn['phptype'];
@@ -52,7 +51,7 @@ class Backup {
 		$this->b['postbu_hook']			= isset($b['postbu_hook'])	? $b['postbu_hook']	: '';
 		$this->b['prere_hook']			= isset($b['prere_hook'])	? $b['prere_hook']	: '';
 		$this->b['postre_hook']			= isset($b['postre_hook'])	? $b['postre_hook']	: '';
-		
+		$this->b['email']				= isset($b['email'])		? $b['email']		: '';
 		
 		ksort($this->b);
 	}
@@ -602,4 +601,3 @@ class Backup {
 	}
 	
 }
-?>

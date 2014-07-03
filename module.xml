@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>2.11.0.19</version>
+	<version>2.11.0.18</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,7 +18,6 @@
 		<module>core</module>
 	</depends>
 	<changelog>
-		*2.11.0.19* #5751 Send Email on backup
 		*2.11.0.18* #7347
 		*2.11.0.17* #7358
 		*2.11.0.16* #7383

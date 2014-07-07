@@ -699,7 +699,7 @@ $set['type'] = CONF_TYPE_TEXT;
 $freepbx_conf->define_conf_setting('AMPBACKUPEMAILFROM',$set);
 
 //#5751
-if (!array_key_exists('data', $db->getAssoc('describe email'))) {
+if (!array_key_exists('email', $db->getAssoc('describe backup'))) {
 	sql('ALTER TABLE backup ADD COLUMN `email` longtext default NULL');
 }
 //TODO: delete sudo option

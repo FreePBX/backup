@@ -187,7 +187,9 @@ if (isset($vars['id']) && $vars['id']) {
 	} else { //invalid backup
 		backup_log('backup id ' . $vars['id'] . ' not found!');
 	}
-	$b->emailCheck();
+	if(is_object($b) && method_exists($b,'emailCheck')){
+		$b->emailCheck();
+	}
 //if the opts option was passed, used for remote backup (warm spare)
 } elseif(isset($vars['opts']) && $vars['opts']) {
 	//r = remote options

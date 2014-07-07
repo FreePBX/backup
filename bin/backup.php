@@ -143,7 +143,11 @@ if (isset($vars['id']) && $vars['id']) {
 		$b->run_hooks('post-backup');
 
 		if ($b->b['bu_server'] == "0") { //local backup? Were done!
-			backup_log(_('Backup successfully completed!'));
+			if ($b->b['error'] !== false) {
+				backup_log(_('Backup completed with errors!'));
+			} else {
+				backup_log(_('Backup successfully completed!'));
+			}
 		} else {
 			if ($b->b['restore']) {
 				if (isset($b->b['manifest']['file_list'])) {
@@ -181,7 +185,12 @@ if (isset($vars['id']) && $vars['id']) {
 			if ($b->b['applyconfigs'] == 'true') {
 				do_reload(true);
 			}
-			backup_log(_('Backup successfully completed!'));
+
+			if ($b->b['error'] !== false) {
+				backup_log(_('Backup completed with errors!'));
+			} else {
+				backup_log(_('Backup successfully completed!'));
+			}
 		}
 
 	} else { //invalid backup
@@ -237,4 +246,3 @@ function show_opts() {
 	$e[] = '';
 	echo implode("\n", $e);
 }
-

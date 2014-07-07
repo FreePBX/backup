@@ -62,7 +62,6 @@ if (isset($vars['id']) && $vars['id']) {
 
 			backup_log(_('Creating backup...'));
 			$b->create_backup_file();
-			$b->emailCheck();
 		} else {//run backup remotly
 			$opts = array(
 					'bu'	=> $bu,
@@ -188,7 +187,7 @@ if (isset($vars['id']) && $vars['id']) {
 	} else { //invalid backup
 		backup_log('backup id ' . $vars['id'] . ' not found!');
 	}
-
+	$b->emailCheck();
 //if the opts option was passed, used for remote backup (warm spare)
 } elseif(isset($vars['opts']) && $vars['opts']) {
 	//r = remote options
@@ -207,7 +206,6 @@ if (isset($vars['id']) && $vars['id']) {
 	$b->build_manifest();
 	$b->save_manifest('local');
 	$b->create_backup_file(true);
-	$b->emailCheck();
 	exit();
 } elseif(isset($vars['astdb']) && $vars['astdb']) {
 	switch ($vars['astdb']) {

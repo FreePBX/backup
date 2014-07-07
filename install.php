@@ -19,7 +19,7 @@ $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_details` (
 			`index` varchar(25) default NULL,
 			`value` varchar(250) default NULL
 			)';
-			
+
 $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_items` (
 			`backup_id` int(11) NOT NULL,
 			`type` varchar(50) default NULL,
@@ -32,7 +32,7 @@ $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_cache` (
 			`manifest` longtext,
 			UNIQUE KEY `id` (`id`)
 			)';
-			
+
 $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_servers` (
 			`id` int(11) NOT NULL ' . $autoincrement . ',
 			`name` varchar(50) default NULL,
@@ -49,7 +49,7 @@ $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_server_details` (
 			`key` varchar(50) default NULL,
 			`value` varchar(250) default NULL
 			)';
-			
+
 $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_templates` (
 			`id` int(11) NOT NULL ' . $autoincrement . ',
 			`name` varchar(50) default NULL,
@@ -58,7 +58,7 @@ $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_templates` (
 			`data` longtext default NULL,
 			PRIMARY KEY  (`id`)
 			)';
-			
+
 $sql[] = 'CREATE TABLE IF NOT EXISTS `backup_template_details` (
 			`template_id` int(11) NOT NULL,
 			`type` varchar(50) default NULL,
@@ -126,7 +126,7 @@ if(count($migrate) > 0){//migrate to new backup structure
 			if($db->IsError($check)) {
 				die_freepbx(_('Can not migrate Backup table'));
 			}
-		
+
 			out(_('Backup migration completed'));
 		}else{
 			out(_('Nothing to migrate'));
@@ -147,7 +147,7 @@ if(count($migrate) > 0){//migrate to new backup structure
 $sql	= 'describe backup';
 $fields	= $db->getAssoc($sql);
 if (!array_key_exists('remotesshhost',$fields) && array_key_exists('command',$fields)) {
-	// This should only be needed once. 
+	// This should only be needed once.
 	// But the original migration did not do it and there is no harm in cleansing the database anyhow
 	outn(_('Replacing ampbackup.pl in db..'));
 	$sql=$db->query("UPDATE backup SET command = REPLACE(command,'ampbackup.pl','ampbackup.php')");
@@ -209,7 +209,7 @@ if (!array_key_exists('remotesshhost',$fields) && array_key_exists('command',$fi
 			out(sprintf(_('WARNING: failed to create backup directory: %s'),$amp_conf['ASTVARLIBDIR'].'/backups'));
 		}
 	}
-	
+
 }
 
 //migration to 2.10
@@ -224,7 +224,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 	require_once($dir . '/functions.inc/servers.php');
 	require_once($dir . '/functions.inc/templates.php');
 	require_once($dir . '/functions.inc/restore.php');
-	
+
 	//create default servers
 	$server['legacy'] = array(
 					'id'		=> '',
@@ -234,7 +234,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 					'type'		=> 'local',
 					'path'		=> '__ASTVARLIBDIR__/backups',
 	);
-	
+
 	$server['local'] = array(
 					'id'		=> '',
 					'name'		=> 'Local Storage',
@@ -243,7 +243,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 					'type'		=> 'local',
 					'path'		=> '__ASTSPOOLDIR__/backup',
 	);
-	
+
 	$server['mysql'] = array(
 					'id'		=> '',
 					'name'		=> 'Config server',
@@ -256,7 +256,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 					'password'	=> '__AMPDBPASS__',
 					'dbname'	=> '__AMPDBNAME__',
 	);
-	
+
 	$server['cdr'] = array(
 					'id'		=> '',
 					'name'		=> 'CDR server',
@@ -269,7 +269,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 					'password'	=> '__CDRDBPASS__',
 					'dbname'	=> '__CDRDBNAME__',
 	);
-	
+
 	foreach ($server as $not_this => $t) {
 		$server[$not_this] = backup_put_server($t);
 	}
@@ -277,9 +277,9 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 	sql('UPDATE backup_servers SET immortal = "true"');
 	$createdby = serialize(array('created_by' => 'install.php'));
 	sql('UPDATE backup_servers SET data = "' . addslashes($createdby) . '"');
-	
+
 	out(_('added default backup servers'));
-	
+
 	//create default temaplates
 	$temp['basic'] = array(
 					'id'		=> '',
@@ -306,30 +306,30 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 	$temp['full']['type'][]		= 'mysql';
 	$temp['full']['path'][]		= 'server-' . $server['cdr'];
 	$temp['full']['exclude'][]	= '';
-		
+
 	$temp['full']['type'][]		= 'mysql';
 	$temp['full']['path'][]		= 'server-' . $server['mysql'];
 	$temp['full']['exclude'][]	= '';
-		
+
 	$temp['full']['type'][]		= 'astdb';
 	$temp['full']['path'][]		= '';
-	$temp['full']['exclude'][]	= '';	
-	
+	$temp['full']['exclude'][]	= '';
+
 	$temp['full']['type'][]		= 'dir';
 	$temp['full']['path'][]		= '__ASTETCDIR__';
 	$temp['full']['exclude'][]	= '';
-		
+
 	$temp['full']['type'][]		= 'dir';
 	$temp['full']['path'][]		= '__AMPWEBROOT__';
 	$temp['full']['exclude'][]	= '';
-		
+
 	$temp['full']['type'][]		= 'dir';
 	$temp['full']['path'][]		= '__AMPBIN__';
 	$temp['full']['exclude'][]	= array(
 									'__ASTVARLIBDIR__/moh',
 									'__ASTVARLIBDIR__/sounds'
 									);
-	
+
 	$temp['full']['type'][]		= 'dir';
 	$temp['full']['path'][]		= '/etc/dahdi';
 	$temp['full']['exclude'][]	= '';
@@ -354,7 +354,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 									'',
 					)
 	);
-	
+
 	$temp['voicemail'] = array(
 					'id'		=> '',
 					'name'		=> 'Voice Mail',
@@ -370,7 +370,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 									'',
 					)
 	);
-	
+
 	$temp['recordings'] = array(
 					'id'		=> '',
 					'name'		=> 'System Audio',
@@ -390,7 +390,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 									''
 					)
 	);
-	
+
 	$temp['safe_backup'] = array(
 					'id'		=> '',
 					'name'		=> 'Exclude Backup Settings',
@@ -413,18 +413,18 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 									. "backup_templates\n"
 					)
 	);
-	
+
 	foreach ($temp as $that => $t) {
 		$temp[$that] = backup_put_template($t);
 	}
-	
+
 	//lock this all down so that their readonly
 	sql('UPDATE backup_templates SET immortal = "true"');
 	$createdby = serialize(array('created_by' => 'install.php'));
 	sql('UPDATE backup_templates SET data = "' . addslashes($createdby) . '"');
 	out(_('added default backup templates'));
 
-	
+
 	$sql	= 'describe backup';
 	$fields	= $db->getAssoc($sql);
 	db_e($fields);
@@ -434,9 +434,9 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 		$backup = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 		sql('RENAME TABLE backup TO backup_old', 'query');
 		sql($bu_table);
-	
 
-	
+
+
 		//if we currently have backups, migrate them
 		if (count($backup)) {
 			foreach ($backup as $b) {
@@ -591,7 +591,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 					$s = array(
 								'id'		=> '',
 								'name'		=> 'Migrated SSH server',
-								'desc'		=> _('Migrated remote SSH server for backup ') 
+								'desc'		=> _('Migrated remote SSH server for backup ')
 												. $b['name'],
 								'type'		=> 'ssh',
 								'host'		=> $b['remotesshhost'],
@@ -613,12 +613,12 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 			//drop tem backup table
 			sql('DROP TABLE backup_old');
 		}
-		
+
 	} else {//no items to migrate, just install a default backup
 
 		//remove the legacy backup location
 		backup_del_server($server['legacy']);
-	
+
 		//add a default backup
 		$new['id']					= '';
 		$new['name']				= 'Default backup';
@@ -699,7 +699,7 @@ $set['type'] = CONF_TYPE_TEXT;
 $freepbx_conf->define_conf_setting('AMPBACKUPEMAILFROM',$set);
 
 //#5751
-if (!array_key_exists('data', $db->getAssoc('describe email'))) {
+if (!$db->getAll('SHOW COLUMNS FROM backup WHERE FIELD = "email"')) {
 	sql('ALTER TABLE backup ADD COLUMN `email` longtext default NULL');
 }
 //TODO: delete sudo option

@@ -57,7 +57,7 @@ function backup_log($msg) {
 	$str .= $cli ? "\n" : "\n\n";
 	echo $str;
 	$logmsg = date("F j, Y, g:i a").' - '. $str;
-	file_put_contents($tmp.'/backup.log', $logmsg, FILE_APPEND);
+	file_put_contents($tmp.'/backup.log', trim($logmsg)."\r\n", FILE_APPEND);
 	if (!$cli) {
 		ob_flush();
 		flush();
@@ -85,3 +85,4 @@ function backup_clear_log() {
 	$fh = fopen($tmp.'/backup.log', 'w');
 	fclose($fh);
 }
+

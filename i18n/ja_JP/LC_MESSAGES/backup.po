@@ -38,15 +38,16 @@ msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-05 19:32+0900\n"
-"PO-Revision-Date: 2014-02-20 04:23+0200\n"
-"Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
-"Language-Team: Japanese <http://example.com/projects/freepbx/backup/ja/>\n"
-"Language: ja\n"
+"PO-Revision-Date: 2014-05-22 17:30+0200\n"
+"Last-Translator: Kevin <kevin@qloog.com>\n"
+"Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/backup/ja/>"
+"\n"
+"Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.8\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 msgid "Delete"
 msgstr "削除"
@@ -82,7 +83,7 @@ msgid "Backup Server not found!"
 msgstr "バックアップサーバーが見つかりません！"
 
 msgid "Failed to retrieve file from server!"
-msgstr "サーバーからのファイル取得に失敗しました！"
+msgstr "ファイルをサーバーから取得できませんでした。"
 
 msgid "File not found! "
 msgstr "ファイルが見つかりません！ "
@@ -90,12 +91,12 @@ msgstr "ファイルが見つかりません！ "
 msgid ""
 "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
 "current state"
-msgstr "asterisk.sqlを正しいフォーマットへの変換に失敗。現状のファイルをmysql-db.sqlに名前を変更中"
+msgstr "asterisk.sqlを独自フォーマットに変換できませんでした。現在の状態で名前をmysql-db.sqlに変更します。"
 
 msgid ""
 "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
 "sql in current state"
-msgstr "asteriskcdr.sqlを正しいフォーマットへの変換に失敗。現状のままでmysql-db.sqlに名前を変更中…"
+msgstr "asteriskcdr.sqlを独自フォーマットに変換できませんでした。現在の状態で名前をmysql-cdr.sqlに変更します。"
 
 #, php-format
 msgid ""
@@ -108,13 +109,13 @@ msgid "Name"
 msgstr "名前"
 
 msgid "Created"
-msgstr "作成完了"
+msgstr "作成日時"
 
 msgid "Files"
 msgstr "ファイル"
 
 msgid "Mysql Db's"
-msgstr "MySQLデータベース"
+msgstr "MySQL DB"
 
 msgid "astDb's"
 msgstr "astDb"
@@ -123,68 +124,68 @@ msgid "File"
 msgstr "ファイル"
 
 msgid "/path/to/file"
-msgstr "/path/to/file"
+msgstr "ファイルへのパス"
 
 msgid "Directory"
-msgstr "ディレクトリー"
+msgstr "ディレクトリ"
 
 msgid "/path/to/dir"
-msgstr "/path/to/dir"
+msgstr "ディレクトリへのパス"
 
 msgid "PATTERNs, one per line"
-msgstr "パターン（各行に1つ）"
+msgstr "パターン、各行に1つ"
 
 msgid "Mysql"
 msgstr "MySQL"
 
 msgid "{no servers available}"
-msgstr "｛利用可能なサーバーはありません｝"
+msgstr "{サーバーはありません}"
 
 msgid "table names, one per line"
-msgstr "テーブル名（各行に1つ）"
+msgstr "テーブル名、各行に1つ"
 
 msgid "Asterisk DB"
-msgstr "Asteriskデータベース"
+msgstr "Asterisk DB"
 
 msgid "Family, one per line"
-msgstr "ファミリー（各行に一つ）"
+msgstr "ファミリー、各行に1つ"
 
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr "このエントリーを削除。変更適用を押し忘れずに！"
 
 msgid "Backup & Restore"
-msgstr "バックアップ & 復元"
+msgstr "バックアップと復元"
 
 msgid "Admin"
 msgstr "アドミン"
 
 msgid "Backup & Restore for your FreePBX environment"
-msgstr "FreePBX環境のバックアップ & リストア"
+msgstr "FreePBX環境のバックアップとリストアができます。"
 
 msgid "Backup & Restore - Servers"
-msgstr "バックアップ & リストア：サーバー"
+msgstr "バックアップとリストア：サーバー"
 
 msgid "Backup & Restore - Templates"
-msgstr "バックアップ & リストア：テンプレート"
+msgstr "バックアップと復元：テンプレート"
 
 msgid "Backup & Restore - Restore"
-msgstr "バックアップ & 復元：復元"
+msgstr "バックアップと復元：復元"
 
 msgid "Can not create backup tables"
-msgstr "バックアップのテーブルを作成できません"
+msgstr "バックアップのテーブルを作成できません。"
 
 msgid "Can't check for Backup table"
-msgstr "バックアップテーブルをチェックできません"
+msgstr "Backupテーブルの存在チェックに失敗しました。"
 
 msgid ""
 "ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
-msgstr "エラー：古いバックアップテーブルから新しいバックアップテーブルへの移行に失敗しました"
+msgstr "エラー：古い \"Backup\" テーブルから新しい \"backup\" テーブルへの移行が失敗しました。"
 
 msgid "This error can result from a previous incomplete/failed install of"
-msgstr "このエラーは、次のモジュールのインストールが不完全/失敗であった事が原因です:"
+msgstr "このエラーは、次のモジュールのインストールが不完全/失敗であった事が原因かもしれません："
 
 msgid "this module. You should probably uninstall and reinstall this module"
-msgstr "このモジュールをアンインストール/再インストールしてください"
+msgstr "モジュールを一旦アンインストールし、再度インストールすることを推奨します。"
 
 msgid ""
 "doing so will result in a loss of all your backup settings though previous"
@@ -197,36 +198,34 @@ msgid "Failure Message:"
 msgstr "エラーメッセージ："
 
 msgid "Can not migrate Backup table"
-msgstr "次のテーブルのバックアップ移行ができません:"
+msgstr "Backupテーブルを移行できません。"
 
 msgid "Backup migration completed"
-msgstr "バックアップの移行が完了しました"
+msgstr "バックアップの移行が完了しました。"
 
 msgid "Nothing to migrate"
-msgstr "移行するものがありません"
+msgstr "移行するデータはありません。"
 
 msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
-msgstr "エラー：古いバックアップテーブルの削除ができません。アンインストールする必要があります"
+msgstr "エラー: 古い \"Backup\" テーブルを削除できませんでした。このモジュールを一旦アンインストールし、"
 
 msgid "and then re-install this module. Settings will be lost but old"
-msgstr ""
-"このモジュールをアンインストール後に再度インストールしてください。設定は失わ"
-"れますが、古い"
+msgstr "再度インストールしてください。設定は失われますが、"
 
 msgid "backup data will be retained."
 msgstr "バックアップデータは保持されます。"
 
 msgid "Old Backup table removed"
-msgstr "バックアップデータは保持されます。"
+msgstr "古いBackupテーブルを削除しました。"
 
 msgid "Replacing ampbackup.pl in db.."
-msgstr "ampbackup.plをdbに置き換え中.."
+msgstr "ampbackup.plをDBに置き換え中..."
 
 msgid "an error has occurred, update not done"
-msgstr "エラーが発生しました、アップデートは実行されませんでした。"
+msgstr "エラーが発生したため、更新は実行されませんでした。"
 
 msgid "ok"
-msgstr "ok"
+msgstr "OK"
 
 msgid "removing retrieve_backup_cron_from_mysql.pl.."
 msgstr "retrieve_backup_cron_from_mysql.plを削除中.."
@@ -238,26 +237,26 @@ msgid "failed"
 msgstr "失敗"
 
 msgid "Migrating backup table..."
-msgstr "バックアップテーブルを移行中..."
+msgstr "backupテーブルを移行中..."
 
 msgid "WARNING: backup table not migrated"
-msgstr "WARNING：  バックアップテーブルは移行されませんでした。"
+msgstr "警告：バックアップテーブルを移行できませんでした。"
 
 msgid "Successfully migrated backup table!"
-msgstr "バックアップテーブルの移行に成功しました。"
+msgstr "バックアップテーブルを正常に移行しました。"
 
 msgid "Creating backups directory.."
-msgstr "バックアップディレクトリを作成.."
+msgstr "バックアップディレクトリを作成中..."
 
 #, php-format
 msgid "WARNING: failed to create backup directory: %s"
-msgstr "WARNING: バックアップディレクトリの作成に失敗： %s"
+msgstr "警告：バックアップディレクトリを作成できませんでした： %s"
 
 msgid "Legacy Backup"
 msgstr "レガシーバックアップ"
 
 msgid "Location of backups pre 2.10"
-msgstr "バックアップpre2.10の位置"
+msgstr "2.10 以前のバックアップの場所"
 
 msgid "local"
 msgstr "ローカル"
@@ -266,13 +265,13 @@ msgid "Local Storage"
 msgstr "ローカルストレージ"
 
 msgid "Storage location for backups"
-msgstr "バックアップの保存位置"
+msgstr "バックアップストレージの場所"
 
 msgid "Config server"
 msgstr "設定サーバー"
 
 msgid "PBX config server, generally a local database server"
-msgstr "PBX構成サーバーはローカルデータベースサーバーです。"
+msgstr "PBX設定サーバー。通常はローカル DB サーバーです。"
 
 msgid "mysql"
 msgstr "MySQL"
@@ -281,7 +280,7 @@ msgid "CDR server"
 msgstr "CDRサーバー"
 
 msgid "CDR server, generally a local database server"
-msgstr "CDRサーバーはローカルデータベースサーバーです。"
+msgstr "CDRサーバー。通常はローカル DB サーバー。"
 
 msgid "added default backup servers"
 msgstr "デフォルトバックアップサーバーを追加しました。"
@@ -306,13 +305,13 @@ msgid "CDR's"
 msgstr "CDR"
 
 msgid "Call Detail Records"
-msgstr "コール詳細記録"
+msgstr "通話記録"
 
 msgid "Voice Mail"
 msgstr "ボイスメール"
 
 msgid "Voice Mail Storage"
-msgstr "ボイスメール記憶装置"
+msgstr "ボイスメールストレージ"
 
 msgid "System Audio"
 msgstr "システムオーディオ"
@@ -335,19 +334,19 @@ msgstr ""
 "役に立ちます。"
 
 msgid "added default backup templates"
-msgstr "デフォルトバックアップテンプレートの追加"
+msgstr "デフォルトバックアップテンプレートを追加しました。"
 
 msgid "MIGRATED"
-msgstr "移行しました"
+msgstr "移行済み"
 
 msgid "migrated backup"
-msgstr "バックアップを移行しました。"
+msgstr "バックアップ移行済み"
 
 msgid "Migrated FTP server"
 msgstr "移行済みFTPサーバー"
 
 msgid "Migrated FTP server for backup "
-msgstr "バックアップのためにFTPサーバーを移行しました。"
+msgstr "バックアップ用の FTP サーバーを移行しました。 "
 
 msgid "ftp"
 msgstr "ftp"
@@ -356,7 +355,7 @@ msgid "Migrated SSH server"
 msgstr "移行済みSSHサーバー"
 
 msgid "Migrated SSH server for backup "
-msgstr "バックアップするためにSSHサーバーを移行しました。"
+msgstr "バックアップ用のSSHサーバーを移行しました。 "
 
 msgid "ssh"
 msgstr "ssh"
@@ -365,25 +364,25 @@ msgid "Migrated EMAIL server"
 msgstr "移行済みEメールサーバー"
 
 msgid "Migrated EMAIL server for backup "
-msgstr "バックアップするためにEメールを移行しました。"
+msgstr "バックアップ用のEメールサーバを移行しました。 "
 
 msgid "email"
 msgstr "Eメール"
 
 msgid "Migrated remote SSH server for backup "
-msgstr "バックアップするためにリモートSSHサーバーを移行しました。"
+msgstr "リモートバックアップ用のSSHサーバーを移行しました。 "
 
 msgid "Default backup"
 msgstr "デフォルトバックアップ"
 
 msgid "Default backup; automatically installed"
-msgstr "デフォルトバックアップ；自動的にインストールしました。"
+msgstr "デフォルトバックアップ。自動的にインストールされています。"
 
 msgid "Backup module not found or is disabled. Aborting!"
-msgstr "バックアップモジュールが見つからない、若しくは無効になっているため終了します！"
+msgstr "バックアップモジュールはインストールされていないか、無効になっています。中断します。"
 
 msgid "No storage servers found! Aborting."
-msgstr "ストレージサーバーが見つからないため終了します。"
+msgstr "ストレージサーバーが見つからないため中断します。"
 
 msgid "Intializing Backup"
 msgstr "バックアップを初期化中…"
@@ -392,10 +391,10 @@ msgid "waiting for lock..."
 msgstr "ロックを待機中…"
 
 msgid "Backup Lock acquired!"
-msgstr "バックアップロックを取得しました！"
+msgstr "バックアップロックを取得しました。"
 
 msgid "Running pre-backup hooks..."
-msgstr "バックアップ前のフックを実行中…"
+msgstr "バックアップ前フックを実行中..."
 
 msgid "Adding items..."
 msgstr "アイテムを追加中…"
@@ -407,22 +406,22 @@ msgid "Creating backup..."
 msgstr "バックアップを作成中…"
 
 msgid "No items in backup set. Aborting."
-msgstr "バックアップのアイテムが設定されていないため終了します。"
+msgstr "バックアップセットは空です。中断します。"
 
 msgid "Connecting to remote server..."
-msgstr "リモートサーバーに接続中…"
+msgstr "リモートサーバーに接続中..."
 
 msgid "Something went wrong when connecting to remote server. Aborting!"
-msgstr "リモートサーバー接続中に何かしらのエラーが発生しました。終了します！"
+msgstr "リモートサーバー接続中にエラーが発生しました。中断します。"
 
 msgid "Veryfing received file..."
-msgstr "取得したファイルを確認中…"
+msgstr "受信したファイル検証中..."
 
 msgid "File verification failed. "
-msgstr "ファイルの確認ができませんでした。"
+msgstr "ファイル検証は失敗しました。 "
 
 msgid "Here are the first few lines of the file as sent by the remote server:"
-msgstr "リモートサーバーから送信されたファイルの先頭部分を表示："
+msgstr "リモートサーバーが送ったファイルの最初の数行は以下のとおり："
 
 msgid "Prossesing received file..."
 msgstr "受信したファイルを処理中…"
@@ -431,28 +430,28 @@ msgid "Storing backup..."
 msgstr "バックアップを保存中…"
 
 msgid "Running post-backup hooks..."
-msgstr "バックアップを書き出すフックを実行中..."
+msgstr "バックアップ後フック実行中..."
 
 msgid "Backup successfully completed!"
-msgstr "バックアップの移行が完了しました！"
+msgstr "バックアップが正常に完了しました。"
 
 msgid "Restoring backup..."
 msgstr "バックアップを復元中…"
 
 msgid "Nothing to restore!"
-msgstr "復元するものがありません！"
+msgstr "復元するものはありません。"
 
 msgid "Intializing Restore..."
 msgstr "復元を初期化しています..."
 
 msgid "Backup file not found! Aborting."
-msgstr "バックアップファイルが見つからないため、終了します。"
+msgstr "バックアップファイルが見つかりません。中断します。"
 
 msgid "Running pre-restore scripts..."
 msgstr "復元前スクリプトを実行中..."
 
 msgid "Running pre-restore hooks, if any..."
-msgstr "復元前のフックがある場合は実行します…"
+msgstr "復元前フックがある場合は実行します..."
 
 msgid "Restoring files..."
 msgstr "ファイルを復元中..."
@@ -460,9 +459,7 @@ msgstr "ファイルを復元中..."
 msgid ""
 "A large amount of files have been selected for restore. Please be paitent - "
 "this prosses will take a while."
-msgstr ""
-"復元するファイルの数が多いため、時間がかかる場合があります。しばらくお待ち下"
-"さい。"
+msgstr "復元するファイルの数が多いため、時間がかかる場合があります。しばらくお待ちください。"
 
 msgid "File restore complete!"
 msgstr "ファイルの復元が完了しました！"
@@ -497,16 +494,16 @@ msgid "Restoring astDB..."
 msgstr "astDBを復元中..."
 
 msgid "Restoring Settings' complete"
-msgstr "設定の復元が完了しました"
+msgstr "設定の復元が完了しました。"
 
 msgid "Running post restore script..."
-msgstr "復元の出力スクリプトを実行中..."
+msgstr "復元後のスクリプトを実行中..."
 
 msgid "Running post-restore hooks, if any..."
-msgstr "復元を出力するフックを実行中です。もし..."
+msgstr "復元後のフックがある場合は実行します。"
 
 msgid "Cleaning up..."
-msgstr "片付けています..."
+msgstr "クリーンアップしています..."
 
 msgid "Restore complete!"
 msgstr "復元が完了しました！"
@@ -521,13 +518,13 @@ msgid "Download"
 msgstr "ダウンロード"
 
 msgid "Error uploading file!"
-msgstr "ファイルをアップロード中にエラーが発生しました！"
+msgstr "ファイルをアップロード中にエラーが発生しました。"
 
 msgid "Error verifying uploaded file!"
 msgstr "アップロードされたファイルを確認中にエラーが発生しました。"
 
 msgid "Invalid backup for or undefined error"
-msgstr "無効なバックアップ、または未定義エラー。"
+msgstr "不正なバックアップまたは不明なエラー"
 
 msgid "Backups"
 msgstr "バックアップ"
@@ -551,7 +548,7 @@ msgid "New Local server"
 msgstr "新規ローカルサーバー"
 
 msgid "New Mysql server"
-msgstr "新規Mysqlサーバー"
+msgstr "新規MySQLサーバー"
 
 msgid "New SSH server"
 msgstr "新規SSHサーバー"
@@ -563,19 +560,19 @@ msgid "Description"
 msgstr "説明"
 
 msgid "Description or notes for this server"
-msgstr "このサーバーの詳細・メモなど"
+msgstr "このサーバーの説明やメモ。"
 
 msgid "Hostname"
 msgstr "ホスト名"
 
 msgid "IP address or FQDN of remote mysql host"
-msgstr "リモートMysqlホストのIPアドレス、またはFQDN"
+msgstr "リモートMySQLホストのIPアドレス、またはFQDN"
 
 msgid "Port"
 msgstr "ポート"
 
 msgid "remote mysql port"
-msgstr "リモートMysqlポート"
+msgstr "リモートMySQLのポート番号。"
 
 msgid "User Name"
 msgstr "ユーザー名"
@@ -587,7 +584,7 @@ msgid "DB Name"
 msgstr "データベース名"
 
 msgid "Database name"
-msgstr "データベース名"
+msgstr "データベースの名前"
 
 msgid "Save"
 msgstr "保存"
@@ -602,7 +599,7 @@ msgid "Key"
 msgstr "キー"
 
 msgid "Location of ssh private key to be used when connecting to a host"
-msgstr "ホストに接続する際に使用するSSHプライベートキーの保存先"
+msgstr "ホストに接続する際に使用するSSHプライベートキーの保存先。"
 
 msgid "Path"
 msgstr "パス"
@@ -617,19 +614,21 @@ msgid "Email Address"
 msgstr "Eメールアドレス"
 
 msgid "Email address where backups should be emailed to"
-msgstr "バックアップを送信するEメールアドレス"
+msgstr "バックアップを送信するEメールアドレス。"
 
 msgid "Max Email Size"
-msgstr "Eメールの最大量"
+msgstr "最大Eメールサイズ"
 
 msgid ""
 "The maximum size a backup can be and still be emailed. Some email servers "
 "limit the size of email attachments, this will make sure that files larger "
 "than the max size are not sent."
-msgstr "添付できるファイルの最大量。バックアップデータのサイズがこの数値を超えた場合は送信されません。"
+msgstr ""
+"Eメールで送信できる最大のバックアップサイズ。添付ファイルのサイズを制限するサーバーを使用する場合に、この設定を使うと制限を越えるファイルを送らないように"
+"できます。"
 
 msgid "IP address or FQDN of remote ftp host"
-msgstr "リモートFTPホストのIPアドレス、またはFQDN"
+msgstr "リモートFTPホストのIPアドレス、またはFQDN。"
 
 msgid "remote ftp port"
 msgstr "リモートFTPポート"
@@ -646,19 +645,19 @@ msgstr "新規テンプレート"
 msgid ""
 "Upload a backup file to restore from it. Or, pick a saved backup by "
 "selecting a server from the list on the right."
-msgstr "復元するバックアップファイルをアップロードします。また、右側のサーバーリストから保存されたバックアップを選択できます。"
+msgstr "復元するバックアップファイルをアップロードできます。右側のサーバーリストからも保存されたバックアップを選択できます。"
 
 msgid "Go!"
-msgstr "次！"
+msgstr "実行"
 
 msgid "Select a file and click go"
-msgstr "ファイルを選択して「次」をクリックしてください"
+msgstr "ファイルを選択して、「実行」をクリックしてください。"
 
 msgid "Mysql DB's"
 msgstr "MySQLデータベース"
 
 msgid "AstDB's"
-msgstr "Astデータベース"
+msgstr "AstDB"
 
 msgid "PBX Settings"
 msgstr "PBX設定"
@@ -667,7 +666,7 @@ msgid "Restore all setting stored in the database"
 msgstr "データベースに保存されている全ての設定を復元する"
 
 msgid "Restore CDR records stored in this backup"
-msgstr "このバックアップに入っているCDRレコードを復元します"
+msgstr "このバックアップに入っているCDRレコードを復元します。"
 
 msgid "drop here"
 msgstr "ここにドロップ"
@@ -676,10 +675,10 @@ msgid "Select files and databases to restore:"
 msgstr "復元するファイル及びデータベースを選択してください。"
 
 msgid "Never"
-msgstr "決して無い"
+msgstr "実行しない"
 
 msgid "Hourly"
-msgstr "毎時間"
+msgstr "毎時"
 
 msgid "Daily"
 msgstr "毎日"
@@ -709,7 +708,7 @@ msgid "Minutes"
 msgstr "分"
 
 msgid "Hour"
-msgstr "時"
+msgstr "時間"
 
 msgid "Day of Week"
 msgstr "曜日"
@@ -775,10 +774,10 @@ msgid "December"
 msgstr "12月"
 
 msgid "Day of Month"
-msgstr "日付"
+msgstr "日"
 
 msgid "Backup Name"
-msgstr "バックアップの名前"
+msgstr "バックアップ名"
 
 msgid "Description or notes for this backup"
 msgstr "このバックアップの説明・メモなど"
@@ -797,31 +796,31 @@ msgstr "テンプレートアイテムをテーブルに追加するには、テ
 msgid ""
 "Drag templates and drop them in the Backup Items table. Add as many "
 "templates as you need"
-msgstr "テンプレートをドラッグし、バックアップアイテムのテーブルにドロップします。必要に応じてテンプレートを追加してください"
+msgstr "テンプレートをドラッグし、バックアップアイテムのテーブルにドロップします。必要に応じてテンプレートを追加してください。"
 
 msgid "Hooks"
 msgstr "フック"
 
 msgid "Pre-backup Hook"
-msgstr "バックアップ前のフック"
+msgstr "バックアップ前フック"
 
 msgid "A script to be run BEFORE a backup is started."
 msgstr "バックアップを開始する前に実行するスクリプト。"
 
 msgid "Post-backup Hook"
-msgstr "バックアップ後のフック"
+msgstr "バックアップ後フック"
 
 msgid "A script to be run AFTER a backup is completed."
 msgstr "バックアップ完了後に実行するスクリプト。"
 
 msgid "Pre-restore Hook"
-msgstr "復元する前のフック"
+msgstr "復元前フック"
 
 msgid "A script to be run BEFORE a backup is restored."
 msgstr "バックアップから復元する前に実行されるスクリプト。"
 
 msgid "Post-restore Hook"
-msgstr "復元で出力されるフック"
+msgstr "復元後フック"
 
 msgid "A script to be run AFTER a backup is restored."
 msgstr "バックアップから復元した後に実行されるスクリプト。"
@@ -834,13 +833,13 @@ msgstr "このサーバー"
 
 msgid ""
 "Select the server to be backed up (this server, or any other SSH server)"
-msgstr "バックアップするサーバーを選択。（このサーバー、若しくは他のSSHサーバー）"
+msgstr "バックアップするサーバーを選択してください。（このサーバー、若しくは他のSSHサーバー）"
 
 msgid "Restore Here"
-msgstr "ここに復元"
+msgstr "ここに復元する"
 
 msgid "Disable Registered Trunks"
-msgstr "登録済みのトランクを無効"
+msgstr "登録されたトランクを無効にする"
 
 msgid "Apply Configs"
 msgstr "変更を適用"
@@ -859,13 +858,13 @@ msgid "Available Servers"
 msgstr "利用可能なサーバー"
 
 msgid "Backup Schedule"
-msgstr "バックアップスケージュール"
+msgstr "バックアップスケジュール"
 
 msgid "Maintenance"
 msgstr "メンテナンス"
 
 msgid "Delete after"
-msgstr "次の実行後に削除"
+msgstr "以後に削除"
 
 msgid ""
 "Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
@@ -876,7 +875,7 @@ msgstr ""
 "されるので、ご注意ください。この数値を0に設定すると、削除を一切しません。"
 
 msgid "Hours"
-msgstr "時"
+msgstr "時間"
 
 msgid "Days"
 msgstr "日"
@@ -896,7 +895,7 @@ msgid ""
 msgstr "○回バックアップを実行してからこのバックアップを削除します。0に設定すると削除を無効にします。"
 
 msgid " runs"
-msgstr " を実行"
+msgstr " 回の実行"
 
 msgid "and Run"
 msgstr "と実行"
@@ -911,13 +910,13 @@ msgid "Path/DB"
 msgstr "パス/データベース"
 
 msgid "Exclude"
-msgstr "除外"
+msgstr "除外する"
 
 msgid "chose"
-msgstr "選択"
+msgstr "選択する"
 
 msgid "Run now"
-msgstr "すぐ実行する"
+msgstr "すぐに実行する"
 
 #~ msgid "The From: field for emails when using the backup email feature."
 #~ msgstr "バックアップEメール機能使用時のFrom:フィールド。"

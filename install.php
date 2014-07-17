@@ -10,6 +10,7 @@ $sql[] = $bu_table = 'CREATE TABLE IF NOT EXISTS `backup` (
 			`description` varchar(255) default NULL,
 			`immortal` varchar(25) default NULL,
 			`data` longtext default NULL,
+			`email` longtext default NULL,
 			PRIMARY KEY  (`id`)
 			)';
 

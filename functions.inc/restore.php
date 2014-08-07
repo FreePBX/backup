@@ -502,4 +502,3 @@ function backup_migrate_legacy($bu) {
 	return $dest;
 }
 
-?>

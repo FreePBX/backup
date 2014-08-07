@@ -39,6 +39,3 @@ if ($immortal != 'true') {
 $html	.= form_close(). PHP_EOL;
 
 echo $html;
-
-
-?>

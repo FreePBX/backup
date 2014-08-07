@@ -24,6 +24,7 @@ $get_vars = array(
 				'items'				=> array(),
 				'menu'				=> '',
 				'name'				=> '',
+				'email'				=> '',
 				'path'				=> '',
 				'postbu_hook'		=> '',
 				'postre_hook'		=> '',
@@ -112,5 +113,3 @@ switch ($var['action']) {
 		echo load_view(dirname(__FILE__) . '/views/backup/backups.php', $var);
 		break;
 }
-
-?>

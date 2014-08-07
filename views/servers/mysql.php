@@ -89,4 +89,3 @@ if ($immortal != 'true') {
 $html .= form_close();
 
 echo $html;
-?>

@@ -14,5 +14,3 @@ if (isset($backup)){
 }	
 
 echo '<div class="rnav">' . ul($li) . '</div>';
-
-?>

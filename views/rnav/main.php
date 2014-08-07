@@ -18,4 +18,3 @@ foreach ($list as $k => $v) {
 			. $v . '</a>';
 }
 $li[] = '<hr />';
-?>

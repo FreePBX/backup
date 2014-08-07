@@ -56,6 +56,7 @@ function backup_get_backup($id = '') {
 				'immortal'			=> '',
 				'items'				=> array(),
 				'name'				=> '',
+				'email'				=> '',
 				'path'				=> '',
 				'postbu_hook'		=> '',
 				'postre_hook'		=> '',
@@ -175,11 +176,11 @@ function backup_put_backup($var) {
 
 	//save server
 	if (!empty($var['id'])) {
-	  $sql = 'UPDATE backup SET name = ?, description = ? WHERE id = ?';
-	  $sql_params = array($var['name'], $var['desc'], $var['id']);
+	  $sql = 'UPDATE backup SET name = ?, description = ?, email = ? WHERE id = ?';
+	  $sql_params = array($var['name'], $var['desc'], $var['email'], $var['id']);
 	} else {
-		$sql = 'INSERT INTO backup (name, description) VALUES (?, ?)';
-		$sql_params = array($var['name'], $var['desc']);
+		$sql = 'INSERT INTO backup (name, description, email) VALUES (?, ?, ?)';
+		$sql_params = array($var['name'], $var['desc'], $var['email']);
 	}
 	$ret = $db->query($sql, $sql_params);
 	if ($db->IsError($ret)){
@@ -232,6 +233,11 @@ function backup_put_backup($var) {
 			case 'prere_hook':
 				if ($value !== '') {
 					$data[] = array($var['id'],  $key, '', $value);
+				}
+				break;
+			case 'email':
+				if ($value !== '' && filter_var($value, FILTER_VALIDATE_EMAIL)) {
+						$data[] = array($var['id'],  $key, '', $value);
 				}
 				break;
 			case 'restore':
@@ -317,7 +323,9 @@ function backup_set_backup_cron() {
 	$backups = backup_get_backup('all_detailed');
 	foreach ($backups as $b) {
 		$cron = '';
-		$cron['command'] = $amp_conf['AMPBIN'] . '/backup.php --id=' . $b['id'];
+		// The ID porition of the command was added to better support other cron daemons (#7374)
+		// We should be using the format of ID=[vendor]_[module raw name]_[id]
+		$cron['command'] = 'ID=freepbx_backup_' . $b['id'] . ' ' . $amp_conf['AMPBIN'] . '/backup.php --id=' . $b['id'];
 		if (!isset($b['cron_random']) || $b['cron_random'] != 'true') {
 			switch ($b['cron_schedule']) {
 				case 'never':
@@ -365,7 +373,3 @@ function backup_set_backup_cron() {
 
 	}
 }
-
-
-
-?>

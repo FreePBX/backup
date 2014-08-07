@@ -22,6 +22,16 @@ $data 	= array(
 			'name' => 'desc', 
 			'value' => $desc
 		);
+
+//$immortal ? $data['disabled'] = '' : '';
+$table->add_row($label, form_input($data));
+
+//email
+$label = fpbx_label(_('Status Email'), _('Email to send status messages to when this task is run'));
+$data = array(
+			'name' => 'email',
+			'value' => $email
+		);
 //$immortal ? $data['disabled'] = '' : '';
 $table->add_row($label, form_input($data));
 $html .= $table->generate();
@@ -268,6 +278,3 @@ $html .= form_close(). PHP_EOL;
 $html .= '<script type="text/javascript" src="modules/backup/assets/js/views/backup.js"></script>';
 
 echo $html;
-
-
-?>

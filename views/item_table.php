@@ -47,4 +47,3 @@ $html	.= form_dropdown('add_tr_select', $data, '', 'style="display:none"');
 
 $html .= '<script type="text/javascript" src="modules/backup/assets/js/views/templates.js"></script>';
 echo $html;
-?>

@@ -39,6 +39,7 @@ if (isset($vars['id']) && $vars['id']) {
 		$s = backup_get_server('all_detailed');
 		$b = new Backup($bu, $s);
 		backup_log(_('Intializing Backup') . ' ' .$vars['id']);
+		backup_clear_log();
 		$b->init();
 		if ($b->b['bu_server'] == "0") {
 			//get lock to prevent backups from being run cuncurently
@@ -142,7 +143,11 @@ if (isset($vars['id']) && $vars['id']) {
 		$b->run_hooks('post-backup');
 
 		if ($b->b['bu_server'] == "0") { //local backup? Were done!
-			backup_log(_('Backup successfully completed!'));
+			if ($b->b['error'] !== false) {
+				backup_log(_('Backup completed with errors!'));
+			} else {
+				backup_log(_('Backup successfully completed!'));
+			}
 		} else {
 			if ($b->b['restore']) {
 				if (isset($b->b['manifest']['file_list'])) {
@@ -180,13 +185,20 @@ if (isset($vars['id']) && $vars['id']) {
 			if ($b->b['applyconfigs'] == 'true') {
 				do_reload(true);
 			}
-			backup_log(_('Backup successfully completed!'));
+
+			if ($b->b['error'] !== false) {
+				backup_log(_('Backup completed with errors!'));
+			} else {
+				backup_log(_('Backup successfully completed!'));
+			}
 		}
 
 	} else { //invalid backup
 		backup_log('backup id ' . $vars['id'] . ' not found!');
 	}
-
+	if(is_object($b) && method_exists($b,'emailCheck')){
+		$b->emailCheck();
+	}
 //if the opts option was passed, used for remote backup (warm spare)
 } elseif(isset($vars['opts']) && $vars['opts']) {
 	//r = remote options
@@ -194,11 +206,11 @@ if (isset($vars['id']) && $vars['id']) {
 		echo 'invalid opts';
 		exit(1);
 	}
-
 	$b = new Backup($r['bu'], $r['s']);
 	$b->b['_ctime']		= $r['b']->b['_ctime'];
 	$b->b['_file']		= $r['b']->b['_file'];
 	$b->b['_dirname']	= $r['b']->b['_dirname'];
+	backup_clear_log();
 	$b->init();
 	$b->run_hooks('pre-backup');
 	$b->add_items();
@@ -236,4 +248,3 @@ function show_opts() {
 	$e[] = '';
 	echo implode("\n", $e);
 }
-?>

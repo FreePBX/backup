@@ -50,9 +50,8 @@ if (isset($vars['restore'], $vars['items'])) {
 		backup_log(_('Restoring files...'));
 
 		if (count($items['files']) > 500) {
-			backup_log(_('A large amount of files have been selected for restore. Please be '
-						. 'paitent - this prosses will take a while.'
-			));
+			backup_log(_('A large number of files have been selected for restore. Please be '
+						. 'patient - this process will take a while.'));
 		}
 		$cmd[] = fpbx_which('tar');
 		$cmd[] = 'zxf';

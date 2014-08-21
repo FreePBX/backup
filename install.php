@@ -302,7 +302,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_templates') < 1) {
 	);
 	$temp['full']				= $temp['basic'];
 	$temp['full']['name']		= 'Full Backup';
-	$temp['full']['desc']		= _('A full backup of core settings and web files, dosen\'t include system sounds or recordings.');
+	$temp['full']['desc']		= _('A full backup of core settings and web files, doesn\'t include system sounds or recordings.');
 
 	$temp['full']['type'][]		= 'mysql';
 	$temp['full']['path'][]		= 'server-' . $server['cdr'];

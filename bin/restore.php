@@ -7,6 +7,12 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
 	include_once('/etc/asterisk/freepbx.conf');
 }
 
+if (!function_exists('backup_log')) {
+	// Our current backup module isn't installed, or is disabled
+	// for some reason.  This isn't going to help us at all. So,
+	// we're just going to force load it, and hang the consequences.
+	include (__DIR__."/../functions.inc.php");
+}
 
 /**
  * OPTIONS
@@ -17,12 +23,65 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
  */
 
 $getopt = (function_exists('_getopt') ? '_' : '') . 'getopt';
-$vars = $getopt($short = '', $long = array('restore::', 'items::', 'manifest::'));
+$vars = $getopt($short = '', $long = array('restore::', 'items::', 'manifest::', 'skipnat::'));
 
-//do restore
-if (isset($vars['restore'], $vars['items'])) {
+// Let items be descriptive - it may NOT be an encoded array.
+if (isset($vars['items'])) {
+	// Is it an encoded array though?
 	$items = unserialize(base64_decode($vars['items']));
-	
+	if (!is_array($items)) {
+		// Ok, it's not. It may just be a comma delimited set of things
+		// to restore.
+		$items = array();
+		$itemsarr = explode(',', $vars['items']);
+		foreach ($itemsarr as $i) {
+			switch ($i) {
+			case 'astdb':
+				$items['astdb'] = true;
+				break;
+			case 'mysql':
+				$items['mysql'] = true;
+				break;
+			case 'cdr':
+				$items['cdr'] = 'true'; // Yes, this is mean to be a string, not bool. See the restore below
+				break;
+			case 'files':
+				die("allfiles currently unimplemented");
+				$items['allfiles'] = true;
+				break;
+			case 'all':
+				$items['astdb'] = true;
+				$items['mysql'] = true;
+				$items['cdr'] = 'true'; // String, not bool
+				break;
+			default:
+				die("Unknown item option $i\n");
+			}
+		}
+	}
+}
+
+// Are we going to want to skip nat-ish settings?
+if (isset($vars['skipnat'])) {
+	$skipnat = true;
+	backup_log(_('Explicitly skipping host-specific NAT settings'));
+} else {
+	$skipnat = false;
+}
+
+
+// Have we been asked to show a manifest?
+if(isset($vars['manifest'])) {
+	print_r(backup_get_manifest_tarball($vars['manifest']));
+	exit;
+}
+
+// If we're NOT being asked to restore, show help.
+if (!isset($vars['restore'])) {
+	show_opts();
+	exit;
+} else {
+	// Actually do a restore
 	if (!$items) {
 		backup_log(_('Nothing to restore!'));
 		exit();
@@ -72,7 +131,7 @@ if (isset($vars['restore'], $vars['items'])) {
 	
 	//restore cdr's if requested
 	if (isset($items['cdr']) && $items['cdr'] == 'true') {
-		backup_log(_('Restoring CDR\'s...'));
+		backup_log(_('Restoring CDRs...'));
 		$s = explode('-', $manifest['fpbx_cdrdb']);
 		$file = $manifest['mysql'][$s[1]]['file'];
 		$cdr_stat_time = time();//last time we sent status update
@@ -177,7 +236,7 @@ if (isset($vars['restore'], $vars['items'])) {
 					|| $next_due)
 			) {
 				backup_log(_('Processed ' . $precent
-						. '% of CDR\'s (' 
+						. '% of CDRs (' 
 						. number_format($linecount) 
 						. '/' . $pretty_lines . ' lines)'));
 				
@@ -189,17 +248,17 @@ if (isset($vars['restore'], $vars['items'])) {
 			}
 		}
 		if (!in_array(100, $notifed_for)) {
-			backup_log(_('Processed 100% of CDR\'s!'));
+			backup_log(_('Processed 100% of CDRs!'));
 		}
 
 		fclose($file);
 		unlink($path);
-		backup_log(_('Restoring CDR\'s complete'));
+		backup_log(_('Restoring CDRs complete'));
 	}
 	
-	//restore settings
-	if (isset($items['settings']) && $items['settings'] == 'true') {
-		backup_log(_('Restoring settings...'));
+	//restore Database
+	if (isset($items['mysql']) || isset($items['settings']) && $items['settings'] == 'true') {
+		backup_log(_('Restoring Database...'));
 		if ($manifest['fpbx_db'] != '') {
 			$s = explode('-', $manifest['fpbx_db']);
 			$file = $manifest['mysql'][$s[1]]['file'];
@@ -218,7 +277,6 @@ if (isset($vars['restore'], $vars['items'])) {
 			exec(implode(' ', $cmd), $file);
 			unset($cmd);
 		
-			backup_log(_('Getting Settings size...'));
 			$cmd[] = fpbx_which('wc');
 			$cmd[] = ' -l';
 			$cmd[] = $path;
@@ -239,6 +297,24 @@ if (isset($vars['restore'], $vars['items'])) {
 				$line = trim($line);
 				$linecount++;
 
+				// NAT Settings - Check here to skip anything that could make an import
+				// non portable between machines. AT the moment, this is anything starting
+				// with 'extern' or 'bind'
+				if ($skipnat) {
+					// Check to see if it's in sipsettings..
+					//   01234567890123456789012345678901234567890
+					//   INSERT INTO `sipsettings` VALUES ('extern
+					//               1234567890123          123456
+					if (substr($line, 12, 13) === "`sipsettings`") {
+						if (substr($line, 35, 6) === "extern") {
+							continue;
+						}
+						if (substr($line, 35, 4) === "bind") {
+							continue;
+						}
+					} 
+				}
+					
 				switch (true) {
 					case ($line == ''):
 					//clear the buffer every time we hit a blank line
@@ -282,7 +358,7 @@ if (isset($vars['restore'], $vars['items'])) {
 						|| $next_due)
 				) {
 					backup_log(_('Processed ' . $precent
-							. '% of Settings\' (' 
+							. '% of Settings (' 
 							. number_format($linecount) 
 							. '/' . $pretty_lines . ' lines)'));
 
@@ -294,14 +370,16 @@ if (isset($vars['restore'], $vars['items'])) {
 				}
 			}
 			if (!in_array(100, $notifed_for)) {
-				backup_log(_('Processed 100% of Settings\'!'));
+				backup_log(_('Processed 100% of Settings!'));
 			}
 
 			fclose($file);
 			unlink($path);
 		}
-	
-		//restore astdb
+	}
+
+	//  How about ASTDB?
+	if (isset($items['astdb']) || isset($items['settings']) && $items['settings'] == 'true') {
 		if ($manifest['astdb'] != '') {
 			backup_log(_('Restoring astDB...'));
 			$cmd[] = fpbx_which('tar');
@@ -313,7 +391,7 @@ if (isset($vars['restore'], $vars['items'])) {
 			unset($cmd);
 		}
 		
-		backup_log(_('Restoring Settings\' complete'));
+		backup_log(_('Restoring Settings complete'));
 	}
 	//dbug($file);
 	
@@ -363,13 +441,6 @@ if (isset($vars['restore'], $vars['items'])) {
 	do_reload();
 	backup_log(_('Done!'));
 	exit();
-//show manifest
-} elseif(isset($vars['manifest'])) {
-	print_r(backup_get_manifest_tarball($vars['manifest']));
-
-//show options
-} else {
-	show_opts();
 }
 
 exit();
@@ -378,9 +449,21 @@ function show_opts() {
 	$e[] = 'restore.php';
 	$e[] = '';
 	$e[] = 'options:';
-	$e[] = "\t" . '--restore=</path/to/backup/file>. '
-				. 'Add --opts=<base64 encodes, serialized, array of options>';
-	$e[] = "\t" . '--manifest=</path/to/file>';
+	$e[] = "\t--restore=/path/to/backup/file.tgz";
+	$e[] = "\t\tSpecify the path to the backup file you wish to restore.";
+	$e[] = "\t--items=...";
+	$e[] = "\t\tThis is either a base64 encoded, serialized array, which is provided";
+	$e[] = "\t\tby the web interface, or, a comma separated list of any of the following:";
+	$e[] = "\t\t\tall\tRestore everything in the backup";
+	$e[] = "\t\t\t\tThis is the same as enabling all the following options";
+	$e[] = "\t\t\tmysql\tRestore the MySQL Settings Database";
+	$e[] = "\t\t\tastdb\tRestore the AstDB";
+	$e[] = "\t\t\tcdr\tRestore the CDR Database";
+//	$e[] = "\t\t\tfiles\tRestore all files in the backup"; // Unimplemented
+	$e[] = "\t--manifest=/path/to/file.tgz";
+	$e[] = "\t\tDisplay the manifest file embedded in the backup .tgz.";
+	$e[] = "\t--skipnat";
+	$e[] = "\t\tThis explicitly skips any per-machine NAT settings (eg, externip)";
 	$e[] = '';
 	$e[] = '';
 	echo implode("\n", $e);

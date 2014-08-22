@@ -248,7 +248,7 @@ if (!isset($vars['restore'])) {
 			}
 		}
 		if (!in_array(100, $notifed_for)) {
-			backup_log(_('Processed 100% of CDRs!'));
+			backup_log(_('Restored all CDRs.'));
 		}
 
 		fclose($file);
@@ -258,7 +258,6 @@ if (!isset($vars['restore'])) {
 	
 	//restore Database
 	if (isset($items['mysql']) || isset($items['settings']) && $items['settings'] == 'true') {
-		backup_log(_('Restoring Database...'));
 		if ($manifest['fpbx_db'] != '') {
 			$s = explode('-', $manifest['fpbx_db']);
 			$file = $manifest['mysql'][$s[1]]['file'];
@@ -291,30 +290,34 @@ if (!isset($vars['restore'])) {
 			$buffer = array();
 			$file = fopen($path, 'r');
 			$linecount = 0;
+
+			if ($skipnat) {
+				backup_log(_('Preserving local NAT settings'));
+				// Back up the NAT-ish settings before applying the database dump,
+				// because we drop and recreate the table.
+				$pdo = FreePBX::Database();
+
+				$backup = array("sipsettings" => array("externip_val", "externhost_val", "bindaddr", "bindport"));
+				$backup_storage = array();
+
+				foreach ($backup as $table => $keys) {
+					$get = $pdo->prepare("SELECT `data` FROM $table WHERE `keyword`=:element");
+					foreach ($keys as $element) {
+						$vals = array(":element" => $element);
+						if ($get->execute($vals)) {
+							$backup_storage[$table][$element] = $get->fetchColumn(0);
+						}
+					}
+				}
+			}
+
+			backup_log(_('Restoring Database...'));
 		
 			//TODO: should restore-to server should be configurable from the gui at restore time?
 			while(($line = fgets($file)) !== false) {
 				$line = trim($line);
 				$linecount++;
 
-				// NAT Settings - Check here to skip anything that could make an import
-				// non portable between machines. AT the moment, this is anything starting
-				// with 'extern' or 'bind'
-				if ($skipnat) {
-					// Check to see if it's in sipsettings..
-					//   01234567890123456789012345678901234567890
-					//   INSERT INTO `sipsettings` VALUES ('extern
-					//               1234567890123          123456
-					if (substr($line, 12, 13) === "`sipsettings`") {
-						if (substr($line, 35, 6) === "extern") {
-							continue;
-						}
-						if (substr($line, 35, 4) === "bind") {
-							continue;
-						}
-					} 
-				}
-					
 				switch (true) {
 					case ($line == ''):
 					//clear the buffer every time we hit a blank line
@@ -370,11 +373,24 @@ if (!isset($vars['restore'])) {
 				}
 			}
 			if (!in_array(100, $notifed_for)) {
-				backup_log(_('Processed 100% of Settings!'));
+				backup_log(_('Restored Database'));
 			}
 
 			fclose($file);
 			unlink($path);
+
+			// Now, if we're selected skipnat, restore everything we backed up
+			// before the import.
+			if ($skipnat) {
+				backup_log(_('Restoring NAT settings'));
+				foreach ($backup_storage as $table => $settings) {
+					$set = $pdo->prepare("UPDATE $table SET `data`=:val WHERE `keyword`=:key ");
+					foreach ($settings as $key => $val) {
+						$arr = array("key" => $key, "val" => $val);
+						$set->execute($arr);
+					}
+				}
+			}
 		}
 	}
 

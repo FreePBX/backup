@@ -113,7 +113,13 @@ if (!isset($vars['restore'])) {
 			backup_log(_('Restoring files (this may take some time)...'));
 			$filelist = "";
 			foreach ($items['files'] as $f) {
-				$filelist .= ".$f\n";
+				// Make sure we extract as './filename' as this is
+				// what they've historically been saved as. Sigh.
+				if ($f[0] != '/') {
+					$filelist .= "./$f\n";
+				} else {
+					$filelist .= ".$f\n";
+				}
 			}
 		}
 

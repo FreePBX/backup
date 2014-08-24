@@ -265,7 +265,8 @@ class Backup {
 
 	function create_backup_file($to_stdout = false) {
 		$cmd[] = fpbx_which('tar');
-		$cmd[] = 'zcf';
+		// Note - 'h' is follow symlinks.
+		$cmd[] = 'zhcf';
 		$cmd[] = $to_stdout ? '-' : $this->b['_tmpfile'];
 		$cmd[] = '-C ' . $this->b['_tmpdir'];
 		// Always put the manifest file FIRST

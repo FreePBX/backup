@@ -46,12 +46,12 @@ if (isset($vars['items'])) {
 				$items['cdr'] = 'true'; // Yes, this is mean to be a string, not bool. See the restore below
 				break;
 			case 'files':
-				die("allfiles currently unimplemented");
-				$items['allfiles'] = true;
+				$items['files'] = true;
 				break;
 			case 'all':
 				$items['astdb'] = true;
 				$items['mysql'] = true;
+				$items['files'] = true;
 				$items['cdr'] = 'true'; // String, not bool
 				break;
 			default:
@@ -106,12 +106,20 @@ if (!isset($vars['restore'])) {
 	mod_func_iterator('backup_pre_restore_hook', $manifest);
 	
 	if (isset($items['files']) && $items['files']) {
-		backup_log(_('Restoring files...'));
-
-		if (count($items['files']) > 500) {
-			backup_log(_('A large number of files have been selected for restore. Please be '
-						. 'patient - this process will take a while.'));
+		if ($items['files'] === true) {
+			backup_log(_('Restoring all files (this may take some time)...'));
+			$filelist = recurse_dirs("", $manifest['file_list']);
+		} else {
+			backup_log(_('Restoring files (this may take some time)...'));
+			$filelist = "";
+			foreach ($items['files'] as $f) {
+				$filelist .= ".$f\n";
+			}
 		}
+
+		$tmpfile = tempnam("/tmp", "restore");
+		file_put_contents($tmpfile, $filelist);
+
 		$cmd[] = fpbx_which('tar');
 		$cmd[] = 'zxf';
 		$cmd[] = $vars['restore'];
@@ -119,11 +127,12 @@ if (!isset($vars['restore'])) {
 		//aslo, dont preseve access/modified times, as we may not always have the perms to do this
 		//across the entire heirachy of a file we are restoring
 		$cmd[] = '--atime-preserve -m -C /';
-		foreach ($items['files'] as $f) {
-			$cmd[] = './' . trim($f, '/');
-		}
+		$cmd[] = "--files-from=$tmpfile";
+		// Never restore asterisk.conf. No matter what.
+		$cmd[] = "--exclude='asterisk.conf'";
 		exec(implode(' ', $cmd));
 		backup_log(_('File restore complete!'));
+		unlink($tmpfile);
 		unset($cmd);
 	}
 	unset($manifest['file_list']);
@@ -484,3 +493,16 @@ function show_opts() {
 	$e[] = '';
 	echo implode("\n", $e);
 }
+
+function recurse_dirs($key, $var) {
+	if (!is_array($var)) {
+		return "$key/$var\n";
+	}
+	// Else
+	$dirwalk = "";
+	foreach ($var as $k => $v) {
+		$dirwalk .= recurse_dirs("$key/$k", $v);
+	}
+	return $dirwalk;
+}
+

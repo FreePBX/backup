@@ -17,6 +17,7 @@ $get_vars = array(
 				'delete_time_type'	=> '',
 				'delete_time'		=> '',
 				'disabletrunks'		=> '',
+				'skipnat'		=> '',
 				'display'			=> '',
 				'exclude'			=> '',
 				'host'				=> '',

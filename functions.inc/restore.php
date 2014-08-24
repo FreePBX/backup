@@ -167,7 +167,8 @@ function backup_get_manifest_db($bu) {
  */
 function backup_get_manifest_tarball($bu) {
 	$cmd[] = fpbx_which('tar');
-	$cmd[] = 'zxOf ' . $bu;
+	$cmd[] = "zxOf $bu";
+	$cmd[] = "--occurrence=1"; // Stop after finding the first one
 	$cmd[] = './manifest';
 	$cmd[] = '2> /dev/null';
 	exec(implode(' ', $cmd), $manifest, $ret);

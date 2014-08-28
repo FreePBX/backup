@@ -71,7 +71,11 @@ foreach($sql as $q) {
 	db_e($db->query($q), 'die_freepbx', 0, _("Can not create backup tables"));
 }
 unset($sql);
-
+//#5751
+//#7842 Move up so email column added on new installs before defaults are inserted.
+if (!$db->getAll('SHOW COLUMNS FROM backup WHERE FIELD = "email"')) {
+	sql('ALTER TABLE backup ADD COLUMN `email` longtext default NULL');
+}
 //migration to 2.7
 $migrate=$db->getAll('show tables like "Backup"');
 if($db->IsError($migrate)) {
@@ -698,9 +702,4 @@ $set['name'] = 'Email "From:" Address';
 $set['description'] = 'The From: field for emails when using the backup email feature.';
 $set['type'] = CONF_TYPE_TEXT;
 $freepbx_conf->define_conf_setting('AMPBACKUPEMAILFROM',$set);
-
-//#5751
-if (!$db->getAll('SHOW COLUMNS FROM backup WHERE FIELD = "email"')) {
-	sql('ALTER TABLE backup ADD COLUMN `email` longtext default NULL');
-}
 //TODO: delete sudo option

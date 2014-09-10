@@ -136,6 +136,11 @@ if (!isset($vars['restore'])) {
 		$cmd[] = "--files-from=$tmpfile";
 		// Never restore asterisk.conf. No matter what.
 		$cmd[] = "--exclude='asterisk.conf'";
+		// Same for cdr_mysql.conf
+		$cmd[] = "--exclude='cdr_mysql.conf'";
+		// And, just to be on the safe side, we never want to restore
+		// freepbx.conf, either.
+		$cmd[] = "--exclude='freepbx.conf'";
 		exec(implode(' ', $cmd));
 		backup_log(_('File restore complete!'));
 		unlink($tmpfile);

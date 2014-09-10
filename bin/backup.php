@@ -166,7 +166,12 @@ if (isset($vars['id']) && $vars['id']) {
 				}
 
 				backup_log(_('Restoring backup...'));
-				$cmd = $amp_conf['AMPBIN'] . '/restore.php '
+				if (!empty($b->b['skipnat'])) {
+					$skipnat = "--skipnat";
+				} else {
+					$skipnat = "";
+				}
+				$cmd = $amp_conf['AMPBIN'] . "/restore.php $skipnat "
 						. '--restore=' . $b->b['_tmpfile']
 						. ' --items=' . base64_encode(serialize($restore));
 				system($cmd);

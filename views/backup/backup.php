@@ -135,14 +135,14 @@ $data = array(
 	'value'		=> 'true',
 	'checked'	=> ($restore == 'true' ? true : false),
 );
-$label = fpbx_label(_('Restore Here'), 'Restored backup to this server after the backup is complete');
+$label = fpbx_label(_('Restore Here'), 'Restore backup to this server after the backup is complete');
 $label = array('data' => form_label($label, 'restore'), 'class' => 'remote ');
 $data = array('data' => form_checkbox($data), 'class' => 'remote ');
 $table->add_row($label, $data);
 
-//disbale trunks
+// Disable trunks
 $label = fpbx_label(_('Disable Registered Trunks'), 
-		'After a restore, disable any trunks that use registration. This is helpfull to '
+		'After a restore, disable any trunks that use registration. This is helpful to '
 		. 'prevent the Primary and Standby systems from "fighting" for the '
 		. 'registration, resulting in some calls routed to the Standby system.');
 $data = array(
@@ -152,6 +152,20 @@ $data = array(
 	'checked'	=> ($disabletrunks == 'true' ? true : false),
 );
 $label = array('data' => form_label($label, 'disabletrunks'), 'class' => 'remote restore');
+$data = array('data' => form_checkbox($data), 'class' => 'remote restore');
+$table->add_row($label, $data);
+
+// Skip NATty stuff.
+$label = fpbx_label(_('Exclude NAT settings'), 
+		'Explicitly exclude any machine-specific IP settings. This allows you '
+		. 'to have a warm-spare machine with a different IP address.');
+$data = array(
+	'name'		=> 'skipnat',
+	'id'		=> 'skipnat',
+	'value'		=> 'true',
+	'checked'	=> ($skipnat == 'true' ? true : false),
+);
+$label = array('data' => form_label($label, 'skipnat'), 'class' => 'remote restore');
 $data = array('data' => form_checkbox($data), 'class' => 'remote restore');
 $table->add_row($label, $data);
 

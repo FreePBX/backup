@@ -264,12 +264,13 @@ class Backup {
 	}
 
 	function create_backup_file($to_stdout = false) {
-		$this->build_manifest();
 		$cmd[] = fpbx_which('tar');
-		$cmd[] = 'zcf';
+		// Note - 'h' is follow symlinks.
+		$cmd[] = 'zhcf';
 		$cmd[] = $to_stdout ? '-' : $this->b['_tmpfile'];
 		$cmd[] = '-C ' . $this->b['_tmpdir'];
-		$cmd[] = '.';
+		// Always put the manifest file FIRST
+		$cmd[] = './manifest .';
 		//dbug('create_backup', implode(' ', $cmd));
 		if ($to_stdout) {
 			system(implode(' ', $cmd));

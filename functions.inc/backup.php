@@ -136,6 +136,7 @@ function backup_get_backup($id = '') {
 			$ret['restore']			= isset($ret['restore'])		? $ret['restore'] : false;
 			$ret['applyconfigs']	= isset($ret['applyconfigs'])	? $ret['applyconfigs'] : false;
 			$ret['disabletrunks']	= isset($ret['disabletrunks'])	? $ret['disabletrunks'] : false;
+			$ret['skipnat']		= isset($ret['skipnat'])	? $ret['skipnat'] : false;
 
 			//get items
 			$sql = 'SELECT type, path, exclude FROM backup_items WHERE backup_id = ?';
@@ -248,6 +249,7 @@ function backup_put_backup($var) {
 				break;
 			case 'disabletrunks':
 			case 'applyconfigs':
+			case 'skipnat':
 				//only save if we have a value, we didnt select the local server, and were doing a restore
 				if ($value !== '' && $var['bu_server'] > 0 && $var['restore'] == 'true') {
 					$data[] = array($var['id'],  $key, '', $value);

@@ -65,11 +65,13 @@ function backup_jstree_list_dir($id, $path = '') {
 			if (ftp_login($ftp, $s['user'], $s['password'])) {
 				ftp_pasv($ftp, ($s['transfer'] == 'passive'));
 				ftp_chdir($ftp, $s['path'] . '/' . $path);
+				$pwd = ftp_pwd($ftp);
 				$ls = ftp_nlist($ftp,  '');
 				$dir = ftp_rawlist($ftp, '-d1 */');
 				foreach ($ls as $file) {
+					$file = basename($file);
 					//determine if we are a directory or not, rather than using rawlist
-					if (@ftp_chdir($ftp, '/'.$s['path'].'/'.$file)) {
+					if (@ftp_chdir($ftp, $pwd.'/'.$file)) {
 						$ret[] = array(
 									'attr'	=> array('data-path' => $path . '/' . $file),
 									'data'	=> $file,

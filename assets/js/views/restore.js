@@ -14,6 +14,7 @@ $(document).ready(function(){
 				'url': window.href,
 				'data': function (n) { 
 					return { 
+						'quietmode': true,
 						'action': 'list_dir', 
 						'path': $(n).data('path')
 					}; 

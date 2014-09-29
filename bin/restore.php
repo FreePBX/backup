@@ -104,6 +104,11 @@ if (!isset($vars['restore'])) {
 	}
 	backup_log(_('Running pre-restore hooks, if any...'));
 	mod_func_iterator('backup_pre_restore_hook', $manifest);
+
+	// Are we restoring the web root? We need to detect that,
+	// so that (via #8059) if we aren't, don't restore the mysql
+	// database, as the existing one will still be correct.
+	$restoringwebroot = false;
 	
 	if (isset($items['files']) && $items['files']) {
 		if ($items['files'] === true) {
@@ -123,6 +128,13 @@ if (!isset($vars['restore'])) {
 			}
 		}
 
+		// Does our filelist contain any file in the webroot?
+		$webrootRegex = "!^./".$amp_conf['AMPWEBROOT']."!m";
+		if (preg_match($webrootRegex, $filelist)) {
+			// We're restoring a module. Don't restore
+			// the module db, no matter what.
+			$restoringwebroot = true;
+		}
 		$tmpfile = tempnam("/tmp", "restore");
 		file_put_contents($tmpfile, $filelist);
 
@@ -278,69 +290,74 @@ if (!isset($vars['restore'])) {
 	
 	//restore Database
 	if (isset($items['mysql']) || isset($items['settings']) && $items['settings'] == 'true') {
-		if ($manifest['fpbx_db'] != '') {
-			$s = explode('-', $manifest['fpbx_db']);
-			$file = $manifest['mysql'][$s[1]]['file'];
-			$settings_stat_time = time();//last time we sent status update
-			$notifed_for = array();//precentages we sent status updates for
-			$path = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . time() . '.sql';
-		
-			//get db
-			$cmd[] = fpbx_which('tar');
-			$cmd[] = 'zxOf';
-			$cmd[] = $vars['restore'];
-			$cmd[] = './' . $file;
-			$cmd[] = '>';
-			$cmd[] = $path;
-		
-			exec(implode(' ', $cmd), $file);
-			unset($cmd);
-		
-			$cmd[] = fpbx_which('wc');
-			$cmd[] = ' -l';
-			$cmd[] = $path;
-		
-			exec(implode(' ', $cmd), $lines);
-			unset($cmd);
+		if (!$restoringwebroot) {
+			backup_log(_('CRITICAL ERROR!'));
+			backup_log(_('Web Root restore not detected, disabling database restore'));
+			backup_log(_('To ensure system integrity, you must restore the entire FreePBX directory if you want to restore the Database'));
+		} else {
+			if ($manifest['fpbx_db'] != '') {
+				$s = explode('-', $manifest['fpbx_db']);
+				$file = $manifest['mysql'][$s[1]]['file'];
+				$settings_stat_time = time();//last time we sent status update
+				$notifed_for = array();//precentages we sent status updates for
+				$path = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . time() . '.sql';
 
-			$lines = explode(' ', $lines[0]);
-			$lines = $lines[0];
+				//get db
+				$cmd[] = fpbx_which('tar');
+				$cmd[] = 'zxOf';
+				$cmd[] = $vars['restore'];
+				$cmd[] = './' . $file;
+				$cmd[] = '>';
+				$cmd[] = $path;
 
-			$pretty_lines = number_format($lines);
-			$buffer = array();
-			$file = fopen($path, 'r');
-			$linecount = 0;
+				exec(implode(' ', $cmd), $file);
+				unset($cmd);
 
-			if ($skipnat) {
-				backup_log(_('Preserving local NAT settings'));
-				// Back up the NAT-ish settings before applying the database dump,
-				// because we drop and recreate the table.
-				$pdo = FreePBX::Database();
+				$cmd[] = fpbx_which('wc');
+				$cmd[] = ' -l';
+				$cmd[] = $path;
 
-				$backup = array("sipsettings" => array("externip_val", "externhost_val", "bindaddr", "bindport"));
-				$backup_storage = array();
+				exec(implode(' ', $cmd), $lines);
+				unset($cmd);
 
-				foreach ($backup as $table => $keys) {
-					$get = $pdo->prepare("SELECT `data` FROM $table WHERE `keyword`=:element");
-					foreach ($keys as $element) {
-						$vals = array(":element" => $element);
-						if ($get->execute($vals)) {
-							$backup_storage[$table][$element] = $get->fetchColumn(0);
+				$lines = explode(' ', $lines[0]);
+				$lines = $lines[0];
+
+				$pretty_lines = number_format($lines);
+				$buffer = array();
+				$file = fopen($path, 'r');
+				$linecount = 0;
+
+				if ($skipnat) {
+					backup_log(_('Preserving local NAT settings'));
+					// Back up the NAT-ish settings before applying the database dump,
+					// because we drop and recreate the table.
+					$pdo = FreePBX::Database();
+
+					$backup = array("sipsettings" => array("externip_val", "externhost_val", "bindaddr", "bindport"));
+					$backup_storage = array();
+
+					foreach ($backup as $table => $keys) {
+						$get = $pdo->prepare("SELECT `data` FROM $table WHERE `keyword`=:element");
+						foreach ($keys as $element) {
+							$vals = array(":element" => $element);
+							if ($get->execute($vals)) {
+								$backup_storage[$table][$element] = $get->fetchColumn(0);
+							}
 						}
 					}
 				}
-			}
 
-			backup_log(_('Restoring Database...'));
-		
-			//TODO: should restore-to server should be configurable from the gui at restore time?
-			while(($line = fgets($file)) !== false) {
-				$line = trim($line);
-				$linecount++;
+				backup_log(_('Restoring Database...'));
 
-				switch (true) {
+				//TODO: should restore-to server should be configurable from the gui at restore time?
+				while(($line = fgets($file)) !== false) {
+					$line = trim($line);
+					$linecount++;
+
+					switch (true) {
 					case ($line == ''):
-					//clear the buffer every time we hit a blank line
+						//clear the buffer every time we hit a blank line
 						$flush = true;
 						break;
 					case (substr($line, -1) == ';'):
@@ -352,62 +369,63 @@ if (!isset($vars['restore'])) {
 						$flush = false;
 						$buffer[] = $line;
 						break;
-				}
-
-
-				//if $flush is true, we need to flush the buffer
-				if ($flush) {
-					//dont spill the buffer if its emtpy
-					if ($buffer) {
-						$q = $db->query(implode("\n", $buffer));
-						db_e($q);
-						//dbug($db->last_query);
-						//once commited, clear the buffer
-						$buffer = array();
-						//and reset php's timeout, as large queries can take quite some time
-						set_time_limit(30);
 					}
-					$flush = false;
-				}
 
-				//update the user once every 5% or at least every 60 seconds
-				$precent = floor((1 - ($lines - $linecount) / $lines) * 100);
-				$next_due = time() >= $settings_stat_time + 60;
-				if (
-					$precent > 1
-					&& $next_due
-					&& ($precent % 5 === 0 
+
+					//if $flush is true, we need to flush the buffer
+					if ($flush) {
+						//dont spill the buffer if its emtpy
+						if ($buffer) {
+							$q = $db->query(implode("\n", $buffer));
+							db_e($q);
+							//dbug($db->last_query);
+							//once commited, clear the buffer
+							$buffer = array();
+							//and reset php's timeout, as large queries can take quite some time
+							set_time_limit(30);
+						}
+						$flush = false;
+					}
+
+					//update the user once every 5% or at least every 60 seconds
+					$precent = floor((1 - ($lines - $linecount) / $lines) * 100);
+					$next_due = time() >= $settings_stat_time + 60;
+					if (
+						$precent > 1
+						&& $next_due
+						&& ($precent % 5 === 0 
 						&& !in_array($precent, $notifed_for)
 						|| $next_due)
-				) {
-					backup_log(_('Processed ' . $precent
+					) {
+						backup_log(_('Processed ' . $precent
 							. '% of Settings (' 
 							. number_format($linecount) 
 							. '/' . $pretty_lines . ' lines)'));
 
-					//reset status update time
-					$settings_stat_time = time();
-					if ($precent % 5 === 0) {
-						$notifed_for[] = $precent;
+						//reset status update time
+						$settings_stat_time = time();
+						if ($precent % 5 === 0) {
+							$notifed_for[] = $precent;
+						}
 					}
 				}
-			}
-			if (!in_array(100, $notifed_for)) {
-				backup_log(_('Restored Database'));
-			}
+				if (!in_array(100, $notifed_for)) {
+					backup_log(_('Restored Database'));
+				}
 
-			fclose($file);
-			unlink($path);
+				fclose($file);
+				unlink($path);
 
-			// Now, if we're selected skipnat, restore everything we backed up
-			// before the import.
-			if ($skipnat) {
-				backup_log(_('Restoring NAT settings'));
-				foreach ($backup_storage as $table => $settings) {
-					$set = $pdo->prepare("UPDATE $table SET `data`=:val WHERE `keyword`=:key ");
-					foreach ($settings as $key => $val) {
-						$arr = array("key" => $key, "val" => $val);
-						$set->execute($arr);
+				// Now, if we're selected skipnat, restore everything we backed up
+				// before the import.
+				if ($skipnat) {
+					backup_log(_('Restoring NAT settings'));
+					foreach ($backup_storage as $table => $settings) {
+						$set = $pdo->prepare("UPDATE $table SET `data`=:val WHERE `keyword`=:key ");
+						foreach ($settings as $key => $val) {
+							$arr = array("key" => $key, "val" => $val);
+							$set->execute($arr);
+						}
 					}
 				}
 			}
@@ -495,7 +513,7 @@ function show_opts() {
 	$e[] = "\t\t\tmysql\tRestore the MySQL Settings Database";
 	$e[] = "\t\t\tastdb\tRestore the AstDB";
 	$e[] = "\t\t\tcdr\tRestore the CDR Database";
-//	$e[] = "\t\t\tfiles\tRestore all files in the backup"; // Unimplemented
+	$e[] = "\t\t\tfiles\tRestore all files in the backup";
 	$e[] = "\t--manifest=/path/to/file.tgz";
 	$e[] = "\t\tDisplay the manifest file embedded in the backup .tgz.";
 	$e[] = "\t--skipnat";

@@ -129,7 +129,7 @@ if (!isset($vars['restore'])) {
 		}
 
 		// Does our filelist contain any file in the webroot?
-		$webrootRegex = "!^./".$amp_conf['AMPWEBROOT']."!m";
+		$webrootRegex = "!^.".$amp_conf['AMPWEBROOT']."!m";
 		if (preg_match($webrootRegex, $filelist)) {
 			// We're restoring a module. Don't restore
 			// the module db, no matter what.

@@ -521,7 +521,7 @@ function show_opts() {
 	$e[] = "\t\t\t\tThis is the same as enabling all the following options";
 	$e[] = "\t\t\tmysql\tRestore the MySQL Settings Database";
 	$e[] = "\t\t\tastdb\tRestore the AstDB";
-	$e[] = "\t\t\tcdr\tRestore the CDR Database";
+	$e[] = "\t\t\tcdr\t\tRestore the CDR Database";
 	$e[] = "\t\t\tfiles\tRestore all files in the backup";
 	$e[] = "\t--manifest=/path/to/file.tgz";
 	$e[] = "\t\tDisplay the manifest file embedded in the backup .tgz.";

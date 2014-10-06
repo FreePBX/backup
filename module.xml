@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>12.0.7.1</version>
+	<version>12.0.8</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,7 +18,7 @@
 		<module>core</module>
 	</depends>
 	<changelog>
-		*12.0.7.1* FREEPBX-8059 Re-fix.
+		*12.0.8* FREEPBX-8059 Re-fix.
 		*12.0.7* FREEPBX-8059
 		*12.0.6* FREEPBX-5690 and FREEPBX-6978
 		*12.0.5* FREEPBX-7896 Backup email missing from Advanced Settings

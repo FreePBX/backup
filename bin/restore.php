@@ -502,6 +502,12 @@ if (!isset($vars['restore'])) {
 	backup_log(_('Restore complete!'));
 	backup_log(_('Reloading...'));
 	do_reload();
+	// Also trigger sysadmin to reload/regen any settings.
+	$triggers = array('dns', 'email_setup', 'ftp_setup', 'intrusion_detection', 'mdadm', 'portmgmt_setup', 'tz', 'ups_setup');
+	foreach ($triggers as $f) {
+		@fclose(fopen("/var/spool/asterisk/sysadmin/$f", "w"));
+	}
+
 	backup_log(_('Done!'));
 	exit();
 }
@@ -521,7 +527,7 @@ function show_opts() {
 	$e[] = "\t\t\t\tThis is the same as enabling all the following options";
 	$e[] = "\t\t\tmysql\tRestore the MySQL Settings Database";
 	$e[] = "\t\t\tastdb\tRestore the AstDB";
-	$e[] = "\t\t\tcdr\t\tRestore the CDR Database";
+	$e[] = "\t\t\tcdr  \tRestore the CDR Database";
 	$e[] = "\t\t\tfiles\tRestore all files in the backup";
 	$e[] = "\t--manifest=/path/to/file.tgz";
 	$e[] = "\t\tDisplay the manifest file embedded in the backup .tgz.";

@@ -502,10 +502,15 @@ if (!isset($vars['restore'])) {
 	backup_log(_('Restore complete!'));
 	backup_log(_('Reloading...'));
 	do_reload();
-	// Also trigger sysadmin to reload/regen any settings.
-	$triggers = array('dns', 'email_setup', 'ftp_setup', 'intrusion_detection', 'mdadm', 'portmgmt_setup', 'tz', 'ups_setup');
-	foreach ($triggers as $f) {
-		@fclose(fopen("/var/spool/asterisk/sysadmin/$f", "w"));
+	// Trigger sysadmin to reload/regen any settings if available
+	if (is_dir("/var/spool/asterisk/sysadmin")) {
+		$triggers = array('dns', 'email_setup', 'ftp_setup', 'intrusion_detection', 'mdadm', 'portmgmt_setup', 'tz', 'ups_setup');
+		foreach ($triggers as $f) {
+			$fh = @fopen("/var/spool/asterisk/sysadmin/$f", "w");
+			@fclose($fh);
+			// Reset perms
+			@chmod("/var/spool/asterisk/sysadmin/$f", 0666);
+		}
 	}
 
 	backup_log(_('Done!'));

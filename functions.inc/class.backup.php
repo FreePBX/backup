@@ -605,9 +605,15 @@ class Backup {
 	}
 	function emailCheck() {
 		if(!empty($this->b['email'])) {
-			$from = $this->amp_conf['AMPBACKUPEMAILFROM']
-				? $this->amp_conf['AMPBACKUPEMAILFROM']
-				: 'root@localhost';
+			$from = !empty($this->amp_conf['AMPBACKUPEMAILFROM']) ? $this->amp_conf['AMPBACKUPEMAILFROM'] : get_current_user() . '@' . gethostname();
+
+			if(function_exists('sysadmin_get_storage_email')) {
+				$emails = sysadmin_get_storage_email();
+				if(!empty($emails['fromemail']) && filter_var($emails['fromemail'],FILTER_VALIDATE_EMAIL)) {
+					$from = $emails['fromemail'];
+				}
+			}
+
 			$subject = date("F j, Y, g:i a").'-'.$this->b['name'];
 			backup_email_log($this->b['email'], $from, $subject);
 

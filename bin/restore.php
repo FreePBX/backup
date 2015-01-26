@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-$restrict_mods						= array('backup' => true, 'core' => true);
+$restrict_mods						= array('backup' => true, 'core' => true, 'sysadmin' => true);
 $bootstrap_settings['cdrdb']		= true;
 $bootstrap_settings['freepbx_auth']	= false;
 if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
@@ -86,17 +86,17 @@ if (!isset($vars['restore'])) {
 		backup_log(_('Nothing to restore!'));
 		exit();
 	}
-	
+
 	backup_log(_('Intializing Restore...'));
 
 	if (!file_exists($vars['restore'])) {
 		backup_log(_('Backup file not found! Aborting.'));
 		return false;
 	}
-	//TODO: should we use the manifest to ensure that all 
+	//TODO: should we use the manifest to ensure that all
 	//files exists before trying to restore them?
 	$manifest = backup_get_manifest_tarball($vars['restore']);
-	
+
 	//run hooks
 	if (isset($manifest['hooks']['pre_restore']) && $manifest['hooks']['pre_restore']) {
 		backup_log(_('Running pre-restore scripts...'));
@@ -109,7 +109,7 @@ if (!isset($vars['restore'])) {
 	// so that (via #8059) if we aren't, don't restore the mysql
 	// database, as the existing one will still be correct.
 	$restoringwebroot = false;
-	
+
 	if (isset($items['files']) && $items['files']) {
 		if ($items['files'] === true) {
 			backup_log(_('Restoring all files (this may take some time)...'));
@@ -160,7 +160,7 @@ if (!isset($vars['restore'])) {
 	}
 	unset($manifest['file_list']);
 	//dbug('$manifest', $manifest);
-	
+
 	//restore cdr's if requested
 	if (isset($items['cdr']) && $items['cdr'] == 'true') {
 		backup_log(_('Restoring CDRs...'));
@@ -171,28 +171,28 @@ if (!isset($vars['restore'])) {
 
 		 //create cdrdb handler
 		$dsn = array(
-				'phptype'  => $amp_conf['CDRDBTYPE'] 
-							? $amp_conf['CDRDBTYPE'] 
+				'phptype'  => $amp_conf['CDRDBTYPE']
+							? $amp_conf['CDRDBTYPE']
 							: $amp_conf['AMPDBENGINE'],
-				'hostspec' => $amp_conf['CDRDBHOST'] 
-							? $amp_conf['CDRDBHOST'] 
+				'hostspec' => $amp_conf['CDRDBHOST']
+							? $amp_conf['CDRDBHOST']
 							: $amp_conf['AMPDBHOST'],
-				'username' => $amp_conf['CDRDBUSER'] 
-							? $amp_conf['CDRDBUSER'] 
+				'username' => $amp_conf['CDRDBUSER']
+							? $amp_conf['CDRDBUSER']
 							: $amp_conf['AMPDBUSER'],
-				'password' => $amp_conf['CDRDBPASS'] 
-							? $amp_conf['CDRDBPASS'] 
+				'password' => $amp_conf['CDRDBPASS']
+							? $amp_conf['CDRDBPASS']
 							: $amp_conf['AMPDBPASS'],
-				'port'     => $amp_conf['CDRDBPORT'] 
-							? $amp_conf['CDRDBPORT'] 
+				'port'     => $amp_conf['CDRDBPORT']
+							? $amp_conf['CDRDBPORT']
 							: '3306',
-				'database' => $amp_conf['CDRDBNAME'] 
-							? $amp_conf['CDRDBNAME'] 
+				'database' => $amp_conf['CDRDBNAME']
+							? $amp_conf['CDRDBNAME']
 							: 'asteriskcdrdb',
-		);  
-		$cdrdb = DB::connect($dsn);	
+		);
+		$cdrdb = DB::connect($dsn);
 		$path = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . time() . '.sql';
-		
+
 		//get db
 		$cmd[] = fpbx_which('tar');
 		$cmd[] = 'zxOf';
@@ -203,7 +203,7 @@ if (!isset($vars['restore'])) {
 
 		exec(implode(' ', $cmd), $file);
 		unset($cmd);
-		
+
 		backup_log(_('Getting CDR size...'));
 		$cmd[] = fpbx_which('wc');
 		$cmd[] = ' -l';
@@ -214,7 +214,7 @@ if (!isset($vars['restore'])) {
 
 		$lines = explode(' ', $lines[0]);
 		$lines = $lines[0];
-		
+
 		$pretty_lines = number_format($lines);
 
 		//TODO: should restore-to server should be configurable from the gui at restore time?
@@ -263,15 +263,15 @@ if (!isset($vars['restore'])) {
 			if (
 				$precent > 1
 				&& $next_due
-				&& ($precent % 5 === 0 
+				&& ($precent % 5 === 0
 					&& !in_array($precent, $notifed_for)
 					|| $next_due)
 			) {
 				backup_log(_('Processed ' . $precent
-						. '% of CDRs (' 
-						. number_format($linecount) 
+						. '% of CDRs ('
+						. number_format($linecount)
 						. '/' . $pretty_lines . ' lines)'));
-				
+
 				//reset status update time
 				$cdr_stat_time = time();
 				if ($precent % 5 === 0) {
@@ -287,7 +287,7 @@ if (!isset($vars['restore'])) {
 		unlink($path);
 		backup_log(_('Restoring CDRs complete'));
 	}
-	
+
 	//restore Database
 	if (isset($items['mysql']) || isset($items['settings']) && $items['settings'] == 'true') {
 		if (!$restoringwebroot) {
@@ -403,13 +403,13 @@ if (!isset($vars['restore'])) {
 				if (
 					$precent > 1
 					&& $next_due
-					&& ($precent % 5 === 0 
+					&& ($precent % 5 === 0
 					&& !in_array($precent, $notifed_for)
 					|| $next_due)
 				) {
 					backup_log(_('Processed ' . $precent
-						. '% of Settings (' 
-						. number_format($linecount) 
+						. '% of Settings ('
+						. number_format($linecount)
 						. '/' . $pretty_lines . ' lines)'));
 
 					//reset status update time
@@ -453,11 +453,11 @@ if (!isset($vars['restore'])) {
 			astdb_put(unserialize($file[0]), array('RINGGROUP', 'BLKVM', 'FM', 'dundi'));
 			unset($cmd);
 		}
-		
+
 		backup_log(_('Restoring Settings complete'));
 	}
 	//dbug($file);
-	
+
 	//run hooks
 	if (isset($manifest['hooks']['post_restore']) && $manifest['hooks']['post_restore']) {
 		backup_log(_('Running post restore script...'));
@@ -466,26 +466,26 @@ if (!isset($vars['restore'])) {
 
 	backup_log(_('Running post-restore hooks, if any...'));
 	mod_func_iterator('backup_post_restore_hook', $manifest);
-	
+
 	//ensure that manager username and password are whatever we think they should be
 	//the DB is authoritative, fetch whatever we have set there
 	backup_log(_('Cleaning up...'));
 	$freepbx_conf =& freepbx_conf::create();
-	fpbx_ami_update($freepbx_conf->get_conf_setting('AMPMGRUSER', true), 
+	fpbx_ami_update($freepbx_conf->get_conf_setting('AMPMGRUSER', true),
 					$freepbx_conf->get_conf_setting('AMPMGRPASS', true));
-	
+
 	// Update AstDB
 	core_users2astdb();
 	core_devices2astdb();
 
 	needreload();
-	
+
 	//delete backup file if it was a temp file
 	if (dirname($vars['restore']) == $amp_conf['ASTSPOOLDIR'] . '/tmp/') {
 		unlink($vars['restore']);
 	}
-	
-	/* 
+
+	/*
 	 * cleanup stale backup files (older than one day)
 	 * usually, backups will be deleted after a restore
 	 * However, files that were downloaded from a remote server and
@@ -498,14 +498,19 @@ if (!isset($vars['restore'])) {
 			unlink($amp_conf['ASTSPOOLDIR'] . '/tmp/' . $file);
 		}
 	}
-	
+
 	backup_log(_('Restore complete!'));
 	backup_log(_('Reloading...'));
 	do_reload();
-	// Also trigger sysadmin to reload/regen any settings.
-	$triggers = array('dns', 'email_setup', 'ftp_setup', 'intrusion_detection', 'mdadm', 'portmgmt_setup', 'tz', 'ups_setup');
-	foreach ($triggers as $f) {
-		@fclose(fopen("/var/spool/asterisk/sysadmin/$f", "w"));
+	// Trigger sysadmin to reload/regen any settings if available
+	if (is_dir("/var/spool/asterisk/sysadmin")) {
+		$triggers = array('dns', 'email_setup', 'ftp_setup', 'intrusion_detection', 'mdadm', 'portmgmt_setup', 'tz', 'ups_setup');
+		foreach ($triggers as $f) {
+			$fh = @fopen("/var/spool/asterisk/sysadmin/$f", "w");
+			@fclose($fh);
+			// Reset perms
+			@chmod("/var/spool/asterisk/sysadmin/$f", 0666);
+		}
 	}
 
 	backup_log(_('Done!'));
@@ -549,4 +554,3 @@ function recurse_dirs($key, $var) {
 	}
 	return $dirwalk;
 }
-

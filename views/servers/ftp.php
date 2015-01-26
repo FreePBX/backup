@@ -95,8 +95,8 @@ $transfer == 'passive' ? $passive['checked'] = 'checked' : '';
 $passive = backup_server_writeable('transfer', $readonly, $passive);
 $table->add_row($label, 
 	'<span class="radioset">' 
-		. $lableactive . form_radio($active)
-		. $lablepassive . form_radio($passive)
+		. form_radio($active) . $lableactive
+		. form_radio($passive) . $lablepassive
 	. '</span>');
 
 $html .= $table->generate();

@@ -330,22 +330,10 @@ if (!isset($vars['restore'])) {
 
 			if ($skipnat) {
 				backup_log(_('Preserving local NAT settings'));
-				// Back up the NAT-ish settings before applying the database dump,
-				// because we drop and recreate the table.
-				$pdo = FreePBX::Database();
-
-				$backup = array("sipsettings" => array("externip_val", "externhost_val", "bindaddr", "bindport"));
-				$backup_storage = array();
-
-				foreach ($backup as $table => $keys) {
-					$get = $pdo->prepare("SELECT `data` FROM $table WHERE `keyword`=:element");
-					foreach ($keys as $element) {
-						$vals = array(":element" => $element);
-						if ($get->execute($vals)) {
-							$backup_storage[$table][$element] = $get->fetchColumn(0);
-						}
-					}
-				}
+				// Back up the NAT settings, to restore later.
+				$ss = FreePBX::create()->Sipsettings;
+				$backup['localnets'] = $ss->getConfig('localnets');
+				$backup['externip'] = $ss->getConfig('externip');
 			}
 
 			backup_log(_('Restoring Database...'));
@@ -430,13 +418,9 @@ if (!isset($vars['restore'])) {
 			// before the import.
 			if ($skipnat) {
 				backup_log(_('Restoring NAT settings'));
-				foreach ($backup_storage as $table => $settings) {
-					$set = $pdo->prepare("UPDATE $table SET `data`=:val WHERE `keyword`=:key ");
-					foreach ($settings as $key => $val) {
-						$arr = array("key" => $key, "val" => $val);
-						$set->execute($arr);
-					}
-				}
+				$ss = FreePBX::create()->Sipsettings;
+				$ss->setConfig('localnets', $backup['localnets']);
+				$ss->setConfig('externip',  $backup['externip']);
 			}
 		}
 	}

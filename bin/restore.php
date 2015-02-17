@@ -372,6 +372,11 @@ if (!isset($vars['restore'])) {
 					if (!$restoringwebroot && preg_match('/`modules`/m', $buffer)) {
 						$buffer = false;
 					}
+					// 3: Never restore the freepbxha table. You may think there's
+					// a reason for it, but there's not, honest.
+					if (preg_match('/`freepbxha`/m', $buffer)) {
+						$buffer = false;
+					}
 
 					if ($buffer) {
 						$q = $db->query(implode("\n", $buffer));

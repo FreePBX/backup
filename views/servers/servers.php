@@ -22,4 +22,7 @@ echo '<input type="button" value="' . _('New Mysql server') . '"></a><br />';
 
 echo '<a href="config.php?type=setup&display=backup_servers&action=edit&server_type=ssh">';
 echo '<input type="button" value="' . _('New SSH server') . '"></a><br />';
+
+echo '<a href="config.php?type=setup&display=backup_servers&action=edit&server_type=awss3">';
+echo '<input type="button" value="' . _('New Amazon S3 server') . '"></a><br />';
 echo br(20);

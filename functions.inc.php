@@ -9,7 +9,7 @@ require_once($dir . '/functions.inc/backup.php');
 require_once($dir . '/functions.inc/servers.php');
 require_once($dir . '/functions.inc/templates.php');
 require_once($dir . '/functions.inc/restore.php');
-
+require_once($dir . '/functions.inc/s3.php');
 
 /**
 * do variable substitution 

@@ -207,7 +207,7 @@ foreach ($storage_servers as $idx => $s) {
 $current_servers .= '</ul>';
 $avalible_servers = '<ul id="storage_avail_servers" class="sortable storage_servers">';
 foreach ($servers as $s) {
-	if (in_array($s['type'], array('ftp', 'ssh', 'email', 'local'))) {
+	if (in_array($s['type'], array('ftp', 'ssh', 'email', 'local','awss3'))) {
 		$avalible_servers .= '<li data-server-id="' . $s['id'] . '">' 
 						. '<a href="#">'
 						. '<span class="dragable"></span>'

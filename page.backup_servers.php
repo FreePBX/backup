@@ -21,6 +21,9 @@ $get_vars = array(
 				'server_type'	=> '',
 				'submit'		=> '',
 				'transfer'		=> '',
+				'bucket'		=> '',
+				'awsaccesskey'		=> '',
+				'awssecret'		=> '',
 				'type'			=> ''	
 				);
 

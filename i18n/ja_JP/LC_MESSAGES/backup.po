@@ -38,16 +38,16 @@ msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-18 09:19+1000\n"
-"PO-Revision-Date: 2014-05-22 17:30+0200\n"
+"PO-Revision-Date: 2015-02-19 14:59+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
-"Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/backup/ja/"
-">\n"
+"Language-Team: Japanese "
+"<http://weblate.freepbx.org/projects/freepbx/backup/ja_JP/>\n"
+"Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: views/backup/backup.php:269
 msgid " runs"
@@ -65,7 +65,7 @@ msgstr "ファイルへのパス"
 msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
-msgstr ""
+msgstr "コア設定とウェブファイルの完全バックアップ。音声ファイルや録音したファイルは含まれません。"
 
 #: views/backup/backup.php:81
 msgid "A script to be run AFTER a backup is completed."
@@ -129,7 +129,7 @@ msgstr "利用可能なサーバー"
 
 #: functions.inc.php:72
 msgid "BACKUP LOG ATTACHED"
-msgstr ""
+msgstr "バックアップのログを送ります"
 
 #: functions.inc/backup.php:81 functions.inc/class.backup.php:334
 #: views/backup/backup.php:3 views/backup/backups.php:3
@@ -166,11 +166,11 @@ msgstr "バックアップロックを取得しました。"
 
 #: functions.inc.php:75
 msgid "Backup Log:"
-msgstr ""
+msgstr "バックアップログ："
 
 #: backup.i18n.php:10
 msgid "Backup Module"
-msgstr ""
+msgstr "バックアップモジュール"
 
 #: views/backup/backup.php:11
 msgid "Backup Name"
@@ -190,7 +190,7 @@ msgstr "バックアップサーバーが見つかりません！"
 
 #: bin/backup.php:147 bin/backup.php:195
 msgid "Backup completed with errors!"
-msgstr ""
+msgstr "バックアップは完了しましたが一部エラーが発生しました。"
 
 #: functions.inc/class.backup.php:231
 #, php-format
@@ -409,7 +409,7 @@ msgstr ""
 
 #: backup.i18n.php:11
 msgid "Email \"From:\" Address"
-msgstr ""
+msgstr "表示する差出人のアドレス"
 
 #: views/servers/email.php:31
 msgid "Email Address"
@@ -425,11 +425,11 @@ msgstr "バックアップを送信するEメールアドレス。"
 
 #: views/backup/backup.php:30
 msgid "Email to send status messages to when this task is run"
-msgstr ""
+msgstr "このタスクを実行した時に、指定されたメールアドレスにステータスメッセージを送ります"
 
 #: functions.inc/class.backup.php:370
 msgid "Error connecting to the FTP Server..."
-msgstr ""
+msgstr "FTPサーバーに接続できません…"
 
 #: page.backup_restore.php:40
 msgid "Error uploading file!"
@@ -453,11 +453,11 @@ msgstr ""
 
 #: views/backup/backup.php:159
 msgid "Exclude NAT settings"
-msgstr ""
+msgstr "NAT設定を除外する"
 
 #: bin/restore.php:67
 msgid "Explicitly skipping host-specific NAT settings"
-msgstr ""
+msgstr "ホスト特有のNAT設定を意図的にスキップする"
 
 #: functions.inc/restore.php:97
 msgid "FTP Connection error!"
@@ -808,7 +808,7 @@ msgstr "復元前フック"
 
 #: bin/restore.php:332
 msgid "Preserving local NAT settings"
-msgstr ""
+msgstr "ローカルNAT設定は維持します"
 
 #: bin/restore.php:270 bin/restore.php:403
 msgid "Processed "
@@ -816,7 +816,7 @@ msgstr "処理完了 "
 
 #: bin/backup.php:134
 msgid "Processing received file..."
-msgstr ""
+msgstr "受信したファイルを処理中…"
 
 #: views/cron.php:41
 msgid "Randomize"
@@ -858,35 +858,35 @@ msgstr "復元が完了しました！"
 
 #: bin/restore.php:416
 msgid "Restored Database"
-msgstr ""
+msgstr "データベースを復元しました"
 
 #: bin/restore.php:283
 msgid "Restored all CDRs."
-msgstr ""
+msgstr "すべてのCDRを復元しました。"
 
 #: bin/restore.php:288
 msgid "Restoring CDRs complete"
-msgstr ""
+msgstr "CDRの復元が完了しました"
 
 #: bin/restore.php:166
 msgid "Restoring CDRs..."
-msgstr ""
+msgstr "CDRを復元中…"
 
 #: bin/restore.php:339
 msgid "Restoring Database..."
-msgstr ""
+msgstr "データベースを復元中…"
 
 #: bin/restore.php:425
 msgid "Restoring NAT settings"
-msgstr ""
+msgstr "NAT設定を復元中"
 
 #: bin/restore.php:446
 msgid "Restoring Settings complete"
-msgstr ""
+msgstr "設定の復元が完了しました"
 
 #: bin/restore.php:115
 msgid "Restoring all files (this may take some time)..."
-msgstr ""
+msgstr "全てのファイルを復元しています（時間がかかる場合があります）…"
 
 #: bin/restore.php:436
 msgid "Restoring astDB..."
@@ -898,7 +898,7 @@ msgstr "バックアップを復元中…"
 
 #: bin/restore.php:118
 msgid "Restoring files (this may take some time)..."
-msgstr ""
+msgstr "ファイルを復元しています（時間がかかる場合があります）…"
 
 #: views/cron.php:32
 msgid "Run Automatically"
@@ -982,7 +982,7 @@ msgstr "リモートサーバー接続中にエラーが発生しました。中
 
 #: views/backup/backup.php:30
 msgid "Status Email"
-msgstr ""
+msgstr "管理者メールアドレス"
 
 #: views/backup/backup.php:191
 msgid "Storage Locations"
@@ -1072,7 +1072,7 @@ msgstr "ユーザー名"
 
 #: bin/backup.php:106
 msgid "Verifying received file..."
-msgstr ""
+msgstr "受信したファイルを検証中…"
 
 #: install.php:366
 msgid "Voice Mail Storage"
@@ -1080,7 +1080,7 @@ msgstr "ボイスメールストレージ"
 
 #: bin/restore.php:294
 msgid "WARNING!"
-msgstr ""
+msgstr "警告："
 
 #: install.php:188 install.php:202
 msgid "WARNING: backup table not migrated"
@@ -1093,7 +1093,7 @@ msgstr "警告：バックアップディレクトリを作成できませんで
 
 #: bin/restore.php:295
 msgid "Web Root restore not detected, not restoring module table"
-msgstr ""
+msgstr "ウェブルートの復元は検知できないため、モジュールのテーブルは復元しません"
 
 #: views/cron.php:83
 msgid "Wednesday"
@@ -1113,7 +1113,7 @@ msgstr "年"
 
 #: bin/restore.php:296
 msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
-msgstr ""
+msgstr "システムの整合性を保つために amportal a ma updateall を実行することをおすすめします。"
 
 #: install.php:286
 msgid "added default backup servers"

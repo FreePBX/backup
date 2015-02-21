@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-18 09:19+1000\n"
+"POT-Creation-Date: 2015-02-20 19:00-0500\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Lónyai Gergely <alephlg@gmail.com>\n"
 "Language-Team: Magyar <support@freepbx.hu>\n"
@@ -68,7 +68,7 @@ msgstr ""
 msgid "Adding items..."
 msgstr ""
 
-#: backup.i18n.php:4
+#: backup.i18n.php:4 backup.i18n.php:13
 msgid "Admin"
 msgstr ""
 
@@ -115,23 +115,23 @@ msgstr ""
 msgid "Backup"
 msgstr ""
 
-#: backup.i18n.php:3 backup.i18n.php:6
+#: backup.i18n.php:3 backup.i18n.php:6 backup.i18n.php:11 backup.i18n.php:17
 msgid "Backup & Restore"
 msgstr ""
 
-#: backup.i18n.php:9
+#: backup.i18n.php:9 backup.i18n.php:23
 msgid "Backup & Restore - Restore"
 msgstr ""
 
-#: backup.i18n.php:7
+#: backup.i18n.php:7 backup.i18n.php:19
 msgid "Backup & Restore - Servers"
 msgstr ""
 
-#: backup.i18n.php:8
+#: backup.i18n.php:8 backup.i18n.php:21
 msgid "Backup & Restore - Templates"
 msgstr ""
 
-#: backup.i18n.php:5
+#: backup.i18n.php:5 backup.i18n.php:15
 msgid "Backup & Restore for your FreePBX environment"
 msgstr ""
 
@@ -147,7 +147,7 @@ msgstr ""
 msgid "Backup Log:"
 msgstr ""
 
-#: backup.i18n.php:10
+#: backup.i18n.php:27
 msgid "Backup Module"
 msgstr ""
 
@@ -369,8 +369,8 @@ msgid ""
 "ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
 msgstr ""
 
-#: backup.i18n.php:11
-msgid "Email \"From:\" Address"
+#: backup.i18n.php:25
+msgid "Email "
 msgstr ""
 
 #: views/servers/email.php:31
@@ -971,7 +971,7 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: backup.i18n.php:12
+#: backup.i18n.php:29
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 

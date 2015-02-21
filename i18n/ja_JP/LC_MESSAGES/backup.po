@@ -37,15 +37,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-18 09:19+1000\n"
+"POT-Creation-Date: 2015-02-20 19:00-0500\n"
 "PO-Revision-Date: 2015-02-19 14:59+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
-"Language-Team: Japanese "
-"<http://weblate.freepbx.org/projects/freepbx/backup/ja_JP/>\n"
-"Language: ja_JP\n"
+"Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
+"ja_JP/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -65,7 +65,9 @@ msgstr "ファイルへのパス"
 msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
-msgstr "コア設定とウェブファイルの完全バックアップ。音声ファイルや録音したファイルは含まれません。"
+msgstr ""
+"コア設定とウェブファイルの完全バックアップ。音声ファイルや録音したファイルは"
+"含まれません。"
 
 #: views/backup/backup.php:81
 msgid "A script to be run AFTER a backup is completed."
@@ -87,7 +89,7 @@ msgstr "バックアップを開始する前に実行するスクリプト。"
 msgid "Adding items..."
 msgstr "アイテムを追加中…"
 
-#: backup.i18n.php:4
+#: backup.i18n.php:4 backup.i18n.php:13
 msgid "Admin"
 msgstr "アドミン"
 
@@ -136,23 +138,23 @@ msgstr "バックアップのログを送ります"
 msgid "Backup"
 msgstr "バックアップ"
 
-#: backup.i18n.php:3 backup.i18n.php:6
+#: backup.i18n.php:3 backup.i18n.php:6 backup.i18n.php:11 backup.i18n.php:17
 msgid "Backup & Restore"
 msgstr "バックアップと復元"
 
-#: backup.i18n.php:9
+#: backup.i18n.php:9 backup.i18n.php:23
 msgid "Backup & Restore - Restore"
 msgstr "バックアップと復元：復元"
 
-#: backup.i18n.php:7
+#: backup.i18n.php:7 backup.i18n.php:19
 msgid "Backup & Restore - Servers"
 msgstr "バックアップとリストア：サーバー"
 
-#: backup.i18n.php:8
+#: backup.i18n.php:8 backup.i18n.php:21
 msgid "Backup & Restore - Templates"
 msgstr "バックアップと復元：テンプレート"
 
-#: backup.i18n.php:5
+#: backup.i18n.php:5 backup.i18n.php:15
 msgid "Backup & Restore for your FreePBX environment"
 msgstr "FreePBX環境のバックアップとリストアができます。"
 
@@ -168,7 +170,7 @@ msgstr "バックアップロックを取得しました。"
 msgid "Backup Log:"
 msgstr "バックアップログ："
 
-#: backup.i18n.php:10
+#: backup.i18n.php:27
 msgid "Backup Module"
 msgstr "バックアップモジュール"
 
@@ -407,9 +409,9 @@ msgstr ""
 "エラー：古い \"Backup\" テーブルから新しい \"backup\" テーブルへの移行が失敗"
 "しました。"
 
-#: backup.i18n.php:11
-msgid "Email \"From:\" Address"
-msgstr "表示する差出人のアドレス"
+#: backup.i18n.php:25
+msgid "Email "
+msgstr ""
 
 #: views/servers/email.php:31
 msgid "Email Address"
@@ -425,7 +427,9 @@ msgstr "バックアップを送信するEメールアドレス。"
 
 #: views/backup/backup.php:30
 msgid "Email to send status messages to when this task is run"
-msgstr "このタスクを実行した時に、指定されたメールアドレスにステータスメッセージを送ります"
+msgstr ""
+"このタスクを実行した時に、指定されたメールアドレスにステータスメッセージを送"
+"ります"
 
 #: functions.inc/class.backup.php:370
 msgid "Error connecting to the FTP Server..."
@@ -1017,7 +1021,7 @@ msgstr "テンプレート名"
 msgid "Templates"
 msgstr "テンプレート"
 
-#: backup.i18n.php:12
+#: backup.i18n.php:29
 msgid "The From: field for emails when using the backup email feature."
 msgstr "バックアップEメール機能使用時のFrom:フィールド。"
 
@@ -1093,7 +1097,8 @@ msgstr "警告：バックアップディレクトリを作成できませんで
 
 #: bin/restore.php:295
 msgid "Web Root restore not detected, not restoring module table"
-msgstr "ウェブルートの復元は検知できないため、モジュールのテーブルは復元しません"
+msgstr ""
+"ウェブルートの復元は検知できないため、モジュールのテーブルは復元しません"
 
 #: views/cron.php:83
 msgid "Wednesday"
@@ -1113,7 +1118,9 @@ msgstr "年"
 
 #: bin/restore.php:296
 msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
-msgstr "システムの整合性を保つために amportal a ma updateall を実行することをおすすめします。"
+msgstr ""
+"システムの整合性を保つために amportal a ma updateall を実行することをおすすめ"
+"します。"
 
 #: install.php:286
 msgid "added default backup servers"
@@ -1223,6 +1230,9 @@ msgstr "ロックを待機中…"
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "{サーバーはありません}"
+
+#~ msgid "Email \"From:\" Address"
+#~ msgstr "表示する差出人のアドレス"
 
 #~ msgid "Legacy Backup"
 #~ msgstr "レガシーバックアップ"

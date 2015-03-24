@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 19:00-0500\n"
-"PO-Revision-Date: 2015-03-24 07:18+0200\n"
+"PO-Revision-Date: 2015-03-24 07:21+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/backup/es_ES/>\n"
@@ -100,7 +100,7 @@ msgstr "Abril"
 
 #: views/restore/browseserver.php:21
 msgid "AstDB's"
-msgstr "AstDB's"
+msgstr "\"AstDB's\""
 
 #: functions.inc/templates.php:296
 msgid "Asterisk DB"
@@ -246,7 +246,7 @@ msgstr "Solo Configuraciones"
 
 #: bin/backup.php:77
 msgid "Connecting to remote server..."
-msgstr "Conectando a Servidor remoto/"
+msgstr "Conectando a Servidor remoto..."
 
 #: functions.inc/class.backup.php:327 views/restore/browseserver.php:18
 msgid "Created"
@@ -262,7 +262,7 @@ msgstr "Creando Directorio de Respaldos.."
 
 #: views/cron.php:12
 msgid "Custom"
-msgstr "Custom"
+msgstr "\"Custom\""
 
 #: views/servers/mysql.php:70
 msgid "DB Name"
@@ -661,7 +661,7 @@ msgstr "Meses"
 
 #: functions.inc/templates.php:267
 msgid "Mysql"
-msgstr "Mysql"
+msgstr "\"Mysql\""
 
 #: views/restore/browseserver.php:20
 msgid "Mysql DB's"
@@ -1128,7 +1128,7 @@ msgstr "y entonces re-instalar este modulo. Configuración será perdida"
 
 #: functions.inc/class.backup.php:330
 msgid "astDb's"
-msgstr "astDb's"
+msgstr "\"astDb's\""
 
 #: install.php:91
 msgid "backup data will be preserved."

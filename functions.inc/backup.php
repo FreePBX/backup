@@ -354,7 +354,7 @@ function backup_set_backup_cron() {
 				case 'monthly':
 					$cron['dom']		= rand(1, 31);
 				case 'weekly':
-					if(!in_array(array('annually', 'monthly'), $b['cron_schedule'])) {
+					if(!in_array($b['cron_schedule'], array('annually', 'monthly'))) {
 						$cron['dow']	= rand(0, 6);
 					}
 				case 'daily':

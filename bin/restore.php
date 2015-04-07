@@ -113,7 +113,8 @@ if (!isset($vars['restore'])) {
 	if (isset($items['files']) && $items['files']) {
 		if ($items['files'] === true) {
 			backup_log(_('Restoring all files (this may take some time)...'));
-			$filelist = recurse_dirs("", $manifest['file_list']);
+			$filelist = recurse_dirs(".", $manifest['file_list']);
+			$restoringwebroot = true;
 		} else {
 			backup_log(_('Restoring files (this may take some time)...'));
 			$filelist = "";
@@ -128,18 +129,11 @@ if (!isset($vars['restore'])) {
 			}
 		}
 
-		// Does our filelist contain any file in the webroot?
-		$webrootRegex = "!^.".$amp_conf['AMPWEBROOT']."!m";
-		if (preg_match($webrootRegex, $filelist)) {
-			// We're restoring a module. Don't restore
-			// the module db, no matter what.
-			$restoringwebroot = true;
-		}
 		$tmpfile = tempnam("/tmp", "restore");
 		file_put_contents($tmpfile, $filelist);
 
 		$cmd[] = fpbx_which('tar');
-		$cmd[] = 'zxf';
+		$cmd[] = 'zxvf'; // We use 'v' to check for module root later
 		$cmd[] = $vars['restore'];
 		//switch to root so that files get put back where they belong
 		//aslo, dont preseve access/modified times, as we may not always have the perms to do this
@@ -153,10 +147,20 @@ if (!isset($vars['restore'])) {
 		// And, just to be on the safe side, we never want to restore
 		// freepbx.conf, either.
 		$cmd[] = "--exclude='freepbx.conf'";
-		exec(implode(' ', $cmd));
+		exec(implode(' ', $cmd), $taroutput);
 		backup_log(_('File restore complete!'));
 		unlink($tmpfile);
 		unset($cmd);
+
+		$webroot = ".".$amp_conf['AMPWEBROOT']."/admin";
+
+		// Does our filelist contain any file in the webroot?
+		foreach ($taroutput as $file) {
+			if (strpos($file, $webroot) === 0) {
+				$restoringwebroot = true;
+				break;
+			}
+		}
 	}
 	unset($manifest['file_list']);
 	//dbug('$manifest', $manifest);
@@ -362,19 +366,26 @@ if (!isset($vars['restore'])) {
 
 				//if $flush is true, we need to flush the buffer
 				if ($flush) {
+					// Create our SQL
+					$sql = implode("\n", $buffer);
 					// Validate the stuff we're going to restore
 					// 1: Never restore module_xml
-					if (preg_match('/`module_xml`/m', $buffer)) {
-						$buffer = false;
+					if (preg_match('/`module_xml`/m', $sql)) {
+						$sql = false;
 					}
 					// 2: If we're not restoring webroot, don't restore
 					// the `module` table.
-					if (!$restoringwebroot && preg_match('/`modules`/m', $buffer)) {
-						$buffer = false;
+					if (!$restoringwebroot && preg_match('/`modules`/m', $sql)) {
+						$sql = false;
+					}
+					// 3: Never restore the freepbxha table. You may think there's
+					// a reason for it, but there's not, honest.
+					if (preg_match('/`freepbxha`/m', $sql)) {
+						$sql = false;
 					}
 
-					if ($buffer) {
-						$q = $db->query(implode("\n", $buffer));
+					if ($sql) {
+						$q = $db->query($sql);
 						db_e($q);
 						//dbug($db->last_query);
 						//once commited, clear the buffer
@@ -528,13 +539,14 @@ function show_opts() {
 }
 
 function recurse_dirs($key, $var) {
-	if (!is_array($var)) {
-		return "$key/$var\n";
-	}
-	// Else
 	$dirwalk = "";
 	foreach ($var as $k => $v) {
-		$dirwalk .= recurse_dirs("$key/$k", $v);
+		if (is_numeric($k)) {
+			// If it's a number, it's a list of files
+			$dirwalk .= "$key/$v\n";
+		} else {
+			$dirwalk .= recurse_dirs("$key/$k", $v);
+		}
 	}
 	return $dirwalk;
 }

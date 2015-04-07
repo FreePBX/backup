@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-07 14:38+1000\n"
+"POT-Creation-Date: 2015-04-07 15:46+1000\n"
 "PO-Revision-Date: 2015-02-19 14:59+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -253,7 +253,7 @@ msgstr "Backupテーブルを移行できません。"
 msgid "Can't check for Backup table"
 msgstr "Backupテーブルの存在チェックに失敗しました。"
 
-#: bin/restore.php:463
+#: bin/restore.php:467
 msgid "Cleaning up..."
 msgstr "クリーンアップしています..."
 
@@ -372,7 +372,7 @@ msgstr "ディレクトリ"
 msgid "Disable Registered Trunks"
 msgstr "登録されたトランクを無効にする"
 
-#: bin/restore.php:507
+#: bin/restore.php:511
 msgid "Done!"
 msgstr "完了"
 
@@ -511,7 +511,7 @@ msgstr "ファイル"
 msgid "File not found! "
 msgstr "ファイルが見つかりません！ "
 
-#: bin/restore.php:157
+#: bin/restore.php:151
 msgid "File restore complete!"
 msgstr "ファイルの復元が完了しました！"
 
@@ -527,7 +527,7 @@ msgstr "ファイル"
 msgid "Friday"
 msgstr "金曜日"
 
-#: bin/restore.php:207
+#: bin/restore.php:211
 msgid "Getting CDR size..."
 msgstr "CDRサイズを判定中..."
 
@@ -810,11 +810,11 @@ msgstr "バックアップ前フック"
 msgid "Pre-restore Hook"
 msgstr "復元前フック"
 
-#: bin/restore.php:332
+#: bin/restore.php:336
 msgid "Preserving local NAT settings"
 msgstr "ローカルNAT設定は維持します"
 
-#: bin/restore.php:270 bin/restore.php:405
+#: bin/restore.php:274 bin/restore.php:409
 msgid "Processed "
 msgstr "処理完了 "
 
@@ -830,7 +830,7 @@ msgstr "ランダムにする"
 msgid "Reboot"
 msgstr "再起動"
 
-#: bin/restore.php:494
+#: bin/restore.php:498
 msgid "Reloading..."
 msgstr "再読み込み中..."
 
@@ -856,35 +856,35 @@ msgstr "ここに復元する"
 msgid "Restore all setting stored in the database"
 msgstr "データベースに保存されている全ての設定を復元する"
 
-#: bin/restore.php:493
+#: bin/restore.php:497
 msgid "Restore complete!"
 msgstr "復元が完了しました！"
 
-#: bin/restore.php:418
+#: bin/restore.php:422
 msgid "Restored Database"
 msgstr "データベースを復元しました"
 
-#: bin/restore.php:283
+#: bin/restore.php:287
 msgid "Restored all CDRs."
 msgstr "すべてのCDRを復元しました。"
 
-#: bin/restore.php:288
+#: bin/restore.php:292
 msgid "Restoring CDRs complete"
 msgstr "CDRの復元が完了しました"
 
-#: bin/restore.php:166
+#: bin/restore.php:170
 msgid "Restoring CDRs..."
 msgstr "CDRを復元中…"
 
-#: bin/restore.php:339
+#: bin/restore.php:343
 msgid "Restoring Database..."
 msgstr "データベースを復元中…"
 
-#: bin/restore.php:427
+#: bin/restore.php:431
 msgid "Restoring NAT settings"
 msgstr "NAT設定を復元中"
 
-#: bin/restore.php:448
+#: bin/restore.php:452
 msgid "Restoring Settings complete"
 msgstr "設定の復元が完了しました"
 
@@ -892,7 +892,7 @@ msgstr "設定の復元が完了しました"
 msgid "Restoring all files (this may take some time)..."
 msgstr "全てのファイルを復元しています（時間がかかる場合があります）…"
 
-#: bin/restore.php:438
+#: bin/restore.php:442
 msgid "Restoring astDB..."
 msgstr "astDBを復元中..."
 
@@ -900,7 +900,7 @@ msgstr "astDBを復元中..."
 msgid "Restoring backup..."
 msgstr "バックアップを復元中…"
 
-#: bin/restore.php:118
+#: bin/restore.php:119
 msgid "Restoring files (this may take some time)..."
 msgstr "ファイルを復元しています（時間がかかる場合があります）…"
 
@@ -912,7 +912,7 @@ msgstr "自動的に実行"
 msgid "Run now"
 msgstr "すぐに実行する"
 
-#: bin/restore.php:454
+#: bin/restore.php:458
 msgid "Running post restore script..."
 msgstr "復元後のスクリプトを実行中..."
 
@@ -920,7 +920,7 @@ msgstr "復元後のスクリプトを実行中..."
 msgid "Running post-backup hooks..."
 msgstr "バックアップ後フック実行中..."
 
-#: bin/restore.php:458
+#: bin/restore.php:462
 msgid "Running post-restore hooks, if any..."
 msgstr "復元後のフックがある場合は実行します。"
 
@@ -1082,7 +1082,7 @@ msgstr "受信したファイルを検証中…"
 msgid "Voice Mail Storage"
 msgstr "ボイスメールストレージ"
 
-#: bin/restore.php:294
+#: bin/restore.php:298
 msgid "WARNING!"
 msgstr "警告："
 
@@ -1095,7 +1095,7 @@ msgstr "警告：バックアップテーブルを移行できませんでした
 msgid "WARNING: failed to create backup directory: %s"
 msgstr "警告：バックアップディレクトリを作成できませんでした： %s"
 
-#: bin/restore.php:295
+#: bin/restore.php:299
 msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
 "ウェブルートの復元は検知できないため、モジュールのテーブルは復元しません"
@@ -1116,7 +1116,7 @@ msgstr "週"
 msgid "Years"
 msgstr "年"
 
-#: bin/restore.php:296
+#: bin/restore.php:300
 msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
 msgstr ""
 "システムの整合性を保つために amportal a ma updateall を実行することをおすすめ"

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-07 14:38+1000\n"
+"POT-Creation-Date: 2015-04-07 15:46+1000\n"
 "PO-Revision-Date: 2010-01-23 14:24+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -225,7 +225,7 @@ msgstr ""
 msgid "Can't check for Backup table"
 msgstr ""
 
-#: bin/restore.php:463
+#: bin/restore.php:467
 msgid "Cleaning up..."
 msgstr ""
 
@@ -339,7 +339,7 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr ""
 
-#: bin/restore.php:507
+#: bin/restore.php:511
 msgid "Done!"
 msgstr ""
 
@@ -462,7 +462,7 @@ msgstr ""
 msgid "File not found! "
 msgstr ""
 
-#: bin/restore.php:157
+#: bin/restore.php:151
 msgid "File restore complete!"
 msgstr ""
 
@@ -478,7 +478,7 @@ msgstr ""
 msgid "Friday"
 msgstr "Venerdì"
 
-#: bin/restore.php:207
+#: bin/restore.php:211
 msgid "Getting CDR size..."
 msgstr ""
 
@@ -761,11 +761,11 @@ msgstr ""
 msgid "Pre-restore Hook"
 msgstr ""
 
-#: bin/restore.php:332
+#: bin/restore.php:336
 msgid "Preserving local NAT settings"
 msgstr ""
 
-#: bin/restore.php:270 bin/restore.php:405
+#: bin/restore.php:274 bin/restore.php:409
 msgid "Processed "
 msgstr ""
 
@@ -781,7 +781,7 @@ msgstr ""
 msgid "Reboot"
 msgstr ""
 
-#: bin/restore.php:494
+#: bin/restore.php:498
 msgid "Reloading..."
 msgstr ""
 
@@ -807,35 +807,35 @@ msgstr ""
 msgid "Restore all setting stored in the database"
 msgstr ""
 
-#: bin/restore.php:493
+#: bin/restore.php:497
 msgid "Restore complete!"
 msgstr ""
 
-#: bin/restore.php:418
+#: bin/restore.php:422
 msgid "Restored Database"
 msgstr ""
 
-#: bin/restore.php:283
+#: bin/restore.php:287
 msgid "Restored all CDRs."
 msgstr ""
 
-#: bin/restore.php:288
+#: bin/restore.php:292
 msgid "Restoring CDRs complete"
 msgstr ""
 
-#: bin/restore.php:166
+#: bin/restore.php:170
 msgid "Restoring CDRs..."
 msgstr ""
 
-#: bin/restore.php:339
+#: bin/restore.php:343
 msgid "Restoring Database..."
 msgstr ""
 
-#: bin/restore.php:427
+#: bin/restore.php:431
 msgid "Restoring NAT settings"
 msgstr ""
 
-#: bin/restore.php:448
+#: bin/restore.php:452
 msgid "Restoring Settings complete"
 msgstr ""
 
@@ -843,7 +843,7 @@ msgstr ""
 msgid "Restoring all files (this may take some time)..."
 msgstr ""
 
-#: bin/restore.php:438
+#: bin/restore.php:442
 msgid "Restoring astDB..."
 msgstr ""
 
@@ -851,7 +851,7 @@ msgstr ""
 msgid "Restoring backup..."
 msgstr ""
 
-#: bin/restore.php:118
+#: bin/restore.php:119
 msgid "Restoring files (this may take some time)..."
 msgstr ""
 
@@ -863,7 +863,7 @@ msgstr ""
 msgid "Run now"
 msgstr ""
 
-#: bin/restore.php:454
+#: bin/restore.php:458
 msgid "Running post restore script..."
 msgstr ""
 
@@ -871,7 +871,7 @@ msgstr ""
 msgid "Running post-backup hooks..."
 msgstr ""
 
-#: bin/restore.php:458
+#: bin/restore.php:462
 msgid "Running post-restore hooks, if any..."
 msgstr ""
 
@@ -1024,7 +1024,7 @@ msgstr ""
 msgid "Voice Mail Storage"
 msgstr ""
 
-#: bin/restore.php:294
+#: bin/restore.php:298
 msgid "WARNING!"
 msgstr ""
 
@@ -1037,7 +1037,7 @@ msgstr ""
 msgid "WARNING: failed to create backup directory: %s"
 msgstr ""
 
-#: bin/restore.php:295
+#: bin/restore.php:299
 msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
 
@@ -1057,7 +1057,7 @@ msgstr ""
 msgid "Years"
 msgstr ""
 
-#: bin/restore.php:296
+#: bin/restore.php:300
 msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
 msgstr ""
 

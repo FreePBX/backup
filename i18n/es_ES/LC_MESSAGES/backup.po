@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-07 14:38+1000\n"
+"POT-Creation-Date: 2015-04-07 15:46+1000\n"
 "PO-Revision-Date: 2015-03-24 07:21+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -236,7 +236,7 @@ msgstr "No se pueden migrar tablas de Respaldos"
 msgid "Can't check for Backup table"
 msgstr "No se puede checar tablas de Respaldos"
 
-#: bin/restore.php:463
+#: bin/restore.php:467
 msgid "Cleaning up..."
 msgstr "Limpiando ..."
 
@@ -357,7 +357,7 @@ msgstr "Directorio"
 msgid "Disable Registered Trunks"
 msgstr "Deshabilitar Troncales Registrados"
 
-#: bin/restore.php:507
+#: bin/restore.php:511
 msgid "Done!"
 msgstr "Hecho!"
 
@@ -492,7 +492,7 @@ msgstr "Archivo"
 msgid "File not found! "
 msgstr "Archivo no encontrado! "
 
-#: bin/restore.php:157
+#: bin/restore.php:151
 msgid "File restore complete!"
 msgstr "Restauración de Archivo Completada!"
 
@@ -508,7 +508,7 @@ msgstr "Archivos"
 msgid "Friday"
 msgstr "Viernes"
 
-#: bin/restore.php:207
+#: bin/restore.php:211
 msgid "Getting CDR size..."
 msgstr "Obteniendo tamaño de CDR ..."
 
@@ -795,11 +795,11 @@ msgstr "Enganche pre-respaldo"
 msgid "Pre-restore Hook"
 msgstr "Enganche pre-restauración"
 
-#: bin/restore.php:332
+#: bin/restore.php:336
 msgid "Preserving local NAT settings"
 msgstr "Preservando configuración local NAT"
 
-#: bin/restore.php:270 bin/restore.php:405
+#: bin/restore.php:274 bin/restore.php:409
 msgid "Processed "
 msgstr "Procesado "
 
@@ -815,7 +815,7 @@ msgstr "Randomizar"
 msgid "Reboot"
 msgstr "Reiniciar"
 
-#: bin/restore.php:494
+#: bin/restore.php:498
 msgid "Reloading..."
 msgstr "Recargando..."
 
@@ -841,35 +841,35 @@ msgstr "Restaurar aqui"
 msgid "Restore all setting stored in the database"
 msgstr "Restaurar toda la configuración almacenada en la base de datos"
 
-#: bin/restore.php:493
+#: bin/restore.php:497
 msgid "Restore complete!"
 msgstr "Restauración completada!"
 
-#: bin/restore.php:418
+#: bin/restore.php:422
 msgid "Restored Database"
 msgstr "Base de Datos restaurada"
 
-#: bin/restore.php:283
+#: bin/restore.php:287
 msgid "Restored all CDRs."
 msgstr "Todos los CDR restaurados."
 
-#: bin/restore.php:288
+#: bin/restore.php:292
 msgid "Restoring CDRs complete"
 msgstr "Restauración de CDRs completada"
 
-#: bin/restore.php:166
+#: bin/restore.php:170
 msgid "Restoring CDRs..."
 msgstr "restaurando CDRs..."
 
-#: bin/restore.php:339
+#: bin/restore.php:343
 msgid "Restoring Database..."
 msgstr "Restaurando Base de Datos..."
 
-#: bin/restore.php:427
+#: bin/restore.php:431
 msgid "Restoring NAT settings"
 msgstr "Restaurando configuración NAT"
 
-#: bin/restore.php:448
+#: bin/restore.php:452
 msgid "Restoring Settings complete"
 msgstr "Restauración de configuración completada"
 
@@ -877,7 +877,7 @@ msgstr "Restauración de configuración completada"
 msgid "Restoring all files (this may take some time)..."
 msgstr "Restaurando todos los archivos (esto puede tomar un tiempo)..."
 
-#: bin/restore.php:438
+#: bin/restore.php:442
 msgid "Restoring astDB..."
 msgstr "restaurando astDB..."
 
@@ -885,7 +885,7 @@ msgstr "restaurando astDB..."
 msgid "Restoring backup..."
 msgstr "Restaurando respaldo..."
 
-#: bin/restore.php:118
+#: bin/restore.php:119
 msgid "Restoring files (this may take some time)..."
 msgstr "Restaurando archivos (esto puede tomar un tiempo)..."
 
@@ -897,7 +897,7 @@ msgstr "Correr Automaticamente"
 msgid "Run now"
 msgstr "Correr ahora"
 
-#: bin/restore.php:454
+#: bin/restore.php:458
 msgid "Running post restore script..."
 msgstr "Corriendo Script post-restauración..."
 
@@ -905,7 +905,7 @@ msgstr "Corriendo Script post-restauración..."
 msgid "Running post-backup hooks..."
 msgstr "Corriendo enganches post-respaldo..."
 
-#: bin/restore.php:458
+#: bin/restore.php:462
 msgid "Running post-restore hooks, if any..."
 msgstr "Corriendo enganches post-restauración, si hay alguno..."
 
@@ -1068,7 +1068,7 @@ msgstr "Verificando archivo recibido..."
 msgid "Voice Mail Storage"
 msgstr "Almacenamiento de Correo de Voz"
 
-#: bin/restore.php:294
+#: bin/restore.php:298
 msgid "WARNING!"
 msgstr "ADVERTENCIA!"
 
@@ -1081,7 +1081,7 @@ msgstr "ADVERTENCIA: tabla de respaldos no migrada"
 msgid "WARNING: failed to create backup directory: %s"
 msgstr "ADVERTENCIA: Falla creando directorio de respaldo. %s"
 
-#: bin/restore.php:295
+#: bin/restore.php:299
 msgid "Web Root restore not detected, not restoring module table"
 msgstr "Restauración web Root no detectada, no se restaura tabla de modulo"
 
@@ -1101,7 +1101,7 @@ msgstr "Semanas"
 msgid "Years"
 msgstr "Años"
 
-#: bin/restore.php:296
+#: bin/restore.php:300
 msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
 msgstr ""
 "Usted debe correr \"amportal a ma updateall\" para asegurar la integridad "

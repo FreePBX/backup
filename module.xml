@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>12.0.14</version>
+	<version>12.0.14.1</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,7 +18,7 @@
 		<module>sipsettings ge 12.0.3</module>
 	</depends>
 	<changelog>
-		*12.0.14* Ensure that HA tables are never restored.
+		*12.0.14.1* Ensure that HA tables are never restored.
 		*12.0.13* FREEPBX-8562 Fix NAT regression
 		*12.0.12* FREEPBX-8563 Have backup email pull from sysadmin from is sysadmin exist
 		*12.0.11* FREEPBX-8501 active / passive selection on ftp backup server

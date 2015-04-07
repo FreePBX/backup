@@ -152,7 +152,7 @@ if (!isset($vars['restore'])) {
 		unlink($tmpfile);
 		unset($cmd);
 
-		$webroot = ".".$amp_conf['AMPWEBROOT'];
+		$webroot = ".".$amp_conf['AMPWEBROOT']."/admin";
 
 		// Does our filelist contain any file in the webroot?
 		foreach ($taroutput as $file) {

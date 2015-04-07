@@ -533,13 +533,14 @@ function show_opts() {
 }
 
 function recurse_dirs($key, $var) {
-	if (!is_array($var)) {
-		return "$key/$var\n";
-	}
-	// Else
 	$dirwalk = "";
 	foreach ($var as $k => $v) {
-		$dirwalk .= recurse_dirs("$key/$k", $v);
+		if (is_numeric($k)) {
+			// If it's a number, it's a list of files
+			$dirwalk .= "$key/$v\n";
+		} else {
+			$dirwalk .= recurse_dirs("$key/$k", $v);
+		}
 	}
 	return $dirwalk;
 }

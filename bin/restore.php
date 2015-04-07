@@ -113,7 +113,7 @@ if (!isset($vars['restore'])) {
 	if (isset($items['files']) && $items['files']) {
 		if ($items['files'] === true) {
 			backup_log(_('Restoring all files (this may take some time)...'));
-			$filelist = recurse_dirs("", $manifest['file_list']);
+			$filelist = recurse_dirs(".", $manifest['file_list']);
 		} else {
 			backup_log(_('Restoring files (this may take some time)...'));
 			$filelist = "";

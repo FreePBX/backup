@@ -1,5 +1,5 @@
 <?php
-
+namespace FreePBX\modules\Backup;
 class Backup {
 
 	/**

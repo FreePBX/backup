@@ -37,7 +37,7 @@ if (isset($vars['id']) && $vars['id']) {
 			exit();
 		}
 		$s = backup_get_server('all_detailed');
-		$b = new Backup($bu, $s);
+		$b = new FreePBX\modules\Backup\Backup($bu, $s);
 		backup_log(_('Intializing Backup') . ' ' .$vars['id']);
 		backup_clear_log();
 		$b->init();
@@ -211,7 +211,7 @@ if (isset($vars['id']) && $vars['id']) {
 		echo 'invalid opts';
 		exit(1);
 	}
-	$b = new Backup($r['bu'], $r['s']);
+	$b = new FreePBX\modules\Backup\Backup($r['bu'], $r['s']);
 	$b->b['_ctime']		= $r['b']->b['_ctime'];
 	$b->b['_file']		= $r['b']->b['_file'];
 	$b->b['_dirname']	= $r['b']->b['_dirname'];

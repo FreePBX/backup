@@ -19,15 +19,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 19:00-0500\n"
+"POT-Creation-Date: 2015-04-07 14:38+1000\n"
 "PO-Revision-Date: 2015-03-24 07:21+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish "
-"<http://weblate.freepbx.org/projects/freepbx/backup/es_ES/>\n"
-"Language: es_ES\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
+"es_ES/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Spanish\n"
@@ -74,7 +74,7 @@ msgstr "Un Script a ser ejecutado ANTES que el respaldo de inicio."
 msgid "Adding items..."
 msgstr "Agregando elementos..."
 
-#: backup.i18n.php:4 backup.i18n.php:13
+#: backup.i18n.php:6 backup.i18n.php:12
 msgid "Admin"
 msgstr "Administrador"
 
@@ -123,23 +123,23 @@ msgstr "BITACORA DE RESPALDOS ANEXADA"
 msgid "Backup"
 msgstr "Respaldo"
 
-#: backup.i18n.php:3 backup.i18n.php:6 backup.i18n.php:11 backup.i18n.php:17
+#: backup.i18n.php:4 backup.i18n.php:10
 msgid "Backup & Restore"
 msgstr "Copias de seguridad"
 
-#: backup.i18n.php:9 backup.i18n.php:23
+#: backup.i18n.php:18
 msgid "Backup & Restore - Restore"
 msgstr "Respalda & Restaura - Restaura"
 
-#: backup.i18n.php:7 backup.i18n.php:19
+#: backup.i18n.php:14
 msgid "Backup & Restore - Servers"
 msgstr "Respalda & Restaura - Servidores"
 
-#: backup.i18n.php:8 backup.i18n.php:21
+#: backup.i18n.php:16
 msgid "Backup & Restore - Templates"
 msgstr "Respaldar & Restaurar - Plantillas"
 
-#: backup.i18n.php:5 backup.i18n.php:15
+#: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
 msgstr "respaldar & restaurar para su ambiente FreePBX"
 
@@ -155,7 +155,7 @@ msgstr "Bloqueo de copia de seguridad adquirida!"
 msgid "Backup Log:"
 msgstr "Bitacora del respaldo:"
 
-#: backup.i18n.php:27
+#: backup.i18n.php:22
 msgid "Backup Module"
 msgstr "Modulo de Respaldo"
 
@@ -236,7 +236,7 @@ msgstr "No se pueden migrar tablas de Respaldos"
 msgid "Can't check for Backup table"
 msgstr "No se puede checar tablas de Respaldos"
 
-#: bin/restore.php:461
+#: bin/restore.php:463
 msgid "Cleaning up..."
 msgstr "Limpiando ..."
 
@@ -357,7 +357,7 @@ msgstr "Directorio"
 msgid "Disable Registered Trunks"
 msgstr "Deshabilitar Troncales Registrados"
 
-#: bin/restore.php:505
+#: bin/restore.php:507
 msgid "Done!"
 msgstr "Hecho!"
 
@@ -392,7 +392,7 @@ msgid ""
 msgstr ""
 "ERROR: fallo al migrar desde la tabla \"Respaldo\" vieja a la nueva tabla"
 
-#: backup.i18n.php:25
+#: backup.i18n.php:20
 msgid "Email "
 msgstr "Correo "
 
@@ -457,8 +457,8 @@ msgid ""
 "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
 "current state"
 msgstr ""
-"Fallo convirtiendo asterisk.sql al formato adecuado, renombrando a mysql-"
-"db.sql en su estado actual"
+"Fallo convirtiendo asterisk.sql al formato adecuado, renombrando a mysql-db."
+"sql en su estado actual"
 
 #: functions.inc/restore.php:465
 msgid ""
@@ -597,7 +597,8 @@ msgstr "Localidad de Respaldo pre 2.10"
 
 #: views/servers/ssh.php:59
 msgid "Location of ssh private key to be used when connecting to a host"
-msgstr "Localidad de la clave privada SSH para ser usada conectándose a un host"
+msgstr ""
+"Localidad de la clave privada SSH para ser usada conectándose a un host"
 
 #: install.php:457
 msgid "MIGRATED"
@@ -798,7 +799,7 @@ msgstr "Enganche pre-restauración"
 msgid "Preserving local NAT settings"
 msgstr "Preservando configuración local NAT"
 
-#: bin/restore.php:270 bin/restore.php:403
+#: bin/restore.php:270 bin/restore.php:405
 msgid "Processed "
 msgstr "Procesado "
 
@@ -814,7 +815,7 @@ msgstr "Randomizar"
 msgid "Reboot"
 msgstr "Reiniciar"
 
-#: bin/restore.php:492
+#: bin/restore.php:494
 msgid "Reloading..."
 msgstr "Recargando..."
 
@@ -840,11 +841,11 @@ msgstr "Restaurar aqui"
 msgid "Restore all setting stored in the database"
 msgstr "Restaurar toda la configuración almacenada en la base de datos"
 
-#: bin/restore.php:491
+#: bin/restore.php:493
 msgid "Restore complete!"
 msgstr "Restauración completada!"
 
-#: bin/restore.php:416
+#: bin/restore.php:418
 msgid "Restored Database"
 msgstr "Base de Datos restaurada"
 
@@ -864,11 +865,11 @@ msgstr "restaurando CDRs..."
 msgid "Restoring Database..."
 msgstr "Restaurando Base de Datos..."
 
-#: bin/restore.php:425
+#: bin/restore.php:427
 msgid "Restoring NAT settings"
 msgstr "Restaurando configuración NAT"
 
-#: bin/restore.php:446
+#: bin/restore.php:448
 msgid "Restoring Settings complete"
 msgstr "Restauración de configuración completada"
 
@@ -876,7 +877,7 @@ msgstr "Restauración de configuración completada"
 msgid "Restoring all files (this may take some time)..."
 msgstr "Restaurando todos los archivos (esto puede tomar un tiempo)..."
 
-#: bin/restore.php:436
+#: bin/restore.php:438
 msgid "Restoring astDB..."
 msgstr "restaurando astDB..."
 
@@ -896,7 +897,7 @@ msgstr "Correr Automaticamente"
 msgid "Run now"
 msgstr "Correr ahora"
 
-#: bin/restore.php:452
+#: bin/restore.php:454
 msgid "Running post restore script..."
 msgstr "Corriendo Script post-restauración..."
 
@@ -904,7 +905,7 @@ msgstr "Corriendo Script post-restauración..."
 msgid "Running post-backup hooks..."
 msgstr "Corriendo enganches post-respaldo..."
 
-#: bin/restore.php:456
+#: bin/restore.php:458
 msgid "Running post-restore hooks, if any..."
 msgstr "Corriendo enganches post-restauración, si hay alguno..."
 
@@ -1005,7 +1006,7 @@ msgstr "Nombre Plantilla"
 msgid "Templates"
 msgstr "Plantillas"
 
-#: backup.i18n.php:29
+#: backup.i18n.php:24
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "El campo From: para correos cuando se usa la funcionalidad de email del "

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 19:00-0500\n"
+"POT-Creation-Date: 2015-04-07 14:38+1000\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
 "Language-Team: Français <LL@li.org>\n"
@@ -65,7 +65,7 @@ msgstr ""
 msgid "Adding items..."
 msgstr ""
 
-#: backup.i18n.php:4 backup.i18n.php:13
+#: backup.i18n.php:6 backup.i18n.php:12
 msgid "Admin"
 msgstr ""
 
@@ -112,23 +112,23 @@ msgstr ""
 msgid "Backup"
 msgstr ""
 
-#: backup.i18n.php:3 backup.i18n.php:6 backup.i18n.php:11 backup.i18n.php:17
+#: backup.i18n.php:4 backup.i18n.php:10
 msgid "Backup & Restore"
 msgstr "Sauvegarder & Restaurer"
 
-#: backup.i18n.php:9 backup.i18n.php:23
+#: backup.i18n.php:18
 msgid "Backup & Restore - Restore"
 msgstr ""
 
-#: backup.i18n.php:7 backup.i18n.php:19
+#: backup.i18n.php:14
 msgid "Backup & Restore - Servers"
 msgstr ""
 
-#: backup.i18n.php:8 backup.i18n.php:21
+#: backup.i18n.php:16
 msgid "Backup & Restore - Templates"
 msgstr ""
 
-#: backup.i18n.php:5 backup.i18n.php:15
+#: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
 msgstr ""
 
@@ -144,7 +144,7 @@ msgstr ""
 msgid "Backup Log:"
 msgstr ""
 
-#: backup.i18n.php:27
+#: backup.i18n.php:22
 msgid "Backup Module"
 msgstr ""
 
@@ -223,7 +223,7 @@ msgstr ""
 msgid "Can't check for Backup table"
 msgstr ""
 
-#: bin/restore.php:461
+#: bin/restore.php:463
 msgid "Cleaning up..."
 msgstr ""
 
@@ -337,7 +337,7 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr ""
 
-#: bin/restore.php:505
+#: bin/restore.php:507
 msgid "Done!"
 msgstr ""
 
@@ -366,7 +366,7 @@ msgid ""
 "ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
 msgstr ""
 
-#: backup.i18n.php:25
+#: backup.i18n.php:20
 msgid "Email "
 msgstr ""
 
@@ -763,7 +763,7 @@ msgstr ""
 msgid "Preserving local NAT settings"
 msgstr ""
 
-#: bin/restore.php:270 bin/restore.php:403
+#: bin/restore.php:270 bin/restore.php:405
 msgid "Processed "
 msgstr ""
 
@@ -779,7 +779,7 @@ msgstr ""
 msgid "Reboot"
 msgstr ""
 
-#: bin/restore.php:492
+#: bin/restore.php:494
 msgid "Reloading..."
 msgstr ""
 
@@ -805,11 +805,11 @@ msgstr ""
 msgid "Restore all setting stored in the database"
 msgstr ""
 
-#: bin/restore.php:491
+#: bin/restore.php:493
 msgid "Restore complete!"
 msgstr ""
 
-#: bin/restore.php:416
+#: bin/restore.php:418
 msgid "Restored Database"
 msgstr ""
 
@@ -829,11 +829,11 @@ msgstr ""
 msgid "Restoring Database..."
 msgstr ""
 
-#: bin/restore.php:425
+#: bin/restore.php:427
 msgid "Restoring NAT settings"
 msgstr ""
 
-#: bin/restore.php:446
+#: bin/restore.php:448
 msgid "Restoring Settings complete"
 msgstr ""
 
@@ -841,7 +841,7 @@ msgstr ""
 msgid "Restoring all files (this may take some time)..."
 msgstr ""
 
-#: bin/restore.php:436
+#: bin/restore.php:438
 msgid "Restoring astDB..."
 msgstr ""
 
@@ -861,7 +861,7 @@ msgstr ""
 msgid "Run now"
 msgstr ""
 
-#: bin/restore.php:452
+#: bin/restore.php:454
 msgid "Running post restore script..."
 msgstr ""
 
@@ -869,7 +869,7 @@ msgstr ""
 msgid "Running post-backup hooks..."
 msgstr ""
 
-#: bin/restore.php:456
+#: bin/restore.php:458
 msgid "Running post-restore hooks, if any..."
 msgstr ""
 
@@ -968,7 +968,7 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: backup.i18n.php:29
+#: backup.i18n.php:24
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 

@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 19:00-0500\n"
+"POT-Creation-Date: 2015-04-07 14:38+1000\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
-"Language-Team: Dutch "
-"<http://weblate.freepbx.org/projects/freepbx/backup/nl_NL/>\n"
-"Language: nl_NL\n"
+"Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
+"nl_NL/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -57,13 +57,14 @@ msgstr ""
 
 #: views/backup/backup.php:72
 msgid "A script to be run BEFORE a backup is started."
-msgstr "Een script dat wordt uitgevoerd VOORDAT een reservekopie wordt gemaakt."
+msgstr ""
+"Een script dat wordt uitgevoerd VOORDAT een reservekopie wordt gemaakt."
 
 #: bin/backup.php:55
 msgid "Adding items..."
 msgstr "Onderdelen toevoegen..."
 
-#: backup.i18n.php:4 backup.i18n.php:13
+#: backup.i18n.php:6 backup.i18n.php:12
 msgid "Admin"
 msgstr "Beheer"
 
@@ -112,23 +113,23 @@ msgstr "RESERVEKOPIE LOG TOEGEVOEGD"
 msgid "Backup"
 msgstr "Reservekopie"
 
-#: backup.i18n.php:3 backup.i18n.php:6 backup.i18n.php:11 backup.i18n.php:17
+#: backup.i18n.php:4 backup.i18n.php:10
 msgid "Backup & Restore"
 msgstr "Reservekopie & Terugzetten"
 
-#: backup.i18n.php:9 backup.i18n.php:23
+#: backup.i18n.php:18
 msgid "Backup & Restore - Restore"
 msgstr "Reservekopie & Terugzetten - Terugzetten"
 
-#: backup.i18n.php:7 backup.i18n.php:19
+#: backup.i18n.php:14
 msgid "Backup & Restore - Servers"
 msgstr "Reservekopie & Terugzetten - Servers"
 
-#: backup.i18n.php:8 backup.i18n.php:21
+#: backup.i18n.php:16
 msgid "Backup & Restore - Templates"
 msgstr "Reservekopie & Terugzetten - Sjablonen"
 
-#: backup.i18n.php:5 backup.i18n.php:15
+#: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
 msgstr "Reservekopie & Terugzetten voor uw FreePBX omgeving"
 
@@ -144,7 +145,7 @@ msgstr "Reservekopie vergrendeling verkregen!"
 msgid "Backup Log:"
 msgstr "Reservekopie log:"
 
-#: backup.i18n.php:27
+#: backup.i18n.php:22
 msgid "Backup Module"
 msgstr "Reservekopie module"
 
@@ -174,8 +175,8 @@ msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
 "backup from server [%s]."
 msgstr ""
-"Reservekopie mislukt tijdens het dumpen van SQL database [%s] naar bestand "
-"[%s]. U heeft een corrupte reservekopie van server [%s]."
+"Reservekopie mislukt tijdens het dumpen van SQL database [%s] naar bestand [%"
+"s]. U heeft een corrupte reservekopie van server [%s]."
 
 #: bin/restore.php:93
 msgid "Backup file not found! Aborting."
@@ -226,7 +227,7 @@ msgstr "Kan de reservekopietabel niet migreren"
 msgid "Can't check for Backup table"
 msgstr "Kan niet controleren op reservekopietabel"
 
-#: bin/restore.php:461
+#: bin/restore.php:463
 msgid "Cleaning up..."
 msgstr "Opruimen..."
 
@@ -349,7 +350,7 @@ msgstr "Map"
 msgid "Disable Registered Trunks"
 msgstr "Schakel geregistreerde Trunks uit"
 
-#: bin/restore.php:505
+#: bin/restore.php:507
 msgid "Done!"
 msgstr "Klaar!"
 
@@ -384,7 +385,7 @@ msgid ""
 "ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
 msgstr "FOUT: Migratie van oude reservekopietabel naar nieuwe tabel mislukt"
 
-#: backup.i18n.php:25
+#: backup.i18n.php:20
 msgid "Email "
 msgstr "e-mail: "
 
@@ -796,7 +797,7 @@ msgstr "Voor-terugzet taak"
 msgid "Preserving local NAT settings"
 msgstr "Lokale NAT instellingen bewaren"
 
-#: bin/restore.php:270 bin/restore.php:403
+#: bin/restore.php:270 bin/restore.php:405
 msgid "Processed "
 msgstr "Verwerkt "
 
@@ -812,7 +813,7 @@ msgstr "Willekeurig"
 msgid "Reboot"
 msgstr "Herstart"
 
-#: bin/restore.php:492
+#: bin/restore.php:494
 msgid "Reloading..."
 msgstr "Herladen..."
 
@@ -838,11 +839,11 @@ msgstr "Hier terugzetten"
 msgid "Restore all setting stored in the database"
 msgstr "Zet alle instellingen terug opgeslagen in de database"
 
-#: bin/restore.php:491
+#: bin/restore.php:493
 msgid "Restore complete!"
 msgstr "Terugzetten voltooid!"
 
-#: bin/restore.php:416
+#: bin/restore.php:418
 msgid "Restored Database"
 msgstr "Database teruggezet"
 
@@ -862,11 +863,11 @@ msgstr "Terugzetten CDR's..."
 msgid "Restoring Database..."
 msgstr "Terugzetten database..."
 
-#: bin/restore.php:425
+#: bin/restore.php:427
 msgid "Restoring NAT settings"
 msgstr "Terugzetten NAT instellingen"
 
-#: bin/restore.php:446
+#: bin/restore.php:448
 msgid "Restoring Settings complete"
 msgstr "Terugzetten instellingen voltooid"
 
@@ -874,7 +875,7 @@ msgstr "Terugzetten instellingen voltooid"
 msgid "Restoring all files (this may take some time)..."
 msgstr "Terugzetten alle bestanden (dit kan enige tijd duren)..."
 
-#: bin/restore.php:436
+#: bin/restore.php:438
 msgid "Restoring astDB..."
 msgstr "Terugzetten astDB..."
 
@@ -894,7 +895,7 @@ msgstr "Automatisch uitvoeren"
 msgid "Run now"
 msgstr "Nu uitvoeren"
 
-#: bin/restore.php:452
+#: bin/restore.php:454
 msgid "Running post restore script..."
 msgstr "Uitvoeren Na-terugzetten script..."
 
@@ -902,7 +903,7 @@ msgstr "Uitvoeren Na-terugzetten script..."
 msgid "Running post-backup hooks..."
 msgstr "Uitvoeren Voor-reservekopie taken..."
 
-#: bin/restore.php:456
+#: bin/restore.php:458
 msgid "Running post-restore hooks, if any..."
 msgstr "Uitvoeren Voor-terugzetten taken, als bestaan..."
 
@@ -1005,7 +1006,7 @@ msgstr "Sjabloon naam"
 msgid "Templates"
 msgstr "Sjablonen"
 
-#: backup.i18n.php:29
+#: backup.i18n.php:24
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "Het Van: veld voor e-mails wanneer gebruik wordt gemaakt van de reservekopie "
@@ -1211,7 +1212,8 @@ msgstr "tabel namen, één per regel"
 
 #: install.php:89
 msgid "this module. You should probably uninstall and reinstall this module"
-msgstr "deze module. U zult deze module moeten deïnstalleren en her-installeren"
+msgstr ""
+"deze module. U zult deze module moeten deïnstalleren en her-installeren"
 
 #: bin/backup.php:47
 msgid "waiting for lock..."

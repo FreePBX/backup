@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 19:00-0500\n"
+"POT-Creation-Date: 2015-04-07 14:38+1000\n"
 "PO-Revision-Date: 2015-02-19 14:59+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -89,7 +89,7 @@ msgstr "バックアップを開始する前に実行するスクリプト。"
 msgid "Adding items..."
 msgstr "アイテムを追加中…"
 
-#: backup.i18n.php:4 backup.i18n.php:13
+#: backup.i18n.php:6 backup.i18n.php:12
 msgid "Admin"
 msgstr "アドミン"
 
@@ -138,23 +138,23 @@ msgstr "バックアップのログを送ります"
 msgid "Backup"
 msgstr "バックアップ"
 
-#: backup.i18n.php:3 backup.i18n.php:6 backup.i18n.php:11 backup.i18n.php:17
+#: backup.i18n.php:4 backup.i18n.php:10
 msgid "Backup & Restore"
 msgstr "バックアップと復元"
 
-#: backup.i18n.php:9 backup.i18n.php:23
+#: backup.i18n.php:18
 msgid "Backup & Restore - Restore"
 msgstr "バックアップと復元：復元"
 
-#: backup.i18n.php:7 backup.i18n.php:19
+#: backup.i18n.php:14
 msgid "Backup & Restore - Servers"
 msgstr "バックアップとリストア：サーバー"
 
-#: backup.i18n.php:8 backup.i18n.php:21
+#: backup.i18n.php:16
 msgid "Backup & Restore - Templates"
 msgstr "バックアップと復元：テンプレート"
 
-#: backup.i18n.php:5 backup.i18n.php:15
+#: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
 msgstr "FreePBX環境のバックアップとリストアができます。"
 
@@ -170,7 +170,7 @@ msgstr "バックアップロックを取得しました。"
 msgid "Backup Log:"
 msgstr "バックアップログ："
 
-#: backup.i18n.php:27
+#: backup.i18n.php:22
 msgid "Backup Module"
 msgstr "バックアップモジュール"
 
@@ -253,7 +253,7 @@ msgstr "Backupテーブルを移行できません。"
 msgid "Can't check for Backup table"
 msgstr "Backupテーブルの存在チェックに失敗しました。"
 
-#: bin/restore.php:461
+#: bin/restore.php:463
 msgid "Cleaning up..."
 msgstr "クリーンアップしています..."
 
@@ -372,7 +372,7 @@ msgstr "ディレクトリ"
 msgid "Disable Registered Trunks"
 msgstr "登録されたトランクを無効にする"
 
-#: bin/restore.php:505
+#: bin/restore.php:507
 msgid "Done!"
 msgstr "完了"
 
@@ -409,7 +409,7 @@ msgstr ""
 "エラー：古い \"Backup\" テーブルから新しい \"backup\" テーブルへの移行が失敗"
 "しました。"
 
-#: backup.i18n.php:25
+#: backup.i18n.php:20
 msgid "Email "
 msgstr ""
 
@@ -814,7 +814,7 @@ msgstr "復元前フック"
 msgid "Preserving local NAT settings"
 msgstr "ローカルNAT設定は維持します"
 
-#: bin/restore.php:270 bin/restore.php:403
+#: bin/restore.php:270 bin/restore.php:405
 msgid "Processed "
 msgstr "処理完了 "
 
@@ -830,7 +830,7 @@ msgstr "ランダムにする"
 msgid "Reboot"
 msgstr "再起動"
 
-#: bin/restore.php:492
+#: bin/restore.php:494
 msgid "Reloading..."
 msgstr "再読み込み中..."
 
@@ -856,11 +856,11 @@ msgstr "ここに復元する"
 msgid "Restore all setting stored in the database"
 msgstr "データベースに保存されている全ての設定を復元する"
 
-#: bin/restore.php:491
+#: bin/restore.php:493
 msgid "Restore complete!"
 msgstr "復元が完了しました！"
 
-#: bin/restore.php:416
+#: bin/restore.php:418
 msgid "Restored Database"
 msgstr "データベースを復元しました"
 
@@ -880,11 +880,11 @@ msgstr "CDRを復元中…"
 msgid "Restoring Database..."
 msgstr "データベースを復元中…"
 
-#: bin/restore.php:425
+#: bin/restore.php:427
 msgid "Restoring NAT settings"
 msgstr "NAT設定を復元中"
 
-#: bin/restore.php:446
+#: bin/restore.php:448
 msgid "Restoring Settings complete"
 msgstr "設定の復元が完了しました"
 
@@ -892,7 +892,7 @@ msgstr "設定の復元が完了しました"
 msgid "Restoring all files (this may take some time)..."
 msgstr "全てのファイルを復元しています（時間がかかる場合があります）…"
 
-#: bin/restore.php:436
+#: bin/restore.php:438
 msgid "Restoring astDB..."
 msgstr "astDBを復元中..."
 
@@ -912,7 +912,7 @@ msgstr "自動的に実行"
 msgid "Run now"
 msgstr "すぐに実行する"
 
-#: bin/restore.php:452
+#: bin/restore.php:454
 msgid "Running post restore script..."
 msgstr "復元後のスクリプトを実行中..."
 
@@ -920,7 +920,7 @@ msgstr "復元後のスクリプトを実行中..."
 msgid "Running post-backup hooks..."
 msgstr "バックアップ後フック実行中..."
 
-#: bin/restore.php:456
+#: bin/restore.php:458
 msgid "Running post-restore hooks, if any..."
 msgstr "復元後のフックがある場合は実行します。"
 
@@ -1021,7 +1021,7 @@ msgstr "テンプレート名"
 msgid "Templates"
 msgstr "テンプレート"
 
-#: backup.i18n.php:29
+#: backup.i18n.php:24
 msgid "The From: field for emails when using the backup email feature."
 msgstr "バックアップEメール機能使用時のFrom:フィールド。"
 

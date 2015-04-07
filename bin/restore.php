@@ -362,24 +362,26 @@ if (!isset($vars['restore'])) {
 
 				//if $flush is true, we need to flush the buffer
 				if ($flush) {
+					// Create our SQL
+					$sql = implode("\n", $buffer);
 					// Validate the stuff we're going to restore
 					// 1: Never restore module_xml
-					if (preg_match('/`module_xml`/m', $buffer)) {
-						$buffer = false;
+					if (preg_match('/`module_xml`/m', $sql)) {
+						$sql = false;
 					}
 					// 2: If we're not restoring webroot, don't restore
 					// the `module` table.
-					if (!$restoringwebroot && preg_match('/`modules`/m', $buffer)) {
-						$buffer = false;
+					if (!$restoringwebroot && preg_match('/`modules`/m', $sql)) {
+						$sql = false;
 					}
 					// 3: Never restore the freepbxha table. You may think there's
 					// a reason for it, but there's not, honest.
-					if (preg_match('/`freepbxha`/m', $buffer)) {
-						$buffer = false;
+					if (preg_match('/`freepbxha`/m', $sql)) {
+						$sql = false;
 					}
 
-					if ($buffer) {
-						$q = $db->query(implode("\n", $buffer));
+					if ($sql) {
+						$q = $db->query($sql);
 						db_e($q);
 						//dbug($db->last_query);
 						//once commited, clear the buffer

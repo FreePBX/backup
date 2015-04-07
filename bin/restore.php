@@ -114,6 +114,7 @@ if (!isset($vars['restore'])) {
 		if ($items['files'] === true) {
 			backup_log(_('Restoring all files (this may take some time)...'));
 			$filelist = recurse_dirs(".", $manifest['file_list']);
+			$restoringwebroot = true;
 		} else {
 			backup_log(_('Restoring files (this may take some time)...'));
 			$filelist = "";
@@ -128,18 +129,11 @@ if (!isset($vars['restore'])) {
 			}
 		}
 
-		// Does our filelist contain any file in the webroot?
-		$webrootRegex = "!^.".$amp_conf['AMPWEBROOT']."!m";
-		if (preg_match($webrootRegex, $filelist)) {
-			// We're restoring a module. Don't restore
-			// the module db, no matter what.
-			$restoringwebroot = true;
-		}
 		$tmpfile = tempnam("/tmp", "restore");
 		file_put_contents($tmpfile, $filelist);
 
 		$cmd[] = fpbx_which('tar');
-		$cmd[] = 'zxf';
+		$cmd[] = 'zxvf'; // We use 'v' to check for module root later
 		$cmd[] = $vars['restore'];
 		//switch to root so that files get put back where they belong
 		//aslo, dont preseve access/modified times, as we may not always have the perms to do this
@@ -153,10 +147,20 @@ if (!isset($vars['restore'])) {
 		// And, just to be on the safe side, we never want to restore
 		// freepbx.conf, either.
 		$cmd[] = "--exclude='freepbx.conf'";
-		exec(implode(' ', $cmd));
+		exec(implode(' ', $cmd), $taroutput);
 		backup_log(_('File restore complete!'));
 		unlink($tmpfile);
 		unset($cmd);
+
+		$webroot = ".".$amp_conf['AMPWEBROOT'];
+
+		// Does our filelist contain any file in the webroot?
+		foreach ($taroutput as $file) {
+			if (strpos($file, $webroot) === 0) {
+				$restoringwebroot = true;
+				break;
+			}
+		}
 	}
 	unset($manifest['file_list']);
 	//dbug('$manifest', $manifest);

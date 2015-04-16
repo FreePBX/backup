@@ -221,70 +221,30 @@ if (!isset($vars['restore'])) {
 
 		$pretty_lines = number_format($lines);
 
-		//TODO: should restore-to server should be configurable from the gui at restore time?
-		$buffer = array();
 		$file = fopen($path, 'r');
 		$linecount = 0;
+		$sql = "";
+		$nextnotify = time() + 30;
 		while(($line = fgets($file)) !== false) {
 			$line = trim($line);
 			$linecount++;
 
-			switch (true) {
-				case ($line == ''):
-				//clear the buffer every time we hit a blank line
-					$flush = true;
-					break;
-				case (substr($line, -1) == ';'):
-					//clear the buffer if the end of this line is the end of a statement
-					$buffer[] = $line;
-					$flush = true;
-					break;
-				default:
-					$flush = false;
-					$buffer[] = $line;
-					break;
+			$sql .= $line;
+
+			if (substr($sql, -1) == ';') {
+				$q = $cdrdb->query($sql);
+				$sql = "";
 			}
+			// This just resets the timelimit of the script.
+			set_time_limit(30);
 
-
-			//if $flush is true, we need to flush the buffer
-			if ($flush) {
-				//dont spill the buffer if its emtpy
-				if ($buffer) {
-					$q = $cdrdb->query(implode("\n", $buffer));
-					db_e($q);
-					//dbug($cdrdb->last_query);
-					//once commited, clear the buffer
-					$buffer = array();
-					//and reset php's timeout, as large cdr's can take quite some time
-					set_time_limit(30);
-				}
-				$flush = false;
+			// Update the user every 30 seconds.
+			if (time() > $nextnotify) {
+				$percent = floor((1 - ($lines - $linecount) / $lines) * 100);
+				$nextnotify = time() + 30;
+				$log = sprintf(_("Processed %s of CDRs (%s of %s lines)"), $percent, number_format($linecount), $pretty_lines);
+				backup_log($log);
 			}
-
-			//update the user once every 5% or at least every 60 seconds
-			$precent = floor((1 - ($lines - $linecount) / $lines) * 100);
-			$next_due = time() >= $cdr_stat_time + 60;
-			if (
-				$precent > 1
-				&& $next_due
-				&& ($precent % 5 === 0
-					&& !in_array($precent, $notifed_for)
-					|| $next_due)
-			) {
-				backup_log(_('Processed ' . $precent
-						. '% of CDRs ('
-						. number_format($linecount)
-						. '/' . $pretty_lines . ' lines)'));
-
-				//reset status update time
-				$cdr_stat_time = time();
-				if ($precent % 5 === 0) {
-					$notifed_for[] = $precent;
-				}
-			}
-		}
-		if (!in_array(100, $notifed_for)) {
-			backup_log(_('Restored all CDRs.'));
 		}
 
 		fclose($file);
@@ -328,9 +288,7 @@ if (!isset($vars['restore'])) {
 			$lines = $lines[0];
 
 			$pretty_lines = number_format($lines);
-			$buffer = array();
 			$file = fopen($path, 'r');
-			$linecount = 0;
 
 			if ($skipnat) {
 				backup_log(_('Preserving local NAT settings'));
@@ -342,85 +300,47 @@ if (!isset($vars['restore'])) {
 
 			backup_log(_('Restoring Database...'));
 
-			//TODO: should restore-to server should be configurable from the gui at restore time?
+			$linecount = 0;
+			$sql = "";
+			$nextnotify = time() + 30;
 			while(($line = fgets($file)) !== false) {
 				$line = trim($line);
 				$linecount++;
 
-				switch (true) {
-				case ($line == ''):
-					//clear the buffer every time we hit a blank line
-					$flush = true;
-					break;
-				case (substr($line, -1) == ';'):
-					//clear the buffer if the end of this line is the end of a statement
-					$buffer[] = $line;
-					$flush = true;
-					break;
-				default:
-					$flush = false;
-					$buffer[] = $line;
-					break;
-				}
-
-
-				//if $flush is true, we need to flush the buffer
-				if ($flush) {
-					// Create our SQL
-					$sql = implode("\n", $buffer);
-					// Validate the stuff we're going to restore
+				$sql .= $line;
+				if (substr($line, -1) == ';') {
 					// 1: Never restore module_xml
 					if (preg_match('/`module_xml`/m', $sql)) {
-						$sql = false;
+						$sql = "";
 					}
 					// 2: If we're not restoring webroot, don't restore
 					// the `module` table.
 					if (!$restoringwebroot && preg_match('/`modules`/m', $sql)) {
-						$sql = false;
+						$sql = "";
 					}
 					// 3: Never restore the freepbxha table. You may think there's
 					// a reason for it, but there's not, honest.
 					if (preg_match('/`freepbxha`/m', $sql)) {
-						$sql = false;
+						$sql = "";
 					}
 
 					if ($sql) {
 						$q = $db->query($sql);
-						db_e($q);
-						//dbug($db->last_query);
-						//once commited, clear the buffer
-						$buffer = array();
-						//and reset php's timeout, as large queries can take quite some time
-						set_time_limit(30);
+						$sql = "";
 					}
-					$flush = false;
+					// This just resets the timelimit of the script.
+					set_time_limit(30);
 				}
 
-				//update the user once every 5% or at least every 60 seconds
-				$precent = floor((1 - ($lines - $linecount) / $lines) * 100);
-				$next_due = time() >= $settings_stat_time + 60;
-				if (
-					$precent > 1
-					&& $next_due
-					&& ($precent % 5 === 0
-					&& !in_array($precent, $notifed_for)
-					|| $next_due)
-				) {
-					backup_log(_('Processed ' . $precent
-						. '% of Settings ('
-						. number_format($linecount)
-						. '/' . $pretty_lines . ' lines)'));
-
-					//reset status update time
-					$settings_stat_time = time();
-					if ($precent % 5 === 0) {
-						$notifed_for[] = $precent;
-					}
+				// Update the user once every 30 seconds
+				if (time() > $nextnotify) {
+					$percent = floor((1 - ($lines - $linecount) / $lines) * 100);
+					$nextnotify = time() + 30;
+					$log = sprintf(_("Processed %s of Settings (%s of %s lines)"), $percent, number_format($linecount), $pretty_lines);
+					backup_log($log);
 				}
 			}
-			if (!in_array(100, $notifed_for)) {
-				backup_log(_('Restored Database'));
-			}
+			backup_log(_('Restored Database'));
 
 			fclose($file);
 			unlink($path);

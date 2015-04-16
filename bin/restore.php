@@ -242,7 +242,7 @@ if (!isset($vars['restore'])) {
 			if (time() > $nextnotify) {
 				$percent = floor((1 - ($lines - $linecount) / $lines) * 100);
 				$nextnotify = time() + 30;
-				$log = sprintf(_("Processed %s of CDRs (%s of %s lines)"), $percent, number_format($linecount), $pretty_lines);
+				$log = sprintf(_("Processed %s%% of CDRs (%s of %s lines)"), $percent, number_format($linecount), $pretty_lines);
 				backup_log($log);
 			}
 		}
@@ -336,7 +336,7 @@ if (!isset($vars['restore'])) {
 				if (time() > $nextnotify) {
 					$percent = floor((1 - ($lines - $linecount) / $lines) * 100);
 					$nextnotify = time() + 30;
-					$log = sprintf(_("Processed %s of Settings (%s of %s lines)"), $percent, number_format($linecount), $pretty_lines);
+					$log = sprintf(_("Processed %s%% of Settings (%s of %s lines)"), $percent, number_format($linecount), $pretty_lines);
 					backup_log($log);
 				}
 			}

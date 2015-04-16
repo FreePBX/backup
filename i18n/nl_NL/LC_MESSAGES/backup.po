@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-07 15:46+1000\n"
+"POT-Creation-Date: 2015-04-17 03:34+1000\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -227,7 +227,7 @@ msgstr "Kan de reservekopietabel niet migreren"
 msgid "Can't check for Backup table"
 msgstr "Kan niet controleren op reservekopietabel"
 
-#: bin/restore.php:467
+#: bin/restore.php:387
 msgid "Cleaning up..."
 msgstr "Opruimen..."
 
@@ -350,7 +350,7 @@ msgstr "Map"
 msgid "Disable Registered Trunks"
 msgstr "Schakel geregistreerde Trunks uit"
 
-#: bin/restore.php:511
+#: bin/restore.php:431
 msgid "Done!"
 msgstr "Klaar!"
 
@@ -793,13 +793,19 @@ msgstr "Voor-reservekopie taak"
 msgid "Pre-restore Hook"
 msgstr "Voor-terugzet taak"
 
-#: bin/restore.php:336
+#: bin/restore.php:294
 msgid "Preserving local NAT settings"
 msgstr "Lokale NAT instellingen bewaren"
 
-#: bin/restore.php:274 bin/restore.php:409
-msgid "Processed "
-msgstr "Verwerkt "
+#: bin/restore.php:245
+#, php-format
+msgid "Processed %s%% of CDRs (%s of %s lines)"
+msgstr ""
+
+#: bin/restore.php:339
+#, php-format
+msgid "Processed %s%% of Settings (%s of %s lines)"
+msgstr ""
 
 #: bin/backup.php:134
 msgid "Processing received file..."
@@ -813,7 +819,7 @@ msgstr "Willekeurig"
 msgid "Reboot"
 msgstr "Herstart"
 
-#: bin/restore.php:498
+#: bin/restore.php:418
 msgid "Reloading..."
 msgstr "Herladen..."
 
@@ -839,19 +845,15 @@ msgstr "Hier terugzetten"
 msgid "Restore all setting stored in the database"
 msgstr "Zet alle instellingen terug opgeslagen in de database"
 
-#: bin/restore.php:497
+#: bin/restore.php:417
 msgid "Restore complete!"
 msgstr "Terugzetten voltooid!"
 
-#: bin/restore.php:422
+#: bin/restore.php:343
 msgid "Restored Database"
 msgstr "Database teruggezet"
 
-#: bin/restore.php:287
-msgid "Restored all CDRs."
-msgstr "Alle CDR's teruggezet."
-
-#: bin/restore.php:292
+#: bin/restore.php:252
 msgid "Restoring CDRs complete"
 msgstr "Terugzetten CDR's voltooid"
 
@@ -859,15 +861,15 @@ msgstr "Terugzetten CDR's voltooid"
 msgid "Restoring CDRs..."
 msgstr "Terugzetten CDR's..."
 
-#: bin/restore.php:343
+#: bin/restore.php:301
 msgid "Restoring Database..."
 msgstr "Terugzetten database..."
 
-#: bin/restore.php:431
+#: bin/restore.php:351
 msgid "Restoring NAT settings"
 msgstr "Terugzetten NAT instellingen"
 
-#: bin/restore.php:452
+#: bin/restore.php:372
 msgid "Restoring Settings complete"
 msgstr "Terugzetten instellingen voltooid"
 
@@ -875,7 +877,7 @@ msgstr "Terugzetten instellingen voltooid"
 msgid "Restoring all files (this may take some time)..."
 msgstr "Terugzetten alle bestanden (dit kan enige tijd duren)..."
 
-#: bin/restore.php:442
+#: bin/restore.php:362
 msgid "Restoring astDB..."
 msgstr "Terugzetten astDB..."
 
@@ -895,7 +897,7 @@ msgstr "Automatisch uitvoeren"
 msgid "Run now"
 msgstr "Nu uitvoeren"
 
-#: bin/restore.php:458
+#: bin/restore.php:378
 msgid "Running post restore script..."
 msgstr "Uitvoeren Na-terugzetten script..."
 
@@ -903,7 +905,7 @@ msgstr "Uitvoeren Na-terugzetten script..."
 msgid "Running post-backup hooks..."
 msgstr "Uitvoeren Voor-reservekopie taken..."
 
-#: bin/restore.php:462
+#: bin/restore.php:382
 msgid "Running post-restore hooks, if any..."
 msgstr "Uitvoeren Voor-terugzetten taken, als bestaan..."
 
@@ -1069,7 +1071,7 @@ msgstr "Controleren ontvangen bestand..."
 msgid "Voice Mail Storage"
 msgstr "Voicemail opslag"
 
-#: bin/restore.php:298
+#: bin/restore.php:258
 msgid "WARNING!"
 msgstr "WAARSCHUWING!"
 
@@ -1082,7 +1084,7 @@ msgstr "WAARSCHUWING: Reservekopietabel niet gemigreerd"
 msgid "WARNING: failed to create backup directory: %s"
 msgstr "WAARSCHUWING Reservekopie map kan niet aangemaakt worden: %s"
 
-#: bin/restore.php:299
+#: bin/restore.php:259
 #, fuzzy
 msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
@@ -1105,7 +1107,7 @@ msgstr "Weken"
 msgid "Years"
 msgstr "Jaren"
 
-#: bin/restore.php:300
+#: bin/restore.php:260
 msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
 msgstr ""
 "U moet het commando \"amportal a ma updateall\" uitvoeren om de integriteit "
@@ -1222,3 +1224,9 @@ msgstr "wachten op vergrendeling..."
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "{geen servers beschikbaar}"
+
+#~ msgid "Processed "
+#~ msgstr "Verwerkt "
+
+#~ msgid "Restored all CDRs."
+#~ msgstr "Alle CDR's teruggezet."

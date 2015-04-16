@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-07 15:46+1000\n"
+"POT-Creation-Date: 2015-04-17 03:34+1000\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Lónyai Gergely <alephlg@gmail.com>\n"
 "Language-Team: Magyar <support@freepbx.hu>\n"
@@ -226,7 +226,7 @@ msgstr ""
 msgid "Can't check for Backup table"
 msgstr ""
 
-#: bin/restore.php:467
+#: bin/restore.php:387
 msgid "Cleaning up..."
 msgstr ""
 
@@ -340,7 +340,7 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr ""
 
-#: bin/restore.php:511
+#: bin/restore.php:431
 msgid "Done!"
 msgstr ""
 
@@ -762,12 +762,18 @@ msgstr ""
 msgid "Pre-restore Hook"
 msgstr ""
 
-#: bin/restore.php:336
+#: bin/restore.php:294
 msgid "Preserving local NAT settings"
 msgstr ""
 
-#: bin/restore.php:274 bin/restore.php:409
-msgid "Processed "
+#: bin/restore.php:245
+#, php-format
+msgid "Processed %s%% of CDRs (%s of %s lines)"
+msgstr ""
+
+#: bin/restore.php:339
+#, php-format
+msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr ""
 
 #: bin/backup.php:134
@@ -782,7 +788,7 @@ msgstr ""
 msgid "Reboot"
 msgstr ""
 
-#: bin/restore.php:498
+#: bin/restore.php:418
 msgid "Reloading..."
 msgstr ""
 
@@ -808,19 +814,15 @@ msgstr ""
 msgid "Restore all setting stored in the database"
 msgstr ""
 
-#: bin/restore.php:497
+#: bin/restore.php:417
 msgid "Restore complete!"
 msgstr ""
 
-#: bin/restore.php:422
+#: bin/restore.php:343
 msgid "Restored Database"
 msgstr ""
 
-#: bin/restore.php:287
-msgid "Restored all CDRs."
-msgstr ""
-
-#: bin/restore.php:292
+#: bin/restore.php:252
 msgid "Restoring CDRs complete"
 msgstr ""
 
@@ -828,15 +830,15 @@ msgstr ""
 msgid "Restoring CDRs..."
 msgstr ""
 
-#: bin/restore.php:343
+#: bin/restore.php:301
 msgid "Restoring Database..."
 msgstr ""
 
-#: bin/restore.php:431
+#: bin/restore.php:351
 msgid "Restoring NAT settings"
 msgstr ""
 
-#: bin/restore.php:452
+#: bin/restore.php:372
 msgid "Restoring Settings complete"
 msgstr ""
 
@@ -844,7 +846,7 @@ msgstr ""
 msgid "Restoring all files (this may take some time)..."
 msgstr ""
 
-#: bin/restore.php:442
+#: bin/restore.php:362
 msgid "Restoring astDB..."
 msgstr ""
 
@@ -864,7 +866,7 @@ msgstr ""
 msgid "Run now"
 msgstr ""
 
-#: bin/restore.php:458
+#: bin/restore.php:378
 msgid "Running post restore script..."
 msgstr ""
 
@@ -872,7 +874,7 @@ msgstr ""
 msgid "Running post-backup hooks..."
 msgstr ""
 
-#: bin/restore.php:462
+#: bin/restore.php:382
 msgid "Running post-restore hooks, if any..."
 msgstr ""
 
@@ -1025,7 +1027,7 @@ msgstr ""
 msgid "Voice Mail Storage"
 msgstr ""
 
-#: bin/restore.php:298
+#: bin/restore.php:258
 msgid "WARNING!"
 msgstr ""
 
@@ -1038,7 +1040,7 @@ msgstr ""
 msgid "WARNING: failed to create backup directory: %s"
 msgstr ""
 
-#: bin/restore.php:299
+#: bin/restore.php:259
 msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
 
@@ -1058,7 +1060,7 @@ msgstr ""
 msgid "Years"
 msgstr ""
 
-#: bin/restore.php:300
+#: bin/restore.php:260
 msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
 msgstr ""
 

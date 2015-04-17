@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-17 03:34+1000\n"
+"POT-Creation-Date: 2015-04-17 14:07-0400\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
 "Language-Team: Russian <faq@postmet.com>\n"
@@ -136,10 +136,6 @@ msgstr "Резервное копирование и восстановлени�
 #, fuzzy
 msgid "Backup & Restore - Templates"
 msgstr "Резервное копирование и восстановление"
-
-#: backup.i18n.php:8
-msgid "Backup & Restore for your FreePBX environment"
-msgstr "Резервное копирование и восстановление для вашего FreePBX"
 
 #: views/backup/backup.php:59
 msgid "Backup Items"
@@ -793,6 +789,10 @@ msgstr ""
 msgid "Processing received file..."
 msgstr ""
 
+#: backup.i18n.php:8
+msgid "Provides Backup & Restore capabilities for your PBX"
+msgstr ""
+
 #: views/cron.php:41
 msgid "Randomize"
 msgstr ""
@@ -1185,6 +1185,9 @@ msgstr ""
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr ""
+
+#~ msgid "Backup & Restore for your FreePBX environment"
+#~ msgstr "Резервное копирование и восстановление для вашего FreePBX"
 
 #~ msgid ""
 #~ "A full backup of core settings and web files, dosen't include system "

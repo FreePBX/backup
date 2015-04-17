@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-17 03:34+1000\n"
+"POT-Creation-Date: 2015-04-17 14:07-0400\n"
 "PO-Revision-Date: 2015-02-19 14:59+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -153,10 +153,6 @@ msgstr "バックアップとリストア：サーバー"
 #: backup.i18n.php:16
 msgid "Backup & Restore - Templates"
 msgstr "バックアップと復元：テンプレート"
-
-#: backup.i18n.php:8
-msgid "Backup & Restore for your FreePBX environment"
-msgstr "FreePBX環境のバックアップとリストアができます。"
 
 #: views/backup/backup.php:59
 msgid "Backup Items"
@@ -828,6 +824,10 @@ msgstr ""
 msgid "Processing received file..."
 msgstr "受信したファイルを処理中…"
 
+#: backup.i18n.php:8
+msgid "Provides Backup & Restore capabilities for your PBX"
+msgstr ""
+
 #: views/cron.php:41
 msgid "Randomize"
 msgstr "ランダムにする"
@@ -1232,6 +1232,9 @@ msgstr "ロックを待機中…"
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "{サーバーはありません}"
+
+#~ msgid "Backup & Restore for your FreePBX environment"
+#~ msgstr "FreePBX環境のバックアップとリストアができます。"
 
 #~ msgid "Processed "
 #~ msgstr "処理完了 "

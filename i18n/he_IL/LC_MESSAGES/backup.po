@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-17 03:34+1000\n"
+"POT-Creation-Date: 2015-04-17 14:07-0400\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -126,10 +126,6 @@ msgstr ""
 
 #: backup.i18n.php:16
 msgid "Backup & Restore - Templates"
-msgstr ""
-
-#: backup.i18n.php:8
-msgid "Backup & Restore for your FreePBX environment"
 msgstr ""
 
 #: views/backup/backup.php:59
@@ -778,6 +774,10 @@ msgstr ""
 
 #: bin/backup.php:134
 msgid "Processing received file..."
+msgstr ""
+
+#: backup.i18n.php:8
+msgid "Provides Backup & Restore capabilities for your PBX"
 msgstr ""
 
 #: views/cron.php:41

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-17 03:34+1000\n"
+"POT-Creation-Date: 2015-04-17 14:07-0400\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -128,10 +128,6 @@ msgstr "Reservekopie & Terugzetten - Servers"
 #: backup.i18n.php:16
 msgid "Backup & Restore - Templates"
 msgstr "Reservekopie & Terugzetten - Sjablonen"
-
-#: backup.i18n.php:8
-msgid "Backup & Restore for your FreePBX environment"
-msgstr "Reservekopie & Terugzetten voor uw FreePBX omgeving"
 
 #: views/backup/backup.php:59
 msgid "Backup Items"
@@ -811,6 +807,10 @@ msgstr ""
 msgid "Processing received file..."
 msgstr "Ontvangen bestand verwerken..."
 
+#: backup.i18n.php:8
+msgid "Provides Backup & Restore capabilities for your PBX"
+msgstr ""
+
 #: views/cron.php:41
 msgid "Randomize"
 msgstr "Willekeurig"
@@ -1224,6 +1224,9 @@ msgstr "wachten op vergrendeling..."
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "{geen servers beschikbaar}"
+
+#~ msgid "Backup & Restore for your FreePBX environment"
+#~ msgstr "Reservekopie & Terugzetten voor uw FreePBX omgeving"
 
 #~ msgid "Processed "
 #~ msgstr "Verwerkt "

@@ -2,12 +2,12 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>12.0.15</version>
+	<version>12.0.16</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Admin</category>
-	<description>Backup &amp; Restore for your FreePBX environment</description>
+	<description>Provides Backup &amp; Restore capabilities for your PBX</description>
 	<menuitems>
 		<backup needsenginedb="yes">Backup &amp; Restore</backup>
 		<backup_servers needsenginedb="yes" hidden="true">Backup &amp; Restore - Servers</backup_servers>
@@ -18,6 +18,7 @@
 		<module>sipsettings ge 12.0.3</module>
 	</depends>
 	<changelog>
+		*12.0.16* Description Change
 		*12.0.15* Massively speed up restore
 		*12.0.14.2* Ensure that HA tables are never restored.
 		*12.0.13* FREEPBX-8562 Fix NAT regression

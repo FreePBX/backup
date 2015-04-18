@@ -20,14 +20,14 @@ msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-17 03:34+1000\n"
-"PO-Revision-Date: 2015-03-24 07:21+0200\n"
-"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
-"es_ES/>\n"
+"PO-Revision-Date: 2015-04-17 23:57+0200\n"
+"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
+"Language-Team: Spanish "
+"<http://weblate.freepbx.org/projects/freepbx/backup/es_ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Spanish\n"
@@ -802,12 +802,12 @@ msgstr "Preservando configuración local NAT"
 #: bin/restore.php:245
 #, php-format
 msgid "Processed %s%% of CDRs (%s of %s lines)"
-msgstr ""
+msgstr "Procesado %s%% de CDR (%s de %s líneas)"
 
 #: bin/restore.php:339
-#, php-format
+#, fuzzy, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
-msgstr ""
+msgstr "Procesado %s%% de Ajustes (%s de líneas %s)"
 
 #: bin/backup.php:134
 msgid "Processing received file..."

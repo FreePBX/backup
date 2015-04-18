@@ -21,7 +21,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-17 14:07-0400\n"
 "PO-Revision-Date: 2015-04-18 01:09+0200\n"
-"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
+"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/backup/es_ES/>\n"
 "Language: es_ES\n"
@@ -803,7 +803,7 @@ msgstr "Procesado %s%% de CDR (%s de %s líneas)"
 #: bin/restore.php:339
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
-msgstr "Procesado %s%% de Ajustes (%s de líneas %s)"
+msgstr "Procesado %s%% de Ajustes (%s de  %s líneas)"
 
 #: bin/backup.php:134
 msgid "Processing received file..."

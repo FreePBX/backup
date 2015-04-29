@@ -33,7 +33,7 @@ switch ($var['action']) {
 
 //rnav
 $var['templates'] = backup_get_template('all');
-echo load_view(dirname(__FILE__) . '/views/rnav/templates.php', $var);
+$bootnav = load_view(dirname(__FILE__) . '/views/rnav/templates.php', $var);
 
 
 //view actions
@@ -47,10 +47,31 @@ switch ($var['action']) {
 			$var['id'] = substr($var['id'], 7);
 		}
 
-		echo load_view(dirname(__FILE__) . '/views/templates/template.php', $var);
+		$content = load_view(dirname(__FILE__) . '/views/templates/template.php', $var);
 		break;
 	default:
-		echo load_view(dirname(__FILE__) . '/views/templates/templates.php', $var);
+		$content = load_view(dirname(__FILE__) . '/views/templates/templates.php', $var);
 		break;
 }
+$heading = _("Templates");
 ?>
+
+<div class="container-fluid">
+	<h1><?php  echo $heading?></h1>
+	<div class = "display full-border">
+		<div class="row">
+			<div class="col-sm-9">
+				<div class="fpbx-container">
+					<div class="display full-border">
+						<?php echo $content ?>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3 hidden-xs bootnav">
+				<div class="list-group">
+					<?php echo $bootnav?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

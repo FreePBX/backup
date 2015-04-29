@@ -55,7 +55,7 @@ switch ($var['action']) {
 //rnav
 //this needs to be he so that we can display rnav's reflecting any actions in the 'action actions' switch statement
 $var['servers'] = backup_get_server('all');
-echo load_view(dirname(__FILE__) . '/views/rnav/servers.php', $var);
+$bootnav = load_view(dirname(__FILE__) . '/views/rnav/servers.php', $var);
 
 //view action
 switch ($var['action']) {
@@ -65,12 +65,33 @@ switch ($var['action']) {
 			$var['id'] = $var['server_type'];
 		}
 		$var = array_merge($var, backup_get_server($var['id']));
-		echo load_view(dirname(__FILE__) . '/views/servers/' . $var['type'] . '.php', $var);
+		$content = load_view(dirname(__FILE__) . '/views/servers/' . $var['type'] . '.php', $var);
 		break;
 	default:
-		echo load_view(dirname(__FILE__) . '/views/servers/servers.php', $var);
+		$content = load_view(dirname(__FILE__) . '/views/servers/servers.php', $var);
 		break;
 }
 
 
+$heading = _("Servers");
 ?>
+
+<div class="container-fluid">
+	<h1><?php  echo $heading?></h1>
+	<div class = "display full-border">
+		<div class="row">
+			<div class="col-sm-9">
+				<div class="fpbx-container">
+					<div class="display full-border">
+						<?php echo $content ?>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3 hidden-xs bootnav">
+				<div class="list-group">
+					<?php echo $bootnav?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

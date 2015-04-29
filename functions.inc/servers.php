@@ -137,6 +137,7 @@ function backup_put_server($var) {
 		$sql = 'INSERT INTO backup_servers (name, `desc`, type) VALUES (?, ?, ?)';
 		$sql_params = array($var['name'], $var['desc'], $var['server_type']);
 	}
+
 	$ret = $db->query($sql, $sql_params);
 	if ($db->IsError($ret)){
 		die_freepbx($ret->getDebugInfo());
@@ -267,17 +268,17 @@ function backup_get_server($id = '') {
 			return $servers;
 			break;
 		default:
+			
 			$sql = 'SELECT * FROM backup_servers WHERE id = ?';
 			$ret = $db->getAll($sql, array($id), DB_FETCHMODE_ASSOC);
 			if ($db->IsError($ret)){
 				die_freepbx($ret->getDebugInfo());
 			}
-			
 			//return a blank set if an invalid id was entered
 			if (!$ret) {
 				return backup_get_server('');
 			}
-			
+
 			$ret = $ret[0];
 			$sql = 'SELECT `key`, value FROM backup_server_details WHERE server_id = ?';
 			$ret1 = $db->getAll($sql, array($id), DB_FETCHMODE_ASSOC);

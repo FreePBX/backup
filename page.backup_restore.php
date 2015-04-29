@@ -94,13 +94,13 @@ switch ($var['action']) {
 
 //rnav
 $var['servers'] = backup_get_server('all');
-echo load_view(dirname(__FILE__) . '/views/rnav/restore.php', $var);;
+$bootnav = load_view(dirname(__FILE__) . '/views/rnav/restore.php', $var);
 
 
 //view actions
 switch ($var['action']) {
 	case 'browseserver':
-		echo load_view(dirname(__FILE__) . '/views/restore/browseserver.php', $var);
+		$content = load_view(dirname(__FILE__) . '/views/restore/browseserver.php', $var);
 		break;
 	case 'upload':
 	case 'backup_list':
@@ -124,7 +124,7 @@ switch ($var['action']) {
 		
 		//try to get a manifest, and continue if we did
 		if ($var['manifest'] = backup_get_manifest_tarball($_SESSION['backup_restore_path'])) {
-			echo load_view(dirname(__FILE__) . '/views/restore/backup_list.php', $var);
+			$content = load_view(dirname(__FILE__) . '/views/restore/backup_list.php', $var);
 			break;
 		}
 		
@@ -190,7 +190,28 @@ switch ($var['action']) {
         exit();	
 		break;
 	default:
-		echo load_view(dirname(__FILE__) . '/views/restore/restore.php', $var);
+		$content = load_view(dirname(__FILE__) . '/views/restore/restore.php', $var);
 		break;
 }
+$heading = _("Restore");
 ?>
+
+<div class="container-fluid">
+	<h1><?php  echo $heading?></h1>
+	<div class = "display full-border">
+		<div class="row">
+			<div class="col-sm-9">
+				<div class="fpbx-container">
+					<div class="display full-border">
+						<?php echo $content ?>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3 hidden-xs bootnav">
+				<div class="list-group">
+					<?php echo $bootnav?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

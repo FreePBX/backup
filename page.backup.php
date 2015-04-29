@@ -48,6 +48,8 @@ if ($var['submit'] == _('Delete') && $var['action'] == 'save') {
 	$var['action'] = 'run';
 }
 
+$var['brand'] = $amp_conf['DASHBOARD_FREEPBX_BRAND']?$amp_conf['DASHBOARD_FREEPBX_BRAND']:_('FreePBX');
+
 //action actions
 switch ($var['action']) {
 	case 'ajax_save':
@@ -99,7 +101,7 @@ switch ($var['action']) {
 //rnav
 //this needs to be he so that we can display rnav's reflecting any actions in the 'action actions' switch statement
 $var['backup'] = backup_get_backup('all');
-echo load_view(dirname(__FILE__) . '/views/rnav/backup.php', $var);
+$bootnav = load_view(dirname(__FILE__) . '/views/rnav/backup.php', $var);
 
 //view action
 switch ($var['action']) {
@@ -108,9 +110,31 @@ switch ($var['action']) {
 		$var['servers'] = backup_get_server('all');
 		$var['templates'] = backup_get_template('all_detailed');
 		$var = array_merge($var, backup_get_backup($var['id']));
-		echo load_view(dirname(__FILE__) . '/views/backup/backup.php', $var);
+		$content = load_view(dirname(__FILE__) . '/views/backup/backup.php', $var);
 		break;
 	default:
-		echo load_view(dirname(__FILE__) . '/views/backup/backups.php', $var);
+		$content = load_view(dirname(__FILE__) . '/views/backup/backups.php', $var);
 		break;
 }
+$heading = _("Backup and Restore");
+?>
+
+<div class="container-fluid">
+	<h1><?php echo $heading?></h1>
+	<div class = "display full-border">
+		<div class="row">
+			<div class="col-sm-9">
+				<div class="fpbx-container">
+					<div class="display full-border">
+						<?php echo $content ?>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3 hidden-xs bootnav">
+				<div class="list-group">
+					<?php echo $bootnav ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

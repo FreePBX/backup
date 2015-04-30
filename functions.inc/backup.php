@@ -3,24 +3,22 @@
 function backup_del_backup($id) {
 	global $db;
 	$data = backup_get_backup($id);
-
 	//dont delete if deleting has been blocked
 	if ($data['immortal'] == 'true') {
 		return $id;
 	}
 
 	$sql = 'DELETE FROM backup WHERE id = ?';
+
 	$ret = $db->query($sql, $id);
 	if ($db->IsError($ret)){
 		die_freepbx($ret->getDebugInfo());
 	}
-
 	$sql = 'DELETE FROM backup_details WHERE backup_id = ?';
 	$ret = $db->query($sql, $id);
 	if ($db->IsError($ret)){
 		die_freepbx($ret->getDebugInfo());
 	}
-
 	//set backup cron
 	backup_set_backup_cron();
 

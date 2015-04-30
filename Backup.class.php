@@ -18,11 +18,15 @@ class Backup implements \BMO {
     public function doConfigPageInit($page) {
     	switch ($page) {
     		case 'backup':
+    		if ($_REQUEST['submit'] == _('Delete') && $_REQUEST['action'] == 'save') {
+    			$_REQUEST['action'] = 'delete';
+    		}
     			switch ($_REQUEST['action']){
     				case 'wizard':
     					$current_servers = backup_get_server('all_detailed');
     					$server = array();
     					$backup = array();
+    					dbug($_REQUEST);
     					extract($_REQUEST);
     					foreach($current_servers as $key => $value){
 							if ($value['name'] == 'Local Storage' && $value['type'] == 'local' && $value['immortal'] == 'true') {
@@ -41,12 +45,12 @@ class Backup implements \BMO {
     					}
 						if(!$server_exists && $wizremote == 'yes'){
 							$server['name'] = $wizname;
-							$server['description'] = $wizdesc?$wizdesc:_('Wizard:&nbsp;').$wizname;
+							$server['desc'] = $wizdesc?$wizdesc:_('Wizard:&nbsp;').$wizname;
 							$server['type'] = $wizremtype;
 							$server['host'] = $wizserveraddr;
 							$server['user'] = $wizserveruser;
 							$server['path'] = $wizremotepath?$wizremotepath:'';
-							switch($value['type']){
+							switch($wizremtype){
 								case 'ftp':
 									$server['port'] = $wizserverport?$wizserverport:'21';
 									$server['password'] = $wizftppass?$wizftppass:'';
@@ -71,18 +75,24 @@ class Backup implements \BMO {
 							$backup['email'] = '';
 						}
 						//cron
-						$backup['cron_schedule'] = $wizfrez;
+						$backup['cron_minute'] = array('*');
+						$backup['cron_dom'] = array('*');
+						$backup['cron_dow'] = array('*');
+						$backup['cron_hour'] = array('*');
+						$backup['cron_month'] = array('*');
+						$backup['cron_schedule'] = $wizfreq;
 						switch ($wizfreq) {
 							case 'daily':
-								$backup['cron_hour'] = $wizat;
+								$backup['cron_hour'] = array($wizat);
 							break;
 							case 'weekly':
-								$backup['cron_dow'] = $wizat['day'];
-								$backup['cron_hour'] = $wizat['hour'];
+								$backup['cron_dow'] = array($wizat[0]);
+								$backup['cron_hour'] = array($wizat[1]);
 							break;
 							case 'monthly':
-								$backup['cron_dom'] = $wizat['monthday'];
-								$backup['cron_hour'] = $wizat['hour'];
+								$backup['cron_dom'] = array($wizat[0]);
+								$backup['cron_hour'] = array('23');
+								$backup['cron_minute'] = array('59');
 							break;
 						}
 						$backup['storage_servers'] = array($localserver,$serverid);
@@ -128,6 +138,11 @@ class Backup implements \BMO {
 							$backup['exclude'][] = '';
 						}
 						backup_put_backup($backup);	
+    				break;
+    				case 'delete':
+    					backup_del_backup($_REQUEST['id']);
+    					unset($_REQUEST['action']);
+    					unset($_REQUEST['id']);
     				break;
     			}
     		break;

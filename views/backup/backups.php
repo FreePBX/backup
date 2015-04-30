@@ -252,8 +252,8 @@
 								<div class="row">
 									<div class="form-group">
 										<div class="col-md-3">
-											<label class="control-label" for="wizemail"><?php echo _("Email Notifications") ?></label>
-											<i class="fa fa-question-circle fpbx-help-icon" data-for="wizemail"></i>
+											<label class="control-label" for="wiznotif"><?php echo _("Email Notifications") ?></label>
+											<i class="fa fa-question-circle fpbx-help-icon" data-for="wiznotif"></i>
 										</div>
 										<div class="col-md-9 radioset">
 											<input type="radio" name="wiznotif" id="wiznotifyes" value="yes" CHECKED>
@@ -267,7 +267,7 @@
 						</div>
 						<div class="row">
 							<div class="col-md-12">
-								<span id="wizemail-help" class="help-block fpbx-help-block"><?php echo _("Would you like an email when this job runs?")?></span>
+								<span id="wiznotif-help" class="help-block fpbx-help-block"><?php echo _("Would you like an email when this job runs?")?></span>
 							</div>
 						</div>
 					</div>

@@ -75,34 +75,34 @@ function backup_del_server($id) {
 
 	//dont delete if deleting has been blocked
 	$immortal = $db->getOne('SELECT immortal FROM backup_servers WHERE id = ?', $id);
-	db_e($immortal);
+	//db_e($immortal);
 	if ($immortal && $immortal == 'true') {
 		return $id;
 	}
 	
 	$sql = 'DELETE FROM backup_servers WHERE id = ?';
 	$ret = $db->query($sql, $id);
-	db_e($ret);
+	//db_e($ret);
 	
 	$sql = 'DELETE FROM backup_server_details WHERE server_id = ?';
 	$ret = $db->query($sql, $id);
-	db_e($ret);
+	//db_e($ret);
 	
 	//delete from backups_details
 	$sql = 'DELETE FROM backup_details WHERE `key` = "storage_servers" and value = ?';
 	$ret = $db->query($sql, $id);
-	db_e($ret);
+	//db_e($ret);
 	
 	//delete from backups_items
 	$sql = 'DELETE FROM backup_items WHERE type = "mysql" AND path = CONCAT("server-", ?)';
 	$ret = $db->query($sql, $id);
-	db_e($ret);
+	//db_e($ret);
 	
 	//delete from templates
 	$sql = 'DELETE FROM backup_template_details WHERE type = "mysql" AND path = CONCAT("server-", ?)';
 	$ret = $db->query($sql, $id);
 	//dbug('temp', $db->last_query);
-	db_e($ret);
+	//db_e($ret);
 	
 	return '';
 }

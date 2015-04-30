@@ -63,6 +63,7 @@ switch ($var['action']) {
 		$var['id'] = backup_put_backup($var);
 		break;
 	case 'delete':
+		dbug("HERE");
 		$var['id'] = backup_del_backup($var['id']);
 		break;
 	case 'run':

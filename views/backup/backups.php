@@ -134,7 +134,7 @@
 						<tr>
 							<td> 
 								<span class="radioset">
-								<input type="radio" name="wizfreq" id="wizfreqnightly" value="nightly" CHECKED>
+								<input type="radio" name="wizfreq" id="wizfreqnightly" value="daily" CHECKED>
 								<label for="wizfreqnightly"><?php echo _("Nightly");?></label>
 								<input type="radio" name="wizfreq" id="wizfreqweekly" value="weekly">
 								<label for="wizfreqweekly"><?php echo _("Weekly");?></label>

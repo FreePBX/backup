@@ -3,6 +3,16 @@
 <br/>
 <a href="#" role="button" class="btn btn-large btn-primary" data-toggle="modal" data-target="#merlin"><?php echo _('Backup Wizard') ?></a>
 <a href="config.php?type=setup&display=backup&action=edit" role="button" class="btn btn-large btn-primary" ><?php echo _('New Backup') ?></a>
+<table id="backupsGrid" data-url="ajax.php?module=backup&command=getJSON&jdata=backupGrid" data-cache="false" data-height="299" data-toggle="table" class="table table-striped">
+    <thead>
+            <tr>
+            <th data-field="name"><?php echo _("Item")?></th>
+            <th data-field="description"><?php echo _("Description")?></th>
+            <th data-field="id,immortal" data-formatter="linkFormatter"><?php echo _("Actions")?></th>
+        </tr>
+    </thead>
+</table>
+
 
 <div class="modal fade" id="merlin" tabindex="-1" role="dialog" aria-labelledby="merlin" aria-hidden="true">
 	<div class="modal-dialog modal-lg">

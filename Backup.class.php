@@ -1,6 +1,6 @@
 <?php
 namespace FreePBX\modules;
-
+$setting = array('authenticate' => true, 'allowremote' => false);
 class Backup implements \BMO {
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
@@ -149,9 +149,12 @@ class Backup implements \BMO {
     	}
     }
 	public function getActionBar($request) {
+		dbug($request);
 		$buttons = array();
 		switch($request['display']) {
 			case 'backup':
+			case 'backup_servers':
+			case 'backup_templates':
 				$buttons = array(
 					'delete' => array(
 						'name' => 'delete',
@@ -169,14 +172,76 @@ class Backup implements \BMO {
 						'value' => _('Submit')
 					)
 				);
-				if (empty($request['extdisplay'])) {
+				if (empty($request['id'])) {
 					unset($buttons['delete']);
 				}
-				if(empty($request['type'])){
-					$button = array();
+				if((!$request['action']) || (strtolower($request['action']) == 'delete')){
+					$buttons = array();
 				}
 			break;
 		}
 		return $buttons;
+	}
+	//AJAX
+	public function ajaxRequest($req, &$setting) {       
+		switch ($req) {           
+			case 'getJSON':               
+				return true;           
+			break;                   
+			default:               
+				return false;           
+			break;       
+		}   
+	}   
+	public function ajaxHandler(){       
+		switch ($_REQUEST['command']) {           
+			case 'getJSON':               
+				switch ($_REQUEST['jdata']) {                   
+					case 'backupGrid':
+						return array_values($this->listBackups());       
+					return $ret;
+					break;
+					case 'backupGrid':
+						$ret = array();       
+					return $ret;
+					break;
+					case 'serverGrid':
+						$ret = array();       
+					return $ret;
+					break;
+					case 'templateGrid':
+						$ret = array();       
+					return $ret;
+					break;
+					default:
+						return false;
+					break; 
+				}
+			break;
+			default:
+				return false;
+			break;
+		}
+	}
+	public function listBackups(){
+		$sql = 'SELECT * FROM backup ORDER BY name';
+		$ret = $this->db->query($sql, \PDO::FETCH_ASSOC);
+		$backups = array();
+		//set index to server id for easy retrieval
+		foreach ($ret as $s) {
+			//set index to  id for easy retrieval
+			$backups[$s['id']] = $s;
+
+			//default name in one is missing
+			if (!$backups[$s['id']]['name']) {
+				$backups[$s['id']]['name'] = _('Backup') . ' ' . $s['id'];
+			}
+
+			//add details if requested
+			if ($id == 'all_detailed') {
+				$backups[$s['id']] = backup_get_backup($s['id']);
+			}
+		}
+		return $backups;
 	}
 }

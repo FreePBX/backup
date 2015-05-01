@@ -93,3 +93,12 @@ $('input[name="wizfreq"]').change(function(){
 		break;
 	}
 });
+function linkFormatter(foo,value){
+
+    var html = '<a href="?display=backup&action=edit&id='+value.id+'"><i class="fa fa-pencil"></i></a>';
+    if(!value.immortal){
+    	html += '&nbsp;<a href="?display=backup&action=delete&id='+value.id+'" class="delAction"><i class="fa fa-trash"></i></a>';
+    }
+    	html += '&nbsp;<a href="?display=backup&action=run&id='+value.id+'" target="_blank"><i class="fa fa-play-circle"></i></a>';    
+    return html;
+}

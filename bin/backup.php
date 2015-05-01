@@ -84,13 +84,14 @@ if (isset($vars['id']) && $vars['id']) {
 					. '\@'
 					. backup__($s[$b->b['bu_server']]['host']);
 			$cmd[] = '\'php -r "';
+			//var_dump($opts);
 			$escape = '$bootstrap_settings["freepbx_auth"] = false;
 				$bootstrap_settings["skip_astman"] = true;
 				$restrict_mods = true;
 				if (!@include_once(getenv("FREEPBX_CONF") ? getenv("FREEPBX_CONF") : "/etc/freepbx.conf")) {
 					include_once("/etc/asterisk/freepbx.conf");
 				}
-				system($amp_conf["AMPBIN"] . "/backup.php --opts=' . base64_encode(serialize($opts)) . '");
+				system($amp_conf["AMPBIN"] . "/backup.php --opts=' . base64_encode(serialize($opts['astdb'])) . '");
 				';
 			$cmd[] = addcslashes(str_replace(array("\n", "\t"), '', $escape), '"$');
 			$cmd[] = '"\'';

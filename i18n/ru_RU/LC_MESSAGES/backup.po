@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-17 14:07-0400\n"
-"PO-Revision-Date: 2015-05-01 22:42+0200\n"
+"PO-Revision-Date: 2015-05-03 15:58+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian "
 "<http://weblate.freepbx.org/projects/freepbx/backup/ru_RU/>\n"
@@ -183,10 +183,12 @@ msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
 "backup from server [%s]."
 msgstr ""
+"Не удалось резервное копирование дампа SQL базы [%s] в файл [%s]. У вас есть "
+"поврежденная резервная копия с сервера [%s]."
 
 #: bin/restore.php:93
 msgid "Backup file not found! Aborting."
-msgstr ""
+msgstr "Файл бекапа не найден! Прерывание."
 
 #: install.php:135
 msgid "Backup migration completed"
@@ -194,19 +196,19 @@ msgstr "Перенос резервного копирования заверш�
 
 #: bin/backup.php:14
 msgid "Backup module not found or is disabled. Aborting!"
-msgstr ""
+msgstr "Модуль резервного копирования не найден или отключен. Прерывание!"
 
 #: bin/backup.php:149 bin/backup.php:197
 msgid "Backup successfully completed!"
-msgstr ""
+msgstr "Резервное копирование выполнено успешно!"
 
 #: views/rnav/main.php:3
 msgid "Backups"
-msgstr ""
+msgstr "Бекапы"
 
 #: bin/backup.php:58
 msgid "Bulding manifest..."
-msgstr ""
+msgstr "Построение декларации..."
 
 #: install.php:268
 msgid "CDR server, generally a local database server"
@@ -214,7 +216,7 @@ msgstr "CDR сервер, обычно локальная БД"
 
 #: views/restore/backup_list.php:42
 msgid "CDR's"
-msgstr ""
+msgstr "Дтл. звонков"
 
 #: install.php:350
 msgid "Call Detail Records"
@@ -234,7 +236,7 @@ msgstr "Невозможно проверить таблицу резервно�
 
 #: bin/restore.php:387
 msgid "Cleaning up..."
-msgstr ""
+msgstr "Прибираемся..."
 
 #: install.php:292
 msgid "Configurations only"
@@ -242,15 +244,15 @@ msgstr "Только конфигурация"
 
 #: bin/backup.php:77
 msgid "Connecting to remote server..."
-msgstr ""
+msgstr "Соединение с удаленным сервером..."
 
 #: functions.inc/class.backup.php:327 views/restore/browseserver.php:18
 msgid "Created"
-msgstr ""
+msgstr "Создано"
 
 #: bin/backup.php:63
 msgid "Creating backup..."
-msgstr ""
+msgstr "Создание бекапа..."
 
 #: install.php:209
 msgid "Creating backups directory.."
@@ -258,27 +260,27 @@ msgstr "Создается каталог резервного копирова�
 
 #: views/cron.php:12
 msgid "Custom"
-msgstr ""
+msgstr "Особое"
 
 #: views/servers/mysql.php:70
 msgid "DB Name"
-msgstr ""
+msgstr "Имя БД"
 
 #: views/cron.php:7
 msgid "Daily"
-msgstr ""
+msgstr "Ежедневно"
 
 #: views/servers/mysql.php:70
 msgid "Database name"
-msgstr ""
+msgstr "Имя базы данных"
 
 #: views/cron.php:132
 msgid "Day of Month"
-msgstr ""
+msgstr "День месяца"
 
 #: views/cron.php:77
 msgid "Day of Week"
-msgstr ""
+msgstr "День недели"
 
 #: views/backup/backup.php:255
 msgid "Days"
@@ -302,7 +304,7 @@ msgstr "Удалить "
 
 #: views/backup/backup.php:244 views/backup/backup.php:261
 msgid "Delete after"
-msgstr ""
+msgstr "Удалить после"
 
 #: views/backup/backup.php:244
 msgid ""
@@ -310,45 +312,51 @@ msgid ""
 "Please note that deletes aren't time based and will only happen after a "
 "backup was run. Setting the value to 0 will disable any deleting"
 msgstr ""
+"Удалить этот бекап по истечении X минут/часов/дней/недель/месяцев/лет. "
+"Пожалуйста, обратите внимание на то, удаления не базируются на времени и "
+"произойдут только после того, как резервное копирование будет запущено. "
+"Установка значения в 0 отключит любое удаление"
 
 #: views/backup/backup.php:261
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
 msgstr ""
+"Удалить этот бекап после X запусков. Установка значения в 0 отключит любое "
+"удаление"
 
 #: functions.inc/templates.php:310
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
-msgstr ""
+msgstr "Удалить этот пункт. Не забудьте нажать Сохранить для записи изменений!"
 
 #: views/backup/backup.php:20 views/servers/email.php:22
 #: views/servers/ftp.php:22 views/servers/local.php:22
 #: views/servers/mysql.php:22 views/servers/ssh.php:22
 #: views/templates/template.php:21
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: views/backup/backup.php:20
 msgid "Description or notes for this backup"
-msgstr ""
+msgstr "Описание или примечание для этого бекапа"
 
 #: views/servers/email.php:22 views/servers/ftp.php:22
 #: views/servers/local.php:22 views/servers/mysql.php:22
 #: views/servers/ssh.php:22 views/templates/template.php:21
 msgid "Description or notes for this server"
-msgstr ""
+msgstr "Описание или примечание для этого сервера"
 
 #: functions.inc/templates.php:246
 msgid "Directory"
-msgstr ""
+msgstr "Каталог"
 
 #: views/backup/backup.php:144
 msgid "Disable Registered Trunks"
-msgstr ""
+msgstr "Отключить зарегистрированные транки"
 
 #: bin/restore.php:431
 msgid "Done!"
-msgstr ""
+msgstr "Готово!"
 
 #: page.backup_restore.php:20 views/restore/browseserver.php:30
 msgid "Download"
@@ -359,12 +367,16 @@ msgid ""
 "Drag templates and drop them in the Backup Items table. Add as many "
 "templates as you need"
 msgstr ""
+"Перетащите шаблоны и бросьте их в таблицу бекапов. Добавьте столько "
+"шаблонов, сколько нужно"
 
 #: views/backup/backup.php:60
 msgid ""
 "Drag templates and drop them in the items table to add the templates items "
 "to the table"
 msgstr ""
+"Перетащите шаблоны и бросьте их в таблице элементов, чтобы добавить элементы "
+"шаблонов в таблицу"
 
 #: install.php:142
 msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
@@ -385,11 +397,11 @@ msgstr "E-mail "
 
 #: views/servers/email.php:31
 msgid "Email Address"
-msgstr ""
+msgstr "Адрес эл. почты"
 
 #: functions.inc/servers.php:243 functions.inc/servers.php:295
 msgid "Email Server "
-msgstr ""
+msgstr "Сервер эл. почты "
 
 #: views/servers/email.php:31
 msgid "Email address where backups should be emailed to"

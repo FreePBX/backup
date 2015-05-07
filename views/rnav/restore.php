@@ -1,7 +1,7 @@
 <?php
 
 require(dirname(__FILE__) . '/main.php');
-$allowed = array('ftp', 'local', 'ssh');
+$allowed = array('ftp', 'local', 'ssh','awss3');
 if (isset($servers)){
 	foreach ($servers as $s) {
 		//only allow servers in $allowed

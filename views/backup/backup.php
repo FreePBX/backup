@@ -476,7 +476,41 @@ foreach ($storage_servers as $s) {
 </div>
 <?php
 
+<<<<<<< HEAD
 $table = new CI_Table;
+=======
+foreach ($storage_servers as $idx => $s) {
+	$current_servers .= '<li data-server-id="' . $servers[$s]['id'] . '">' 
+					. '<a href="#">'
+					. '<span class="dragable"></span>'
+					. $servers[$s]['name'] 
+					. ' (' . $servers[$s]['type'] . ')'
+					. '</a>'
+					. '</li>';
+	unset($servers[$s]);
+}
+$current_servers .= '</ul>';
+$avalible_servers = '<ul id="storage_avail_servers" class="sortable storage_servers">';
+foreach ($servers as $s) {
+	if (in_array($s['type'], array('ftp', 'ssh', 'email', 'local','awss3'))) {
+		$avalible_servers .= '<li data-server-id="' . $s['id'] . '">' 
+						. '<a href="#">'
+						. '<span class="dragable"></span>'
+						. $s['name'] 
+						. ' (' . $s['type'] . ')'
+						. '</a>'
+						. '</li>';
+	}
+}
+$avalible_servers .= '</ul>';
+$table->set_heading(
+			fpbx_label(_('Storage Servers'), 
+				_('drag servers from the Available Servers list to add them as Storage Servers'))
+			, _('Available Servers'));
+$table->add_row($current_servers, array('data' => $avalible_servers, 'style' => 'padding-left: 100px;padding-right: 100px'));
+$html .= $table->generate();
+$html .= $table->clear();
+>>>>>>> feature/IN-6160
 
 
 //MAINTENANCE

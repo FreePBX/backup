@@ -68,6 +68,17 @@ $backup_server_blanks['ssh'] =
 		'readonly'	=> array(),
 		'immortal'	=> ''
 		);
+$backup_server_blanks['awss3'] =
+	array(
+		'id'		=> '',
+		'bucket'	=> '',
+		'desc'		=> '',
+		'awsaccesskey'	=> '',
+		'awssecret'	=> '',
+		'type'		=> 'awss3',
+		'readonly'	=> array(),
+		'immortal'	=> ''
+		);
 		
 		
 function backup_del_server($id) {
@@ -201,6 +212,13 @@ function backup_put_server($var) {
 						array($var['id'], 'key', $var['key'])
 					);
 			break;
+		case 'awss3':
+			$data = array(
+						array($var['id'], 'bucket', $var['bucket']),
+						array($var['id'], 'awsaccesskey', $var['awsaccesskey']),
+						array($var['id'], 'awssecret', $var['awssecret']),
+					);
+			break;
 		default:
 			return false;
 	}
@@ -226,6 +244,7 @@ function backup_get_server($id = '') {
 		case 'ftp':
 		case 'local':
 		case 'mysql':
+		case 'awss3':
 		case 'ssh':
 			global $backup_server_blanks;
 			return $backup_server_blanks[$id];
@@ -254,6 +273,9 @@ function backup_get_server($id = '') {
 							break;
 						case 'ssh':
 							$sname = _('SSH Server ');
+							break;
+						case 'awss3':
+							$sname = _('Amazon S3 Server ');
 							break;
 					}
 					$servers[$s['id']]['name'] = $sname . $s['id'];
@@ -306,6 +328,9 @@ function backup_get_server($id = '') {
 					break;
 				case 'ssh':
 					$sname = _('SSH Server ');
+					break;
+				case 'awss3':
+					$sname = _('AWS S3 Server ');
 					break;
 			}
 			

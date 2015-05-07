@@ -134,6 +134,26 @@ function backup_jstree_list_dir($id, $path = '') {
 				}
 			}
 			break;
+		case 'awss3':
+			$s['bucket'] = backup__($s['bucket']);
+			$s['awsaccesskey'] = backup__($s['awsaccesskey']);
+			$s['awssecret'] = backup__($s['awssecret']);
+			$awss3 = new S3($s['awsaccesskey'], $s['awssecret']);
+			$contents = $awss3->getBucket($s['bucket']);
+			foreach ($contents as $f){
+	
+				if (substr($f['name'], -7) == '.tar.gz' || substr($f['name'], -4) == '.tgz') {
+					$ret[] = array(
+							'attr' => array(
+									'data-manifest' => json_encode(backup_get_manifest_db($f['name'])),
+									'data-path' => $path . '/' . $f['name']
+									),
+							'data' => $f['name']
+									); 
+	}
+				
+			}
+			break;
 	}
 
 	return $ret;
@@ -304,6 +324,19 @@ function backup_restore_locate_file($id, $path) {
 			} 	else {
 					return array('error_msg' => _('Failed to retrieve file from server!'));
 				}
+			break;
+		case 'awss3':
+			$s['bucket'] = backup__($s['bucket']);
+			$s['awsaccesskey'] = backup__($s['awsaccesskey']);
+			$s['awssecret'] = backup__($s['awssecret']);
+			$awss3 = new S3($s['awsaccesskey'], $s['awssecret']);
+			dbug('S3 Path: ' . $path);
+			dbug('S3 Dest: ' . $dest);
+			if ($awss3->getObject($s['bucket'],$path,$dest) !== false) {
+				$path = $dest; 
+			} else {
+				return array('error_msg' => _('Failed to retrieve file from server!'));
+			} 
 			break;
 	}
 

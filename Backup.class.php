@@ -219,19 +219,9 @@ class Backup implements \BMO
                 switch ($_REQUEST['jdata']) {
                     case 'backupGrid':
                         return array_values($this->listBackups());
-
-                    return $ret;
-                    break;
-                    case 'backupGrid':
-                        $ret = array();
-
-                    return $ret;
                     break;
                     case 'serverGrid':
-
-                        $ret = array();
-
-                    return $ret;
+                      return array_values($this->listServers());
                     break;
                     case 'templateGrid':
                         $ret = array();
@@ -251,74 +241,10 @@ class Backup implements \BMO
     public function listServers()
     {
         $sql = 'SELECT * FROM backup_servers ORDER BY name';
-        $ret = $this->db->query($sql, \PDO::FETCH_ASSOC);
-        foreach ($ret as $s) {
-            //set index to server id for easy retrieval
-            $servers[$s['id']] = $s;
-
-            //default name in one is missing
-            if (!$servers[$s['id']]['name']) {
-                switch ($s['type']) {
-                    case 'email':
-                        $sname = _('Email Server ');
-                        break;
-                    case 'ftp':
-                        $sname = _('FTP Server ');
-                        break;
-                    case 'local':
-                        $sname = _('Local Server ');
-                        break;
-                    case 'mysql':
-                        $sname = _('Mysql Server ');
-                        break;
-                    case 'ssh':
-                        $sname = _('SSH Server ');
-                        break;
-                    case 'awss3':
-                        $sname = _('Amazon S3 Server ');
-                        break;
-                }
-                $servers[$s['id']]['name'] = $sname.$s['id'];
-            }
-            $sql = 'SELECT * FROM backup_servers WHERE id = '.$s['id'];
-            $thisserver = $this->db->query($sql, \PDO::FETCH_ASSOC);
-            $sql = 'SELECT `key`, value FROM backup_server_details WHERE server_id = '.$s['id'];
-            $thisserver2 = $this->db->query($sql, \PDO::FETCH_ASSOC);
-            foreach ($thisserver2 as $key => $r) {
-                $thisserver[$r['key']] = $r['value'];
-            }
-
-                        //default a name
-                        switch ($thisserver['type']) {
-                            case 'email':
-                                $sname = _('Email Server ');
-                                break;
-                            case 'ftp':
-                                $sname = _('FTP Server ');
-                                break;
-                            case 'local':
-                                $sname = _('Local Server ');
-                                break;
-                            case 'mysql':
-                                $sname = _('Mysql Server ');
-                                break;
-                            case 'ssh':
-                                $sname = _('SSH Server ');
-                                break;
-                            case 'awss3':
-                                $sname = _('AWS S3 Server ');
-                                break;
-                        }
-
-            $thisserver['name'] = $thisserver['name'] ? $thisserver['name'] : $sname.$ret['id'];
-
-                        //unserialize readonly
-                        $thisserver['readonly'] = $thisserver['readonly'] ? unserialize($thisserver['readonly']) : array();
-
-            $servers[$s['id']] = $thisserver;
-        }
-
-        return $servers;
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        $ret = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $ret;
     }
     public function listBackups()
     {
@@ -339,8 +265,7 @@ class Backup implements \BMO
             if ($id == 'all_detailed') {
                 $backups[$s['id']] = backup_get_backup($s['id']);
             }
-        }
-
+          }
         return $backups;
     }
 }

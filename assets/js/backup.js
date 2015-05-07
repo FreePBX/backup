@@ -1,17 +1,17 @@
 function backup_log(div, msg) {
 	//get background color from appropriate jquery ui class
 	var bcolor = div.parent().parent().css('backgroundColor');
-	
+
 	//build span
 	var span = $('<span></span>')
 			.html(msg)
 			.css('backgroundColor', '#fff2a8');
-	
+
 	//append to div
 	div.append(span);
 
 	//scroll down and show new span; and remove highlighting
-	div.animate({scrollTop: div.prop("scrollHeight")}, 
+	div.animate({scrollTop: div.prop("scrollHeight")},
 		500,
 		function(){
 			span.animate({backgroundColor: bcolor},
@@ -94,11 +94,17 @@ $('input[name="wizfreq"]').change(function(){
 	}
 });
 function linkFormatter(foo,value){
-
     var html = '<a href="?display=backup&action=edit&id='+value.id+'"><i class="fa fa-pencil"></i></a>';
     if(!value.immortal){
     	html += '&nbsp;<a href="?display=backup&action=delete&id='+value.id+'" class="delAction"><i class="fa fa-trash"></i></a>';
     }
-    	html += '&nbsp;<a href="?display=backup&action=run&id='+value.id+'" target="_blank"><i class="fa fa-play-circle"></i></a>';    
+    	html += '&nbsp;<a href="?display=backup&action=run&id='+value.id+'" target="_blank"><i class="fa fa-play-circle"></i></a>';
+    return html;
+}
+function serverFormatter(foo,value){
+    var html = '<a href="?display=backup_servers&action=edit&id='+value.id+'"><i class="fa fa-pencil"></i></a>';
+    if(!value.immortal){
+    	html += '&nbsp;<a href="?display=backup_servers&action=delete&id='+value.id+'" class="delAction"><i class="fa fa-trash"></i></a>';
+    }
     return html;
 }

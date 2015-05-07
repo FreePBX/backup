@@ -172,11 +172,11 @@ function cron_random() {
 		case 'never':
 		case 'custom':
 		case 'reboot':
-			$('label[for=cron_random]').hide();
+			$('#randominput').hide();
 			$('#cron_random').removeAttr("checked").hide();
 			break;
 		default:
-			$('label[for=cron_random]').show();
+			$('#randominput').show();
 			$('#cron_random').show();
 			break;
 	}

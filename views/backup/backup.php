@@ -1,7 +1,7 @@
 <h2><?php echo _("Backup")?></h2>
-<form class="fpbx-submit" action="" method="post" id="backup">
+<form class="fpbx-submit" action="" method="post" id="backup_form" data-fpbx-delete="?display=backup&action=delete&id=<?php echo isset($id)?$id:''?>">
 	<input type="hidden" name="action" value="save">
-	<input type="hidden" name="id" value="<?php isset($id)?$id:''?>">
+	<input type="hidden" name="id" value="<?php echo isset($id)?$id:''?>">
 	<!--Backup Name-->
 	<div class="element-container">
 		<div class="row">
@@ -402,7 +402,7 @@ foreach ($storage_servers as $s) {
 				<ul id="storage_avail_servers" class="sortable storage_servers">
 					<?php
 					foreach ($servers as $s) {
-						if (in_array($s['type'], array('ftp', 'ssh', 'email', 'local'))) {
+						if (in_array($s['type'], array('ftp', 'ssh', 'email', 'local', 'awss3'))) {
 							echo '<li data-server-id="' . $s['id'] . '">'
 											. '<a href="#">'
 											. '<span class="dragable"></span>'
@@ -442,23 +442,24 @@ foreach ($storage_servers as $s) {
 			<div class="row">
 				<div class="form-group">
 					<div class="col-md-3">
-						<label class="control-label" for="delet_time"><?php echo _("Delete After") ?></label>
-						<i class="fa fa-question-circle fpbx-help-icon" data-for="delet_time"></i>
+						<label class="control-label" for="delete_time"><?php echo _("Delete After") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="delete_time"></i>
 					</div>
 					<div class="col-md-9">
-						<input type="number" min="0" class="form-control" id="delet_time" name="delet_time" value="<?php echo isset($delet_time)?$delet_time:''?>">
+						<input type="number" min="0" class="form-control" id="delete_time" name="delete_time" value="<?php echo (!empty($delete_time)?$delete_time:'0')?>">
 						<div class="radioset">
-							<input type="radio" name="delete_time_type" id="delete_time_type_minutes" value="minutes" <?php $delete_time_type == 'minutes'?'SELECTED':''?>>
+							<?php $delete_time_type = (!empty($delete_time_type)?$delete_time_type:'days');?>
+							<input type="radio" name="delete_time_type" id="delete_time_type_minutes" value="minutes" <?php echo ($delete_time_type == 'minutes'?'CHECKED':'')?>>
 							<label for="delete_time_type_minutes"><?php echo _("Minutes")?></label>
-							<input type="radio" name="delete_time_type" id="delete_time_type_hours" value="hours" <?php $delete_time_type == 'hours'?'SELECTED':''?>>
+							<input type="radio" name="delete_time_type" id="delete_time_type_hours" value="hours" <?php echo ($delete_time_type == 'hours'?'CHECKED':'')?>>
 							<label for="delete_time_type_hours"><?php echo _("Hours")?></label>
-							<input type="radio" name="delete_time_type" id="delete_time_type_days" value="days" <?php $delete_time_type == 'days'?'SELECTED':''?>>
+							<input type="radio" name="delete_time_type" id="delete_time_type_days" value="days" <?php echo ($delete_time_type == 'days'?'CHECKED':'')?>>
 							<label for="delete_time_days"><?php echo _("Days")?></label>
-							<input type="radio" name="delete_time_type" id="delete_time_type_weeks" value="weeks" <?php $delete_time_type == 'weeks'?'SELECTED':''?>>
+							<input type="radio" name="delete_time_type" id="delete_time_type_weeks" value="weeks" <?php echo ($delete_time_type == 'weeks'?'CHECKED':'')?>>
 							<label for="delete_time_type_weeks"><?php echo _("Weeks")?></label>
-							<input type="radio" name="delete_time_type" id="delete_time_type_months" value="months" <?php $delete_time_type == 'months'?'SELECTED':''?>>
+							<input type="radio" name="delete_time_type" id="delete_time_type_months" value="months" <?php echo ($delete_time_type == 'months'?'CHECKED':'')?>>
 							<label for="delete_time_type_months"><?php echo _("Months")?></label>
-							<input type="radio" name="delete_time_type" id="delete_time_type_years" value="years" <?php $delete_time_type == 'years'?'SELECTED':''?>>
+							<input type="radio" name="delete_time_type" id="delete_time_type_years" value="years" <?php echo ($delete_time_type == 'years'?'CHECKED':'')?>>
 							<label for="delete_time_type_years"><?php echo _("Years")?></label>
 						</div>
 					</div>
@@ -468,100 +469,38 @@ foreach ($storage_servers as $s) {
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="delet_time-help" class="help-block fpbx-help-block"><?php echo _("Delete this backup after X amount of minutes/hours/days/weeks/months/years. Please note that deletes aren\'t time based and will only happen after a backup was run. Setting the value to 0 will disable any deleting")?></span>
+			<span id="delete_time-help" class="help-block fpbx-help-block"><?php echo _("Delete this backup after X amount of minutes/hours/days/weeks/months/years. Please note that deletes aren't time based and will only happen after a backup was run. Setting the value to 0 will disable any deleting")?></span>
+		</div>
+	</div>
+</div>
+<!--END Delete After-->
+<!--Delete After-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="delete_ammount"><?php echo _("Delete After") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="delete_ammount"></i>
+					</div>
+					<div class="col-md-9">
+						<div class="input-group">
+							<input type="number" min="0" class="form-control" id="delete_ammount" name="delete_ammount" value="<?php echo isset($delete_ammount)?$delete_ammount:'0'?>">
+							<span class="input-group-addon" id="runs-addon"><?php echo _("Runs")?></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="delete_ammount-help" class="help-block fpbx-help-block"><?php echo _("Delete this backup after X amount of runs. Setting the value to 0 will disable any deleting")?></span>
 		</div>
 	</div>
 </div>
 <!--END Delete After-->
 </div>
-<?php
-
-<<<<<<< HEAD
-$table = new CI_Table;
-=======
-foreach ($storage_servers as $idx => $s) {
-	$current_servers .= '<li data-server-id="' . $servers[$s]['id'] . '">' 
-					. '<a href="#">'
-					. '<span class="dragable"></span>'
-					. $servers[$s]['name'] 
-					. ' (' . $servers[$s]['type'] . ')'
-					. '</a>'
-					. '</li>';
-	unset($servers[$s]);
-}
-$current_servers .= '</ul>';
-$avalible_servers = '<ul id="storage_avail_servers" class="sortable storage_servers">';
-foreach ($servers as $s) {
-	if (in_array($s['type'], array('ftp', 'ssh', 'email', 'local','awss3'))) {
-		$avalible_servers .= '<li data-server-id="' . $s['id'] . '">' 
-						. '<a href="#">'
-						. '<span class="dragable"></span>'
-						. $s['name'] 
-						. ' (' . $s['type'] . ')'
-						. '</a>'
-						. '</li>';
-	}
-}
-$avalible_servers .= '</ul>';
-$table->set_heading(
-			fpbx_label(_('Storage Servers'), 
-				_('drag servers from the Available Servers list to add them as Storage Servers'))
-			, _('Available Servers'));
-$table->add_row($current_servers, array('data' => $avalible_servers, 'style' => 'padding-left: 100px;padding-right: 100px'));
-$html .= $table->generate();
-$html .= $table->clear();
->>>>>>> feature/IN-6160
-
-
-//MAINTENANCE
-$label	= fpbx_label(_('Delete after'), _('Delete this backup after X amount of minutes/hours/days/weeks/months/years. Please note that deletes aren\'t time based and will only happen after a backup was run. Setting the value to 0 will disable any deleting'));
-$data 	= array(
-			'name' 	=> 'delete_time',
-			'value' => $delete_time,
-			'type'	=> 'number',
-			'min'	=> 0
-		);
-//$immortal ? $data['disabled'] = '' : '';
-$data2 = array(
-			'minutes'	=> _('Minutes'),
-			'hours'		=> _('Hours'),
-			'days'		=> _('Days'),
-			'weeks'		=> _('Weeks'),
-			'months'	=> _('Months'),
-			'years'		=> _('Years')
-);
-$table->add_row($label, form_input($data) . ' ' . form_dropdown('delete_time_type', $data2, $delete_time_type));
-$label	= fpbx_label(_('Delete after'), _('Delete this backup after X amount of runs. Setting the value to 0 will disable any deleting'));
-$data 	= array(
-			'name'	=> 'delete_amount',
-			'value' => $delete_amount,
-			'type'	=> 'number',
-			'min'	=> 0
-		);
-//$immortal ? $data['disabled'] = '' : '';
-$table->add_row($label, form_input($data) . _(' runs'));
-$html .= $table->generate();
-$html .= $table->clear();
-
-$html .= br(3);
-if ($immortal != 'true') {
-	$html .= '<span class="radioset">';
-	$html .= form_submit(array(
-					'name'	=> 'submit',
-					'value'	=> _('Save'),
-					'id'	=> 'save_backup'
-	));
-	//can only run saved backups
-	if ($id) {
-		$html .= form_button(array('content' => _('and Run'), 'id' => 'run_backup'));
-	}
-	$html .= '</span>';
-	$html .= form_submit('submit', _('Delete'));
-}
-
-
-$html .= form_close(). PHP_EOL;
-
-$html .= '<script type="text/javascript" src="modules/backup/assets/js/views/backup.js"></script>';
-
-echo $html;
+</form>
+<script type="text/javascript" src="modules/backup/assets/js/views/backup.js"></script>

@@ -1,5 +1,5 @@
 
-<table class="table table-striped">
+<table class="table table-striped" id="template_table">
 	<tr>
 		<th>
 			<?php echo _('Type')?>
@@ -19,7 +19,6 @@
 	foreach ($items as $i){
 		$c++;
 		$d = backup_template_generate_tr($c, $i, $immortal);
-		dbug($d,$i);
 		echo '<tr><td>'.$d['type'].'</td><td>'.$d['path'].'</td><td>'.$d['exclude'].'</td><td>'.$d['delete'].'</td></tr>';
 	}
 	?>

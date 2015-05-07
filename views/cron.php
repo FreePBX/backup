@@ -1,6 +1,4 @@
 <?php
-$html = '';
-
 $data = array(
 			'never'		=> _('Never'),
 			'hourly'	=> _('Hourly'),
@@ -11,71 +9,20 @@ $data = array(
 			'reboot'	=> _('Reboot'),
 			'custom'	=> _('Custom')
 );
-$txt = <<<EOM
-Select how often to run this backup. The following schedule will be followed for all but custom:<br/>
-Hourly &nbsp&nbspRun once an hour, beginning of hour<br/>
-Daily &nbsp&nbsp&nbsp&nbspRun once a day, at midnight<br/>
-Weekly &nbsp&nbspRun once a week, midnight on Sun<br/>
-Monthly &nbsp&nbspRun once a month, midnight, first of month<br/>
-Annually &nbspRun once a year, midnight, Jan. 1<br/>
-Reboot &nbsp&nbspRun at startup of the server OR of the cron deamon (i.e. after every <code>service cron restart</code>)<br/>
-<br/>
-If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved
-<br/><br/>
-Never will never run the backup automatically
-<br/><br/>
-If a custom schedule is selected, any section not specficed will be considered to be "any" (aka: wildcard).
-I.e. if Day of Month is set to 12 and Day of Week is not set, the Backup will be run on ANY 12th of
-the month - regardless of the day of the week. If Day of Week is set to, say, Monday, the Backup will run ONLY
- on a Monday, and ONLY if it's the 12th of the month.
-EOM;
-$label = fpbx_label(_('Run Automatically'), _($txt));
-$html .= $label . ' ' . form_dropdown('cron_schedule', $data, $cron_schedule);
-$data = array(
-	'name'		=> 'cron_random',
-	'id'		=> 'cron_random',
-	'value'		=> 'true',
-	'checked'	=> ($cron_random == 'true' ? true : false),
-);
-
-$html .= br() . form_label(_('Randomize'), 'cron_random') . form_checkbox($data);
-
-$html .= '<div id="crondiv">';
-//minutes
-$html .= form_fieldset(_('Minutes'), ' class="cronset sortable storage_servers ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ');
-$html .= '<div class="cronsetdiv">';
+$runopts = '';
+foreach ($data as $key => $value) {
+	$runopts .= '<option value="'.$key.'" '.($key == $cron_schedule?'SELECTED':'').'>'.$value.'</option>';
+}
+$cron_minute_opts ='';
 for($i = 0; $i < 60; $i++) {
-	$html .= form_label(sprintf("%02d", $i), 'cron_minute' . $i);
-	$data = array(
-		'name'	=> 'cron_minute[]',
-		'id'	=> 'cron_minute' . $i,
-		'value'	=> $i,
-	);
-	in_array($i, $cron_minute) ? $data['checked'] = 'checked' : '';
-	$html .= form_checkbox($data) . ' ';
+	in_array($i, $cron_minute) ? $checked = 'SELECTED' : '';
+	$cron_minute_opts .= '<option value='.$i.' '.$checked.'>'.sprintf("%02d", $i).'</option>';
 }
-$html .= '</div>';
-$html .= form_fieldset_close();
-
-//hours
-$html .= form_fieldset(_('Hour'), ' class="cronset sortable storage_servers ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ');
-$html .= '<div class="cronsetdiv">';
+$cron_hour_opts='';
 for($i = 0; $i < 24; $i++) {
-	$html .= form_label(sprintf("%02d", $i), 'cron_hour' . $i);
-	$data = array(
-		'name'	=> 'cron_hour[]',
-		'id'	=> 'cron_hour' . $i,
-		'value'	=> $i,
-	);
-	in_array($i, $cron_hour) ? $data['checked'] = 'checked' : '';
-	$html .= form_checkbox($data) . ' ';
+	in_array($i, $cron_hour) ? $checked = 'SELECTED' : '';
+	$cron_hour_opts .= '<option value='.$i.' '.$checked.'>'.sprintf("%02d", $i).'</option>';
 }
-$html .= '</div>';
-$html .= form_fieldset_close();
-
-//day of week
-$html .= form_fieldset(_('Day of Week'), ' class="cronset narrow sortable storage_servers ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ');
-$html .= '<div class="cronsetdiv">';
 $doy = array(
 		'0' => _('Sunday'),
 		'1' => _('Monday'),
@@ -85,23 +32,14 @@ $doy = array(
 		'5' => _('Friday'),
 		'6' => _('Saturday'),
 );
+$cron_dow_opts='';
 foreach ($doy as $k => $v) {
-	$html .= form_label($v, 'cron_dow' . $k);
-	$data = array(
-		'name'	=> 'cron_dow[]',
-		'id'	=> 'cron_dow' . $k,
-		'value'	=> $k,
-	);
-	in_array((string) $k, $cron_dow) ? $data['checked'] = 'checked' : '';
-	$html .= form_checkbox($data) . ' ';
+	in_array($k, $cron_dow) ? $checked = 'SELECTED' : '';
+	$cron_dow_opts .= '<option value='.$k.' '.$checked.'>'.$v.'</option>';
 }
-$html .= '</div>';
-$html .= form_fieldset_close();
 
 //month
-$html .= form_fieldset(_('Month'), ' class="cronset narrow sortable storage_servers ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ');
-$html .= '<div class="cronsetdiv">';
-$doy = array(
+$moy = array(
 		'1' => _('January'),
 		'2' => _('February'),
 		'3' => _('March'),
@@ -115,33 +53,244 @@ $doy = array(
 		'11' => _('November'),
 		'12' => _('December'),
 );
-foreach ($doy as $k => $v) {
-	$html .= form_label($v, 'cron_month' . $k);
-	$data = array(
-		'name'	=> 'cron_month[]',
-		'id'	=> 'cron_month' . $k,
-		'value'	=> $k,
-	);
-	in_array($k, $cron_month) ? $data['checked'] = 'checked' : '';
-	$html .= form_checkbox($data) . ' ';
+$cron_month_opts='';
+foreach ($moy as $k => $v) {
+	in_array($k, $cron_month) ? $checked = 'SELECTED' : '';
+	$cron_month_opts .= '<option value='.$k.' '.$checked.'>'.$v.'</option>';
 }
-$html .= '</div>';
-$html .= form_fieldset_close();
-
 //day of month
-$html .= form_fieldset(_('Day of Month'), ' class="cronset sortable storage_servers ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ');
-$html .= '<div class="cronsetdiv">';
 for($i = 1; $i < 32; $i++) {
-	$html .= form_label(sprintf("%02d", $i), 'cron_dom' . $i);
-	$data = array(
-		'name'	=> 'cron_dom[]',
-		'id'	=> 'cron_dom' . $i,
-		'value'	=> $i,
-	);
-	in_array($i, $cron_dom) ? $data['checked'] = 'checked' : '';
-	$html .= form_checkbox($data) . ' ';
+	in_array($i, $cron_dom) ? $checked = 'SELECTED' : '';
+	$cron_dom_opts .= '<option value='.$i.' '.$checked.'>'.sprintf("%02d", $i).'</option>';
 }
-$html .= '</div>';
-$html .= form_fieldset_close();
-$html .= '</div>';
-echo $html;
+
+
+?>
+<div class="panel panel-default" id="cron_help">
+	<div class="panel-heading"><h3><a href="#cronhelptxt" data-toggle="collapse" data-target="#cronhelptxt"> <?php echo _("Schedule Help")?></a></h3></div>
+	<div class="panel-body collapse" id="cronhelptxt">
+			<?php echo _("Select how often to run this backup. The following schedule will be followed for all but custom.")?>
+			<br/>
+			<div class="section-title" data-for="bucronh"><b><i class="fa fa-minus"></i> <?php echo ("Hourly")?></b></div>
+				<div class="section" data-id="bucronh">
+    			<?php echo _("Run once an hour, beginning of hour")?>
+				</div>
+			<div class="section-title" data-for="bucrond"><b><i class="fa fa-minus"></i> <?php echo ("Daily")?></b></div>
+				<div class="section" data-id="bucrond">
+    			<?php echo _("Run once a day, at midnight")?>
+				</div>
+			<div class="section-title" data-for="bucronw"><b><i class="fa fa-minus"></i> <?php echo ("Weekly")?></b></div>
+				<div class="section" data-id="bucronw">
+    			<?php echo _("Run once a week, midnight on Sun")?>
+				</div>
+			<div class="section-title" data-for="bucronm"><b><i class="fa fa-minus"></i> <?php echo ("Monthly")?></b></div>
+				<div class="section" data-id="bucronm">
+    			<?php echo _("Run once a month, midnight, first of month")?>
+				</div>
+			<div class="section-title" data-for="bucrona"><b><i class="fa fa-minus"></i> <?php echo ("Anually")?></b></div>
+				<div class="section" data-id="bucrona">
+    			<?php echo _("Run once a year, midnight, Jan. 1")?>
+				</div>
+			<div class="section-title" data-for="bucronr"><b><i class="fa fa-minus"></i> <?php echo ("Reboot")?></b></div>
+				<div class="section" data-id="bucronr">
+    			<?php echo _("Run at startup of the server OR of the cron deamon (i.e. after every <code>service cron restart</code>)")?>
+				</div>
+			<div class="section-title" data-for="bucronn"><b><i class="fa fa-minus"></i> <?php echo ("Never")?></b></div>
+				<div class="section" data-id="bucronn">
+    			<?php echo _("Never will never run the backup automatically")?>
+				</div>
+			<div class="section-title" data-for="bucronc"><b><i class="fa fa-minus"></i> <?php echo ("Custom")?></b></div>
+				<div class="section" data-id="bucronc">
+    			<?php echo _("If a custom schedule is selected, any section not specficed will be considered to be \"any\" (aka: wildcard).
+					I.e. if Day of Month is set to 12 and Day of Week is not set, the Backup will be run on ANY 12th of
+					the month - regardless of the day of the week. If Day of Week is set to, say, Monday, the Backup will run ONLY
+					 on a Monday, and ONLY if it's the 12th of the month.")?>
+				</div>
+	</div>
+</div>
+
+<!--Run Automatically-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="cron_schedule"><?php echo _("Run Automatically") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="cron_schedule"></i>
+					</div>
+					<div class="col-md-9">
+						<select class="form-control" id="cron_schedule" name="cron_schedule">
+								<?php echo $runopts?>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="cron_schedule-help" class="help-block fpbx-help-block"><?php echo _("")?></span>
+		</div>
+	</div>
+</div>
+<!--END Run Automatically-->
+<!--Random-->
+<div class="element-container" id="randominput">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="cron_random"><?php echo _("Random") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="cron_random"></i>
+					</div>
+					<div class="col-md-9 radioset">
+            <input type="radio" name="cron_random" id="cron_randomyes" value="true" <?php echo ($cron_random == "true"?"CHECKED":"") ?>>
+            <label for="cron_randomyes"><?php echo _("Yes");?></label>
+            <input type="radio" name="cron_random" id="cron_randomno" <?php echo ($cron_random == "true"?"":"CHECKED") ?>>
+            <label for="cron_randomno"><?php echo _("No");?></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="cron_random-help" class="help-block fpbx-help-block"><?php echo _("If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved")?></span>
+		</div>
+	</div>
+</div>
+<!--END Random-->
+<div id="crondiv">
+<!--Minutes-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="cron_minute"><?php echo _("Minutes") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="cron_minute"></i>
+					</div>
+					<div class="col-md-9">
+						<select id="cron_minute" name="cron_minute[]" data-placeholder="<?php echo _("Minutes")?>" multiple class="form-control chosen chosen-select">
+							<?php echo $cron_minute_opts ?>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="cron_minute-help" class="help-block fpbx-help-block"><?php echo _("Which minutes to run")?></span>
+		</div>
+	</div>
+</div>
+<!--END Minutes-->
+<!--Hours-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="cron_hour"><?php echo _("Hours") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="cron_hour"></i>
+					</div>
+					<div class="col-md-9">
+						<select id="cron_hour" name="cron_hour[]" data-placeholder="<?php echo _("Hours")?>" multiple class="form-control chosen chosen-select">
+							<?php echo $cron_hour_opts ?>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="cron_hour-help" class="help-block fpbx-help-block"><?php echo _("Which Hours to run.")?></span>
+		</div>
+	</div>
+</div>
+<!--END Hours-->
+<!--Week Days-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="cron_dow"><?php echo _("Week Days") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="cron_dow"></i>
+					</div>
+					<div class="col-md-9">
+						<select id="cron_dow" name="cron_dow[]" data-placeholder="<?php echo _("Day of Week")?>" multiple class="form-control chosen chosen-select">
+							<?php echo $cron_dow_opts ?>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="cron_dow-help" class="help-block fpbx-help-block"><?php echo _("Which Days of the week to run")?></span>
+		</div>
+	</div>
+</div>
+<!--END Week Days-->
+<!--Months-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="cron_month"><?php echo _("Months") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="cron_month"></i>
+					</div>
+					<div class="col-md-9">
+						<select id="cron_month" name="cron_month[]" data-placeholder="<?php echo _("Months")?>" multiple class="form-control chosen chosen-select">
+							<?php echo $cron_month_opts ?>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="cron_month-help" class="help-block fpbx-help-block"><?php echo _("Which Months to run")?></span>
+		</div>
+	</div>
+</div>
+<!--END Months-->
+<!--Days of Month-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="cron_dom"><?php echo _("Days of Month") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="cron_dom"></i>
+					</div>
+					<div class="col-md-9">
+						<select id="cron_dom" name="cron_dom[]" data-placeholder="<?php echo _("Days of Month")?>" multiple class="form-control chosen chosen-select">
+							<?php echo $cron_dom_opts ?>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="cron_dom-help" class="help-block fpbx-help-block"><?php echo _("Days of month to run")?></span>
+		</div>
+	</div>
+</div>
+<!--END Days of Month-->
+</div>

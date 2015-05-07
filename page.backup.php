@@ -62,10 +62,6 @@ switch ($var['action']) {
 	case 'save':
 		$var['id'] = backup_put_backup($var);
 		break;
-	case 'delete':
-		dbug("HERE");
-		$var['id'] = backup_del_backup($var['id']);
-		break;
 	case 'run':
 		//dont stop untill were all done
 		//backup will compelte EVEN IS USER NAVIGATES AWAY FROM PAGE!!

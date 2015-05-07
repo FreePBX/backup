@@ -1,27 +1,36 @@
+
+<table class="table table-striped">
+	<tr>
+		<th>
+			<?php echo _('Type')?>
+		</th>
+		<th>
+			<?php echo _('Path/DB')?>
+		</th>
+		<th>
+			<?php echo _('Exclude')?>
+		</th>
+		<th>
+			<?php echo _('Delete')?>
+		</th>
+	</tr>
+	<?php
+	$c = 0;
+	foreach ($items as $i){
+		$c++;
+		$d = backup_template_generate_tr($c, $i, $immortal);
+		dbug($d,$i);
+		echo '<tr><td>'.$d['type'].'</td><td>'.$d['path'].'</td><td>'.$d['exclude'].'</td><td>'.$d['delete'].'</td></tr>';
+	}
+	?>
+</table>
 <?php
 $html = '';
-$table = new CI_Table;
 
-//item table
-$table->set_template(array('table_open' => '<table class="alt_table" id="template_table">'));
-$table->set_heading(_('Type'), _('Path/DB'), _('Exclude'), _('Delete'));
 
-$table->add_row('', '', '', '');
-$c = 0;
-foreach($items as $i) {
-	$c++;
-	$d	= backup_template_generate_tr($c, $i, $immortal);
-	$table->add_row($d['type'], $d['path'], $d['exclude'], $d['delete']);
-}
-
-$html .= $table->generate();
-$html .= $table->clear();
-$html .= br() . PHP_EOL;
 if ($immortal != 'true') {
 	$html .= '<img src="modules/backup/assets/images/add.png" style="cursor:pointer" title="Add Entry" id="add_entry" />';
 }
-
-
 
 //include javascript variables for add button
 $html	.= '<script type="text/javascript">';

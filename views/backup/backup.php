@@ -1,249 +1,488 @@
+<h2><?php echo _("Backup")?></h2>
+<form class="fpbx-submit" action="" method="post" id="backup">
+	<input type="hidden" name="action" value="save">
+	<input type="hidden" name="id" value="<?php isset($id)?$id:''?>">
+	<!--Backup Name-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="name"><?php echo _("Backup Name") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="name"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="name" name="name" value="<?php echo isset($name)?$name:''?>">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="name-help" class="help-block fpbx-help-block"><?php echo _("Name this backup")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Backup Name-->
+	<!--Description-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="desc"><?php echo _("Description") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="desc"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="desc" name="desc" value="<?php echo isset($desc)?$desc:''?>">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="desc-help" class="help-block fpbx-help-block"><?php echo _("Description or notes for this backup")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Description-->
+	<!--Status Email-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="email"><?php echo _("Status Email") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="email"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="email" name="email" value="<?php echo isset($email)?$email:''?>">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="email-help" class="help-block fpbx-help-block"><?php echo _("Email to send status messages to when this task is run")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Status Email-->
+<div class="row">
+	<div class="col-md-12">
+		<div class="well well-default">
+			<?php echo _('Drag templates and drop them in the items table to add the templates items to the table')?>
+		</div>
+	</div>
+	<div class="col-md-8">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><?php echo _("Items")?></h3>
+			</div>
+			<div class="panel-body">
+				<div id="items_over"><?php echo _("Drop Here")?></div>
+				<?php echo load_view(dirname(__FILE__) . '/../item_table.php',array('items' => $items, 'immortal' => ''));?>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><?php echo _("Templates")?></h3>
+			</div>
+			<div class="panel-body">
+				<ul id="templates" class="sortable">
+					<?php
+					foreach ($templates as $t) {
+						echo'<li data-template="' . rawurlencode(json_encode($t['items'])) . '"'
+										. ' title="' . $t['desc'] . '"'
+										.'>'
+										. '<a href="#">'
+										. '<span class="dragable"></span>'
+										. $t['name']
+										. '</a>'
+										. '</li>';
+					}
+
+					?>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="section-title" data-for="buhooks"><h3><i class="fa fa-minus"></i> <?php echo _("Hooks")?></h3></div>
+<div class="section" data-id="buhooks">
+	<!--Pre-Backup Hook-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="prebu_hook"><?php echo _("Pre-Backup Hook") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="prebu_hook"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="prebu_hook" name="prebu_hook" value="<?php echo isset($prebu_hook)?$prebu_hook:''?>">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="prebu_hook-help" class="help-block fpbx-help-block"><?php echo _("A script to be run BEFORE a backup is started.")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Pre-Backup Hook-->
+	<!--Post-Backup Hook-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="postbu_hook"><?php echo _("Post-Backup Hook") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="postbu_hook"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="postbu_hook" name="postbu_hook" value="<?php echo isset($postbu_hook)?$postbu_hook:''?>">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="postbu_hook-help" class="help-block fpbx-help-block"><?php echo _("A script to be run AFTER a backup is completed.")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Post-Backup Hook-->
+	<!--Pre-Restore Hook-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="prere_hook"><?php echo _("Pre-Restore Hook") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="prere_hook"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="prere_hook" name="prere_hook" value="<?php echo isset($prere_hook)?$prere_hook:''?>">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="prere_hook-help" class="help-block fpbx-help-block"><?php echo _("A script to be run BEFORE a backup is restored.")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Pre-Restore Hook-->
+	<!--Post-Restore Hook-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="postre_hook"><?php echo _("Post-Restore Hook") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="postre_hook"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="postre_hook" name="postre_hook" value="<?php echo isset($postre_hook)?$postre_hook:''?>">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="postre_hook-help" class="help-block fpbx-help-block"><?php echo _("A script to be run AFTER a backup is restored.")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Post-Restore Hook-->
+</div>
 <?php
-$html = '';
-$html .= heading(_('Backup'), 3) . '<hr class="backup-hr"/>';
-$html .= form_open($_SERVER['REQUEST_URI'], 'id="backup_form"');
-$html .= form_hidden('action', 'save');
-$html .= form_hidden('id', $id);
+$serveropts = '<option value = "0">'._('This server').'</option>';
+foreach ($servers as $s) {
+	if ($s['type'] == 'ssh') {
+		$selected = ($data[$s['id']] == $bu_server?'SELECTED':'');
+		$serveropts .= '<option value='.$data[$s['id']].' '.$selected.'>'.$s['name'].'</option>';
+	}
+}
+?>
+<!--Backup Server-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="bu_server"><?php echo _("Backup Server") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="bu_server"></i>
+					</div>
+					<div class="col-md-9">
+						<select class="form-control" id="bu_server" name="bu_server">
+							<?php echo $serveropts?>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="bu_server-help" class="help-block fpbx-help-block"><?php echo _("Select the server to be backed up (this server, or any other SSH server)")?></span>
+		</div>
+	</div>
+</div>
+<!--END Backup Server-->
+<!--Restore Here-->
+<div class="element-container remote restore">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="restore"><?php echo _("Restore Here") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="restore"></i>
+					</div>
+					<div class="col-md-9 radioset">
+            <input type="radio" name="restore" id="restoreyes" value="true" <?php echo ($restore == "true"?"CHECKED":"") ?>>
+            <label for="restoreyes"><?php echo _("Yes");?></label>
+            <input type="radio" name="restore" id="restoreno" <?php echo ($restore == "true"?"":"CHECKED") ?>>
+            <label for="restoreno"><?php echo _("No");?></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="restore-help" class="help-block fpbx-help-block"><?php echo _("Restore backup to this server after the backup is complete")?></span>
+		</div>
+	</div>
+</div>
+<!--END Restore Here-->
+<!--Disable Registered Trunks-->
+<div class="element-container remote restore">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="disabletrunks"><?php echo _("Disable Registered Trunks") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="disabletrunks"></i>
+					</div>
+					<div class="col-md-9 radioset">
+            <input type="radio" name="disabletrunks" id="disabletrunksyes" value="true" <?php echo ($disabletrunks == "true"?"CHECKED":"") ?>>
+            <label for="disabletrunksyes"><?php echo _("Yes");?></label>
+            <input type="radio" name="disabletrunks" id="disabletrunksno" <?php echo ($disabletrunks == "true"?"":"CHECKED") ?>>
+            <label for="disabletrunksno"><?php echo _("No");?></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="disabletrunks-help" class="help-block fpbx-help-block"><?php echo _("After a restore, disable any trunks that use registration. This is helpful to prevent the Primary and Standby systems from \"fighting\" for the registration, resulting in some calls routed to the Standby system.")?></span>
+		</div>
+	</div>
+</div>
+<!--END Disable Registered Trunks-->
+<!--Exclude NAT settings-->
+<div class="element-container remote restore">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="skipnat"><?php echo _("Exclude NAT settings") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="skipnat"></i>
+					</div>
+					<div class="col-md-9 radioset">
+            <input type="radio" name="skipnat" id="skipnatyes" value="true" <?php echo ($skipnat == "true"?"CHECKED":"") ?>>
+            <label for="skipnatyes"><?php echo _("Yes");?></label>
+            <input type="radio" name="skipnat" id="skipnatno" <?php echo ($skipnat == "true"?"":"CHECKED") ?>>
+            <label for="skipnatno"><?php echo _("No");?></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="skipnat-help" class="help-block fpbx-help-block"><?php echo _("Explicitly exclude any machine-specific IP settings. This allows you to have a warm-spare machine with a different IP address.")?></span>
+		</div>
+	</div>
+</div>
+<!--END Exclude NAT settings-->
+<!--Apply Configs-->
+<div class="element-container remote restore">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="applyconfigs"><?php echo _("Apply Configs") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="applyconfigs"></i>
+					</div>
+					<div class="col-md-9 radioset">
+            <input type="radio" name="applyconfigs" id="applyconfigsyes" value="true" <?php echo ($applyconfigs == "true"?"CHECKED":"") ?>>
+            <label for="applyconfigsyes"><?php echo _("Yes");?></label>
+            <input type="radio" name="applyconfigs" id="applyconfigsno" <?php echo ($applyconfigs == "true"?"":"CHECKED") ?>>
+            <label for="applyconfigsno"><?php echo _("No");?></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="applyconfigs-help" class="help-block fpbx-help-block"><?php echo _("Equivalence of clicking the red button, will happen automatically after a restore on a Standby system")?></span>
+		</div>
+	</div>
+</div>
+<!--END Apply Configs-->
+<?php
+foreach ($storage_servers as $s) {
+	echo '<input type="hidden" name="storage_servers[]" value="' . $s . '">';
+}
+?>
+<div class="row">
+	<div class="col-md-12">
+		<div class="well well-default">
+			<?php echo _('Drag servers from the Available Servers list to add them as Storage Servers')?>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><?php echo _("Storage Servers")?></h3>
+			</div>
+			<div class="panel-body">
+				<ul id="storage_used_servers" class="sortable storage_servers">
+					<?php
+					foreach ($storage_servers as $idx => $s) {
+						echo '<li data-server-id="' . $servers[$s]['id'] . '">'
+										. '<a href="#">'
+										. '<span class="dragable"></span>'
+										. $servers[$s]['name']
+										. ' (' . $servers[$s]['type'] . ')'
+										. '</a>'
+										. '</li>';
+						unset($servers[$s]);
+					}
+					?>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><?php echo _("Availible Servers")?></h3>
+			</div>
+			<div class="panel-body">
+				<ul id="storage_avail_servers" class="sortable storage_servers">
+					<?php
+					foreach ($servers as $s) {
+						if (in_array($s['type'], array('ftp', 'ssh', 'email', 'local'))) {
+							echo '<li data-server-id="' . $s['id'] . '">'
+											. '<a href="#">'
+											. '<span class="dragable"></span>'
+											. $s['name']
+											. ' (' . $s['type'] . ')'
+											. '</a>'
+											. '</li>';
+						}
+					}
+					?>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="section-title" data-for="bucron"><h3><i class="fa fa-minus"></i> <?php echo _("Backup Schedule")?></h3></div>
+<div class="section" data-id="bucron">
+    <?php
+		$cron = array(
+			'cron_dom'			=> $cron_dom,
+			'cron_dow'			=> $cron_dow,
+			'cron_hour'			=> $cron_hour,
+			'cron_minute'		=> $cron_minute,
+			'cron_month'		=> $cron_month,
+			'cron_random'		=> $cron_random,
+			'cron_schedule'		=> $cron_schedule
+		);
+		echo load_view(dirname(__FILE__) . '/../cron.php', $cron);
+		?>
+</div>
+<div class="section-title" data-for="bumaint"><h3><i class="fa fa-minus"></i> <?php echo _("Maintinance")?></h3></div>
+<div class="section" data-id="bumaint">
+<!--Delete After-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="delet_time"><?php echo _("Delete After") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="delet_time"></i>
+					</div>
+					<div class="col-md-9">
+						<input type="number" min="0" class="form-control" id="delet_time" name="delet_time" value="<?php echo isset($delet_time)?$delet_time:''?>">
+						<div class="radioset">
+							<input type="radio" name="delete_time_type" id="delete_time_type_minutes" value="minutes" <?php $delete_time_type == 'minutes'?'SELECTED':''?>>
+							<label for="delete_time_type_minutes"><?php echo _("Minutes")?></label>
+							<input type="radio" name="delete_time_type" id="delete_time_type_hours" value="hours" <?php $delete_time_type == 'hours'?'SELECTED':''?>>
+							<label for="delete_time_type_hours"><?php echo _("Hours")?></label>
+							<input type="radio" name="delete_time_type" id="delete_time_type_days" value="days" <?php $delete_time_type == 'days'?'SELECTED':''?>>
+							<label for="delete_time_days"><?php echo _("Days")?></label>
+							<input type="radio" name="delete_time_type" id="delete_time_type_weeks" value="weeks" <?php $delete_time_type == 'weeks'?'SELECTED':''?>>
+							<label for="delete_time_type_weeks"><?php echo _("Weeks")?></label>
+							<input type="radio" name="delete_time_type" id="delete_time_type_months" value="months" <?php $delete_time_type == 'months'?'SELECTED':''?>>
+							<label for="delete_time_type_months"><?php echo _("Months")?></label>
+							<input type="radio" name="delete_time_type" id="delete_time_type_years" value="years" <?php $delete_time_type == 'years'?'SELECTED':''?>>
+							<label for="delete_time_type_years"><?php echo _("Years")?></label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="delet_time-help" class="help-block fpbx-help-block"><?php echo _("Delete this backup after X amount of minutes/hours/days/weeks/months/years. Please note that deletes aren\'t time based and will only happen after a backup was run. Setting the value to 0 will disable any deleting")?></span>
+		</div>
+	</div>
+</div>
+<!--END Delete After-->
+</div>
+<?php
 
 $table = new CI_Table;
 
-//name
-$label	= fpbx_label(_('Backup Name'));
-$data 	= array(
-			'name' => 'name', 
-			'value' => $name
-		);
-//$immortal ? $data['disabled'] = '' : '';
-$table->add_row($label, form_input($data));
-
-//description
-$label	= fpbx_label(_('Description'), _('Description or notes for this backup'));
-$data 	= array(
-			'name' => 'desc', 
-			'value' => $desc
-		);
-
-//$immortal ? $data['disabled'] = '' : '';
-$table->add_row($label, form_input($data));
-
-//email
-$label = fpbx_label(_('Status Email'), _('Email to send status messages to when this task is run'));
-$data = array(
-			'name' => 'email',
-			'value' => $email
-		);
-//$immortal ? $data['disabled'] = '' : '';
-$table->add_row($label, form_input($data));
-$html .= $table->generate();
-$html .= $table->clear();
-
-//ITEMS
-$html .= heading(_('Items'), 5) . '<hr class="backup-hr"/>';
-$current = load_view(dirname(__FILE__) . '/../item_table.php', 
-			array('items' => $items, 'immortal' => ''));
-$current .= '<div id="items_over">' . _('drop here') . '</div>';
-$template_list = '<ul id="templates" class="sortable">';
-foreach ($templates as $t) {
-	$template_list .= '<li data-template="' . rawurlencode(json_encode($t['items'])) . '"'
-					. ' title="' . $t['desc'] . '"'
-					.'>' 
-					. '<a href="#">'
-					. '<span class="dragable"></span>'
-					. $t['name'] 
-					. '</a>'
-					. '</li>';
-}
-$template_list .= '</ul>';
-
-$table->set_heading(
-			fpbx_label(_('Backup Items'), 
-				_('Drag templates and drop them in the items table to add the templates items to the table'))
-			, 
-			fpbx_label(_('Templates'), _('Drag templates and drop them in the Backup Items table. '
-										. 'Add as many templates as you need')));
-$table->add_row($current, array('data' => $template_list, 'style' => 'padding-left: 100px;padding-right: 100px'));
-$html .= $table->generate();
-$html .= $table->clear();
-
-
-//HOOKS
-//pre backup hook
-$html .= heading(_('Hooks'), 5) . '<hr class="backup-hr"/>';
-$label	= fpbx_label(_('Pre-backup Hook'), _('A script to be run BEFORE a backup is started.'));
-$data 	= array(
-			'name' => 'prebu_hook', 
-			'value' => $prebu_hook
-		);
-//$immortal ? $data['disabled'] = '' : '';
-$table->add_row($label, form_input($data));
-
-//post backup hook
-$label	= fpbx_label(_('Post-backup Hook'), _('A script to be run AFTER a backup is completed.'));
-$data 	= array(
-			'name' => 'postbu_hook', 
-			'value' => $postbu_hook
-		);
-//$immortal ? $data['disabled'] = '' : '';
-$table->add_row($label, form_input($data));
-
-//pre-restore backup hook
-$label	= fpbx_label(_('Pre-restore Hook'), _('A script to be run BEFORE a backup is restored.'));
-$data 	= array(
-			'name' => 'prere_hook', 
-			'value' => $prere_hook
-		);
-	
-//$immortal ? $data['disabled'] = '' : '';
-$table->add_row($label, form_input($data));
-
-//post-restore backup hook
-$label	= fpbx_label(_('Post-restore Hook'), _('A script to be run AFTER a backup is restored.'));
-$data 	= array(
-			'name' => 'postre_hook', 
-			'value' => $postre_hook
-		);
-//$immortal ? $data['disabled'] = '' : '';
-$table->add_row($label, form_input($data));
-$html .= $table->generate();
-$html .= $table->clear();
-
-
-//BACKUP Server
-$html .= heading(_('Backup Server'), 5) . '<hr class="backup-hr"/>';
-$data = array();
-
-//hardcode THIS server, as there isnt really any other way of relating to it
-//as its not a local server in that its not filesystem dependant (it depends on the whole freepbx/asterisk shebang)
-$data[0] = _('This server');
-foreach ($servers as $s) {
-	if ($s['type'] == 'ssh') {
-		$data[$s['id']] = $s['name'];
-	}
-}
-
-$label = fpbx_label(
-			_('Backup Server'), 
-			_('Select the server to be backed up (this server, or any other SSH server)')
-		);
-$label = form_label($label, 'bu_server');
-$table->add_row($label, form_dropdown('bu_server', $data, $bu_server));
-
-$label = form_label($label, 'restore');
-$data = array(
-	'name'		=> 'restore',
-	'id'		=> 'restore',
-	'value'		=> 'true',
-	'checked'	=> ($restore == 'true' ? true : false),
-);
-$label = fpbx_label(_('Restore Here'), 'Restore backup to this server after the backup is complete');
-$label = array('data' => form_label($label, 'restore'), 'class' => 'remote ');
-$data = array('data' => form_checkbox($data), 'class' => 'remote ');
-$table->add_row($label, $data);
-
-// Disable trunks
-$label = fpbx_label(_('Disable Registered Trunks'), 
-		'After a restore, disable any trunks that use registration. This is helpful to '
-		. 'prevent the Primary and Standby systems from "fighting" for the '
-		. 'registration, resulting in some calls routed to the Standby system.');
-$data = array(
-	'name'		=> 'disabletrunks',
-	'id'		=> 'disabletrunks',
-	'value'		=> 'true',
-	'checked'	=> ($disabletrunks == 'true' ? true : false),
-);
-$label = array('data' => form_label($label, 'disabletrunks'), 'class' => 'remote restore');
-$data = array('data' => form_checkbox($data), 'class' => 'remote restore');
-$table->add_row($label, $data);
-
-// Skip NATty stuff.
-$label = fpbx_label(_('Exclude NAT settings'), 
-		'Explicitly exclude any machine-specific IP settings. This allows you '
-		. 'to have a warm-spare machine with a different IP address.');
-$data = array(
-	'name'		=> 'skipnat',
-	'id'		=> 'skipnat',
-	'value'		=> 'true',
-	'checked'	=> ($skipnat == 'true' ? true : false),
-);
-$label = array('data' => form_label($label, 'skipnat'), 'class' => 'remote restore');
-$data = array('data' => form_checkbox($data), 'class' => 'remote restore');
-$table->add_row($label, $data);
-
-//apply configs
-$label = fpbx_label(_('Apply Configs'), 
-		'Equivalence of clicking the red button, will happen automatically after a restore on a Standby system');
-$data = array(
-	'name'		=> 'applyconfigs',
-	'id'		=> 'applyconfigs',
-	'value'		=> 'true',
-	'checked'	=> ($applyconfigs == 'true' ? true : false),
-);
-$label = array('data' => form_label($label, 'applyconfigs'), 'class' => 'remote restore');
-$data = array('data' => form_checkbox($data), 'class' => 'remote restore');
-$table->add_row($label, $data);
-
-
-$html .= $table->generate();
-$html .= $table->clear();
-
-
-//SERVERS
-$html .= heading(_('Storage Locations'), 5) . '<hr class="backup-hr"/>';
-foreach ($storage_servers as $s) {
-	$html .= '<input type="hidden" name="storage_servers[]" value="' . $s . '">';
-}
-$current_servers = '<ul id="storage_used_servers" class="sortable storage_servers">';
-
-foreach ($storage_servers as $idx => $s) {
-	$current_servers .= '<li data-server-id="' . $servers[$s]['id'] . '">' 
-					. '<a href="#">'
-					. '<span class="dragable"></span>'
-					. $servers[$s]['name'] 
-					. ' (' . $servers[$s]['type'] . ')'
-					. '</a>'
-					. '</li>';
-	unset($servers[$s]);
-}
-$current_servers .= '</ul>';
-$avalible_servers = '<ul id="storage_avail_servers" class="sortable storage_servers">';
-foreach ($servers as $s) {
-	if (in_array($s['type'], array('ftp', 'ssh', 'email', 'local'))) {
-		$avalible_servers .= '<li data-server-id="' . $s['id'] . '">' 
-						. '<a href="#">'
-						. '<span class="dragable"></span>'
-						. $s['name'] 
-						. ' (' . $s['type'] . ')'
-						. '</a>'
-						. '</li>';
-	}
-}
-$avalible_servers .= '</ul>';
-$table->set_heading(
-			fpbx_label(_('Storage Servers'), 
-				_('drag servers from the Available Servers list to add them as Storage Servers'))
-			, _('Available Servers'));
-$table->add_row($current_servers, array('data' => $avalible_servers, 'style' => 'padding-left: 100px;padding-right: 100px'));
-$html .= $table->generate();
-$html .= $table->clear();
-
-//SCHEDULE
-$html .= heading(_('Backup Schedule'), 5) . '<hr class="backup-hr"/>';
-$cron = array(
-	'cron_dom'			=> $cron_dom,
-	'cron_dow'			=> $cron_dow,
-	'cron_hour'			=> $cron_hour,
-	'cron_minute'		=> $cron_minute,
-	'cron_month'		=> $cron_month,
-	'cron_random'		=> $cron_random,
-	'cron_schedule'		=> $cron_schedule
-);
-$html .= load_view(dirname(__FILE__) . '/../cron.php', $cron);
 
 //MAINTENANCE
-$html .= heading(_('Maintenance'), 5) . '<hr class="backup-hr"/>';
 $label	= fpbx_label(_('Delete after'), _('Delete this backup after X amount of minutes/hours/days/weeks/months/years. Please note that deletes aren\'t time based and will only happen after a backup was run. Setting the value to 0 will disable any deleting'));
 $data 	= array(
-			'name' 	=> 'delete_time', 
+			'name' 	=> 'delete_time',
 			'value' => $delete_time,
 			'type'	=> 'number',
 			'min'	=> 0
@@ -260,7 +499,7 @@ $data2 = array(
 $table->add_row($label, form_input($data) . ' ' . form_dropdown('delete_time_type', $data2, $delete_time_type));
 $label	= fpbx_label(_('Delete after'), _('Delete this backup after X amount of runs. Setting the value to 0 will disable any deleting'));
 $data 	= array(
-			'name'	=> 'delete_amount', 
+			'name'	=> 'delete_amount',
 			'value' => $delete_amount,
 			'type'	=> 'number',
 			'min'	=> 0

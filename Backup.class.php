@@ -26,7 +26,6 @@ class Backup implements \BMO {
     					$current_servers = backup_get_server('all_detailed');
     					$server = array();
     					$backup = array();
-    					dbug($_REQUEST);
     					extract($_REQUEST);
     					foreach($current_servers as $key => $value){
 							if ($value['name'] == 'Local Storage' && $value['type'] == 'local' && $value['immortal'] == 'true') {
@@ -149,7 +148,6 @@ class Backup implements \BMO {
     	}
     }
 	public function getActionBar($request) {
-		dbug($request);
 		$buttons = array();
 		switch($request['display']) {
 			case 'backup':

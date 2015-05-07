@@ -63,6 +63,7 @@ switch ($var['action']) {
 		break;
 	case 'list_dir':
 		echo json_encode(backup_jstree_list_dir($var['id'], $var['path']));
+		dbug(backup_jstree_list_dir($var['id'], $var['path']));
 		exit;
 		break;
 	case 'backup_list':

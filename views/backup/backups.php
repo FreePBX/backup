@@ -1,18 +1,15 @@
+<a href="#" role="button" class="btn btn-large btn-primary" data-toggle="modal" data-target="#merlin"><i class="fa fa-magic"></i> <?php echo _('Backup Wizard') ?></a>
+<a href="config.php?type=setup&display=backup&action=edit" role="button" class="btn btn-large btn-primary" ><i class="fa fa-plus"></i> <?php echo _('New Backup') ?></a>
 
-<h2><?php echo _("Create Backup Options")?></h2>
-<br/>
-<a href="#" role="button" class="btn btn-large btn-primary" data-toggle="modal" data-target="#merlin"><?php echo _('Backup Wizard') ?></a>
-<a href="config.php?type=setup&display=backup&action=edit" role="button" class="btn btn-large btn-primary" ><?php echo _('New Backup') ?></a>
-<table id="backupsGrid" data-url="ajax.php?module=backup&command=getJSON&jdata=backupGrid" data-cache="false" data-height="299" data-toggle="table" class="table table-striped">
+<table id="backupsGrid"  data-pagination="true" data-search="true" data-url="ajax.php?module=backup&command=getJSON&jdata=backupGrid" data-cache="false" data-height="299" data-toggle="table" class="table table-striped">
     <thead>
             <tr>
-            <th data-field="name"><?php echo _("Item")?></th>
+            <th data-field="name" data-sortable="true"><?php echo _("Item")?></th>
             <th data-field="description"><?php echo _("Description")?></th>
             <th data-field="id,immortal" data-formatter="linkFormatter"><?php echo _("Actions")?></th>
         </tr>
     </thead>
 </table>
-
 
 <div class="modal fade" id="merlin" tabindex="-1" role="dialog" aria-labelledby="merlin" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
@@ -79,13 +76,13 @@
 						</a>
 					</li>
 				</ul>
-				<div id="welcome">   
+				<div id="welcome">
 					<h2 class="StepTitle"><?php echo _("Welcome to the Backup Wizard")?> </h2>
 					</br>
 					<p><?php echo sprintf(_("This wizard can be used to add a basic backup task for your %s system"),$brand)?></p>
 					<p><?php echo _("Click 'Next' to continue.")?></p>
 				</div>
-				<div id="step-1">   
+				<div id="step-1">
 					<h2 class="StepTitle"><?php echo _("Basic Backup Information")?></h2>
 					<br/>
 					<!--Backup Name-->
@@ -142,7 +139,7 @@
 					<br/>
 					<table>
 						<tr>
-							<td> 
+							<td>
 								<span class="radioset">
 								<input type="radio" name="wizfreq" id="wizfreqnightly" value="daily" CHECKED>
 								<label for="wizfreqnightly"><?php echo _("Nightly");?></label>
@@ -155,7 +152,7 @@
 							<td id="atlabel"><b><?php echo _("AT")?></b></td>
 							<td id="atinput">
 								<div class="input-group">
-									<input type="number" min="0" max="23" class="form-control" id="wizat" name="wizat" value="23">					
+									<input type="number" min="0" max="23" class="form-control" id="wizat" name="wizat" value="23">
 									<span class="input-group-addon" id="wizat-addon">:00</span>
 								</div>
 							</td>
@@ -305,7 +302,7 @@
 							</div>
 						</div>
 					</div>
-					<!--END Status Email-->					
+					<!--END Status Email-->
 				</div>
 				<div id="step-5">
 					<h2 class="StepTitle"><?php echo _("Remote save options")?></h2>
@@ -325,7 +322,7 @@
 											<input type="radio" name="wizremote" id="wizremoteyes" value="yes">
 											<label for="wizremoteyes"><?php echo _("Yes");?></label>
 											<input type="radio" name="wizremote" id="wizremoteno" value="no" CHECKED>
-											<label for="wizremoteno"><?php echo _("No");?></label>											
+											<label for="wizremoteno"><?php echo _("No");?></label>
 										</div>
 									</div>
 								</div>
@@ -352,7 +349,7 @@
 											<input type="radio" name="wizremtype" id="wizremtypeftp" value="ftp" CHECKED>
 											<label for="wizremtypeftp"><?php echo _("FTP");?></label>
 											<input type="radio" name="wizremtype" id="wizremtypessh" value="ssh" >
-											<label for="wizremtypessh"><?php echo _("SSH");?></label>	
+											<label for="wizremtypessh"><?php echo _("SSH");?></label>
 										</div>
 									</div>
 								</div>

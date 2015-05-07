@@ -151,6 +151,7 @@ function backup_get_manifest_db($bu) {
 	}
 
 	$sql = 'SELECT manifest from backup_cache WHERE id = ?';
+	dbug($id);
 	$ret = $db->getOne($sql, $bu);
 	if ($db->IsError($ret)){
 		die_freepbx($ret->getDebugInfo());

@@ -1,5 +1,4 @@
 <?php
-
 $html = '';
 $html .= heading(_('Restore'), 3) . '<hr class="backup-hr"/>';
 $html .= form_open($_SERVER['REQUEST_URI'], array('id' => 'files_browes_frm'));
@@ -20,7 +19,6 @@ foreach ($templates as $t) {
 					. '</li>';
 }
 $template_list .= '</ul>';
-
 $files = '';
 $files .= '<div id="restore_items">';
 $files .= '<script type="text/javascript">var FILE_LIST=';

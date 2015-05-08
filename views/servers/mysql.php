@@ -1,91 +1,181 @@
 <?php
-$html = '';
-$html .= heading('Mysql Server', 3) . '<hr class="backup-hr"/>';
-$html .= form_hidden('server_type', 'mysql');
-$html .= form_open($_SERVER['REQUEST_URI']);
-$html .= form_hidden('action', 'save');
-$html .= form_hidden('id', $id);
+$disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
+?>
+<h2><?php echo _("MySQL Server")?></h2>
+<form class="fpbx-submit" action="" method="post" id="server_form" name="server_form">
+	<input type="hidden" name="action" value="save">
+	<input type="hidden" name="id" value="<?php echo isset($id)?$id:''?>">
+	<input type="hidden" name="server_type" value="mysql">
+	<!--Server Name-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="name"><?php echo _("Server Name") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="name"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="name" name="name" value="<?php echo isset($name)?$name:''?>"<?php echo $disabled?>>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="name-help" class="help-block fpbx-help-block"><?php echo _("Supply a server name")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Server Name-->
+	<!--Description-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="desc"><?php echo _("Description") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="desc"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="desc" name="desc" value="<?php echo isset($desc)?$desc:''?>"<?php echo $disabled?>>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="desc-help" class="help-block fpbx-help-block"><?php echo _("Description or notes for this server")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Description-->
+	<!--Hostname-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="host"><?php echo _("Hostname") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="host"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="host" name="host" value="<?php echo isset($host)?$host:''?>" <?php echo $disabled?>>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="host-help" class="help-block fpbx-help-block"><?php echo _("IP address or FQDN of remote mysql host")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Hostname-->
+	<!--Port-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="port"><?php echo _("Port") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="port"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="port" name="port" value="<?php echo isset($port)?$port:''?>"<?php echo $disabled?>>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="port-help" class="help-block fpbx-help-block"><?php echo _("Remote MySQL Port")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Port-->
+	<!--User Name-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="user"><?php echo _("User Name") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="user"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="user" name="user" value="<?php echo isset($user)?$user:''?>"<?php echo $disabled?>>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="user-help" class="help-block fpbx-help-block"><?php echo _("FTP Username")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END User Name-->
+	<!--Password-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="password"><?php echo _("Password") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="password"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="password" class="form-control" id="password" name="password" value="<?php echo isset($password)?$password:''?>"<?php echo $disabled?>>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="password-help" class="help-block fpbx-help-block"><?php echo _("FTP Password")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Password-->
+	<!--DB Name-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="dbname"><?php echo _("DB Name") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="dbname"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="dbname" name="dbname" value="<?php echo isset($dbname)?$dbname:''?>"<?php echo $disabled?>>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="dbname-help" class="help-block fpbx-help-block"><?php echo _("Remote Database Name")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END DB Name-->
+</form>
 
-
-$table = new CI_Table;
-
-//name
-$label	= fpbx_label(_('Server Name'));
-$data 	= array(
-			'name'		=> 'name', 
-			'value'		=> $name
-		);	
-$data = backup_server_writeable('name', $readonly, $data);
-$table->add_row($label, form_input($data));
-
-//decription
-$label	= fpbx_label(_('Description'), _('Description or notes for this server'));
-$data 	= array(
-			'name'		=> 'desc', 
-			'value'		=> $desc
-		);
-$data = backup_server_writeable('desc', $readonly, $data);
-$table->add_row($label, form_input($data));
-
-//hostname
-$label = fpbx_label(_('Hostname'), _('IP address or FQDN of remote mysql host'));
-$data  = array(
-			'name'		=> 'host', 
-			'value'		=> $host,
-			'required'	=> ''
-		);
-$data = backup_server_writeable('host', $readonly, $data);
-$table->add_row($label, form_input($data));
-		
-//port
-$data = array(
-			'name'		=> 'port', 
-			'value'		=> $port,
-			'required'	=> ''
-		);
-$data = backup_server_writeable('port', $readonly, $data);
-$table->add_row(fpbx_label(_('Port'), _('remote mysql port')), form_input($data));
-		
-//user name
-$data = array(
-			'name'		=> 'user', 
-			'value'		=> $user,
-			'required'	=> ''
-		);
-$data = backup_server_writeable('user', $readonly, $data);
-$table->add_row(fpbx_label(_('User Name')), form_input($data));
-		
-//mysql password
-$label	= fpbx_label(_('Password'));
-$data 	= array(
-			'name'		=> 'password', 
-			'value'		=> $password,
-			'required'	=> ''
-		);
-$data = backup_server_writeable('password', $readonly, $data);
-$table->add_row($label, form_input($data));
-
-
-//remote directory
-$label	= fpbx_label(_('DB Name'), _('Database name'));
-$data 	= array(
-			'name'		=> 'dbname', 
-			'value'		=> $dbname,
-			'required'	=> ''
-		);
-$data = backup_server_writeable('dbname', $readonly, $data);
-$table->add_row($label, form_input($data));
-
-$html .= $table->generate();
-
-//if readonly == * than nothing is saveable anyway
-if ($readonly != array('*')) {
-	$html .= form_submit('submit', _('Save'));
-}
-
-if ($immortal != 'true') {
-	$html .= form_submit('submit', _('Delete'));
-}
-$html .= form_close();
-
-echo $html;
+<script type="text/javascript">
+  var immortal = <?php echo (isset($immortal) && !empty($immortal))?'true':'false';?>;
+</script>

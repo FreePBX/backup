@@ -141,7 +141,7 @@ function backup_jstree_list_dir($id, $path = '') {
 			$awss3 = new S3($s['awsaccesskey'], $s['awssecret']);
 			$contents = $awss3->getBucket($s['bucket']);
 			foreach ($contents as $f){
-	
+
 				if (substr($f['name'], -7) == '.tar.gz' || substr($f['name'], -4) == '.tgz') {
 					$ret[] = array(
 							'attr' => array(
@@ -149,9 +149,9 @@ function backup_jstree_list_dir($id, $path = '') {
 									'data-path' => $path . '/' . $f['name']
 									),
 							'data' => $f['name']
-									); 
+									);
 	}
-				
+
 			}
 			break;
 	}
@@ -171,8 +171,7 @@ function backup_get_manifest_db($bu) {
 	}
 
 	$sql = 'SELECT manifest from backup_cache WHERE id = ?';
-	dbug($id);
-	$ret = $db->getOne($sql, $bu);
+	$ret = $db->getOne($sql, array($bu));
 	if ($db->IsError($ret)){
 		die_freepbx($ret->getDebugInfo());
 	}
@@ -333,10 +332,10 @@ function backup_restore_locate_file($id, $path) {
 			dbug('S3 Path: ' . $path);
 			dbug('S3 Dest: ' . $dest);
 			if ($awss3->getObject($s['bucket'],$path,$dest) !== false) {
-				$path = $dest; 
+				$path = $dest;
 			} else {
 				return array('error_msg' => _('Failed to retrieve file from server!'));
-			} 
+			}
 			break;
 	}
 
@@ -538,4 +537,3 @@ function backup_migrate_legacy($bu) {
 
 	return $dest;
 }
-

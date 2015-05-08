@@ -59,6 +59,7 @@ foreach ($moy as $k => $v) {
 	$cron_month_opts .= '<option value='.$k.' '.$checked.'>'.$v.'</option>';
 }
 //day of month
+$cron_dom_opts='';
 for($i = 1; $i < 32; $i++) {
 	in_array($i, $cron_dom) ? $checked = 'SELECTED' : '';
 	$cron_dom_opts .= '<option value='.$i.' '.$checked.'>'.sprintf("%02d", $i).'</option>';

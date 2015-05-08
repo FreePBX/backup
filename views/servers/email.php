@@ -1,80 +1,125 @@
 <?php
-$html = '';
-$html .= heading('Email Server', 3) . '<hr class="backup-hr"/>';
-$html .= form_hidden('server_type', 'email');
-$html .= form_open($_SERVER['REQUEST_URI']);
-$html .= form_hidden('action', 'save');
-$html .= form_hidden('id', $id);
-
-
-$table = new CI_Table;
-
-//name
-$label	= fpbx_label(_('Server Name'));
-$data 	= array(
-			'name'		=> 'name', 
-			'value'		=> $name
-		);
-$data = backup_server_writeable('name', $readonly, $data);
-$table->add_row($label, form_input($data));
-
-//decription
-$label	= fpbx_label(_('Description'), _('Description or notes for this server'));
-$data 	= array(
-			'name'		=> 'desc', 
-			'value'		=> $desc
-		);
-$data = backup_server_writeable('desc', $readonly, $data);
-$table->add_row($label, form_input($data));
-
-//hostname
-$label = fpbx_label(_('Email Address'), _('Email address where backups should be emailed to'));
-$data  = array(
-			'name' 		=> 'addr', 
-			'value'		=> $addr,
-			'type'		=> 'email',
-			'required'	=> ''
-		);
-$data = backup_server_writeable('addr', $readonly, $data);
-$table->add_row($label, form_input($data));
-
-//size
-$label = fpbx_label(
-			_('Max Email Size'), 
-			_('The maximum size a backup can be and still be emailed. '
+$disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
+?>
+<h2><?php echo _("Email Server")?></h2>
+<form class="fpbx-submit" action="" method="post" id="server_form" name="server_form">
+	<input type="hidden" name="action" value="save">
+	<input type="hidden" name="id" value="<?php echo isset($id)?$id:''?>">
+	<input type="hidden" name="server_type" value="email">
+<!--Server Name-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="name"><?php echo _("Server Name") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="name"></i>
+					</div>
+					<div class="col-md-9">
+						<input type="text" class="form-control" id="name" name="name" value="<?php echo isset($name)?$name:''?>"<?php echo $disabled?>>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="name-help" class="help-block fpbx-help-block"><?php echo _("Name this Server")?></span>
+		</div>
+	</div>
+</div>
+<!--END-->
+<!--Description-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="desc"><?php echo _("Description") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="desc"></i>
+					</div>
+					<div class="col-md-9">
+						<input type="text" class="form-control" id="desc" name="desc" value="<?php echo isset($desc)?$desc:''?>"<?php echo $disabled?>>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="desc-help" class="help-block fpbx-help-block"><?php echo _("Description or notes for this server")?></span>
+		</div>
+	</div>
+</div>
+<!--END Description-->
+<!--Email Address-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="addr"><?php echo _("Email Address") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="addr"></i>
+					</div>
+					<div class="col-md-9">
+						<input type="email" class="form-control" id="addr" name="addr" value="<?php echo isset($addr)?$addr:''?>"<?php echo $disabled?>>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="addr-help" class="help-block fpbx-help-block"><?php echo _("Email address where backups should be emailed to")?></span>
+		</div>
+	</div>
+</div>
+<!--END Email Address-->
+<!--Max Email Size-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="maxsize"><?php echo _("Max Email Size") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="maxsize"></i>
+					</div>
+					<div class="col-md-9">
+						<?php
+						$maxsize	= explode(' ', bytes2string($maxsize));
+						$maxtype = isset($maxsize[1])?$maxsize[1]:'gb';
+						?>
+						<input type="number" class="form-control" id="maxsize" name="maxsize" value="<?php echo isset($maxsize[0])?$maxsize[0]:'10'?>"<?php echo $disabled?>>
+						<div class="radioset">
+							<input type="radio" name="maxtype" id="maxtypeb" value="b" <?php echo $maxtype =='b'?'CHECKED':''?><?php echo $disabled?>>
+							<label for="maxtypeb"><?php echo _("B")?></label>
+							<input type="radio" name="maxtype" id="maxtypekb" value="kb" <?php echo $maxtype =='kb'?'CHECKED':''?><?php echo $disabled?>>
+							<label for="maxtypekb"><?php echo _("KB")?></label>
+							<input type="radio" name="maxtype" id="maxtypemb" value="mb" <?php echo $maxtype =='mb'?'CHECKED':''?><?php echo $disabled?>>
+							<label for="maxtypemb"><?php echo _("MB")?></label>
+							<input type="radio" name="maxtype" id="maxtypegb" value="gb" <?php echo $maxtype =='gb'?'CHECKED':''?><?php echo $disabled?>>
+							<label for="maxtypegb"><?php echo _("GB")?></label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="maxsize-help" class="help-block fpbx-help-block"><?php echo _('The maximum size a backup can be and still be emailed. '
 			. 'Some email servers limit the size of email attachments, '
 			. 'this will make sure that files larger than the max size '
-			. 'are not sent.')
-		);
-for ($i = 1; $i < 21; $i++){
-	$sizes[$i] = $i;
-}
-for ($i = 25; $i < 51; $i += 5) {
-	$sizes[$i] = $i;
-}
-for ($i = 60; $i < 101; $i += 10) {
-	$sizes[$i] = $i;
-}
-$types		= array('b' => 'B', 'kb' => 'KB', 'mb' => 'MB', 'gb' => 'GB');
-$disabled	= in_array('maxsize', $readonly) || $readonly == array('*') ? 'disabled' : '';
-$maxsize	= explode(' ', bytes2string($maxsize));
-$table->add_row(
-		$label, 
-		form_dropdown('maxsize', $sizes, $maxsize[0], $disabled) . 
-		form_dropdown('maxtype', $types, $maxsize[1], $disabled)
-	);
-		
-
-
-$html .= $table->generate();
-
-if($readonly != array('*')) {
-	$html .= form_submit('submit', _('Save'));
-}
-
-if ($immortal != 'true') {
-	$html .= form_submit('submit', _('Delete'));
-}
-$html .= form_close();
-
-echo $html;
+			. 'are not sent.')?></span>
+		</div>
+	</div>
+</div>
+<!--END Max Email Size-->
+</form>
+<script type="text/javascript">
+  var immortal = <?php echo (isset($immortal) &&  !empty($immortal))?'true':'false';?>;
+</script>

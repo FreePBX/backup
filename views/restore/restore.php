@@ -1,18 +1,11 @@
-<?php
-$html = '';
-$html .= heading(_('Restore'), 3) . '<hr class="backup-hr"/>';
-//$html .= form_hidden('restore_source', 'upload');
-//$html .= form_hidden('post_max_size ', '1048576000');
-$html .= form_open_multipart($_SERVER['REQUEST_URI']);
-$html .= form_hidden('action', 'upload');
-
-
-$html .= _('Upload a backup file to restore from it. Or, pick a saved backup by selecting a server from the list on the right.');
-$html .= br(2);
-$html .= form_upload('upload');
-
-
-$html .= form_submit('submit', _('Go!'));
-$html .= form_close();
-$html .= br(15);
-echo $html;
+<h2><?php echo _("Restore")?></h2>
+<form class="fpbx-submit" id="restore_form" action="" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="action" value="upload">
+  <span class="btn btn-default btn-file">
+    <?php echo _("Browse")?> <input type="file" class="form-control" name="upload" id="upload">
+  </span>
+  <span class="filename"></span>
+  <br/>
+  <br/>
+  <input type="submit" name="submit" id="submit" value="Go!">
+</form>

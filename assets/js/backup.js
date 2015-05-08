@@ -108,3 +108,15 @@ function serverFormatter(foo,value){
     }
     return html;
 }
+function templateFormatter(foo,value){
+    var html = '<a href="?display=backup_templates&action=edit&id='+value.id+'"><i class="fa fa-pencil"></i></a>';
+    if(!value.immortal){
+    	html += '&nbsp;<a href="?display=backup_templates&action=delete&id='+value.id+'" class="delAction"><i class="fa fa-trash"></i></a>';
+    }
+    return html;
+}
+if(immortal){
+	$('#delete').attr('disabled',true);
+	$('#submit').attr('disabled',true);
+	$('#reset').attr('disabled',true);
+}

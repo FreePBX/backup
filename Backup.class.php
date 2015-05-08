@@ -29,6 +29,10 @@ class Backup implements \BMO
     }
     public function doConfigPageInit($page)
     {
+        $_REQUEST['submit'] = isset($_REQUEST['submit'])?$_REQUEST['submit']:'';
+        $_REQUEST['action'] = isset($_REQUEST['action'])?$_REQUEST['action']:'';
+        $_REQUEST['id'] = isset($_REQUEST['id'])?$_REQUEST['id']:'';
+
         switch ($page) {
             case 'backup':
             if ($_REQUEST['submit'] == _('Delete') && $_REQUEST['action'] == 'save') {
@@ -165,6 +169,7 @@ class Backup implements \BMO
         $buttons = array();
         switch ($request['display']) {
             case 'backup':
+            case 'backup_servers':
                 $buttons = array(
                     'reset' => array(
                         'name' => 'reset',
@@ -195,6 +200,9 @@ class Backup implements \BMO
                 if ((!$request['action']) || (strtolower($request['action']) == 'delete')) {
                     $buttons = array();
                 }
+                if($request['display'] != 'backup' && isset($buttons['run'])){
+                  unset($buttons['run']);
+                }
             break;
         }
 
@@ -218,15 +226,13 @@ class Backup implements \BMO
             case 'getJSON':
                 switch ($_REQUEST['jdata']) {
                     case 'backupGrid':
-                        return array_values($this->listBackups());
+                      return array_values($this->listBackups());
                     break;
                     case 'serverGrid':
                       return array_values($this->listServers());
                     break;
                     case 'templateGrid':
-                        $ret = array();
-
-                    return $ret;
+                      return array_values($this->listTemplates());
                     break;
                     default:
                         return false;
@@ -241,6 +247,14 @@ class Backup implements \BMO
     public function listServers()
     {
         $sql = 'SELECT * FROM backup_servers ORDER BY name';
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        $ret = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $ret;
+    }
+    public function listTemplates()
+    {
+        $sql = 'SELECT * FROM backup_templates ORDER BY name';
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         $ret = $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -261,10 +275,6 @@ class Backup implements \BMO
                 $backups[$s['id']]['name'] = _('Backup').' '.$s['id'];
             }
 
-            //add details if requested
-            if ($id == 'all_detailed') {
-                $backups[$s['id']] = backup_get_backup($s['id']);
-            }
           }
         return $backups;
     }

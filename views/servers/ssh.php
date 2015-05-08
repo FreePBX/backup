@@ -1,89 +1,180 @@
 <?php
-$html = '';
-$html .= heading('SSH Server', 3) . '<hr class="backup-hr"/>';
-$html .= form_hidden('server_type', 'ssh');
-$html .= form_open($_SERVER['REQUEST_URI']);
-$html .= form_hidden('action', 'save');
-$html .= form_hidden('id', $id);
-
-
-$table = new CI_Table;
-
-//name
-$label	= fpbx_label(_('Server Name'));
-$data 	= array(
-			'name' => 'name', 
-			'value' => $name
-		);
-$data = backup_server_writeable('name', $readonly, $data);
-$table->add_row($label, form_input($data));
-
-//decription
-$label	= fpbx_label(_('Description'), _('Description or notes for this server'));
-$data 	= array(
-			'name' => 'desc', 
-			'value' => $desc
-		);
-$data = backup_server_writeable('desc', $readonly, $data);
-$table->add_row($label, form_input($data));
-
-//hostname
-$label = fpbx_label(_('Hostname'), _('IP address or FQDN of remote ssh host'));
-$data  = array(
-			'name' => 'host', 
-			'value' => $host,
-			'required' => ''
-		);
-$data = backup_server_writeable('host', $readonly, $data);
-$table->add_row($label, form_input($data));
-		
-//port
-$data = array(
-			'name' => 'port', 
-			'value' => $port,
-			'required' => ''
-		);
-$data = backup_server_writeable('port', $readonly, $data);
-$table->add_row(fpbx_label(_('Port'), _('remote ssh port')), form_input($data));
-		
-//user name
-$data = array(
-			'name' => 'user', 
-			'value' => $user,
-			'required' => ''
-		);
-$data = backup_server_writeable('user', $readonly, $data);
-$table->add_row(fpbx_label(_('User Name')), form_input($data));
-		
-//ssh key
-$label	= fpbx_label(_('Key'), _('Location of ssh private key to be used when connecting to a host'));
-$data 	= array(
-			'name' => 'key', 
-			'value' => $key,
-			'required' => ''
-		);
-$data = backup_server_writeable('key', $readonly, $data);
-$table->add_row($label, form_input($data));
-
-
-//remote directory
-$label	= fpbx_label(_('Path'), _('Path on server where files are stored'));
-$data 	= array(
-			'name' => 'path', 
-			'value' => $path
-		);
-$data = backup_server_writeable('path', $readonly, $data);
-$table->add_row($label, form_input($data));
-
-$html .= $table->generate();
-
-if ($readonly != array('*')) {
-	$html .= form_submit('submit', _('Save'));
-}
-
-if ($immortal != 'true') {
-	$html .= form_submit('submit', _('Delete'));
-}
-$html .= form_close();
-
-echo $html;
+$disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
+?>
+<h2><?php echo _("SSH Server")?></h2>
+<form class="fpbx-submit" action="" method="post" id="server_form" name="server_form">
+	<input type="hidden" name="action" value="save">
+	<input type="hidden" name="id" value="<?php echo isset($id)?$id:''?>">
+	<input type="hidden" name="server_type" value="ssh">
+	<!--Server Name-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="name"><?php echo _("Server Name") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="name"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="name" name="name" value="<?php echo isset($name)?$name:''?>"<?php echo $disabled?>>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="name-help" class="help-block fpbx-help-block"><?php echo _("Provide the name for this server")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Server Name-->
+	<!--Description-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="desc"><?php echo _("Description") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="desc"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="desc" name="desc" value="<?php echo isset($desc)?$desc:''?>"<?php echo $disabled?>>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="desc-help" class="help-block fpbx-help-block"><?php echo _("'Description or notes for this server")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Description-->
+	<!--Hostname-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="host"><?php echo _("Hostname") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="host"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="host" name="host" value="<?php echo isset($host)?$host:''?>"<?php echo $disabled?>>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="host-help" class="help-block fpbx-help-block"><?php echo _("IP address or FQDN of remote SSH server")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Hostname-->
+	<!--Port-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="port"><?php echo _("Port") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="port"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="port" name="port" value="<?php echo isset($port)?$port:''?>"<?php echo $disabled?>>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="port-help" class="help-block fpbx-help-block"><?php echo _("Remote SSH Port")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Port-->
+	<!--Username-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="user"><?php echo _("Username") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="user"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="user" name="user" value="<?php echo isset($user)?$user:''?>"<?php echo $disabled?>>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="user-help" class="help-block fpbx-help-block"><?php echo _("SSH Username")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Username-->
+	<!--Key-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="key"><?php echo _("Key") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="key"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="key" name="key" value="<?php echo isset($key)?$key:''?>"<?php echo $disabled?>>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="key-help" class="help-block fpbx-help-block"><?php echo _("Location of ssh private key to be used when connecting to a host")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Key-->
+	<!--Path-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="path"><?php echo _("Path") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="path"></i>
+						</div>
+						<div class="col-md-9">
+							<input type="text" class="form-control" id="path" name="path" value="<?php echo isset($path)?$path:''?>"<?php echo $disabled?>>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="path-help" class="help-block fpbx-help-block"><?php echo _("Path on remote server")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Path-->
+</form>
+<script type="text/javascript">
+  var immortal = <?php echo (isset($immortal) && !empty($immortal))?'true':'false';?>;
+</script>

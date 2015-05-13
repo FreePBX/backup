@@ -115,8 +115,10 @@ function templateFormatter(foo,value){
     }
     return html;
 }
+/*
 if(immortal){
 	$('#delete').attr('disabled',true);
 	$('#submit').attr('disabled',true);
 	$('#reset').attr('disabled',true);
 }
+*/

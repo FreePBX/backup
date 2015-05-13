@@ -1,7 +1,9 @@
-<a href="#" role="button" class="btn btn-large btn-primary" data-toggle="modal" data-target="#merlin"><i class="fa fa-magic"></i> <?php echo _('Backup Wizard') ?></a>
-<a href="config.php?type=setup&display=backup&action=edit" role="button" class="btn btn-large btn-primary" ><i class="fa fa-plus"></i> <?php echo _('New Backup') ?></a>
+<div id="toolbar-backup">
+  <a href="#" role="button" class="btn btn-large btn-primary" data-toggle="modal" data-target="#merlin"><i class="fa fa-magic"></i> <?php echo _('Backup Wizard') ?></a>
+  <a href="config.php?type=setup&display=backup&action=edit" role="button" class="btn btn-large btn-primary" ><i class="fa fa-plus"></i> <?php echo _('New Backup') ?></a>
+</div>
 
-<table id="backupsGrid"  data-pagination="true" data-search="true" data-url="ajax.php?module=backup&command=getJSON&jdata=backupGrid" data-cache="false" data-height="299" data-toggle="table" class="table table-striped">
+<table id="backupsGrid" data-toolbar="#toolbar-backup" data-pagination="true" data-search="true" data-url="ajax.php?module=backup&command=getJSON&jdata=backupGrid" data-cache="false" data-height="299" data-toggle="table" class="table table-striped">
     <thead>
             <tr>
             <th data-field="name" data-sortable="true"><?php echo _("Item")?></th>

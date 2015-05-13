@@ -15,12 +15,12 @@ foreach ($data as $key => $value) {
 }
 $cron_minute_opts ='';
 for($i = 0; $i < 60; $i++) {
-	in_array($i, $cron_minute) ? $checked = 'SELECTED' : '';
+	$checked = in_array($i, $cron_minute) ? 'SELECTED' : '';
 	$cron_minute_opts .= '<option value='.$i.' '.$checked.'>'.sprintf("%02d", $i).'</option>';
 }
 $cron_hour_opts='';
 for($i = 0; $i < 24; $i++) {
-	in_array($i, $cron_hour) ? $checked = 'SELECTED' : '';
+	$checked =  in_array($i, $cron_hour) ? 'SELECTED' : '';
 	$cron_hour_opts .= '<option value='.$i.' '.$checked.'>'.sprintf("%02d", $i).'</option>';
 }
 $doy = array(
@@ -34,7 +34,7 @@ $doy = array(
 );
 $cron_dow_opts='';
 foreach ($doy as $k => $v) {
-	in_array($k, $cron_dow) ? $checked = 'SELECTED' : '';
+	$checked = in_array($k, $cron_dow) ? 'SELECTED' : '';
 	$cron_dow_opts .= '<option value='.$k.' '.$checked.'>'.$v.'</option>';
 }
 
@@ -55,13 +55,13 @@ $moy = array(
 );
 $cron_month_opts='';
 foreach ($moy as $k => $v) {
-	in_array($k, $cron_month) ? $checked = 'SELECTED' : '';
+	$checked = in_array($k, $cron_month) ? 'SELECTED' : '';
 	$cron_month_opts .= '<option value='.$k.' '.$checked.'>'.$v.'</option>';
 }
 //day of month
 $cron_dom_opts='';
 for($i = 1; $i < 32; $i++) {
-	in_array($i, $cron_dom) ? $checked = 'SELECTED' : '';
+	$checked = in_array($i, $cron_dom) ? 'SELECTED' : '';
 	$cron_dom_opts .= '<option value='.$i.' '.$checked.'>'.sprintf("%02d", $i).'</option>';
 }
 

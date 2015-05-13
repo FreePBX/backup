@@ -19,24 +19,30 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-17 14:07-0400\n"
+"POT-Creation-Date: 2015-05-12 21:48-0400\n"
 "PO-Revision-Date: 2015-04-18 01:09+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish "
-"<http://weblate.freepbx.org/projects/freepbx/backup/es_ES/>\n"
-"Language: es_ES\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
+"es_ES/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-Country: SPAIN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: views/backup/backup.php:269
-msgid " runs"
-msgstr " Corre"
+#: views/backup/backups.php:23
+#, php-format
+msgid "%s Backup Wizard"
+msgstr ""
+
+#: views/servers/ftp.php:52 views/servers/local.php:52
+#: views/servers/ssh.php:52
+msgid "'Description or notes for this server"
+msgstr ""
 
 #: functions.inc/templates.php:251
 msgid "/path/to/dir"
@@ -54,29 +60,75 @@ msgstr ""
 "Respaldo completo del core y archivos web, no incluye sonidos del sistema ni "
 "grabaciones."
 
-#: views/backup/backup.php:81
+#: views/backup/backup.php:165
 msgid "A script to be run AFTER a backup is completed."
 msgstr "Un script a ser ejecutado DESPUES que el respaldo sea completado."
 
-#: views/backup/backup.php:100
+#: views/backup/backup.php:213
 msgid "A script to be run AFTER a backup is restored."
 msgstr "Un Script a ser ejecutado DESPUES que el respaldo sea restaurado."
 
-#: views/backup/backup.php:90
+#: views/backup/backup.php:189
 msgid "A script to be run BEFORE a backup is restored."
 msgstr "Un Script a ser ejecutado ANTES que el respaldo sea restaurado."
 
-#: views/backup/backup.php:72
+#: views/backup/backup.php:141
 msgid "A script to be run BEFORE a backup is started."
 msgstr "Un Script a ser ejecutado ANTES que el respaldo de inicio."
+
+#: views/backup/backups.php:154 assets/js/backup.js:78 assets/js/backup.js:90
+msgid "AT"
+msgstr ""
+
+#: views/servers/awss3.php:64
+msgid "AWS Access Key"
+msgstr ""
+
+#: views/servers/awss3.php:79
+msgid "AWS Access Key (username)"
+msgstr ""
+
+#: functions.inc/servers.php:333
+msgid "AWS S3 Server "
+msgstr ""
+
+#: views/servers/awss3.php:91
+msgid "AWS Secret"
+msgstr ""
+
+#: views/servers/awss3.php:106
+msgid "AWS Secret (password)"
+msgstr ""
+
+#: views/backup/backups.php:11 views/servers/servers.php:21
+#: views/templates/templates.php:7
+msgid "Actions"
+msgstr ""
+
+#: views/backup/backups.php:501
+msgid "Active"
+msgstr ""
+
+#: views/servers/servers.php:4
+msgid "Add Server"
+msgstr ""
 
 #: bin/backup.php:55
 msgid "Adding items..."
 msgstr "Agregando elementos..."
 
-#: backup.i18n.php:6 backup.i18n.php:12
-msgid "Admin"
-msgstr "Administrador"
+#: views/backup/backup.php:303
+msgid ""
+"After a restore, disable any trunks that use registration. This is helpful "
+"to prevent the Primary and Standby systems from \"fighting\" for the "
+"registration, resulting in some calls routed to the Standby system."
+msgstr ""
+
+#: views/backup/backups.php:171
+msgid ""
+"All PBX Configuration files and any Custom Sound Prompts are included in the "
+"base backup"
+msgstr ""
 
 #: install.php:382
 msgid ""
@@ -86,15 +138,23 @@ msgstr ""
 "Todos los audios del sistema - incluyendo IVR y Musica en espera. NO "
 "RESPALDA CORREO DE VOZ"
 
-#: views/cron.php:10
+#: functions.inc/servers.php:278
+msgid "Amazon S3 Server "
+msgstr ""
+
+#: views/servers/awss3.php:4
+msgid "Amazon S3&trade; Server"
+msgstr ""
+
+#: views/cron.php:8
 msgid "Annually"
 msgstr "Anualmente"
 
-#: views/backup/backup.php:173
+#: views/backup/backup.php:342
 msgid "Apply Configs"
 msgstr "Aplicar configuraciones"
 
-#: views/cron.php:108
+#: views/cron.php:46
 msgid "April"
 msgstr "Abril"
 
@@ -106,40 +166,40 @@ msgstr "\"AstDB's\""
 msgid "Asterisk DB"
 msgstr "BD Asterisk"
 
-#: views/cron.php:112
+#: views/cron.php:50
 msgid "August"
 msgstr "Agosto"
 
-#: views/backup/backup.php:224
-msgid "Available Servers"
-msgstr "Servidores Disponibles"
+#: views/backup/backup.php:399
+msgid "Availible Servers"
+msgstr ""
+
+#: views/servers/email.php:99
+msgid "B"
+msgstr ""
 
 #: functions.inc.php:72
 msgid "BACKUP LOG ATTACHED"
 msgstr "BITACORA DE RESPALDOS ANEXADA"
 
-#: functions.inc/backup.php:81 functions.inc/class.backup.php:334
-#: views/backup/backup.php:3 views/backup/backups.php:3
+#: Backup.class.php:275 functions.inc/backup.php:79
+#: functions.inc/class.backup.php:334 views/backup/backup.php:1
 msgid "Backup"
 msgstr "Respaldo"
 
-#: backup.i18n.php:4 backup.i18n.php:10
-msgid "Backup & Restore"
-msgstr "Copias de seguridad"
+#: views/backup/backups.php:248
+msgid "Backup CDR and call record data?"
+msgstr ""
 
-#: backup.i18n.php:18
-msgid "Backup & Restore - Restore"
-msgstr "Respalda & Restaura - Restaura"
+#: views/backup/backups.php:121
+msgid "Backup Desctiption"
+msgstr ""
 
-#: backup.i18n.php:14
-msgid "Backup & Restore - Servers"
-msgstr "Respalda & Restaura - Servidores"
+#: views/backup/backups.php:49
+msgid "Backup Frequency"
+msgstr ""
 
-#: backup.i18n.php:16
-msgid "Backup & Restore - Templates"
-msgstr "Respaldar & Restaurar - Plantillas"
-
-#: views/backup/backup.php:59
+#: views/backup/backups.php:58
 msgid "Backup Items"
 msgstr "Respaldar Elementos"
 
@@ -151,27 +211,35 @@ msgstr "Bloqueo de copia de seguridad adquirida!"
 msgid "Backup Log:"
 msgstr "Bitacora del respaldo:"
 
-#: backup.i18n.php:22
-msgid "Backup Module"
-msgstr "Modulo de Respaldo"
-
-#: views/backup/backup.php:11
+#: views/backup/backup.php:12 views/backup/backups.php:97
 msgid "Backup Name"
 msgstr "Nombre del Respaldo"
 
-#: views/backup/backup.php:230
+#: views/backup/backup.php:421
 msgid "Backup Schedule"
 msgstr "Crongrama de Respaldos"
 
-#: views/backup/backup.php:112 views/backup/backup.php:125
+#: views/backup/backup.php:235
 msgid "Backup Server"
 msgstr "Servidor de Respaldo"
 
-#: functions.inc/restore.php:252
+#: functions.inc/restore.php:272
 msgid "Backup Server not found!"
 msgstr "Servidor de Respaldo no encontrado!"
 
-#: bin/backup.php:147 bin/backup.php:195
+#: views/templates/template.php:2
+msgid "Backup Template"
+msgstr ""
+
+#: views/backup/backups.php:2
+msgid "Backup Wizard"
+msgstr ""
+
+#: page.backup.php:116
+msgid "Backup and Restore"
+msgstr ""
+
+#: bin/backup.php:148 bin/backup.php:196
 msgid "Backup completed with errors!"
 msgstr "Respaldo completado con errores!"
 
@@ -196,7 +264,7 @@ msgstr "Migración del Respaldo completada"
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "Modulo de Respaldo  no encontrado o esta deshabilitado. Abortando!"
 
-#: bin/backup.php:149 bin/backup.php:197
+#: bin/backup.php:150 bin/backup.php:198
 msgid "Backup successfully completed!"
 msgstr "Respaldo satisfactoriamente completado!"
 
@@ -204,21 +272,49 @@ msgstr "Respaldo satisfactoriamente completado!"
 msgid "Backups"
 msgstr "Respaldos"
 
+#: views/backup/backups.php:88
+msgid "Basic Backup Information"
+msgstr ""
+
+#: views/backup/backups.php:40
+msgid "Basic Information"
+msgstr ""
+
+#: views/restore/restore.php:5
+msgid "Browse"
+msgstr ""
+
+#: views/servers/awss3.php:16
+msgid "Bucket Name"
+msgstr ""
+
+#: views/servers/awss3.php:28
+msgid "Bucket or Path in Amazon S3 to store backups"
+msgstr ""
+
 #: bin/backup.php:58
 msgid "Bulding manifest..."
 msgstr "Construyendo el manifiesto..."
+
+#: views/backup/backups.php:233
+msgid "CDR and Call Log Data"
+msgstr ""
 
 #: install.php:268
 msgid "CDR server, generally a local database server"
 msgstr "Servidor CDR, generalmente un servidor local de base de datos"
 
-#: views/restore/backup_list.php:42
+#: views/restore/backup_list.php:40
 msgid "CDR's"
 msgstr "CDRs"
 
 #: install.php:350
 msgid "Call Detail Records"
 msgstr "Registros Detallados de Llamadas"
+
+#: views/backup/backups.php:206
+msgid "Call Recordings"
+msgstr ""
 
 #: install.php:71
 msgid "Can not create backup tables"
@@ -235,6 +331,10 @@ msgstr "No se puede checar tablas de Respaldos"
 #: bin/restore.php:387
 msgid "Cleaning up..."
 msgstr "Limpiando ..."
+
+#: views/backup/backups.php:85
+msgid "Click 'Next' to continue."
+msgstr ""
 
 #: install.php:292
 msgid "Configurations only"
@@ -256,55 +356,61 @@ msgstr "Creando respaldo ..."
 msgid "Creating backups directory.."
 msgstr "Creando Directorio de Respaldos.."
 
-#: views/cron.php:12
+#: views/cron.php:10
 msgid "Custom"
 msgstr "\"Custom\""
 
-#: views/servers/mysql.php:70
+#: views/servers/mysql.php:160
 msgid "DB Name"
 msgstr "Nombre BD"
 
-#: views/cron.php:7
+#: views/cron.php:5
 msgid "Daily"
 msgstr "Diario"
 
-#: views/servers/mysql.php:70
-msgid "Database name"
-msgstr "Nombre Base de Datos"
+#: assets/js/backup.js:84
+msgid "Day each month"
+msgstr ""
 
-#: views/cron.php:132
-msgid "Day of Month"
-msgstr "Día del Mes"
-
-#: views/cron.php:77
+#: views/cron.php:230
 msgid "Day of Week"
 msgstr "Día de la semana"
 
-#: views/backup/backup.php:255
+#: views/backup/backup.php:457
 msgid "Days"
 msgstr "Días"
 
-#: views/cron.php:116
+#: views/cron.php:278 views/cron.php:282
+msgid "Days of Month"
+msgstr ""
+
+#: views/cron.php:292
+msgid "Days of month to run"
+msgstr ""
+
+#: views/cron.php:54
 msgid "December"
 msgstr "Diciembre"
+
+#: views/backup/backups.php:426 views/backup/backups.php:525
+msgid "Default"
+msgstr ""
 
 #: install.php:630
 msgid "Default backup; automatically installed"
 msgstr "Respaldo por defecto, automáticamente instalado"
 
-#: page.backup.php:45 page.backup_servers.php:32 page.backup_templates.php:20
-#: views/backup/backup.php:286 views/item_table.php:7
-#: views/servers/email.php:76 views/servers/ftp.php:108
-#: views/servers/local.php:47 views/servers/mysql.php:87
-#: views/servers/ssh.php:85 views/templates/template.php:37
+#: Backup.class.php:38 Backup.class.php:192 page.backup.php:45
+#: page.backup_servers.php:35 page.backup_templates.php:20
+#: views/item_table.php:14
 msgid "Delete"
 msgstr "Eliminar"
 
-#: views/backup/backup.php:244 views/backup/backup.php:261
-msgid "Delete after"
-msgstr "Eliminar despues"
+#: views/backup/backup.php:445 views/backup/backup.php:484
+msgid "Delete After"
+msgstr ""
 
-#: views/backup/backup.php:244
+#: views/backup/backup.php:472
 msgid ""
 "Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
 "Please note that deletes aren't time based and will only happen after a "
@@ -315,7 +421,7 @@ msgstr ""
 "basadas en tiempo y sólo va a pasar después de que se ejecute una copia de "
 "seguridad. Establecer el valor a 0 desactivará cualquier borrado"
 
-#: views/backup/backup.php:261
+#: views/backup/backup.php:499
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -328,28 +434,33 @@ msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr ""
 "Borrar esta entrada. No olvide oprimir \"Enviar\" para guardar los cambios!"
 
-#: views/backup/backup.php:20 views/servers/email.php:22
-#: views/servers/ftp.php:22 views/servers/local.php:22
-#: views/servers/mysql.php:22 views/servers/ssh.php:22
-#: views/templates/template.php:21
+#: views/backup/backup.php:36 views/backup/backups.php:10
+#: views/servers/awss3.php:40 views/servers/email.php:40
+#: views/servers/ftp.php:40 views/servers/local.php:40
+#: views/servers/mysql.php:40 views/servers/servers.php:19
+#: views/servers/ssh.php:40 views/templates/template.php:37
+#: views/templates/templates.php:6
 msgid "Description"
 msgstr "Descripción"
 
-#: views/backup/backup.php:20
+#: views/backup/backup.php:48
 msgid "Description or notes for this backup"
 msgstr "Descripción o comentarios para este Respaldo"
 
-#: views/servers/email.php:22 views/servers/ftp.php:22
-#: views/servers/local.php:22 views/servers/mysql.php:22
-#: views/servers/ssh.php:22 views/templates/template.php:21
+#: views/servers/awss3.php:52 views/servers/email.php:52
+#: views/servers/mysql.php:52 views/templates/template.php:49
 msgid "Description or notes for this server"
 msgstr "Descripción o comentarios para este Servidor"
+
+#: views/backup/backups.php:76
+msgid "Destination"
+msgstr ""
 
 #: functions.inc/templates.php:246
 msgid "Directory"
 msgstr "Directorio"
 
-#: views/backup/backup.php:144
+#: views/backup/backup.php:288
 msgid "Disable Registered Trunks"
 msgstr "Deshabilitar Troncales Registrados"
 
@@ -361,21 +472,22 @@ msgstr "Hecho!"
 msgid "Download"
 msgstr "Bajar"
 
-#: views/backup/backup.php:62
+#: views/backup/backup.php:370
 msgid ""
-"Drag templates and drop them in the Backup Items table. Add as many "
-"templates as you need"
+"Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
-"Arrastre las plantillas y póngalas en la tabla de elementos de Respaldo. "
-"Agregue tantas plantillas como necesite"
 
-#: views/backup/backup.php:60
+#: views/backup/backup.php:80
 msgid ""
 "Drag templates and drop them in the items table to add the templates items "
 "to the table"
 msgstr ""
 "Arrastre la plantillas y póngalas la tabla de elementos para agregar "
 "plantillas a la misma"
+
+#: views/backup/backup.php:89
+msgid "Drop Here"
+msgstr ""
 
 #: install.php:142
 msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
@@ -388,25 +500,35 @@ msgid ""
 msgstr ""
 "ERROR: fallo al migrar desde la tabla \"Respaldo\" vieja a la nueva tabla"
 
-#: backup.i18n.php:20
-msgid "Email "
-msgstr "Correo "
-
-#: views/servers/email.php:31
+#: views/servers/email.php:64
 msgid "Email Address"
 msgstr "Dirección de Correo"
 
-#: functions.inc/servers.php:243 functions.inc/servers.php:295
+#: views/backup/backups.php:264
+msgid "Email Notifications"
+msgstr ""
+
+#: views/servers/email.php:4
+msgid "Email Server"
+msgstr ""
+
+#: functions.inc/servers.php:263 functions.inc/servers.php:318
 msgid "Email Server "
 msgstr "Servidor de Correo "
 
-#: views/servers/email.php:31
+#: views/servers/email.php:76
 msgid "Email address where backups should be emailed to"
 msgstr "Dirección de Correo a donde los Respaldos deberán ser enviado"
 
-#: views/backup/backup.php:30
+#: views/backup/backup.php:72
 msgid "Email to send status messages to when this task is run"
 msgstr "Correo para enviar mensajes de estado cuando esta tarea sea ejecutada"
+
+#: views/backup/backup.php:357
+msgid ""
+"Equivalence of clicking the red button, will happen automatically after a "
+"restore on a Standby system"
+msgstr ""
 
 #: functions.inc/class.backup.php:370
 msgid "Error connecting to the FTP Server..."
@@ -420,7 +542,7 @@ msgstr "Error bajando archivo!"
 msgid "Error verifying uploaded file!"
 msgstr "Error verificando archivo bajado!"
 
-#: views/item_table.php:7
+#: views/item_table.php:11
 msgid "Exclude"
 msgstr "Excluir"
 
@@ -432,23 +554,54 @@ msgstr ""
 "Excluir configuración de Respaldos de manera que no sean restaurados. Util "
 "para restaurar remoto"
 
-#: views/backup/backup.php:159
+#: views/backup/backup.php:315
 msgid "Exclude NAT settings"
 msgstr "Excluir configuración de NAT"
+
+#: views/backup/backup.php:330
+msgid ""
+"Explicitly exclude any machine-specific IP settings. This allows you to have "
+"a warm-spare machine with a different IP address."
+msgstr ""
 
 #: bin/restore.php:67
 msgid "Explicitly skipping host-specific NAT settings"
 msgstr "Explícitamente saltando configuraciones NAT especificas a host"
 
+#: views/backup/backups.php:352
+msgid "FTP"
+msgstr ""
+
 #: functions.inc/restore.php:97
 msgid "FTP Connection error!"
 msgstr "Error de Conexión FTP!"
 
-#: functions.inc/servers.php:246 functions.inc/servers.php:298
+#: views/backup/backups.php:482 views/servers/ftp.php:148
+#: views/servers/mysql.php:148
+msgid "FTP Password"
+msgstr ""
+
+#: views/servers/ftp.php:4
+msgid "FTP Server"
+msgstr ""
+
+#: functions.inc/servers.php:266 functions.inc/servers.php:321
 msgid "FTP Server "
 msgstr "Servidor FTP "
 
-#: functions.inc/restore.php:438
+#: views/servers/ftp.php:199
+msgid "FTP Transfer mode, Passive will work in most cases."
+msgstr ""
+
+#: views/backup/backups.php:509
+msgid "FTP Transfer type"
+msgstr ""
+
+#: views/servers/ftp.php:124 views/servers/mysql.php:124
+msgid "FTP Username"
+msgstr ""
+
+#: functions.inc/restore.php:471
 msgid ""
 "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
 "current state"
@@ -456,7 +609,7 @@ msgstr ""
 "Fallo convirtiendo asterisk.sql al formato adecuado, renombrando a mysql-db."
 "sql en su estado actual"
 
-#: functions.inc/restore.php:465
+#: functions.inc/restore.php:498
 msgid ""
 "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
 "sql in current state"
@@ -464,7 +617,8 @@ msgstr ""
 "Fallo convirtiendo asteriskcdr.sql al formato adecuado, renombrando a mysql-"
 "cdr.sql en su estado actual"
 
-#: functions.inc/restore.php:280 functions.inc/restore.php:304
+#: functions.inc/restore.php:300 functions.inc/restore.php:324
+#: functions.inc/restore.php:337
 msgid "Failed to retrieve file from server!"
 msgstr "Fallo recuperando archivo desde el servidor!"
 
@@ -476,7 +630,7 @@ msgstr "Mensaje de falla:"
 msgid "Family, one per line"
 msgstr "Familia, uno por linea"
 
-#: views/cron.php:106
+#: views/cron.php:44
 msgid "February"
 msgstr "Febrero"
 
@@ -484,7 +638,7 @@ msgstr "Febrero"
 msgid "File"
 msgstr "Archivo"
 
-#: functions.inc/restore.php:312
+#: functions.inc/restore.php:345
 msgid "File not found! "
 msgstr "Archivo no encontrado! "
 
@@ -492,7 +646,7 @@ msgstr "Archivo no encontrado! "
 msgid "File restore complete!"
 msgstr "Restauración de Archivo Completada!"
 
-#: bin/backup.php:121
+#: bin/backup.php:122
 msgid "File verification failed. "
 msgstr "Verificación de Archivo Fallida. "
 
@@ -500,56 +654,99 @@ msgstr "Verificación de Archivo Fallida. "
 msgid "Files"
 msgstr "Archivos"
 
-#: views/cron.php:85
+#: page.backup.php:51
+msgid "FreePBX"
+msgstr ""
+
+#: views/cron.php:32 assets/js/backup.js:68
 msgid "Friday"
 msgstr "Viernes"
+
+#: views/servers/email.php:105
+msgid "GB"
+msgstr ""
 
 #: bin/restore.php:211
 msgid "Getting CDR size..."
 msgstr "Obteniendo tamaño de CDR ..."
 
-#: views/restore/browseserver.php:29 views/restore/restore.php:15
+#: views/backup/backups.php:386
+msgid "Give the server a descriptive name"
+msgstr ""
+
+#: views/backup/backups.php:133
+msgid "Give your backup a description"
+msgstr ""
+
+#: views/backup/backups.php:109
+msgid "Give your backup a friendly name"
+msgstr ""
+
+#: views/restore/browseserver.php:29
 msgid "Go!"
 msgstr "Ir!"
 
-#: bin/backup.php:122
+#: bin/backup.php:123
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr ""
 "Estas son las primeras líneas del archivo como fue enviado por el servidor "
 "remoto:"
 
-#: views/backup/backup.php:71
+#: views/backup/backup.php:120
 msgid "Hooks"
 msgstr "Ganchos"
 
-#: views/servers/ftp.php:31 views/servers/mysql.php:31
-#: views/servers/ssh.php:31
+#: views/servers/ftp.php:64 views/servers/mysql.php:64
+#: views/servers/ssh.php:64
 msgid "Hostname"
 msgstr "Nombre de Host"
 
-#: views/cron.php:61
-msgid "Hour"
-msgstr "Hora"
-
-#: views/cron.php:6
+#: views/cron.php:4
 msgid "Hourly"
 msgstr "Cada Hora"
 
-#: views/backup/backup.php:254
+#: views/backup/backup.php:455 views/cron.php:200 views/cron.php:204
 msgid "Hours"
 msgstr "Horas"
 
-#: views/servers/ftp.php:31
+#: views/backup/backups.php:140
+msgid "How often should we backup?"
+msgstr ""
+
+#: views/backup/backups.php:410
+msgid "IP Address or FQDN of your server"
+msgstr ""
+
+#: views/servers/ssh.php:76
+msgid "IP address or FQDN of remote SSH server"
+msgstr ""
+
+#: views/servers/ftp.php:76
 msgid "IP address or FQDN of remote ftp host"
 msgstr "Dirección IP o FQDN del FTP remoto"
 
-#: views/servers/mysql.php:31
+#: views/servers/mysql.php:76
 msgid "IP address or FQDN of remote mysql host"
 msgstr "Dirección IP o FQDN del host remoto mysql"
 
-#: views/servers/ssh.php:31
-msgid "IP address or FQDN of remote ssh host"
-msgstr "Dirección IP o FQDN del host remoto SSH"
+#: views/cron.php:161
+msgid ""
+"If Randomize is selcted, a similar frequency will be followed, only the "
+"exact times will be randomized (avoiding peak business hours, when "
+"possible). Please note: randomized schedules will be rescheduled (randomly) "
+"every time ANY backup is saved"
+msgstr ""
+
+#: views/cron.php:105
+msgid ""
+"If a custom schedule is selected, any section not specficed will be "
+"considered to be \"any\" (aka: wildcard).\n"
+"\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, the "
+"Backup will be run on ANY 12th of\n"
+"\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week is "
+"set to, say, Monday, the Backup will run ONLY\n"
+"\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
+msgstr ""
 
 #: bin/backup.php:41
 msgid "Intializing Backup"
@@ -559,31 +756,48 @@ msgstr "Inicializando Respaldo"
 msgid "Intializing Restore..."
 msgstr "Inicializando restauración .."
 
+#: views/backup/backups.php:31
+msgid "Introduction"
+msgstr ""
+
 #: page.backup_restore.php:121 page.backup_restore.php:141
 msgid "Invalid backup for or undefined error"
 msgstr "Respaldo Invalido o error no definido"
 
-#: views/backup/backup.php:41
+#: views/backup/backups.php:9 views/servers/servers.php:18
+#: views/templates/templates.php:5
+msgid "Item"
+msgstr ""
+
+#: views/backup/backup.php:86
 msgid "Items"
 msgstr "Elementos"
 
-#: views/cron.php:105
+#: views/cron.php:43
 msgid "January"
 msgstr "Enero"
 
-#: views/cron.php:111
+#: views/cron.php:49
 msgid "July"
 msgstr "Julio"
 
-#: views/cron.php:110
+#: views/cron.php:48
 msgid "June"
 msgstr "Junio"
 
-#: views/servers/ssh.php:59
+#: views/servers/email.php:101
+msgid "KB"
+msgstr ""
+
+#: views/servers/ssh.php:136
 msgid "Key"
 msgstr "Llave"
 
-#: functions.inc/servers.php:249 functions.inc/servers.php:301
+#: views/servers/local.php:4
+msgid "Local Server"
+msgstr ""
+
+#: functions.inc/servers.php:269 functions.inc/servers.php:324
 msgid "Local Server "
 msgstr "Servidor Local "
 
@@ -591,28 +805,32 @@ msgstr "Servidor Local "
 msgid "Location of backups pre 2.10"
 msgstr "Localidad de Respaldo pre 2.10"
 
-#: views/servers/ssh.php:59
+#: views/servers/ssh.php:148
 msgid "Location of ssh private key to be used when connecting to a host"
 msgstr ""
 "Localidad de la clave privada SSH para ser usada conectándose a un host"
+
+#: views/servers/email.php:103
+msgid "MB"
+msgstr ""
 
 #: install.php:457
 msgid "MIGRATED"
 msgstr "MIGRADO"
 
-#: views/backup/backup.php:243
-msgid "Maintenance"
-msgstr "Mantenimiento"
+#: views/backup/backup.php:436
+msgid "Maintinance"
+msgstr ""
 
-#: views/cron.php:107
+#: views/cron.php:45
 msgid "March"
 msgstr "Marzo"
 
-#: views/servers/email.php:43
+#: views/servers/email.php:88
 msgid "Max Email Size"
 msgstr "Tamaño máximo de correo"
 
-#: views/cron.php:109
+#: views/cron.php:47
 msgid "May"
 msgstr "Mayo"
 
@@ -636,25 +854,25 @@ msgstr "Servidor remoto SSH migrado para respaldo "
 msgid "Migrating backup table..."
 msgstr "Migrando tabla de respaldo..."
 
-#: views/backup/backup.php:253 views/cron.php:45
+#: views/backup/backup.php:453 views/cron.php:174 views/cron.php:178
 msgid "Minutes"
 msgstr "Minutos"
 
-#: views/cron.php:81
+#: views/cron.php:28 assets/js/backup.js:68
 msgid "Monday"
 msgstr "Lunes"
 
-#: views/cron.php:102
-msgid "Month"
-msgstr "Mes"
-
-#: views/cron.php:9
+#: views/backup/backups.php:151 views/cron.php:7
 msgid "Monthly"
 msgstr "mensual"
 
-#: views/backup/backup.php:257
+#: views/backup/backup.php:461 views/cron.php:252 views/cron.php:256
 msgid "Months"
 msgstr "Meses"
+
+#: views/servers/mysql.php:4
+msgid "MySQL Server"
+msgstr ""
 
 #: functions.inc/templates.php:267
 msgid "Mysql"
@@ -668,7 +886,7 @@ msgstr "BD's Mysql"
 msgid "Mysql Db's"
 msgstr "Bd's Mysql"
 
-#: functions.inc/servers.php:252 functions.inc/servers.php:304
+#: functions.inc/servers.php:272 functions.inc/servers.php:327
 msgid "Mysql Server "
 msgstr "Servidor Mysql "
 
@@ -676,37 +894,69 @@ msgstr "Servidor Mysql "
 msgid "Name"
 msgstr "Nombre"
 
-#: views/cron.php:5
+#: views/servers/email.php:28
+msgid "Name this Server"
+msgstr ""
+
+#: views/templates/template.php:25
+msgid "Name this Template"
+msgstr ""
+
+#: views/backup/backup.php:24
+msgid "Name this backup"
+msgstr ""
+
+#: views/cron.php:3
 msgid "Never"
 msgstr "Nunca"
 
-#: views/backup/backups.php:6
+#: views/cron.php:101
+msgid "Never will never run the backup automatically"
+msgstr ""
+
+#: views/servers/servers.php:12
+msgid "New Amazon S3 server"
+msgstr ""
+
+#: views/backup/backups.php:3
 msgid "New Backup"
 msgstr "Nuevo respaldo"
 
-#: views/servers/servers.php:6
+#: views/servers/servers.php:9
 msgid "New Email server"
 msgstr "Nuevo Servidor de correo"
 
-#: views/servers/servers.php:9
+#: views/servers/servers.php:7
 msgid "New FTP server"
 msgstr "Nuevo servidor FTP"
 
-#: views/servers/servers.php:18
+#: views/servers/servers.php:10
 msgid "New Local server"
 msgstr "Nuevo servidor local"
 
-#: views/servers/servers.php:21
-msgid "New Mysql server"
-msgstr "Nuevo servidor Mysql"
+#: views/servers/servers.php:11
+msgid "New MySQL server"
+msgstr ""
 
-#: views/servers/servers.php:24
+#: views/servers/servers.php:8
 msgid "New SSH server"
 msgstr "Nuevo servidor SSH"
 
-#: views/templates/templates.php:6
+#: views/templates/templates.php:1
 msgid "New Template"
 msgstr "Nueva plantilla"
+
+#: views/backup/backups.php:147
+msgid "Nightly"
+msgstr ""
+
+#: views/backup/backup.php:268 views/backup/backup.php:295
+#: views/backup/backup.php:322 views/backup/backup.php:349
+#: views/backup/backups.php:186 views/backup/backups.php:213
+#: views/backup/backups.php:240 views/backup/backups.php:271
+#: views/backup/backups.php:327 views/cron.php:153
+msgid "No"
+msgstr ""
 
 #: bin/backup.php:74
 msgid "No items in backup set. Aborting."
@@ -724,11 +974,19 @@ msgstr "Nada que migrar"
 msgid "Nothing to restore!"
 msgstr "Nada que restaurar!"
 
-#: views/cron.php:115
+#: views/backup/backups.php:67
+msgid "Notifications"
+msgstr ""
+
+#: views/cron.php:53
 msgid "November"
 msgstr "Noviembre"
 
-#: views/cron.php:114
+#: assets/js/backup.js:79
+msgid "ON"
+msgstr ""
+
+#: views/cron.php:52
 msgid "October"
 msgstr "Octubre"
 
@@ -736,11 +994,15 @@ msgstr "Octubre"
 msgid "Old Backup table removed"
 msgstr "Vieja tabla de respaldo removida"
 
+#: assets/js/backup.js:86
+msgid "On the"
+msgstr ""
+
 #: functions.inc/templates.php:260
 msgid "PATTERNs, one per line"
 msgstr "PATRONes, uno por linea"
 
-#: views/restore/backup_list.php:35
+#: views/restore/backup_list.php:33
 msgid "PBX Settings"
 msgstr "Configuración PBX"
 
@@ -749,47 +1011,53 @@ msgid "PBX config server, generally a local database server"
 msgstr ""
 "Servidor de configuración PBX, generalmente y servidor de base de datos local"
 
-#: views/servers/ftp.php:59 views/servers/mysql.php:59
+#: views/backup/backups.php:499 views/servers/ftp.php:191
+msgid "Passive"
+msgstr ""
+
+#: views/backup/backups.php:470 views/servers/ftp.php:136
+#: views/servers/mysql.php:136
 msgid "Password"
 msgstr "Contraseña"
 
-#: views/servers/ftp.php:70 views/servers/local.php:32
-#: views/servers/ssh.php:70
+#: views/servers/ftp.php:160 views/servers/local.php:64
+#: views/servers/ssh.php:160
 msgid "Path"
 msgstr "Camino"
 
-#: views/servers/ssh.php:70
-msgid "Path on server where files are stored"
-msgstr "camino en el servidor donde los archivos son almacenados"
+#: views/servers/ftp.php:172 views/servers/local.php:76
+#: views/servers/ssh.php:172
+msgid "Path on remote server"
+msgstr ""
 
-#: views/servers/ftp.php:70 views/servers/local.php:32
-msgid "Path where files are stored"
-msgstr "camino donde los archivos son almacenados"
+#: views/backup/backups.php:557
+msgid "Path to ssh key, example /home/asterisk/.ssh/id_rsa"
+msgstr ""
 
-#: views/item_table.php:7
+#: views/item_table.php:8
 msgid "Path/DB"
 msgstr "Camino/BD"
 
-#: views/servers/ftp.php:47 views/servers/mysql.php:47
-#: views/servers/ssh.php:47
+#: views/servers/ftp.php:88 views/servers/mysql.php:88
+#: views/servers/ssh.php:88
 msgid "Port"
 msgstr "Puerto"
 
-#: views/backup/backup.php:81
-msgid "Post-backup Hook"
-msgstr "Enganche post-respaldo"
+#: views/backup/backup.php:153
+msgid "Post-Backup Hook"
+msgstr ""
 
-#: views/backup/backup.php:100
-msgid "Post-restore Hook"
-msgstr "Enganche post-restauración"
+#: views/backup/backup.php:201
+msgid "Post-Restore Hook"
+msgstr ""
 
-#: views/backup/backup.php:72
-msgid "Pre-backup Hook"
-msgstr "Enganche pre-respaldo"
+#: views/backup/backup.php:129
+msgid "Pre-Backup Hook"
+msgstr ""
 
-#: views/backup/backup.php:90
-msgid "Pre-restore Hook"
-msgstr "Enganche pre-restauración"
+#: views/backup/backup.php:177
+msgid "Pre-Restore Hook"
+msgstr ""
 
 #: bin/restore.php:294
 msgid "Preserving local NAT settings"
@@ -805,19 +1073,20 @@ msgstr "Procesado %s%% de CDR (%s de %s líneas)"
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "Procesado %s%% de Ajustes (%s de  %s líneas)"
 
-#: bin/backup.php:134
+#: bin/backup.php:135
 msgid "Processing received file..."
 msgstr "Procesando archivo recibido..."
 
-#: backup.i18n.php:8
-msgid "Provides Backup & Restore capabilities for your PBX"
-msgstr "Proporciona funciones de copia de seguridad y restauración para su PBX"
+#: views/servers/ftp.php:28 views/servers/local.php:28
+#: views/servers/ssh.php:28
+msgid "Provide the name for this server"
+msgstr ""
 
-#: views/cron.php:41
-msgid "Randomize"
-msgstr "Randomizar"
+#: views/cron.php:146
+msgid "Random"
+msgstr ""
 
-#: views/cron.php:11
+#: views/cron.php:9
 msgid "Reboot"
 msgstr "Reiniciar"
 
@@ -825,27 +1094,79 @@ msgstr "Reiniciar"
 msgid "Reloading..."
 msgstr "Recargando..."
 
+#: views/servers/mysql.php:172
+msgid "Remote Database Name"
+msgstr ""
+
+#: views/servers/ftp.php:100
+msgid "Remote FTP Port"
+msgstr ""
+
+#: views/servers/mysql.php:100
+msgid "Remote MySQL Port"
+msgstr ""
+
+#: views/backup/backups.php:521
+msgid "Remote Path"
+msgstr ""
+
+#: views/servers/ssh.php:100
+msgid "Remote SSH Port"
+msgstr ""
+
+#: views/backup/backups.php:320
+msgid "Remote Save"
+msgstr ""
+
+#: views/backup/backups.php:335
+msgid "Remote Server Settings?"
+msgstr ""
+
+#: views/backup/backups.php:347
+msgid "Remote Server Type"
+msgstr ""
+
+#: views/backup/backups.php:362
+msgid "Remote Server type"
+msgstr ""
+
+#: views/backup/backups.php:310
+msgid "Remote save options"
+msgstr ""
+
+#: views/backup/backups.php:533
+msgid "Remote save path, blank for default"
+msgstr ""
+
 #: install.php:157
 msgid "Replacing ampbackup.pl in db.."
 msgstr "Reemplazando ampbackup.pt in db.."
 
-#: views/restore/backup_list.php:4 views/restore/backup_list.php:59
-#: views/restore/browseserver.php:4 views/restore/restore.php:3
-#: views/rnav/main.php:4
+#: Backup.class.php:177
+msgid "Reset"
+msgstr ""
+
+#: page.backup_restore.php:196 views/restore/backup_list.php:3
+#: views/restore/backup_list.php:57 views/restore/browseserver.php:4
+#: views/restore/restore.php:1 views/rnav/main.php:4
 msgid "Restore"
 msgstr "Restaurar"
 
-#: views/restore/backup_list.php:42
+#: views/restore/backup_list.php:40
 msgid "Restore CDR records stored in this backup"
 msgstr "Restaurar registros CDR almacenados en este respaldo"
 
-#: views/backup/backup.php:138
+#: views/backup/backup.php:261
 msgid "Restore Here"
 msgstr "Restaurar aqui"
 
-#: views/restore/backup_list.php:35
+#: views/restore/backup_list.php:33
 msgid "Restore all setting stored in the database"
 msgstr "Restaurar toda la configuración almacenada en la base de datos"
+
+#: views/backup/backup.php:276
+msgid "Restore backup to this server after the backup is complete"
+msgstr ""
 
 #: bin/restore.php:417
 msgid "Restore complete!"
@@ -883,7 +1204,7 @@ msgstr "Restaurando todos los archivos (esto puede tomar un tiempo)..."
 msgid "Restoring astDB..."
 msgstr "restaurando astDB..."
 
-#: bin/backup.php:168
+#: bin/backup.php:169
 msgid "Restoring backup..."
 msgstr "Restaurando respaldo..."
 
@@ -891,19 +1212,45 @@ msgstr "Restaurando respaldo..."
 msgid "Restoring files (this may take some time)..."
 msgstr "Restaurando archivos (esto puede tomar un tiempo)..."
 
-#: views/cron.php:32
+#: views/cron.php:120
 msgid "Run Automatically"
 msgstr "Correr Automaticamente"
+
+#: views/cron.php:97
+msgid ""
+"Run at startup of the server OR of the cron deamon (i.e. after every "
+"<code>service cron restart</code>)"
+msgstr ""
 
 #: page.backup.php:47
 msgid "Run now"
 msgstr "Correr ahora"
 
+#: views/cron.php:81
+msgid "Run once a day, at midnight"
+msgstr ""
+
+#: views/cron.php:89
+msgid "Run once a month, midnight, first of month"
+msgstr ""
+
+#: views/cron.php:85
+msgid "Run once a week, midnight on Sun"
+msgstr ""
+
+#: views/cron.php:93
+msgid "Run once a year, midnight, Jan. 1"
+msgstr ""
+
+#: views/cron.php:77
+msgid "Run once an hour, beginning of hour"
+msgstr ""
+
 #: bin/restore.php:378
 msgid "Running post restore script..."
 msgstr "Corriendo Script post-restauración..."
 
-#: bin/backup.php:142 bin/backup.php:180
+#: bin/backup.php:143 bin/backup.php:181
 msgid "Running post-backup hooks..."
 msgstr "Corriendo enganches post-respaldo..."
 
@@ -923,63 +1270,126 @@ msgstr "Corriendo enganches pre-restauración, si hay alguno..."
 msgid "Running pre-restore scripts..."
 msgstr "Corriendo scripts pre-restauración..."
 
-#: functions.inc/servers.php:255 functions.inc/servers.php:307
+#: views/backup/backup.php:490
+msgid "Runs"
+msgstr ""
+
+#: views/backup/backups.php:354
+msgid "SSH"
+msgstr ""
+
+#: views/backup/backups.php:545
+msgid "SSH Key Path"
+msgstr ""
+
+#: views/servers/ssh.php:4
+msgid "SSH Server"
+msgstr ""
+
+#: functions.inc/servers.php:275 functions.inc/servers.php:330
 msgid "SSH Server "
 msgstr "Servidor SSH "
 
-#: views/cron.php:86
+#: views/servers/ssh.php:124
+msgid "SSH Username"
+msgstr ""
+
+#: views/cron.php:33 assets/js/backup.js:68
 msgid "Saturday"
 msgstr "Sábado"
 
-#: views/backup/backup.php:278 views/servers/email.php:72
-#: views/servers/ftp.php:105 views/servers/local.php:43
-#: views/servers/mysql.php:83 views/servers/ssh.php:81
-#: views/templates/template.php:36
+#: Backup.class.php:182
 msgid "Save"
 msgstr "Salvar"
+
+#: Backup.class.php:187
+msgid "Save and Run"
+msgstr ""
+
+#: views/cron.php:71
+msgid "Schedule Help"
+msgstr ""
 
 #: views/restore/browseserver.php:12
 msgid "Select a file and click go"
 msgstr "Selecciones un archivo y haga click en ir"
 
-#: views/restore/backup_list.php:50
+#: views/restore/backup_list.php:48
 msgid "Select files and databases to restore:"
 msgstr "Selecciones archivos y bases de datos a restaurar:"
 
-#: views/backup/backup.php:126
+#: views/cron.php:73
+msgid ""
+"Select how often to run this backup. The following schedule will be followed "
+"for all but custom."
+msgstr ""
+
+#: views/backup/backup.php:249
 msgid ""
 "Select the server to be backed up (this server, or any other SSH server)"
 msgstr ""
 "Selecciones el servidor a ser respaldado (este servidor, o cualquier otro "
 "servidor SSH)"
 
-#: views/cron.php:113
+#: views/cron.php:51
 msgid "September"
 msgstr "Septiembre"
 
-#: views/servers/email.php:13 views/servers/ftp.php:13
-#: views/servers/local.php:13 views/servers/mysql.php:13
-#: views/servers/ssh.php:13
+#: views/backup/backups.php:398
+msgid "Server Address"
+msgstr ""
+
+#: views/backup/backups.php:374 views/servers/email.php:16
+#: views/servers/ftp.php:16 views/servers/local.php:16
+#: views/servers/mysql.php:16 views/servers/ssh.php:16
 msgid "Server Name"
 msgstr "Nombre de Servidor"
 
-#: views/rnav/main.php:5
+#: views/backup/backups.php:422
+msgid "Server Port"
+msgstr ""
+
+#: views/backup/backups.php:434
+msgid "Server Port, leave blank for default"
+msgstr ""
+
+#: views/backup/backups.php:458
+msgid "Server Username"
+msgstr ""
+
+#: page.backup_servers.php:79 views/rnav/main.php:5
 msgid "Servers"
 msgstr "Servidores"
 
-#: bin/backup.php:101
+#: bin/backup.php:102
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr "Algo salio mal conectándose al servidor remoto. Abortando!"
 
-#: views/backup/backup.php:30
+#: views/backup/backup.php:60 views/backup/backups.php:291
 msgid "Status Email"
 msgstr "Correo de estado"
 
-#: views/backup/backup.php:191
-msgid "Storage Locations"
-msgstr "Localidad de Almacenaje"
+#: views/backup/backups.php:39
+msgid "Step 1"
+msgstr ""
 
-#: views/backup/backup.php:222
+#: views/backup/backups.php:48
+msgid "Step 2"
+msgstr ""
+
+#: views/backup/backups.php:57
+msgid "Step 3"
+msgstr ""
+
+#: views/backup/backups.php:66
+msgid "Step 4"
+msgstr ""
+
+#: views/backup/backups.php:75
+msgid "Step 5"
+msgstr ""
+
+#: views/backup/backup.php:376
 msgid "Storage Servers"
 msgstr "Servidores de Almacenaje"
 
@@ -987,7 +1397,7 @@ msgstr "Servidores de Almacenaje"
 msgid "Storage location for backups"
 msgstr "Localidad de almacenamiento para respaldos"
 
-#: bin/backup.php:139
+#: bin/backup.php:140
 msgid "Storing backup..."
 msgstr "Almacenando Respaldo..."
 
@@ -995,26 +1405,24 @@ msgstr "Almacenando Respaldo..."
 msgid "Successfully migrated backup table!"
 msgstr "Tabla de respaldo migrada satisfactoriamente!"
 
-#: views/cron.php:80
+#: views/cron.php:27 assets/js/backup.js:68
 msgid "Sunday"
 msgstr "Domingo"
 
-#: views/templates/template.php:12
+#: views/servers/mysql.php:28
+msgid "Supply a server name"
+msgstr ""
+
+#: views/templates/template.php:13
 msgid "Template Name"
 msgstr "Nombre Plantilla"
 
-#: views/backup/backup.php:62 views/restore/backup_list.php:50
-#: views/rnav/main.php:6
+#: page.backup_templates.php:56 views/backup/backup.php:97
+#: views/restore/backup_list.php:48 views/rnav/main.php:6
 msgid "Templates"
 msgstr "Plantillas"
 
-#: backup.i18n.php:24
-msgid "The From: field for emails when using the backup email feature."
-msgstr ""
-"El campo From: para correos cuando se usa la funcionalidad de email del "
-"respaldo."
-
-#: views/servers/email.php:44
+#: views/servers/email.php:114
 msgid ""
 "The maximum size a backup can be and still be emailed. Some email servers "
 "limit the size of email attachments, this will make sure that files larger "
@@ -1029,46 +1437,55 @@ msgid "This error can result from a previous incomplete/failed install of"
 msgstr ""
 "Este error puede resultar de una instalación anterior fallida o incompleta de"
 
-#: views/backup/backup.php:117
+#: views/backup/backup.php:220
 msgid "This server"
 msgstr "Este Servidor"
 
-#: views/cron.php:84
+#: views/backup/backups.php:84
+#, php-format
+msgid "This wizard can be used to add a basic backup task for your %s system"
+msgstr ""
+
+#: views/cron.php:31 assets/js/backup.js:68
 msgid "Thursday"
 msgstr "Jueves"
 
-#: views/servers/ftp.php:79
+#: views/servers/ftp.php:184
 msgid "Transfer Mode"
 msgstr "Modo Transferencia"
 
-#: views/cron.php:82
+#: views/backup/backups.php:494
+msgid "Transfer Type"
+msgstr ""
+
+#: views/cron.php:29 assets/js/backup.js:68
 msgid "Tuesday"
 msgstr "Martes"
 
-#: views/item_table.php:7
+#: views/item_table.php:5 views/servers/servers.php:20
 msgid "Type"
 msgstr "Tipo"
 
-#: views/restore/restore.php:10
-msgid ""
-"Upload a backup file to restore from it. Or, pick a saved backup by "
-"selecting a server from the list on the right."
-msgstr ""
-"Subir un respaldo para restaurar desde el. O, escoger un respaldo ya salvado "
-"escogiendo de la lista de servidores a la derecha."
-
-#: views/servers/ftp.php:56 views/servers/mysql.php:56
-#: views/servers/ssh.php:56
+#: views/servers/mysql.php:112
 msgid "User Name"
 msgstr "Nombre de usuario"
 
-#: bin/backup.php:106
+#: views/backup/backups.php:446 views/servers/ftp.php:112
+#: views/servers/ssh.php:112
+msgid "Username"
+msgstr ""
+
+#: bin/backup.php:107
 msgid "Verifying received file..."
 msgstr "Verificando archivo recibido..."
 
 #: install.php:366
 msgid "Voice Mail Storage"
 msgstr "Almacenamiento de Correo de Voz"
+
+#: views/backup/backups.php:179
+msgid "Voicemails"
+msgstr ""
 
 #: bin/restore.php:258
 msgid "WARNING!"
@@ -1087,27 +1504,95 @@ msgstr "ADVERTENCIA: Falla creando directorio de respaldo. %s"
 msgid "Web Root restore not detected, not restoring module table"
 msgstr "Restauración web Root no detectada, no se restaura tabla de modulo"
 
-#: views/cron.php:83
+#: views/cron.php:30 assets/js/backup.js:68
 msgid "Wednesday"
 msgstr "Miércoles"
 
-#: views/cron.php:8
+#: views/cron.php:226
+msgid "Week Days"
+msgstr ""
+
+#: views/backup/backups.php:149 views/cron.php:6
 msgid "Weekly"
 msgstr "Semanal"
 
-#: views/backup/backup.php:256
+#: views/backup/backup.php:459
 msgid "Weeks"
 msgstr "Semanas"
 
-#: views/backup/backup.php:258
+#: views/backup/backups.php:82
+msgid "Welcome to the Backup Wizard"
+msgstr ""
+
+#: views/backup/backups.php:169
+msgid "What should we backup?"
+msgstr ""
+
+#: views/servers/awss3.php:70 views/servers/awss3.php:97
+msgid "What's this?"
+msgstr ""
+
+#: views/backup/backups.php:303
+msgid "Where should status emails for this job be sent?"
+msgstr ""
+
+#: views/cron.php:240
+msgid "Which Days of the week to run"
+msgstr ""
+
+#: views/cron.php:214
+msgid "Which Hours to run."
+msgstr ""
+
+#: views/cron.php:266
+msgid "Which Months to run"
+msgstr ""
+
+#: views/cron.php:188
+msgid "Which minutes to run"
+msgstr ""
+
+#: Backup.class.php:64
+msgid "Wizard:&nbsp;"
+msgstr ""
+
+#: views/backup/backups.php:279
+msgid "Would you like an email when this job runs?"
+msgstr ""
+
+#: views/backup/backups.php:255
+msgid "Would you like notifications?"
+msgstr ""
+
+#: views/backup/backups.php:221
+msgid "Would you like to backup recordings?"
+msgstr ""
+
+#: views/backup/backups.php:194
+msgid "Would you like voicemails backded up."
+msgstr ""
+
+#: views/backup/backup.php:463
 msgid "Years"
 msgstr "Años"
+
+#: views/backup/backup.php:266 views/backup/backup.php:293
+#: views/backup/backup.php:320 views/backup/backup.php:347
+#: views/backup/backups.php:184 views/backup/backups.php:211
+#: views/backup/backups.php:238 views/backup/backups.php:269
+#: views/backup/backups.php:325 views/cron.php:151 views/servers/ftp.php:189
+msgid "Yes"
+msgstr ""
 
 #: bin/restore.php:260
 msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
 msgstr ""
 "Usted debe correr \"amportal a ma updateall\" para asegurar la integridad "
 "del sistema"
+
+#: views/backup/backups.php:312
+msgid "Your backup will be saved locally to /var/lib/asterisk/backup"
+msgstr ""
 
 #: install.php:286
 msgid "added default backup servers"
@@ -1120,10 +1605,6 @@ msgstr "Añadidas plantillas de respaldo por defecto"
 #: install.php:160
 msgid "an error has occurred, update not done"
 msgstr "un error ha ocurrido, actualización no efectuada"
-
-#: views/backup/backup.php:283
-msgid "and Run"
-msgstr "y corre"
 
 #: install.php:143
 msgid "and then re-install this module. Settings will be lost but old"
@@ -1141,7 +1622,7 @@ msgstr "Datos de respaldo serán preservados."
 msgid "backup data will be retained."
 msgstr "Datos de respaldo serán retenidos."
 
-#: views/item_table.php:40
+#: views/item_table.php:48
 msgid "chose"
 msgstr "Escoge"
 
@@ -1152,14 +1633,7 @@ msgstr ""
 "haciendo esto resultara en la perdida de toda la configuración de respaldo "
 "aunque no la previa"
 
-#: views/backup/backup.php:223
-msgid ""
-"drag servers from the Available Servers list to add them as Storage Servers"
-msgstr ""
-"Arrastre los servidores de la lista de Servidores Disponibles para "
-"agregarlos como Servidores de Almacenaje"
-
-#: views/backup/backup.php:44 views/restore/backup_list.php:46
+#: views/restore/backup_list.php:44
 msgid "drop here"
 msgstr "Sueltelos aqui"
 
@@ -1171,7 +1645,7 @@ msgstr "error/no encontrado!"
 msgid "failed"
 msgstr "falló"
 
-#: functions.inc/restore.php:162
+#: functions.inc/restore.php:182
 msgid "manifest not found"
 msgstr "manifiesto no encontrado"
 
@@ -1182,18 +1656,6 @@ msgstr "respaldo migrado"
 #: install.php:163 install.php:211
 msgid "ok"
 msgstr "ok"
-
-#: views/servers/ftp.php:47
-msgid "remote ftp port"
-msgstr "puerto ftp remoto"
-
-#: views/servers/mysql.php:47
-msgid "remote mysql port"
-msgstr "puerto mysql remoto"
-
-#: views/servers/ssh.php:47
-msgid "remote ssh port"
-msgstr "puerto ssh remoto"
 
 #: install.php:171
 msgid "removed"
@@ -1219,6 +1681,123 @@ msgstr "esperando por bloqueo..."
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "(no servidores disponibles)"
+
+#~ msgid " runs"
+#~ msgstr " Corre"
+
+#~ msgid "Admin"
+#~ msgstr "Administrador"
+
+#~ msgid "Available Servers"
+#~ msgstr "Servidores Disponibles"
+
+#~ msgid "Backup & Restore"
+#~ msgstr "Copias de seguridad"
+
+#~ msgid "Backup & Restore - Restore"
+#~ msgstr "Respalda & Restaura - Restaura"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Respalda & Restaura - Servidores"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Respaldar & Restaurar - Plantillas"
+
+#~ msgid "Backup Module"
+#~ msgstr "Modulo de Respaldo"
+
+#~ msgid "Database name"
+#~ msgstr "Nombre Base de Datos"
+
+#~ msgid "Day of Month"
+#~ msgstr "Día del Mes"
+
+#~ msgid "Delete after"
+#~ msgstr "Eliminar despues"
+
+#~ msgid ""
+#~ "Drag templates and drop them in the Backup Items table. Add as many "
+#~ "templates as you need"
+#~ msgstr ""
+#~ "Arrastre las plantillas y póngalas en la tabla de elementos de Respaldo. "
+#~ "Agregue tantas plantillas como necesite"
+
+#~ msgid "Email "
+#~ msgstr "Correo "
+
+#~ msgid "Hour"
+#~ msgstr "Hora"
+
+#~ msgid "IP address or FQDN of remote ssh host"
+#~ msgstr "Dirección IP o FQDN del host remoto SSH"
+
+#~ msgid "Maintenance"
+#~ msgstr "Mantenimiento"
+
+#~ msgid "Month"
+#~ msgstr "Mes"
+
+#~ msgid "New Mysql server"
+#~ msgstr "Nuevo servidor Mysql"
+
+#~ msgid "Path on server where files are stored"
+#~ msgstr "camino en el servidor donde los archivos son almacenados"
+
+#~ msgid "Path where files are stored"
+#~ msgstr "camino donde los archivos son almacenados"
+
+#~ msgid "Post-backup Hook"
+#~ msgstr "Enganche post-respaldo"
+
+#~ msgid "Post-restore Hook"
+#~ msgstr "Enganche post-restauración"
+
+#~ msgid "Pre-backup Hook"
+#~ msgstr "Enganche pre-respaldo"
+
+#~ msgid "Pre-restore Hook"
+#~ msgstr "Enganche pre-restauración"
+
+#~ msgid "Provides Backup & Restore capabilities for your PBX"
+#~ msgstr ""
+#~ "Proporciona funciones de copia de seguridad y restauración para su PBX"
+
+#~ msgid "Randomize"
+#~ msgstr "Randomizar"
+
+#~ msgid "Storage Locations"
+#~ msgstr "Localidad de Almacenaje"
+
+#~ msgid "The From: field for emails when using the backup email feature."
+#~ msgstr ""
+#~ "El campo From: para correos cuando se usa la funcionalidad de email del "
+#~ "respaldo."
+
+#~ msgid ""
+#~ "Upload a backup file to restore from it. Or, pick a saved backup by "
+#~ "selecting a server from the list on the right."
+#~ msgstr ""
+#~ "Subir un respaldo para restaurar desde el. O, escoger un respaldo ya "
+#~ "salvado escogiendo de la lista de servidores a la derecha."
+
+#~ msgid "and Run"
+#~ msgstr "y corre"
+
+#~ msgid ""
+#~ "drag servers from the Available Servers list to add them as Storage "
+#~ "Servers"
+#~ msgstr ""
+#~ "Arrastre los servidores de la lista de Servidores Disponibles para "
+#~ "agregarlos como Servidores de Almacenaje"
+
+#~ msgid "remote ftp port"
+#~ msgstr "puerto ftp remoto"
+
+#~ msgid "remote mysql port"
+#~ msgstr "puerto mysql remoto"
+
+#~ msgid "remote ssh port"
+#~ msgstr "puerto ssh remoto"
 
 #~ msgid "Backup & Restore for your FreePBX environment"
 #~ msgstr "respaldar & restaurar para su ambiente FreePBX"

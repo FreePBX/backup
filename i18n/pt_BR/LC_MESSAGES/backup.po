@@ -1,31 +1,25 @@
 # This file is part of FreePBX.
 #
-#    FreePBX is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 2 of the License, or
-#    (at your option) any later version.
+# For licensing information, please see the file named LICENSE located in the module directory
 #
-#    FreePBX is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU General Public License
-#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
-#
-# Copyright (C) 2009 Séverine GUTIERREZ, severine@medialsace.fr
+# FreePBX language template for backup
+# Copyright (C) 2008-2015 Sangoma, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-17 14:07-0400\n"
-"PO-Revision-Date: 2010-01-23 00:00+0100\n"
-"Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
-"Language-Team: Français <LL@li.org>\n"
+"PO-Revision-Date: 2015-04-29 08:49+0200\n"
+"Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://weblate.freepbx.org/projects/freepbx/backup/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: views/backup/backup.php:269
 msgid " runs"
@@ -85,7 +79,7 @@ msgstr ""
 
 #: views/cron.php:108
 msgid "April"
-msgstr "Avril"
+msgstr ""
 
 #: views/restore/browseserver.php:21
 msgid "AstDB's"
@@ -97,7 +91,7 @@ msgstr ""
 
 #: views/cron.php:112
 msgid "August"
-msgstr "Août"
+msgstr ""
 
 #: views/backup/backup.php:224
 msgid "Available Servers"
@@ -114,7 +108,7 @@ msgstr ""
 
 #: backup.i18n.php:4 backup.i18n.php:10
 msgid "Backup & Restore"
-msgstr "Sauvegarder & Restaurer"
+msgstr ""
 
 #: backup.i18n.php:18
 msgid "Backup & Restore - Restore"
@@ -269,11 +263,11 @@ msgstr ""
 
 #: views/backup/backup.php:255
 msgid "Days"
-msgstr "Jours"
+msgstr ""
 
 #: views/cron.php:116
 msgid "December"
-msgstr "Décembre"
+msgstr ""
 
 #: install.php:630
 msgid "Default backup; automatically installed"
@@ -285,7 +279,7 @@ msgstr ""
 #: views/servers/local.php:47 views/servers/mysql.php:87
 #: views/servers/ssh.php:85 views/templates/template.php:37
 msgid "Delete"
-msgstr ""
+msgstr "Apagar"
 
 #: views/backup/backup.php:244 views/backup/backup.php:261
 msgid "Delete after"
@@ -446,7 +440,7 @@ msgstr ""
 
 #: views/cron.php:106
 msgid "February"
-msgstr "Février"
+msgstr ""
 
 #: functions.inc/templates.php:233
 msgid "File"
@@ -470,7 +464,7 @@ msgstr ""
 
 #: views/cron.php:85
 msgid "Friday"
-msgstr "Vendredi"
+msgstr ""
 
 #: bin/restore.php:211
 msgid "Getting CDR size..."
@@ -503,7 +497,7 @@ msgstr ""
 
 #: views/backup/backup.php:254
 msgid "Hours"
-msgstr "Heures"
+msgstr ""
 
 #: views/servers/ftp.php:31
 msgid "IP address or FQDN of remote ftp host"
@@ -535,15 +529,15 @@ msgstr ""
 
 #: views/cron.php:105
 msgid "January"
-msgstr "Janvier"
+msgstr ""
 
 #: views/cron.php:111
 msgid "July"
-msgstr "Juillet"
+msgstr ""
 
 #: views/cron.php:110
 msgid "June"
-msgstr "Juin"
+msgstr ""
 
 #: views/servers/ssh.php:59
 msgid "Key"
@@ -571,7 +565,7 @@ msgstr ""
 
 #: views/cron.php:107
 msgid "March"
-msgstr "Mars"
+msgstr ""
 
 #: views/servers/email.php:43
 msgid "Max Email Size"
@@ -579,7 +573,7 @@ msgstr ""
 
 #: views/cron.php:109
 msgid "May"
-msgstr "Mai"
+msgstr ""
 
 #: install.php:586
 msgid "Migrated EMAIL server for backup "
@@ -603,11 +597,11 @@ msgstr ""
 
 #: views/backup/backup.php:253 views/cron.php:45
 msgid "Minutes"
-msgstr "Minutes"
+msgstr ""
 
 #: views/cron.php:81
 msgid "Monday"
-msgstr "Lundi"
+msgstr ""
 
 #: views/cron.php:102
 msgid "Month"
@@ -619,7 +613,7 @@ msgstr ""
 
 #: views/backup/backup.php:257
 msgid "Months"
-msgstr "Mois"
+msgstr ""
 
 #: functions.inc/templates.php:267
 msgid "Mysql"
@@ -691,11 +685,11 @@ msgstr ""
 
 #: views/cron.php:115
 msgid "November"
-msgstr "Novembre"
+msgstr ""
 
 #: views/cron.php:114
 msgid "October"
-msgstr "Octobre"
+msgstr ""
 
 #: install.php:146
 msgid "Old Backup table removed"
@@ -893,7 +887,7 @@ msgstr ""
 
 #: views/cron.php:86
 msgid "Saturday"
-msgstr "Samedi"
+msgstr ""
 
 #: views/backup/backup.php:278 views/servers/email.php:72
 #: views/servers/ftp.php:105 views/servers/local.php:43
@@ -917,7 +911,7 @@ msgstr ""
 
 #: views/cron.php:113
 msgid "September"
-msgstr "Septembre"
+msgstr ""
 
 #: views/servers/email.php:13 views/servers/ftp.php:13
 #: views/servers/local.php:13 views/servers/mysql.php:13
@@ -959,7 +953,7 @@ msgstr ""
 
 #: views/cron.php:80
 msgid "Sunday"
-msgstr "Dimanche"
+msgstr ""
 
 #: views/templates/template.php:12
 msgid "Template Name"
@@ -991,7 +985,7 @@ msgstr ""
 
 #: views/cron.php:84
 msgid "Thursday"
-msgstr "Jeudi"
+msgstr ""
 
 #: views/servers/ftp.php:79
 msgid "Transfer Mode"
@@ -999,7 +993,7 @@ msgstr ""
 
 #: views/cron.php:82
 msgid "Tuesday"
-msgstr "Mardi"
+msgstr ""
 
 #: views/item_table.php:7
 msgid "Type"
@@ -1043,7 +1037,7 @@ msgstr ""
 
 #: views/cron.php:83
 msgid "Wednesday"
-msgstr "Mercredi"
+msgstr ""
 
 #: views/cron.php:8
 msgid "Weekly"
@@ -1117,7 +1111,7 @@ msgstr ""
 
 #: install.php:173 install.php:213
 msgid "failed"
-msgstr "echec"
+msgstr ""
 
 #: functions.inc/restore.php:162
 msgid "manifest not found"
@@ -1145,11 +1139,11 @@ msgstr ""
 
 #: install.php:171
 msgid "removed"
-msgstr "supprimé"
+msgstr ""
 
 #: install.php:169
 msgid "removing retrieve_backup_cron_from_mysql.pl.."
-msgstr "suppression de retrieve_backup_cron_from_mysql.pl..."
+msgstr ""
 
 #: functions.inc/templates.php:289
 msgid "table names, one per line"
@@ -1166,258 +1160,3 @@ msgstr ""
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr ""
-
-#~ msgid "Are you sure you want to delete this File Set?"
-#~ msgstr "Etes-vous sûr de vouloir supprimer ce jeu de fichiers ?"
-
-#~ msgid "DELETE ALL THE DATA IN THIS SET"
-#~ msgstr "SUPPRIMER TOUTES LES DONNEES DE CE JEU"
-
-#~ msgid ""
-#~ "Delete this backup set and all data associated with this backup set.."
-#~ msgstr ""
-#~ "Supprimer ce jeu de sauvegardes et toutes les données associées à ce jeu "
-#~ "de sauvegarde..."
-
-#~ msgid "Delete File Set"
-#~ msgstr "Supprimer Jeu de Fichiers"
-
-#~ msgid "Delete this backup set."
-#~ msgstr "Supprimer ce jeu de sauvegardes."
-
-#~ msgid ""
-#~ "Are you sure you want to restore this COMPLETE file set?\\nDoing so will "
-#~ "permanently over-write all FreePBX and Asterisk files\\nYou will lose all "
-#~ "Your Call Detail Records and any Voicemail that was recorded between the "
-#~ "BACKUP DATE and NOW!"
-#~ msgstr ""
-#~ "Etes-vous sûr de vouloir restaurer ce jeu de fichiers COMPLET ?\\nCeci "
-#~ "écrasera de façon permanente tous les fichiers de FreePBX et d'Asterisk"
-#~ "\\nVous perdrez tous vos Enregistrements Détaillés d'Appel et tout "
-#~ "message vocal enregistré entre la DATE DE SAUVEGARDE et MAINTENANT !"
-
-#~ msgid "Restore Entire Backup Set"
-#~ msgstr "Restaurer le Jeu de Sauvegardes Complet"
-
-#~ msgid "Restore your Complete Backup set overwriting all files."
-#~ msgstr ""
-#~ "Restaurer votre Jeu de Sauvegardes Complet en écrasant tous les fichiers."
-
-#~ msgid ""
-#~ "Are you sure you want to Restore this file set?\\nDoing so will "
-#~ "permanently delete any new voicemail you have in your mailbox\\nsince "
-#~ "this backup on"
-#~ msgstr ""
-#~ "Etes-vous sûr de vouloir Restaurer ce jeu de sauvegardes ?\\nCeci "
-#~ "supprimera de façon permanente tout nouveau message vocal dans votre "
-#~ "boîte mail\\ndepuis cette sauvegarde"
-
-#~ msgid "Restore VoiceMail Files"
-#~ msgstr "Restaurer les fichiers de la Boîte Vocale"
-
-#~ msgid ""
-#~ "Restore your Voicemail files from this backup set.  NOTE! This will "
-#~ "delete any voicemail currently in the voicemail boxes."
-#~ msgstr ""
-#~ "Restaurer les fichiers de votre Boîte Vocale à partir de ce Jeu de "
-#~ "Sauvegardes. ATTENTION ! Ceci supprimera tout message actuellement "
-#~ "contenu dans les boîtes vocales."
-
-#~ msgid ""
-#~ "Are you sure you want to Restore this file set?\\nNOTE! This will "
-#~ "OVERWRITE any voicerecordings currently on the system. It will NOT delete "
-#~ "new files not currently in the backup set"
-#~ msgstr ""
-#~ "Etes-vous sûr de vouloir Restaurer ce jeu de fichiers ?\\nATTENTION ! "
-#~ "Ceci ECRASERA tout enregistrement vocal actuellement présent sur le "
-#~ "système. Cela ne supprimera PAS les nouveaux fichiers qui ne sont pas "
-#~ "actuellement dans le jeu de sauvegardes."
-
-#~ msgid "Restore System Recordings Files"
-#~ msgstr "Restaurer les Fichiers d'Enregistrement Système"
-
-#~ msgid ""
-#~ "Restore your system Voice Recordings including AutoAttendant files from "
-#~ "this backup set.  NOTE! This will OVERWRITE any voicerecordings  "
-#~ "currently on the system. It will NOT delete new files not currently in "
-#~ "the backup set"
-#~ msgstr ""
-#~ "Restaurer les Enregistrements Vocaux du sytème, en incluant les fichiers "
-#~ "AutoAttendant de ce jeu de sauvegardes. ATTENTION ! Ceci ECRASERA tout "
-#~ "enregistrement vocal actuellement présent sur le système. Ceci ne "
-#~ "supprimera PAS les nouveaux fichiers qui ne font pas partie de ce jeu "
-#~ "d'enregistrement."
-
-#~ msgid "Restore System Configuration"
-#~ msgstr "Restaurer la Configuration du Système"
-
-#~ msgid ""
-#~ "Restore your system configuration from this backup set.  NOTE! This will "
-#~ "OVERWRITE any System changes you have made since this backup... ALL items "
-#~ "will be reset to what they were at the time of this backup set.."
-#~ msgstr ""
-#~ "Restaurer la configuration du système à partir de ce jeu de sauvegarde. "
-#~ "ATTENTION ! Cela écrasera tout changement au niveau du Système effectué "
-#~ "depuis cette sauvegarde... Tous les éléments seront de nouveau dans "
-#~ "l'état où ils se trouvaient au moment de cette sauvegarde..."
-
-#~ msgid ""
-#~ "Are you sure you want to Restore the Operator Panel Files?\\nDoing so "
-#~ "will Permanently Over-Write all Operator Panel Files!"
-#~ msgstr ""
-#~ "Êtes-vous sûr de vouloir restaurer les fichiers du Panneau ?\\nCette "
-#~ "action écrasera de façon permanente tous les fichiers du Panneau !"
-
-#~ msgid "Restore Operator Panel"
-#~ msgstr "Restaurer le Panneau"
-
-#~ msgid ""
-#~ "Restore the Operator Panel from this backup set.  NOTE! This will "
-#~ "OVERWRITE any Operator Panel Changes you have made since this backup... "
-#~ "ALL items will be reset to what they were at the time of this backup set.."
-#~ msgstr ""
-#~ "Restaurer le Panneau à partir de ce jeu de sauvegardes. ATTENTION ! Cette "
-#~ "action écrasera tout changement au niveau du Panneau effectué depuis "
-#~ "cette sauvegarde... Tous les éléments seront de nouveau dans l'état où "
-#~ "ils se trouvaient au moment de cette sauvegarde..."
-
-#~ msgid ""
-#~ "Are you sure you want to Restore the CALL DETAIL FILES?\\nDoing so will "
-#~ "Permanently DELETE all CALL RECORDS!"
-#~ msgstr ""
-#~ "Êtes-vous sûr de vouloir Restaurer les fichiers de DETAILS DES APPELS ?"
-#~ "\\nCette action SUPPRIMERA de façon permanente TOUS LES ENREGISTREMENTS !"
-
-#~ msgid "Restore Call Detail Report"
-#~ msgstr "Restaurer le Rapport de Détail des Appels"
-
-#~ msgid ""
-#~ "Restore the Call Detail Records from this backup set.  NOTE! This will "
-#~ "DELETE ALL CALL RECORDS that have been saved since this backup set."
-#~ msgstr ""
-#~ "Restaurer les Enregistrements du Détail des Appels à partir de ce jeu de "
-#~ "sauvegardes. ATTENTION ! Cette action SUPPRIMERA TOUS LES ENREGISTREMENTS "
-#~ "sauvegardés après ce jeu de sauvegardes..."
-
-#~ msgid "ERROR its not a BACKUP SET file"
-#~ msgstr "ERREUR ce n'est pas un fichier de JEU DE SAUVEGARDES"
-
-#~ msgid "Restored All Files in Backup Set"
-#~ msgstr "Fichiers du Jeu de Sauvegardes Restaurés"
-
-#~ msgid "Restored VoiceMail"
-#~ msgstr "Messagerie Vocale Restaurée"
-
-#~ msgid "Restored System Recordings"
-#~ msgstr "Enregistrements Systèmes Restaurés"
-
-#~ msgid "Restored System Configuration"
-#~ msgstr "Configuration Système Restaurée"
-
-#~ msgid "Restored Operator Panel"
-#~ msgstr "Panneau Restauré"
-
-#~ msgid "Restored CDR logs"
-#~ msgstr "Logs CDR Restaurés"
-
-#~ msgid "Schedule Name:"
-#~ msgstr "Nom du Calendrier :"
-
-#~ msgid "Give this Backup Schedule a brief name to help you identify it."
-#~ msgstr ""
-#~ "Donnez un nom court à ce Calendrier de Sauvegarde pour vous aider à "
-#~ "l'identifier."
-
-#~ msgid "CDR"
-#~ msgstr "CDR"
-
-#~ msgid "Backup the System Call Detail Reporting (HTML and Database)"
-#~ msgstr ""
-#~ "Sauvegarder le Rapport des Détails des Appels du Système (HTML et Base de "
-#~ "Données)"
-
-#~ msgid "Operator Panel"
-#~ msgstr "Panneau"
-
-#~ msgid "Backup the Operator Panel (HTML and Database)"
-#~ msgstr "Sauvegarder le Panneau (HTML et Base de Données)"
-
-#~ msgid "System Recordings"
-#~ msgstr "Enregistrements Système"
-
-#~ msgid ""
-#~ "Backup the System Recordings (AutoAttendant, Music On Hold, System "
-#~ "Recordings)"
-#~ msgstr ""
-#~ "Sauvegarder les Enregistrements Système (AutoAttendant, Musique "
-#~ "d'Attente, Enregistrements Système)"
-
-#~ msgid "VoiceMail"
-#~ msgstr "Boîte Vocale"
-
-#~ msgid ""
-#~ "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
-#~ msgstr ""
-#~ "Sauvegarder les Boîtes Vocales du Système... ATTENTION : Peut donner un "
-#~ "fichier volumineux"
-
-#~ msgid "System Configuration"
-#~ msgstr "Configuartion Système"
-
-#~ msgid ""
-#~ "Backup the System Configurations (Database, etc files, SQL Database, "
-#~ "astdb)"
-#~ msgstr ""
-#~ "Sauvegarder les Configurations Système (Base de Données, fichiers etc, "
-#~ "Base de Données SQL, astdb)"
-
-#~ msgid "All"
-#~ msgstr "Tout"
-
-#~ msgid "Selected"
-#~ msgstr "Sélectionné(s)"
-
-#~ msgid "Run Backup"
-#~ msgstr "Exécuter la Sauvegarde"
-
-#~ msgid "Follow Schedule Below"
-#~ msgstr "Suivre le Caldendrier ci-dessous"
-
-#~ msgid "Now"
-#~ msgstr "Maintenant"
-
-#~ msgid "Daily (at midnight)"
-#~ msgstr "Quotidiennement (à minuit)"
-
-#~ msgid "Weekly (on Sunday)"
-#~ msgstr "Hebdomadaire (le Dimanche)"
-
-#~ msgid "Monthly (on the 1st)"
-#~ msgstr "Mensuellement (le 1er)"
-
-#~ msgid "Yearly (on 1st Jan)"
-#~ msgstr "Annuellement (le 1er Jan)"
-
-#~ msgid "Weekdays"
-#~ msgstr "Jours Ouvrables"
-
-#~ msgid "Add Backup Schedule"
-#~ msgstr "Ajouter un Calendrier de Sauvegarde"
-
-#~ msgid "Restore from Backup"
-#~ msgstr "Restaurer à partir d'une Sauvegarde"
-
-#~ msgid "System Backup"
-#~ msgstr "Sauvegarde Système"
-
-#~ msgid "Run Schedule"
-#~ msgstr "Exécuter le Calendrier"
-
-#~ msgid "Submit Changes"
-#~ msgstr "Soumettre les modifications"
-
-#~ msgid "Delete Backup Schedule %s"
-#~ msgstr "Supprimer le Calendrier de Sauvegarde %s"
-
-#~ msgid "System Restore"
-#~ msgstr "Restauration Système"

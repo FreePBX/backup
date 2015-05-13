@@ -19,15 +19,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-07 15:46+1000\n"
-"PO-Revision-Date: 2015-03-24 07:21+0200\n"
+"POT-Creation-Date: 2015-04-17 14:07-0400\n"
+"PO-Revision-Date: 2015-04-18 01:09+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
-"es_ES/>\n"
+"Language-Team: Spanish "
+"<http://weblate.freepbx.org/projects/freepbx/backup/es_ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Spanish\n"
@@ -139,10 +139,6 @@ msgstr "Respalda & Restaura - Servidores"
 msgid "Backup & Restore - Templates"
 msgstr "Respaldar & Restaurar - Plantillas"
 
-#: backup.i18n.php:8
-msgid "Backup & Restore for your FreePBX environment"
-msgstr "respaldar & restaurar para su ambiente FreePBX"
-
 #: views/backup/backup.php:59
 msgid "Backup Items"
 msgstr "Respaldar Elementos"
@@ -236,7 +232,7 @@ msgstr "No se pueden migrar tablas de Respaldos"
 msgid "Can't check for Backup table"
 msgstr "No se puede checar tablas de Respaldos"
 
-#: bin/restore.php:467
+#: bin/restore.php:387
 msgid "Cleaning up..."
 msgstr "Limpiando ..."
 
@@ -357,7 +353,7 @@ msgstr "Directorio"
 msgid "Disable Registered Trunks"
 msgstr "Deshabilitar Troncales Registrados"
 
-#: bin/restore.php:511
+#: bin/restore.php:431
 msgid "Done!"
 msgstr "Hecho!"
 
@@ -795,17 +791,27 @@ msgstr "Enganche pre-respaldo"
 msgid "Pre-restore Hook"
 msgstr "Enganche pre-restauración"
 
-#: bin/restore.php:336
+#: bin/restore.php:294
 msgid "Preserving local NAT settings"
 msgstr "Preservando configuración local NAT"
 
-#: bin/restore.php:274 bin/restore.php:409
-msgid "Processed "
-msgstr "Procesado "
+#: bin/restore.php:245
+#, php-format
+msgid "Processed %s%% of CDRs (%s of %s lines)"
+msgstr "Procesado %s%% de CDR (%s de %s líneas)"
+
+#: bin/restore.php:339
+#, php-format
+msgid "Processed %s%% of Settings (%s of %s lines)"
+msgstr "Procesado %s%% de Ajustes (%s de  %s líneas)"
 
 #: bin/backup.php:134
 msgid "Processing received file..."
 msgstr "Procesando archivo recibido..."
+
+#: backup.i18n.php:8
+msgid "Provides Backup & Restore capabilities for your PBX"
+msgstr "Proporciona funciones de copia de seguridad y restauración para su PBX"
 
 #: views/cron.php:41
 msgid "Randomize"
@@ -815,7 +821,7 @@ msgstr "Randomizar"
 msgid "Reboot"
 msgstr "Reiniciar"
 
-#: bin/restore.php:498
+#: bin/restore.php:418
 msgid "Reloading..."
 msgstr "Recargando..."
 
@@ -841,19 +847,15 @@ msgstr "Restaurar aqui"
 msgid "Restore all setting stored in the database"
 msgstr "Restaurar toda la configuración almacenada en la base de datos"
 
-#: bin/restore.php:497
+#: bin/restore.php:417
 msgid "Restore complete!"
 msgstr "Restauración completada!"
 
-#: bin/restore.php:422
+#: bin/restore.php:343
 msgid "Restored Database"
 msgstr "Base de Datos restaurada"
 
-#: bin/restore.php:287
-msgid "Restored all CDRs."
-msgstr "Todos los CDR restaurados."
-
-#: bin/restore.php:292
+#: bin/restore.php:252
 msgid "Restoring CDRs complete"
 msgstr "Restauración de CDRs completada"
 
@@ -861,15 +863,15 @@ msgstr "Restauración de CDRs completada"
 msgid "Restoring CDRs..."
 msgstr "restaurando CDRs..."
 
-#: bin/restore.php:343
+#: bin/restore.php:301
 msgid "Restoring Database..."
 msgstr "Restaurando Base de Datos..."
 
-#: bin/restore.php:431
+#: bin/restore.php:351
 msgid "Restoring NAT settings"
 msgstr "Restaurando configuración NAT"
 
-#: bin/restore.php:452
+#: bin/restore.php:372
 msgid "Restoring Settings complete"
 msgstr "Restauración de configuración completada"
 
@@ -877,7 +879,7 @@ msgstr "Restauración de configuración completada"
 msgid "Restoring all files (this may take some time)..."
 msgstr "Restaurando todos los archivos (esto puede tomar un tiempo)..."
 
-#: bin/restore.php:442
+#: bin/restore.php:362
 msgid "Restoring astDB..."
 msgstr "restaurando astDB..."
 
@@ -897,7 +899,7 @@ msgstr "Correr Automaticamente"
 msgid "Run now"
 msgstr "Correr ahora"
 
-#: bin/restore.php:458
+#: bin/restore.php:378
 msgid "Running post restore script..."
 msgstr "Corriendo Script post-restauración..."
 
@@ -905,7 +907,7 @@ msgstr "Corriendo Script post-restauración..."
 msgid "Running post-backup hooks..."
 msgstr "Corriendo enganches post-respaldo..."
 
-#: bin/restore.php:462
+#: bin/restore.php:382
 msgid "Running post-restore hooks, if any..."
 msgstr "Corriendo enganches post-restauración, si hay alguno..."
 
@@ -1068,7 +1070,7 @@ msgstr "Verificando archivo recibido..."
 msgid "Voice Mail Storage"
 msgstr "Almacenamiento de Correo de Voz"
 
-#: bin/restore.php:298
+#: bin/restore.php:258
 msgid "WARNING!"
 msgstr "ADVERTENCIA!"
 
@@ -1081,7 +1083,7 @@ msgstr "ADVERTENCIA: tabla de respaldos no migrada"
 msgid "WARNING: failed to create backup directory: %s"
 msgstr "ADVERTENCIA: Falla creando directorio de respaldo. %s"
 
-#: bin/restore.php:299
+#: bin/restore.php:259
 msgid "Web Root restore not detected, not restoring module table"
 msgstr "Restauración web Root no detectada, no se restaura tabla de modulo"
 
@@ -1101,7 +1103,7 @@ msgstr "Semanas"
 msgid "Years"
 msgstr "Años"
 
-#: bin/restore.php:300
+#: bin/restore.php:260
 msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
 msgstr ""
 "Usted debe correr \"amportal a ma updateall\" para asegurar la integridad "
@@ -1217,6 +1219,15 @@ msgstr "esperando por bloqueo..."
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "(no servidores disponibles)"
+
+#~ msgid "Backup & Restore for your FreePBX environment"
+#~ msgstr "respaldar & restaurar para su ambiente FreePBX"
+
+#~ msgid "Processed "
+#~ msgstr "Procesado "
+
+#~ msgid "Restored all CDRs."
+#~ msgstr "Todos los CDR restaurados."
 
 #~ msgid "Are you sure you want to delete this File Set?"
 #~ msgstr "¿Está seguro de que desea eliminar esta copia de seguridad?"

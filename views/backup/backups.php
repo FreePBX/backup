@@ -236,7 +236,7 @@
 										<div class="col-md-9 radioset">
 											<input type="radio" name="wizcdr" id="wizcdryes" value="yes" CHECKED>
 											<label for="wizcdryes"><?php echo _("Yes");?></label>
-											<input type="radio" name="wizcdr" id="wizvmno" value="no">
+											<input type="radio" name="wizcdr" id="wizcdrno" value="no">
 											<label for="wizcdrno"><?php echo _("No");?></label>
 										</div>
 									</div>

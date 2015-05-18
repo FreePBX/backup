@@ -1,4 +1,4 @@
-<?php 
+<?php
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 $get_vars = array(
 				'action'	=> '',
@@ -9,7 +9,7 @@ $get_vars = array(
 				'name'		=> '',
 				'path'		=> '',
 				'submit'	=> '',
-				'type'		=> ''		
+				'type'		=> ''
 				);
 
 foreach ($get_vars as $k => $v) {
@@ -41,7 +41,7 @@ switch ($var['action']) {
 	case 'edit':
 	case 'save':
 		$var = array_merge($var, backup_get_template($var['id']));
-		
+
 		//template id's are all prefixed by their module name for hooking reasons. Clear that past this point
 		if (strpos($var['id'], 'backup-') === 0) {
 			$var['id'] = substr($var['id'], 7);
@@ -62,7 +62,7 @@ $heading = _("Templates");
 		<div class="row">
 			<div class="col-sm-9">
 				<div class="fpbx-container">
-					<div class="display full-border">
+					<div class="display <?php echo !empty($_REQUEST['action']) ? 'full' : 'no'?>-border">
 						<?php echo $content ?>
 					</div>
 				</div>

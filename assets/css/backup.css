@@ -35,11 +35,9 @@
 	border: 5px dashed lightgrey;
 	min-width: 100px;
 }
-.dragable{
-	background: url(/admin/modules/backup/assets/images/move.png) no-repeat center center;
-	padding: 8px;
+.fa.fa-arrows{
 	margin-right: 5px;
-	background-size: 16px 16px;
+  font-size: 140%;
 }
 
 #items_over {
@@ -71,9 +69,7 @@
 	max-height: 400px;
 	overflow-y: auto;
 }
-input[type=text] {
-	width: 250px;
-}
+
 .jstree a > .noicon {
 	background-image: none;
 	width: 1px;

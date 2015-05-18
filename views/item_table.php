@@ -28,7 +28,7 @@ $html = '';
 
 
 if ($immortal != 'true') {
-	$html .= '<img src="modules/backup/assets/images/add.png" style="cursor:pointer" title="Add Entry" id="add_entry" />';
+	$html .= '<i class="fa fa-plus" style="cursor:pointer" title="Add Entry" id="add_entry"></i>';
 }
 
 //include javascript variables for add button

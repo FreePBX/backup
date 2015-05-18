@@ -15,6 +15,7 @@ $get_vars = array(
 foreach ($get_vars as $k => $v) {
 	$var[$k] = isset($_REQUEST[$k]) ? $_REQUEST[$k] : $v;
 }
+$message = "";
 
 //set action to delete if delete was pressed instead of submit
 if ($var['submit'] == _('Download') && $var['action'] == 'backup_list') {
@@ -37,7 +38,7 @@ switch ($var['action']) {
 
 		//make sure our file was uploaded
 		if (!is_uploaded_file($_FILES['upload']['tmp_name'])) {
-			echo _('Error uploading file!');
+			$message = _('Error uploading file!');
 			$var['action'] = '';
 			break;
 
@@ -46,7 +47,7 @@ switch ($var['action']) {
 		//ensure uploaded file is a valid tar file
 		exec(fpbx_which('tar') . ' -tf ' . $_FILES['upload']['tmp_name'], $array, $ret_code);
 		if ($ret_code !== 0) {
-			echo _('Error verifying uploaded file!');
+			$message =  _('Error verifying uploaded file!');
 			$var['action'] = '';
 			break;
 		}
@@ -138,7 +139,7 @@ switch ($var['action']) {
 		}
 
 		//still here? oops, something is really broken
-		echo _('Invalid backup for or undefined error');
+		$message = _('Invalid backup for or undefined error');
 
 		dbug($_SESSION['backup_restore_path'], $var);
 		break;
@@ -161,7 +162,7 @@ switch ($var['action']) {
         //restore will compelte EVEN IS USER NAVIGATES AWAY FROM PAGE!!
         ignore_user_abort(true);
 
-        //clear all buffers, those will interfere with the stream 
+        //clear all buffers, those will interfere with the stream
         while (ob_get_level()) {
             ob_end_clean();
         }
@@ -197,12 +198,15 @@ $heading = _("Restore");
 ?>
 
 <div class="container-fluid">
-	<h1><?php  echo $heading?></h1>
+	<h1><?php echo $heading ?></h1>
 	<div class = "display full-border">
 		<div class="row">
 			<div class="col-sm-9">
 				<div class="fpbx-container">
-					<div class="display full-border">
+					<div class="display no-border">
+						<?php if(!empty($message)) { ?>
+							<div class="alert alert-danger" role="alert"><?php echo $message?></div>
+						<?php } ?>
 						<?php echo $content ?>
 					</div>
 				</div>

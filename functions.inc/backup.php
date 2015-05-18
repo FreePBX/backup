@@ -166,12 +166,14 @@ function backup_get_backup($id = '') {
 function backup_put_backup($var) {
 	global $db, $amp_conf;
 	//dont save protected backups
-	if ($var['id']) {
+	if (!empty($var['id'])) {
 		$stale = backup_get_backup($var['id']);
 		if ($stale['immortal'] == 'true') {
 			return false;
 		}
 	}
+
+	$var['desc'] = !empty($var['desc']) ? $var['desc'] : "";
 
 	//save server
 	if (!empty($var['id'])) {
@@ -187,7 +189,7 @@ function backup_put_backup($var) {
 	}
 
 	$sql = ($amp_conf["AMPDBENGINE"] == "sqlite3") ? 'SELECT last_insert_rowid()' : 'SELECT LAST_INSERT_ID()';
-	$var['id'] = $var['id'] ? $var['id'] : $db->getOne($sql);
+	$var['id'] = !empty($var['id']) ? $var['id'] : $db->getOne($sql);
 
 	//save server details
 	//first delete stale

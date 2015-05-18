@@ -104,7 +104,7 @@
 										. ' title="' . $t['desc'] . '"'
 										.'>'
 										. '<a href="#">'
-										. '<span class="dragable"></span>'
+										. '<i class="fa fa-arrows"></i>'
 										. $t['name']
 										. '</a>'
 										. '</li>';
@@ -381,7 +381,7 @@ foreach ($storage_servers as $s) {
 					foreach ($storage_servers as $idx => $s) {
 						echo '<li data-server-id="' . $servers[$s]['id'] . '">'
 										. '<a href="#">'
-										. '<span class="dragable"></span>'
+										. '<i class="fa fa-arrows"></i>'
 										. $servers[$s]['name']
 										. ' (' . $servers[$s]['type'] . ')'
 										. '</a>'
@@ -405,7 +405,7 @@ foreach ($storage_servers as $s) {
 						if (in_array($s['type'], array('ftp', 'ssh', 'email', 'local', 'awss3'))) {
 							echo '<li data-server-id="' . $s['id'] . '">'
 											. '<a href="#">'
-											. '<span class="dragable"></span>'
+											. '<i class="fa fa-arrows"></i>'
 											. $s['name']
 											. ' (' . $s['type'] . ')'
 											. '</a>'

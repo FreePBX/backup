@@ -11,10 +11,10 @@ $template_list = '<ul id="templates" class="sortable">';
 foreach ($templates as $t) {
 	$template_list .= '<li data-template="' . rawurlencode(json_encode($t['items'])) . '"'
 					. ' title="' . $t['desc'] . '"'
-					.'>' 
+					.'>'
 					. '<a href="#">'
-					. '<span class="dragable"></span>'
-					. $t['name'] 
+					. '<i class="fa fa-arrows"></i>'
+					. $t['name']
 					. '</a>'
 					. '</li>';
 }
@@ -56,7 +56,7 @@ $html .= form_submit(array(
 	'name'  => 'submit',
 	'value' => _('Restore'),
 	'id'    => 'run_restore'
-)); 
+));
 
 $html .= form_close();
 $html .= br(15);

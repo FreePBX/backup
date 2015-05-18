@@ -1,4 +1,4 @@
-<?php 
+<?php
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 $get_vars = array(
 				'action'		=> '',
@@ -24,7 +24,7 @@ $get_vars = array(
 				'bucket'		=> '',
 				'awsaccesskey'		=> '',
 				'awssecret'		=> '',
-				'type'			=> ''	
+				'type'			=> ''
 				);
 
 foreach ($get_vars as $k => $v) {
@@ -85,7 +85,7 @@ $heading = _("Servers");
 		<div class="row">
 			<div class="col-sm-9">
 				<div class="fpbx-container">
-					<div class="display full-border">
+					<div class="display <?php echo !empty($_REQUEST['action']) ? 'full' : 'no'?>-border">
 						<?php echo $content ?>
 					</div>
 				</div>

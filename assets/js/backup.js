@@ -24,8 +24,43 @@ function backup_log(div, msg) {
 
 }
 $('#merlin').on('show.bs.modal', function (e) {
+	$('#wizard').smartWizard({
+        onLeaveStep:function(obj, context) {
+					switch(context.toStep) {
+						case 3:
+							if($("#wizname").val().trim() === "") {
+								warnInvalid($("#wizname"),_("Invalid Backup Name"));
+								return false;
+							}
+						break;
+						case 6:
+							if($("#wiznotifyes").is(":checked") && $("#wizemail").val().trim() === "") {
+								warnInvalid($("#wizemail"), _("Email notifications are set to Yes but no email provided"));
+								return false;
+							}
+						break;
+					}
+					return true;
+				},
+        onFinish:function(obj, context) {
+					if($("#wizremoteyes").is(":checked")) {
+						if($("#wizsevername").val().trim() === "") {
+							warnInvalid($("#wizsevername"), _("Server Name can not be blank"));
+							return false;
+						}
+						if($("#wizserveraddr").val().trim() === "") {
+							warnInvalid($("#wizserveraddr"), _("Server address can not be blank"));
+							return false;
+						}
+						if($("#wizremtypeftp").is(":checked")) {
 
-	$('#wizard').smartWizard();
+						} else {
+
+						}
+					}
+					$("#idwizform").submit();
+				}
+    });
 });
 $('input[name="wizremote"]').change(function(){
 	if($(this).val() == 'yes'){
@@ -40,6 +75,10 @@ $('input[name="wizremote"]').change(function(){
 				$(".wizservssh").removeClass('hidden');
 			break;
 		}
+	} else {
+		$(".wizservboth").addClass('hidden');
+		$(".wizservssh").addClass('hidden');
+		$(".wizservftp").addClass('hidden');
 	}
 });
 $('input[name="wiznotif"]').on('change',function(){
@@ -115,10 +154,9 @@ function templateFormatter(foo,value){
     }
     return html;
 }
-/*
-if(immortal){
+
+if(typeof immortal !== "undefined" && immortal){
 	$('#delete').attr('disabled',true);
 	$('#submit').attr('disabled',true);
 	$('#reset').attr('disabled',true);
 }
-*/

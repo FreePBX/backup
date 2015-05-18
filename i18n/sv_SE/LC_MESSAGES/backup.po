@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-12 21:48-0400\n"
+"POT-Creation-Date: 2015-05-18 14:16-0400\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -69,7 +69,8 @@ msgstr ""
 msgid "A script to be run BEFORE a backup is started."
 msgstr ""
 
-#: views/backup/backups.php:154 assets/js/backup.js:78 assets/js/backup.js:90
+#: views/backup/backups.php:154 assets/js/backup.js:117
+#: assets/js/backup.js:129
 msgid "AT"
 msgstr ""
 
@@ -93,8 +94,8 @@ msgstr ""
 msgid "AWS Secret (password)"
 msgstr ""
 
-#: views/backup/backups.php:11 views/servers/servers.php:21
-#: views/templates/templates.php:7
+#: views/backup/backups.php:11 views/servers/servers.php:22
+#: views/templates/templates.php:9
 msgid "Actions"
 msgstr ""
 
@@ -173,7 +174,7 @@ msgstr ""
 msgid "BACKUP LOG ATTACHED"
 msgstr ""
 
-#: Backup.class.php:275 functions.inc/backup.php:79
+#: Backup.class.php:293 functions.inc/backup.php:79
 #: functions.inc/class.backup.php:334 views/backup/backup.php:1
 msgid "Backup"
 msgstr ""
@@ -269,7 +270,7 @@ msgstr ""
 msgid "Basic Information"
 msgstr ""
 
-#: views/restore/restore.php:5
+#: views/restore/restore.php:4
 msgid "Browse"
 msgstr ""
 
@@ -357,7 +358,7 @@ msgstr ""
 msgid "Daily"
 msgstr ""
 
-#: assets/js/backup.js:84
+#: assets/js/backup.js:123
 msgid "Day each month"
 msgstr ""
 
@@ -389,7 +390,7 @@ msgstr ""
 msgid "Default backup; automatically installed"
 msgstr ""
 
-#: Backup.class.php:38 Backup.class.php:192 page.backup.php:45
+#: Backup.class.php:38 Backup.class.php:196 page.backup.php:45
 #: page.backup_servers.php:35 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
@@ -419,9 +420,9 @@ msgstr ""
 #: views/backup/backup.php:36 views/backup/backups.php:10
 #: views/servers/awss3.php:40 views/servers/email.php:40
 #: views/servers/ftp.php:40 views/servers/local.php:40
-#: views/servers/mysql.php:40 views/servers/servers.php:19
+#: views/servers/mysql.php:40 views/servers/servers.php:20
 #: views/servers/ssh.php:40 views/templates/template.php:37
-#: views/templates/templates.php:6
+#: views/templates/templates.php:8
 msgid "Description"
 msgstr ""
 
@@ -450,7 +451,7 @@ msgstr ""
 msgid "Done!"
 msgstr ""
 
-#: page.backup_restore.php:20 views/restore/browseserver.php:30
+#: page.backup_restore.php:21 views/restore/browseserver.php:30
 msgid "Download"
 msgstr ""
 
@@ -501,6 +502,10 @@ msgstr ""
 msgid "Email address where backups should be emailed to"
 msgstr "E-postadress som säkerhetskopian ska postas till"
 
+#: assets/js/backup.js:38
+msgid "Email notifications are set to Yes but no email provided"
+msgstr ""
+
 #: views/backup/backup.php:72
 msgid "Email to send status messages to when this task is run"
 msgstr ""
@@ -515,11 +520,11 @@ msgstr ""
 msgid "Error connecting to the FTP Server..."
 msgstr ""
 
-#: page.backup_restore.php:40
+#: page.backup_restore.php:41
 msgid "Error uploading file!"
 msgstr ""
 
-#: page.backup_restore.php:49
+#: page.backup_restore.php:50
 msgid "Error verifying uploaded file!"
 msgstr ""
 
@@ -633,7 +638,7 @@ msgstr ""
 msgid "FreePBX"
 msgstr ""
 
-#: views/cron.php:32 assets/js/backup.js:68
+#: views/cron.php:32 assets/js/backup.js:107
 msgid "Friday"
 msgstr "Fredag"
 
@@ -733,12 +738,16 @@ msgstr ""
 msgid "Introduction"
 msgstr ""
 
-#: page.backup_restore.php:121 page.backup_restore.php:141
+#: assets/js/backup.js:32
+msgid "Invalid Backup Name"
+msgstr ""
+
+#: page.backup_restore.php:122 page.backup_restore.php:142
 msgid "Invalid backup for or undefined error"
 msgstr ""
 
-#: views/backup/backups.php:9 views/servers/servers.php:18
-#: views/templates/templates.php:5
+#: views/backup/backups.php:9 views/servers/servers.php:19
+#: views/templates/templates.php:7
 msgid "Item"
 msgstr ""
 
@@ -832,7 +841,7 @@ msgstr "Migrerad backuptabell..."
 msgid "Minutes"
 msgstr "Minut"
 
-#: views/cron.php:28 assets/js/backup.js:68
+#: views/cron.php:28 assets/js/backup.js:107
 msgid "Monday"
 msgstr "Måndag"
 
@@ -916,7 +925,7 @@ msgstr ""
 msgid "New SSH server"
 msgstr ""
 
-#: views/templates/templates.php:1
+#: views/templates/templates.php:2
 msgid "New Template"
 msgstr ""
 
@@ -956,7 +965,7 @@ msgstr ""
 msgid "November"
 msgstr "November"
 
-#: assets/js/backup.js:79
+#: assets/js/backup.js:118
 msgid "ON"
 msgstr ""
 
@@ -968,7 +977,7 @@ msgstr "Oktober"
 msgid "Old Backup table removed"
 msgstr "Den gamla backuptabellen togs bort"
 
-#: assets/js/backup.js:86
+#: assets/js/backup.js:125
 msgid "On the"
 msgstr ""
 
@@ -1115,13 +1124,13 @@ msgstr ""
 msgid "Replacing ampbackup.pl in db.."
 msgstr "Ersätter anpbackup.pl i databasen.."
 
-#: Backup.class.php:177
+#: Backup.class.php:181
 msgid "Reset"
 msgstr ""
 
-#: page.backup_restore.php:196 views/restore/backup_list.php:3
+#: page.backup_restore.php:197 views/restore/backup_list.php:3
 #: views/restore/backup_list.php:57 views/restore/browseserver.php:4
-#: views/restore/restore.php:1 views/rnav/main.php:4
+#: views/restore/restore.php:8 views/rnav/main.php:4
 msgid "Restore"
 msgstr ""
 
@@ -1267,15 +1276,15 @@ msgstr ""
 msgid "SSH Username"
 msgstr ""
 
-#: views/cron.php:33 assets/js/backup.js:68
+#: views/cron.php:33 assets/js/backup.js:107
 msgid "Saturday"
 msgstr "Lördag"
 
-#: Backup.class.php:182
+#: Backup.class.php:186
 msgid "Save"
 msgstr ""
 
-#: Backup.class.php:187
+#: Backup.class.php:191
 msgid "Save and Run"
 msgstr ""
 
@@ -1316,6 +1325,10 @@ msgstr ""
 msgid "Server Name"
 msgstr ""
 
+#: assets/js/backup.js:48
+msgid "Server Name can not be blank"
+msgstr ""
+
 #: views/backup/backups.php:422
 msgid "Server Port"
 msgstr ""
@@ -1326,6 +1339,10 @@ msgstr ""
 
 #: views/backup/backups.php:458
 msgid "Server Username"
+msgstr ""
+
+#: assets/js/backup.js:52
+msgid "Server address can not be blank"
 msgstr ""
 
 #: page.backup_servers.php:79 views/rnav/main.php:5
@@ -1376,7 +1393,7 @@ msgstr ""
 msgid "Successfully migrated backup table!"
 msgstr "Migreringen av backuptabellen lyckades!"
 
-#: views/cron.php:27 assets/js/backup.js:68
+#: views/cron.php:27 assets/js/backup.js:107
 msgid "Sunday"
 msgstr "Söndag"
 
@@ -1414,7 +1431,7 @@ msgstr ""
 msgid "This wizard can be used to add a basic backup task for your %s system"
 msgstr ""
 
-#: views/cron.php:31 assets/js/backup.js:68
+#: views/cron.php:31 assets/js/backup.js:107
 msgid "Thursday"
 msgstr "Torsdag"
 
@@ -1426,11 +1443,11 @@ msgstr ""
 msgid "Transfer Type"
 msgstr ""
 
-#: views/cron.php:29 assets/js/backup.js:68
+#: views/cron.php:29 assets/js/backup.js:107
 msgid "Tuesday"
 msgstr "Tisdag"
 
-#: views/item_table.php:5 views/servers/servers.php:20
+#: views/item_table.php:5 views/servers/servers.php:21
 msgid "Type"
 msgstr ""
 
@@ -1472,7 +1489,7 @@ msgstr ""
 msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
 
-#: views/cron.php:30 assets/js/backup.js:68
+#: views/cron.php:30 assets/js/backup.js:107
 msgid "Wednesday"
 msgstr "Onsdag"
 
@@ -1520,8 +1537,8 @@ msgstr ""
 msgid "Which minutes to run"
 msgstr ""
 
-#: Backup.class.php:64
-msgid "Wizard:&nbsp;"
+#: Backup.class.php:66
+msgid "Wizard"
 msgstr ""
 
 #: views/backup/backups.php:279

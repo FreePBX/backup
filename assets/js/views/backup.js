@@ -43,79 +43,11 @@ $(document).ready(function(){
 	});
 	//run backup
 	$('#run_backup').click(function(){
-
 		id = $('#backup_form').find('[name=id]').val();
 		if (typeof id == 'undefined' || !id) {
 			return false;
 		}
-		 box = $('<div></div>')
-			.html('<div class="backup_status"></div>'
-				+ '<progress style="width: 100%">'
-				+ 'Please wait...'
-				+ '</progress>')
-			.dialog({
-				title: 'Run backup',
-				resizable: false,
-				modal: true,
-				position: ['center', 50],
-				width: 500,
-				close: function (e) {
-					$(e.target).dialog("destroy").remove();
-				}
-			});
-
-		//first, save the backup
-		backup_log($('.backup_status'), 'Saving Backup ' + id + '...');
-
-		//get form data and change action to 'ajax_save'
-		var data = $('#backup_form').serializeArray();
-		for(var i=0; i < data.length; i++) {
-			if (data[i].name == 'action') {
-				data[i].value = 'ajax_save';
-				break;
-			}
-		}
-
-		$.ajax({
-			type: $('#backup_form').attr('method'),
-			url: $('#backup_form').attr('action'),
-			data: data,
-			success: function() {
-				backup_log($('.backup_status'),'done!' + '<br>');
-
-			},
-			error: function() {
-				backup_log($('.backup_status'), '<br>' + 'Error: could not save backup. Aborting!' + '<br>');
-				$('.backup_status').next('progress').val('1');
-				return true;
-			}
-		});
-
-		url = window.location.pathname
-			+ '?display=backup&action=run&id=' + id
-
-		if (!window.EventSource) {
-			$.get(url, function(){
-				$('.backup_status').next('progress').append('done!');
-				setTimeout('box.dialog("close").dialog("destroy").remove();', 5000);
-			});
-			return false;
-		}
-		var eventSource = new EventSource(url);
-		eventSource.addEventListener('message', function (event) {
-			console.log(event.data);
-			if (event.data == 'END') {
-				eventSource.close();
-				$('.backup_status').next('progress').val('1');
-				//setTimeout('box.dialog("close").dialog("destroy").remove();', 5000);
-			} else {
-				backup_log($('.backup_status'), event.data + '<br>');
-			}
-		}, false);
-		eventSource.addEventListener('onerror', function (event) {
-		    console.log('e', event.data);
-		}, false);
-		return false;
+		run_backup(id);
 	});
 
 	//style cron custom times

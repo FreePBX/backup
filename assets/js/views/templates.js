@@ -34,8 +34,9 @@ $(document).ready(function(){
 			}
 
 			//ensure all "excludes" are unique
-			row.exclude	= $(this).find('td').eq(2).find('textarea').val()
-								.split("\n")
+			var ta = $(this).find('td').eq(2).find('textarea').val();
+			if(typeof ta !== "undefined") {
+				row.exclude	= ta.split("\n")
 								.filter(function(element){return element})
 								.sort()
 								.filter(function(element, index, array){
@@ -44,7 +45,8 @@ $(document).ready(function(){
 									}
 								})
 								.join("\n");
-			$(this).find('td').eq(2).find('textarea').val(row.exclude);
+				$(this).find('td').eq(2).find('textarea').val(row.exclude);
+			}
 
 			row.index = $(this).index();
 			table.push(row);

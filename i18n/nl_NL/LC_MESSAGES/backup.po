@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 14:16-0400\n"
+"POT-Creation-Date: 2015-05-19 23:28-0400\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -66,8 +66,8 @@ msgid "A script to be run BEFORE a backup is started."
 msgstr ""
 "Een script dat wordt uitgevoerd VOORDAT een reservekopie wordt gemaakt."
 
-#: views/backup/backups.php:154 assets/js/backup.js:117
-#: assets/js/backup.js:129
+#: views/backup/backups.php:154 assets/js/backup.js:190
+#: assets/js/backup.js:202
 msgid "AT"
 msgstr ""
 
@@ -361,7 +361,7 @@ msgstr "DB naam"
 msgid "Daily"
 msgstr "Dagelijks"
 
-#: assets/js/backup.js:123
+#: assets/js/backup.js:196
 msgid "Day each month"
 msgstr ""
 
@@ -514,7 +514,7 @@ msgstr "e-mail server "
 msgid "Email address where backups should be emailed to"
 msgstr "e-mail adres waar reservekopieën naar toegestuurd moeten worden"
 
-#: assets/js/backup.js:38
+#: assets/js/backup.js:111
 msgid "Email notifications are set to Yes but no email provided"
 msgstr ""
 
@@ -660,7 +660,7 @@ msgstr "Bestanden"
 msgid "FreePBX"
 msgstr ""
 
-#: views/cron.php:32 assets/js/backup.js:107
+#: views/cron.php:32 assets/js/backup.js:180
 msgid "Friday"
 msgstr "Vrijdag"
 
@@ -763,7 +763,7 @@ msgstr "Terugzetten initialiseren..."
 msgid "Introduction"
 msgstr ""
 
-#: assets/js/backup.js:32
+#: assets/js/backup.js:105
 msgid "Invalid Backup Name"
 msgstr ""
 
@@ -866,7 +866,7 @@ msgstr "Reservekopietabel migreren..."
 msgid "Minutes"
 msgstr "Minuten"
 
-#: views/cron.php:28 assets/js/backup.js:107
+#: views/cron.php:28 assets/js/backup.js:180
 msgid "Monday"
 msgstr "Maandag"
 
@@ -990,7 +990,7 @@ msgstr ""
 msgid "November"
 msgstr "November"
 
-#: assets/js/backup.js:118
+#: assets/js/backup.js:191
 msgid "ON"
 msgstr ""
 
@@ -1002,7 +1002,7 @@ msgstr "Oktober"
 msgid "Old Backup table removed"
 msgstr "Oude reservekopietabel verwijderd"
 
-#: assets/js/backup.js:125
+#: assets/js/backup.js:198
 msgid "On the"
 msgstr ""
 
@@ -1044,6 +1044,10 @@ msgstr ""
 #: views/item_table.php:8
 msgid "Path/DB"
 msgstr "Pad/DB"
+
+#: assets/js/backup.js:5
+msgid "Please wait"
+msgstr ""
 
 #: views/servers/ftp.php:88 views/servers/mysql.php:88
 #: views/servers/ssh.php:88
@@ -1301,7 +1305,7 @@ msgstr "SSH server "
 msgid "SSH Username"
 msgstr ""
 
-#: views/cron.php:33 assets/js/backup.js:107
+#: views/cron.php:33 assets/js/backup.js:180
 msgid "Saturday"
 msgstr "Zaterdag"
 
@@ -1352,7 +1356,7 @@ msgstr ""
 msgid "Server Name"
 msgstr "Server naam"
 
-#: assets/js/backup.js:48
+#: assets/js/backup.js:121
 msgid "Server Name can not be blank"
 msgstr ""
 
@@ -1368,7 +1372,7 @@ msgstr ""
 msgid "Server Username"
 msgstr ""
 
-#: assets/js/backup.js:52
+#: assets/js/backup.js:125
 msgid "Server address can not be blank"
 msgstr ""
 
@@ -1422,7 +1426,7 @@ msgstr "Reservekopie opslaan..."
 msgid "Successfully migrated backup table!"
 msgstr "Migratie reservekopietabel gelukt!"
 
-#: views/cron.php:27 assets/js/backup.js:107
+#: views/cron.php:27 assets/js/backup.js:180
 msgid "Sunday"
 msgstr "Zondag"
 
@@ -1464,7 +1468,7 @@ msgstr "Deze server"
 msgid "This wizard can be used to add a basic backup task for your %s system"
 msgstr ""
 
-#: views/cron.php:31 assets/js/backup.js:107
+#: views/cron.php:31 assets/js/backup.js:180
 msgid "Thursday"
 msgstr "Donderdag"
 
@@ -1476,7 +1480,7 @@ msgstr "Verzend type"
 msgid "Transfer Type"
 msgstr ""
 
-#: views/cron.php:29 assets/js/backup.js:107
+#: views/cron.php:29 assets/js/backup.js:180
 msgid "Tuesday"
 msgstr "Dinsdag"
 
@@ -1525,7 +1529,7 @@ msgstr ""
 "Internet hoofdmap terugzetten niet gevonden, moduletabel wordt niet "
 "teruggezet"
 
-#: views/cron.php:30 assets/js/backup.js:107
+#: views/cron.php:30 assets/js/backup.js:180
 msgid "Wednesday"
 msgstr "Woensdag"
 

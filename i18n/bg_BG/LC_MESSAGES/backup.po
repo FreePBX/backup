@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 14:16-0400\n"
+"POT-Creation-Date: 2015-05-19 23:28-0400\n"
 "PO-Revision-Date: 2014-07-25 21:32+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/backup/bg/"
@@ -74,8 +74,8 @@ msgstr ""
 msgid "A script to be run BEFORE a backup is started."
 msgstr ""
 
-#: views/backup/backups.php:154 assets/js/backup.js:117
-#: assets/js/backup.js:129
+#: views/backup/backups.php:154 assets/js/backup.js:190
+#: assets/js/backup.js:202
 msgid "AT"
 msgstr ""
 
@@ -363,7 +363,7 @@ msgstr ""
 msgid "Daily"
 msgstr ""
 
-#: assets/js/backup.js:123
+#: assets/js/backup.js:196
 msgid "Day each month"
 msgstr ""
 
@@ -508,7 +508,7 @@ msgstr ""
 msgid "Email address where backups should be emailed to"
 msgstr ""
 
-#: assets/js/backup.js:38
+#: assets/js/backup.js:111
 msgid "Email notifications are set to Yes but no email provided"
 msgstr ""
 
@@ -644,7 +644,7 @@ msgstr ""
 msgid "FreePBX"
 msgstr ""
 
-#: views/cron.php:32 assets/js/backup.js:107
+#: views/cron.php:32 assets/js/backup.js:180
 msgid "Friday"
 msgstr "Петък"
 
@@ -744,7 +744,7 @@ msgstr ""
 msgid "Introduction"
 msgstr ""
 
-#: assets/js/backup.js:32
+#: assets/js/backup.js:105
 msgid "Invalid Backup Name"
 msgstr ""
 
@@ -845,7 +845,7 @@ msgstr "Преместване на таблица backup..."
 msgid "Minutes"
 msgstr "Минути"
 
-#: views/cron.php:28 assets/js/backup.js:107
+#: views/cron.php:28 assets/js/backup.js:180
 msgid "Monday"
 msgstr "Понеделник"
 
@@ -969,7 +969,7 @@ msgstr ""
 msgid "November"
 msgstr "Ноември"
 
-#: assets/js/backup.js:118
+#: assets/js/backup.js:191
 msgid "ON"
 msgstr ""
 
@@ -981,7 +981,7 @@ msgstr "Октомври"
 msgid "Old Backup table removed"
 msgstr "Премахната стара таблица архиви"
 
-#: assets/js/backup.js:125
+#: assets/js/backup.js:198
 msgid "On the"
 msgstr ""
 
@@ -1022,6 +1022,10 @@ msgstr ""
 
 #: views/item_table.php:8
 msgid "Path/DB"
+msgstr ""
+
+#: assets/js/backup.js:5
+msgid "Please wait"
 msgstr ""
 
 #: views/servers/ftp.php:88 views/servers/mysql.php:88
@@ -1280,7 +1284,7 @@ msgstr ""
 msgid "SSH Username"
 msgstr ""
 
-#: views/cron.php:33 assets/js/backup.js:107
+#: views/cron.php:33 assets/js/backup.js:180
 msgid "Saturday"
 msgstr "Събота"
 
@@ -1329,7 +1333,7 @@ msgstr ""
 msgid "Server Name"
 msgstr ""
 
-#: assets/js/backup.js:48
+#: assets/js/backup.js:121
 msgid "Server Name can not be blank"
 msgstr ""
 
@@ -1345,7 +1349,7 @@ msgstr ""
 msgid "Server Username"
 msgstr ""
 
-#: assets/js/backup.js:52
+#: assets/js/backup.js:125
 msgid "Server address can not be blank"
 msgstr ""
 
@@ -1397,7 +1401,7 @@ msgstr ""
 msgid "Successfully migrated backup table!"
 msgstr "Успешно преместена таблица backup!"
 
-#: views/cron.php:27 assets/js/backup.js:107
+#: views/cron.php:27 assets/js/backup.js:180
 msgid "Sunday"
 msgstr "Неделя"
 
@@ -1435,7 +1439,7 @@ msgstr ""
 msgid "This wizard can be used to add a basic backup task for your %s system"
 msgstr ""
 
-#: views/cron.php:31 assets/js/backup.js:107
+#: views/cron.php:31 assets/js/backup.js:180
 msgid "Thursday"
 msgstr "Четвъртък"
 
@@ -1447,7 +1451,7 @@ msgstr ""
 msgid "Transfer Type"
 msgstr ""
 
-#: views/cron.php:29 assets/js/backup.js:107
+#: views/cron.php:29 assets/js/backup.js:180
 msgid "Tuesday"
 msgstr "Вторник"
 
@@ -1493,7 +1497,7 @@ msgstr "ВНИМАНИЕ: неуспех при създаване на дире
 msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
 
-#: views/cron.php:30 assets/js/backup.js:107
+#: views/cron.php:30 assets/js/backup.js:180
 msgid "Wednesday"
 msgstr "Сряда"
 

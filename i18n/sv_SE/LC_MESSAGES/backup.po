@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-17 14:07-0400\n"
+"POT-Creation-Date: 2015-06-09 14:58+1000\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -109,7 +109,7 @@ msgstr ""
 msgid "BACKUP LOG ATTACHED"
 msgstr ""
 
-#: functions.inc/backup.php:81 functions.inc/class.backup.php:334
+#: functions.inc/backup.php:81 functions.inc/class.backup.php:344
 #: views/backup/backup.php:3 views/backup/backups.php:3
 msgid "Backup"
 msgstr ""
@@ -166,7 +166,7 @@ msgstr ""
 msgid "Backup completed with errors!"
 msgstr ""
 
-#: functions.inc/class.backup.php:231
+#: functions.inc/class.backup.php:242
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -233,7 +233,7 @@ msgstr ""
 msgid "Connecting to remote server..."
 msgstr ""
 
-#: functions.inc/class.backup.php:327 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:337 views/restore/browseserver.php:18
 msgid "Created"
 msgstr ""
 
@@ -387,7 +387,7 @@ msgstr "E-postadress som säkerhetskopian ska postas till"
 msgid "Email to send status messages to when this task is run"
 msgstr ""
 
-#: functions.inc/class.backup.php:370
+#: functions.inc/class.backup.php:380
 msgid "Error connecting to the FTP Server..."
 msgstr ""
 
@@ -469,7 +469,7 @@ msgstr ""
 msgid "File verification failed. "
 msgstr ""
 
-#: functions.inc/class.backup.php:328 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:338 views/restore/browseserver.php:19
 msgid "Files"
 msgstr ""
 
@@ -636,7 +636,7 @@ msgstr ""
 msgid "Mysql DB's"
 msgstr ""
 
-#: functions.inc/class.backup.php:329
+#: functions.inc/class.backup.php:339
 msgid "Mysql Db's"
 msgstr ""
 
@@ -644,7 +644,7 @@ msgstr ""
 msgid "Mysql Server "
 msgstr ""
 
-#: functions.inc/class.backup.php:326 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:336 views/restore/browseserver.php:17
 msgid "Name"
 msgstr ""
 
@@ -1090,7 +1090,7 @@ msgid "and then re-install this module. Settings will be lost but old"
 msgstr ""
 "och återinstallera denna modul. Alla inställningar kommer att förloras men"
 
-#: functions.inc/class.backup.php:330
+#: functions.inc/class.backup.php:340
 msgid "astDb's"
 msgstr ""
 

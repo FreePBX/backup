@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-17 14:07-0400\n"
+"POT-Creation-Date: 2015-06-09 14:58+1000\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
-"Language-Team: Portuguese (Portugal) "
-"<http://weblate.freepbx.org/projects/freepbx/backup/pt_PT/>\n"
-"Language: pt_PT\n"
+"Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
+"freepbx/backup/pt_PT/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_PT\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -105,7 +105,7 @@ msgstr "Servidores Disponíveis"
 msgid "BACKUP LOG ATTACHED"
 msgstr "REGISTO DE BACKUP ANEXO"
 
-#: functions.inc/backup.php:81 functions.inc/class.backup.php:334
+#: functions.inc/backup.php:81 functions.inc/class.backup.php:344
 #: views/backup/backup.php:3 views/backup/backups.php:3
 msgid "Backup"
 msgstr "Cópia de Segurança"
@@ -162,7 +162,7 @@ msgstr "Servidor da Cópia de Segurança não encontrado!"
 msgid "Backup completed with errors!"
 msgstr "Cópia de Segurança terminada com erros!"
 
-#: functions.inc/class.backup.php:231
+#: functions.inc/class.backup.php:242
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -231,7 +231,7 @@ msgstr "Somente configurações"
 msgid "Connecting to remote server..."
 msgstr "Conectando ao servidor remoto..."
 
-#: functions.inc/class.backup.php:327 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:337 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Criado"
 
@@ -312,7 +312,8 @@ msgstr ""
 
 #: functions.inc/templates.php:310
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
-msgstr "Elimina esta entrada. Não esquecer de Submeter para guardar alterações!"
+msgstr ""
+"Elimina esta entrada. Não esquecer de Submeter para guardar alterações!"
 
 #: views/backup/backup.php:20 views/servers/email.php:22
 #: views/servers/ftp.php:22 views/servers/local.php:22
@@ -371,8 +372,8 @@ msgstr "ERRO: Falha ao remover tabela \"Backup\" antiga. Deverá desinstalar"
 msgid ""
 "ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
 msgstr ""
-"ERRO: Falha ao migra da tabela \"Backup\" antiga para a nova tabela \""
-"backup\""
+"ERRO: Falha ao migra da tabela \"Backup\" antiga para a nova tabela \"backup"
+"\""
 
 #: backup.i18n.php:20
 msgid "Email "
@@ -395,7 +396,7 @@ msgid "Email to send status messages to when this task is run"
 msgstr ""
 "Email para onde enviar mensagens de estado quando esta tarefa for executada"
 
-#: functions.inc/class.backup.php:370
+#: functions.inc/class.backup.php:380
 msgid "Error connecting to the FTP Server..."
 msgstr "Erro conectando ao Servidor FTP..."
 
@@ -483,7 +484,7 @@ msgstr "Restauro de ficheiro terminado!"
 msgid "File verification failed. "
 msgstr "Verificação de ficheiro falhou. "
 
-#: functions.inc/class.backup.php:328 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:338 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Ficheiros"
 
@@ -650,7 +651,7 @@ msgstr "Mysql"
 msgid "Mysql DB's"
 msgstr "BDs Mysql"
 
-#: functions.inc/class.backup.php:329
+#: functions.inc/class.backup.php:339
 msgid "Mysql Db's"
 msgstr "Bds Mysql"
 
@@ -658,7 +659,7 @@ msgstr "Bds Mysql"
 msgid "Mysql Server "
 msgstr "Servidor Mysql "
 
-#: functions.inc/class.backup.php:326 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:336 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Nome"
 
@@ -797,7 +798,8 @@ msgstr "Processando ficheiro recebido..."
 
 #: backup.i18n.php:8
 msgid "Provides Backup & Restore capabilities for your PBX"
-msgstr "Proporciona funcionalidades de Cópia de Segurança & Restauro ao seu PBX"
+msgstr ""
+"Proporciona funcionalidades de Cópia de Segurança & Restauro ao seu PBX"
 
 #: views/cron.php:41
 msgid "Randomize"
@@ -1108,9 +1110,10 @@ msgstr "e Executa"
 
 #: install.php:143
 msgid "and then re-install this module. Settings will be lost but old"
-msgstr "e depois reinstala este módulo. Configuração serão perdidas mas antigas"
+msgstr ""
+"e depois reinstala este módulo. Configuração serão perdidas mas antigas"
 
-#: functions.inc/class.backup.php:330
+#: functions.inc/class.backup.php:340
 msgid "astDb's"
 msgstr "astDb's"
 

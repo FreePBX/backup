@@ -673,7 +673,7 @@ class Backup {
 			}
 
 			if ($dent->isFile()) {
-				$files[$filename] = $filename;
+				$files[] = $filename;
 				continue;
 			}
 
@@ -681,7 +681,7 @@ class Backup {
 				if ($followsymlink) {
 					$files[$filename] = $this->getDirContents("$dir/$filename", false);
 				} else {
-					$files[$filename] = $dent->getLinkTarget();
+					$files[] = $filename;
 				}
 				continue;
 			}

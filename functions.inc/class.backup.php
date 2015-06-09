@@ -171,26 +171,37 @@ class Backup {
 						break;
 					}
 
-					//ensure directory structure
-					$dest = $this->b['_tmpdir'] . realpath($i['path']);
+					// Create destination directory structure
+					$dest = $this->b['_tmpdir'].$i['path'];
+
 					if (!is_dir($dest)) {
 						mkdir($dest, 0755, true);
 					}
 
-					//build command. Were using tar to copy files for two reasons:
-					//a. it's recursive
-					//b. it offers excludes
-					$cmd[] = fpbx_which('tar') . ' cf - ' . $i['path'];
+					// Where are we copying from? Note we explicitly use realpath here,
+					// as there could be any number of symlinks leading to the CONTENTS.
+					// But we want to just back the contents up, and pretend those links
+					// don't exist.
+					$src = realpath($i['path']);
+
+					// Build our list of excludes (if any)
+					$excludes = "";
 					if ($i['exclude']) {
-						$excludes = is_array($i['exclude'])
-									? $i['exclude']
-									: explode("\n", $i['exclude']);
-						foreach ($excludes as $x) {
-							$cmd[] = " --exclude='$x'";
+						if (!is_array($i['exclude'])) {
+							$xArr = explode("\n", $i['exclude']);
+						} else {
+							$xArr = $i['exclude'];
+						}
+						foreach ($xArr as $x) {
+							$excludes .= " --exclude='$x'";
 						}
 					}
-					$cmd[] = ' | ' . fpbx_which('tar') . ' xf - -C ' . $this->b['_tmpdir'];
-					exec(implode(' ', $cmd));
+
+					// Use rsync to mirror $src to $dest.
+					// Note we ensure we add the trailing slash to tell rsync to copy the
+					// contents, not the targets (if the target is a link, for exmaple)
+					$cmd = fpbx_which('rsync')."$excludes -av $src/ $dest/";
+					exec($cmd);
 					unset($cmd);
 					break;
 				case 'mysql':

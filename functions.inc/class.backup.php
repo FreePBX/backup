@@ -265,8 +265,7 @@ class Backup {
 
 	function create_backup_file($to_stdout = false) {
 		$cmd[] = fpbx_which('tar');
-		// Note - 'h' is follow symlinks.
-		$cmd[] = 'zhcf';
+		$cmd[] = 'zcf';
 		$cmd[] = $to_stdout ? '-' : $this->b['_tmpfile'];
 		$cmd[] = '-C ' . $this->b['_tmpdir'];
 		// Always put the manifest file FIRST
@@ -409,85 +408,104 @@ class Backup {
 	}
 
 	function build_manifest() {
-		$ret['fpbx_db']		= '';
-		$ret['fpbx_cdrdb']	= '';
-		$ret['name']		= $this->b['name'];
-		$ret['ctime']		= $this->b['_ctime'];
-		$ret['hooks']		= array(
-							'pre_backup'	=> $this->b['prebu_hook'],
-							'post_backup'	=> $this->b['postbu_hook'],
-							'pre_restore'	=> $this->b['prere_hook'],
-							'post_restore'	=> $this->b['postre_hook']
+		$ret = array(
+			"manifest_version" => 10,
+			"hostname" => php_uname("n"),
+			"fpbx_db" => "",
+			"mysql" => "",
+			"astdb" => "",
+			"fpbx_cdrdb" => "",
+			"name" => $this->b['name'],
+			"ctime" => $this->b['_ctime'],
+			"pbx_framework_version" => get_framework_version(),
+			"backup_version" => modules_getversion('backup'),
+			"pbx_version" => getversion(),
+			"hooks"	=> array(
+				'pre_backup' => $this->b['prebu_hook'],
+				'post_backup' => $this->b['postbu_hook'],
+				'pre_restore' => $this->b['prere_hook'],
+				'post_restore' => $this->b['postre_hook'],
+			),
 		);
-		//TODO: add fpnx/asterisk/backup verions
-		//TODO: add format version, same as backup module version
-		//get all files in the directory
-		$ret['pbx_framework_version']	= get_framework_version();
-		$ret['backup_version']			= modules_getversion('backup');
-		$ret['pbx_version']				= getversion();
-		$ret['file_list']				= scandirr($this->b['_tmpdir']);
-		$ret['mysql']					= '';
-		$ret['astdb']					= '';
 
+		// Actually generate the file list
+		$ret["file_list"] = $this->getDirContents($this->b['_tmpdir']);
 
-		//remove the mysql/astdb files, add them seperatly
+		// Remove the mysql/astdb files, add them seperatly
 		foreach($ret['file_list'] as $key => $file) {
-			if (!is_array($file)) {
-				if ($file == 'astdb') {
-					unset($ret['file_list'][$key]);
-					$ret['astdb'] = 'astdb';
-				} elseif (strpos($file, 'mysql-') === 0) {
-					//get server id
-					$s = substr($file, 6);
-					$s = substr($s, 0, -4);
 
-					//get exclude
-					foreach($this->b['items'] as $i) {
-						if($i['type'] == 'mysql' && $i['path'] == 'server-' . $s) {
-							$exclude = $i['exclude'];
-							break;
-						}
+			if (is_array($file)) {
+				// It's a subdirectory. Ignore.
+				continue;
+			}
+
+			// Is it the astdb? We don't report that as part of
+			// the file manifest, so people can chose to restore
+			// or not restore it individually.
+			if ($file == 'astdb') {
+				unset($ret['file_list'][$key]);
+				$ret['astdb'] = 'astdb';
+				continue;
+			}
+
+			// Is it a MySQL dump?
+			if (strpos($file, 'mysql-') === 0) {
+				//get server id
+				$s = substr($file, 6);
+				$s = substr($s, 0, -4);
+
+				//get exclude
+				foreach($this->b['items'] as $i) {
+					if($i['type'] == 'mysql' && $i['path'] == 'server-' . $s) {
+						$exclude = $i['exclude'];
+						break;
 					}
-
-					//build array on this server
-					$ret['mysql'][$s] = array(
-								'file'		=> $file,
-								'host'		=> backup__($this->s[$s]['host']),
-								'port'		=> backup__($this->s[$s]['port']),
-								'name'		=> backup__($this->s[$s]['name']),
-								'dbname'	=> backup__($this->s[$s]['dbname']),
-								'exclude'	=> $exclude
-					);
-
-					//if this server is freepbx's primary server datastore, record that
-					if ($ret['mysql'][$s]['dbname'] == $this->amp_conf['AMPDBNAME']) {
-
-						//localhost and 127.0.0.1 are intergangeable, so test both scenarios
-						if (in_array(strtolower($ret['mysql'][$s]['host']), array('localhost', '127.0.0.1'))
-							&& in_array(strtolower($this->amp_conf['AMPDBHOST']), array('localhost', '127.0.0.1'))
-							|| $ret['mysql'][$s]['host'] == $this->amp_conf['AMPDBHOST']
-						) {
-							$ret['fpbx_db'] = 'mysql-' . $s;
-						}
-
-						//if this server is freepbx's primary cdr server datastore, record that
-					} elseif($ret['mysql'][$s]['dbname'] == $this->amp_conf['CDRDBNAME']) {
-						//localhost and 127.0.0.1 are intergangeable, so test both scenarios
-						if (in_array(strtolower($ret['mysql'][$s]['host']), array('localhost', '127.0.0.1'))
-							&& in_array(strtolower($this->amp_conf['CDRDBHOST']), array('localhost', '127.0.0.1'))
-							|| $ret['mysql'][$s]['host'] == $this->amp_conf['CDRDBHOST']
-						) {
-							$ret['fpbx_cdrdb'] = 'mysql-' . $s;
-						}
-					}
-					unset($ret['file_list'][$key]);
-				} elseif ($file == '.lock') {
-					unset($ret['file_list'][$key]);
 				}
+
+				//build array on this server
+				$ret['mysql'][$s] = array(
+					'file'		=> $file,
+					'host'		=> backup__($this->s[$s]['host']),
+					'port'		=> backup__($this->s[$s]['port']),
+					'name'		=> backup__($this->s[$s]['name']),
+					'dbname'	=> backup__($this->s[$s]['dbname']),
+					'exclude'	=> $exclude
+				);
+
+				//if this server is freepbx's primary server datastore, record that
+				if ($ret['mysql'][$s]['dbname'] == $this->amp_conf['AMPDBNAME']) {
+
+					//localhost and 127.0.0.1 are intergangeable, so test both scenarios
+					if (in_array(strtolower($ret['mysql'][$s]['host']), array('localhost', '127.0.0.1'))
+						&& in_array(strtolower($this->amp_conf['AMPDBHOST']), array('localhost', '127.0.0.1'))
+						|| $ret['mysql'][$s]['host'] == $this->amp_conf['AMPDBHOST']
+					) {
+						$ret['fpbx_db'] = 'mysql-' . $s;
+						unset($ret['file_list'][$key]);
+					}
+
+					//if this server is freepbx's primary cdr server datastore, record that
+				} elseif($ret['mysql'][$s]['dbname'] == $this->amp_conf['CDRDBNAME']) {
+					//localhost and 127.0.0.1 are intergangeable, so test both scenarios
+					if (in_array(strtolower($ret['mysql'][$s]['host']), array('localhost', '127.0.0.1'))
+						&& in_array(strtolower($this->amp_conf['CDRDBHOST']), array('localhost', '127.0.0.1'))
+						|| $ret['mysql'][$s]['host'] == $this->amp_conf['CDRDBHOST']
+					) {
+						$ret['fpbx_cdrdb'] = 'mysql-' . $s;
+						unset($ret['file_list'][$key]);
+					}
+				}
+				continue;
+			} 
+			
+			// Also exclude random .lock files left around.
+			if ($file == '.lock') {
+				unset($ret['file_list'][$key]);
+				// Yes, I know, I'm the last thing in the loop. Consistancy!
+				continue;
 			}
 		}
 
-		$ret['hostname']	= php_uname("n");
 		$ret['file_count']	= count($ret['file_list'], COUNT_RECURSIVE);
 		$ret['mysql_count']	= $ret['mysql'] ? count($ret['mysql']) : 0;
 		$ret['astdb_count']	= $ret['astdb'] ? count($ret['astdb']) : 0;
@@ -620,4 +638,48 @@ class Backup {
 		}
 	}
 
+	/**
+	 * getDirContents - Return a hash of files and directories underneath $dir
+	 *
+	 * This also provides a 'followsymlinks' param, which treat the original symlink
+	 * as a file. Any further symlinks will NOT be followed. 
+	 *
+	 * @param $dir string - Directory to iterate through
+	 * @param $followsymlink bool - Continue if the first directory provided is a symlink
+	 * @return array - Results.
+	 */
+
+	public function getDirContents($dir = false, $followsymlink = true) {
+
+		$files = array();
+
+		$d = new \DirectoryIterator($dir);
+		foreach ($d as $dent) {
+			$filename = $dent->__toString(); // Needed for php5.4 and lower
+
+			if ($dent->isDot()) {
+				continue;
+			}
+
+			if ($dent->isFile()) {
+				$files[$filename] = $filename;
+				continue;
+			}
+
+			if ($dent->isLink()) {
+				if ($followsymlink) {
+					$files[$filename] = $this->getDirContents("$dir/$filename", false);
+				} else {
+					$files[$filename] = $dent->getLinkTarget();
+				}
+				continue;
+			}
+
+			if ($dent->isDir()) {
+				$files[$filename] = $this->getDirContents("$dir/$filename", false);
+				continue;
+			}
+		}
+		return $files;
+	}
 }

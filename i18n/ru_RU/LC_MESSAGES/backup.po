@@ -23,15 +23,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 23:28-0400\n"
+"POT-Creation-Date: 2015-06-19 17:27-0400\n"
 "PO-Revision-Date: 2015-05-03 15:58+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
-"Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/backup/ru_RU/>\n"
+"Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/backup/"
+"ru_RU/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru_RU\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: views/backup/backups.php:23
@@ -53,8 +55,12 @@ msgid "/path/to/file"
 msgstr "/путь/к/файлу"
 
 #: install.php:309
-msgid "A full backup of core settings and web files, doesn't include system sounds or recordings."
-msgstr "Полное резервное копирование основных настроек и веб-файлов, исключая звуки системы или записи."
+msgid ""
+"A full backup of core settings and web files, doesn't include system sounds "
+"or recordings."
+msgstr ""
+"Полное резервное копирование основных настроек и веб-файлов, исключая звуки "
+"системы или записи."
 
 #: views/backup/backup.php:165
 msgid "A script to be run AFTER a backup is completed."
@@ -115,16 +121,25 @@ msgid "Adding items..."
 msgstr "Добавление элементов..."
 
 #: views/backup/backup.php:303
-msgid "After a restore, disable any trunks that use registration. This is helpful to prevent the Primary and Standby systems from \"fighting\" for the registration, resulting in some calls routed to the Standby system."
+msgid ""
+"After a restore, disable any trunks that use registration. This is helpful "
+"to prevent the Primary and Standby systems from \"fighting\" for the "
+"registration, resulting in some calls routed to the Standby system."
 msgstr ""
 
 #: views/backup/backups.php:171
-msgid "All PBX Configuration files and any Custom Sound Prompts are included in the base backup"
+msgid ""
+"All PBX Configuration files and any Custom Sound Prompts are included in the "
+"base backup"
 msgstr ""
 
 #: install.php:382
-msgid "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP VOICEMAIL"
-msgstr "Все системные аудио записи - включая Интерактивное меню (IVR) и музыку в ожидании. Не делает резервную копию голосовой почты"
+msgid ""
+"All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
+"VOICEMAIL"
+msgstr ""
+"Все системные аудио записи - включая Интерактивное меню (IVR) и музыку в "
+"ожидании. Не делает резервную копию голосовой почты"
 
 #: functions.inc/servers.php:278
 msgid "Amazon S3 Server "
@@ -171,7 +186,7 @@ msgid "BACKUP LOG ATTACHED"
 msgstr "Журнал копирования приложен"
 
 #: Backup.class.php:293 functions.inc/backup.php:79
-#: functions.inc/class.backup.php:334 views/backup/backup.php:1
+#: functions.inc/class.backup.php:344 views/backup/backup.php:1
 msgid "Backup"
 msgstr "Бекап"
 
@@ -231,10 +246,14 @@ msgstr ""
 msgid "Backup completed with errors!"
 msgstr "Резервное копирование завершилось с ошибками!"
 
-#: functions.inc/class.backup.php:231
+#: functions.inc/class.backup.php:242
 #, php-format
-msgid "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted backup from server [%s]."
-msgstr "Не удалось резервное копирование дампа SQL базы [%s] в файл [%s]. У вас есть поврежденная резервная копия с сервера [%s]."
+msgid ""
+"Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
+"backup from server [%s]."
+msgstr ""
+"Не удалось резервное копирование дампа SQL базы [%s] в файл [%s]. У вас есть "
+"поврежденная резервная копия с сервера [%s]."
 
 #: bin/restore.php:93
 msgid "Backup file not found! Aborting."
@@ -328,7 +347,7 @@ msgstr "Только конфигурация"
 msgid "Connecting to remote server..."
 msgstr "Соединение с удаленным сервером..."
 
-#: functions.inc/class.backup.php:327 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:337 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Создано"
 
@@ -395,12 +414,23 @@ msgid "Delete After"
 msgstr ""
 
 #: views/backup/backup.php:472
-msgid "Delete this backup after X amount of minutes/hours/days/weeks/months/years. Please note that deletes aren't time based and will only happen after a backup was run. Setting the value to 0 will disable any deleting"
-msgstr "Удалить этот бекап по истечении X минут/часов/дней/недель/месяцев/лет. Пожалуйста, обратите внимание на то, удаления не базируются на времени и произойдут только после того, как резервное копирование будет запущено. Установка значения в 0 отключит любое удаление"
+msgid ""
+"Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
+"Please note that deletes aren't time based and will only happen after a "
+"backup was run. Setting the value to 0 will disable any deleting"
+msgstr ""
+"Удалить этот бекап по истечении X минут/часов/дней/недель/месяцев/лет. "
+"Пожалуйста, обратите внимание на то, удаления не базируются на времени и "
+"произойдут только после того, как резервное копирование будет запущено. "
+"Установка значения в 0 отключит любое удаление"
 
 #: views/backup/backup.php:499
-msgid "Delete this backup after X amount of runs. Setting the value to 0 will disable any deleting"
-msgstr "Удалить этот бекап после X запусков. Установка значения в 0 отключит любое удаление"
+msgid ""
+"Delete this backup after X amount of runs. Setting the value to 0 will "
+"disable any deleting"
+msgstr ""
+"Удалить этот бекап после X запусков. Установка значения в 0 отключит любое "
+"удаление"
 
 #: functions.inc/templates.php:310
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
@@ -445,12 +475,17 @@ msgid "Download"
 msgstr "Загрузить "
 
 #: views/backup/backup.php:370
-msgid "Drag servers from the Available Servers list to add them as Storage Servers"
+msgid ""
+"Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
 
 #: views/backup/backup.php:80
-msgid "Drag templates and drop them in the items table to add the templates items to the table"
-msgstr "Перетащите шаблоны и бросьте их в таблице элементов, чтобы добавить элементы шаблонов в таблицу"
+msgid ""
+"Drag templates and drop them in the items table to add the templates items "
+"to the table"
+msgstr ""
+"Перетащите шаблоны и бросьте их в таблице элементов, чтобы добавить элементы "
+"шаблонов в таблицу"
 
 #: views/backup/backup.php:89
 msgid "Drop Here"
@@ -458,11 +493,16 @@ msgstr ""
 
 #: install.php:142
 msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
-msgstr "Ошибка: Не удалось удалить старую таблицу резервного копирования. Вам следует удалить"
+msgstr ""
+"Ошибка: Не удалось удалить старую таблицу резервного копирования. Вам "
+"следует удалить"
 
 #: install.php:87
-msgid "ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
-msgstr "Ошибка: не удалось перенести старую таблицу \"Резервного копирования\" в новую таблицу \"Резервного копирования\""
+msgid ""
+"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+msgstr ""
+"Ошибка: не удалось перенести старую таблицу \"Резервного копирования\" в "
+"новую таблицу \"Резервного копирования\""
 
 #: views/servers/email.php:64
 msgid "Email Address"
@@ -493,10 +533,12 @@ msgid "Email to send status messages to when this task is run"
 msgstr ""
 
 #: views/backup/backup.php:357
-msgid "Equivalence of clicking the red button, will happen automatically after a restore on a Standby system"
+msgid ""
+"Equivalence of clicking the red button, will happen automatically after a "
+"restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:370
+#: functions.inc/class.backup.php:380
 msgid "Error connecting to the FTP Server..."
 msgstr ""
 
@@ -513,15 +555,21 @@ msgid "Exclude"
 msgstr ""
 
 #: install.php:402
-msgid "Exclude Backup's settings so that they dont get restored, usefull for a remote restore"
-msgstr "Исключить настройки резервного копирования, так что они не будут восстановлены, полезно для удаленного восстановления"
+msgid ""
+"Exclude Backup's settings so that they dont get restored, usefull for a "
+"remote restore"
+msgstr ""
+"Исключить настройки резервного копирования, так что они не будут "
+"восстановлены, полезно для удаленного восстановления"
 
 #: views/backup/backup.php:315
 msgid "Exclude NAT settings"
 msgstr ""
 
 #: views/backup/backup.php:330
-msgid "Explicitly exclude any machine-specific IP settings. This allows you to have a warm-spare machine with a different IP address."
+msgid ""
+"Explicitly exclude any machine-specific IP settings. This allows you to have "
+"a warm-spare machine with a different IP address."
 msgstr ""
 
 #: bin/restore.php:67
@@ -562,11 +610,15 @@ msgid "FTP Username"
 msgstr ""
 
 #: functions.inc/restore.php:471
-msgid "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in current state"
+msgid ""
+"Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
+"current state"
 msgstr ""
 
 #: functions.inc/restore.php:498
-msgid "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr.sql in current state"
+msgid ""
+"Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
+"sql in current state"
 msgstr ""
 
 #: functions.inc/restore.php:300 functions.inc/restore.php:324
@@ -602,7 +654,7 @@ msgstr ""
 msgid "File verification failed. "
 msgstr ""
 
-#: functions.inc/class.backup.php:328 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:338 views/restore/browseserver.php:19
 msgid "Files"
 msgstr ""
 
@@ -680,14 +732,21 @@ msgid "IP address or FQDN of remote mysql host"
 msgstr ""
 
 #: views/cron.php:161
-msgid "If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved"
+msgid ""
+"If Randomize is selcted, a similar frequency will be followed, only the "
+"exact times will be randomized (avoiding peak business hours, when "
+"possible). Please note: randomized schedules will be rescheduled (randomly) "
+"every time ANY backup is saved"
 msgstr ""
 
 #: views/cron.php:105
 msgid ""
-"If a custom schedule is selected, any section not specficed will be considered to be \"any\" (aka: wildcard).\n"
-"\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, the Backup will be run on ANY 12th of\n"
-"\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week is set to, say, Monday, the Backup will run ONLY\n"
+"If a custom schedule is selected, any section not specficed will be "
+"considered to be \"any\" (aka: wildcard).\n"
+"\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, the "
+"Backup will be run on ANY 12th of\n"
+"\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week is "
+"set to, say, Monday, the Backup will run ONLY\n"
 "\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
 msgstr ""
 
@@ -828,7 +887,7 @@ msgstr ""
 msgid "Mysql DB's"
 msgstr ""
 
-#: functions.inc/class.backup.php:329
+#: functions.inc/class.backup.php:339
 msgid "Mysql Db's"
 msgstr ""
 
@@ -836,7 +895,7 @@ msgstr ""
 msgid "Mysql Server "
 msgstr ""
 
-#: functions.inc/class.backup.php:326 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:336 views/restore/browseserver.php:17
 msgid "Name"
 msgstr ""
 
@@ -1166,7 +1225,9 @@ msgid "Run Automatically"
 msgstr ""
 
 #: views/cron.php:97
-msgid "Run at startup of the server OR of the cron deamon (i.e. after every <code>service cron restart</code>)"
+msgid ""
+"Run at startup of the server OR of the cron deamon (i.e. after every "
+"<code>service cron restart</code>)"
 msgstr ""
 
 #: page.backup.php:47
@@ -1266,11 +1327,14 @@ msgid "Select files and databases to restore:"
 msgstr ""
 
 #: views/cron.php:73
-msgid "Select how often to run this backup. The following schedule will be followed for all but custom."
+msgid ""
+"Select how often to run this backup. The following schedule will be followed "
+"for all but custom."
 msgstr ""
 
 #: views/backup/backup.php:249
-msgid "Select the server to be backed up (this server, or any other SSH server)"
+msgid ""
+"Select the server to be backed up (this server, or any other SSH server)"
 msgstr ""
 
 #: views/cron.php:51
@@ -1373,12 +1437,17 @@ msgid "Templates"
 msgstr ""
 
 #: views/servers/email.php:114
-msgid "The maximum size a backup can be and still be emailed. Some email servers limit the size of email attachments, this will make sure that files larger than the max size are not sent."
+msgid ""
+"The maximum size a backup can be and still be emailed. Some email servers "
+"limit the size of email attachments, this will make sure that files larger "
+"than the max size are not sent."
 msgstr ""
 
 #: install.php:88
 msgid "This error can result from a previous incomplete/failed install of"
-msgstr "Эта ошибка могла стать результатом предыдущей незавершенной/неудачной установки"
+msgstr ""
+"Эта ошибка могла стать результатом предыдущей незавершенной/неудачной "
+"установки"
 
 #: views/backup/backup.php:220
 msgid "This server"
@@ -1551,7 +1620,7 @@ msgstr "Произошла ошибка, обновление не заверш�
 msgid "and then re-install this module. Settings will be lost but old"
 msgstr "и переустановить этот модуль. Настройки будут утеряны, но старый"
 
-#: functions.inc/class.backup.php:330
+#: functions.inc/class.backup.php:340
 msgid "astDb's"
 msgstr ""
 
@@ -1568,7 +1637,8 @@ msgid "chose"
 msgstr ""
 
 #: install.php:90
-msgid "doing so will result in a loss of all your backup settings though previous"
+msgid ""
+"doing so will result in a loss of all your backup settings though previous"
 msgstr "что приведет к потере всех настроек резервного копирования"
 
 #: views/restore/backup_list.php:44
@@ -1609,7 +1679,8 @@ msgstr ""
 
 #: install.php:89
 msgid "this module. You should probably uninstall and reinstall this module"
-msgstr "этого модуля. Скорее всего вам следует удалить и переустановить этот модуль"
+msgstr ""
+"этого модуля. Скорее всего вам следует удалить и переустановить этот модуль"
 
 #: bin/backup.php:47
 msgid "waiting for lock..."
@@ -1619,91 +1690,15 @@ msgstr ""
 msgid "{no servers available}"
 msgstr ""
 
-#: views/cron.php:61
-msgid "Hour"
-msgstr ""
-
-#: views/servers/ssh.php:31
-msgid "IP address or FQDN of remote ssh host"
-msgstr ""
-
-#: views/backup/backup.php:243
-msgid "Maintenance"
-msgstr ""
-
-#: views/cron.php:102
-msgid "Month"
-msgstr ""
-
-#: views/servers/servers.php:21
-msgid "New Mysql server"
-msgstr ""
-
-#: views/servers/ssh.php:70
-msgid "Path on server where files are stored"
-msgstr ""
-
-#: views/servers/ftp.php:70 views/servers/local.php:32
-msgid "Path where files are stored"
-msgstr ""
-
-#: views/backup/backup.php:81
-msgid "Post-backup Hook"
-msgstr ""
-
-#: views/backup/backup.php:100
-msgid "Post-restore Hook"
-msgstr ""
-
-#: views/backup/backup.php:72
-msgid "Pre-backup Hook"
-msgstr ""
-
-#: views/backup/backup.php:90
-msgid "Pre-restore Hook"
-msgstr ""
-
-#: backup.i18n.php:8
-msgid "Provides Backup & Restore capabilities for your PBX"
-msgstr ""
-
-#: views/cron.php:41
-msgid "Randomize"
-msgstr ""
-
-#: views/backup/backup.php:191
-msgid "Storage Locations"
-msgstr ""
-
-#: views/restore/restore.php:10
-msgid "Upload a backup file to restore from it. Or, pick a saved backup by selecting a server from the list on the right."
-msgstr ""
-
-#: views/backup/backup.php:283
-msgid "and Run"
-msgstr ""
-
-#: views/backup/backup.php:223
-msgid "drag servers from the Available Servers list to add them as Storage Servers"
-msgstr ""
-
-#: views/servers/ftp.php:47
-msgid "remote ftp port"
-msgstr ""
-
-#: views/servers/mysql.php:47
-msgid "remote mysql port"
-msgstr ""
-
-#: views/servers/ssh.php:47
-msgid "remote ssh port"
-msgstr ""
-
 #~ msgid " runs"
 #~ msgstr " запуски"
 
-#~ msgid "A full backup of core settings and web files, dosen't include system sounds or recordings."
-#~ msgstr "Полное резервное копирование настроек ядра и web-интерфейса, исключая системные звуки или записи. "
+#~ msgid ""
+#~ "A full backup of core settings and web files, dosen't include system "
+#~ "sounds or recordings."
+#~ msgstr ""
+#~ "Полное резервное копирование настроек ядра и web-интерфейса, исключая "
+#~ "системные звуки или записи. "
 
 #~ msgid "Admin"
 #~ msgstr "Админ"
@@ -1738,14 +1733,25 @@ msgstr ""
 #~ msgid "Backup the System Call Detail Reporting (HTML and Database)"
 #~ msgstr "Резервировать системные записи о соединениях (HTML и база данных)"
 
-#~ msgid "Backup the System Configurations (Database, etc files, SQL Database, astdb)"
-#~ msgstr "Резервировать кофигурацию системы (базу данных Астериск, конфигурационные файлы, SQL дамп)"
+#~ msgid ""
+#~ "Backup the System Configurations (Database, etc files, SQL Database, "
+#~ "astdb)"
+#~ msgstr ""
+#~ "Резервировать кофигурацию системы (базу данных Астериск, конфигурационные "
+#~ "файлы, SQL дамп)"
 
-#~ msgid "Backup the System Recordings (AutoAttendant, Music On Hold, System Recordings)"
-#~ msgstr "Резервировать системные записи (Автосекретарь, Музыка в ожидании, Приветствия)"
+#~ msgid ""
+#~ "Backup the System Recordings (AutoAttendant, Music On Hold, System "
+#~ "Recordings)"
+#~ msgstr ""
+#~ "Резервировать системные записи (Автосекретарь, Музыка в ожидании, "
+#~ "Приветствия)"
 
-#~ msgid "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
-#~ msgstr "Резервирование ящиков голосовой почты... ВНИМАНИЕ: в результате может получиться очень большой файл"
+#~ msgid ""
+#~ "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
+#~ msgstr ""
+#~ "Резервирование ящиков голосовой почты... ВНИМАНИЕ: в результате может "
+#~ "получиться очень большой файл"
 
 #~ msgid "CDR"
 #~ msgstr "CDR"
@@ -1771,14 +1777,20 @@ msgstr ""
 #~ msgid "Delete after"
 #~ msgstr "Удалить после"
 
-#~ msgid "Delete this backup set and all data associated with this backup set.."
-#~ msgstr "Удалить этот шаблон и все данные, ассоциированные с этим шаблоном.. "
+#~ msgid ""
+#~ "Delete this backup set and all data associated with this backup set.."
+#~ msgstr ""
+#~ "Удалить этот шаблон и все данные, ассоциированные с этим шаблоном.. "
 
 #~ msgid "Delete this backup set."
 #~ msgstr "Удалить этот шаблон резервного копирования"
 
-#~ msgid "Drag templates and drop them in the Backup Items table. Add as many templates as you need"
-#~ msgstr "Перетащите шаблоны и бросьте их в таблицу бекапов. Добавьте столько шаблонов, сколько нужно"
+#~ msgid ""
+#~ "Drag templates and drop them in the Backup Items table. Add as many "
+#~ "templates as you need"
+#~ msgstr ""
+#~ "Перетащите шаблоны и бросьте их в таблицу бекапов. Добавьте столько "
+#~ "шаблонов, сколько нужно"
 
 #~ msgid "ERROR its not a BACKUP SET file"
 #~ msgstr "ОШИБКА - это не файл резервной копии"
@@ -1790,7 +1802,8 @@ msgstr ""
 #~ msgstr "Следовать сценарию ниже"
 
 #~ msgid "Give this Backup Schedule a brief name to help you identify it."
-#~ msgstr "Присвоить этому сценарию короткое названия для удобства идентификации."
+#~ msgstr ""
+#~ "Присвоить этому сценарию короткое названия для удобства идентификации."
 
 #~ msgid "Monthly (on the 1st)"
 #~ msgstr "Ежемесячно (1-го числа)"
@@ -1822,23 +1835,54 @@ msgstr ""
 #~ msgid "Restore from Backup"
 #~ msgstr "Восстановиться с резервной копии"
 
-#~ msgid "Restore the Call Detail Records from this backup set.  NOTE! This will DELETE ALL CALL RECORDS that have been saved since this backup set."
-#~ msgstr "Восстановить Отчёт о соединениях из этого комплекта резервного копирования.ВНИМАНИЕ! Все записи о соединениях сделанные после этой резервной копии будут утрачены. "
+#~ msgid ""
+#~ "Restore the Call Detail Records from this backup set.  NOTE! This will "
+#~ "DELETE ALL CALL RECORDS that have been saved since this backup set."
+#~ msgstr ""
+#~ "Восстановить Отчёт о соединениях из этого комплекта резервного "
+#~ "копирования.ВНИМАНИЕ! Все записи о соединениях сделанные после этой "
+#~ "резервной копии будут утрачены. "
 
-#~ msgid "Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE any Operator Panel Changes you have made since this backup... ALL items will be reset to what they were at the time of this backup set.."
-#~ msgstr "Восстановить Панель оператора из этого комплекта резервного копирования.ВНИМАНИЕ! Все изменения в Панели оператора сделанные после этой резервной копии будут утрачены. ВСЕ установки примут значения, соответствующие состоянию системы на момент резервирования.."
+#~ msgid ""
+#~ "Restore the Operator Panel from this backup set.  NOTE! This will "
+#~ "OVERWRITE any Operator Panel Changes you have made since this backup... "
+#~ "ALL items will be reset to what they were at the time of this backup set.."
+#~ msgstr ""
+#~ "Восстановить Панель оператора из этого комплекта резервного копирования."
+#~ "ВНИМАНИЕ! Все изменения в Панели оператора сделанные после этой резервной "
+#~ "копии будут утрачены. ВСЕ установки примут значения, соответствующие "
+#~ "состоянию системы на момент резервирования.."
 
 #~ msgid "Restore your Complete Backup set overwriting all files."
-#~ msgstr "Восстановление с полной резервной копии, все файлы будут перезаписаны."
+#~ msgstr ""
+#~ "Восстановление с полной резервной копии, все файлы будут перезаписаны."
 
-#~ msgid "Restore your Voicemail files from this backup set.  NOTE! This will delete any voicemail currently in the voicemail boxes."
-#~ msgstr "Восстановить файлы голосовой почты из этого комплекта резервного копирования. ВНИМАНИЕ! Все текущие сообщения в ящиках будут удалены."
+#~ msgid ""
+#~ "Restore your Voicemail files from this backup set.  NOTE! This will "
+#~ "delete any voicemail currently in the voicemail boxes."
+#~ msgstr ""
+#~ "Восстановить файлы голосовой почты из этого комплекта резервного "
+#~ "копирования. ВНИМАНИЕ! Все текущие сообщения в ящиках будут удалены."
 
-#~ msgid "Restore your system Voice Recordings including AutoAttendant files from this backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the system. It will NOT delete new files not currently in the backup set"
-#~ msgstr "Восстановить файлы записи ситемных сообщений из этого комплекта резервного копирования.ВНИМАНИЕ! Все записи в системе будут перезаписаны. При этом новые файлы записей не удаляются при восстановлении."
+#~ msgid ""
+#~ "Restore your system Voice Recordings including AutoAttendant files from "
+#~ "this backup set.  NOTE! This will OVERWRITE any voicerecordings  "
+#~ "currently on the system. It will NOT delete new files not currently in "
+#~ "the backup set"
+#~ msgstr ""
+#~ "Восстановить файлы записи ситемных сообщений из этого комплекта "
+#~ "резервного копирования.ВНИМАНИЕ! Все записи в системе будут перезаписаны. "
+#~ "При этом новые файлы записей не удаляются при восстановлении."
 
-#~ msgid "Restore your system configuration from this backup set.  NOTE! This will OVERWRITE any System changes you have made since this backup... ALL items will be reset to what they were at the time of this backup set.."
-#~ msgstr "Восстановить конфигурационные файлы ситемы из этого комплекта резервного копирования.ВНИМАНИЕ! Все изменения в системе, сделанные после этой резервной копии будут утрачены. ВСЕ установки примут значения, соответствующие состоянию системы на момент резервирования.."
+#~ msgid ""
+#~ "Restore your system configuration from this backup set.  NOTE! This will "
+#~ "OVERWRITE any System changes you have made since this backup... ALL items "
+#~ "will be reset to what they were at the time of this backup set.."
+#~ msgstr ""
+#~ "Восстановить конфигурационные файлы ситемы из этого комплекта резервного "
+#~ "копирования.ВНИМАНИЕ! Все изменения в системе, сделанные после этой "
+#~ "резервной копии будут утрачены. ВСЕ установки примут значения, "
+#~ "соответствующие состоянию системы на момент резервирования.."
 
 #~ msgid "Restored All Files in Backup Set"
 #~ msgstr "Восстановлены все файлы из резервного комплекта"

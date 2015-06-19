@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 23:28-0400\n"
+"POT-Creation-Date: 2015-06-19 17:27-0400\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
 "Language-Team: Français <LL@li.org>\n"
@@ -46,7 +46,9 @@ msgid "/path/to/file"
 msgstr ""
 
 #: install.php:309
-msgid "A full backup of core settings and web files, doesn't include system sounds or recordings."
+msgid ""
+"A full backup of core settings and web files, doesn't include system sounds "
+"or recordings."
 msgstr ""
 
 #: views/backup/backup.php:165
@@ -108,15 +110,22 @@ msgid "Adding items..."
 msgstr ""
 
 #: views/backup/backup.php:303
-msgid "After a restore, disable any trunks that use registration. This is helpful to prevent the Primary and Standby systems from \"fighting\" for the registration, resulting in some calls routed to the Standby system."
+msgid ""
+"After a restore, disable any trunks that use registration. This is helpful "
+"to prevent the Primary and Standby systems from \"fighting\" for the "
+"registration, resulting in some calls routed to the Standby system."
 msgstr ""
 
 #: views/backup/backups.php:171
-msgid "All PBX Configuration files and any Custom Sound Prompts are included in the base backup"
+msgid ""
+"All PBX Configuration files and any Custom Sound Prompts are included in the "
+"base backup"
 msgstr ""
 
 #: install.php:382
-msgid "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP VOICEMAIL"
+msgid ""
+"All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
+"VOICEMAIL"
 msgstr ""
 
 #: functions.inc/servers.php:278
@@ -164,7 +173,7 @@ msgid "BACKUP LOG ATTACHED"
 msgstr ""
 
 #: Backup.class.php:293 functions.inc/backup.php:79
-#: functions.inc/class.backup.php:334 views/backup/backup.php:1
+#: functions.inc/class.backup.php:344 views/backup/backup.php:1
 msgid "Backup"
 msgstr ""
 
@@ -224,9 +233,11 @@ msgstr ""
 msgid "Backup completed with errors!"
 msgstr ""
 
-#: functions.inc/class.backup.php:231
+#: functions.inc/class.backup.php:242
 #, php-format
-msgid "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted backup from server [%s]."
+msgid ""
+"Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
+"backup from server [%s]."
 msgstr ""
 
 #: bin/restore.php:93
@@ -321,7 +332,7 @@ msgstr ""
 msgid "Connecting to remote server..."
 msgstr ""
 
-#: functions.inc/class.backup.php:327 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:337 views/restore/browseserver.php:18
 msgid "Created"
 msgstr ""
 
@@ -388,11 +399,16 @@ msgid "Delete After"
 msgstr ""
 
 #: views/backup/backup.php:472
-msgid "Delete this backup after X amount of minutes/hours/days/weeks/months/years. Please note that deletes aren't time based and will only happen after a backup was run. Setting the value to 0 will disable any deleting"
+msgid ""
+"Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
+"Please note that deletes aren't time based and will only happen after a "
+"backup was run. Setting the value to 0 will disable any deleting"
 msgstr ""
 
 #: views/backup/backup.php:499
-msgid "Delete this backup after X amount of runs. Setting the value to 0 will disable any deleting"
+msgid ""
+"Delete this backup after X amount of runs. Setting the value to 0 will "
+"disable any deleting"
 msgstr ""
 
 #: functions.inc/templates.php:310
@@ -438,11 +454,14 @@ msgid "Download"
 msgstr ""
 
 #: views/backup/backup.php:370
-msgid "Drag servers from the Available Servers list to add them as Storage Servers"
+msgid ""
+"Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
 
 #: views/backup/backup.php:80
-msgid "Drag templates and drop them in the items table to add the templates items to the table"
+msgid ""
+"Drag templates and drop them in the items table to add the templates items "
+"to the table"
 msgstr ""
 
 #: views/backup/backup.php:89
@@ -454,7 +473,8 @@ msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
 msgstr ""
 
 #: install.php:87
-msgid "ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+msgid ""
+"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
 msgstr ""
 
 #: views/servers/email.php:64
@@ -486,10 +506,12 @@ msgid "Email to send status messages to when this task is run"
 msgstr ""
 
 #: views/backup/backup.php:357
-msgid "Equivalence of clicking the red button, will happen automatically after a restore on a Standby system"
+msgid ""
+"Equivalence of clicking the red button, will happen automatically after a "
+"restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:370
+#: functions.inc/class.backup.php:380
 msgid "Error connecting to the FTP Server..."
 msgstr ""
 
@@ -506,7 +528,9 @@ msgid "Exclude"
 msgstr ""
 
 #: install.php:402
-msgid "Exclude Backup's settings so that they dont get restored, usefull for a remote restore"
+msgid ""
+"Exclude Backup's settings so that they dont get restored, usefull for a "
+"remote restore"
 msgstr ""
 
 #: views/backup/backup.php:315
@@ -514,7 +538,9 @@ msgid "Exclude NAT settings"
 msgstr ""
 
 #: views/backup/backup.php:330
-msgid "Explicitly exclude any machine-specific IP settings. This allows you to have a warm-spare machine with a different IP address."
+msgid ""
+"Explicitly exclude any machine-specific IP settings. This allows you to have "
+"a warm-spare machine with a different IP address."
 msgstr ""
 
 #: bin/restore.php:67
@@ -555,11 +581,15 @@ msgid "FTP Username"
 msgstr ""
 
 #: functions.inc/restore.php:471
-msgid "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in current state"
+msgid ""
+"Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
+"current state"
 msgstr ""
 
 #: functions.inc/restore.php:498
-msgid "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr.sql in current state"
+msgid ""
+"Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
+"sql in current state"
 msgstr ""
 
 #: functions.inc/restore.php:300 functions.inc/restore.php:324
@@ -595,7 +625,7 @@ msgstr ""
 msgid "File verification failed. "
 msgstr ""
 
-#: functions.inc/class.backup.php:328 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:338 views/restore/browseserver.php:19
 msgid "Files"
 msgstr ""
 
@@ -673,14 +703,21 @@ msgid "IP address or FQDN of remote mysql host"
 msgstr ""
 
 #: views/cron.php:161
-msgid "If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved"
+msgid ""
+"If Randomize is selcted, a similar frequency will be followed, only the "
+"exact times will be randomized (avoiding peak business hours, when "
+"possible). Please note: randomized schedules will be rescheduled (randomly) "
+"every time ANY backup is saved"
 msgstr ""
 
 #: views/cron.php:105
 msgid ""
-"If a custom schedule is selected, any section not specficed will be considered to be \"any\" (aka: wildcard).\n"
-"\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, the Backup will be run on ANY 12th of\n"
-"\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week is set to, say, Monday, the Backup will run ONLY\n"
+"If a custom schedule is selected, any section not specficed will be "
+"considered to be \"any\" (aka: wildcard).\n"
+"\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, the "
+"Backup will be run on ANY 12th of\n"
+"\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week is "
+"set to, say, Monday, the Backup will run ONLY\n"
 "\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
 msgstr ""
 
@@ -821,7 +858,7 @@ msgstr ""
 msgid "Mysql DB's"
 msgstr ""
 
-#: functions.inc/class.backup.php:329
+#: functions.inc/class.backup.php:339
 msgid "Mysql Db's"
 msgstr ""
 
@@ -829,7 +866,7 @@ msgstr ""
 msgid "Mysql Server "
 msgstr ""
 
-#: functions.inc/class.backup.php:326 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:336 views/restore/browseserver.php:17
 msgid "Name"
 msgstr ""
 
@@ -1159,7 +1196,9 @@ msgid "Run Automatically"
 msgstr ""
 
 #: views/cron.php:97
-msgid "Run at startup of the server OR of the cron deamon (i.e. after every <code>service cron restart</code>)"
+msgid ""
+"Run at startup of the server OR of the cron deamon (i.e. after every "
+"<code>service cron restart</code>)"
 msgstr ""
 
 #: page.backup.php:47
@@ -1259,11 +1298,14 @@ msgid "Select files and databases to restore:"
 msgstr ""
 
 #: views/cron.php:73
-msgid "Select how often to run this backup. The following schedule will be followed for all but custom."
+msgid ""
+"Select how often to run this backup. The following schedule will be followed "
+"for all but custom."
 msgstr ""
 
 #: views/backup/backup.php:249
-msgid "Select the server to be backed up (this server, or any other SSH server)"
+msgid ""
+"Select the server to be backed up (this server, or any other SSH server)"
 msgstr ""
 
 #: views/cron.php:51
@@ -1366,7 +1408,10 @@ msgid "Templates"
 msgstr ""
 
 #: views/servers/email.php:114
-msgid "The maximum size a backup can be and still be emailed. Some email servers limit the size of email attachments, this will make sure that files larger than the max size are not sent."
+msgid ""
+"The maximum size a backup can be and still be emailed. Some email servers "
+"limit the size of email attachments, this will make sure that files larger "
+"than the max size are not sent."
 msgstr ""
 
 #: install.php:88
@@ -1544,7 +1589,7 @@ msgstr ""
 msgid "and then re-install this module. Settings will be lost but old"
 msgstr ""
 
-#: functions.inc/class.backup.php:330
+#: functions.inc/class.backup.php:340
 msgid "astDb's"
 msgstr ""
 
@@ -1561,7 +1606,8 @@ msgid "chose"
 msgstr ""
 
 #: install.php:90
-msgid "doing so will result in a loss of all your backup settings though previous"
+msgid ""
+"doing so will result in a loss of all your backup settings though previous"
 msgstr ""
 
 #: views/restore/backup_list.php:44
@@ -1612,161 +1658,58 @@ msgstr ""
 msgid "{no servers available}"
 msgstr ""
 
-#: views/backup/backup.php:269
-msgid " runs"
-msgstr ""
-
-#: backup.i18n.php:6 backup.i18n.php:12
-msgid "Admin"
-msgstr ""
-
-#: views/backup/backup.php:224
-msgid "Available Servers"
-msgstr ""
-
-#: backup.i18n.php:18
-msgid "Backup & Restore - Restore"
-msgstr ""
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Servers"
-msgstr ""
-
-#: backup.i18n.php:16
-msgid "Backup & Restore - Templates"
-msgstr ""
-
-#: backup.i18n.php:22
-msgid "Backup Module"
-msgstr ""
-
-#: views/servers/mysql.php:70
-msgid "Database name"
-msgstr ""
-
-#: views/cron.php:132
-msgid "Day of Month"
-msgstr ""
-
-#: views/backup/backup.php:244 views/backup/backup.php:261
-msgid "Delete after"
-msgstr ""
-
-#: views/backup/backup.php:62
-msgid "Drag templates and drop them in the Backup Items table. Add as many templates as you need"
-msgstr ""
-
-#: backup.i18n.php:20
-msgid "Email "
-msgstr ""
-
-#: views/cron.php:61
-msgid "Hour"
-msgstr ""
-
-#: views/servers/ssh.php:31
-msgid "IP address or FQDN of remote ssh host"
-msgstr ""
-
-#: views/backup/backup.php:243
-msgid "Maintenance"
-msgstr ""
-
-#: views/cron.php:102
-msgid "Month"
-msgstr ""
-
-#: views/servers/servers.php:21
-msgid "New Mysql server"
-msgstr ""
-
-#: views/servers/ssh.php:70
-msgid "Path on server where files are stored"
-msgstr ""
-
-#: views/servers/ftp.php:70 views/servers/local.php:32
-msgid "Path where files are stored"
-msgstr ""
-
-#: views/backup/backup.php:81
-msgid "Post-backup Hook"
-msgstr ""
-
-#: views/backup/backup.php:100
-msgid "Post-restore Hook"
-msgstr ""
-
-#: views/backup/backup.php:72
-msgid "Pre-backup Hook"
-msgstr ""
-
-#: views/backup/backup.php:90
-msgid "Pre-restore Hook"
-msgstr ""
-
-#: backup.i18n.php:8
-msgid "Provides Backup & Restore capabilities for your PBX"
-msgstr ""
-
-#: views/cron.php:41
-msgid "Randomize"
-msgstr ""
-
-#: views/backup/backup.php:191
-msgid "Storage Locations"
-msgstr ""
-
-#: backup.i18n.php:24
-msgid "The From: field for emails when using the backup email feature."
-msgstr ""
-
-#: views/restore/restore.php:10
-msgid "Upload a backup file to restore from it. Or, pick a saved backup by selecting a server from the list on the right."
-msgstr ""
-
-#: views/backup/backup.php:283
-msgid "and Run"
-msgstr ""
-
-#: views/backup/backup.php:223
-msgid "drag servers from the Available Servers list to add them as Storage Servers"
-msgstr ""
-
-#: views/servers/ftp.php:47
-msgid "remote ftp port"
-msgstr ""
-
-#: views/servers/mysql.php:47
-msgid "remote mysql port"
-msgstr ""
-
-#: views/servers/ssh.php:47
-msgid "remote ssh port"
-msgstr ""
-
 #~ msgid "Add Backup Schedule"
 #~ msgstr "Ajouter un Calendrier de Sauvegarde"
 
 #~ msgid "All"
 #~ msgstr "Tout"
 
-#~ msgid "Are you sure you want to Restore the CALL DETAIL FILES?\\nDoing so will Permanently DELETE all CALL RECORDS!"
-#~ msgstr "Êtes-vous sûr de vouloir Restaurer les fichiers de DETAILS DES APPELS ?\\nCette action SUPPRIMERA de façon permanente TOUS LES ENREGISTREMENTS !"
+#~ msgid ""
+#~ "Are you sure you want to Restore the CALL DETAIL FILES?\\nDoing so will "
+#~ "Permanently DELETE all CALL RECORDS!"
+#~ msgstr ""
+#~ "Êtes-vous sûr de vouloir Restaurer les fichiers de DETAILS DES APPELS ?"
+#~ "\\nCette action SUPPRIMERA de façon permanente TOUS LES ENREGISTREMENTS !"
 
-#~ msgid "Are you sure you want to Restore the Operator Panel Files?\\nDoing so will Permanently Over-Write all Operator Panel Files!"
-#~ msgstr "Êtes-vous sûr de vouloir restaurer les fichiers du Panneau ?\\nCette action écrasera de façon permanente tous les fichiers du Panneau !"
+#~ msgid ""
+#~ "Are you sure you want to Restore the Operator Panel Files?\\nDoing so "
+#~ "will Permanently Over-Write all Operator Panel Files!"
+#~ msgstr ""
+#~ "Êtes-vous sûr de vouloir restaurer les fichiers du Panneau ?\\nCette "
+#~ "action écrasera de façon permanente tous les fichiers du Panneau !"
 
-#~ msgid "Are you sure you want to Restore this file set?\\nDoing so will permanently delete any new voicemail you have in your mailbox\\nsince this backup on"
-#~ msgstr "Etes-vous sûr de vouloir Restaurer ce jeu de sauvegardes ?\\nCeci supprimera de façon permanente tout nouveau message vocal dans votre boîte mail\\ndepuis cette sauvegarde"
+#~ msgid ""
+#~ "Are you sure you want to Restore this file set?\\nDoing so will "
+#~ "permanently delete any new voicemail you have in your mailbox\\nsince "
+#~ "this backup on"
+#~ msgstr ""
+#~ "Etes-vous sûr de vouloir Restaurer ce jeu de sauvegardes ?\\nCeci "
+#~ "supprimera de façon permanente tout nouveau message vocal dans votre "
+#~ "boîte mail\\ndepuis cette sauvegarde"
 
-#~ msgid "Are you sure you want to Restore this file set?\\nNOTE! This will OVERWRITE any voicerecordings currently on the system. It will NOT delete new files not currently in the backup set"
-#~ msgstr "Etes-vous sûr de vouloir Restaurer ce jeu de fichiers ?\\nATTENTION ! Ceci ECRASERA tout enregistrement vocal actuellement présent sur le système. Cela ne supprimera PAS les nouveaux fichiers qui ne sont pas actuellement dans le jeu de sauvegardes."
+#~ msgid ""
+#~ "Are you sure you want to Restore this file set?\\nNOTE! This will "
+#~ "OVERWRITE any voicerecordings currently on the system. It will NOT delete "
+#~ "new files not currently in the backup set"
+#~ msgstr ""
+#~ "Etes-vous sûr de vouloir Restaurer ce jeu de fichiers ?\\nATTENTION ! "
+#~ "Ceci ECRASERA tout enregistrement vocal actuellement présent sur le "
+#~ "système. Cela ne supprimera PAS les nouveaux fichiers qui ne sont pas "
+#~ "actuellement dans le jeu de sauvegardes."
 
 #~ msgid "Are you sure you want to delete this File Set?"
 #~ msgstr "Etes-vous sûr de vouloir supprimer ce jeu de fichiers ?"
 
-#~ msgid "Are you sure you want to restore this COMPLETE file set?\\nDoing so will permanently over-write all FreePBX and Asterisk files\\nYou will lose all Your Call Detail Records and any Voicemail that was recorded between the BACKUP DATE and NOW!"
-#~ msgstr "Etes-vous sûr de vouloir restaurer ce jeu de fichiers COMPLET ?\\nCeci écrasera de façon permanente tous les fichiers de FreePBX et d'Asterisk\\nVous perdrez tous vos Enregistrements Détaillés d'Appel et tout message vocal enregistré entre la DATE DE SAUVEGARDE et MAINTENANT !"
+#~ msgid ""
+#~ "Are you sure you want to restore this COMPLETE file set?\\nDoing so will "
+#~ "permanently over-write all FreePBX and Asterisk files\\nYou will lose all "
+#~ "Your Call Detail Records and any Voicemail that was recorded between the "
+#~ "BACKUP DATE and NOW!"
+#~ msgstr ""
+#~ "Etes-vous sûr de vouloir restaurer ce jeu de fichiers COMPLET ?\\nCeci "
+#~ "écrasera de façon permanente tous les fichiers de FreePBX et d'Asterisk"
+#~ "\\nVous perdrez tous vos Enregistrements Détaillés d'Appel et tout "
+#~ "message vocal enregistré entre la DATE DE SAUVEGARDE et MAINTENANT !"
 
 #~ msgid "Backup & Restore"
 #~ msgstr "Sauvegarder & Restaurer"
@@ -1775,16 +1718,29 @@ msgstr ""
 #~ msgstr "Sauvegarder le Panneau (HTML et Base de Données)"
 
 #~ msgid "Backup the System Call Detail Reporting (HTML and Database)"
-#~ msgstr "Sauvegarder le Rapport des Détails des Appels du Système (HTML et Base de Données)"
+#~ msgstr ""
+#~ "Sauvegarder le Rapport des Détails des Appels du Système (HTML et Base de "
+#~ "Données)"
 
-#~ msgid "Backup the System Configurations (Database, etc files, SQL Database, astdb)"
-#~ msgstr "Sauvegarder les Configurations Système (Base de Données, fichiers etc, Base de Données SQL, astdb)"
+#~ msgid ""
+#~ "Backup the System Configurations (Database, etc files, SQL Database, "
+#~ "astdb)"
+#~ msgstr ""
+#~ "Sauvegarder les Configurations Système (Base de Données, fichiers etc, "
+#~ "Base de Données SQL, astdb)"
 
-#~ msgid "Backup the System Recordings (AutoAttendant, Music On Hold, System Recordings)"
-#~ msgstr "Sauvegarder les Enregistrements Système (AutoAttendant, Musique d'Attente, Enregistrements Système)"
+#~ msgid ""
+#~ "Backup the System Recordings (AutoAttendant, Music On Hold, System "
+#~ "Recordings)"
+#~ msgstr ""
+#~ "Sauvegarder les Enregistrements Système (AutoAttendant, Musique "
+#~ "d'Attente, Enregistrements Système)"
 
-#~ msgid "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
-#~ msgstr "Sauvegarder les Boîtes Vocales du Système... ATTENTION : Peut donner un fichier volumineux"
+#~ msgid ""
+#~ "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
+#~ msgstr ""
+#~ "Sauvegarder les Boîtes Vocales du Système... ATTENTION : Peut donner un "
+#~ "fichier volumineux"
 
 #~ msgid "CDR"
 #~ msgstr "CDR"
@@ -1801,8 +1757,11 @@ msgstr ""
 #~ msgid "Delete File Set"
 #~ msgstr "Supprimer Jeu de Fichiers"
 
-#~ msgid "Delete this backup set and all data associated with this backup set.."
-#~ msgstr "Supprimer ce jeu de sauvegardes et toutes les données associées à ce jeu de sauvegarde..."
+#~ msgid ""
+#~ "Delete this backup set and all data associated with this backup set.."
+#~ msgstr ""
+#~ "Supprimer ce jeu de sauvegardes et toutes les données associées à ce jeu "
+#~ "de sauvegarde..."
 
 #~ msgid "Delete this backup set."
 #~ msgstr "Supprimer ce jeu de sauvegardes."
@@ -1814,7 +1773,9 @@ msgstr ""
 #~ msgstr "Suivre le Caldendrier ci-dessous"
 
 #~ msgid "Give this Backup Schedule a brief name to help you identify it."
-#~ msgstr "Donnez un nom court à ce Calendrier de Sauvegarde pour vous aider à l'identifier."
+#~ msgstr ""
+#~ "Donnez un nom court à ce Calendrier de Sauvegarde pour vous aider à "
+#~ "l'identifier."
 
 #~ msgid "Monthly (on the 1st)"
 #~ msgstr "Mensuellement (le 1er)"
@@ -1846,23 +1807,57 @@ msgstr ""
 #~ msgid "Restore from Backup"
 #~ msgstr "Restaurer à partir d'une Sauvegarde"
 
-#~ msgid "Restore the Call Detail Records from this backup set.  NOTE! This will DELETE ALL CALL RECORDS that have been saved since this backup set."
-#~ msgstr "Restaurer les Enregistrements du Détail des Appels à partir de ce jeu de sauvegardes. ATTENTION ! Cette action SUPPRIMERA TOUS LES ENREGISTREMENTS sauvegardés après ce jeu de sauvegardes..."
+#~ msgid ""
+#~ "Restore the Call Detail Records from this backup set.  NOTE! This will "
+#~ "DELETE ALL CALL RECORDS that have been saved since this backup set."
+#~ msgstr ""
+#~ "Restaurer les Enregistrements du Détail des Appels à partir de ce jeu de "
+#~ "sauvegardes. ATTENTION ! Cette action SUPPRIMERA TOUS LES ENREGISTREMENTS "
+#~ "sauvegardés après ce jeu de sauvegardes..."
 
-#~ msgid "Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE any Operator Panel Changes you have made since this backup... ALL items will be reset to what they were at the time of this backup set.."
-#~ msgstr "Restaurer le Panneau à partir de ce jeu de sauvegardes. ATTENTION ! Cette action écrasera tout changement au niveau du Panneau effectué depuis cette sauvegarde... Tous les éléments seront de nouveau dans l'état où ils se trouvaient au moment de cette sauvegarde..."
+#~ msgid ""
+#~ "Restore the Operator Panel from this backup set.  NOTE! This will "
+#~ "OVERWRITE any Operator Panel Changes you have made since this backup... "
+#~ "ALL items will be reset to what they were at the time of this backup set.."
+#~ msgstr ""
+#~ "Restaurer le Panneau à partir de ce jeu de sauvegardes. ATTENTION ! Cette "
+#~ "action écrasera tout changement au niveau du Panneau effectué depuis "
+#~ "cette sauvegarde... Tous les éléments seront de nouveau dans l'état où "
+#~ "ils se trouvaient au moment de cette sauvegarde..."
 
 #~ msgid "Restore your Complete Backup set overwriting all files."
-#~ msgstr "Restaurer votre Jeu de Sauvegardes Complet en écrasant tous les fichiers."
+#~ msgstr ""
+#~ "Restaurer votre Jeu de Sauvegardes Complet en écrasant tous les fichiers."
 
-#~ msgid "Restore your Voicemail files from this backup set.  NOTE! This will delete any voicemail currently in the voicemail boxes."
-#~ msgstr "Restaurer les fichiers de votre Boîte Vocale à partir de ce Jeu de Sauvegardes. ATTENTION ! Ceci supprimera tout message actuellement contenu dans les boîtes vocales."
+#~ msgid ""
+#~ "Restore your Voicemail files from this backup set.  NOTE! This will "
+#~ "delete any voicemail currently in the voicemail boxes."
+#~ msgstr ""
+#~ "Restaurer les fichiers de votre Boîte Vocale à partir de ce Jeu de "
+#~ "Sauvegardes. ATTENTION ! Ceci supprimera tout message actuellement "
+#~ "contenu dans les boîtes vocales."
 
-#~ msgid "Restore your system Voice Recordings including AutoAttendant files from this backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the system. It will NOT delete new files not currently in the backup set"
-#~ msgstr "Restaurer les Enregistrements Vocaux du sytème, en incluant les fichiers AutoAttendant de ce jeu de sauvegardes. ATTENTION ! Ceci ECRASERA tout enregistrement vocal actuellement présent sur le système. Ceci ne supprimera PAS les nouveaux fichiers qui ne font pas partie de ce jeu d'enregistrement."
+#~ msgid ""
+#~ "Restore your system Voice Recordings including AutoAttendant files from "
+#~ "this backup set.  NOTE! This will OVERWRITE any voicerecordings  "
+#~ "currently on the system. It will NOT delete new files not currently in "
+#~ "the backup set"
+#~ msgstr ""
+#~ "Restaurer les Enregistrements Vocaux du sytème, en incluant les fichiers "
+#~ "AutoAttendant de ce jeu de sauvegardes. ATTENTION ! Ceci ECRASERA tout "
+#~ "enregistrement vocal actuellement présent sur le système. Ceci ne "
+#~ "supprimera PAS les nouveaux fichiers qui ne font pas partie de ce jeu "
+#~ "d'enregistrement."
 
-#~ msgid "Restore your system configuration from this backup set.  NOTE! This will OVERWRITE any System changes you have made since this backup... ALL items will be reset to what they were at the time of this backup set.."
-#~ msgstr "Restaurer la configuration du système à partir de ce jeu de sauvegarde. ATTENTION ! Cela écrasera tout changement au niveau du Système effectué depuis cette sauvegarde... Tous les éléments seront de nouveau dans l'état où ils se trouvaient au moment de cette sauvegarde..."
+#~ msgid ""
+#~ "Restore your system configuration from this backup set.  NOTE! This will "
+#~ "OVERWRITE any System changes you have made since this backup... ALL items "
+#~ "will be reset to what they were at the time of this backup set.."
+#~ msgstr ""
+#~ "Restaurer la configuration du système à partir de ce jeu de sauvegarde. "
+#~ "ATTENTION ! Cela écrasera tout changement au niveau du Système effectué "
+#~ "depuis cette sauvegarde... Tous les éléments seront de nouveau dans "
+#~ "l'état où ils se trouvaient au moment de cette sauvegarde..."
 
 #~ msgid "Restored All Files in Backup Set"
 #~ msgstr "Fichiers du Jeu de Sauvegardes Restaurés"

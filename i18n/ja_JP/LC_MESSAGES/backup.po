@@ -37,10 +37,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 23:28-0400\n"
+"POT-Creation-Date: 2015-06-19 17:27-0400\n"
 "PO-Revision-Date: 2015-02-19 14:59+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
-"Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/ja_JP/>\n"
+"Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
+"ja_JP/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -67,8 +68,12 @@ msgid "/path/to/file"
 msgstr "ファイルへのパス"
 
 #: install.php:309
-msgid "A full backup of core settings and web files, doesn't include system sounds or recordings."
-msgstr "コア設定とウェブファイルの完全バックアップ。音声ファイルや録音したファイルは含まれません。"
+msgid ""
+"A full backup of core settings and web files, doesn't include system sounds "
+"or recordings."
+msgstr ""
+"コア設定とウェブファイルの完全バックアップ。音声ファイルや録音したファイルは"
+"含まれません。"
 
 #: views/backup/backup.php:165
 msgid "A script to be run AFTER a backup is completed."
@@ -129,16 +134,25 @@ msgid "Adding items..."
 msgstr "アイテムを追加中…"
 
 #: views/backup/backup.php:303
-msgid "After a restore, disable any trunks that use registration. This is helpful to prevent the Primary and Standby systems from \"fighting\" for the registration, resulting in some calls routed to the Standby system."
+msgid ""
+"After a restore, disable any trunks that use registration. This is helpful "
+"to prevent the Primary and Standby systems from \"fighting\" for the "
+"registration, resulting in some calls routed to the Standby system."
 msgstr ""
 
 #: views/backup/backups.php:171
-msgid "All PBX Configuration files and any Custom Sound Prompts are included in the base backup"
+msgid ""
+"All PBX Configuration files and any Custom Sound Prompts are included in the "
+"base backup"
 msgstr ""
 
 #: install.php:382
-msgid "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP VOICEMAIL"
-msgstr "全てのシステム音声（IVRプロンプトと音保留音送出を含む）注意：ボイスメールのバックアップではありません。"
+msgid ""
+"All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
+"VOICEMAIL"
+msgstr ""
+"全てのシステム音声（IVRプロンプトと音保留音送出を含む）注意：ボイスメールの"
+"バックアップではありません。"
 
 #: functions.inc/servers.php:278
 msgid "Amazon S3 Server "
@@ -185,7 +199,7 @@ msgid "BACKUP LOG ATTACHED"
 msgstr "バックアップのログを送ります"
 
 #: Backup.class.php:293 functions.inc/backup.php:79
-#: functions.inc/class.backup.php:334 views/backup/backup.php:1
+#: functions.inc/class.backup.php:344 views/backup/backup.php:1
 msgid "Backup"
 msgstr "バックアップ"
 
@@ -245,10 +259,14 @@ msgstr ""
 msgid "Backup completed with errors!"
 msgstr "バックアップは完了しましたが一部エラーが発生しました。"
 
-#: functions.inc/class.backup.php:231
+#: functions.inc/class.backup.php:242
 #, php-format
-msgid "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted backup from server [%s]."
-msgstr "SQLデータベース [%s] をファイル [%s]へのダンプ中、バックアップに失敗しました。サーバー [%s]からのバックアップが破損しています。"
+msgid ""
+"Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
+"backup from server [%s]."
+msgstr ""
+"SQLデータベース [%s] をファイル [%s]へのダンプ中、バックアップに失敗しまし"
+"た。サーバー [%s]からのバックアップが破損しています。"
 
 #: bin/restore.php:93
 msgid "Backup file not found! Aborting."
@@ -260,7 +278,9 @@ msgstr "バックアップの移行が完了しました。"
 
 #: bin/backup.php:14
 msgid "Backup module not found or is disabled. Aborting!"
-msgstr "バックアップモジュールはインストールされていないか、無効になっています。中断します。"
+msgstr ""
+"バックアップモジュールはインストールされていないか、無効になっています。中断"
+"します。"
 
 #: bin/backup.php:150 bin/backup.php:198
 msgid "Backup successfully completed!"
@@ -342,7 +362,7 @@ msgstr "設定のみ"
 msgid "Connecting to remote server..."
 msgstr "リモートサーバーに接続中..."
 
-#: functions.inc/class.backup.php:327 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:337 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "作成日時"
 
@@ -409,12 +429,22 @@ msgid "Delete After"
 msgstr ""
 
 #: views/backup/backup.php:472
-msgid "Delete this backup after X amount of minutes/hours/days/weeks/months/years. Please note that deletes aren't time based and will only happen after a backup was run. Setting the value to 0 will disable any deleting"
-msgstr "設定した間が経過すると、このバックアップを削除します。ただし、削除するのは、単に時間が経過した場合ではなく、新しいバックアップが行われたときに限って削除されるので、ご注意ください。この数値を0に設定すると、削除を一切しません。"
+msgid ""
+"Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
+"Please note that deletes aren't time based and will only happen after a "
+"backup was run. Setting the value to 0 will disable any deleting"
+msgstr ""
+"設定した間が経過すると、このバックアップを削除します。ただし、削除するのは、"
+"単に時間が経過した場合ではなく、新しいバックアップが行われたときに限って削除"
+"されるので、ご注意ください。この数値を0に設定すると、削除を一切しません。"
 
 #: views/backup/backup.php:499
-msgid "Delete this backup after X amount of runs. Setting the value to 0 will disable any deleting"
-msgstr "○回バックアップを実行してからこのバックアップを削除します。0に設定すると削除を無効にします。"
+msgid ""
+"Delete this backup after X amount of runs. Setting the value to 0 will "
+"disable any deleting"
+msgstr ""
+"○回バックアップを実行してからこのバックアップを削除します。0に設定すると削除"
+"を無効にします。"
 
 #: functions.inc/templates.php:310
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
@@ -459,12 +489,17 @@ msgid "Download"
 msgstr "ダウンロード"
 
 #: views/backup/backup.php:370
-msgid "Drag servers from the Available Servers list to add them as Storage Servers"
+msgid ""
+"Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
 
 #: views/backup/backup.php:80
-msgid "Drag templates and drop them in the items table to add the templates items to the table"
-msgstr "テンプレートアイテムをテーブルに追加するには、テンプレートをドラッグして、アイテムのテーブルにドロップしてください。"
+msgid ""
+"Drag templates and drop them in the items table to add the templates items "
+"to the table"
+msgstr ""
+"テンプレートアイテムをテーブルに追加するには、テンプレートをドラッグして、ア"
+"イテムのテーブルにドロップしてください。"
 
 #: views/backup/backup.php:89
 msgid "Drop Here"
@@ -472,11 +507,16 @@ msgstr ""
 
 #: install.php:142
 msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
-msgstr "エラー: 古い \"Backup\" テーブルを削除できませんでした。このモジュールを一旦アンインストールし、"
+msgstr ""
+"エラー: 古い \"Backup\" テーブルを削除できませんでした。このモジュールを一旦"
+"アンインストールし、"
 
 #: install.php:87
-msgid "ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
-msgstr "エラー：古い \"Backup\" テーブルから新しい \"backup\" テーブルへの移行が失敗しました。"
+msgid ""
+"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+msgstr ""
+"エラー：古い \"Backup\" テーブルから新しい \"backup\" テーブルへの移行が失敗"
+"しました。"
 
 #: views/servers/email.php:64
 msgid "Email Address"
@@ -504,13 +544,17 @@ msgstr ""
 
 #: views/backup/backup.php:72
 msgid "Email to send status messages to when this task is run"
-msgstr "このタスクを実行した時に、指定されたメールアドレスにステータスメッセージを送ります"
+msgstr ""
+"このタスクを実行した時に、指定されたメールアドレスにステータスメッセージを送"
+"ります"
 
 #: views/backup/backup.php:357
-msgid "Equivalence of clicking the red button, will happen automatically after a restore on a Standby system"
+msgid ""
+"Equivalence of clicking the red button, will happen automatically after a "
+"restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:370
+#: functions.inc/class.backup.php:380
 msgid "Error connecting to the FTP Server..."
 msgstr "FTPサーバーに接続できません…"
 
@@ -527,15 +571,21 @@ msgid "Exclude"
 msgstr "除外する"
 
 #: install.php:402
-msgid "Exclude Backup's settings so that they dont get restored, usefull for a remote restore"
-msgstr "復元されないようにバックアップ設定をバックアップしません。リモートリストアで役に立ちます。"
+msgid ""
+"Exclude Backup's settings so that they dont get restored, usefull for a "
+"remote restore"
+msgstr ""
+"復元されないようにバックアップ設定をバックアップしません。リモートリストアで"
+"役に立ちます。"
 
 #: views/backup/backup.php:315
 msgid "Exclude NAT settings"
 msgstr "NAT設定を除外する"
 
 #: views/backup/backup.php:330
-msgid "Explicitly exclude any machine-specific IP settings. This allows you to have a warm-spare machine with a different IP address."
+msgid ""
+"Explicitly exclude any machine-specific IP settings. This allows you to have "
+"a warm-spare machine with a different IP address."
 msgstr ""
 
 #: bin/restore.php:67
@@ -576,12 +626,20 @@ msgid "FTP Username"
 msgstr ""
 
 #: functions.inc/restore.php:471
-msgid "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in current state"
-msgstr "asterisk.sqlを独自フォーマットに変換できませんでした。現在の状態で名前をmysql-db.sqlに変更します。"
+msgid ""
+"Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
+"current state"
+msgstr ""
+"asterisk.sqlを独自フォーマットに変換できませんでした。現在の状態で名前を"
+"mysql-db.sqlに変更します。"
 
 #: functions.inc/restore.php:498
-msgid "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr.sql in current state"
-msgstr "asteriskcdr.sqlを独自フォーマットに変換できませんでした。現在の状態で名前をmysql-cdr.sqlに変更します。"
+msgid ""
+"Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
+"sql in current state"
+msgstr ""
+"asteriskcdr.sqlを独自フォーマットに変換できませんでした。現在の状態で名前を"
+"mysql-cdr.sqlに変更します。"
 
 #: functions.inc/restore.php:300 functions.inc/restore.php:324
 #: functions.inc/restore.php:337
@@ -616,7 +674,7 @@ msgstr "ファイルの復元が完了しました！"
 msgid "File verification failed. "
 msgstr "ファイル検証は失敗しました。 "
 
-#: functions.inc/class.backup.php:328 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:338 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "ファイル"
 
@@ -694,14 +752,21 @@ msgid "IP address or FQDN of remote mysql host"
 msgstr "リモートMySQLホストのIPアドレス、またはFQDN"
 
 #: views/cron.php:161
-msgid "If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved"
+msgid ""
+"If Randomize is selcted, a similar frequency will be followed, only the "
+"exact times will be randomized (avoiding peak business hours, when "
+"possible). Please note: randomized schedules will be rescheduled (randomly) "
+"every time ANY backup is saved"
 msgstr ""
 
 #: views/cron.php:105
 msgid ""
-"If a custom schedule is selected, any section not specficed will be considered to be \"any\" (aka: wildcard).\n"
-"\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, the Backup will be run on ANY 12th of\n"
-"\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week is set to, say, Monday, the Backup will run ONLY\n"
+"If a custom schedule is selected, any section not specficed will be "
+"considered to be \"any\" (aka: wildcard).\n"
+"\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, the "
+"Backup will be run on ANY 12th of\n"
+"\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week is "
+"set to, say, Monday, the Backup will run ONLY\n"
 "\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
 msgstr ""
 
@@ -842,7 +907,7 @@ msgstr "MySQL"
 msgid "Mysql DB's"
 msgstr "MySQLデータベース"
 
-#: functions.inc/class.backup.php:329
+#: functions.inc/class.backup.php:339
 msgid "Mysql Db's"
 msgstr "MySQL DB"
 
@@ -850,7 +915,7 @@ msgstr "MySQL DB"
 msgid "Mysql Server "
 msgstr "MySQLサーバー "
 
-#: functions.inc/class.backup.php:326 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:336 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "名前"
 
@@ -1180,7 +1245,9 @@ msgid "Run Automatically"
 msgstr "自動的に実行"
 
 #: views/cron.php:97
-msgid "Run at startup of the server OR of the cron deamon (i.e. after every <code>service cron restart</code>)"
+msgid ""
+"Run at startup of the server OR of the cron deamon (i.e. after every "
+"<code>service cron restart</code>)"
 msgstr ""
 
 #: page.backup.php:47
@@ -1280,12 +1347,17 @@ msgid "Select files and databases to restore:"
 msgstr "復元するファイル及びデータベースを選択してください。"
 
 #: views/cron.php:73
-msgid "Select how often to run this backup. The following schedule will be followed for all but custom."
+msgid ""
+"Select how often to run this backup. The following schedule will be followed "
+"for all but custom."
 msgstr ""
 
 #: views/backup/backup.php:249
-msgid "Select the server to be backed up (this server, or any other SSH server)"
-msgstr "バックアップするサーバーを選択してください。（このサーバー、若しくは他のSSHサーバー）"
+msgid ""
+"Select the server to be backed up (this server, or any other SSH server)"
+msgstr ""
+"バックアップするサーバーを選択してください。（このサーバー、若しくは他のSSH"
+"サーバー）"
 
 #: views/cron.php:51
 msgid "September"
@@ -1387,12 +1459,20 @@ msgid "Templates"
 msgstr "テンプレート"
 
 #: views/servers/email.php:114
-msgid "The maximum size a backup can be and still be emailed. Some email servers limit the size of email attachments, this will make sure that files larger than the max size are not sent."
-msgstr "Eメールで送信できる最大のバックアップサイズ。添付ファイルのサイズを制限するサーバーを使用する場合に、この設定を使うと制限を越えるファイルを送らないようにできます。"
+msgid ""
+"The maximum size a backup can be and still be emailed. Some email servers "
+"limit the size of email attachments, this will make sure that files larger "
+"than the max size are not sent."
+msgstr ""
+"Eメールで送信できる最大のバックアップサイズ。添付ファイルのサイズを制限する"
+"サーバーを使用する場合に、この設定を使うと制限を越えるファイルを送らないよう"
+"にできます。"
 
 #: install.php:88
 msgid "This error can result from a previous incomplete/failed install of"
-msgstr "このエラーは、次のモジュールのインストールが不完全/失敗であった事が原因かもしれません："
+msgstr ""
+"このエラーは、次のモジュールのインストールが不完全/失敗であった事が原因かもし"
+"れません："
 
 #: views/backup/backup.php:220
 msgid "This server"
@@ -1459,7 +1539,8 @@ msgstr "警告：バックアップディレクトリを作成できませんで
 
 #: bin/restore.php:259
 msgid "Web Root restore not detected, not restoring module table"
-msgstr "ウェブルートの復元は検知できないため、モジュールのテーブルは復元しません"
+msgstr ""
+"ウェブルートの復元は検知できないため、モジュールのテーブルは復元しません"
 
 #: views/cron.php:30 assets/js/backup.js:180
 msgid "Wednesday"
@@ -1543,7 +1624,9 @@ msgstr ""
 
 #: bin/restore.php:260
 msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
-msgstr "システムの整合性を保つために amportal a ma updateall を実行することをおすすめします。"
+msgstr ""
+"システムの整合性を保つために amportal a ma updateall を実行することをおすすめ"
+"します。"
 
 #: views/backup/backups.php:312
 msgid "Your backup will be saved locally to /var/lib/asterisk/backup"
@@ -1565,7 +1648,7 @@ msgstr "エラーが発生したため、更新は実行されませんでした
 msgid "and then re-install this module. Settings will be lost but old"
 msgstr "再度インストールしてください。設定は失われますが、"
 
-#: functions.inc/class.backup.php:330
+#: functions.inc/class.backup.php:340
 msgid "astDb's"
 msgstr "astDb"
 
@@ -1582,7 +1665,8 @@ msgid "chose"
 msgstr "選択する"
 
 #: install.php:90
-msgid "doing so will result in a loss of all your backup settings though previous"
+msgid ""
+"doing so will result in a loss of all your backup settings though previous"
 msgstr "この操作により、前回のバックアップデータは保存されますが、"
 
 #: views/restore/backup_list.php:44
@@ -1623,7 +1707,8 @@ msgstr "テーブル名、各行に1つ"
 
 #: install.php:89
 msgid "this module. You should probably uninstall and reinstall this module"
-msgstr "モジュールを一旦アンインストールし、再度インストールすることを推奨します。"
+msgstr ""
+"モジュールを一旦アンインストールし、再度インストールすることを推奨します。"
 
 #: bin/backup.php:47
 msgid "waiting for lock..."
@@ -1633,25 +1718,25 @@ msgstr "ロックを待機中…"
 msgid "{no servers available}"
 msgstr "{サーバーはありません}"
 
-#: backup.i18n.php:20
-msgid "Email "
-msgstr ""
-
-#: backup.i18n.php:8
-msgid "Provides Backup & Restore capabilities for your PBX"
-msgstr ""
-
 #~ msgid " DOES NOT BACKUP VOICEMAIL"
 #~ msgstr "ボイスメールをバックアップしません。"
 
 #~ msgid " runs"
 #~ msgstr " 回の実行"
 
-#~ msgid "A full backup of core settings and web files, dosen't include system sounds or recordings."
-#~ msgstr "コア設定とウェブファイルのフルバックアップ。システム音声や録音データは含まれません。"
+#~ msgid ""
+#~ "A full backup of core settings and web files, dosen't include system "
+#~ "sounds or recordings."
+#~ msgstr ""
+#~ "コア設定とウェブファイルのフルバックアップ。システム音声や録音データは含ま"
+#~ "れません。"
 
-#~ msgid "A large amount of files have been selected for restore. Please be paitent - this prosses will take a while."
-#~ msgstr "復元するファイルの数が多いため、時間がかかる場合があります。しばらくお待ちください。"
+#~ msgid ""
+#~ "A large amount of files have been selected for restore. Please be paitent "
+#~ "- this prosses will take a while."
+#~ msgstr ""
+#~ "復元するファイルの数が多いため、時間がかかる場合があります。しばらくお待ち"
+#~ "ください。"
 
 #~ msgid "Admin"
 #~ msgstr "アドミン"
@@ -1698,8 +1783,12 @@ msgstr ""
 #~ msgid "Delete after"
 #~ msgstr "以後に削除"
 
-#~ msgid "Drag templates and drop them in the Backup Items table. Add as many templates as you need"
-#~ msgstr "テンプレートをドラッグし、バックアップアイテムのテーブルにドロップします。必要に応じてテンプレートを追加してください。"
+#~ msgid ""
+#~ "Drag templates and drop them in the Backup Items table. Add as many "
+#~ "templates as you need"
+#~ msgstr ""
+#~ "テンプレートをドラッグし、バックアップアイテムのテーブルにドロップします。"
+#~ "必要に応じてテンプレートを追加してください。"
 
 #~ msgid "Email \"From:\" Address"
 #~ msgstr "表示する差出人のアドレス"
@@ -1803,8 +1892,12 @@ msgstr ""
 #~ msgid "The From: field for emails when using the backup email feature."
 #~ msgstr "バックアップEメール機能使用時のFrom:フィールド。"
 
-#~ msgid "Upload a backup file to restore from it. Or, pick a saved backup by selecting a server from the list on the right."
-#~ msgstr "復元するバックアップファイルをアップロードできます。右側のサーバーリストからも保存されたバックアップを選択できます。"
+#~ msgid ""
+#~ "Upload a backup file to restore from it. Or, pick a saved backup by "
+#~ "selecting a server from the list on the right."
+#~ msgstr ""
+#~ "復元するバックアップファイルをアップロードできます。右側のサーバーリストか"
+#~ "らも保存されたバックアップを選択できます。"
 
 #~ msgid "Veryfing received file..."
 #~ msgstr "受信したファイル検証中..."
@@ -1815,8 +1908,12 @@ msgstr ""
 #~ msgid "and Run"
 #~ msgstr "と実行"
 
-#~ msgid "drag servers from the Available Servers list to add them as Storage Servers"
-#~ msgstr "ストレージサーバーを追加するには、利用可能なサーバーのリストからドラッグしてください。"
+#~ msgid ""
+#~ "drag servers from the Available Servers list to add them as Storage "
+#~ "Servers"
+#~ msgstr ""
+#~ "ストレージサーバーを追加するには、利用可能なサーバーのリストからドラッグし"
+#~ "てください。"
 
 #~ msgid "email"
 #~ msgstr "Eメール"

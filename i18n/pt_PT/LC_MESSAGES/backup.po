@@ -12,8 +12,7 @@ msgstr ""
 "POT-Creation-Date: 2015-05-19 23:28-0400\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
-"Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
-"freepbx/backup/pt_PT/>\n"
+"Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/freepbx/backup/pt_PT/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -40,12 +39,8 @@ msgid "/path/to/file"
 msgstr "/path/to/file"
 
 #: install.php:309
-msgid ""
-"A full backup of core settings and web files, doesn't include system sounds "
-"or recordings."
-msgstr ""
-"Uma cópia de segurança completa às configurações core e ficheiros web, não "
-"inclui audios e gravações de sistema."
+msgid "A full backup of core settings and web files, doesn't include system sounds or recordings."
+msgstr "Uma cópia de segurança completa às configurações core e ficheiros web, não inclui audios e gravações de sistema."
 
 #: views/backup/backup.php:165
 msgid "A script to be run AFTER a backup is completed."
@@ -106,25 +101,16 @@ msgid "Adding items..."
 msgstr "Adicionando Itens..."
 
 #: views/backup/backup.php:303
-msgid ""
-"After a restore, disable any trunks that use registration. This is helpful "
-"to prevent the Primary and Standby systems from \"fighting\" for the "
-"registration, resulting in some calls routed to the Standby system."
+msgid "After a restore, disable any trunks that use registration. This is helpful to prevent the Primary and Standby systems from \"fighting\" for the registration, resulting in some calls routed to the Standby system."
 msgstr ""
 
 #: views/backup/backups.php:171
-msgid ""
-"All PBX Configuration files and any Custom Sound Prompts are included in the "
-"base backup"
+msgid "All PBX Configuration files and any Custom Sound Prompts are included in the base backup"
 msgstr ""
 
 #: install.php:382
-msgid ""
-"All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
-"VOICEMAIL"
-msgstr ""
-"Todos os audios do sistema - incluindo locuções de IVR e Música Em Espera. "
-"NÃO INCLUI VOICEMAIL"
+msgid "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP VOICEMAIL"
+msgstr "Todos os audios do sistema - incluindo locuções de IVR e Música Em Espera. NÃO INCLUI VOICEMAIL"
 
 #: functions.inc/servers.php:278
 msgid "Amazon S3 Server "
@@ -233,12 +219,8 @@ msgstr "Cópia de Segurança terminada com erros!"
 
 #: functions.inc/class.backup.php:231
 #, php-format
-msgid ""
-"Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
-"backup from server [%s]."
-msgstr ""
-"Cópia de Segurança falhou ao transferir a base de dados SQL [%s] para o "
-"ficheiro [%s], a Cópia de Segurança do servidor [%s] pode estar corrompida."
+msgid "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted backup from server [%s]."
+msgstr "Cópia de Segurança falhou ao transferir a base de dados SQL [%s] para o ficheiro [%s], a Cópia de Segurança do servidor [%s] pode estar corrompida."
 
 #: bin/restore.php:93
 msgid "Backup file not found! Aborting."
@@ -399,28 +381,16 @@ msgid "Delete After"
 msgstr ""
 
 #: views/backup/backup.php:472
-msgid ""
-"Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
-"Please note that deletes aren't time based and will only happen after a "
-"backup was run. Setting the value to 0 will disable any deleting"
-msgstr ""
-"Elimina esta cópia de segurança depois de X minutos/horas/dias/semanas/meses/"
-"anos. De notar que as eliminações não se baseiam na data ou hora e apenas "
-"ocorrerão depois de executada a cópia de segurança. Definindo o valor 0 "
-"desativa qualqur eliminação"
+msgid "Delete this backup after X amount of minutes/hours/days/weeks/months/years. Please note that deletes aren't time based and will only happen after a backup was run. Setting the value to 0 will disable any deleting"
+msgstr "Elimina esta cópia de segurança depois de X minutos/horas/dias/semanas/meses/anos. De notar que as eliminações não se baseiam na data ou hora e apenas ocorrerão depois de executada a cópia de segurança. Definindo o valor 0 desativa qualqur eliminação"
 
 #: views/backup/backup.php:499
-msgid ""
-"Delete this backup after X amount of runs. Setting the value to 0 will "
-"disable any deleting"
-msgstr ""
-"Elimina esta cópia de segurança após X quantidade de execuções. Definindo o "
-"valor a 0 desativa qualquer eliminação"
+msgid "Delete this backup after X amount of runs. Setting the value to 0 will disable any deleting"
+msgstr "Elimina esta cópia de segurança após X quantidade de execuções. Definindo o valor a 0 desativa qualquer eliminação"
 
 #: functions.inc/templates.php:310
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
-msgstr ""
-"Elimina esta entrada. Não esquecer de Submeter para guardar alterações!"
+msgstr "Elimina esta entrada. Não esquecer de Submeter para guardar alterações!"
 
 #: views/backup/backup.php:36 views/backup/backups.php:10
 #: views/servers/awss3.php:40 views/servers/email.php:40
@@ -461,17 +431,12 @@ msgid "Download"
 msgstr "Transferir"
 
 #: views/backup/backup.php:370
-msgid ""
-"Drag servers from the Available Servers list to add them as Storage Servers"
+msgid "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
 
 #: views/backup/backup.php:80
-msgid ""
-"Drag templates and drop them in the items table to add the templates items "
-"to the table"
-msgstr ""
-"Arraste os modelos e coloque-os na tabela de itens para adicionar os itens à "
-"tabela"
+msgid "Drag templates and drop them in the items table to add the templates items to the table"
+msgstr "Arraste os modelos e coloque-os na tabela de itens para adicionar os itens à tabela"
 
 #: views/backup/backup.php:89
 msgid "Drop Here"
@@ -482,11 +447,8 @@ msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
 msgstr "ERRO: Falha ao remover tabela \"Backup\" antiga. Deverá desinstalar"
 
 #: install.php:87
-msgid ""
-"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
-msgstr ""
-"ERRO: Falha ao migra da tabela \"Backup\" antiga para a nova tabela \"backup"
-"\""
+msgid "ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+msgstr "ERRO: Falha ao migra da tabela \"Backup\" antiga para a nova tabela \"backup\""
 
 #: views/servers/email.php:64
 msgid "Email Address"
@@ -514,13 +476,10 @@ msgstr ""
 
 #: views/backup/backup.php:72
 msgid "Email to send status messages to when this task is run"
-msgstr ""
-"Email para onde enviar mensagens de estado quando esta tarefa for executada"
+msgstr "Email para onde enviar mensagens de estado quando esta tarefa for executada"
 
 #: views/backup/backup.php:357
-msgid ""
-"Equivalence of clicking the red button, will happen automatically after a "
-"restore on a Standby system"
+msgid "Equivalence of clicking the red button, will happen automatically after a restore on a Standby system"
 msgstr ""
 
 #: functions.inc/class.backup.php:370
@@ -540,21 +499,15 @@ msgid "Exclude"
 msgstr "Excluir"
 
 #: install.php:402
-msgid ""
-"Exclude Backup's settings so that they dont get restored, usefull for a "
-"remote restore"
-msgstr ""
-"Exluir configurações da Cópia de Segurança para que não sejam restauradasm "
-"útil para restauros remotos"
+msgid "Exclude Backup's settings so that they dont get restored, usefull for a remote restore"
+msgstr "Exluir configurações da Cópia de Segurança para que não sejam restauradasm útil para restauros remotos"
 
 #: views/backup/backup.php:315
 msgid "Exclude NAT settings"
 msgstr "Excluir configurações NAT"
 
 #: views/backup/backup.php:330
-msgid ""
-"Explicitly exclude any machine-specific IP settings. This allows you to have "
-"a warm-spare machine with a different IP address."
+msgid "Explicitly exclude any machine-specific IP settings. This allows you to have a warm-spare machine with a different IP address."
 msgstr ""
 
 #: bin/restore.php:67
@@ -595,20 +548,12 @@ msgid "FTP Username"
 msgstr ""
 
 #: functions.inc/restore.php:471
-msgid ""
-"Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
-"current state"
-msgstr ""
-"Falha convertendo asterisk.sql para formato adequado, renomeando para mysql-"
-"db.sql no estado atual"
+msgid "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in current state"
+msgstr "Falha convertendo asterisk.sql para formato adequado, renomeando para mysql-db.sql no estado atual"
 
 #: functions.inc/restore.php:498
-msgid ""
-"Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
-"sql in current state"
-msgstr ""
-"Falha convertendo asteriskcdr.sql para formato adequado, renomeando para "
-"mysql-cdr.sql no estado atual"
+msgid "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr.sql in current state"
+msgstr "Falha convertendo asteriskcdr.sql para formato adequado, renomeando para mysql-cdr.sql no estado atual"
 
 #: functions.inc/restore.php:300 functions.inc/restore.php:324
 #: functions.inc/restore.php:337
@@ -681,9 +626,7 @@ msgstr "Executar!"
 
 #: bin/backup.php:123
 msgid "Here are the first few lines of the file as sent by the remote server:"
-msgstr ""
-"Aqui se apresentam as primeiras linhas do ficheiro conforme enviado pelo "
-"servidor remoto:"
+msgstr "Aqui se apresentam as primeiras linhas do ficheiro conforme enviado pelo servidor remoto:"
 
 #: views/backup/backup.php:120
 msgid "Hooks"
@@ -723,21 +666,14 @@ msgid "IP address or FQDN of remote mysql host"
 msgstr "Endereço IP ou FQDN do host mysql remoto"
 
 #: views/cron.php:161
-msgid ""
-"If Randomize is selcted, a similar frequency will be followed, only the "
-"exact times will be randomized (avoiding peak business hours, when "
-"possible). Please note: randomized schedules will be rescheduled (randomly) "
-"every time ANY backup is saved"
+msgid "If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved"
 msgstr ""
 
 #: views/cron.php:105
 msgid ""
-"If a custom schedule is selected, any section not specficed will be "
-"considered to be \"any\" (aka: wildcard).\n"
-"\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, the "
-"Backup will be run on ANY 12th of\n"
-"\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week is "
-"set to, say, Monday, the Backup will run ONLY\n"
+"If a custom schedule is selected, any section not specficed will be considered to be \"any\" (aka: wildcard).\n"
+"\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, the Backup will be run on ANY 12th of\n"
+"\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week is set to, say, Monday, the Backup will run ONLY\n"
 "\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
 msgstr ""
 
@@ -1004,8 +940,7 @@ msgstr "Configurações do PBX"
 
 #: install.php:255
 msgid "PBX config server, generally a local database server"
-msgstr ""
-"Servidor de config do PBX, geralmente um servidor de base de dados local"
+msgstr "Servidor de config do PBX, geralmente um servidor de base de dados local"
 
 #: views/backup/backups.php:499 views/servers/ftp.php:191
 msgid "Passive"
@@ -1217,9 +1152,7 @@ msgid "Run Automatically"
 msgstr "Executar Automaticamente"
 
 #: views/cron.php:97
-msgid ""
-"Run at startup of the server OR of the cron deamon (i.e. after every "
-"<code>service cron restart</code>)"
+msgid "Run at startup of the server OR of the cron deamon (i.e. after every <code>service cron restart</code>)"
 msgstr ""
 
 #: page.backup.php:47
@@ -1319,17 +1252,12 @@ msgid "Select files and databases to restore:"
 msgstr "Selecione ficheiros e bases de dados a restaurar:"
 
 #: views/cron.php:73
-msgid ""
-"Select how often to run this backup. The following schedule will be followed "
-"for all but custom."
+msgid "Select how often to run this backup. The following schedule will be followed for all but custom."
 msgstr ""
 
 #: views/backup/backup.php:249
-msgid ""
-"Select the server to be backed up (this server, or any other SSH server)"
-msgstr ""
-"Selecione o servidor do qual se deve realizar a cópia de segurança (este "
-"servidor ou outro qualquer servidor SSH)"
+msgid "Select the server to be backed up (this server, or any other SSH server)"
+msgstr "Selecione o servidor do qual se deve realizar a cópia de segurança (este servidor ou outro qualquer servidor SSH)"
 
 #: views/cron.php:51
 msgid "September"
@@ -1431,16 +1359,12 @@ msgid "Templates"
 msgstr "Modelos"
 
 #: views/servers/email.php:114
-msgid ""
-"The maximum size a backup can be and still be emailed. Some email servers "
-"limit the size of email attachments, this will make sure that files larger "
-"than the max size are not sent."
+msgid "The maximum size a backup can be and still be emailed. Some email servers limit the size of email attachments, this will make sure that files larger than the max size are not sent."
 msgstr ""
 
 #: install.php:88
 msgid "This error can result from a previous incomplete/failed install of"
-msgstr ""
-"Este erro pode resultar de uma instalação anterior incompleta ou falhada de"
+msgstr "Este erro pode resultar de uma instalação anterior incompleta ou falhada de"
 
 #: views/backup/backup.php:220
 msgid "This server"
@@ -1591,9 +1515,7 @@ msgstr ""
 
 #: bin/restore.php:260
 msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
-msgstr ""
-"Deve executar \"amportal a ma updateall\" para garantir a integridade do "
-"sistema"
+msgstr "Deve executar \"amportal a ma updateall\" para garantir a integridade do sistema"
 
 #: views/backup/backups.php:312
 msgid "Your backup will be saved locally to /var/lib/asterisk/backup"
@@ -1613,8 +1535,7 @@ msgstr "ocorreu um erro, atualização não executada"
 
 #: install.php:143
 msgid "and then re-install this module. Settings will be lost but old"
-msgstr ""
-"e depois reinstala este módulo. Configuração serão perdidas mas antigas"
+msgstr "e depois reinstala este módulo. Configuração serão perdidas mas antigas"
 
 #: functions.inc/class.backup.php:330
 msgid "astDb's"
@@ -1635,11 +1556,8 @@ msgstr "escolheu"
 
 #: install.php:90
 #, fuzzy
-msgid ""
-"doing so will result in a loss of all your backup settings though previous"
-msgstr ""
-"fazer isto poderá resultar na perda de todas as configurações da cópia de "
-"segurança através do anterior"
+msgid "doing so will result in a loss of all your backup settings though previous"
+msgstr "fazer isto poderá resultar na perda de todas as configurações da cópia de segurança através do anterior"
 
 #: views/restore/backup_list.php:44
 msgid "drop here"
@@ -1689,6 +1607,10 @@ msgstr "aguardando bloqueio..."
 msgid "{no servers available}"
 msgstr "{nenhum servidor disponível}"
 
+#: views/restore/restore.php:10
+msgid "Upload a backup file to restore from it. Or, pick a saved backup by selecting a server from the list on the right."
+msgstr ""
+
 #~ msgid " runs"
 #~ msgstr " executa"
 
@@ -1722,12 +1644,8 @@ msgstr "{nenhum servidor disponível}"
 #~ msgid "Delete after"
 #~ msgstr "Eliminar depois de"
 
-#~ msgid ""
-#~ "Drag templates and drop them in the Backup Items table. Add as many "
-#~ "templates as you need"
-#~ msgstr ""
-#~ "Arraste os modelos e coloque-os na tabela de itens da Cópia de Segurança. "
-#~ "Adicione os modelos necessários"
+#~ msgid "Drag templates and drop them in the Backup Items table. Add as many templates as you need"
+#~ msgstr "Arraste os modelos e coloque-os na tabela de itens da Cópia de Segurança. Adicione os modelos necessários"
 
 #~ msgid "Email "
 #~ msgstr "Email "
@@ -1766,8 +1684,7 @@ msgstr "{nenhum servidor disponível}"
 #~ msgstr "Gancho pré restauro"
 
 #~ msgid "Provides Backup & Restore capabilities for your PBX"
-#~ msgstr ""
-#~ "Proporciona funcionalidades de Cópia de Segurança & Restauro ao seu PBX"
+#~ msgstr "Proporciona funcionalidades de Cópia de Segurança & Restauro ao seu PBX"
 
 #~ msgid "Randomize"
 #~ msgstr "Aleatório"
@@ -1776,19 +1693,13 @@ msgstr "{nenhum servidor disponível}"
 #~ msgstr "Localizações de Armazenamento"
 
 #~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr ""
-#~ "O campo De: para os emails ao usar a funcionalidade email de cópia de "
-#~ "segurança."
+#~ msgstr "O campo De: para os emails ao usar a funcionalidade email de cópia de segurança."
 
 #~ msgid "and Run"
 #~ msgstr "e Executa"
 
-#~ msgid ""
-#~ "drag servers from the Available Servers list to add them as Storage "
-#~ "Servers"
-#~ msgstr ""
-#~ "arrastar servidores da lista de Servidores Asterisk para adicioná-los aos "
-#~ "Servidores de Armazenamento"
+#~ msgid "drag servers from the Available Servers list to add them as Storage Servers"
+#~ msgstr "arrastar servidores da lista de Servidores Asterisk para adicioná-los aos Servidores de Armazenamento"
 
 #~ msgid "remote ftp port"
 #~ msgstr "porta ftp remota"

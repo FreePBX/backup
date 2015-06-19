@@ -12,8 +12,7 @@ msgstr ""
 "POT-Creation-Date: 2015-05-19 23:28-0400\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
-"Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
-"nl_NL/>\n"
+"Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/nl_NL/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -40,12 +39,8 @@ msgid "/path/to/file"
 msgstr "/pad/naar/bestand"
 
 #: install.php:309
-msgid ""
-"A full backup of core settings and web files, doesn't include system sounds "
-"or recordings."
-msgstr ""
-"Een volledige reservekopie van algemene instellingen en internetbestanden, "
-"exclusief systeemgeluiden en opnames."
+msgid "A full backup of core settings and web files, doesn't include system sounds or recordings."
+msgstr "Een volledige reservekopie van algemene instellingen en internetbestanden, exclusief systeemgeluiden en opnames."
 
 #: views/backup/backup.php:165
 msgid "A script to be run AFTER a backup is completed."
@@ -53,18 +48,15 @@ msgstr "Een script dat wordt uitgevoerd NADAT een reservekopie is voltooid."
 
 #: views/backup/backup.php:213
 msgid "A script to be run AFTER a backup is restored."
-msgstr ""
-"Een script dat wordt uitgevoerd NADAT een reservekopie wordt teruggezet."
+msgstr "Een script dat wordt uitgevoerd NADAT een reservekopie wordt teruggezet."
 
 #: views/backup/backup.php:189
 msgid "A script to be run BEFORE a backup is restored."
-msgstr ""
-"Een script dat wordt uitgevoerd VOORDAT een reservekopie wordt teruggezet."
+msgstr "Een script dat wordt uitgevoerd VOORDAT een reservekopie wordt teruggezet."
 
 #: views/backup/backup.php:141
 msgid "A script to be run BEFORE a backup is started."
-msgstr ""
-"Een script dat wordt uitgevoerd VOORDAT een reservekopie wordt gemaakt."
+msgstr "Een script dat wordt uitgevoerd VOORDAT een reservekopie wordt gemaakt."
 
 #: views/backup/backups.php:154 assets/js/backup.js:190
 #: assets/js/backup.js:202
@@ -109,25 +101,16 @@ msgid "Adding items..."
 msgstr "Onderdelen toevoegen..."
 
 #: views/backup/backup.php:303
-msgid ""
-"After a restore, disable any trunks that use registration. This is helpful "
-"to prevent the Primary and Standby systems from \"fighting\" for the "
-"registration, resulting in some calls routed to the Standby system."
+msgid "After a restore, disable any trunks that use registration. This is helpful to prevent the Primary and Standby systems from \"fighting\" for the registration, resulting in some calls routed to the Standby system."
 msgstr ""
 
 #: views/backup/backups.php:171
-msgid ""
-"All PBX Configuration files and any Custom Sound Prompts are included in the "
-"base backup"
+msgid "All PBX Configuration files and any Custom Sound Prompts are included in the base backup"
 msgstr ""
 
 #: install.php:382
-msgid ""
-"All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
-"VOICEMAIL"
-msgstr ""
-"Alle systeemgeluiden, inclusief IVR meldingen en wachtmuziek. EXCLUSIEF "
-"VOICEMAIL"
+msgid "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP VOICEMAIL"
+msgstr "Alle systeemgeluiden, inclusief IVR meldingen en wachtmuziek. EXCLUSIEF VOICEMAIL"
 
 #: functions.inc/servers.php:278
 msgid "Amazon S3 Server "
@@ -236,12 +219,8 @@ msgstr "Reservekopie voltooid met fouten!"
 
 #: functions.inc/class.backup.php:231
 #, php-format
-msgid ""
-"Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
-"backup from server [%s]."
-msgstr ""
-"Reservekopie mislukt tijdens het dumpen van SQL database [%s] naar bestand [%"
-"s]. U heeft een corrupte reservekopie van server [%s]."
+msgid "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted backup from server [%s]."
+msgstr "Reservekopie mislukt tijdens het dumpen van SQL database [%s] naar bestand [%s]. U heeft een corrupte reservekopie van server [%s]."
 
 #: bin/restore.php:93
 msgid "Backup file not found! Aborting."
@@ -404,29 +383,16 @@ msgid "Delete After"
 msgstr ""
 
 #: views/backup/backup.php:472
-msgid ""
-"Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
-"Please note that deletes aren't time based and will only happen after a "
-"backup was run. Setting the value to 0 will disable any deleting"
-msgstr ""
-"Verwijder deze reservekopie na X minuten/uren/dagen/weken/maanden/jaren. Let "
-"op dat verwijderingen niet op tijd gebaseerd zijn, maar alleen gebeuren "
-"nadat een reservekopie is uitgevoerd. Als u 0 kiest wordt automatische "
-"verwijding uitgeschakeld"
+msgid "Delete this backup after X amount of minutes/hours/days/weeks/months/years. Please note that deletes aren't time based and will only happen after a backup was run. Setting the value to 0 will disable any deleting"
+msgstr "Verwijder deze reservekopie na X minuten/uren/dagen/weken/maanden/jaren. Let op dat verwijderingen niet op tijd gebaseerd zijn, maar alleen gebeuren nadat een reservekopie is uitgevoerd. Als u 0 kiest wordt automatische verwijding uitgeschakeld"
 
 #: views/backup/backup.php:499
-msgid ""
-"Delete this backup after X amount of runs. Setting the value to 0 will "
-"disable any deleting"
-msgstr ""
-"Verwijder deze reservekopie na X keer uitvoeren. Als u 0 kiest wordt "
-"automatische verwijding uitgeschakeld"
+msgid "Delete this backup after X amount of runs. Setting the value to 0 will disable any deleting"
+msgstr "Verwijder deze reservekopie na X keer uitvoeren. Als u 0 kiest wordt automatische verwijding uitgeschakeld"
 
 #: functions.inc/templates.php:310
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
-msgstr ""
-"Verwijder deze invoer. Vergeet niet om op Verzenden te klikken om op te "
-"slaan!"
+msgstr "Verwijder deze invoer. Vergeet niet om op Verzenden te klikken om op te slaan!"
 
 #: views/backup/backup.php:36 views/backup/backups.php:10
 #: views/servers/awss3.php:40 views/servers/email.php:40
@@ -467,17 +433,12 @@ msgid "Download"
 msgstr "Download"
 
 #: views/backup/backup.php:370
-msgid ""
-"Drag servers from the Available Servers list to add them as Storage Servers"
+msgid "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
 
 #: views/backup/backup.php:80
-msgid ""
-"Drag templates and drop them in the items table to add the templates items "
-"to the table"
-msgstr ""
-"Sleep sjablonen naar de onderdelen tabel om het sjabloon aan de tabel toe te "
-"voegen"
+msgid "Drag templates and drop them in the items table to add the templates items to the table"
+msgstr "Sleep sjablonen naar de onderdelen tabel om het sjabloon aan de tabel toe te voegen"
 
 #: views/backup/backup.php:89
 msgid "Drop Here"
@@ -485,13 +446,10 @@ msgstr ""
 
 #: install.php:142
 msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
-msgstr ""
-"FOUT: Verwijderen van de oude Reservekopietabel mislukt. U wordt geadviseerd "
-"om te deïnstalleren"
+msgstr "FOUT: Verwijderen van de oude Reservekopietabel mislukt. U wordt geadviseerd om te deïnstalleren"
 
 #: install.php:87
-msgid ""
-"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+msgid "ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
 msgstr "FOUT: Migratie van oude reservekopietabel naar nieuwe tabel mislukt"
 
 #: views/servers/email.php:64
@@ -520,14 +478,10 @@ msgstr ""
 
 #: views/backup/backup.php:72
 msgid "Email to send status messages to when this task is run"
-msgstr ""
-"e-mail adres waar statusmeldingen naar toegezonden moeten worden als deze "
-"taak is uitgevoerd"
+msgstr "e-mail adres waar statusmeldingen naar toegezonden moeten worden als deze taak is uitgevoerd"
 
 #: views/backup/backup.php:357
-msgid ""
-"Equivalence of clicking the red button, will happen automatically after a "
-"restore on a Standby system"
+msgid "Equivalence of clicking the red button, will happen automatically after a restore on a Standby system"
 msgstr ""
 
 #: functions.inc/class.backup.php:370
@@ -548,21 +502,15 @@ msgstr "Uitsluiten"
 
 #: install.php:402
 #, fuzzy
-msgid ""
-"Exclude Backup's settings so that they dont get restored, usefull for a "
-"remote restore"
-msgstr ""
-"Sluit reservekopie instellingen uit zodat deze niet teruggezet worden. "
-"Nuttig voor het terugzetten vanaf afstand"
+msgid "Exclude Backup's settings so that they dont get restored, usefull for a remote restore"
+msgstr "Sluit reservekopie instellingen uit zodat deze niet teruggezet worden. Nuttig voor het terugzetten vanaf afstand"
 
 #: views/backup/backup.php:315
 msgid "Exclude NAT settings"
 msgstr "Exclusief NAT instellingen"
 
 #: views/backup/backup.php:330
-msgid ""
-"Explicitly exclude any machine-specific IP settings. This allows you to have "
-"a warm-spare machine with a different IP address."
+msgid "Explicitly exclude any machine-specific IP settings. This allows you to have a warm-spare machine with a different IP address."
 msgstr ""
 
 #: bin/restore.php:67
@@ -603,20 +551,12 @@ msgid "FTP Username"
 msgstr ""
 
 #: functions.inc/restore.php:471
-msgid ""
-"Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
-"current state"
-msgstr ""
-"Converteren van asterisk.sql in juist formaat mislukt. Hernoemen naar mysql-"
-"db.sql in huidige staat"
+msgid "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in current state"
+msgstr "Converteren van asterisk.sql in juist formaat mislukt. Hernoemen naar mysql-db.sql in huidige staat"
 
 #: functions.inc/restore.php:498
-msgid ""
-"Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
-"sql in current state"
-msgstr ""
-"Converteren van asteriskcdr.sql in juist formaat mislukt. Hernoemen naar "
-"mysql-cdr.sql in huidige staat"
+msgid "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr.sql in current state"
+msgstr "Converteren van asteriskcdr.sql in juist formaat mislukt. Hernoemen naar mysql-cdr.sql in huidige staat"
 
 #: functions.inc/restore.php:300 functions.inc/restore.php:324
 #: functions.inc/restore.php:337
@@ -690,9 +630,7 @@ msgstr "Uitvoeren!"
 
 #: bin/backup.php:123
 msgid "Here are the first few lines of the file as sent by the remote server:"
-msgstr ""
-"Dit zijn de eerste paar regels van het bestand zoals verzonden vanaf de "
-"andere server:"
+msgstr "Dit zijn de eerste paar regels van het bestand zoals verzonden vanaf de andere server:"
 
 #: views/backup/backup.php:120
 #, fuzzy
@@ -733,21 +671,14 @@ msgid "IP address or FQDN of remote mysql host"
 msgstr "IP-adres of volledige naam (FQDN) van andere MySQL server"
 
 #: views/cron.php:161
-msgid ""
-"If Randomize is selcted, a similar frequency will be followed, only the "
-"exact times will be randomized (avoiding peak business hours, when "
-"possible). Please note: randomized schedules will be rescheduled (randomly) "
-"every time ANY backup is saved"
+msgid "If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved"
 msgstr ""
 
 #: views/cron.php:105
 msgid ""
-"If a custom schedule is selected, any section not specficed will be "
-"considered to be \"any\" (aka: wildcard).\n"
-"\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, the "
-"Backup will be run on ANY 12th of\n"
-"\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week is "
-"set to, say, Monday, the Backup will run ONLY\n"
+"If a custom schedule is selected, any section not specficed will be considered to be \"any\" (aka: wildcard).\n"
+"\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, the Backup will be run on ANY 12th of\n"
+"\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week is set to, say, Monday, the Backup will run ONLY\n"
 "\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
 msgstr ""
 
@@ -814,9 +745,7 @@ msgstr "Locatie van reservekopieën van voor v.2.10"
 
 #: views/servers/ssh.php:148
 msgid "Location of ssh private key to be used when connecting to a host"
-msgstr ""
-"Locatie van SSH privé-sleutel welke gebruikt wordt om te verbinden met een "
-"server"
+msgstr "Locatie van SSH privé-sleutel welke gebruikt wordt om te verbinden met een server"
 
 #: views/servers/email.php:103
 msgid "MB"
@@ -1228,9 +1157,7 @@ msgid "Run Automatically"
 msgstr "Automatisch uitvoeren"
 
 #: views/cron.php:97
-msgid ""
-"Run at startup of the server OR of the cron deamon (i.e. after every "
-"<code>service cron restart</code>)"
+msgid "Run at startup of the server OR of the cron deamon (i.e. after every <code>service cron restart</code>)"
 msgstr ""
 
 #: page.backup.php:47
@@ -1330,17 +1257,12 @@ msgid "Select files and databases to restore:"
 msgstr "Selecteer bestanden en databases om terug te zetten:"
 
 #: views/cron.php:73
-msgid ""
-"Select how often to run this backup. The following schedule will be followed "
-"for all but custom."
+msgid "Select how often to run this backup. The following schedule will be followed for all but custom."
 msgstr ""
 
 #: views/backup/backup.php:249
-msgid ""
-"Select the server to be backed up (this server, or any other SSH server)"
-msgstr ""
-"Selecteer een server om een reservekopie van te maken (deze server, of elke "
-"andere SSH server)"
+msgid "Select the server to be backed up (this server, or any other SSH server)"
+msgstr "Selecteer een server om een reservekopie van te maken (deze server, of elke andere SSH server)"
 
 #: views/cron.php:51
 msgid "September"
@@ -1382,9 +1304,7 @@ msgstr "Servers"
 
 #: bin/backup.php:102
 msgid "Something went wrong when connecting to remote server. Aborting!"
-msgstr ""
-"Iets ging er niet goed tijdens de verbinding met de andere server. "
-"Afgebroken!"
+msgstr "Iets ging er niet goed tijdens de verbinding met de andere server. Afgebroken!"
 
 #: views/backup/backup.php:60 views/backup/backups.php:291
 msgid "Status Email"
@@ -1444,20 +1364,12 @@ msgid "Templates"
 msgstr "Sjablonen"
 
 #: views/servers/email.php:114
-msgid ""
-"The maximum size a backup can be and still be emailed. Some email servers "
-"limit the size of email attachments, this will make sure that files larger "
-"than the max size are not sent."
-msgstr ""
-"De maximum grootte van een reservekopie welke verstuurd kan worden. Sommige "
-"e-mail servers hebben een limiet voor e-mail grootte, deze instelling zorgt "
-"dat bestanden groter dan deze instelling niet verzonden worden."
+msgid "The maximum size a backup can be and still be emailed. Some email servers limit the size of email attachments, this will make sure that files larger than the max size are not sent."
+msgstr "De maximum grootte van een reservekopie welke verstuurd kan worden. Sommige e-mail servers hebben een limiet voor e-mail grootte, deze instelling zorgt dat bestanden groter dan deze instelling niet verzonden worden."
 
 #: install.php:88
 msgid "This error can result from a previous incomplete/failed install of"
-msgstr ""
-"Deze foutmelding kan het resultaat zijn van een vorige incomplete/gefaalde "
-"installatie van"
+msgstr "Deze foutmelding kan het resultaat zijn van een vorige incomplete/gefaalde installatie van"
 
 #: views/backup/backup.php:220
 msgid "This server"
@@ -1525,9 +1437,7 @@ msgstr "WAARSCHUWING Reservekopie map kan niet aangemaakt worden: %s"
 #: bin/restore.php:259
 #, fuzzy
 msgid "Web Root restore not detected, not restoring module table"
-msgstr ""
-"Internet hoofdmap terugzetten niet gevonden, moduletabel wordt niet "
-"teruggezet"
+msgstr "Internet hoofdmap terugzetten niet gevonden, moduletabel wordt niet teruggezet"
 
 #: views/cron.php:30 assets/js/backup.js:180
 msgid "Wednesday"
@@ -1611,9 +1521,7 @@ msgstr ""
 
 #: bin/restore.php:260
 msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
-msgstr ""
-"U moet het commando \"amportal a ma updateall\" uitvoeren om de integriteit "
-"van het systeem te waarborgen"
+msgstr "U moet het commando \"amportal a ma updateall\" uitvoeren om de integriteit van het systeem te waarborgen"
 
 #: views/backup/backups.php:312
 msgid "Your backup will be saved locally to /var/lib/asterisk/backup"
@@ -1633,8 +1541,7 @@ msgstr "Er is een fout opgetreden, update niet uitgevoerd"
 
 #: install.php:143
 msgid "and then re-install this module. Settings will be lost but old"
-msgstr ""
-"en dan deze module her-installeren. Instellingen gaan verloren, maar oude"
+msgstr "en dan deze module her-installeren. Instellingen gaan verloren, maar oude"
 
 #: functions.inc/class.backup.php:330
 msgid "astDb's"
@@ -1653,11 +1560,8 @@ msgid "chose"
 msgstr "kies"
 
 #: install.php:90
-msgid ""
-"doing so will result in a loss of all your backup settings though previous"
-msgstr ""
-"dit zal resulteren in het verlies van de reservekopie instellingen, maar "
-"vorige"
+msgid "doing so will result in a loss of all your backup settings though previous"
+msgstr "dit zal resulteren in het verlies van de reservekopie instellingen, maar vorige"
 
 #: views/restore/backup_list.php:44
 msgid "drop here"
@@ -1697,8 +1601,7 @@ msgstr "tabel namen, één per regel"
 
 #: install.php:89
 msgid "this module. You should probably uninstall and reinstall this module"
-msgstr ""
-"deze module. U zult deze module moeten deïnstalleren en her-installeren"
+msgstr "deze module. U zult deze module moeten deïnstalleren en her-installeren"
 
 #: bin/backup.php:47
 msgid "waiting for lock..."
@@ -1707,6 +1610,10 @@ msgstr "wachten op vergrendeling..."
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "{geen servers beschikbaar}"
+
+#: backup.i18n.php:8
+msgid "Provides Backup & Restore capabilities for your PBX"
+msgstr ""
 
 #~ msgid " runs"
 #~ msgstr " uitvoeringen"
@@ -1729,6 +1636,9 @@ msgstr "{geen servers beschikbaar}"
 #~ msgid "Backup & Restore - Templates"
 #~ msgstr "Reservekopie & Terugzetten - Sjablonen"
 
+#~ msgid "Backup & Restore for your FreePBX environment"
+#~ msgstr "Reservekopie & Terugzetten voor uw FreePBX omgeving"
+
 #~ msgid "Backup Module"
 #~ msgstr "Reservekopie module"
 
@@ -1741,12 +1651,8 @@ msgstr "{geen servers beschikbaar}"
 #~ msgid "Delete after"
 #~ msgstr "Verwijder na"
 
-#~ msgid ""
-#~ "Drag templates and drop them in the Backup Items table. Add as many "
-#~ "templates as you need"
-#~ msgstr ""
-#~ "Sleep sjablonen naar de reservekopie onderdelen tabel. Voeg zoveel "
-#~ "sjablonen toe als u nodig heeft"
+#~ msgid "Drag templates and drop them in the Backup Items table. Add as many templates as you need"
+#~ msgstr "Sleep sjablonen naar de reservekopie onderdelen tabel. Voeg zoveel sjablonen toe als u nodig heeft"
 
 #~ msgid "Email "
 #~ msgstr "e-mail: "
@@ -1784,34 +1690,29 @@ msgstr "{geen servers beschikbaar}"
 #~ msgid "Pre-restore Hook"
 #~ msgstr "Voor-terugzet taak"
 
+#~ msgid "Processed "
+#~ msgstr "Verwerkt "
+
 #~ msgid "Randomize"
 #~ msgstr "Willekeurig"
+
+#~ msgid "Restored all CDRs."
+#~ msgstr "Alle CDR's teruggezet."
 
 #~ msgid "Storage Locations"
 #~ msgstr "Opslaglocaties"
 
 #~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr ""
-#~ "Het Van: veld voor e-mails wanneer gebruik wordt gemaakt van de "
-#~ "reservekopie e-mail functie."
+#~ msgstr "Het Van: veld voor e-mails wanneer gebruik wordt gemaakt van de reservekopie e-mail functie."
 
-#~ msgid ""
-#~ "Upload a backup file to restore from it. Or, pick a saved backup by "
-#~ "selecting a server from the list on the right."
-#~ msgstr ""
-#~ "Upload een reservekopiebestand om het terug te zetten. Of kies een "
-#~ "reservekopie door een server te selecteren van de lijst aan de "
-#~ "rechterkant."
+#~ msgid "Upload a backup file to restore from it. Or, pick a saved backup by selecting a server from the list on the right."
+#~ msgstr "Upload een reservekopiebestand om het terug te zetten. Of kies een reservekopie door een server te selecteren van de lijst aan de rechterkant."
 
 #~ msgid "and Run"
 #~ msgstr "en uitvoeren"
 
-#~ msgid ""
-#~ "drag servers from the Available Servers list to add them as Storage "
-#~ "Servers"
-#~ msgstr ""
-#~ "sleep servers van de Beschikbare servers-lijst om deze toe te voegen als "
-#~ "opslagservers"
+#~ msgid "drag servers from the Available Servers list to add them as Storage Servers"
+#~ msgstr "sleep servers van de Beschikbare servers-lijst om deze toe te voegen als opslagservers"
 
 #~ msgid "remote ftp port"
 #~ msgstr "andere server FTP poort"
@@ -1821,12 +1722,3 @@ msgstr "{geen servers beschikbaar}"
 
 #~ msgid "remote ssh port"
 #~ msgstr "andere server SSH poort"
-
-#~ msgid "Backup & Restore for your FreePBX environment"
-#~ msgstr "Reservekopie & Terugzetten voor uw FreePBX omgeving"
-
-#~ msgid "Processed "
-#~ msgstr "Verwerkt "
-
-#~ msgid "Restored all CDRs."
-#~ msgstr "Alle CDR's teruggezet."

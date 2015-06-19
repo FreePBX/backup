@@ -22,8 +22,7 @@ msgstr ""
 "POT-Creation-Date: 2015-05-19 23:28-0400\n"
 "PO-Revision-Date: 2015-04-18 01:09+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
-"es_ES/>\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/es_ES/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -53,12 +52,8 @@ msgid "/path/to/file"
 msgstr "/path/to/file"
 
 #: install.php:309
-msgid ""
-"A full backup of core settings and web files, doesn't include system sounds "
-"or recordings."
-msgstr ""
-"Respaldo completo del core y archivos web, no incluye sonidos del sistema ni "
-"grabaciones."
+msgid "A full backup of core settings and web files, doesn't include system sounds or recordings."
+msgstr "Respaldo completo del core y archivos web, no incluye sonidos del sistema ni grabaciones."
 
 #: views/backup/backup.php:165
 msgid "A script to be run AFTER a backup is completed."
@@ -119,25 +114,16 @@ msgid "Adding items..."
 msgstr "Agregando elementos..."
 
 #: views/backup/backup.php:303
-msgid ""
-"After a restore, disable any trunks that use registration. This is helpful "
-"to prevent the Primary and Standby systems from \"fighting\" for the "
-"registration, resulting in some calls routed to the Standby system."
+msgid "After a restore, disable any trunks that use registration. This is helpful to prevent the Primary and Standby systems from \"fighting\" for the registration, resulting in some calls routed to the Standby system."
 msgstr ""
 
 #: views/backup/backups.php:171
-msgid ""
-"All PBX Configuration files and any Custom Sound Prompts are included in the "
-"base backup"
+msgid "All PBX Configuration files and any Custom Sound Prompts are included in the base backup"
 msgstr ""
 
 #: install.php:382
-msgid ""
-"All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
-"VOICEMAIL"
-msgstr ""
-"Todos los audios del sistema - incluyendo IVR y Musica en espera. NO "
-"RESPALDA CORREO DE VOZ"
+msgid "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP VOICEMAIL"
+msgstr "Todos los audios del sistema - incluyendo IVR y Musica en espera. NO RESPALDA CORREO DE VOZ"
 
 #: functions.inc/servers.php:278
 msgid "Amazon S3 Server "
@@ -246,12 +232,8 @@ msgstr "Respaldo completado con errores!"
 
 #: functions.inc/class.backup.php:231
 #, php-format
-msgid ""
-"Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
-"backup from server [%s]."
-msgstr ""
-"Respaldo fallo vaciando base de datos SQL [%s] al archivo [%s], usted tiene "
-"un respaldo corrupto en el servidor [%s]."
+msgid "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted backup from server [%s]."
+msgstr "Respaldo fallo vaciando base de datos SQL [%s] al archivo [%s], usted tiene un respaldo corrupto en el servidor [%s]."
 
 #: bin/restore.php:93
 msgid "Backup file not found! Aborting."
@@ -412,28 +394,16 @@ msgid "Delete After"
 msgstr ""
 
 #: views/backup/backup.php:472
-msgid ""
-"Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
-"Please note that deletes aren't time based and will only happen after a "
-"backup was run. Setting the value to 0 will disable any deleting"
-msgstr ""
-"Eliminar esta copia de seguridad después de X cantidad de minutos / horas / "
-"días / semanas / meses / años. Tenga en cuenta que las supresiones no son "
-"basadas en tiempo y sólo va a pasar después de que se ejecute una copia de "
-"seguridad. Establecer el valor a 0 desactivará cualquier borrado"
+msgid "Delete this backup after X amount of minutes/hours/days/weeks/months/years. Please note that deletes aren't time based and will only happen after a backup was run. Setting the value to 0 will disable any deleting"
+msgstr "Eliminar esta copia de seguridad después de X cantidad de minutos / horas / días / semanas / meses / años. Tenga en cuenta que las supresiones no son basadas en tiempo y sólo va a pasar después de que se ejecute una copia de seguridad. Establecer el valor a 0 desactivará cualquier borrado"
 
 #: views/backup/backup.php:499
-msgid ""
-"Delete this backup after X amount of runs. Setting the value to 0 will "
-"disable any deleting"
-msgstr ""
-"Elimine este respaldo después de X monto de corridas. Coloque el valor en 0 "
-"si desea deshabilitar cualquier borrado"
+msgid "Delete this backup after X amount of runs. Setting the value to 0 will disable any deleting"
+msgstr "Elimine este respaldo después de X monto de corridas. Coloque el valor en 0 si desea deshabilitar cualquier borrado"
 
 #: functions.inc/templates.php:310
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
-msgstr ""
-"Borrar esta entrada. No olvide oprimir \"Enviar\" para guardar los cambios!"
+msgstr "Borrar esta entrada. No olvide oprimir \"Enviar\" para guardar los cambios!"
 
 #: views/backup/backup.php:36 views/backup/backups.php:10
 #: views/servers/awss3.php:40 views/servers/email.php:40
@@ -474,17 +444,12 @@ msgid "Download"
 msgstr "Bajar"
 
 #: views/backup/backup.php:370
-msgid ""
-"Drag servers from the Available Servers list to add them as Storage Servers"
+msgid "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
 
 #: views/backup/backup.php:80
-msgid ""
-"Drag templates and drop them in the items table to add the templates items "
-"to the table"
-msgstr ""
-"Arrastre la plantillas y póngalas la tabla de elementos para agregar "
-"plantillas a la misma"
+msgid "Drag templates and drop them in the items table to add the templates items to the table"
+msgstr "Arrastre la plantillas y póngalas la tabla de elementos para agregar plantillas a la misma"
 
 #: views/backup/backup.php:89
 msgid "Drop Here"
@@ -492,14 +457,11 @@ msgstr ""
 
 #: install.php:142
 msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
-msgstr ""
-"ERROR: Fallo al remover tabla de \"respaldo\" vieja. Debería  desinstalar"
+msgstr "ERROR: Fallo al remover tabla de \"respaldo\" vieja. Debería  desinstalar"
 
 #: install.php:87
-msgid ""
-"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
-msgstr ""
-"ERROR: fallo al migrar desde la tabla \"Respaldo\" vieja a la nueva tabla"
+msgid "ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+msgstr "ERROR: fallo al migrar desde la tabla \"Respaldo\" vieja a la nueva tabla"
 
 #: views/servers/email.php:64
 msgid "Email Address"
@@ -530,9 +492,7 @@ msgid "Email to send status messages to when this task is run"
 msgstr "Correo para enviar mensajes de estado cuando esta tarea sea ejecutada"
 
 #: views/backup/backup.php:357
-msgid ""
-"Equivalence of clicking the red button, will happen automatically after a "
-"restore on a Standby system"
+msgid "Equivalence of clicking the red button, will happen automatically after a restore on a Standby system"
 msgstr ""
 
 #: functions.inc/class.backup.php:370
@@ -552,21 +512,15 @@ msgid "Exclude"
 msgstr "Excluir"
 
 #: install.php:402
-msgid ""
-"Exclude Backup's settings so that they dont get restored, usefull for a "
-"remote restore"
-msgstr ""
-"Excluir configuración de Respaldos de manera que no sean restaurados. Util "
-"para restaurar remoto"
+msgid "Exclude Backup's settings so that they dont get restored, usefull for a remote restore"
+msgstr "Excluir configuración de Respaldos de manera que no sean restaurados. Util para restaurar remoto"
 
 #: views/backup/backup.php:315
 msgid "Exclude NAT settings"
 msgstr "Excluir configuración de NAT"
 
 #: views/backup/backup.php:330
-msgid ""
-"Explicitly exclude any machine-specific IP settings. This allows you to have "
-"a warm-spare machine with a different IP address."
+msgid "Explicitly exclude any machine-specific IP settings. This allows you to have a warm-spare machine with a different IP address."
 msgstr ""
 
 #: bin/restore.php:67
@@ -607,20 +561,12 @@ msgid "FTP Username"
 msgstr ""
 
 #: functions.inc/restore.php:471
-msgid ""
-"Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
-"current state"
-msgstr ""
-"Fallo convirtiendo asterisk.sql al formato adecuado, renombrando a mysql-db."
-"sql en su estado actual"
+msgid "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in current state"
+msgstr "Fallo convirtiendo asterisk.sql al formato adecuado, renombrando a mysql-db.sql en su estado actual"
 
 #: functions.inc/restore.php:498
-msgid ""
-"Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
-"sql in current state"
-msgstr ""
-"Fallo convirtiendo asteriskcdr.sql al formato adecuado, renombrando a mysql-"
-"cdr.sql en su estado actual"
+msgid "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr.sql in current state"
+msgstr "Fallo convirtiendo asteriskcdr.sql al formato adecuado, renombrando a mysql-cdr.sql en su estado actual"
 
 #: functions.inc/restore.php:300 functions.inc/restore.php:324
 #: functions.inc/restore.php:337
@@ -693,9 +639,7 @@ msgstr "Ir!"
 
 #: bin/backup.php:123
 msgid "Here are the first few lines of the file as sent by the remote server:"
-msgstr ""
-"Estas son las primeras líneas del archivo como fue enviado por el servidor "
-"remoto:"
+msgstr "Estas son las primeras líneas del archivo como fue enviado por el servidor remoto:"
 
 #: views/backup/backup.php:120
 msgid "Hooks"
@@ -735,21 +679,14 @@ msgid "IP address or FQDN of remote mysql host"
 msgstr "Dirección IP o FQDN del host remoto mysql"
 
 #: views/cron.php:161
-msgid ""
-"If Randomize is selcted, a similar frequency will be followed, only the "
-"exact times will be randomized (avoiding peak business hours, when "
-"possible). Please note: randomized schedules will be rescheduled (randomly) "
-"every time ANY backup is saved"
+msgid "If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved"
 msgstr ""
 
 #: views/cron.php:105
 msgid ""
-"If a custom schedule is selected, any section not specficed will be "
-"considered to be \"any\" (aka: wildcard).\n"
-"\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, the "
-"Backup will be run on ANY 12th of\n"
-"\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week is "
-"set to, say, Monday, the Backup will run ONLY\n"
+"If a custom schedule is selected, any section not specficed will be considered to be \"any\" (aka: wildcard).\n"
+"\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, the Backup will be run on ANY 12th of\n"
+"\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week is set to, say, Monday, the Backup will run ONLY\n"
 "\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
 msgstr ""
 
@@ -816,8 +753,7 @@ msgstr "Localidad de Respaldo pre 2.10"
 
 #: views/servers/ssh.php:148
 msgid "Location of ssh private key to be used when connecting to a host"
-msgstr ""
-"Localidad de la clave privada SSH para ser usada conectándose a un host"
+msgstr "Localidad de la clave privada SSH para ser usada conectándose a un host"
 
 #: views/servers/email.php:103
 msgid "MB"
@@ -1017,8 +953,7 @@ msgstr "Configuración PBX"
 
 #: install.php:255
 msgid "PBX config server, generally a local database server"
-msgstr ""
-"Servidor de configuración PBX, generalmente y servidor de base de datos local"
+msgstr "Servidor de configuración PBX, generalmente y servidor de base de datos local"
 
 #: views/backup/backups.php:499 views/servers/ftp.php:191
 msgid "Passive"
@@ -1230,9 +1165,7 @@ msgid "Run Automatically"
 msgstr "Correr Automaticamente"
 
 #: views/cron.php:97
-msgid ""
-"Run at startup of the server OR of the cron deamon (i.e. after every "
-"<code>service cron restart</code>)"
+msgid "Run at startup of the server OR of the cron deamon (i.e. after every <code>service cron restart</code>)"
 msgstr ""
 
 #: page.backup.php:47
@@ -1332,17 +1265,12 @@ msgid "Select files and databases to restore:"
 msgstr "Selecciones archivos y bases de datos a restaurar:"
 
 #: views/cron.php:73
-msgid ""
-"Select how often to run this backup. The following schedule will be followed "
-"for all but custom."
+msgid "Select how often to run this backup. The following schedule will be followed for all but custom."
 msgstr ""
 
 #: views/backup/backup.php:249
-msgid ""
-"Select the server to be backed up (this server, or any other SSH server)"
-msgstr ""
-"Selecciones el servidor a ser respaldado (este servidor, o cualquier otro "
-"servidor SSH)"
+msgid "Select the server to be backed up (this server, or any other SSH server)"
+msgstr "Selecciones el servidor a ser respaldado (este servidor, o cualquier otro servidor SSH)"
 
 #: views/cron.php:51
 msgid "September"
@@ -1444,19 +1372,12 @@ msgid "Templates"
 msgstr "Plantillas"
 
 #: views/servers/email.php:114
-msgid ""
-"The maximum size a backup can be and still be emailed. Some email servers "
-"limit the size of email attachments, this will make sure that files larger "
-"than the max size are not sent."
-msgstr ""
-"El tamaño máximo de un  respaldo y que pueda ser enviado por correo. Algunos "
-"servidores de correo limitan el tamaño máximo de anexo, esto asegurará que "
-"no se envíen archivos superiores a ese tamaño."
+msgid "The maximum size a backup can be and still be emailed. Some email servers limit the size of email attachments, this will make sure that files larger than the max size are not sent."
+msgstr "El tamaño máximo de un  respaldo y que pueda ser enviado por correo. Algunos servidores de correo limitan el tamaño máximo de anexo, esto asegurará que no se envíen archivos superiores a ese tamaño."
 
 #: install.php:88
 msgid "This error can result from a previous incomplete/failed install of"
-msgstr ""
-"Este error puede resultar de una instalación anterior fallida o incompleta de"
+msgstr "Este error puede resultar de una instalación anterior fallida o incompleta de"
 
 #: views/backup/backup.php:220
 msgid "This server"
@@ -1607,9 +1528,7 @@ msgstr ""
 
 #: bin/restore.php:260
 msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
-msgstr ""
-"Usted debe correr \"amportal a ma updateall\" para asegurar la integridad "
-"del sistema"
+msgstr "Usted debe correr \"amportal a ma updateall\" para asegurar la integridad del sistema"
 
 #: views/backup/backups.php:312
 msgid "Your backup will be saved locally to /var/lib/asterisk/backup"
@@ -1648,11 +1567,8 @@ msgid "chose"
 msgstr "Escoge"
 
 #: install.php:90
-msgid ""
-"doing so will result in a loss of all your backup settings though previous"
-msgstr ""
-"haciendo esto resultara en la perdida de toda la configuración de respaldo "
-"aunque no la previa"
+msgid "doing so will result in a loss of all your backup settings though previous"
+msgstr "haciendo esto resultara en la perdida de toda la configuración de respaldo aunque no la previa"
 
 #: views/restore/backup_list.php:44
 msgid "drop here"
@@ -1692,8 +1608,7 @@ msgstr "nombres de tablas, una por linea"
 
 #: install.php:89
 msgid "this module. You should probably uninstall and reinstall this module"
-msgstr ""
-"este modulo. Usted debe probablemente desinstalar y reinstalar el modulo"
+msgstr "este modulo. Usted debe probablemente desinstalar y reinstalar el modulo"
 
 #: bin/backup.php:47
 msgid "waiting for lock..."
@@ -1706,8 +1621,35 @@ msgstr "(no servidores disponibles)"
 #~ msgid " runs"
 #~ msgstr " Corre"
 
+#~ msgid "Add Backup Schedule"
+#~ msgstr "Añadir programación de copia de seguridad"
+
 #~ msgid "Admin"
 #~ msgstr "Administrador"
+
+#~ msgid "All"
+#~ msgstr "Todos"
+
+#~ msgid "Are you sure you want to Restore the CALL DETAIL FILES?\\nDoing so will Permanently DELETE all CALL RECORDS!"
+#~ msgstr "¿Está seguro de que desea restaurar los archivos del registro de llamadas?\\nAl hacer esto eliminará permanentemente todos los registros de llamadas que se encuentran actualmente en la base de datos."
+
+#~ msgid "Are you sure you want to Restore the Operator Panel Files?\\nDoing so will Permanently Over-Write all Operator Panel Files!"
+#~ msgstr "¿Está seguro de que desea restaurar los archivos del panel de operador?\\nAl hacer esto, sobreescribirá definitivamente todos los archivos del panel de operador."
+
+#~ msgid "Are you sure you want to Restore this File Set?\\nDoing so will Permanently Over-Write all FreePBX and Asterisk Files!"
+#~ msgstr "¿Está seguro de que desea rastaurar este conjunto de archivos?\\nAl hacer esto, sobreescribirá definitivamente todos los archivos FreePBX y Asterisk."
+
+#~ msgid "Are you sure you want to Restore this file set?\\nDoing so will permanently delete any new voicemail you have in your mailbox\\nsince this backup on"
+#~ msgstr "¿Está seguro de que desea restaurar este conjunto de archivos?\\nAl hacer esto, eliminará definitivamente los mensajes del buzón de voz de su cuenta desde que se hizo la copia de seguridad."
+
+#~ msgid "Are you sure you want to Restore this file set?\\nNOTE! This will OVERWRITE any voicerecordings currently on the system. It will NOT delete new files not currently in the backup set"
+#~ msgstr "¿Está seguro de que desea restaurar este conjunto de archivos?\\nTenga en cuenta que esto sobreescribirá cualquier mensaje del buzón de voz del sistema. No eliminará los nuevos archivos que se encuentren en el sistema y que no se encuentren en el conjunto de archivos de la copia de seguridad."
+
+#~ msgid "Are you sure you want to delete this File Set?"
+#~ msgstr "¿Está seguro de que desea eliminar esta copia de seguridad?"
+
+#~ msgid "Are you sure you want to restore this COMPLETE file set?\\nDoing so will permanently over-write all FreePBX and Asterisk files\\nYou will lose all Your Call Detail Records and any Voicemail that was recorded between the BACKUP DATE and NOW!"
+#~ msgstr "¿Está seguro de que desea restaurar completamente este conjunto de archivos?\\nAl hacer esto, eliminará definitivamente los archivos de configuración de Asterisk actuales.\\nAdemás perderá los informes de llamadas y cualquier mensaje del buzón de voz grabado entre la fecha de realización de la copia de seguridad y ahora."
 
 #~ msgid "Available Servers"
 #~ msgstr "Servidores Disponibles"
@@ -1724,8 +1666,35 @@ msgstr "(no servidores disponibles)"
 #~ msgid "Backup & Restore - Templates"
 #~ msgstr "Respaldar & Restaurar - Plantillas"
 
+#~ msgid "Backup & Restore for your FreePBX environment"
+#~ msgstr "respaldar & restaurar para su ambiente FreePBX"
+
 #~ msgid "Backup Module"
 #~ msgstr "Modulo de Respaldo"
+
+#~ msgid "Backup the Operator Panel (HTML and Database)"
+#~ msgstr "Realiza una copia de seguridad del panel de operador Flash (archivos HTML y base de datos)"
+
+#~ msgid "Backup the System Call Detail Reporting (HTML and Database)"
+#~ msgstr "Realiza una copia de seguridad del registro de llamadas (archivos HTML y base de datos)."
+
+#~ msgid "Backup the System Configurations (Database, etc files, SQL Database, astdb)"
+#~ msgstr "Realiza una copia de seguridad de la configuración del sistema (base de datos, archivos de configuración, etc.)."
+
+#~ msgid "Backup the System Recordings (AutoAttendant, Music On Hold, System Recordings)"
+#~ msgstr "Realiza una copia de seguridad de las grabaciones del sistema (recepcionista digital, música en espera, grabaciones del sistema)."
+
+#~ msgid "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
+#~ msgstr "Realiza una copia de seguridad de los buzones de voz. Tenga en cuenta que esto puede hacer que el archivo de la copia de seguridad sea muy grande."
+
+#~ msgid "CDR"
+#~ msgstr "Registro de llamadas"
+
+#~ msgid "DELETE ALL THE DATA IN THIS SET"
+#~ msgstr "ELIMINAR TODOS LOS DATOS DE ESTA COPIA DE SEGURIDAD"
+
+#~ msgid "Daily (at midnight)"
+#~ msgstr "Diariamente (a medianoche)"
 
 #~ msgid "Database name"
 #~ msgstr "Nombre Base de Datos"
@@ -1733,18 +1702,35 @@ msgstr "(no servidores disponibles)"
 #~ msgid "Day of Month"
 #~ msgstr "Día del Mes"
 
+#~ msgid "Delete Backup Schedule %s"
+#~ msgstr "Eliminar programación de copia de seguridad %s"
+
+#~ msgid "Delete File Set"
+#~ msgstr "Eliminar copia de seguridad"
+
 #~ msgid "Delete after"
 #~ msgstr "Eliminar despues"
 
-#~ msgid ""
-#~ "Drag templates and drop them in the Backup Items table. Add as many "
-#~ "templates as you need"
-#~ msgstr ""
-#~ "Arrastre las plantillas y póngalas en la tabla de elementos de Respaldo. "
-#~ "Agregue tantas plantillas como necesite"
+#~ msgid "Delete this backup set and all data associated with this backup set.."
+#~ msgstr "Eliminar esta de copia de seguridad y todos los datos asociados..."
+
+#~ msgid "Delete this backup set."
+#~ msgstr "Eliminar esta copia de seguridad"
+
+#~ msgid "Drag templates and drop them in the Backup Items table. Add as many templates as you need"
+#~ msgstr "Arrastre las plantillas y póngalas en la tabla de elementos de Respaldo. Agregue tantas plantillas como necesite"
+
+#~ msgid "ERROR its not a BACKUP SET file"
+#~ msgstr "ERROR: El archivo no es una copia de seguridad"
 
 #~ msgid "Email "
 #~ msgstr "Correo "
+
+#~ msgid "Follow Schedule Below"
+#~ msgstr "Seguir la programación siguiente"
+
+#~ msgid "Give this Backup Schedule a brief name to help you identify it."
+#~ msgstr "Asigne un nombre a la programación de esta copia de seguridad para ayudarle a identificarla"
 
 #~ msgid "Hour"
 #~ msgstr "Hora"
@@ -1758,8 +1744,17 @@ msgstr "(no servidores disponibles)"
 #~ msgid "Month"
 #~ msgstr "Mes"
 
+#~ msgid "Monthly (on the 1st)"
+#~ msgstr "Mensualmente (el día 1)"
+
 #~ msgid "New Mysql server"
 #~ msgstr "Nuevo servidor Mysql"
+
+#~ msgid "Now"
+#~ msgstr "Ahora"
+
+#~ msgid "Operator Panel"
+#~ msgstr "Panel de operador Flash"
 
 #~ msgid "Path on server where files are stored"
 #~ msgstr "camino en el servidor donde los archivos son almacenados"
@@ -1779,37 +1774,128 @@ msgstr "(no servidores disponibles)"
 #~ msgid "Pre-restore Hook"
 #~ msgstr "Enganche pre-restauración"
 
+#~ msgid "Processed "
+#~ msgstr "Procesado "
+
 #~ msgid "Provides Backup & Restore capabilities for your PBX"
-#~ msgstr ""
-#~ "Proporciona funciones de copia de seguridad y restauración para su PBX"
+#~ msgstr "Proporciona funciones de copia de seguridad y restauración para su PBX"
 
 #~ msgid "Randomize"
 #~ msgstr "Randomizar"
 
+#~ msgid "Restore Call Detail Report"
+#~ msgstr "Restaurar registro de llamadas"
+
+#~ msgid "Restore Entire Backup Set"
+#~ msgstr "Restaurar copia de seguridad completa"
+
+#~ msgid "Restore Operator Panel"
+#~ msgstr "Restaurar panel de operador"
+
+#~ msgid "Restore System Configuration"
+#~ msgstr "Restaurar configuración del sistema"
+
+#~ msgid "Restore System Recordings Files"
+#~ msgstr "Restaurar archivos de grabaciones del sistema"
+
+#~ msgid "Restore VoiceMail Files"
+#~ msgstr "Restaurar archivos del buzón de voz"
+
+#~ msgid "Restore from Backup"
+#~ msgstr "Restaurar desde copia de seguridad"
+
+#~ msgid "Restore the Call Detail Records from this backup set.  NOTE! This will DELETE ALL CALL RECORDS that have been saved since this backup set."
+#~ msgstr "Restaura el registro de llamadas desde este conjunto de archivos de la copia de seguridad. Tenga en cuenta que esto eliminará todos los registros de llamadas que se hayan realizado desde que se hizo esta copia de seguridad."
+
+#~ msgid "Restore the Operator Panel from this backup set.  NOTE! This will OVERWRITE any Operator Panel Changes you have made since this backup... ALL items will be reset to what they were at the time of this backup set.."
+#~ msgstr "Restaura los archivos del panel de operador Flash desde este conjunto de archivos de la copia de seguridad. Tenga en cuenta que esto sobreescribirá cualquier cambio que se haya realizado en el panel de operador Flash desde que se hizo la copia de seguridad. Todos los elementos serán restaurados a su estado tal y como se encontraban cuando se hizo la copia de seguridad."
+
+#~ msgid "Restore your Complete Backup set overwriting all files."
+#~ msgstr "La restauración de la copia de seguridad completa sobreescribirá todos sus archivos"
+
+#~ msgid "Restore your Voicemail files from this backup set.  NOTE! This will delete any voicemail currently in the voicemail boxes."
+#~ msgstr "Restaura los archivos del buzón de voz de este conjunto de archivos de esta copia de seguridad. Tenga en cuenta que esto eliminará cualquier mensaje del buzón de voz que haya actualmente en su cuenta."
+
+#~ msgid "Restore your system Voice Recordings including AutoAttendant files from this backup set.  NOTE! This will OVERWRITE any voicerecordings  currently on the system. It will NOT delete new files not currently in the backup set"
+#~ msgstr "Restaura las grabaciones de voz, incluyendo los archivos de recepcionista digital desde este conjunto de archivos. Tenga en cuenta que esto sobreescribirá cualquier grabación de voz que se encuentre actualmente en el sistema. No eliminará nuevos archivos que se encuentren en el sistema y que no se encuentren en el conjunto de archivos de la copia de seguridad."
+
+#~ msgid "Restore your system configuration from this backup set.  NOTE! This will OVERWRITE any System changes you have made since this backup... ALL items will be reset to what they were at the time of this backup set.."
+#~ msgstr "Restaura la configuración del sistema desde este conjunto de archivos de la copia de seguridad. Tenga en cuenta que esto sobreescribirá cualquier cambio que se haya realizado desde que se hizo la copia de seguridad. Todos los elementos serán restaurados a su estado tal y como se encontraban cuando se hizo la copia de seguridad."
+
+#~ msgid "Restored All Files in Backup Set"
+#~ msgstr "Se han restaurado todos los archivos"
+
+#~ msgid "Restored CDR logs"
+#~ msgstr "Se han restaurado los registros de llamadas"
+
+#~ msgid "Restored Operator Panel"
+#~ msgstr "Se ha restaurado el panel de operador Flash"
+
+#~ msgid "Restored System Configuration"
+#~ msgstr "Se ha restaurado la configuración del sistema"
+
+#~ msgid "Restored System Recordings"
+#~ msgstr "Se han restaurado las grabaciones del sistema"
+
+#~ msgid "Restored VoiceMail"
+#~ msgstr "Se ha restaurado el buzón de voz"
+
+#~ msgid "Restored all CDRs."
+#~ msgstr "Todos los CDR restaurados."
+
+#~ msgid "Run Backup"
+#~ msgstr "Ejecutar copia de seguridad"
+
+#~ msgid "Run Schedule"
+#~ msgstr "Ejecutar programación"
+
+#~ msgid "Schedule Name:"
+#~ msgstr "Nombre de la programación:"
+
+#~ msgid "Selected"
+#~ msgstr "Seleccionados"
+
 #~ msgid "Storage Locations"
 #~ msgstr "Localidad de Almacenaje"
 
-#~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr ""
-#~ "El campo From: para correos cuando se usa la funcionalidad de email del "
-#~ "respaldo."
+#~ msgid "Submit Changes"
+#~ msgstr "Enviar cambios"
 
-#~ msgid ""
-#~ "Upload a backup file to restore from it. Or, pick a saved backup by "
-#~ "selecting a server from the list on the right."
-#~ msgstr ""
-#~ "Subir un respaldo para restaurar desde el. O, escoger un respaldo ya "
-#~ "salvado escogiendo de la lista de servidores a la derecha."
+#~ msgid "System Backup"
+#~ msgstr "Copia de seguridad del sistema"
+
+#~ msgid "System Configuration"
+#~ msgstr "Configuración del sistema"
+
+#~ msgid "System Recordings"
+#~ msgstr "Grabaciones del sistema"
+
+#~ msgid "System Restore"
+#~ msgstr "Restaurar sistema"
+
+#~ msgid "The From: field for emails when using the backup email feature."
+#~ msgstr "El campo From: para correos cuando se usa la funcionalidad de email del respaldo."
+
+#~ msgid "Upload a backup file to restore from it. Or, pick a saved backup by selecting a server from the list on the right."
+#~ msgstr "Subir un respaldo para restaurar desde el. O, escoger un respaldo ya salvado escogiendo de la lista de servidores a la derecha."
+
+#~ msgid "VoiceMail"
+#~ msgstr "Buzón de voz"
+
+#~ msgid "Weekdays"
+#~ msgstr "Semanas"
+
+#~ msgid "Weekly (on Sunday)"
+#~ msgstr "Semanalmente (los domingos)"
+
+#~ msgid "Yearly (on 1st Jan)"
+#~ msgstr "Anualmente (el 1 de enero)"
 
 #~ msgid "and Run"
 #~ msgstr "y corre"
 
-#~ msgid ""
-#~ "drag servers from the Available Servers list to add them as Storage "
-#~ "Servers"
-#~ msgstr ""
-#~ "Arrastre los servidores de la lista de Servidores Disponibles para "
-#~ "agregarlos como Servidores de Almacenaje"
+#~ msgid "drag servers from the Available Servers list to add them as Storage Servers"
+#~ msgstr "Arrastre los servidores de la lista de Servidores Disponibles para agregarlos como Servidores de Almacenaje"
 
 #~ msgid "remote ftp port"
 #~ msgstr "puerto ftp remoto"
@@ -1819,285 +1905,3 @@ msgstr "(no servidores disponibles)"
 
 #~ msgid "remote ssh port"
 #~ msgstr "puerto ssh remoto"
-
-#~ msgid "Backup & Restore for your FreePBX environment"
-#~ msgstr "respaldar & restaurar para su ambiente FreePBX"
-
-#~ msgid "Processed "
-#~ msgstr "Procesado "
-
-#~ msgid "Restored all CDRs."
-#~ msgstr "Todos los CDR restaurados."
-
-#~ msgid "Are you sure you want to delete this File Set?"
-#~ msgstr "¿Está seguro de que desea eliminar esta copia de seguridad?"
-
-#~ msgid "DELETE ALL THE DATA IN THIS SET"
-#~ msgstr "ELIMINAR TODOS LOS DATOS DE ESTA COPIA DE SEGURIDAD"
-
-#~ msgid ""
-#~ "Delete this backup set and all data associated with this backup set.."
-#~ msgstr "Eliminar esta de copia de seguridad y todos los datos asociados..."
-
-#~ msgid "Delete File Set"
-#~ msgstr "Eliminar copia de seguridad"
-
-#~ msgid "Delete this backup set."
-#~ msgstr "Eliminar esta copia de seguridad"
-
-#~ msgid ""
-#~ "Are you sure you want to restore this COMPLETE file set?\\nDoing so will "
-#~ "permanently over-write all FreePBX and Asterisk files\\nYou will lose all "
-#~ "Your Call Detail Records and any Voicemail that was recorded between the "
-#~ "BACKUP DATE and NOW!"
-#~ msgstr ""
-#~ "¿Está seguro de que desea restaurar completamente este conjunto de "
-#~ "archivos?\\nAl hacer esto, eliminará definitivamente los archivos de "
-#~ "configuración de Asterisk actuales.\\nAdemás perderá los informes de "
-#~ "llamadas y cualquier mensaje del buzón de voz grabado entre la fecha de "
-#~ "realización de la copia de seguridad y ahora."
-
-#~ msgid "Restore Entire Backup Set"
-#~ msgstr "Restaurar copia de seguridad completa"
-
-#~ msgid "Restore your Complete Backup set overwriting all files."
-#~ msgstr ""
-#~ "La restauración de la copia de seguridad completa sobreescribirá todos "
-#~ "sus archivos"
-
-#~ msgid ""
-#~ "Are you sure you want to Restore this file set?\\nDoing so will "
-#~ "permanently delete any new voicemail you have in your mailbox\\nsince "
-#~ "this backup on"
-#~ msgstr ""
-#~ "¿Está seguro de que desea restaurar este conjunto de archivos?\\nAl hacer "
-#~ "esto, eliminará definitivamente los mensajes del buzón de voz de su "
-#~ "cuenta desde que se hizo la copia de seguridad."
-
-#~ msgid "Restore VoiceMail Files"
-#~ msgstr "Restaurar archivos del buzón de voz"
-
-#~ msgid ""
-#~ "Restore your Voicemail files from this backup set.  NOTE! This will "
-#~ "delete any voicemail currently in the voicemail boxes."
-#~ msgstr ""
-#~ "Restaura los archivos del buzón de voz de este conjunto de archivos de "
-#~ "esta copia de seguridad. Tenga en cuenta que esto eliminará cualquier "
-#~ "mensaje del buzón de voz que haya actualmente en su cuenta."
-
-#~ msgid ""
-#~ "Are you sure you want to Restore this file set?\\nNOTE! This will "
-#~ "OVERWRITE any voicerecordings currently on the system. It will NOT delete "
-#~ "new files not currently in the backup set"
-#~ msgstr ""
-#~ "¿Está seguro de que desea restaurar este conjunto de archivos?\\nTenga en "
-#~ "cuenta que esto sobreescribirá cualquier mensaje del buzón de voz del "
-#~ "sistema. No eliminará los nuevos archivos que se encuentren en el sistema "
-#~ "y que no se encuentren en el conjunto de archivos de la copia de "
-#~ "seguridad."
-
-#~ msgid "Restore System Recordings Files"
-#~ msgstr "Restaurar archivos de grabaciones del sistema"
-
-#~ msgid ""
-#~ "Restore your system Voice Recordings including AutoAttendant files from "
-#~ "this backup set.  NOTE! This will OVERWRITE any voicerecordings  "
-#~ "currently on the system. It will NOT delete new files not currently in "
-#~ "the backup set"
-#~ msgstr ""
-#~ "Restaura las grabaciones de voz, incluyendo los archivos de recepcionista "
-#~ "digital desde este conjunto de archivos. Tenga en cuenta que esto "
-#~ "sobreescribirá cualquier grabación de voz que se encuentre actualmente en "
-#~ "el sistema. No eliminará nuevos archivos que se encuentren en el sistema "
-#~ "y que no se encuentren en el conjunto de archivos de la copia de "
-#~ "seguridad."
-
-#~ msgid ""
-#~ "Are you sure you want to Restore this File Set?\\nDoing so will "
-#~ "Permanently Over-Write all FreePBX and Asterisk Files!"
-#~ msgstr ""
-#~ "¿Está seguro de que desea rastaurar este conjunto de archivos?\\nAl hacer "
-#~ "esto, sobreescribirá definitivamente todos los archivos FreePBX y "
-#~ "Asterisk."
-
-#~ msgid "Restore System Configuration"
-#~ msgstr "Restaurar configuración del sistema"
-
-#~ msgid ""
-#~ "Restore your system configuration from this backup set.  NOTE! This will "
-#~ "OVERWRITE any System changes you have made since this backup... ALL items "
-#~ "will be reset to what they were at the time of this backup set.."
-#~ msgstr ""
-#~ "Restaura la configuración del sistema desde este conjunto de archivos de "
-#~ "la copia de seguridad. Tenga en cuenta que esto sobreescribirá cualquier "
-#~ "cambio que se haya realizado desde que se hizo la copia de seguridad. "
-#~ "Todos los elementos serán restaurados a su estado tal y como se "
-#~ "encontraban cuando se hizo la copia de seguridad."
-
-#~ msgid ""
-#~ "Are you sure you want to Restore the Operator Panel Files?\\nDoing so "
-#~ "will Permanently Over-Write all Operator Panel Files!"
-#~ msgstr ""
-#~ "¿Está seguro de que desea restaurar los archivos del panel de operador?"
-#~ "\\nAl hacer esto, sobreescribirá definitivamente todos los archivos del "
-#~ "panel de operador."
-
-#~ msgid "Restore Operator Panel"
-#~ msgstr "Restaurar panel de operador"
-
-#~ msgid ""
-#~ "Restore the Operator Panel from this backup set.  NOTE! This will "
-#~ "OVERWRITE any Operator Panel Changes you have made since this backup... "
-#~ "ALL items will be reset to what they were at the time of this backup set.."
-#~ msgstr ""
-#~ "Restaura los archivos del panel de operador Flash desde este conjunto de "
-#~ "archivos de la copia de seguridad. Tenga en cuenta que esto "
-#~ "sobreescribirá cualquier cambio que se haya realizado en el panel de "
-#~ "operador Flash desde que se hizo la copia de seguridad. Todos los "
-#~ "elementos serán restaurados a su estado tal y como se encontraban cuando "
-#~ "se hizo la copia de seguridad."
-
-#~ msgid ""
-#~ "Are you sure you want to Restore the CALL DETAIL FILES?\\nDoing so will "
-#~ "Permanently DELETE all CALL RECORDS!"
-#~ msgstr ""
-#~ "¿Está seguro de que desea restaurar los archivos del registro de llamadas?"
-#~ "\\nAl hacer esto eliminará permanentemente todos los registros de "
-#~ "llamadas que se encuentran actualmente en la base de datos."
-
-#~ msgid "Restore Call Detail Report"
-#~ msgstr "Restaurar registro de llamadas"
-
-#~ msgid ""
-#~ "Restore the Call Detail Records from this backup set.  NOTE! This will "
-#~ "DELETE ALL CALL RECORDS that have been saved since this backup set."
-#~ msgstr ""
-#~ "Restaura el registro de llamadas desde este conjunto de archivos de la "
-#~ "copia de seguridad. Tenga en cuenta que esto eliminará todos los "
-#~ "registros de llamadas que se hayan realizado desde que se hizo esta copia "
-#~ "de seguridad."
-
-#~ msgid "ERROR its not a BACKUP SET file"
-#~ msgstr "ERROR: El archivo no es una copia de seguridad"
-
-#~ msgid "Restored All Files in Backup Set"
-#~ msgstr "Se han restaurado todos los archivos"
-
-#~ msgid "Restored VoiceMail"
-#~ msgstr "Se ha restaurado el buzón de voz"
-
-#~ msgid "Restored System Recordings"
-#~ msgstr "Se han restaurado las grabaciones del sistema"
-
-#~ msgid "Restored System Configuration"
-#~ msgstr "Se ha restaurado la configuración del sistema"
-
-#~ msgid "Restored Operator Panel"
-#~ msgstr "Se ha restaurado el panel de operador Flash"
-
-#~ msgid "Restored CDR logs"
-#~ msgstr "Se han restaurado los registros de llamadas"
-
-#~ msgid "Schedule Name:"
-#~ msgstr "Nombre de la programación:"
-
-#~ msgid "Give this Backup Schedule a brief name to help you identify it."
-#~ msgstr ""
-#~ "Asigne un nombre a la programación de esta copia de seguridad para "
-#~ "ayudarle a identificarla"
-
-#~ msgid "CDR"
-#~ msgstr "Registro de llamadas"
-
-#~ msgid "Backup the System Call Detail Reporting (HTML and Database)"
-#~ msgstr ""
-#~ "Realiza una copia de seguridad del registro de llamadas (archivos HTML y "
-#~ "base de datos)."
-
-#~ msgid "Operator Panel"
-#~ msgstr "Panel de operador Flash"
-
-#~ msgid "Backup the Operator Panel (HTML and Database)"
-#~ msgstr ""
-#~ "Realiza una copia de seguridad del panel de operador Flash (archivos HTML "
-#~ "y base de datos)"
-
-#~ msgid "System Recordings"
-#~ msgstr "Grabaciones del sistema"
-
-#~ msgid ""
-#~ "Backup the System Recordings (AutoAttendant, Music On Hold, System "
-#~ "Recordings)"
-#~ msgstr ""
-#~ "Realiza una copia de seguridad de las grabaciones del sistema "
-#~ "(recepcionista digital, música en espera, grabaciones del sistema)."
-
-#~ msgid "VoiceMail"
-#~ msgstr "Buzón de voz"
-
-#~ msgid ""
-#~ "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
-#~ msgstr ""
-#~ "Realiza una copia de seguridad de los buzones de voz. Tenga en cuenta que "
-#~ "esto puede hacer que el archivo de la copia de seguridad sea muy grande."
-
-#~ msgid "System Configuration"
-#~ msgstr "Configuración del sistema"
-
-#~ msgid ""
-#~ "Backup the System Configurations (Database, etc files, SQL Database, "
-#~ "astdb)"
-#~ msgstr ""
-#~ "Realiza una copia de seguridad de la configuración del sistema (base de "
-#~ "datos, archivos de configuración, etc.)."
-
-#~ msgid "All"
-#~ msgstr "Todos"
-
-#~ msgid "Selected"
-#~ msgstr "Seleccionados"
-
-#~ msgid "Run Backup"
-#~ msgstr "Ejecutar copia de seguridad"
-
-#~ msgid "Follow Schedule Below"
-#~ msgstr "Seguir la programación siguiente"
-
-#~ msgid "Now"
-#~ msgstr "Ahora"
-
-#~ msgid "Daily (at midnight)"
-#~ msgstr "Diariamente (a medianoche)"
-
-#~ msgid "Weekly (on Sunday)"
-#~ msgstr "Semanalmente (los domingos)"
-
-#~ msgid "Monthly (on the 1st)"
-#~ msgstr "Mensualmente (el día 1)"
-
-#~ msgid "Yearly (on 1st Jan)"
-#~ msgstr "Anualmente (el 1 de enero)"
-
-#~ msgid "Weekdays"
-#~ msgstr "Semanas"
-
-#~ msgid "Add Backup Schedule"
-#~ msgstr "Añadir programación de copia de seguridad"
-
-#~ msgid "Restore from Backup"
-#~ msgstr "Restaurar desde copia de seguridad"
-
-#~ msgid "System Backup"
-#~ msgstr "Copia de seguridad del sistema"
-
-#~ msgid "Run Schedule"
-#~ msgstr "Ejecutar programación"
-
-#~ msgid "Submit Changes"
-#~ msgstr "Enviar cambios"
-
-#~ msgid "Delete Backup Schedule %s"
-#~ msgstr "Eliminar programación de copia de seguridad %s"
-
-#~ msgid "System Restore"
-#~ msgstr "Restaurar sistema"

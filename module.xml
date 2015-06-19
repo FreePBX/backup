@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>13.0.1alpha5</version>
+	<version>13.0.2</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -10,14 +10,15 @@
 	<description>Backup &amp; Restore for your FreePBX environment</description>
 	<menuitems>
 		<backup needsenginedb="yes">Backup &amp; Restore</backup>
-		<backup_servers needsenginedb="yes" hidden="true">Backup &amp; Restore - Servers</backup_servers>
-		<backup_templates needsenginedb="yes" hidden="true">Backup &amp; Restore - Templates</backup_templates>
-		<backup_restore needsenginedb="yes" hidden="true">Backup &amp; Restore - Restore</backup_restore>
+		<backup_servers hidden="true" needsenginedb="yes">Backup &amp; Restore - Servers</backup_servers>
+		<backup_templates hidden="true" needsenginedb="yes">Backup &amp; Restore - Templates</backup_templates>
+		<backup_restore hidden="true" needsenginedb="yes">Backup &amp; Restore - Restore</backup_restore>
 	</menuitems>
 	<depends>
 		<module>core</module>
 	</depends>
 	<changelog>
+		*13.0.2* Version bump Beta
 		*13.0.1alpha5* Fix saving functionality
 		*13.0.1alpha4* Cleanup wizard views and modal boxes and fix functionality
 		*13.0.1alpha3* Backup wizard and cleanup

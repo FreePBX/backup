@@ -189,8 +189,13 @@ class Backup {
 					// don't exist.
 					$src = realpath($i['path']);
 
-					// Build our list of excludes (if any)
-					$excludes = "";
+					// Build our list of extra excludes (if any).
+					// Defaults:
+					//   1 - node_modules - compiled for the local machine,
+					//       and are easily regenerated.
+					//   2 - _cache/*tgz and _cache/*gpg - previously downloaded
+					//       files, and can be redownloaded.
+					$excludes = " --exclude='node_modules' --exclude='_cache/*tgz' --exclude='_cache/*gpg'";
 					if ($i['exclude']) {
 						if (!is_array($i['exclude'])) {
 							$xArr = explode("\n", $i['exclude']);
@@ -198,14 +203,27 @@ class Backup {
 							$xArr = $i['exclude'];
 						}
 						foreach ($xArr as $x) {
-							$excludes .= " --exclude='$x'";
+							// Replace any __vars__ if given.
+							$x = backup__($x);
+
+							// Does it start with a slash? Treat that as
+							// a full path with a filter, instead of just
+							// an exclude.
+							if ($x[0] === "/") {
+								$excludes .= " --filter='-/ $x'";
+							} else {
+								// It's a normal exclude
+								$excludes .= " --exclude='$x'";
+							}
 						}
 					}
 
 					// Use rsync to mirror $src to $dest.
 					// Note we ensure we add the trailing slash to tell rsync to copy the
 					// contents, not the targets (if the target is a link, for exmaple)
-					$cmd = fpbx_which('rsync')."$excludes -av $src/ $dest/";
+					// Note we do NOT use 'a', as we don't want special files
+					// backed up (the -D or --special option is included in 'a')
+					$cmd = fpbx_which('rsync')."$excludes -rlptgov $src/ $dest/";
 					exec($cmd);
 					unset($cmd);
 					break;

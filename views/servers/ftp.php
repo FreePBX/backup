@@ -14,18 +14,12 @@ $disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
 					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="name"><?php echo _("Server Name") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="name"></i>
 						</div>
 						<div class="col-md-9">
 							<input type="text" class="form-control" id="name" name="name" value="<?php echo isset($name)?$name:''?>"<?php echo $disabled?>>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<span id="name-help" class="help-block fpbx-help-block"><?php echo _("Provide the name for this server")?></span>
 			</div>
 		</div>
 	</div>
@@ -38,18 +32,12 @@ $disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
 					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="desc"><?php echo _("Description") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="desc"></i>
 						</div>
 						<div class="col-md-9">
 							<input type="text" class="form-control" id="desc" name="desc" value="<?php echo isset($desc)?$desc:''?>"<?php echo $disabled?>>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<span id="desc-help" class="help-block fpbx-help-block"><?php echo _("'Description or notes for this server")?></span>
 			</div>
 		</div>
 	</div>
@@ -86,18 +74,12 @@ $disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
 					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="port"><?php echo _("Port") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="port"></i>
 						</div>
 						<div class="col-md-9">
 							<input type="text" class="form-control" id="port" name="port" value="<?php echo isset($port)?$port:''?>"<?php echo $disabled?>>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<span id="port-help" class="help-block fpbx-help-block"><?php echo _("Remote FTP Port")?></span>
 			</div>
 		</div>
 	</div>
@@ -110,18 +92,12 @@ $disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
 					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="user"><?php echo _("Username") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="user"></i>
 						</div>
 						<div class="col-md-9">
 							<input type="text" class="form-control" id="user" name="user" value="<?php echo isset($user)?$user:''?>"<?php echo $disabled?>>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<span id="user-help" class="help-block fpbx-help-block"><?php echo _("FTP Username")?></span>
 			</div>
 		</div>
 	</div>
@@ -134,18 +110,12 @@ $disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
 					<div class="form-group">
 						<div class="col-md-3">
 							<label class="control-label" for="password"><?php echo _("Password") ?></label>
-							<i class="fa fa-question-circle fpbx-help-icon" data-for="password"></i>
 						</div>
 						<div class="col-md-9">
 							<input type="password" class="form-control" id="password" name="password" value="<?php echo isset($password)?$password:''?>"<?php echo $disabled?>>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<span id="password-help" class="help-block fpbx-help-block"><?php echo _("FTP Password")?></span>
 			</div>
 		</div>
 	</div>
@@ -186,7 +156,7 @@ $disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
 						</div>
 						<div class="col-md-9 radioset">
 	            <input type="radio" name="transfer" id="transferactive" value="active" <?php echo ($transfer == "active"?"CHECKED":"") ?><?php echo $disabled?>>
-	            <label for="transferactive"><?php echo _("Yes");?></label>
+	            <label for="transferactive"><?php echo _("Active");?></label>
 	            <input type="radio" name="transfer" id="transferpassive" value="passive" <?php echo ($transfer == "active"?"":"CHECKED") ?><?php echo $disabled?>>
 	            <label for="transferpassive"><?php echo _("Passive");?></label>
 						</div>
@@ -196,7 +166,7 @@ $disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="transfer-help" class="help-block fpbx-help-block"><?php echo _("FTP Transfer mode, Passive will work in most cases.")?></span>
+				<span id="transfer-help" class="help-block fpbx-help-block"><?php echo _("This defaults to 'Passive'. If your FTP server is behind a seperate NAT or Firewall to this VoIP server, you should select 'Active'. In 'Active' mode, the FTP server establishes a connection back to the VoIP server to receive the data. In 'Passive' mode, the VoIP server connects to the FTP Server to send data.")?></span>
 			</div>
 		</div>
 	</div>

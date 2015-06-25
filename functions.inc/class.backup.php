@@ -139,26 +139,31 @@ class Backup {
 		foreach ($this->b['items'] as $i) {
 			switch ($i['type']) {
 				case 'file':
-					//substitute variable if nesesary
+					// substitute vars
 					$i['path'] = backup__($i['path']);
 
-					//make sure file exists
+					// Does the file exist?
 					if (!file_exists($i['path'])) {
-						break;
-					}
-
-					//ensure directory structure
-					$dest = $this->b['_tmpdir'] . realpath($i['path']);
-					if (!is_dir(dirname($dest))) {
-						mkdir(dirname($dest), 0755, true);
+						// It could be a wildcard?
+						$glob = glob($i['path']);
+						if (!$glob) {
+							break;
+						}
+						// Ahha! Wildcards! That's OK then.
+						$dest = $dest = $this->b['_tmpdir'].dirname($i['path']);
+						if (!is_dir($dest)) {
+							mkdir($dest, 0755, true);
+						}
+					} else {
+						$dest = $this->b['_tmpdir'].$i['path'];
+						if (!is_dir(dirname($dest))) {
+							mkdir(dirname($dest), 0755, true);
+						}
 					}
 
 					//copy file
-					$cmd[] = fpbx_which('cp');
-					$cmd[] = $i['path'];
-					$cmd[] = $dest;
-
-					exec(implode(' ', $cmd));
+					$cmd = fpbx_which('cp')." ".$i['path']." $dest";
+					exec($cmd);
 					unset($cmd);
 					break;
 				case 'dir':

@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-25 13:09+1000\n"
+"POT-Creation-Date: 2015-06-25 15:05+1000\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -103,7 +103,7 @@ msgstr "אוגוסט"
 msgid "Available Servers"
 msgstr ""
 
-#: functions.inc.php:64
+#: functions.inc.php:67
 msgid "BACKUP LOG ATTACHED"
 msgstr ""
 
@@ -136,7 +136,7 @@ msgstr ""
 msgid "Backup Lock acquired!"
 msgstr ""
 
-#: functions.inc.php:67
+#: functions.inc.php:70
 msgid "Backup Log:"
 msgstr ""
 

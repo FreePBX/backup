@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-25 13:09+1000\n"
+"POT-Creation-Date: 2015-06-25 15:05+1000\n"
 "PO-Revision-Date: 2015-02-19 14:59+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -129,7 +129,7 @@ msgstr "8月"
 msgid "Available Servers"
 msgstr "利用可能なサーバー"
 
-#: functions.inc.php:64
+#: functions.inc.php:67
 msgid "BACKUP LOG ATTACHED"
 msgstr "バックアップのログを送ります"
 
@@ -162,7 +162,7 @@ msgstr "バックアップ アイテム"
 msgid "Backup Lock acquired!"
 msgstr "バックアップロックを取得しました。"
 
-#: functions.inc.php:67
+#: functions.inc.php:70
 msgid "Backup Log:"
 msgstr "バックアップログ："
 

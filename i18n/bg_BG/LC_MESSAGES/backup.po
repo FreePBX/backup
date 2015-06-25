@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-09 14:58+1000\n"
+"POT-Creation-Date: 2015-06-25 13:09+1000\n"
 "PO-Revision-Date: 2014-07-25 21:32+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/backup/bg/"
@@ -110,11 +110,11 @@ msgstr "Август"
 msgid "Available Servers"
 msgstr ""
 
-#: functions.inc.php:72
+#: functions.inc.php:64
 msgid "BACKUP LOG ATTACHED"
 msgstr ""
 
-#: functions.inc/backup.php:81 functions.inc/class.backup.php:344
+#: functions.inc/backup.php:81 functions.inc/class.backup.php:367
 #: views/backup/backup.php:3 views/backup/backups.php:3
 msgid "Backup"
 msgstr ""
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Backup Lock acquired!"
 msgstr ""
 
-#: functions.inc.php:75
+#: functions.inc.php:67
 msgid "Backup Log:"
 msgstr ""
 
@@ -171,7 +171,7 @@ msgstr ""
 msgid "Backup completed with errors!"
 msgstr ""
 
-#: functions.inc/class.backup.php:242
+#: functions.inc/class.backup.php:265
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -238,7 +238,7 @@ msgstr "Само настройки"
 msgid "Connecting to remote server..."
 msgstr ""
 
-#: functions.inc/class.backup.php:337 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:360 views/restore/browseserver.php:18
 msgid "Created"
 msgstr ""
 
@@ -393,7 +393,7 @@ msgstr ""
 msgid "Email to send status messages to when this task is run"
 msgstr ""
 
-#: functions.inc/class.backup.php:380
+#: functions.inc/class.backup.php:403
 msgid "Error connecting to the FTP Server..."
 msgstr ""
 
@@ -475,7 +475,7 @@ msgstr ""
 msgid "File verification failed. "
 msgstr ""
 
-#: functions.inc/class.backup.php:338 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:361 views/restore/browseserver.php:19
 msgid "Files"
 msgstr ""
 
@@ -640,7 +640,7 @@ msgstr ""
 msgid "Mysql DB's"
 msgstr ""
 
-#: functions.inc/class.backup.php:339
+#: functions.inc/class.backup.php:362
 msgid "Mysql Db's"
 msgstr ""
 
@@ -648,7 +648,7 @@ msgstr ""
 msgid "Mysql Server "
 msgstr ""
 
-#: functions.inc/class.backup.php:336 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:359 views/restore/browseserver.php:17
 msgid "Name"
 msgstr ""
 
@@ -1095,7 +1095,7 @@ msgstr ""
 "и след това да инсталирате наново този модул. Настройките ще се загубят но "
 "старите"
 
-#: functions.inc/class.backup.php:340
+#: functions.inc/class.backup.php:363
 msgid "astDb's"
 msgstr ""
 

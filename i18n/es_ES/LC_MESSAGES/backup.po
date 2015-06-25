@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-09 14:58+1000\n"
+"POT-Creation-Date: 2015-06-25 13:09+1000\n"
 "PO-Revision-Date: 2015-04-18 01:09+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -114,11 +114,11 @@ msgstr "Agosto"
 msgid "Available Servers"
 msgstr "Servidores Disponibles"
 
-#: functions.inc.php:72
+#: functions.inc.php:64
 msgid "BACKUP LOG ATTACHED"
 msgstr "BITACORA DE RESPALDOS ANEXADA"
 
-#: functions.inc/backup.php:81 functions.inc/class.backup.php:344
+#: functions.inc/backup.php:81 functions.inc/class.backup.php:367
 #: views/backup/backup.php:3 views/backup/backups.php:3
 msgid "Backup"
 msgstr "Respaldo"
@@ -147,7 +147,7 @@ msgstr "Respaldar Elementos"
 msgid "Backup Lock acquired!"
 msgstr "Bloqueo de copia de seguridad adquirida!"
 
-#: functions.inc.php:75
+#: functions.inc.php:67
 msgid "Backup Log:"
 msgstr "Bitacora del respaldo:"
 
@@ -175,7 +175,7 @@ msgstr "Servidor de Respaldo no encontrado!"
 msgid "Backup completed with errors!"
 msgstr "Respaldo completado con errores!"
 
-#: functions.inc/class.backup.php:242
+#: functions.inc/class.backup.php:265
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -244,7 +244,7 @@ msgstr "Solo Configuraciones"
 msgid "Connecting to remote server..."
 msgstr "Conectando a Servidor remoto..."
 
-#: functions.inc/class.backup.php:337 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:360 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Creado"
 
@@ -408,7 +408,7 @@ msgstr "Dirección de Correo a donde los Respaldos deberán ser enviado"
 msgid "Email to send status messages to when this task is run"
 msgstr "Correo para enviar mensajes de estado cuando esta tarea sea ejecutada"
 
-#: functions.inc/class.backup.php:380
+#: functions.inc/class.backup.php:403
 msgid "Error connecting to the FTP Server..."
 msgstr "Error conectando al Servidor FTP..."
 
@@ -496,7 +496,7 @@ msgstr "Restauración de Archivo Completada!"
 msgid "File verification failed. "
 msgstr "Verificación de Archivo Fallida. "
 
-#: functions.inc/class.backup.php:338 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:361 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Archivos"
 
@@ -664,7 +664,7 @@ msgstr "\"Mysql\""
 msgid "Mysql DB's"
 msgstr "BD's Mysql"
 
-#: functions.inc/class.backup.php:339
+#: functions.inc/class.backup.php:362
 msgid "Mysql Db's"
 msgstr "Bd's Mysql"
 
@@ -672,7 +672,7 @@ msgstr "Bd's Mysql"
 msgid "Mysql Server "
 msgstr "Servidor Mysql "
 
-#: functions.inc/class.backup.php:336 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:359 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Nombre"
 
@@ -1129,7 +1129,7 @@ msgstr "y corre"
 msgid "and then re-install this module. Settings will be lost but old"
 msgstr "y entonces re-instalar este modulo. Configuración será perdida"
 
-#: functions.inc/class.backup.php:340
+#: functions.inc/class.backup.php:363
 msgid "astDb's"
 msgstr "\"astDb's\""
 

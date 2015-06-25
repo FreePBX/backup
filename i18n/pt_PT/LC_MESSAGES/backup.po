@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-09 14:58+1000\n"
+"POT-Creation-Date: 2015-06-25 13:09+1000\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -101,11 +101,11 @@ msgstr "Agosto"
 msgid "Available Servers"
 msgstr "Servidores Disponíveis"
 
-#: functions.inc.php:72
+#: functions.inc.php:64
 msgid "BACKUP LOG ATTACHED"
 msgstr "REGISTO DE BACKUP ANEXO"
 
-#: functions.inc/backup.php:81 functions.inc/class.backup.php:344
+#: functions.inc/backup.php:81 functions.inc/class.backup.php:367
 #: views/backup/backup.php:3 views/backup/backups.php:3
 msgid "Backup"
 msgstr "Cópia de Segurança"
@@ -134,7 +134,7 @@ msgstr "Itens da Cópia de Segurança"
 msgid "Backup Lock acquired!"
 msgstr "Bloqueio de Cópia de Segurança adquirido!"
 
-#: functions.inc.php:75
+#: functions.inc.php:67
 msgid "Backup Log:"
 msgstr "Log de Cópia de Segurança:"
 
@@ -162,7 +162,7 @@ msgstr "Servidor da Cópia de Segurança não encontrado!"
 msgid "Backup completed with errors!"
 msgstr "Cópia de Segurança terminada com erros!"
 
-#: functions.inc/class.backup.php:242
+#: functions.inc/class.backup.php:265
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -231,7 +231,7 @@ msgstr "Somente configurações"
 msgid "Connecting to remote server..."
 msgstr "Conectando ao servidor remoto..."
 
-#: functions.inc/class.backup.php:337 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:360 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Criado"
 
@@ -396,7 +396,7 @@ msgid "Email to send status messages to when this task is run"
 msgstr ""
 "Email para onde enviar mensagens de estado quando esta tarefa for executada"
 
-#: functions.inc/class.backup.php:380
+#: functions.inc/class.backup.php:403
 msgid "Error connecting to the FTP Server..."
 msgstr "Erro conectando ao Servidor FTP..."
 
@@ -484,7 +484,7 @@ msgstr "Restauro de ficheiro terminado!"
 msgid "File verification failed. "
 msgstr "Verificação de ficheiro falhou. "
 
-#: functions.inc/class.backup.php:338 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:361 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Ficheiros"
 
@@ -651,7 +651,7 @@ msgstr "Mysql"
 msgid "Mysql DB's"
 msgstr "BDs Mysql"
 
-#: functions.inc/class.backup.php:339
+#: functions.inc/class.backup.php:362
 msgid "Mysql Db's"
 msgstr "Bds Mysql"
 
@@ -659,7 +659,7 @@ msgstr "Bds Mysql"
 msgid "Mysql Server "
 msgstr "Servidor Mysql "
 
-#: functions.inc/class.backup.php:336 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:359 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Nome"
 
@@ -1113,7 +1113,7 @@ msgid "and then re-install this module. Settings will be lost but old"
 msgstr ""
 "e depois reinstala este módulo. Configuração serão perdidas mas antigas"
 
-#: functions.inc/class.backup.php:340
+#: functions.inc/class.backup.php:363
 msgid "astDb's"
 msgstr "astDb's"
 

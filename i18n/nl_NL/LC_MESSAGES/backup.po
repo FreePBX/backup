@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-09 14:58+1000\n"
+"POT-Creation-Date: 2015-06-25 13:09+1000\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -104,11 +104,11 @@ msgstr "Augustus"
 msgid "Available Servers"
 msgstr "Beschikbare servers"
 
-#: functions.inc.php:72
+#: functions.inc.php:64
 msgid "BACKUP LOG ATTACHED"
 msgstr "RESERVEKOPIE LOG TOEGEVOEGD"
 
-#: functions.inc/backup.php:81 functions.inc/class.backup.php:344
+#: functions.inc/backup.php:81 functions.inc/class.backup.php:367
 #: views/backup/backup.php:3 views/backup/backups.php:3
 msgid "Backup"
 msgstr "Reservekopie"
@@ -137,7 +137,7 @@ msgstr "Reservekopie onderdelen"
 msgid "Backup Lock acquired!"
 msgstr "Reservekopie vergrendeling verkregen!"
 
-#: functions.inc.php:75
+#: functions.inc.php:67
 msgid "Backup Log:"
 msgstr "Reservekopie log:"
 
@@ -165,7 +165,7 @@ msgstr "Reservekopie server niet gevonden!"
 msgid "Backup completed with errors!"
 msgstr "Reservekopie voltooid met fouten!"
 
-#: functions.inc/class.backup.php:242
+#: functions.inc/class.backup.php:265
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -236,7 +236,7 @@ msgstr "Alleen configuraties"
 msgid "Connecting to remote server..."
 msgstr "Verbinden met andere server..."
 
-#: functions.inc/class.backup.php:337 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:360 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Gemaakt"
 
@@ -403,7 +403,7 @@ msgstr ""
 "e-mail adres waar statusmeldingen naar toegezonden moeten worden als deze "
 "taak is uitgevoerd"
 
-#: functions.inc/class.backup.php:380
+#: functions.inc/class.backup.php:403
 msgid "Error connecting to the FTP Server..."
 msgstr "Fout bij het verbinden met de FTP server..."
 
@@ -493,7 +493,7 @@ msgstr "Bestand terugzetten uitgevoerd!"
 msgid "File verification failed. "
 msgstr "Bestandsverificatie mislukt. "
 
-#: functions.inc/class.backup.php:338 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:361 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Bestanden"
 
@@ -663,7 +663,7 @@ msgstr "MySQL"
 msgid "Mysql DB's"
 msgstr "MySQL DB's"
 
-#: functions.inc/class.backup.php:339
+#: functions.inc/class.backup.php:362
 msgid "Mysql Db's"
 msgstr "MySQL DB's"
 
@@ -671,7 +671,7 @@ msgstr "MySQL DB's"
 msgid "Mysql Server "
 msgstr "MySQL server "
 
-#: functions.inc/class.backup.php:336 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:359 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Naam"
 
@@ -1134,7 +1134,7 @@ msgid "and then re-install this module. Settings will be lost but old"
 msgstr ""
 "en dan deze module her-installeren. Instellingen gaan verloren, maar oude"
 
-#: functions.inc/class.backup.php:340
+#: functions.inc/class.backup.php:363
 msgid "astDb's"
 msgstr "astDB's"
 

@@ -17,33 +17,25 @@ require_once($dir . '/functions.inc/restore.php');
 function backup__($var) {
 	global $amp_conf;
 	/*
-	 * substitution string can look like: __STRING__
-	 * find the two parimiter positions and search $this->amp_conf for the stringg
-	 * return the origional string if substitution is not found
+	 * Substitues Config vars for __VARNAME__.
 	 *
-	 * for now, ONLY MATCHES UPERCASE in both $var and amp_conf
+	 * If no __VAR__, return $var
+	 * If Config var doesn't exist, throws an exception.
 	 */
 	
-	//get first position
-	$pos1 = strpos($var, '__');
-	if ($pos1 === false) {
+	if (!preg_match("/__(.+)__/", $var, $out)) {
 		return $var;
 	}
-	
-	//get second position
-	$pos2 = strpos($var, '__', $pos1 + 2);
-	if ($pos2 === false) {
-		return $var;
-	}
-	
-	//get actual string, sans _'s
-	$v = trim(substr($var, $pos1, $pos2 + 2), '_');
 
-	//return a value if we have match, otherwise the origional string
-	if (isset($amp_conf[$v])) {
-		return str_replace('__' . $v . '__', $amp_conf[$v], $var);
+	$var = $out[1];
+	if (!\FreePBX::Config()->conf_setting_exists($var)) {
+		if (isset($amp_conf[$var])) {
+			// This is for things like AMPDBHOST which are defined in /etc/freepbx.conf
+			return $amp_conf[$var];
+		}
+		throw new \Exception("Was asked for FreePBX Setting '$var', but it doesn't exist. Can't continue.");
 	} else {
-		return $var;
+		return \FreePBX::Config()->get($var);
 	}
 }
 

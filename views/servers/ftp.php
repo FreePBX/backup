@@ -1,10 +1,14 @@
 <?php
 $disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
+if (!isset($id)) {
+	$id = "";
+}
+
 ?>
 <h2><?php echo _("FTP Server")?></h2>
-<form class="fpbx-submit" action="" method="post" id="server_form" name="server_form">
+<form class="fpbx-submit" action="" method="post" id="server_form" name="server_form" data-fpbx-delete="?display=backup_servers&action=delete&id=<?php echo $id; ?>">
 	<input type="hidden" name="action" value="save">
-	<input type="hidden" name="id" value="<?php echo isset($id)?$id:''?>">
+	<input type="hidden" name="id" value="<?php echo $id?>">
 	<input type="hidden" name="server_type" value="ftp">
 	<!--Server Name-->
 	<div class="element-container">

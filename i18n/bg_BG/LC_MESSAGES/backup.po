@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-25 16:02+1000\n"
+"POT-Creation-Date: 2015-06-25 16:05+1000\n"
 "PO-Revision-Date: 2014-07-25 21:32+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/backup/bg/"
@@ -395,7 +395,7 @@ msgstr ""
 msgid "Day each month"
 msgstr ""
 
-#: views/cron.php:230
+#: views/cron.php:224
 msgid "Day of Week"
 msgstr ""
 
@@ -403,11 +403,11 @@ msgstr ""
 msgid "Days"
 msgstr "Дни"
 
-#: views/cron.php:278 views/cron.php:282
+#: views/cron.php:272 views/cron.php:276
 msgid "Days of Month"
 msgstr ""
 
-#: views/cron.php:292
+#: views/cron.php:286
 msgid "Days of month to run"
 msgstr ""
 
@@ -721,7 +721,7 @@ msgstr ""
 msgid "Hourly"
 msgstr ""
 
-#: views/backup/backup.php:455 views/cron.php:200 views/cron.php:204
+#: views/backup/backup.php:455 views/cron.php:194 views/cron.php:198
 msgid "Hours"
 msgstr "Часа"
 
@@ -745,7 +745,7 @@ msgstr ""
 msgid "IP address or FQDN of remote mysql host"
 msgstr ""
 
-#: views/cron.php:161
+#: views/cron.php:155
 msgid ""
 "If Randomize is selcted, a similar frequency will be followed, only the "
 "exact times will be randomized (avoiding peak business hours, when "
@@ -873,7 +873,7 @@ msgstr "Преместен отдалечен SSH сървър за архиви
 msgid "Migrating backup table..."
 msgstr "Преместване на таблица backup..."
 
-#: views/backup/backup.php:453 views/cron.php:174 views/cron.php:178
+#: views/backup/backup.php:453 views/cron.php:168 views/cron.php:172
 msgid "Minutes"
 msgstr "Минути"
 
@@ -885,7 +885,7 @@ msgstr "Понеделник"
 msgid "Monthly"
 msgstr ""
 
-#: views/backup/backup.php:461 views/cron.php:252 views/cron.php:256
+#: views/backup/backup.php:461 views/cron.php:246 views/cron.php:250
 msgid "Months"
 msgstr "Месеца"
 
@@ -973,7 +973,7 @@ msgstr ""
 #: views/backup/backup.php:322 views/backup/backup.php:349
 #: views/backup/backups.php:186 views/backup/backups.php:213
 #: views/backup/backups.php:240 views/backup/backups.php:271
-#: views/backup/backups.php:327 views/cron.php:153
+#: views/backup/backups.php:327 views/cron.php:147
 msgid "No"
 msgstr ""
 
@@ -1104,7 +1104,7 @@ msgstr ""
 msgid "Provide the name for this server"
 msgstr ""
 
-#: views/cron.php:146
+#: views/cron.php:140
 msgid "Random"
 msgstr ""
 
@@ -1537,7 +1537,7 @@ msgstr ""
 msgid "Wednesday"
 msgstr "Сряда"
 
-#: views/cron.php:226
+#: views/cron.php:220
 msgid "Week Days"
 msgstr ""
 
@@ -1565,19 +1565,19 @@ msgstr ""
 msgid "Where should status emails for this job be sent?"
 msgstr ""
 
-#: views/cron.php:240
+#: views/cron.php:234
 msgid "Which Days of the week to run"
 msgstr ""
 
-#: views/cron.php:214
+#: views/cron.php:208
 msgid "Which Hours to run."
 msgstr ""
 
-#: views/cron.php:266
+#: views/cron.php:260
 msgid "Which Months to run"
 msgstr ""
 
-#: views/cron.php:188
+#: views/cron.php:182
 msgid "Which minutes to run"
 msgstr ""
 
@@ -1609,7 +1609,7 @@ msgstr ""
 #: views/backup/backup.php:320 views/backup/backup.php:347
 #: views/backup/backups.php:184 views/backup/backups.php:211
 #: views/backup/backups.php:238 views/backup/backups.php:269
-#: views/backup/backups.php:325 views/cron.php:151 views/servers/ftp.php:189
+#: views/backup/backups.php:325 views/cron.php:145 views/servers/ftp.php:189
 msgid "Yes"
 msgstr ""
 

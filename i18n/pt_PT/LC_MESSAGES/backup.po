@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-25 16:02+1000\n"
+"POT-Creation-Date: 2015-06-25 16:05+1000\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -388,7 +388,7 @@ msgstr "Diário"
 msgid "Day each month"
 msgstr ""
 
-#: views/cron.php:230
+#: views/cron.php:224
 msgid "Day of Week"
 msgstr "Dia da Semana"
 
@@ -396,11 +396,11 @@ msgstr "Dia da Semana"
 msgid "Days"
 msgstr "Dias"
 
-#: views/cron.php:278 views/cron.php:282
+#: views/cron.php:272 views/cron.php:276
 msgid "Days of Month"
 msgstr ""
 
-#: views/cron.php:292
+#: views/cron.php:286
 msgid "Days of month to run"
 msgstr ""
 
@@ -730,7 +730,7 @@ msgstr "Nome do Host"
 msgid "Hourly"
 msgstr "Cada Hora"
 
-#: views/backup/backup.php:455 views/cron.php:200 views/cron.php:204
+#: views/backup/backup.php:455 views/cron.php:194 views/cron.php:198
 msgid "Hours"
 msgstr "Horas"
 
@@ -754,7 +754,7 @@ msgstr "Endereço IP ou FQDN do host ftp remoto"
 msgid "IP address or FQDN of remote mysql host"
 msgstr "Endereço IP ou FQDN do host mysql remoto"
 
-#: views/cron.php:161
+#: views/cron.php:155
 msgid ""
 "If Randomize is selcted, a similar frequency will be followed, only the "
 "exact times will be randomized (avoiding peak business hours, when "
@@ -882,7 +882,7 @@ msgstr "Migrado servidor SSH remoto para cópia de segurança "
 msgid "Migrating backup table..."
 msgstr "Migrando tabela backup..."
 
-#: views/backup/backup.php:453 views/cron.php:174 views/cron.php:178
+#: views/backup/backup.php:453 views/cron.php:168 views/cron.php:172
 msgid "Minutes"
 msgstr "Minutos"
 
@@ -894,7 +894,7 @@ msgstr "Segunda-feira"
 msgid "Monthly"
 msgstr "Mensal"
 
-#: views/backup/backup.php:461 views/cron.php:252 views/cron.php:256
+#: views/backup/backup.php:461 views/cron.php:246 views/cron.php:250
 msgid "Months"
 msgstr "Meses"
 
@@ -982,7 +982,7 @@ msgstr ""
 #: views/backup/backup.php:322 views/backup/backup.php:349
 #: views/backup/backups.php:186 views/backup/backups.php:213
 #: views/backup/backups.php:240 views/backup/backups.php:271
-#: views/backup/backups.php:327 views/cron.php:153
+#: views/backup/backups.php:327 views/cron.php:147
 msgid "No"
 msgstr ""
 
@@ -1114,7 +1114,7 @@ msgstr "Processando ficheiro recebido..."
 msgid "Provide the name for this server"
 msgstr ""
 
-#: views/cron.php:146
+#: views/cron.php:140
 msgid "Random"
 msgstr ""
 
@@ -1551,7 +1551,7 @@ msgstr "Restauro Web Root não detetado, não restaurando tabela de módulos"
 msgid "Wednesday"
 msgstr "Quarta-feira"
 
-#: views/cron.php:226
+#: views/cron.php:220
 msgid "Week Days"
 msgstr ""
 
@@ -1579,19 +1579,19 @@ msgstr ""
 msgid "Where should status emails for this job be sent?"
 msgstr ""
 
-#: views/cron.php:240
+#: views/cron.php:234
 msgid "Which Days of the week to run"
 msgstr ""
 
-#: views/cron.php:214
+#: views/cron.php:208
 msgid "Which Hours to run."
 msgstr ""
 
-#: views/cron.php:266
+#: views/cron.php:260
 msgid "Which Months to run"
 msgstr ""
 
-#: views/cron.php:188
+#: views/cron.php:182
 msgid "Which minutes to run"
 msgstr ""
 
@@ -1623,7 +1623,7 @@ msgstr "Anos"
 #: views/backup/backup.php:320 views/backup/backup.php:347
 #: views/backup/backups.php:184 views/backup/backups.php:211
 #: views/backup/backups.php:238 views/backup/backups.php:269
-#: views/backup/backups.php:325 views/cron.php:151 views/servers/ftp.php:189
+#: views/backup/backups.php:325 views/cron.php:145 views/servers/ftp.php:189
 msgid "Yes"
 msgstr ""
 

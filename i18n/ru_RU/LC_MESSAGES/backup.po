@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-25 15:05+1000\n"
+"POT-Creation-Date: 2015-06-25 15:49+1000\n"
 "PO-Revision-Date: 2015-05-03 15:58+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -120,7 +120,7 @@ msgstr "Доступные серверы"
 msgid "BACKUP LOG ATTACHED"
 msgstr "Журнал копирования приложен"
 
-#: functions.inc/backup.php:81 functions.inc/class.backup.php:367
+#: functions.inc/backup.php:81 functions.inc/class.backup.php:368
 #: views/backup/backup.php:3 views/backup/backups.php:3
 msgid "Backup"
 msgstr "Бекап"
@@ -169,7 +169,7 @@ msgstr "Расписание бекапа"
 msgid "Backup Server"
 msgstr "Сервер бекапа"
 
-#: functions.inc/restore.php:252
+#: functions.inc/restore.php:255
 msgid "Backup Server not found!"
 msgstr "Сервер бекапа не найден!"
 
@@ -177,7 +177,7 @@ msgstr "Сервер бекапа не найден!"
 msgid "Backup completed with errors!"
 msgstr "Резервное копирование завершилось с ошибками!"
 
-#: functions.inc/class.backup.php:265
+#: functions.inc/class.backup.php:266
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -246,7 +246,7 @@ msgstr "Только конфигурация"
 msgid "Connecting to remote server..."
 msgstr "Соединение с удаленным сервером..."
 
-#: functions.inc/class.backup.php:360 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:361 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Создано"
 
@@ -411,7 +411,7 @@ msgstr ""
 msgid "Email to send status messages to when this task is run"
 msgstr ""
 
-#: functions.inc/class.backup.php:403
+#: functions.inc/class.backup.php:404
 msgid "Error connecting to the FTP Server..."
 msgstr ""
 
@@ -443,7 +443,7 @@ msgstr ""
 msgid "Explicitly skipping host-specific NAT settings"
 msgstr ""
 
-#: functions.inc/restore.php:97
+#: functions.inc/restore.php:100
 msgid "FTP Connection error!"
 msgstr ""
 
@@ -451,19 +451,19 @@ msgstr ""
 msgid "FTP Server "
 msgstr ""
 
-#: functions.inc/restore.php:438
+#: functions.inc/restore.php:441
 msgid ""
 "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
 "current state"
 msgstr ""
 
-#: functions.inc/restore.php:465
+#: functions.inc/restore.php:468
 msgid ""
 "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
 "sql in current state"
 msgstr ""
 
-#: functions.inc/restore.php:280 functions.inc/restore.php:304
+#: functions.inc/restore.php:283 functions.inc/restore.php:307
 msgid "Failed to retrieve file from server!"
 msgstr ""
 
@@ -483,7 +483,7 @@ msgstr "Февраль"
 msgid "File"
 msgstr ""
 
-#: functions.inc/restore.php:312
+#: functions.inc/restore.php:315
 msgid "File not found! "
 msgstr ""
 
@@ -495,7 +495,7 @@ msgstr ""
 msgid "File verification failed. "
 msgstr ""
 
-#: functions.inc/class.backup.php:361 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:362 views/restore/browseserver.php:19
 msgid "Files"
 msgstr ""
 
@@ -660,7 +660,7 @@ msgstr ""
 msgid "Mysql DB's"
 msgstr ""
 
-#: functions.inc/class.backup.php:362
+#: functions.inc/class.backup.php:363
 msgid "Mysql Db's"
 msgstr ""
 
@@ -668,7 +668,7 @@ msgstr ""
 msgid "Mysql Server "
 msgstr ""
 
-#: functions.inc/class.backup.php:359 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:360 views/restore/browseserver.php:17
 msgid "Name"
 msgstr ""
 
@@ -1114,7 +1114,7 @@ msgstr ""
 msgid "and then re-install this module. Settings will be lost but old"
 msgstr "и переустановить этот модуль. Настройки будут утеряны, но старый"
 
-#: functions.inc/class.backup.php:363
+#: functions.inc/class.backup.php:364
 msgid "astDb's"
 msgstr ""
 
@@ -1152,7 +1152,7 @@ msgstr ""
 msgid "failed"
 msgstr "сбой"
 
-#: functions.inc/restore.php:162
+#: functions.inc/restore.php:165
 msgid "manifest not found"
 msgstr ""
 

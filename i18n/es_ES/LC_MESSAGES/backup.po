@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-25 15:05+1000\n"
+"POT-Creation-Date: 2015-06-25 15:49+1000\n"
 "PO-Revision-Date: 2015-04-18 01:09+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -118,7 +118,7 @@ msgstr "Servidores Disponibles"
 msgid "BACKUP LOG ATTACHED"
 msgstr "BITACORA DE RESPALDOS ANEXADA"
 
-#: functions.inc/backup.php:81 functions.inc/class.backup.php:367
+#: functions.inc/backup.php:81 functions.inc/class.backup.php:368
 #: views/backup/backup.php:3 views/backup/backups.php:3
 msgid "Backup"
 msgstr "Respaldo"
@@ -167,7 +167,7 @@ msgstr "Crongrama de Respaldos"
 msgid "Backup Server"
 msgstr "Servidor de Respaldo"
 
-#: functions.inc/restore.php:252
+#: functions.inc/restore.php:255
 msgid "Backup Server not found!"
 msgstr "Servidor de Respaldo no encontrado!"
 
@@ -175,7 +175,7 @@ msgstr "Servidor de Respaldo no encontrado!"
 msgid "Backup completed with errors!"
 msgstr "Respaldo completado con errores!"
 
-#: functions.inc/class.backup.php:265
+#: functions.inc/class.backup.php:266
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -244,7 +244,7 @@ msgstr "Solo Configuraciones"
 msgid "Connecting to remote server..."
 msgstr "Conectando a Servidor remoto..."
 
-#: functions.inc/class.backup.php:360 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:361 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Creado"
 
@@ -408,7 +408,7 @@ msgstr "Dirección de Correo a donde los Respaldos deberán ser enviado"
 msgid "Email to send status messages to when this task is run"
 msgstr "Correo para enviar mensajes de estado cuando esta tarea sea ejecutada"
 
-#: functions.inc/class.backup.php:403
+#: functions.inc/class.backup.php:404
 msgid "Error connecting to the FTP Server..."
 msgstr "Error conectando al Servidor FTP..."
 
@@ -440,7 +440,7 @@ msgstr "Excluir configuración de NAT"
 msgid "Explicitly skipping host-specific NAT settings"
 msgstr "Explícitamente saltando configuraciones NAT especificas a host"
 
-#: functions.inc/restore.php:97
+#: functions.inc/restore.php:100
 msgid "FTP Connection error!"
 msgstr "Error de Conexión FTP!"
 
@@ -448,7 +448,7 @@ msgstr "Error de Conexión FTP!"
 msgid "FTP Server "
 msgstr "Servidor FTP "
 
-#: functions.inc/restore.php:438
+#: functions.inc/restore.php:441
 msgid ""
 "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
 "current state"
@@ -456,7 +456,7 @@ msgstr ""
 "Fallo convirtiendo asterisk.sql al formato adecuado, renombrando a mysql-db."
 "sql en su estado actual"
 
-#: functions.inc/restore.php:465
+#: functions.inc/restore.php:468
 msgid ""
 "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
 "sql in current state"
@@ -464,7 +464,7 @@ msgstr ""
 "Fallo convirtiendo asteriskcdr.sql al formato adecuado, renombrando a mysql-"
 "cdr.sql en su estado actual"
 
-#: functions.inc/restore.php:280 functions.inc/restore.php:304
+#: functions.inc/restore.php:283 functions.inc/restore.php:307
 msgid "Failed to retrieve file from server!"
 msgstr "Fallo recuperando archivo desde el servidor!"
 
@@ -484,7 +484,7 @@ msgstr "Febrero"
 msgid "File"
 msgstr "Archivo"
 
-#: functions.inc/restore.php:312
+#: functions.inc/restore.php:315
 msgid "File not found! "
 msgstr "Archivo no encontrado! "
 
@@ -496,7 +496,7 @@ msgstr "Restauración de Archivo Completada!"
 msgid "File verification failed. "
 msgstr "Verificación de Archivo Fallida. "
 
-#: functions.inc/class.backup.php:361 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:362 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Archivos"
 
@@ -664,7 +664,7 @@ msgstr "\"Mysql\""
 msgid "Mysql DB's"
 msgstr "BD's Mysql"
 
-#: functions.inc/class.backup.php:362
+#: functions.inc/class.backup.php:363
 msgid "Mysql Db's"
 msgstr "Bd's Mysql"
 
@@ -672,7 +672,7 @@ msgstr "Bd's Mysql"
 msgid "Mysql Server "
 msgstr "Servidor Mysql "
 
-#: functions.inc/class.backup.php:359 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:360 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Nombre"
 
@@ -1129,7 +1129,7 @@ msgstr "y corre"
 msgid "and then re-install this module. Settings will be lost but old"
 msgstr "y entonces re-instalar este modulo. Configuración será perdida"
 
-#: functions.inc/class.backup.php:363
+#: functions.inc/class.backup.php:364
 msgid "astDb's"
 msgstr "\"astDb's\""
 
@@ -1171,7 +1171,7 @@ msgstr "error/no encontrado!"
 msgid "failed"
 msgstr "falló"
 
-#: functions.inc/restore.php:162
+#: functions.inc/restore.php:165
 msgid "manifest not found"
 msgstr "manifiesto no encontrado"
 

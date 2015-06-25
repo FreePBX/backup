@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-25 15:05+1000\n"
+"POT-Creation-Date: 2015-06-25 15:49+1000\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -108,7 +108,7 @@ msgstr "Beschikbare servers"
 msgid "BACKUP LOG ATTACHED"
 msgstr "RESERVEKOPIE LOG TOEGEVOEGD"
 
-#: functions.inc/backup.php:81 functions.inc/class.backup.php:367
+#: functions.inc/backup.php:81 functions.inc/class.backup.php:368
 #: views/backup/backup.php:3 views/backup/backups.php:3
 msgid "Backup"
 msgstr "Reservekopie"
@@ -157,7 +157,7 @@ msgstr "Reservekopie rooster"
 msgid "Backup Server"
 msgstr "Reservekopie server"
 
-#: functions.inc/restore.php:252
+#: functions.inc/restore.php:255
 msgid "Backup Server not found!"
 msgstr "Reservekopie server niet gevonden!"
 
@@ -165,7 +165,7 @@ msgstr "Reservekopie server niet gevonden!"
 msgid "Backup completed with errors!"
 msgstr "Reservekopie voltooid met fouten!"
 
-#: functions.inc/class.backup.php:265
+#: functions.inc/class.backup.php:266
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -236,7 +236,7 @@ msgstr "Alleen configuraties"
 msgid "Connecting to remote server..."
 msgstr "Verbinden met andere server..."
 
-#: functions.inc/class.backup.php:360 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:361 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Gemaakt"
 
@@ -403,7 +403,7 @@ msgstr ""
 "e-mail adres waar statusmeldingen naar toegezonden moeten worden als deze "
 "taak is uitgevoerd"
 
-#: functions.inc/class.backup.php:403
+#: functions.inc/class.backup.php:404
 msgid "Error connecting to the FTP Server..."
 msgstr "Fout bij het verbinden met de FTP server..."
 
@@ -436,7 +436,7 @@ msgstr "Exclusief NAT instellingen"
 msgid "Explicitly skipping host-specific NAT settings"
 msgstr "Uitdrukkelijk overslaan van de server-specifieke NAT instellingen"
 
-#: functions.inc/restore.php:97
+#: functions.inc/restore.php:100
 msgid "FTP Connection error!"
 msgstr "FTP connectie fout!"
 
@@ -444,7 +444,7 @@ msgstr "FTP connectie fout!"
 msgid "FTP Server "
 msgstr "FTP server "
 
-#: functions.inc/restore.php:438
+#: functions.inc/restore.php:441
 msgid ""
 "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
 "current state"
@@ -452,7 +452,7 @@ msgstr ""
 "Converteren van asterisk.sql in juist formaat mislukt. Hernoemen naar mysql-"
 "db.sql in huidige staat"
 
-#: functions.inc/restore.php:465
+#: functions.inc/restore.php:468
 msgid ""
 "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
 "sql in current state"
@@ -460,7 +460,7 @@ msgstr ""
 "Converteren van asteriskcdr.sql in juist formaat mislukt. Hernoemen naar "
 "mysql-cdr.sql in huidige staat"
 
-#: functions.inc/restore.php:280 functions.inc/restore.php:304
+#: functions.inc/restore.php:283 functions.inc/restore.php:307
 msgid "Failed to retrieve file from server!"
 msgstr "Bestand ontvangen van server mislukt!"
 
@@ -481,7 +481,7 @@ msgstr "Februari"
 msgid "File"
 msgstr "Bestand"
 
-#: functions.inc/restore.php:312
+#: functions.inc/restore.php:315
 msgid "File not found! "
 msgstr "Bestand niet gevonden! "
 
@@ -493,7 +493,7 @@ msgstr "Bestand terugzetten uitgevoerd!"
 msgid "File verification failed. "
 msgstr "Bestandsverificatie mislukt. "
 
-#: functions.inc/class.backup.php:361 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:362 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Bestanden"
 
@@ -663,7 +663,7 @@ msgstr "MySQL"
 msgid "Mysql DB's"
 msgstr "MySQL DB's"
 
-#: functions.inc/class.backup.php:362
+#: functions.inc/class.backup.php:363
 msgid "Mysql Db's"
 msgstr "MySQL DB's"
 
@@ -671,7 +671,7 @@ msgstr "MySQL DB's"
 msgid "Mysql Server "
 msgstr "MySQL server "
 
-#: functions.inc/class.backup.php:359 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:360 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Naam"
 
@@ -1134,7 +1134,7 @@ msgid "and then re-install this module. Settings will be lost but old"
 msgstr ""
 "en dan deze module her-installeren. Instellingen gaan verloren, maar oude"
 
-#: functions.inc/class.backup.php:363
+#: functions.inc/class.backup.php:364
 msgid "astDb's"
 msgstr "astDB's"
 
@@ -1176,7 +1176,7 @@ msgstr "fout/niet gevonden!"
 msgid "failed"
 msgstr "gefaald"
 
-#: functions.inc/restore.php:162
+#: functions.inc/restore.php:165
 msgid "manifest not found"
 msgstr ""
 

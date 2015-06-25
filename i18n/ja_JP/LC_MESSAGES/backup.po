@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-25 15:05+1000\n"
+"POT-Creation-Date: 2015-06-25 15:49+1000\n"
 "PO-Revision-Date: 2015-02-19 14:59+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -133,7 +133,7 @@ msgstr "利用可能なサーバー"
 msgid "BACKUP LOG ATTACHED"
 msgstr "バックアップのログを送ります"
 
-#: functions.inc/backup.php:81 functions.inc/class.backup.php:367
+#: functions.inc/backup.php:81 functions.inc/class.backup.php:368
 #: views/backup/backup.php:3 views/backup/backups.php:3
 msgid "Backup"
 msgstr "バックアップ"
@@ -182,7 +182,7 @@ msgstr "バックアップスケジュール"
 msgid "Backup Server"
 msgstr "バックアップサーバー"
 
-#: functions.inc/restore.php:252
+#: functions.inc/restore.php:255
 msgid "Backup Server not found!"
 msgstr "バックアップサーバーが見つかりません！"
 
@@ -190,7 +190,7 @@ msgstr "バックアップサーバーが見つかりません！"
 msgid "Backup completed with errors!"
 msgstr "バックアップは完了しましたが一部エラーが発生しました。"
 
-#: functions.inc/class.backup.php:265
+#: functions.inc/class.backup.php:266
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -261,7 +261,7 @@ msgstr "設定のみ"
 msgid "Connecting to remote server..."
 msgstr "リモートサーバーに接続中..."
 
-#: functions.inc/class.backup.php:360 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:361 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "作成日時"
 
@@ -427,7 +427,7 @@ msgstr ""
 "このタスクを実行した時に、指定されたメールアドレスにステータスメッセージを送"
 "ります"
 
-#: functions.inc/class.backup.php:403
+#: functions.inc/class.backup.php:404
 msgid "Error connecting to the FTP Server..."
 msgstr "FTPサーバーに接続できません…"
 
@@ -459,7 +459,7 @@ msgstr "NAT設定を除外する"
 msgid "Explicitly skipping host-specific NAT settings"
 msgstr "ホスト特有のNAT設定を意図的にスキップする"
 
-#: functions.inc/restore.php:97
+#: functions.inc/restore.php:100
 msgid "FTP Connection error!"
 msgstr "FTP接続エラー！"
 
@@ -467,7 +467,7 @@ msgstr "FTP接続エラー！"
 msgid "FTP Server "
 msgstr "FTPサーバー "
 
-#: functions.inc/restore.php:438
+#: functions.inc/restore.php:441
 msgid ""
 "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
 "current state"
@@ -475,7 +475,7 @@ msgstr ""
 "asterisk.sqlを独自フォーマットに変換できませんでした。現在の状態で名前を"
 "mysql-db.sqlに変更します。"
 
-#: functions.inc/restore.php:465
+#: functions.inc/restore.php:468
 msgid ""
 "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
 "sql in current state"
@@ -483,7 +483,7 @@ msgstr ""
 "asteriskcdr.sqlを独自フォーマットに変換できませんでした。現在の状態で名前を"
 "mysql-cdr.sqlに変更します。"
 
-#: functions.inc/restore.php:280 functions.inc/restore.php:304
+#: functions.inc/restore.php:283 functions.inc/restore.php:307
 msgid "Failed to retrieve file from server!"
 msgstr "ファイルをサーバーから取得できませんでした。"
 
@@ -503,7 +503,7 @@ msgstr "2月"
 msgid "File"
 msgstr "ファイル"
 
-#: functions.inc/restore.php:312
+#: functions.inc/restore.php:315
 msgid "File not found! "
 msgstr "ファイルが見つかりません！ "
 
@@ -515,7 +515,7 @@ msgstr "ファイルの復元が完了しました！"
 msgid "File verification failed. "
 msgstr "ファイル検証は失敗しました。 "
 
-#: functions.inc/class.backup.php:361 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:362 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "ファイル"
 
@@ -680,7 +680,7 @@ msgstr "MySQL"
 msgid "Mysql DB's"
 msgstr "MySQLデータベース"
 
-#: functions.inc/class.backup.php:362
+#: functions.inc/class.backup.php:363
 msgid "Mysql Db's"
 msgstr "MySQL DB"
 
@@ -688,7 +688,7 @@ msgstr "MySQL DB"
 msgid "Mysql Server "
 msgstr "MySQLサーバー "
 
-#: functions.inc/class.backup.php:359 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:360 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "名前"
 
@@ -1144,7 +1144,7 @@ msgstr "と実行"
 msgid "and then re-install this module. Settings will be lost but old"
 msgstr "再度インストールしてください。設定は失われますが、"
 
-#: functions.inc/class.backup.php:363
+#: functions.inc/class.backup.php:364
 msgid "astDb's"
 msgstr "astDb"
 
@@ -1184,7 +1184,7 @@ msgstr "エラー：見つかりません！"
 msgid "failed"
 msgstr "失敗"
 
-#: functions.inc/restore.php:162
+#: functions.inc/restore.php:165
 msgid "manifest not found"
 msgstr "manifestが見つかりません"
 

@@ -190,12 +190,13 @@ class Backup {
 					$src = realpath($i['path']);
 
 					// Build our list of extra excludes (if any).
-					// Defaults:
+					// Standard exclusions:
 					//   1 - node_modules - compiled for the local machine,
 					//       and are easily regenerated.
-					//   2 - _cache/*tgz and _cache/*gpg - previously downloaded
-					//       files, and can be redownloaded.
-					$excludes = " --exclude='node_modules' --exclude='_cache/*tgz' --exclude='_cache/*gpg'";
+					$excludes = " --exclude='node_modules' ";
+					//   2 - *tgz and *gpg - previously downloaded files, and can be redownloaded.
+					//       Note this ALSO excludes backups so we don't put a backup inside a backup.
+					$excludes .= "--exclude='*tgz' --exclude='*gpg' ";
 					if ($i['exclude']) {
 						if (!is_array($i['exclude'])) {
 							$xArr = explode("\n", $i['exclude']);

@@ -20,7 +20,10 @@ function backup_jstree_list_dir($id, $path = '') {
 	switch ($s['type']) {
 		case 'local':
 			$s['path'] = backup__($s['path']);
-			$dir = scandir($s['path'] . '/' . $path);
+			if (!is_dir($s['path']."/$path")) {
+				return array();
+			}
+			$dir = scandir($s['path']."/$path");
 			foreach ($dir as $file) {
 
 				//keep out the dots!

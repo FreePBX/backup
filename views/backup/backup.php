@@ -1,7 +1,12 @@
+<?php
+if (!isset($id)) {
+	$id = "";
+}
+?>
 <h2><?php echo _("Backup")?></h2>
-<form class="fpbx-submit" action="" method="post" id="backup_form" data-fpbx-delete="?display=backup&action=delete&id=<?php echo isset($id)?$id:''?>">
+<form class="fpbx-submit" name="backup_form" action="" method="post" id="backup_form" data-fpbx-delete="?display=backup&action=delete&id=<?php echo $id; ?>">
 	<input type="hidden" name="action" value="save">
-	<input type="hidden" name="id" value="<?php echo isset($id)?$id:''?>">
+	<input type="hidden" name="id" value="<?php echo $id; ?>">
 	<!--Backup Name-->
 	<div class="element-container">
 		<div class="row">

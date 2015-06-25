@@ -27,16 +27,19 @@ function backup__($var) {
 		return $var;
 	}
 
-	$var = $out[1];
-	if (!\FreePBX::Config()->conf_setting_exists($var)) {
-		if (isset($amp_conf[$var])) {
+	$ampvar = $out[1];
+	if (!\FreePBX::Config()->conf_setting_exists($ampvar)) {
+		if (isset($amp_conf[$ampvar])) {
 			// This is for things like AMPDBHOST which are defined in /etc/freepbx.conf
-			return $amp_conf[$var];
+			$replace = $amp_conf[$ampvar];
+		} else {
+			throw new \Exception("Was asked for FreePBX Setting '$var', but it doesn't exist. Can't continue.");
 		}
-		throw new \Exception("Was asked for FreePBX Setting '$var', but it doesn't exist. Can't continue.");
 	} else {
-		return \FreePBX::Config()->get($var);
+		$replace = \FreePBX::Config()->get($ampvar);
 	}
+
+	return str_replace("__${ampvar}__", $replace, $var);
 }
 
 

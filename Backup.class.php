@@ -170,32 +170,31 @@ class Backup implements \BMO {
 	 * @param [type] $request [description]
 	 */
 	public function getActionBar($request) {
-		$buttons = array();
+		$buttons = array(
+			'reset' => array(
+				'name' => 'reset',
+				'id' => 'reset',
+				'value' => _('Reset'),
+			),
+			'submit' => array(
+				'name' => 'submit',
+				'id' => 'submit',
+				'value' => _('Save'),
+			),
+			'run' => array(
+				'name' => 'run',
+				'id' => 'run_backup',
+				'value' => _('Save and Run'),
+			),
+			'delete' => array(
+				'name' => 'delete',
+				'id' => 'delete',
+				'value' => _('Delete'),
+			),
+		);
 		switch ($request['display']) {
 			case 'backup':
 			case 'backup_servers':
-				$buttons = array(
-					'reset' => array(
-							'name' => 'reset',
-							'id' => 'reset',
-							'value' => _('Reset'),
-					),
-					'submit' => array(
-							'name' => 'submit',
-							'id' => 'submit',
-							'value' => _('Save'),
-					),
-					'run' => array(
-							'name' => 'run',
-							'id' => 'run_backup',
-							'value' => _('Save and Run'),
-					),
-					'delete' => array(
-							'name' => 'delete',
-							'id' => 'delete',
-							'value' => _('Delete'),
-					),
-				);
 				if (empty($request['id'])) {
 					unset($buttons['delete']);
 					unset($buttons['run']);
@@ -207,6 +206,20 @@ class Backup implements \BMO {
 					unset($buttons['run']);
 				}
 			break;
+			case 'backup_templates':
+				if (isset($request['action']) && $request['action'] == "edit" || $request['action'] == "save") {
+					unset($buttons['run']);
+					unset($buttons['reset']);
+					if (!$request['id']) {
+						unset($buttons['delete']);
+					}
+				} else {
+					$buttons = array();
+				}
+			break;
+			default:
+				$buttons = array();
+
 		}
 		return $buttons;
 	}

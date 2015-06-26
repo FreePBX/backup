@@ -6,7 +6,7 @@
     <tr>
       <th data-field="name" data-sortable="true"><?php echo _("Item")?></th>
       <th data-field="desc"><?php echo _("Description")?></th>
-      <th data-field="id,immortal" data-formatter="serverFormatter"><?php echo _("Actions")?></th>
+      <th data-field="id,immortal" data-formatter="templateFormatter"><?php echo _("Actions")?></th>
     </tr>
   </thead>
 </table>

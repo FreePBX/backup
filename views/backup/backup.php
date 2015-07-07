@@ -225,8 +225,8 @@ if (!isset($id)) {
 $serveropts = '<option value = "0">'._('This server').'</option>';
 foreach ($servers as $s) {
 	if ($s['type'] == 'ssh') {
-		$selected = ($data[$s['id']] == $bu_server?'SELECTED':'');
-		$serveropts .= '<option value='.$data[$s['id']].' '.$selected.'>'.$s['name'].'</option>';
+		$selected = ($s['id'] == $bu_server)?'SELECTED':'';
+		$serveropts .= '<option value='.$s['id'].' '.$selected.'>'.$s['name'].'</option>';
 	}
 }
 ?>
@@ -257,7 +257,7 @@ foreach ($servers as $s) {
 </div>
 <!--END Backup Server-->
 <!--Restore Here-->
-<div class="element-container remote restore">
+<div class="element-container remote">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="row">

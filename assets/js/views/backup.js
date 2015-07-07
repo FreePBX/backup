@@ -1,9 +1,31 @@
+function remote() {
+	if ($('#bu_server').val() == 0) {
+		$('#restore').removeAttr("checked");
+		$('.remote').hide()
+	} else {
+		$('.remote').show();
+		restore();
+	}
+};
+function restore() {
+	if ($('#restoreyes').is(':checked')) {
+			$('.restore').show();
+		} else {
+			$('.restore').hide();
+		}
+}
 $(document).ready(function(){
-	//remote
-	remote();
-	$('select[name=bu_server]').change(remote);
+
+	//have to insert a delay otherwise it runs too soon.
+	setTimeout(remote,1000);
+	setTimeout(remote,1000);
+	//setTimeout(restore,1000);
+	$('#bu_server').on('change',function(){
+		remote();
+	});
+
 	restore();
-	$('input[type=checkbox][name=restore]').change(restore);
+	$('input[id^="restore"').change(restore);
 	//cron_custom
 	cron_custom();
 	$('select[name=cron_schedule]').change(cron_custom);
@@ -73,23 +95,6 @@ $(document).ready(function(){
 	});
 });
 
-function remote() {
-	if ($('select[name=bu_server]').val() == 0) {
-		$('#restore').removeAttr("checked");
-		$('.remote').hide()
-	} else {
-		$('.remote').show()
-		restore();
-	}
-}
-
-function restore() {
-	if ($('input[type=checkbox][name=restore]').is(':checked')) {
-			$('.restore').show();
-		} else {
-			$('.restore').hide();
-		}
-}
 
 function cron_custom() {
 	if ($('select[name=cron_schedule]').val() == 'custom') {

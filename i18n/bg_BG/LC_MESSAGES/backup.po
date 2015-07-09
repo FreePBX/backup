@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-26 10:36+1000\n"
+"POT-Creation-Date: 2015-07-09 12:40-0400\n"
 "PO-Revision-Date: 2014-07-25 21:32+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/backup/bg/"
@@ -115,10 +115,6 @@ msgstr ""
 msgid "Adding items..."
 msgstr ""
 
-#: backup.i18n.php:6 backup.i18n.php:12
-msgid "Admin"
-msgstr "Админ"
-
 #: views/backup/backup.php:308
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
@@ -187,26 +183,6 @@ msgstr ""
 msgid "Backup"
 msgstr ""
 
-#: backup.i18n.php:4 backup.i18n.php:10
-msgid "Backup & Restore"
-msgstr "Архивирай & Възстанови"
-
-#: backup.i18n.php:18
-msgid "Backup & Restore - Restore"
-msgstr ""
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Servers"
-msgstr ""
-
-#: backup.i18n.php:16
-msgid "Backup & Restore - Templates"
-msgstr ""
-
-#: backup.i18n.php:8
-msgid "Backup & Restore for your FreePBX environment"
-msgstr "Архивирай & Възстанови за вашата FreePBX система"
-
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
 msgstr ""
@@ -229,10 +205,6 @@ msgstr ""
 
 #: functions.inc.php:70
 msgid "Backup Log:"
-msgstr ""
-
-#: backup.i18n.php:22
-msgid "Backup Module"
 msgstr ""
 
 #: views/backup/backup.php:17 views/backup/backups.php:97
@@ -514,10 +486,6 @@ msgid ""
 msgstr ""
 "ГРЕШКА: неуспех при преместване на старата таблица \"Backup\" в нова таблица "
 "\"backup\""
-
-#: backup.i18n.php:20
-msgid "Email "
-msgstr ""
 
 #: views/servers/email.php:64
 msgid "Email Address"
@@ -1439,10 +1407,6 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: backup.i18n.php:24
-msgid "The From: field for emails when using the backup email feature."
-msgstr ""
-
 #: views/servers/email.php:114
 msgid ""
 "The maximum size a backup can be and still be emailed. Some email servers "
@@ -1707,6 +1671,15 @@ msgstr ""
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr ""
+
+#~ msgid "Admin"
+#~ msgstr "Админ"
+
+#~ msgid "Backup & Restore"
+#~ msgstr "Архивирай & Възстанови"
+
+#~ msgid "Backup & Restore for your FreePBX environment"
+#~ msgstr "Архивирай & Възстанови за вашата FreePBX система"
 
 #~ msgid " DOES NOT BACKUP VOICEMAIL"
 #~ msgstr " НЕ АРХИВИРА ГЛАСОВА ПОЩА"

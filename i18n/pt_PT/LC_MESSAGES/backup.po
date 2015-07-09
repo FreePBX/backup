@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-26 10:36+1000\n"
+"POT-Creation-Date: 2015-07-09 12:40-0400\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -104,10 +104,6 @@ msgstr ""
 msgid "Adding items..."
 msgstr "Adicionando Itens..."
 
-#: backup.i18n.php:6 backup.i18n.php:12
-msgid "Admin"
-msgstr "Admin"
-
 #: views/backup/backup.php:308
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
@@ -178,26 +174,6 @@ msgstr "REGISTO DE BACKUP ANEXO"
 msgid "Backup"
 msgstr "Cópia de Segurança"
 
-#: backup.i18n.php:4 backup.i18n.php:10
-msgid "Backup & Restore"
-msgstr "Cópia de Segurança & Restauro"
-
-#: backup.i18n.php:18
-msgid "Backup & Restore - Restore"
-msgstr "Cópia de Segurança & Restauro - Restauro"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Servers"
-msgstr "Cópia de Segurança & Restauro - Servidores"
-
-#: backup.i18n.php:16
-msgid "Backup & Restore - Templates"
-msgstr "Cópia de Segurança & Restauro - Modelos"
-
-#: backup.i18n.php:8
-msgid "Backup & Restore for your FreePBX environment"
-msgstr ""
-
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
 msgstr ""
@@ -221,10 +197,6 @@ msgstr "Bloqueio de Cópia de Segurança adquirido!"
 #: functions.inc.php:70
 msgid "Backup Log:"
 msgstr "Log de Cópia de Segurança:"
-
-#: backup.i18n.php:22
-msgid "Backup Module"
-msgstr "Módulo de Cópia de Segurança"
 
 #: views/backup/backup.php:17 views/backup/backups.php:97
 msgid "Backup Name"
@@ -514,10 +486,6 @@ msgid ""
 msgstr ""
 "ERRO: Falha ao migra da tabela \"Backup\" antiga para a nova tabela \"backup"
 "\""
-
-#: backup.i18n.php:20
-msgid "Email "
-msgstr "Email "
 
 #: views/servers/email.php:64
 msgid "Email Address"
@@ -1451,12 +1419,6 @@ msgstr "Nome do Modelo"
 msgid "Templates"
 msgstr "Modelos"
 
-#: backup.i18n.php:24
-msgid "The From: field for emails when using the backup email feature."
-msgstr ""
-"O campo De: para os emails ao usar a funcionalidade email de cópia de "
-"segurança."
-
 #: views/servers/email.php:114
 msgid ""
 "The maximum size a backup can be and still be emailed. Some email servers "
@@ -1724,6 +1686,32 @@ msgstr "aguardando bloqueio..."
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "{nenhum servidor disponível}"
+
+#~ msgid "Admin"
+#~ msgstr "Admin"
+
+#~ msgid "Backup & Restore"
+#~ msgstr "Cópia de Segurança & Restauro"
+
+#~ msgid "Backup & Restore - Restore"
+#~ msgstr "Cópia de Segurança & Restauro - Restauro"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Cópia de Segurança & Restauro - Servidores"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Cópia de Segurança & Restauro - Modelos"
+
+#~ msgid "Backup Module"
+#~ msgstr "Módulo de Cópia de Segurança"
+
+#~ msgid "Email "
+#~ msgstr "Email "
+
+#~ msgid "The From: field for emails when using the backup email feature."
+#~ msgstr ""
+#~ "O campo De: para os emails ao usar a funcionalidade email de cópia de "
+#~ "segurança."
 
 #~ msgid " runs"
 #~ msgstr " executa"

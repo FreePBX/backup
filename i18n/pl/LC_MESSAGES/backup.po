@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-26 10:36+1000\n"
+"POT-Creation-Date: 2015-07-09 12:40-0400\n"
 "PO-Revision-Date: 2011-09-23 09:52+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -96,10 +96,6 @@ msgstr ""
 msgid "Adding items..."
 msgstr ""
 
-#: backup.i18n.php:6 backup.i18n.php:12
-msgid "Admin"
-msgstr ""
-
 #: views/backup/backup.php:308
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
@@ -168,26 +164,6 @@ msgstr ""
 msgid "Backup"
 msgstr ""
 
-#: backup.i18n.php:4 backup.i18n.php:10
-msgid "Backup & Restore"
-msgstr ""
-
-#: backup.i18n.php:18
-msgid "Backup & Restore - Restore"
-msgstr ""
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Servers"
-msgstr ""
-
-#: backup.i18n.php:16
-msgid "Backup & Restore - Templates"
-msgstr ""
-
-#: backup.i18n.php:8
-msgid "Backup & Restore for your FreePBX environment"
-msgstr ""
-
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
 msgstr ""
@@ -210,10 +186,6 @@ msgstr ""
 
 #: functions.inc.php:70
 msgid "Backup Log:"
-msgstr ""
-
-#: backup.i18n.php:22
-msgid "Backup Module"
 msgstr ""
 
 #: views/backup/backup.php:17 views/backup/backups.php:97
@@ -490,10 +462,6 @@ msgstr ""
 #: install.php:87
 msgid ""
 "ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
-msgstr ""
-
-#: backup.i18n.php:20
-msgid "Email "
 msgstr ""
 
 #: views/servers/email.php:64
@@ -1414,10 +1382,6 @@ msgstr ""
 #: page.backup_templates.php:56 views/backup/backup.php:102
 #: views/restore/backup_list.php:48 views/rnav/main.php:6
 msgid "Templates"
-msgstr ""
-
-#: backup.i18n.php:24
-msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 
 #: views/servers/email.php:114

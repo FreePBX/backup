@@ -44,7 +44,8 @@ class Backup implements \BMO {
 					$server = array();
 					$backup = array();
 					$create_server = false;
-					extract($_REQUEST);
+					$backup['bu_server'] = '0';
+					extract($_REQUEST, EXTR_SKIP);
 					foreach ($current_servers as $key => $value) {
 						if ($value['name'] == 'Local Storage' && $value['type'] == 'local' && $value['immortal'] == 'true') {
 							$backup['storage_servers'][] = $value['id'];
@@ -84,7 +85,7 @@ class Backup implements \BMO {
 
 					//Create Backup Job
 					$backup['name'] = $wizname;
-					$backup['description'] = $wizdesc;
+					$backup['desc'] = $wizdesc;
 					if ($wiznotif == 'yes' && !empty($wizemail)) {
 						$backup['email'] = $wizemail;
 					} else {

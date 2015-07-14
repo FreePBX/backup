@@ -26,7 +26,7 @@ $get_vars = array(
 				'awssecret'		=> '',
 				'type'			=> ''
 				);
-
+isset($_REQUEST['bucket'])?$_REQUEST['name'] = $_REQUEST['bucket']:'';
 foreach ($get_vars as $k => $v) {
 	$var[$k] = isset($_REQUEST[$k]) ? $_REQUEST[$k] : $v;
 }

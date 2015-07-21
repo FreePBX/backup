@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-09 12:40-0400\n"
+"POT-Creation-Date: 2015-07-20 21:05-0400\n"
 "PO-Revision-Date: 2015-05-03 15:58+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -184,7 +184,7 @@ msgstr ""
 msgid "BACKUP LOG ATTACHED"
 msgstr "Журнал копирования приложен"
 
-#: Backup.class.php:306 functions.inc/backup.php:79
+#: Backup.class.php:307 functions.inc/backup.php:79
 #: functions.inc/class.backup.php:368 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Бекап"
@@ -402,7 +402,7 @@ msgstr ""
 msgid "Default backup; automatically installed"
 msgstr "Резервное копирование по умолчанию: устанавливается автоматически"
 
-#: Backup.class.php:38 Backup.class.php:192 page.backup.php:45
+#: Backup.class.php:38 Backup.class.php:193 page.backup.php:45
 #: page.backup_servers.php:35 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
@@ -1139,7 +1139,7 @@ msgstr ""
 msgid "Replacing ampbackup.pl in db.."
 msgstr "Заменяем ampbackup.pl в БД.."
 
-#: Backup.class.php:177
+#: Backup.class.php:178
 msgid "Reset"
 msgstr ""
 
@@ -1295,11 +1295,11 @@ msgstr ""
 msgid "Saturday"
 msgstr "Суббота"
 
-#: Backup.class.php:182
+#: Backup.class.php:183
 msgid "Save"
 msgstr ""
 
-#: Backup.class.php:187
+#: Backup.class.php:188
 msgid "Save and Run"
 msgstr ""
 
@@ -1562,7 +1562,7 @@ msgstr ""
 msgid "Which minutes to run"
 msgstr ""
 
-#: Backup.class.php:66
+#: Backup.class.php:67
 msgid "Wizard"
 msgstr ""
 

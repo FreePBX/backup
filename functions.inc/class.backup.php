@@ -414,11 +414,11 @@ class Backup {
 					$s['bucket'] 		= backup__($s['bucket']);
 					$s['awsaccesskey'] 	= backup__($s['awsaccesskey']);
 					$s['awssecret'] 	= backup__($s['awssecret']);
-					$awss3 = new S3($s['awsaccesskey'], $s['awssecret']);
+					$awss3 = new \S3($s['awsaccesskey'], $s['awssecret']);
 
-						$awss3->putBucket($s['bucket'], S3::ACL_PUBLIC_READ);
+						$awss3->putBucket($s['bucket'], \S3::ACL_PUBLIC_READ);
 						//copy file
-						if ($awss3->putObjectFile($this->b['_tmpfile'], $s['bucket'], $this->b['_file'] . '.tgz', S3::ACL_PUBLIC_READ)) {
+						if ($awss3->putObjectFile($this->b['_tmpfile'], $s['bucket'], $this->b['_file'] . '.tgz', \S3::ACL_PUBLIC_READ)) {
 						   dbug('S3 successfully uploaded your backup file.');
 						} else {
 					           dbug('S3 failed to accept your backup file');
@@ -554,8 +554,8 @@ class Backup {
 					}
 				}
 				continue;
-			} 
-			
+			}
+
 			// Also exclude random .lock files left around.
 			if ($file == '.lock') {
 				unset($ret['file_list'][$key]);
@@ -709,7 +709,7 @@ class Backup {
 	 * getDirContents - Return a hash of files and directories underneath $dir
 	 *
 	 * This also provides a 'followsymlinks' param, which treat the original symlink
-	 * as a file. Any further symlinks will NOT be followed. 
+	 * as a file. Any further symlinks will NOT be followed.
 	 *
 	 * @param $dir string - Directory to iterate through
 	 * @param $followsymlink bool - Continue if the first directory provided is a symlink

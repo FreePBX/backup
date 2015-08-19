@@ -352,7 +352,7 @@ class Backup {
 
 					//TODO: set agent to something informative, including fpbx & backup versions
 					$email_options = array('useragent' => 'freepbx', 'protocol' => 'mail');
-					$email = new CI_Email();
+					$email = new \CI_Email();
 					$from = $this->amp_conf['AMPBACKUPEMAILFROM']
 							? $this->amp_conf['AMPBACKUPEMAILFROM']
 							: 'freepbx@freepbx.org';

@@ -107,13 +107,13 @@ $(document).ready(function(){
 			if (event.data == 'END') {
 				eventSource.close();
 				$('.backup_status').next('progress').val('1');
-				//setTimeout('box.dialog("close").dialog("destroy").remove();', 5000);
 			} else {
 				backup_log($('.backup_status'), event.data + '<br>');
 			}
 		}, false);
-		eventSource.addEventListener('onerror', function (event) {
-		    console.log('e', event.data);
+		eventSource.addEventListener('error', function (event) {
+				eventSource.close();
+				$('.backup_status').next('progress').val('1');
 		}, false);
 		return false;
 	});

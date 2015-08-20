@@ -1,25 +1,24 @@
 function backup_log(div, msg) {
-	//get background color from appropriate jquery ui class
-	var bcolor = div.parent().parent().css('backgroundColor');
-	
-	//build span
-	var span = $('<span></span>')
-			.html(msg)
-			.css('backgroundColor', '#fff2a8');
-	
-	//append to div
+	// The span for this log entry
+	var span = $('<span></span>').html(msg).addClass('newlogrow');
+
+	var curpos=div.scrollTop();
+	var bottom = div.prop("scrollHeight");
+
+	var shouldscroll = false;
+
+	// If we're not near the bottom, don't scroll
+	if ((bottom-250)-curpos < 20) {
+		shouldscroll = true;
+	}
+	// Now we can add it to the div
 	div.append(span);
 
-	//scroll down and show new span; and remove highlighting
-	div.animate({scrollTop: div.prop("scrollHeight")}, 
-		500,
-		function(){
-			span.animate({backgroundColor: bcolor},
-			1500,
-			function() {
-				span.css('background-color', '')
-			}
-			)
-		});
-
+	if (shouldscroll) {
+		// Scroll..
+		div.scrollTop(div.prop("scrollHeight"));
+	}
 }
+
+
+

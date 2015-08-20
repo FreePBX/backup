@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-25 15:49+1000\n"
+"POT-Creation-Date: 2015-08-20 21:55+1000\n"
 "PO-Revision-Date: 2015-02-19 14:59+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -368,7 +368,7 @@ msgstr "ディレクトリ"
 msgid "Disable Registered Trunks"
 msgstr "登録されたトランクを無効にする"
 
-#: bin/restore.php:431
+#: bin/restore.php:433
 msgid "Done!"
 msgstr "完了"
 

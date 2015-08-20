@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-25 15:49+1000\n"
+"POT-Creation-Date: 2015-08-20 21:55+1000\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -340,7 +340,7 @@ msgstr "Diretório"
 msgid "Disable Registered Trunks"
 msgstr "Desativar Trunks Registados"
 
-#: bin/restore.php:431
+#: bin/restore.php:433
 msgid "Done!"
 msgstr "Terminado!"
 

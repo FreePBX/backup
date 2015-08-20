@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-25 15:49+1000\n"
+"POT-Creation-Date: 2015-08-20 21:55+1000\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -346,7 +346,7 @@ msgstr "Map"
 msgid "Disable Registered Trunks"
 msgstr "Schakel geregistreerde Trunks uit"
 
-#: bin/restore.php:431
+#: bin/restore.php:433
 msgid "Done!"
 msgstr "Klaar!"
 

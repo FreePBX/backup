@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-25 15:49+1000\n"
+"POT-Creation-Date: 2015-08-20 21:55+1000\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
 "Language-Team: Français <LL@li.org>\n"
@@ -333,7 +333,7 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr ""
 
-#: bin/restore.php:431
+#: bin/restore.php:433
 msgid "Done!"
 msgstr ""
 

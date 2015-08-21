@@ -418,13 +418,15 @@ if (!isset($vars['restore'])) {
 	backup_log(_('Reloading...'));
 	do_reload();
 	// Trigger sysadmin to reload/regen any settings if available
-	if (is_dir("/var/spool/asterisk/sysadmin")) {
-		$triggers = array('dns', 'email_setup', 'ftp_setup', 'intrusion_detection', 'mdadm', 'portmgmt_setup', 'tz', 'ups_setup');
+	if (is_dir("/var/spool/asterisk/incron")) {
+		$triggers = array('update-dns', 'config-postfix', 'update-ftp', 'fail2ban-generate', 'update-mdadm', 'update-ports', 'update-timezone', 'update-ups');
 		foreach ($triggers as $f) {
-			$fh = @fopen("/var/spool/asterisk/sysadmin/$f", "w");
-			@fclose($fh);
-			// Reset perms
-			@chmod("/var/spool/asterisk/sysadmin/$f", 0666);
+			$filename = "/var/spool/asterisk/incron/sysadmin.$f";
+			if (file_exists($filename)) {
+				// Odd...
+				@unlink($filename);
+			}
+			@fclose(@fopen($filename, "w"));
 		}
 	}
 

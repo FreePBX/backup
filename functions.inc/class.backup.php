@@ -406,26 +406,28 @@ class Backup {
 					}
 					break;
 				case 'awss3':
-					//dont run if the file is too over 2GB
-                                        if (filesize($this->b['_tmpfile']) > 2147483648) {
-                                                continue;
-                                        }
 					//subsitute variables if nesesary
 					$s['bucket'] 		= backup__($s['bucket']);
 					$s['awsaccesskey'] 	= backup__($s['awsaccesskey']);
 					$s['awssecret'] 	= backup__($s['awssecret']);
 					$awss3 = new \S3($s['awsaccesskey'], $s['awssecret']);
 
+					// Does this bucket already exist?
+					$buckets = $awss3->listBuckets();
+					if (!in_array($s['bucket'], $buckets)) {
+						// Create the bucket
 						$awss3->putBucket($s['bucket'], \S3::ACL_PUBLIC_READ);
-						//copy file
-						if ($awss3->putObjectFile($this->b['_tmpfile'], $s['bucket'], $this->b['_file'] . '.tgz', \S3::ACL_PUBLIC_READ)) {
-						   dbug('S3 successfully uploaded your backup file.');
-						} else {
-					           dbug('S3 failed to accept your backup file');
-						}
+					}
 
-						//run maintenance on the directory
-						$this->maintenance($s['type'], $s, $awss3);
+					//copy file
+					if ($awss3->putObjectFile($this->b['_tmpfile'], $s['bucket'], $this->b['_file'] . '.tgz', \S3::ACL_PUBLIC_READ)) {
+						dbug('S3 successfully uploaded your backup file.');
+					} else {
+						dbug('S3 failed to accept your backup file');
+					}
+
+					//run maintenance on the directory
+					$this->maintenance($s['type'], $s, $awss3);
 
 					break;
 				case 'ssh':

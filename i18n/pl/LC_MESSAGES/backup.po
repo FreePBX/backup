@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-26 18:47-0700\n"
+"POT-Creation-Date: 2015-08-26 20:15-0700\n"
 "PO-Revision-Date: 2011-09-23 09:52+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -58,24 +58,16 @@ msgstr ""
 msgid "AT"
 msgstr ""
 
-#: views/servers/awss3.php:64
+#: views/servers/awss3.php:41
 msgid "AWS Access Key"
-msgstr ""
-
-#: views/servers/awss3.php:79
-msgid "AWS Access Key (username)"
 msgstr ""
 
 #: functions.inc/servers.php:333
 msgid "AWS S3 Server "
 msgstr ""
 
-#: views/servers/awss3.php:91
+#: views/servers/awss3.php:58
 msgid "AWS Secret"
-msgstr ""
-
-#: views/servers/awss3.php:106
-msgid "AWS Secret (password)"
 msgstr ""
 
 #: views/backup/backups.php:11 views/servers/servers.php:22
@@ -258,12 +250,8 @@ msgstr ""
 msgid "Browse"
 msgstr ""
 
-#: views/servers/awss3.php:16
+#: views/servers/awss3.php:14
 msgid "Bucket Name"
-msgstr ""
-
-#: views/servers/awss3.php:28
-msgid "Bucket or Path in Amazon S3 to store backups"
 msgstr ""
 
 #: bin/backup.php:58
@@ -402,7 +390,7 @@ msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr ""
 
 #: views/backup/backup.php:41 views/backup/backups.php:10
-#: views/servers/awss3.php:40 views/servers/email.php:40
+#: views/servers/awss3.php:27 views/servers/email.php:40
 #: views/servers/ftp.php:38 views/servers/local.php:40
 #: views/servers/mysql.php:40 views/servers/servers.php:20
 #: views/servers/ssh.php:40 views/templates/template.php:36
@@ -414,8 +402,7 @@ msgstr ""
 msgid "Description or notes for this backup"
 msgstr ""
 
-#: views/servers/awss3.php:52 views/servers/email.php:52
-#: views/servers/mysql.php:52
+#: views/servers/email.php:52 views/servers/mysql.php:52
 msgid "Description or notes for this server"
 msgstr ""
 
@@ -1494,7 +1481,7 @@ msgstr ""
 msgid "What should we backup?"
 msgstr ""
 
-#: views/servers/awss3.php:70 views/servers/awss3.php:97
+#: views/servers/awss3.php:46 views/servers/awss3.php:63
 msgid "What's this?"
 msgstr ""
 

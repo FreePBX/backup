@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-20 21:05-0400\n"
+"POT-Creation-Date: 2015-08-26 18:47-0700\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -62,8 +62,7 @@ msgstr "Um script a executar ANTES da recuperação de uma cópia de segurança.
 msgid "A script to be run BEFORE a backup is started."
 msgstr "Um script a executar ANTES de iniciada a cópia de segurança."
 
-#: views/backup/backups.php:154 assets/js/backup.js:190
-#: assets/js/backup.js:202
+#: views/backup/backups.php:154 assets/js/backup.js:93 assets/js/backup.js:105
 msgid "AT"
 msgstr ""
 
@@ -355,7 +354,7 @@ msgstr "Nome da BD"
 msgid "Daily"
 msgstr "Diário"
 
-#: assets/js/backup.js:196
+#: assets/js/backup.js:99
 msgid "Day each month"
 msgstr ""
 
@@ -451,7 +450,7 @@ msgstr "Diretório"
 msgid "Disable Registered Trunks"
 msgstr "Desativar Trunks Registados"
 
-#: bin/restore.php:431
+#: bin/restore.php:433
 msgid "Done!"
 msgstr "Terminado!"
 
@@ -507,7 +506,7 @@ msgstr "Servidor de Email "
 msgid "Email address where backups should be emailed to"
 msgstr "Endereço email para onde deverão ser enviadas as cópias de segurança"
 
-#: assets/js/backup.js:111
+#: assets/js/backup.js:14
 msgid "Email notifications are set to Yes but no email provided"
 msgstr ""
 
@@ -645,7 +644,7 @@ msgstr "Ficheiros"
 msgid "FreePBX"
 msgstr ""
 
-#: views/cron.php:32 assets/js/backup.js:180
+#: views/cron.php:32 assets/js/backup.js:83
 msgid "Friday"
 msgstr "Sexta-feira"
 
@@ -747,7 +746,7 @@ msgstr "Iniciando Restauro..."
 msgid "Introduction"
 msgstr ""
 
-#: assets/js/backup.js:105
+#: assets/js/backup.js:8
 msgid "Invalid Backup Name"
 msgstr ""
 
@@ -848,7 +847,7 @@ msgstr "Migrando tabela backup..."
 msgid "Minutes"
 msgstr "Minutos"
 
-#: views/cron.php:28 assets/js/backup.js:180
+#: views/cron.php:28 assets/js/backup.js:83
 msgid "Monday"
 msgstr "Segunda-feira"
 
@@ -968,7 +967,7 @@ msgstr ""
 msgid "November"
 msgstr "Novembro"
 
-#: assets/js/backup.js:191
+#: assets/js/backup.js:94
 msgid "ON"
 msgstr ""
 
@@ -980,7 +979,7 @@ msgstr "Outubro"
 msgid "Old Backup table removed"
 msgstr "Tabela Backup antiga removida"
 
-#: assets/js/backup.js:198
+#: assets/js/backup.js:101
 msgid "On the"
 msgstr ""
 
@@ -1028,7 +1027,7 @@ msgstr ""
 msgid "Path/DB"
 msgstr "Caminho/BD"
 
-#: assets/js/backup.js:5
+#: assets/js/backup.js:146
 msgid "Please wait"
 msgstr ""
 
@@ -1283,7 +1282,7 @@ msgstr "Servidor SSH "
 msgid "SSH Username"
 msgstr ""
 
-#: views/cron.php:33 assets/js/backup.js:180
+#: views/cron.php:33 assets/js/backup.js:83
 msgid "Saturday"
 msgstr "Sábado"
 
@@ -1334,7 +1333,7 @@ msgstr ""
 msgid "Server Name"
 msgstr "Nome do Servidor"
 
-#: assets/js/backup.js:121
+#: assets/js/backup.js:24
 msgid "Server Name can not be blank"
 msgstr ""
 
@@ -1350,7 +1349,7 @@ msgstr ""
 msgid "Server Username"
 msgstr ""
 
-#: assets/js/backup.js:125
+#: assets/js/backup.js:28
 msgid "Server address can not be blank"
 msgstr ""
 
@@ -1402,7 +1401,7 @@ msgstr "Armazenando a cópia de segurança..."
 msgid "Successfully migrated backup table!"
 msgstr "Tabela backup migrada com sucesso!"
 
-#: views/cron.php:27 assets/js/backup.js:180
+#: views/cron.php:27 assets/js/backup.js:83
 msgid "Sunday"
 msgstr "Domingo"
 
@@ -1449,7 +1448,7 @@ msgstr "Este servidor"
 msgid "This wizard can be used to add a basic backup task for your %s system"
 msgstr ""
 
-#: views/cron.php:31 assets/js/backup.js:180
+#: views/cron.php:31 assets/js/backup.js:83
 msgid "Thursday"
 msgstr "Quinta-feira"
 
@@ -1461,7 +1460,7 @@ msgstr "Modo de Transferencia"
 msgid "Transfer Type"
 msgstr ""
 
-#: views/cron.php:29 assets/js/backup.js:180
+#: views/cron.php:29 assets/js/backup.js:83
 msgid "Tuesday"
 msgstr "Terça-feira"
 
@@ -1507,7 +1506,7 @@ msgstr "AVISO: falha ao criar diretório de cópia de segurança: %s"
 msgid "Web Root restore not detected, not restoring module table"
 msgstr "Restauro Web Root não detetado, não restaurando tabela de módulos"
 
-#: views/cron.php:30 assets/js/backup.js:180
+#: views/cron.php:30 assets/js/backup.js:83
 msgid "Wednesday"
 msgstr "Quarta-feira"
 

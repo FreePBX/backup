@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-20 21:05-0400\n"
+"POT-Creation-Date: 2015-08-26 18:47-0700\n"
 "PO-Revision-Date: 2015-02-19 14:59+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -90,8 +90,7 @@ msgstr "バックアップから復元する前に実行されるスクリプト
 msgid "A script to be run BEFORE a backup is started."
 msgstr "バックアップを開始する前に実行するスクリプト。"
 
-#: views/backup/backups.php:154 assets/js/backup.js:190
-#: assets/js/backup.js:202
+#: views/backup/backups.php:154 assets/js/backup.js:93 assets/js/backup.js:105
 msgid "AT"
 msgstr ""
 
@@ -385,7 +384,7 @@ msgstr "データベース名"
 msgid "Daily"
 msgstr "毎日"
 
-#: assets/js/backup.js:196
+#: assets/js/backup.js:99
 msgid "Day each month"
 msgstr ""
 
@@ -479,7 +478,7 @@ msgstr "ディレクトリ"
 msgid "Disable Registered Trunks"
 msgstr "登録されたトランクを無効にする"
 
-#: bin/restore.php:431
+#: bin/restore.php:433
 msgid "Done!"
 msgstr "完了"
 
@@ -537,7 +536,7 @@ msgstr "Eメールサーバー "
 msgid "Email address where backups should be emailed to"
 msgstr "バックアップを送信するEメールアドレス。"
 
-#: assets/js/backup.js:111
+#: assets/js/backup.js:14
 msgid "Email notifications are set to Yes but no email provided"
 msgstr ""
 
@@ -676,7 +675,7 @@ msgstr "ファイル"
 msgid "FreePBX"
 msgstr ""
 
-#: views/cron.php:32 assets/js/backup.js:180
+#: views/cron.php:32 assets/js/backup.js:83
 msgid "Friday"
 msgstr "金曜日"
 
@@ -776,7 +775,7 @@ msgstr "復元を初期化しています..."
 msgid "Introduction"
 msgstr ""
 
-#: assets/js/backup.js:105
+#: assets/js/backup.js:8
 msgid "Invalid Backup Name"
 msgstr ""
 
@@ -877,7 +876,7 @@ msgstr "backupテーブルを移行中..."
 msgid "Minutes"
 msgstr "分"
 
-#: views/cron.php:28 assets/js/backup.js:180
+#: views/cron.php:28 assets/js/backup.js:83
 msgid "Monday"
 msgstr "月曜日"
 
@@ -997,7 +996,7 @@ msgstr ""
 msgid "November"
 msgstr "11月"
 
-#: assets/js/backup.js:191
+#: assets/js/backup.js:94
 msgid "ON"
 msgstr ""
 
@@ -1009,7 +1008,7 @@ msgstr "10月"
 msgid "Old Backup table removed"
 msgstr "古いBackupテーブルを削除しました。"
 
-#: assets/js/backup.js:198
+#: assets/js/backup.js:101
 msgid "On the"
 msgstr ""
 
@@ -1056,7 +1055,7 @@ msgstr ""
 msgid "Path/DB"
 msgstr "パス/データベース"
 
-#: assets/js/backup.js:5
+#: assets/js/backup.js:146
 msgid "Please wait"
 msgstr ""
 
@@ -1311,7 +1310,7 @@ msgstr "SSHサーバー "
 msgid "SSH Username"
 msgstr ""
 
-#: views/cron.php:33 assets/js/backup.js:180
+#: views/cron.php:33 assets/js/backup.js:83
 msgid "Saturday"
 msgstr "土曜日"
 
@@ -1362,7 +1361,7 @@ msgstr ""
 msgid "Server Name"
 msgstr "サーバー名"
 
-#: assets/js/backup.js:121
+#: assets/js/backup.js:24
 msgid "Server Name can not be blank"
 msgstr ""
 
@@ -1378,7 +1377,7 @@ msgstr ""
 msgid "Server Username"
 msgstr ""
 
-#: assets/js/backup.js:125
+#: assets/js/backup.js:28
 msgid "Server address can not be blank"
 msgstr ""
 
@@ -1430,7 +1429,7 @@ msgstr "バックアップを保存中…"
 msgid "Successfully migrated backup table!"
 msgstr "バックアップテーブルを正常に移行しました。"
 
-#: views/cron.php:27 assets/js/backup.js:180
+#: views/cron.php:27 assets/js/backup.js:83
 msgid "Sunday"
 msgstr "日曜日"
 
@@ -1481,7 +1480,7 @@ msgstr "このサーバー"
 msgid "This wizard can be used to add a basic backup task for your %s system"
 msgstr ""
 
-#: views/cron.php:31 assets/js/backup.js:180
+#: views/cron.php:31 assets/js/backup.js:83
 msgid "Thursday"
 msgstr "木曜日"
 
@@ -1493,7 +1492,7 @@ msgstr "転送モード"
 msgid "Transfer Type"
 msgstr ""
 
-#: views/cron.php:29 assets/js/backup.js:180
+#: views/cron.php:29 assets/js/backup.js:83
 msgid "Tuesday"
 msgstr "火曜日"
 
@@ -1540,7 +1539,7 @@ msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
 "ウェブルートの復元は検知できないため、モジュールのテーブルは復元しません"
 
-#: views/cron.php:30 assets/js/backup.js:180
+#: views/cron.php:30 assets/js/backup.js:83
 msgid "Wednesday"
 msgstr "水曜日"
 

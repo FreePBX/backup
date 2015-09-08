@@ -108,7 +108,7 @@ if (!isset($id)) {
 						echo'<li data-template="' . rawurlencode(json_encode($t['items'])) . '"'
 										. ' title="' . $t['desc'] . '"'
 										.'>'
-										. '<a href="#">'
+										. '<a>'
 										. '<i class="fa fa-arrows"></i>'
 										. $t['name']
 										. '</a>'

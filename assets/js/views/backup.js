@@ -18,14 +18,13 @@ $(document).ready(function(){
 
 	//have to insert a delay otherwise it runs too soon.
 	setTimeout(remote,1000);
-	setTimeout(remote,1000);
 	//setTimeout(restore,1000);
 	$('#bu_server').on('change',function(){
 		remote();
 	});
 
 	restore();
-	$('input[id^="restore"').change(restore);
+	$('input[id^="restore"]').change(restore);
 	//cron_custom
 	cron_custom();
 	$('select[name=cron_schedule]').change(cron_custom);

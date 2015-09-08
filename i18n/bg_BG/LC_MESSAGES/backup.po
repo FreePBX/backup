@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-26 20:15-0700\n"
+"POT-Creation-Date: 2015-09-08 14:36-0700\n"
 "PO-Revision-Date: 2014-07-25 21:32+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/backup/bg/"
@@ -1562,7 +1562,8 @@ msgid "Yes"
 msgstr ""
 
 #: bin/restore.php:260
-msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
+#, php-format
+msgid "You should run \"%s\" to ensure system integrity"
 msgstr ""
 
 #: views/backup/backups.php:312

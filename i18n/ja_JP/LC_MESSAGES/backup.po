@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-26 20:15-0700\n"
+"POT-Creation-Date: 2015-09-08 14:36-0700\n"
 "PO-Revision-Date: 2015-02-19 14:59+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -1607,10 +1607,9 @@ msgid "Yes"
 msgstr ""
 
 #: bin/restore.php:260
-msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
+#, php-format
+msgid "You should run \"%s\" to ensure system integrity"
 msgstr ""
-"システムの整合性を保つために amportal a ma updateall を実行することをおすすめ"
-"します。"
 
 #: views/backup/backups.php:312
 msgid "Your backup will be saved locally to /var/lib/asterisk/backup"
@@ -1701,6 +1700,12 @@ msgstr "ロックを待機中…"
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "{サーバーはありません}"
+
+#~ msgid ""
+#~ "You should run \"amportal a ma updateall\" to ensure system integrity"
+#~ msgstr ""
+#~ "システムの整合性を保つために amportal a ma updateall を実行することをおす"
+#~ "すめします。"
 
 #~ msgid "Admin"
 #~ msgstr "アドミン"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-26 20:15-0700\n"
+"POT-Creation-Date: 2015-09-08 14:36-0700\n"
 "PO-Revision-Date: 2015-02-20 19:00-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -1541,7 +1541,8 @@ msgid "Yes"
 msgstr ""
 
 #: bin/restore.php:260
-msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
+#, php-format
+msgid "You should run \"%s\" to ensure system integrity"
 msgstr ""
 
 #: views/backup/backups.php:312

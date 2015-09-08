@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-26 20:15-0700\n"
+"POT-Creation-Date: 2015-09-08 14:36-0700\n"
 "PO-Revision-Date: 2015-04-18 01:09+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -1590,10 +1590,9 @@ msgid "Yes"
 msgstr ""
 
 #: bin/restore.php:260
-msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
+#, php-format
+msgid "You should run \"%s\" to ensure system integrity"
 msgstr ""
-"Usted debe correr \"amportal a ma updateall\" para asegurar la integridad "
-"del sistema"
 
 #: views/backup/backups.php:312
 msgid "Your backup will be saved locally to /var/lib/asterisk/backup"
@@ -1686,6 +1685,12 @@ msgstr "esperando por bloqueo..."
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "(no servidores disponibles)"
+
+#~ msgid ""
+#~ "You should run \"amportal a ma updateall\" to ensure system integrity"
+#~ msgstr ""
+#~ "Usted debe correr \"amportal a ma updateall\" para asegurar la integridad "
+#~ "del sistema"
 
 #~ msgid "Admin"
 #~ msgstr "Administrador"

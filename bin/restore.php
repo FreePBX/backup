@@ -257,7 +257,7 @@ if (!isset($vars['restore'])) {
 		if (!$restoringwebroot) {
 			backup_log(_('WARNING!'));
 			backup_log(_('Web Root restore not detected, not restoring module table'));
-			backup_log(_('You should run "amportal a ma updateall" to ensure system integrity'));
+			backup_log(sprintf(_('You should run "%s" to ensure system integrity'),"fwconsole moduleadmin upgradeall"));
 		}
 		if ($manifest['fpbx_db'] != '') {
 			$s = explode('-', $manifest['fpbx_db']);

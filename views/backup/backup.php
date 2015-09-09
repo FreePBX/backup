@@ -482,26 +482,22 @@ foreach ($storage_servers as $s) {
 <!--Delete After-->
 <div class="element-container">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
-					<div class="col-md-3">
-						<label class="control-label" for="delete_ammount"><?php echo _("Delete After") ?></label>
-						<i class="fa fa-question-circle fpbx-help-icon" data-for="delete_ammount"></i>
-					</div>
-					<div class="col-md-9">
-						<div class="input-group">
-							<input type="number" min="0" class="form-control" id="delete_ammount" name="delete_ammount" value="<?php echo isset($delete_ammount)?$delete_ammount:'0'?>">
-							<span class="input-group-addon" id="runs-addon"><?php echo _("Runs")?></span>
-						</div>
-					</div>
+		<div class="form-group">
+			<div class="col-md-3">
+				<label class="control-label" for="delete_amount"><?php echo _("Delete After") ?></label>
+				<i class="fa fa-question-circle fpbx-help-icon" data-for="delete_amount"></i>
+			</div>
+			<div class="col-md-9">
+				<div class="input-group">
+					<input type="number" min="0" class="form-control" id="delete_amount" name="delete_amount" value="<?php echo ($delete_amount)?$delete_amount:'0'; ?>">
+					<span class="input-group-addon" id="runs-addon"><?php echo _("Runs")?></span>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="delete_ammount-help" class="help-block fpbx-help-block"><?php echo _("Delete this backup after X amount of runs. Setting the value to 0 will disable any deleting")?></span>
+			<span id="delete_amount-help" class="help-block fpbx-help-block"><?php echo _("Delete this backup after X amount of runs. Setting the value to 0 will disable any deleting")?></span>
 		</div>
 	</div>
 </div>

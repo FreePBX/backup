@@ -257,22 +257,28 @@ foreach ($servers as $s) {
 </div>
 <!--END Backup Server-->
 <!--Restore Here-->
+
 <div class="element-container remote">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
-					<div class="col-md-3">
-						<label class="control-label" for="restore"><?php echo _("Restore Here") ?></label>
-						<i class="fa fa-question-circle fpbx-help-icon" data-for="restore"></i>
-					</div>
-					<div class="col-md-9 radioset">
-            <input type="radio" name="restore" id="restoreyes" value="true" <?php echo ($restore == "true"?"CHECKED":"") ?>>
-            <label for="restoreyes"><?php echo _("Yes");?></label>
-            <input type="radio" name="restore" id="restoreno" <?php echo ($restore == "true"?"":"CHECKED") ?>>
-            <label for="restoreno"><?php echo _("No");?></label>
-					</div>
-				</div>
+		<div class="form-group">
+			<div class="col-md-3">
+				<label class="control-label" for="restore"><?php echo _("Restore Here") ?></label>
+				<i class="fa fa-question-circle fpbx-help-icon" data-for="restore"></i>
+			</div>
+<?php
+if ($restore == "true" || $restore == "on") {
+	$restyes = "checked";
+	$restno = "";
+} else {
+	$restyes = "";
+	$restno = "checked";
+}
+?>
+			<div class="col-md-9 radioset">
+				<input type="radio" name="restore" id="restoreyes" value="on" <?php echo $restyes; ?>>
+				<label for="restoreyes"><?php echo _("Yes");?></label>
+				<input type="radio" name="restore" id="restoreno" value="off" <?php echo $restno; ?>>
+				<label for="restoreno"><?php echo _("No");?></label>
 			</div>
 		</div>
 	</div>

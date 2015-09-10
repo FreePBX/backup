@@ -99,7 +99,7 @@ if (isset($vars['id']) && $vars['id']) {
 			$cmd[] = addcslashes(str_replace(array("\n", "\t"), '', $escape), '"$');
 			$cmd[] = '"\'';
 			$cmd[] = '> ' . $b->b['_tmpfile'];
-			backup_log(implode(' ', $cmd));
+			// backup_log(implode(' ', $cmd));
 			exec(implode(' ', $cmd), $ret, $status);
 			if ($status !== 0) {
 				backup_log(_('Something went wrong when connecting to remote server. Aborting!'));
@@ -153,7 +153,7 @@ if (isset($vars['id']) && $vars['id']) {
 				backup_log(_('Backup successfully completed!'));
 			}
 		} else {
-			if ($b->b['restore']) {
+			if (isset($b->b['restore']) && ($b->b['restore'] == "on" || $b->b['restore'] == "true")) {
 				if (isset($b->b['manifest']['file_list'])) {
 					foreach ($b->b['manifest']['file_list'] as $dir => $file) {
 						$files[] = $dir;

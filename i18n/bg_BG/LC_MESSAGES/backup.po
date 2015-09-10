@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-08 14:36-0700\n"
+"POT-Creation-Date: 2015-09-09 19:31-0700\n"
 "PO-Revision-Date: 2014-07-25 21:32+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/backup/bg/"
@@ -285,7 +285,7 @@ msgstr ""
 msgid "CDR server, generally a local database server"
 msgstr "CDR сървър, обикновено локален сървър за база данни"
 
-#: views/restore/backup_list.php:40
+#: views/restore/backup_list.php:27
 msgid "CDR's"
 msgstr ""
 
@@ -387,7 +387,7 @@ msgstr "Архив по-подразбиране; автоматично инс�
 msgid "Delete"
 msgstr "Изтрий"
 
-#: views/backup/backup.php:450 views/backup/backup.php:489
+#: views/backup/backup.php:450 views/backup/backup.php:487
 msgid "Delete After"
 msgstr ""
 
@@ -398,7 +398,7 @@ msgid ""
 "backup was run. Setting the value to 0 will disable any deleting"
 msgstr ""
 
-#: views/backup/backup.php:504
+#: views/backup/backup.php:500
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -969,7 +969,7 @@ msgstr ""
 msgid "PATTERNs, one per line"
 msgstr ""
 
-#: views/restore/backup_list.php:33
+#: views/restore/backup_list.php:20
 msgid "PBX Settings"
 msgstr ""
 
@@ -1006,6 +1006,10 @@ msgstr ""
 
 #: assets/js/backup.js:146
 msgid "Please wait"
+msgstr ""
+
+#: views/restore/backup_list.php:14
+msgid "Please wait, loading..."
 msgstr ""
 
 #: views/servers/ftp.php:80 views/servers/mysql.php:88
@@ -1112,12 +1116,12 @@ msgid "Reset"
 msgstr ""
 
 #: page.backup_restore.php:197 views/restore/backup_list.php:3
-#: views/restore/backup_list.php:57 views/restore/browseserver.php:4
+#: views/restore/backup_list.php:35 views/restore/browseserver.php:4
 #: views/restore/restore.php:8 views/rnav/main.php:4
 msgid "Restore"
 msgstr ""
 
-#: views/restore/backup_list.php:40
+#: views/restore/backup_list.php:27
 msgid "Restore CDR records stored in this backup"
 msgstr ""
 
@@ -1125,7 +1129,7 @@ msgstr ""
 msgid "Restore Here"
 msgstr ""
 
-#: views/restore/backup_list.php:33
+#: views/restore/backup_list.php:20
 msgid "Restore all setting stored in the database"
 msgstr ""
 
@@ -1235,7 +1239,7 @@ msgstr ""
 msgid "Running pre-restore scripts..."
 msgstr ""
 
-#: views/backup/backup.php:495
+#: views/backup/backup.php:493
 msgid "Runs"
 msgstr ""
 
@@ -1277,10 +1281,6 @@ msgstr ""
 
 #: views/restore/browseserver.php:12
 msgid "Select a file and click go"
-msgstr ""
-
-#: views/restore/backup_list.php:48
-msgid "Select files and databases to restore:"
 msgstr ""
 
 #: views/cron.php:73
@@ -1389,7 +1389,7 @@ msgid "Template Name"
 msgstr ""
 
 #: page.backup_templates.php:56 views/backup/backup.php:102
-#: views/restore/backup_list.php:48 views/rnav/main.php:6
+#: views/rnav/main.php:6
 msgid "Templates"
 msgstr ""
 
@@ -1610,10 +1610,6 @@ msgid ""
 msgstr ""
 "което ще доведе до загубване на всички Ваши настройки на архивиране като "
 "предишните"
-
-#: views/restore/backup_list.php:44
-msgid "drop here"
-msgstr ""
 
 #: functions.inc/restore.php:17
 msgid "error/not found!"

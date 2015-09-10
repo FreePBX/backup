@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-08 14:36-0700\n"
+"POT-Creation-Date: 2015-09-09 19:31-0700\n"
 "PO-Revision-Date: 2015-02-19 14:59+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -308,7 +308,7 @@ msgstr ""
 msgid "CDR server, generally a local database server"
 msgstr "CDRサーバー。通常はローカル DB サーバー。"
 
-#: views/restore/backup_list.php:40
+#: views/restore/backup_list.php:27
 msgid "CDR's"
 msgstr "CDR"
 
@@ -410,7 +410,7 @@ msgstr "デフォルトバックアップ。自動的にインストールされ
 msgid "Delete"
 msgstr "削除"
 
-#: views/backup/backup.php:450 views/backup/backup.php:489
+#: views/backup/backup.php:450 views/backup/backup.php:487
 msgid "Delete After"
 msgstr ""
 
@@ -424,7 +424,7 @@ msgstr ""
 "単に時間が経過した場合ではなく、新しいバックアップが行われたときに限って削除"
 "されるので、ご注意ください。この数値を0に設定すると、削除を一切しません。"
 
-#: views/backup/backup.php:504
+#: views/backup/backup.php:500
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -1007,7 +1007,7 @@ msgstr ""
 msgid "PATTERNs, one per line"
 msgstr "パターン、各行に1つ"
 
-#: views/restore/backup_list.php:33
+#: views/restore/backup_list.php:20
 msgid "PBX Settings"
 msgstr "PBX設定"
 
@@ -1044,6 +1044,10 @@ msgstr "パス/データベース"
 
 #: assets/js/backup.js:146
 msgid "Please wait"
+msgstr ""
+
+#: views/restore/backup_list.php:14
+msgid "Please wait, loading..."
 msgstr ""
 
 #: views/servers/ftp.php:80 views/servers/mysql.php:88
@@ -1150,12 +1154,12 @@ msgid "Reset"
 msgstr ""
 
 #: page.backup_restore.php:197 views/restore/backup_list.php:3
-#: views/restore/backup_list.php:57 views/restore/browseserver.php:4
+#: views/restore/backup_list.php:35 views/restore/browseserver.php:4
 #: views/restore/restore.php:8 views/rnav/main.php:4
 msgid "Restore"
 msgstr "復元"
 
-#: views/restore/backup_list.php:40
+#: views/restore/backup_list.php:27
 msgid "Restore CDR records stored in this backup"
 msgstr "このバックアップに入っているCDRレコードを復元します。"
 
@@ -1163,7 +1167,7 @@ msgstr "このバックアップに入っているCDRレコードを復元しま
 msgid "Restore Here"
 msgstr "ここに復元する"
 
-#: views/restore/backup_list.php:33
+#: views/restore/backup_list.php:20
 msgid "Restore all setting stored in the database"
 msgstr "データベースに保存されている全ての設定を復元する"
 
@@ -1273,7 +1277,7 @@ msgstr "復元前フックがある場合は実行します..."
 msgid "Running pre-restore scripts..."
 msgstr "復元前スクリプトを実行中..."
 
-#: views/backup/backup.php:495
+#: views/backup/backup.php:493
 msgid "Runs"
 msgstr ""
 
@@ -1316,10 +1320,6 @@ msgstr ""
 #: views/restore/browseserver.php:12
 msgid "Select a file and click go"
 msgstr "ファイルを選択して、「実行」をクリックしてください。"
-
-#: views/restore/backup_list.php:48
-msgid "Select files and databases to restore:"
-msgstr "復元するファイル及びデータベースを選択してください。"
 
 #: views/cron.php:73
 msgid ""
@@ -1429,7 +1429,7 @@ msgid "Template Name"
 msgstr "テンプレート名"
 
 #: page.backup_templates.php:56 views/backup/backup.php:102
-#: views/restore/backup_list.php:48 views/rnav/main.php:6
+#: views/rnav/main.php:6
 msgid "Templates"
 msgstr "テンプレート"
 
@@ -1652,10 +1652,6 @@ msgid ""
 "doing so will result in a loss of all your backup settings though previous"
 msgstr "この操作により、前回のバックアップデータは保存されますが、"
 
-#: views/restore/backup_list.php:44
-msgid "drop here"
-msgstr "ここにドロップ"
-
 #: functions.inc/restore.php:17
 msgid "error/not found!"
 msgstr "エラー：見つかりません！"
@@ -1700,6 +1696,12 @@ msgstr "ロックを待機中…"
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "{サーバーはありません}"
+
+#~ msgid "Select files and databases to restore:"
+#~ msgstr "復元するファイル及びデータベースを選択してください。"
+
+#~ msgid "drop here"
+#~ msgstr "ここにドロップ"
 
 #~ msgid ""
 #~ "You should run \"amportal a ma updateall\" to ensure system integrity"

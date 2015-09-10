@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-08 14:36-0700\n"
+"POT-Creation-Date: 2015-09-09 19:31-0700\n"
 "PO-Revision-Date: 2015-04-18 01:09+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -291,7 +291,7 @@ msgstr ""
 msgid "CDR server, generally a local database server"
 msgstr "Servidor CDR, generalmente un servidor local de base de datos"
 
-#: views/restore/backup_list.php:40
+#: views/restore/backup_list.php:27
 msgid "CDR's"
 msgstr "CDRs"
 
@@ -393,7 +393,7 @@ msgstr "Respaldo por defecto, automáticamente instalado"
 msgid "Delete"
 msgstr "Eliminar"
 
-#: views/backup/backup.php:450 views/backup/backup.php:489
+#: views/backup/backup.php:450 views/backup/backup.php:487
 msgid "Delete After"
 msgstr ""
 
@@ -408,7 +408,7 @@ msgstr ""
 "basadas en tiempo y sólo va a pasar después de que se ejecute una copia de "
 "seguridad. Establecer el valor a 0 desactivará cualquier borrado"
 
-#: views/backup/backup.php:504
+#: views/backup/backup.php:500
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -991,7 +991,7 @@ msgstr ""
 msgid "PATTERNs, one per line"
 msgstr "PATRONes, uno por linea"
 
-#: views/restore/backup_list.php:33
+#: views/restore/backup_list.php:20
 msgid "PBX Settings"
 msgstr "Configuración PBX"
 
@@ -1029,6 +1029,10 @@ msgstr "Camino/BD"
 
 #: assets/js/backup.js:146
 msgid "Please wait"
+msgstr ""
+
+#: views/restore/backup_list.php:14
+msgid "Please wait, loading..."
 msgstr ""
 
 #: views/servers/ftp.php:80 views/servers/mysql.php:88
@@ -1135,12 +1139,12 @@ msgid "Reset"
 msgstr ""
 
 #: page.backup_restore.php:197 views/restore/backup_list.php:3
-#: views/restore/backup_list.php:57 views/restore/browseserver.php:4
+#: views/restore/backup_list.php:35 views/restore/browseserver.php:4
 #: views/restore/restore.php:8 views/rnav/main.php:4
 msgid "Restore"
 msgstr "Restaurar"
 
-#: views/restore/backup_list.php:40
+#: views/restore/backup_list.php:27
 msgid "Restore CDR records stored in this backup"
 msgstr "Restaurar registros CDR almacenados en este respaldo"
 
@@ -1148,7 +1152,7 @@ msgstr "Restaurar registros CDR almacenados en este respaldo"
 msgid "Restore Here"
 msgstr "Restaurar aqui"
 
-#: views/restore/backup_list.php:33
+#: views/restore/backup_list.php:20
 msgid "Restore all setting stored in the database"
 msgstr "Restaurar toda la configuración almacenada en la base de datos"
 
@@ -1258,7 +1262,7 @@ msgstr "Corriendo enganches pre-restauración, si hay alguno..."
 msgid "Running pre-restore scripts..."
 msgstr "Corriendo scripts pre-restauración..."
 
-#: views/backup/backup.php:495
+#: views/backup/backup.php:493
 msgid "Runs"
 msgstr ""
 
@@ -1301,10 +1305,6 @@ msgstr ""
 #: views/restore/browseserver.php:12
 msgid "Select a file and click go"
 msgstr "Selecciones un archivo y haga click en ir"
-
-#: views/restore/backup_list.php:48
-msgid "Select files and databases to restore:"
-msgstr "Selecciones archivos y bases de datos a restaurar:"
 
 #: views/cron.php:73
 msgid ""
@@ -1414,7 +1414,7 @@ msgid "Template Name"
 msgstr "Nombre Plantilla"
 
 #: page.backup_templates.php:56 views/backup/backup.php:102
-#: views/restore/backup_list.php:48 views/rnav/main.php:6
+#: views/rnav/main.php:6
 msgid "Templates"
 msgstr "Plantillas"
 
@@ -1637,10 +1637,6 @@ msgstr ""
 "haciendo esto resultara en la perdida de toda la configuración de respaldo "
 "aunque no la previa"
 
-#: views/restore/backup_list.php:44
-msgid "drop here"
-msgstr "Sueltelos aqui"
-
 #: functions.inc/restore.php:17
 msgid "error/not found!"
 msgstr "error/no encontrado!"
@@ -1685,6 +1681,12 @@ msgstr "esperando por bloqueo..."
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "(no servidores disponibles)"
+
+#~ msgid "Select files and databases to restore:"
+#~ msgstr "Selecciones archivos y bases de datos a restaurar:"
+
+#~ msgid "drop here"
+#~ msgstr "Sueltelos aqui"
 
 #~ msgid ""
 #~ "You should run \"amportal a ma updateall\" to ensure system integrity"

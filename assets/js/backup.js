@@ -149,7 +149,6 @@ function run_backup(id) {
 		      title: 'Run backup',
 		      resizable: false,
 		      modal: true,
-		      position: ['center', 50],
 		      width: 500,
 		      close: function (e) {
 			      $(e.target).dialog("destroy").remove();

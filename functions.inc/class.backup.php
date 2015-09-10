@@ -436,29 +436,34 @@ class Backup {
 					$s['user'] = backup__($s['user']);
 					$s['host'] = backup__($s['host']);
 
-					//ensure directory structure
-					$cmd[] = fpbx_which('ssh');
-					$cmd[] = '-o StrictHostKeyChecking=no -i';
-					$cmd[] = $s['key'];
-					$cmd[] = $s['user'] . '\@' . $s['host'];
-					$cmd[] = '-p ' . $s['port'];
-					$cmd[] = 'mkdir -p ' . $s['path']
-							. '/' . $this->b['_dirname'];
+					$destdir = $s['path'].'/'.$this->b['_dirname'];
 
-					exec(implode(' ', $cmd));
-					unset($cmd);
+					//ensure directory structure
+					$cmd = fpbx_which('ssh').' -o StrictHostKeyChecking=no -i ';
+					$cmd .= $s['key']." -l ".$s['user'].' '.$s['host'].' -p '.$s['port'];
+					$cmd .= " 'mkdir -p $destdir'";
+
+					exec($cmd, $output, $ret);
+					if ($ret !== 0) {
+						backup_log("SSH Error ($ret) - Received ".json_encode($output)." from $cmd");
+					}
+
+					$output = null;
 
 					//put file
-					$cmd[] = fpbx_which('scp');
-					$cmd[] = '-o StrictHostKeyChecking=no -i';
-					$cmd[] = $s['key'];
-					$cmd[] = '-P ' . $s['port'];
-					$cmd[] = $this->b['_tmpfile'];
-					$cmd[] = $s['user'] . '\@' . $s['host']
-							. ':' . $s['path'] . '/' . $this->b['_dirname'];
+					// Note that SCP (*unlike SSH*) needs IPv6 addresses in ['s. Consistancy is awesome.
+					if (filter_var($s['host'], \FILTER_VALIDATE_IP, \FILTER_FLAG_IPV6)) {
+						$scphost = "[".$s['host']."]";
+					} else {
+						$scphost = $s['host'];
+					}
 
-					exec(implode(' ', $cmd));
-					unset($cmd);
+					$cmd = fpbx_which('scp').' -o StrictHostKeyChecking=no -i '.$s['key'].' -P '.$s['port'];
+					$cmd .= " ".$this->b['_tmpfile']." ".$s['user']."@$scphost:$destdir";
+					exec($cmd, $output, $ret);
+					if ($ret !== 0) {
+						backup_log("SCP Error ($ret) - Received ".json_encode($output)." from $cmd");
+					}
 
 					//run maintenance on the directory
 					$this->maintenance($s['type'], $s);
@@ -586,10 +591,8 @@ class Backup {
 				//dontsave the file list in the db - its way to big
 
 				$sql = 'INSERT INTO backup_cache (id, manifest) VALUES (?, ?)';
-				$q = $this->db->query($sql, array($this->b['_file'], serialize($manifest)));
-				if ($this->db->IsError($q)){
-					die_freepbx($q->getDebugInfo());
-				}
+				$stmt = \FreePBX::Database()->prepare($sql);
+				$stmt->execute(array($this->b['_file'], serialize($manifest)));
 				break;
 		}
 	}

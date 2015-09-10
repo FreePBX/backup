@@ -401,7 +401,7 @@ foreach ($storage_servers as $s) {
 	<div class="col-md-6">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title"><?php echo _("Availible Servers")?></h3>
+				<h3 class="panel-title"><?php echo _("Available Servers")?></h3>
 			</div>
 			<div class="panel-body">
 				<ul id="storage_avail_servers" class="sortable storage_servers">

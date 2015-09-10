@@ -84,6 +84,9 @@ if (isset($vars['id']) && $vars['id']) {
 					. '\@'
 					. backup__($s[$b->b['bu_server']]['host']);
 			$cmd[] = '\'php -r "';
+			// Cant serialize $db
+			unset($opts['b']->db);
+			unset($opts['b']->cdrdb);
 			//var_dump($opts);
 			$escape = '$bootstrap_settings["freepbx_auth"] = false;
 				$bootstrap_settings["skip_astman"] = true;
@@ -91,12 +94,12 @@ if (isset($vars['id']) && $vars['id']) {
 				if (!@include_once(getenv("FREEPBX_CONF") ? getenv("FREEPBX_CONF") : "/etc/freepbx.conf")) {
 					include_once("/etc/asterisk/freepbx.conf");
 				}
-				system($amp_conf["AMPBIN"] . "/backup.php --opts=' . base64_encode(serialize($opts['astdb'])) . '");
+				system($amp_conf["AMPBIN"] . "/backup.php --opts=' . base64_encode(serialize($opts)) . '");
 				';
 			$cmd[] = addcslashes(str_replace(array("\n", "\t"), '', $escape), '"$');
 			$cmd[] = '"\'';
 			$cmd[] = '> ' . $b->b['_tmpfile'];
-			//backup_log(implode(' ', $cmd));
+			backup_log(implode(' ', $cmd));
 			exec(implode(' ', $cmd), $ret, $status);
 			if ($status !== 0) {
 				backup_log(_('Something went wrong when connecting to remote server. Aborting!'));

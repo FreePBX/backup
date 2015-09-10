@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-09 19:31-0700\n"
+"POT-Creation-Date: 2015-09-09 21:55-0700\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -98,7 +98,7 @@ msgstr ""
 msgid "Adding items..."
 msgstr "Onderdelen toevoegen..."
 
-#: views/backup/backup.php:308
+#: views/backup/backup.php:314
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
 "to prevent the Primary and Standby systems from \"fighting\" for the "
@@ -131,7 +131,7 @@ msgstr ""
 msgid "Annually"
 msgstr "Jaarlijks"
 
-#: views/backup/backup.php:347
+#: views/backup/backup.php:353
 msgid "Apply Configs"
 msgstr "Configuraties toepassen"
 
@@ -151,9 +151,9 @@ msgstr "Asterisk DB"
 msgid "August"
 msgstr "Augustus"
 
-#: views/backup/backup.php:404
-msgid "Availible Servers"
-msgstr ""
+#: views/backup/backup.php:410
+msgid "Available Servers"
+msgstr "Beschikbare servers"
 
 #: views/servers/email.php:99
 msgid "B"
@@ -196,7 +196,7 @@ msgstr "Reservekopie log:"
 msgid "Backup Name"
 msgstr "Reservekopie naam"
 
-#: views/backup/backup.php:426
+#: views/backup/backup.php:432
 msgid "Backup Schedule"
 msgstr "Reservekopie rooster"
 
@@ -220,7 +220,7 @@ msgstr ""
 msgid "Backup and Restore"
 msgstr ""
 
-#: bin/backup.php:148 bin/backup.php:196
+#: bin/backup.php:151 bin/backup.php:199
 msgid "Backup completed with errors!"
 msgstr "Reservekopie voltooid met fouten!"
 
@@ -245,7 +245,7 @@ msgstr "Reservekopie migratie uitgevoerd"
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "Reservekopie module niet gevonden of uitgeschakeld. Afgebroken!"
 
-#: bin/backup.php:150 bin/backup.php:198
+#: bin/backup.php:153 bin/backup.php:201
 msgid "Backup successfully completed!"
 msgstr "Reservekopie geslaagd!"
 
@@ -355,7 +355,7 @@ msgstr ""
 msgid "Day of Week"
 msgstr "Dag van de week"
 
-#: views/backup/backup.php:462
+#: views/backup/backup.php:468
 msgid "Days"
 msgstr "Dagen"
 
@@ -385,11 +385,11 @@ msgstr "Standaard reservekopie; automatisch geïnstalleerd"
 msgid "Delete"
 msgstr "Verwijder"
 
-#: views/backup/backup.php:450 views/backup/backup.php:487
+#: views/backup/backup.php:456 views/backup/backup.php:493
 msgid "Delete After"
 msgstr ""
 
-#: views/backup/backup.php:477
+#: views/backup/backup.php:483
 msgid ""
 "Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
 "Please note that deletes aren't time based and will only happen after a "
@@ -400,7 +400,7 @@ msgstr ""
 "nadat een reservekopie is uitgevoerd. Als u 0 kiest wordt automatische "
 "verwijding uitgeschakeld"
 
-#: views/backup/backup.php:500
+#: views/backup/backup.php:506
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -439,7 +439,7 @@ msgstr ""
 msgid "Directory"
 msgstr "Map"
 
-#: views/backup/backup.php:293
+#: views/backup/backup.php:299
 msgid "Disable Registered Trunks"
 msgstr "Schakel geregistreerde Trunks uit"
 
@@ -451,7 +451,7 @@ msgstr "Klaar!"
 msgid "Download"
 msgstr "Download"
 
-#: views/backup/backup.php:375
+#: views/backup/backup.php:381
 msgid ""
 "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
@@ -509,7 +509,7 @@ msgstr ""
 "e-mail adres waar statusmeldingen naar toegezonden moeten worden als deze "
 "taak is uitgevoerd"
 
-#: views/backup/backup.php:362
+#: views/backup/backup.php:368
 msgid ""
 "Equivalence of clicking the red button, will happen automatically after a "
 "restore on a Standby system"
@@ -540,11 +540,11 @@ msgstr ""
 "Sluit reservekopie instellingen uit zodat deze niet teruggezet worden. "
 "Nuttig voor het terugzetten vanaf afstand"
 
-#: views/backup/backup.php:320
+#: views/backup/backup.php:326
 msgid "Exclude NAT settings"
 msgstr "Exclusief NAT instellingen"
 
-#: views/backup/backup.php:335
+#: views/backup/backup.php:341
 msgid ""
 "Explicitly exclude any machine-specific IP settings. This allows you to have "
 "a warm-spare machine with a different IP address."
@@ -628,7 +628,7 @@ msgstr "Bestand niet gevonden! "
 msgid "File restore complete!"
 msgstr "Bestand terugzetten uitgevoerd!"
 
-#: bin/backup.php:122
+#: bin/backup.php:125
 msgid "File verification failed. "
 msgstr "Bestandsverificatie mislukt. "
 
@@ -668,7 +668,7 @@ msgstr ""
 msgid "Go!"
 msgstr "Uitvoeren!"
 
-#: bin/backup.php:123
+#: bin/backup.php:126
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr ""
 "Dit zijn de eerste paar regels van het bestand zoals verzonden vanaf de "
@@ -688,7 +688,7 @@ msgstr "Servernaam"
 msgid "Hourly"
 msgstr "Elk uur"
 
-#: views/backup/backup.php:460 views/cron.php:194 views/cron.php:198
+#: views/backup/backup.php:466 views/cron.php:194 views/cron.php:198
 msgid "Hours"
 msgstr "Uren"
 
@@ -806,7 +806,7 @@ msgstr ""
 msgid "MIGRATED"
 msgstr "GEMIGREERD"
 
-#: views/backup/backup.php:441
+#: views/backup/backup.php:447
 msgid "Maintinance"
 msgstr ""
 
@@ -842,7 +842,7 @@ msgstr "Gemigreerde andere SSH server voor reservekopie "
 msgid "Migrating backup table..."
 msgstr "Reservekopietabel migreren..."
 
-#: views/backup/backup.php:458 views/cron.php:168 views/cron.php:172
+#: views/backup/backup.php:464 views/cron.php:168 views/cron.php:172
 msgid "Minutes"
 msgstr "Minuten"
 
@@ -854,7 +854,7 @@ msgstr "Maandag"
 msgid "Monthly"
 msgstr "Maandelijks"
 
-#: views/backup/backup.php:466 views/cron.php:246 views/cron.php:250
+#: views/backup/backup.php:472 views/cron.php:246 views/cron.php:250
 msgid "Months"
 msgstr "Maanden"
 
@@ -934,8 +934,8 @@ msgstr "Nieuw sjabloon"
 msgid "Nightly"
 msgstr ""
 
-#: views/backup/backup.php:273 views/backup/backup.php:300
-#: views/backup/backup.php:327 views/backup/backup.php:354
+#: views/backup/backup.php:281 views/backup/backup.php:306
+#: views/backup/backup.php:333 views/backup/backup.php:360
 #: views/backup/backups.php:186 views/backup/backups.php:213
 #: views/backup/backups.php:240 views/backup/backups.php:271
 #: views/backup/backups.php:327 views/cron.php:147
@@ -1068,7 +1068,7 @@ msgstr ""
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr ""
 
-#: bin/backup.php:135
+#: bin/backup.php:138
 msgid "Processing received file..."
 msgstr "Ontvangen bestand verwerken..."
 
@@ -1146,7 +1146,7 @@ msgstr "Terugzetten"
 msgid "Restore CDR records stored in this backup"
 msgstr "Zet CDR regels terug uit deze reservekopie"
 
-#: views/backup/backup.php:266
+#: views/backup/backup.php:265
 msgid "Restore Here"
 msgstr "Hier terugzetten"
 
@@ -1154,7 +1154,7 @@ msgstr "Hier terugzetten"
 msgid "Restore all setting stored in the database"
 msgstr "Zet alle instellingen terug opgeslagen in de database"
 
-#: views/backup/backup.php:281
+#: views/backup/backup.php:287
 msgid "Restore backup to this server after the backup is complete"
 msgstr ""
 
@@ -1194,7 +1194,7 @@ msgstr "Terugzetten alle bestanden (dit kan enige tijd duren)..."
 msgid "Restoring astDB..."
 msgstr "Terugzetten astDB..."
 
-#: bin/backup.php:169
+#: bin/backup.php:172
 msgid "Restoring backup..."
 msgstr "Terugzetten reservekopie..."
 
@@ -1240,7 +1240,7 @@ msgstr ""
 msgid "Running post restore script..."
 msgstr "Uitvoeren Na-terugzetten script..."
 
-#: bin/backup.php:143 bin/backup.php:181
+#: bin/backup.php:146 bin/backup.php:184
 msgid "Running post-backup hooks..."
 msgstr "Uitvoeren Voor-reservekopie taken..."
 
@@ -1260,7 +1260,7 @@ msgstr "Uitvoeren Voor-terugzetten taken, als bestaan..."
 msgid "Running pre-restore scripts..."
 msgstr "Uitvoeren Voor-terugzetten scripts..."
 
-#: views/backup/backup.php:493
+#: views/backup/backup.php:499
 msgid "Runs"
 msgstr ""
 
@@ -1355,7 +1355,7 @@ msgstr ""
 msgid "Servers"
 msgstr "Servers"
 
-#: bin/backup.php:102
+#: bin/backup.php:105
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr ""
 "Iets ging er niet goed tijdens de verbinding met de andere server. "
@@ -1385,7 +1385,7 @@ msgstr ""
 msgid "Step 5"
 msgstr ""
 
-#: views/backup/backup.php:381
+#: views/backup/backup.php:387
 msgid "Storage Servers"
 msgstr "Opslagservers"
 
@@ -1393,7 +1393,7 @@ msgstr "Opslagservers"
 msgid "Storage location for backups"
 msgstr "Opslaglocatie voor reservekopieën"
 
-#: bin/backup.php:140
+#: bin/backup.php:143
 msgid "Storing backup..."
 msgstr "Reservekopie opslaan..."
 
@@ -1481,7 +1481,7 @@ msgstr "Gebruikersnaam"
 msgid "Username"
 msgstr ""
 
-#: bin/backup.php:107
+#: bin/backup.php:110
 msgid "Verifying received file..."
 msgstr "Controleren ontvangen bestand..."
 
@@ -1525,7 +1525,7 @@ msgstr ""
 msgid "Weekly"
 msgstr "Wekelijks"
 
-#: views/backup/backup.php:464
+#: views/backup/backup.php:470
 msgid "Weeks"
 msgstr "Weken"
 
@@ -1581,12 +1581,12 @@ msgstr ""
 msgid "Would you like voicemails backded up."
 msgstr ""
 
-#: views/backup/backup.php:468
+#: views/backup/backup.php:474
 msgid "Years"
 msgstr "Jaren"
 
-#: views/backup/backup.php:271 views/backup/backup.php:298
-#: views/backup/backup.php:325 views/backup/backup.php:352
+#: views/backup/backup.php:279 views/backup/backup.php:304
+#: views/backup/backup.php:331 views/backup/backup.php:358
 #: views/backup/backups.php:184 views/backup/backups.php:211
 #: views/backup/backups.php:238 views/backup/backups.php:269
 #: views/backup/backups.php:325 views/cron.php:145
@@ -1730,9 +1730,6 @@ msgstr "{geen servers beschikbaar}"
 
 #~ msgid " runs"
 #~ msgstr " uitvoeringen"
-
-#~ msgid "Available Servers"
-#~ msgstr "Beschikbare servers"
 
 #~ msgid "Database name"
 #~ msgstr "Database naam"

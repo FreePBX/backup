@@ -1,11 +1,10 @@
 <?php
 $html = '';
-$html .= heading(_('Restore'), 3) . '<hr class="backup-hr"/>';
 $html .= form_open($_SERVER['REQUEST_URI'], array('id' => 'files_browes_frm'));
 $html .= form_hidden('action', 'restore');
 
 //files
-$html = '<h3>Select items to restore<hr /></h3>';
+$html .= '<h3>Select items to restore<hr /></h3>';
 $html .= '<div id="restore_items">';
 $html .= '<script type="text/javascript">var FILE_LIST=';
 $html .= json_encode(backup_jstree_json_backup_files($manifest['file_list']));

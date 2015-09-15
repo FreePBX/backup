@@ -133,15 +133,11 @@ $(document).ready(function(){
 				title: 'Run restore',
 				resizable: false,
 				modal: true,
-				position: ['center', 50],
 				width: 500,
 				close: function (e) {
 					$(e.target).dialog("destroy").remove();
 				}
 			});
-		
-		//first, save the backup
-		//backup_log($('.restore_status'), 'Intializing Backup...<br>');
 		
 		//post data to server, as eventsource is a get request
 		//change action to restore_post
@@ -160,13 +156,13 @@ $(document).ready(function(){
 			url: $('#files_browes_frm').attr('action'),
 			data: data,
 			success: function() {
-				backup_log($('.restore_status'), 'Intialized!!' + '<br>');
+				backup_log($('.restore_status'), 'Starting restore.' + '<br>');
 				restore_stage2();
 			},
 			error: function() {
 				//TODO: deal with errors
 				backup_log($('.restore_status'), 
-				'<br>' + 'Error: could not intialize restore.' + '<br>');
+				'<br>' + 'Error: Could not start!' + '<br>');
 				$('.restore_status').next('progress').val('1');
 				return false;
 			}

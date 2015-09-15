@@ -87,7 +87,7 @@ if (!isset($vars['restore'])) {
 		exit();
 	}
 
-	backup_log(_('Intializing Restore...'));
+	backup_log(_('Initializing Restore...'));
 
 	if (!file_exists($vars['restore'])) {
 		backup_log(_('Backup file not found! Aborting.'));

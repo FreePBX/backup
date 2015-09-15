@@ -38,7 +38,7 @@ if (isset($vars['id']) && $vars['id']) {
 		}
 		$s = backup_get_server('all_detailed');
 		$b = new FreePBX\modules\Backup\Backup($bu, $s);
-		backup_log(_('Intializing Backup') . ' ' .$vars['id']);
+		backup_log(_('Initializing Backup') . ' ' .$vars['id']);
 		backup_clear_log();
 		$b->init();
 		if ($b->b['bu_server'] == "0") {

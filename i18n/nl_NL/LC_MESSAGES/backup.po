@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-09 21:55-0700\n"
+"POT-Creation-Date: 2015-09-14 22:12-0700\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -282,7 +282,7 @@ msgstr ""
 msgid "CDR server, generally a local database server"
 msgstr "CDR server, meestal een lokale databaseserver"
 
-#: views/restore/backup_list.php:27
+#: views/restore/backup_list.php:26
 msgid "CDR's"
 msgstr "CDR's"
 
@@ -732,12 +732,12 @@ msgid ""
 msgstr ""
 
 #: bin/backup.php:41
-msgid "Intializing Backup"
-msgstr "Reservekopie initialiseren"
+msgid "Initializing Backup"
+msgstr ""
 
 #: bin/restore.php:90
-msgid "Intializing Restore..."
-msgstr "Terugzetten initialiseren..."
+msgid "Initializing Restore..."
+msgstr ""
 
 #: views/backup/backups.php:31
 msgid "Introduction"
@@ -990,7 +990,7 @@ msgstr ""
 msgid "PATTERNs, one per line"
 msgstr "PATROON, één per regel"
 
-#: views/restore/backup_list.php:20
+#: views/restore/backup_list.php:19
 msgid "PBX Settings"
 msgstr "PBX instellingen"
 
@@ -1029,7 +1029,7 @@ msgstr "Pad/DB"
 msgid "Please wait"
 msgstr ""
 
-#: views/restore/backup_list.php:14
+#: views/restore/backup_list.php:13
 msgid "Please wait, loading..."
 msgstr ""
 
@@ -1136,13 +1136,13 @@ msgstr "Vervangen van ampbackup.pl in database..."
 msgid "Reset"
 msgstr ""
 
-#: page.backup_restore.php:197 views/restore/backup_list.php:3
-#: views/restore/backup_list.php:35 views/restore/browseserver.php:4
-#: views/restore/restore.php:8 views/rnav/main.php:4
+#: page.backup_restore.php:197 views/restore/backup_list.php:34
+#: views/restore/browseserver.php:4 views/restore/restore.php:8
+#: views/rnav/main.php:4
 msgid "Restore"
 msgstr "Terugzetten"
 
-#: views/restore/backup_list.php:27
+#: views/restore/backup_list.php:26
 msgid "Restore CDR records stored in this backup"
 msgstr "Zet CDR regels terug uit deze reservekopie"
 
@@ -1150,7 +1150,7 @@ msgstr "Zet CDR regels terug uit deze reservekopie"
 msgid "Restore Here"
 msgstr "Hier terugzetten"
 
-#: views/restore/backup_list.php:20
+#: views/restore/backup_list.php:19
 msgid "Restore all setting stored in the database"
 msgstr "Zet alle instellingen terug opgeslagen in de database"
 
@@ -1686,6 +1686,12 @@ msgstr "wachten op vergrendeling..."
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "{geen servers beschikbaar}"
+
+#~ msgid "Intializing Backup"
+#~ msgstr "Reservekopie initialiseren"
+
+#~ msgid "Intializing Restore..."
+#~ msgstr "Terugzetten initialiseren..."
 
 #~ msgid "Select files and databases to restore:"
 #~ msgstr "Selecteer bestanden en databases om terug te zetten:"

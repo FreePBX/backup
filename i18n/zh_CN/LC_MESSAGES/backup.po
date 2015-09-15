@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-09 21:55-0700\n"
+"POT-Creation-Date: 2015-09-14 22:12-0700\n"
 "PO-Revision-Date: 2015-02-20 19:00-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -269,7 +269,7 @@ msgstr ""
 msgid "CDR server, generally a local database server"
 msgstr ""
 
-#: views/restore/backup_list.php:27
+#: views/restore/backup_list.php:26
 msgid "CDR's"
 msgstr ""
 
@@ -693,11 +693,11 @@ msgid ""
 msgstr ""
 
 #: bin/backup.php:41
-msgid "Intializing Backup"
+msgid "Initializing Backup"
 msgstr ""
 
 #: bin/restore.php:90
-msgid "Intializing Restore..."
+msgid "Initializing Restore..."
 msgstr ""
 
 #: views/backup/backups.php:31
@@ -949,7 +949,7 @@ msgstr ""
 msgid "PATTERNs, one per line"
 msgstr ""
 
-#: views/restore/backup_list.php:20
+#: views/restore/backup_list.php:19
 msgid "PBX Settings"
 msgstr ""
 
@@ -988,7 +988,7 @@ msgstr ""
 msgid "Please wait"
 msgstr ""
 
-#: views/restore/backup_list.php:14
+#: views/restore/backup_list.php:13
 msgid "Please wait, loading..."
 msgstr ""
 
@@ -1095,13 +1095,13 @@ msgstr "正在替换db中的ampbackup.pl"
 msgid "Reset"
 msgstr ""
 
-#: page.backup_restore.php:197 views/restore/backup_list.php:3
-#: views/restore/backup_list.php:35 views/restore/browseserver.php:4
-#: views/restore/restore.php:8 views/rnav/main.php:4
+#: page.backup_restore.php:197 views/restore/backup_list.php:34
+#: views/restore/browseserver.php:4 views/restore/restore.php:8
+#: views/rnav/main.php:4
 msgid "Restore"
 msgstr ""
 
-#: views/restore/backup_list.php:27
+#: views/restore/backup_list.php:26
 msgid "Restore CDR records stored in this backup"
 msgstr ""
 
@@ -1109,7 +1109,7 @@ msgstr ""
 msgid "Restore Here"
 msgstr ""
 
-#: views/restore/backup_list.php:20
+#: views/restore/backup_list.php:19
 msgid "Restore all setting stored in the database"
 msgstr ""
 

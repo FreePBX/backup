@@ -20,16 +20,16 @@ msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 21:55+1000\n"
-"PO-Revision-Date: 2014-07-25 21:32+0200\n"
+"PO-Revision-Date: 2015-09-18 18:51+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
-"Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/backup/bg/"
-">\n"
+"Language-Team: Bulgarian "
+"<http://weblate.freepbx.org/projects/freepbx/backup/bg_BG/>\n"
+"Language: bg_BG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Bulgarian\n"
 "X-Poedit-Country: BULGARIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -429,7 +429,7 @@ msgstr ""
 
 #: functions.inc/servers.php:246 functions.inc/servers.php:298
 msgid "FTP Server "
-msgstr "FTP Сървър"
+msgstr "FTP Сървър "
 
 #: functions.inc/restore.php:441
 msgid ""
@@ -635,7 +635,7 @@ msgstr "Месеца"
 
 #: functions.inc/templates.php:267
 msgid "Mysql"
-msgstr "Mysql"
+msgstr "MySQL"
 
 #: views/restore/browseserver.php:20
 msgid "Mysql DB's"

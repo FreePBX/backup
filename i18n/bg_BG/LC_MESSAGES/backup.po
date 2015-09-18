@@ -40,11 +40,11 @@ msgstr ""
 
 #: functions.inc/templates.php:251
 msgid "/path/to/dir"
-msgstr ""
+msgstr "/path/to/dir"
 
 #: functions.inc/templates.php:238
 msgid "/path/to/file"
-msgstr ""
+msgstr "/path/to/file"
 
 #: install.php:309
 msgid ""
@@ -88,7 +88,7 @@ msgstr ""
 
 #: views/backup/backup.php:173
 msgid "Apply Configs"
-msgstr ""
+msgstr "Приложи Настройки"
 
 #: views/cron.php:108
 msgid "April"
@@ -100,7 +100,7 @@ msgstr ""
 
 #: functions.inc/templates.php:296
 msgid "Asterisk DB"
-msgstr ""
+msgstr "Астериск БД"
 
 #: views/cron.php:112
 msgid "August"
@@ -117,7 +117,7 @@ msgstr ""
 #: functions.inc/backup.php:81 functions.inc/class.backup.php:368
 #: views/backup/backup.php:3 views/backup/backups.php:3
 msgid "Backup"
-msgstr ""
+msgstr "Архивиране"
 
 #: backup.i18n.php:4 backup.i18n.php:10
 msgid "Backup & Restore"
@@ -125,19 +125,19 @@ msgstr "Архивирай & Възстанови"
 
 #: backup.i18n.php:18
 msgid "Backup & Restore - Restore"
-msgstr ""
+msgstr "Архивирай & Възстанови - Възстановяване"
 
 #: backup.i18n.php:14
 msgid "Backup & Restore - Servers"
-msgstr ""
+msgstr "Архивирай & Възстанови - Сървъри"
 
 #: backup.i18n.php:16
 msgid "Backup & Restore - Templates"
-msgstr ""
+msgstr "Архивирай & Възстанови - Шаблони"
 
 #: views/backup/backup.php:59
 msgid "Backup Items"
-msgstr ""
+msgstr "Елементи на Архива"
 
 #: bin/backup.php:50
 msgid "Backup Lock acquired!"
@@ -149,11 +149,11 @@ msgstr ""
 
 #: backup.i18n.php:22
 msgid "Backup Module"
-msgstr ""
+msgstr "Модул за Архиви"
 
 #: views/backup/backup.php:11
 msgid "Backup Name"
-msgstr ""
+msgstr "Име на Архив"
 
 #: views/backup/backup.php:230
 msgid "Backup Schedule"
@@ -161,11 +161,11 @@ msgstr ""
 
 #: views/backup/backup.php:112 views/backup/backup.php:125
 msgid "Backup Server"
-msgstr ""
+msgstr "Сървър с Архиви"
 
 #: functions.inc/restore.php:255
 msgid "Backup Server not found!"
-msgstr ""
+msgstr "Сървър с Архиви не е намерен!"
 
 #: bin/backup.php:147 bin/backup.php:195
 msgid "Backup completed with errors!"
@@ -196,7 +196,7 @@ msgstr ""
 
 #: views/rnav/main.php:3
 msgid "Backups"
-msgstr ""
+msgstr "Архиви"
 
 #: bin/backup.php:58
 msgid "Bulding manifest..."
@@ -208,7 +208,7 @@ msgstr "CDR сървър, обикновено локален сървър за 
 
 #: views/restore/backup_list.php:42
 msgid "CDR's"
-msgstr ""
+msgstr "CDR Отчети"
 
 #: install.php:350
 msgid "Call Detail Records"
@@ -240,7 +240,7 @@ msgstr ""
 
 #: functions.inc/class.backup.php:361 views/restore/browseserver.php:18
 msgid "Created"
-msgstr ""
+msgstr "Създадени"
 
 #: bin/backup.php:63
 msgid "Creating backup..."
@@ -252,27 +252,27 @@ msgstr "Създаване на директория с архиви.."
 
 #: views/cron.php:12
 msgid "Custom"
-msgstr ""
+msgstr "Персонално"
 
 #: views/servers/mysql.php:70
 msgid "DB Name"
-msgstr ""
+msgstr "Име на База Данни"
 
 #: views/cron.php:7
 msgid "Daily"
-msgstr ""
+msgstr "Ежедневно"
 
 #: views/servers/mysql.php:70
 msgid "Database name"
-msgstr ""
+msgstr "Име на База Данни"
 
 #: views/cron.php:132
 msgid "Day of Month"
-msgstr ""
+msgstr "Ден от Месец"
 
 #: views/cron.php:77
 msgid "Day of Week"
-msgstr ""
+msgstr "Ден от Седмицата"
 
 #: views/backup/backup.php:255
 msgid "Days"
@@ -296,7 +296,7 @@ msgstr "Изтрий"
 
 #: views/backup/backup.php:244 views/backup/backup.php:261
 msgid "Delete after"
-msgstr ""
+msgstr "Изтрий след"
 
 #: views/backup/backup.php:244
 msgid ""
@@ -320,7 +320,7 @@ msgstr ""
 #: views/servers/mysql.php:22 views/servers/ssh.php:22
 #: views/templates/template.php:21
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: views/backup/backup.php:20
 msgid "Description or notes for this backup"
@@ -334,7 +334,7 @@ msgstr ""
 
 #: functions.inc/templates.php:246
 msgid "Directory"
-msgstr ""
+msgstr "Директория"
 
 #: views/backup/backup.php:144
 msgid "Disable Registered Trunks"
@@ -342,7 +342,7 @@ msgstr ""
 
 #: bin/restore.php:433
 msgid "Done!"
-msgstr ""
+msgstr "Изпълнено!"
 
 #: page.backup_restore.php:20 views/restore/browseserver.php:30
 msgid "Download"
@@ -375,19 +375,19 @@ msgstr ""
 
 #: backup.i18n.php:20
 msgid "Email "
-msgstr ""
+msgstr "Email "
 
 #: views/servers/email.php:31
 msgid "Email Address"
-msgstr ""
+msgstr "Email Адрес"
 
 #: functions.inc/servers.php:243 functions.inc/servers.php:295
 msgid "Email Server "
-msgstr ""
+msgstr "Email Сървър "
 
 #: views/servers/email.php:31
 msgid "Email address where backups should be emailed to"
-msgstr ""
+msgstr "Email адрес на който да се изпрати архива"
 
 #: views/backup/backup.php:30
 msgid "Email to send status messages to when this task is run"
@@ -399,15 +399,15 @@ msgstr ""
 
 #: page.backup_restore.php:40
 msgid "Error uploading file!"
-msgstr ""
+msgstr "Грешка при качване на файл!"
 
 #: page.backup_restore.php:49
 msgid "Error verifying uploaded file!"
-msgstr ""
+msgstr "Грешка при проверка на качения файл!"
 
 #: views/item_table.php:7
 msgid "Exclude"
-msgstr ""
+msgstr "Изключи"
 
 #: install.php:402
 msgid ""
@@ -429,7 +429,7 @@ msgstr ""
 
 #: functions.inc/servers.php:246 functions.inc/servers.php:298
 msgid "FTP Server "
-msgstr ""
+msgstr "FTP Сървър"
 
 #: functions.inc/restore.php:441
 msgid ""
@@ -461,11 +461,11 @@ msgstr "Февруари"
 
 #: functions.inc/templates.php:233
 msgid "File"
-msgstr ""
+msgstr "Файл"
 
 #: functions.inc/restore.php:315
 msgid "File not found! "
-msgstr ""
+msgstr "Файлът не е намерен! "
 
 #: bin/restore.php:151
 msgid "File restore complete!"
@@ -477,7 +477,7 @@ msgstr ""
 
 #: functions.inc/class.backup.php:362 views/restore/browseserver.php:19
 msgid "Files"
-msgstr ""
+msgstr "Файлове"
 
 #: views/cron.php:85
 msgid "Friday"
@@ -489,7 +489,7 @@ msgstr ""
 
 #: views/restore/browseserver.php:29 views/restore/restore.php:15
 msgid "Go!"
-msgstr ""
+msgstr "Напред!"
 
 #: bin/backup.php:122
 msgid "Here are the first few lines of the file as sent by the remote server:"
@@ -502,11 +502,11 @@ msgstr ""
 #: views/servers/ftp.php:31 views/servers/mysql.php:31
 #: views/servers/ssh.php:31
 msgid "Hostname"
-msgstr ""
+msgstr "Име на хост"
 
 #: views/cron.php:61
 msgid "Hour"
-msgstr ""
+msgstr "Час"
 
 #: views/cron.php:6
 msgid "Hourly"
@@ -526,7 +526,7 @@ msgstr ""
 
 #: views/servers/ssh.php:31
 msgid "IP address or FQDN of remote ssh host"
-msgstr ""
+msgstr "IP адрес или FQDN на отдалечения ssh хост"
 
 #: bin/backup.php:41
 msgid "Intializing Backup"
@@ -542,7 +542,7 @@ msgstr ""
 
 #: views/backup/backup.php:41
 msgid "Items"
-msgstr ""
+msgstr "Елементи"
 
 #: views/cron.php:105
 msgid "January"
@@ -562,7 +562,7 @@ msgstr ""
 
 #: functions.inc/servers.php:249 functions.inc/servers.php:301
 msgid "Local Server "
-msgstr ""
+msgstr "Локален Сървър "
 
 #: install.php:237
 msgid "Location of backups pre 2.10"
@@ -571,6 +571,7 @@ msgstr "Местоположение на архиви от преди 2.10"
 #: views/servers/ssh.php:59
 msgid "Location of ssh private key to be used when connecting to a host"
 msgstr ""
+"Местонахождение на ssh private key, който да се използва при свързване с хост"
 
 #: install.php:457
 msgid "MIGRATED"
@@ -578,7 +579,7 @@ msgstr "ПРЕМЕСТЕН"
 
 #: views/backup/backup.php:243
 msgid "Maintenance"
-msgstr ""
+msgstr "Поддръжка"
 
 #: views/cron.php:107
 msgid "March"
@@ -622,7 +623,7 @@ msgstr "Понеделник"
 
 #: views/cron.php:102
 msgid "Month"
-msgstr ""
+msgstr "Месец"
 
 #: views/cron.php:9
 msgid "Monthly"
@@ -634,11 +635,11 @@ msgstr "Месеца"
 
 #: functions.inc/templates.php:267
 msgid "Mysql"
-msgstr ""
+msgstr "Mysql"
 
 #: views/restore/browseserver.php:20
 msgid "Mysql DB's"
-msgstr ""
+msgstr "Mysql БД"
 
 #: functions.inc/class.backup.php:363
 msgid "Mysql Db's"
@@ -646,19 +647,19 @@ msgstr ""
 
 #: functions.inc/servers.php:252 functions.inc/servers.php:304
 msgid "Mysql Server "
-msgstr ""
+msgstr "Mysql Сървър "
 
 #: functions.inc/class.backup.php:360 views/restore/browseserver.php:17
 msgid "Name"
-msgstr ""
+msgstr "Име"
 
 #: views/cron.php:5
 msgid "Never"
-msgstr ""
+msgstr "Никога"
 
 #: views/backup/backups.php:6
 msgid "New Backup"
-msgstr ""
+msgstr "Нов Архив"
 
 #: views/servers/servers.php:6
 msgid "New Email server"
@@ -682,7 +683,7 @@ msgstr ""
 
 #: views/templates/templates.php:6
 msgid "New Template"
-msgstr ""
+msgstr "Нов Шаблон"
 
 #: bin/backup.php:74
 msgid "No items in backup set. Aborting."
@@ -718,7 +719,7 @@ msgstr ""
 
 #: views/restore/backup_list.php:35
 msgid "PBX Settings"
-msgstr ""
+msgstr "PBX Настройки"
 
 #: install.php:255
 msgid "PBX config server, generally a local database server"
@@ -726,12 +727,12 @@ msgstr "PBX конфигурационен сървър, обикновено л
 
 #: views/servers/ftp.php:59 views/servers/mysql.php:59
 msgid "Password"
-msgstr ""
+msgstr "Парола"
 
 #: views/servers/ftp.php:70 views/servers/local.php:32
 #: views/servers/ssh.php:70
 msgid "Path"
-msgstr ""
+msgstr "Път"
 
 #: views/servers/ssh.php:70
 msgid "Path on server where files are stored"
@@ -743,12 +744,12 @@ msgstr ""
 
 #: views/item_table.php:7
 msgid "Path/DB"
-msgstr ""
+msgstr "Път/БД"
 
 #: views/servers/ftp.php:47 views/servers/mysql.php:47
 #: views/servers/ssh.php:47
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 #: views/backup/backup.php:81
 msgid "Post-backup Hook"
@@ -808,7 +809,7 @@ msgstr "Замяна на ampbackup.pl в db.."
 #: views/restore/browseserver.php:4 views/restore/restore.php:3
 #: views/rnav/main.php:4
 msgid "Restore"
-msgstr ""
+msgstr "Възстановяване"
 
 #: views/restore/backup_list.php:42
 msgid "Restore CDR records stored in this backup"
@@ -816,7 +817,7 @@ msgstr ""
 
 #: views/backup/backup.php:138
 msgid "Restore Here"
-msgstr ""
+msgstr "Възстанови Тук"
 
 #: views/restore/backup_list.php:35
 msgid "Restore all setting stored in the database"
@@ -868,7 +869,7 @@ msgstr ""
 
 #: views/cron.php:32
 msgid "Run Automatically"
-msgstr ""
+msgstr "Автоматичен Старт"
 
 #: page.backup.php:47
 msgid "Run now"
@@ -900,7 +901,7 @@ msgstr ""
 
 #: functions.inc/servers.php:255 functions.inc/servers.php:307
 msgid "SSH Server "
-msgstr ""
+msgstr "SSH Сървър "
 
 #: views/cron.php:86
 msgid "Saturday"
@@ -911,7 +912,7 @@ msgstr "Събота"
 #: views/servers/mysql.php:83 views/servers/ssh.php:81
 #: views/templates/template.php:36
 msgid "Save"
-msgstr ""
+msgstr "Запиши"
 
 #: views/restore/browseserver.php:12
 msgid "Select a file and click go"
@@ -934,11 +935,11 @@ msgstr "Септември"
 #: views/servers/local.php:13 views/servers/mysql.php:13
 #: views/servers/ssh.php:13
 msgid "Server Name"
-msgstr ""
+msgstr "Име на Сървър"
 
 #: views/rnav/main.php:5
 msgid "Servers"
-msgstr ""
+msgstr "Сървъри"
 
 #: bin/backup.php:101
 msgid "Something went wrong when connecting to remote server. Aborting!"
@@ -974,16 +975,16 @@ msgstr "Неделя"
 
 #: views/templates/template.php:12
 msgid "Template Name"
-msgstr ""
+msgstr "Име на Шаблон"
 
 #: views/backup/backup.php:62 views/restore/backup_list.php:50
 #: views/rnav/main.php:6
 msgid "Templates"
-msgstr ""
+msgstr "Шаблони"
 
 #: backup.i18n.php:24
 msgid "The From: field for emails when using the backup email feature."
-msgstr ""
+msgstr "Поле От: за  email-и когато използвате услугата архив към  email."
 
 #: views/servers/email.php:44
 msgid ""
@@ -999,7 +1000,7 @@ msgstr ""
 
 #: views/backup/backup.php:117
 msgid "This server"
-msgstr ""
+msgstr "Този сървър"
 
 #: views/cron.php:84
 msgid "Thursday"
@@ -1015,7 +1016,7 @@ msgstr "Вторник"
 
 #: views/item_table.php:7
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: views/restore/restore.php:10
 msgid ""
@@ -1026,7 +1027,7 @@ msgstr ""
 #: views/servers/ftp.php:56 views/servers/mysql.php:56
 #: views/servers/ssh.php:56
 msgid "User Name"
-msgstr ""
+msgstr "Потребителско Име"
 
 #: bin/backup.php:106
 msgid "Verifying received file..."
@@ -1063,11 +1064,11 @@ msgstr ""
 
 #: views/backup/backup.php:256
 msgid "Weeks"
-msgstr ""
+msgstr "Седмици"
 
 #: views/backup/backup.php:258
 msgid "Years"
-msgstr ""
+msgstr "Години"
 
 #: bin/restore.php:260
 msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
@@ -1087,7 +1088,7 @@ msgstr "появи се грешка, обновяването е прекрат
 
 #: views/backup/backup.php:283
 msgid "and Run"
-msgstr ""
+msgstr "и Стартирай"
 
 #: install.php:143
 msgid "and then re-install this module. Settings will be lost but old"
@@ -1125,7 +1126,7 @@ msgstr ""
 
 #: views/backup/backup.php:44 views/restore/backup_list.php:46
 msgid "drop here"
-msgstr ""
+msgstr "пуснете тук"
 
 #: functions.inc/restore.php:17
 msgid "error/not found!"

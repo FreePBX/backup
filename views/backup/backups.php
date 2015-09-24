@@ -309,7 +309,7 @@
 				<div id="step-5">
 					<h2 class="StepTitle"><?php echo _("Remote save options")?></h2>
 					<br/>
-					<p><?php echo _("Your backup will be saved locally to /var/lib/asterisk/backup")?></p>
+					<p><?php echo _("Your backup will be saved locally to /var/spool/asterisk/backup")?></p>
 					<!--Backup Location-->
 					<div class="element-container">
 						<div class="row">

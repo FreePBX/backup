@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-14 22:12-0700\n"
+"POT-Creation-Date: 2015-09-25 09:32-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1627,7 +1627,7 @@ msgid "You should run \"%s\" to ensure system integrity"
 msgstr ""
 
 #: views/backup/backups.php:312
-msgid "Your backup will be saved locally to /var/lib/asterisk/backup"
+msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
 msgstr ""
 
 #: install.php:286

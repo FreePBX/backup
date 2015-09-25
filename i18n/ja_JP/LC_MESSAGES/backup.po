@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-14 22:12-0700\n"
+"POT-Creation-Date: 2015-09-25 09:32-0700\n"
 "PO-Revision-Date: 2015-02-19 14:59+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -1612,7 +1612,7 @@ msgid "You should run \"%s\" to ensure system integrity"
 msgstr ""
 
 #: views/backup/backups.php:312
-msgid "Your backup will be saved locally to /var/lib/asterisk/backup"
+msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
 msgstr ""
 
 #: install.php:286

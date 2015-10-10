@@ -10,12 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-25 09:32-0700\n"
-"PO-Revision-Date: 2015-09-25 09:32-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2015-10-10 11:42+0200\n"
+"Last-Translator: Media <mousavi.media@gmail.com>\n"
+"Language-Team: Persian "
+"<http://weblate.freepbx.org/projects/freepbx/backup/fa/>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: views/backup/backups.php:23
 #, php-format
@@ -24,7 +28,7 @@ msgstr ""
 
 #: views/servers/local.php:52 views/servers/ssh.php:52
 msgid "'Description or notes for this server"
-msgstr ""
+msgstr "’شرح یا یادداشت‌ها برای سرور"
 
 #: functions.inc/templates.php:251
 msgid "/path/to/dir"

@@ -29,16 +29,16 @@ class Backup {
 
 	function __construct($b, $s, $t = '') {
 		global $amp_conf, $db, $cdrdb;
-		$this->b						= $b;
-		$this->s						= $s;
-		//$this->t						= $t;
-		$this->amp_conf					= $amp_conf;
+		$this->b			= $b;
+		$this->s			= $s;
+		//$this->t			= $t;
+		$this->amp_conf			= $amp_conf;
 
-		$this->b['_ctime']				= time();
-		$this->b['_file']				= date("Ymd-His-") . $this->b['_ctime'] . '-' . rand();
-		$this->b['_dirname']			= trim(preg_replace('/[^a-zA-Z0-9]+/', '_', $this->b['name']), '_');
-		$this->db						= $db;
-		$this->cdrdb					= $cdrdb;
+		$this->b['_ctime']		= time();
+		$this->b['_file']		= date("Ymd-His-") . $this->b['_ctime'] . '-' . rand();
+		$this->b['_dirname']		= trim(preg_replace('/[^a-zA-Z0-9]+/', '_', $this->b['name']), '_');
+		$this->db			= $db;
+		$this->cdrdb			= $cdrdb;
 		$this->amp_conf['CDRDBTYPE']	= $this->cdrdb->dsn['phptype'];
 		$this->amp_conf['CDRDBHOST']	= $this->cdrdb->dsn['hostspec'];
 		$this->amp_conf['CDRDBUSER']	= $this->cdrdb->dsn['username'];
@@ -47,12 +47,12 @@ class Backup {
 		$this->amp_conf['CDRDBNAME']	= $this->cdrdb->dsn['database'];
 
 		//defualt properties
-		$this->b['prebu_hook']			= isset($b['prebu_hook'])	? $b['prebu_hook']	: '';
-		$this->b['postbu_hook']			= isset($b['postbu_hook'])	? $b['postbu_hook']	: '';
-		$this->b['prere_hook']			= isset($b['prere_hook'])	? $b['prere_hook']	: '';
-		$this->b['postre_hook']			= isset($b['postre_hook'])	? $b['postre_hook']	: '';
-		$this->b['email']				= isset($b['email'])		? $b['email']		: '';
-		$this->b['error'] = false;
+		$this->b['prebu_hook']		= isset($b['prebu_hook'])	? $b['prebu_hook']	: '';
+		$this->b['postbu_hook']		= isset($b['postbu_hook'])	? $b['postbu_hook']	: '';
+		$this->b['prere_hook']		= isset($b['prere_hook'])	? $b['prere_hook']	: '';
+		$this->b['postre_hook']		= isset($b['postre_hook'])	? $b['postre_hook']	: '';
+		$this->b['email']		= isset($b['email'])		? $b['email']		: '';
+		$this->b['error'] 		= false;
 
 		ksort($this->b);
 	}
@@ -93,9 +93,9 @@ class Backup {
 
 	function init() {
 		$this->b['_dirpath']	= $this->amp_conf['ASTSPOOLDIR'] . '/backup/' . $this->b['_dirname'];
-		$this->b['_tmpdir']		= $this->amp_conf['ASTSPOOLDIR'] . '/tmp/backup-' . $this->b['id'];
+		$this->b['_tmpdir']	= $this->amp_conf['ASTSPOOLDIR'] . '/tmp/backup-' . $this->b['id'];
 		$this->b['_tmpfile']	= $this->amp_conf['ASTSPOOLDIR'] . '/tmp/' . $this->b['_file'] . '.tgz';
-		$this->lock_file		= $this->b['_tmpdir'] . '/.lock';
+		$this->lock_file	= $this->b['_tmpdir'] . '/.lock';
 
 		//create backup directory
 		if (!(is_dir($this->b['_tmpdir']))) {
@@ -122,7 +122,7 @@ class Backup {
 			}
 		}
 
-		$this->lock	= fopen($this->lock_file, 'x+');
+		$this->lock = fopen($this->lock_file, 'x+');
 
 
 		if (flock($this->lock, LOCK_EX | LOCK_NB)) {
@@ -233,9 +233,9 @@ class Backup {
 					$s = str_replace('server-', '', $i['path']);
 					$sql_file = $this->b['_tmpdir'] . '/' . 'mysql-' . $s . '.sql';
 					$cmd[] = fpbx_which('mysqldump');
-					$cmd[] = '--host='		. backup__($this->s[$s]['host']);
-					$cmd[] = '--port='		. backup__($this->s[$s]['port']);
-					$cmd[] = '--user='		. backup__($this->s[$s]['user']);
+					$cmd[] = '--host='	. backup__($this->s[$s]['host']);
+					$cmd[] = '--port='	. backup__($this->s[$s]['port']);
+					$cmd[] = '--user='	. backup__($this->s[$s]['user']);
 					$cmd[] = '--password='	. backup__($this->s[$s]['password']);
 					$cmd[] = backup__($this->s[$s]['dbname']);
 
@@ -253,7 +253,7 @@ class Backup {
 					$cmd[] = ' | ';
 					$cmd[] = fpbx_which('grep');
 					$cmd[] = "-v '^\/\*\|^SET'";
-					$cmd[] = ' > ' .  $sql_file;
+					$cmd[] = ' > ' . $sql_file;
 
 					exec(implode(' ', $cmd), $file, $status);
 					unset($cmd, $file);
@@ -273,8 +273,8 @@ class Backup {
 					break;
 				case 'astdb':
 					$hard_exclude	= array('RG', 'BLKVM', 'FM', 'dundi');
-					$exclude		= array_merge($i['exclude'], $hard_exclude);
-					$astdb			= astdb_get($exclude);
+					$exclude	= array_merge($i['exclude'], $hard_exclude);
+					$astdb		= astdb_get($exclude);
 					file_put_contents($this->b['_tmpdir'] . '/astdb', serialize($astdb));
 					break;
 			}
@@ -357,9 +357,9 @@ class Backup {
 							? $this->amp_conf['AMPBACKUPEMAILFROM']
 							: 'freepbx@freepbx.org';
 
-					$msg[] = _('Name')			. ': ' . $this->b['name'];
+					$msg[] = _('Name')		. ': ' . $this->b['name'];
 					$msg[] = _('Created')		. ': ' . date('r', $this->b['_ctime']);
-					$msg[] = _('Files')			. ': ' . $this->manifest['file_count'];
+					$msg[] = _('Files')		. ': ' . $this->manifest['file_count'];
 					$msg[] = _('Mysql Db\'s')	. ': ' . $this->manifest['mysql_count'];
 					$msg[] = _('astDb\'s')		. ': ' . $this->manifest['astdb_count'];
 
@@ -598,7 +598,7 @@ class Backup {
 	}
 
 	private function maintenance($type, $data, $handle = '') {
-		if (!isset($this->b['delete_time'])  && !isset($this->b['delete_amount'])) {
+		if (!isset($this->b['delete_time']) && !isset($this->b['delete_amount'])) {
 			return true;
 		}
 		$delete = $dir = array();

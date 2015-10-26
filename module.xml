@@ -72,7 +72,7 @@
 		<version>13.0</version>
 	</supported>
 	<depends>
-		<version>13.0.1alpha46</version>
+		<version>13.0.5</version>
 	</depends>
 	<location>release/2.11/backup-2.11.0.5.tgz</location>
 	<md5sum>ac5c29013681c99d4b4f224624dc0d34</md5sum>

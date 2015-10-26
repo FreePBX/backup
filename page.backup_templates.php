@@ -31,10 +31,6 @@ switch ($var['action']) {
 		break;
 }
 
-//rnav
-$var['templates'] = backup_get_template('all');
-$bootnav = load_view(dirname(__FILE__) . '/views/rnav/templates.php', $var);
-
 
 //view actions
 switch ($var['action']) {
@@ -60,16 +56,11 @@ $heading = _("Templates");
 	<h1><?php  echo $heading?></h1>
 	<div class = "display full-border">
 		<div class="row">
-			<div class="col-sm-9">
+			<div class="col-sm-12">
 				<div class="fpbx-container">
 					<div class="display <?php echo !empty($_REQUEST['action']) ? 'full' : 'no'?>-border">
 						<?php echo $content ?>
 					</div>
-				</div>
-			</div>
-			<div class="col-sm-3 hidden-xs bootnav">
-				<div class="list-group">
-					<?php echo $bootnav?>
 				</div>
 			</div>
 		</div>

@@ -310,4 +310,31 @@ class Backup implements \BMO {
 		}
 		return $backups;
 	}
+	public function getRightNav($request) {
+		$var = array();
+		switch ($request['display']) {
+			case 'backup':
+				if(isset($request['action']) && $request['action'] == 'edit'){
+					$var['backup'] = backup_get_backup('all');
+				}
+				return load_view(dirname(__FILE__) . '/views/rnav/backup.php', $var);
+			break;
+			case 'backup_restore':
+				$var['servers'] = backup_get_server('all');
+				return load_view(dirname(__FILE__) . '/views/rnav/restore.php', $var);
+			break;
+			case 'backup_servers':
+				if(isset($request['action']) && $request['action'] == 'edit'){
+					$var['servers'] = backup_get_server('all');
+				}
+				return load_view(dirname(__FILE__) . '/views/rnav/servers.php', $var);
+			break;
+			case 'backup_templates':
+				if(isset($request['action']) && $request['action'] == 'edit'){
+					$var['templates'] = backup_get_template('all');
+				}
+				return load_view(dirname(__FILE__) . '/views/rnav/templates.php', $var);
+			break;
+		}
+	}
 }

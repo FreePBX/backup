@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>13.0.14.1</version>
+	<version>13.0.15</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,6 +18,7 @@
 		<module>core</module>
 	</depends>
 	<changelog>
+		*13.0.15* Floating menu update
 		*13.0.14.1* FREEPBX-10322 Update text in wizard
 		*13.0.14* FREEPBX-10222 Fix restore from file
 		*13.0.13* FREEPBX-10154 Repair SSH-to-this-machine and modal location

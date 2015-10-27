@@ -38,14 +38,14 @@ msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-25 09:32-0700\n"
-"PO-Revision-Date: 2015-02-19 14:59+0200\n"
+"PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
-"Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
-"ja_JP/>\n"
+"Language-Team: Japanese "
+"<http://weblate.freepbx.org/projects/freepbx/backup/ja_JP/>\n"
+"Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -243,7 +243,7 @@ msgstr ""
 
 #: page.backup.php:116
 msgid "Backup and Restore"
-msgstr ""
+msgstr "バックアップと復元"
 
 #: bin/backup.php:151 bin/backup.php:199
 msgid "Backup completed with errors!"

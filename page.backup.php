@@ -95,11 +95,6 @@ switch ($var['action']) {
 		break;
 }
 
-//rnav
-//this needs to be he so that we can display rnav's reflecting any actions in the 'action actions' switch statement
-$var['backup'] = backup_get_backup('all');
-$bootnav = load_view(dirname(__FILE__) . '/views/rnav/backup.php', $var);
-
 //view action
 switch ($var['action']) {
 	case 'edit':
@@ -120,16 +115,11 @@ $heading = _("Backup and Restore");
 	<h1><?php echo $heading?></h1>
 	<div class = "display full-border">
 		<div class="row">
-			<div class="col-sm-9">
+			<div class="col-sm-12">
 				<div class="fpbx-container">
 					<div class="display <?php echo !empty($_REQUEST['action']) ? 'full' : 'no'?>-border">
 						<?php echo $content ?>
 					</div>
-				</div>
-			</div>
-			<div class="col-sm-3 hidden-xs bootnav">
-				<div class="list-group">
-					<?php echo $bootnav ?>
 				</div>
 			</div>
 		</div>

@@ -19,15 +19,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-25 09:32-0700\n"
+"POT-Creation-Date: 2015-11-03 09:28-0800\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
-"Language-Team: Bulgarian "
-"<http://weblate.freepbx.org/projects/freepbx/backup/bg_BG/>\n"
-"Language: bg_BG\n"
+"Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
+"bg_BG/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Bulgarian\n"
@@ -222,7 +222,7 @@ msgstr "Шаблон за Архивиране"
 msgid "Backup Wizard"
 msgstr "Помощник за Архивиране"
 
-#: page.backup.php:116
+#: page.backup.php:111
 msgid "Backup and Restore"
 msgstr "Архивиране и Възстановяване"
 
@@ -730,7 +730,7 @@ msgstr "Въведение"
 msgid "Invalid Backup Name"
 msgstr "Неправилно Име на Архив"
 
-#: page.backup_restore.php:122 page.backup_restore.php:142
+#: page.backup_restore.php:117 page.backup_restore.php:137
 msgid "Invalid backup for or undefined error"
 msgstr "Невалиден архив или неопределена грешка"
 
@@ -1118,7 +1118,7 @@ msgstr "Замяна на ampbackup.pl в db.."
 msgid "Reset"
 msgstr "Изчисти"
 
-#: page.backup_restore.php:197 views/restore/backup_list.php:34
+#: page.backup_restore.php:192 views/restore/backup_list.php:34
 #: views/restore/browseserver.php:4 views/restore/restore.php:8
 #: views/rnav/main.php:4
 msgid "Restore"
@@ -1331,7 +1331,7 @@ msgstr "Потребителско Име на Сървъра"
 msgid "Server address can not be blank"
 msgstr "Адрес на сървър не може да е празно"
 
-#: page.backup_servers.php:79 views/rnav/main.php:5
+#: page.backup_servers.php:74 views/rnav/main.php:5
 msgid "Servers"
 msgstr "Сървъри"
 
@@ -1391,7 +1391,7 @@ msgstr "Въведете име на сървъра"
 msgid "Template Name"
 msgstr "Име на Шаблон"
 
-#: page.backup_templates.php:56 views/backup/backup.php:102
+#: page.backup_templates.php:52 views/backup/backup.php:102
 #: views/rnav/main.php:6
 msgid "Templates"
 msgstr "Шаблони"

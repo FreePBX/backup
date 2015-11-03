@@ -37,15 +37,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-25 09:32-0700\n"
+"POT-Creation-Date: 2015-11-03 09:28-0800\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
-"Language-Team: Japanese "
-"<http://weblate.freepbx.org/projects/freepbx/backup/ja_JP/>\n"
-"Language: ja_JP\n"
+"Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
+"ja_JP/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -241,7 +241,7 @@ msgstr ""
 msgid "Backup Wizard"
 msgstr ""
 
-#: page.backup.php:116
+#: page.backup.php:111
 msgid "Backup and Restore"
 msgstr "バックアップと復元"
 
@@ -766,7 +766,7 @@ msgstr ""
 msgid "Invalid Backup Name"
 msgstr ""
 
-#: page.backup_restore.php:122 page.backup_restore.php:142
+#: page.backup_restore.php:117 page.backup_restore.php:137
 msgid "Invalid backup for or undefined error"
 msgstr "不正なバックアップまたは不明なエラー"
 
@@ -1153,7 +1153,7 @@ msgstr "ampbackup.plをDBに置き換え中..."
 msgid "Reset"
 msgstr ""
 
-#: page.backup_restore.php:197 views/restore/backup_list.php:34
+#: page.backup_restore.php:192 views/restore/backup_list.php:34
 #: views/restore/browseserver.php:4 views/restore/restore.php:8
 #: views/rnav/main.php:4
 msgid "Restore"
@@ -1368,7 +1368,7 @@ msgstr ""
 msgid "Server address can not be blank"
 msgstr ""
 
-#: page.backup_servers.php:79 views/rnav/main.php:5
+#: page.backup_servers.php:74 views/rnav/main.php:5
 msgid "Servers"
 msgstr "サーバー"
 
@@ -1428,7 +1428,7 @@ msgstr ""
 msgid "Template Name"
 msgstr "テンプレート名"
 
-#: page.backup_templates.php:56 views/backup/backup.php:102
+#: page.backup_templates.php:52 views/backup/backup.php:102
 #: views/rnav/main.php:6
 msgid "Templates"
 msgstr "テンプレート"

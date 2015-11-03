@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-25 09:32-0700\n"
+"POT-Creation-Date: 2015-11-03 09:28-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -213,7 +213,7 @@ msgstr ""
 msgid "Backup Wizard"
 msgstr ""
 
-#: page.backup.php:116
+#: page.backup.php:111
 msgid "Backup and Restore"
 msgstr ""
 
@@ -740,8 +740,8 @@ msgstr ""
 msgid "Invalid Backup Name"
 msgstr ""
 
-#: page.backup_restore.php:122
-#: page.backup_restore.php:142
+#: page.backup_restore.php:117
+#: page.backup_restore.php:137
 msgid "Invalid backup for or undefined error"
 msgstr ""
 
@@ -1150,7 +1150,7 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: page.backup_restore.php:197
+#: page.backup_restore.php:192
 #: views/restore/backup_list.php:34
 #: views/restore/browseserver.php:4
 #: views/restore/restore.php:8
@@ -1371,7 +1371,7 @@ msgstr ""
 msgid "Server address can not be blank"
 msgstr ""
 
-#: page.backup_servers.php:79
+#: page.backup_servers.php:74
 #: views/rnav/main.php:5
 msgid "Servers"
 msgstr ""
@@ -1435,7 +1435,7 @@ msgstr ""
 msgid "Template Name"
 msgstr ""
 
-#: page.backup_templates.php:56
+#: page.backup_templates.php:52
 #: views/backup/backup.php:102
 #: views/rnav/main.php:6
 msgid "Templates"

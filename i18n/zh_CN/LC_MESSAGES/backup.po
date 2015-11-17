@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-03 09:28-0800\n"
-"PO-Revision-Date: 2015-10-15 09:34+0200\n"
+"PO-Revision-Date: 2015-11-17 12:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
-"Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
-"freepbx/backup/zh_CN/>\n"
+"Language-Team: Simplified Chinese "
+"<http://weblate.freepbx.org/projects/freepbx/backup/zh_CN/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -215,7 +215,7 @@ msgstr "备份还原"
 
 #: bin/backup.php:151 bin/backup.php:199
 msgid "Backup completed with errors!"
-msgstr "备份错误"
+msgstr "备份错误！"
 
 #: functions.inc/class.backup.php:266
 #, php-format
@@ -302,7 +302,7 @@ msgstr "清理。。。"
 
 #: views/backup/backups.php:85
 msgid "Click 'Next' to continue."
-msgstr "点击下一步继续"
+msgstr "点击下一步继续。"
 
 #: install.php:292
 msgid "Configurations only"
@@ -470,11 +470,11 @@ msgstr "邮件服务器"
 
 #: functions.inc/servers.php:263 functions.inc/servers.php:318
 msgid "Email Server "
-msgstr "邮件服务器"
+msgstr "邮件服务器。。。 "
 
 #: views/servers/email.php:76
 msgid "Email address where backups should be emailed to"
-msgstr "备份文件将发送到邮箱地址。"
+msgstr "备份文件将发送到邮箱地址"
 
 #: assets/js/backup.js:14
 msgid "Email notifications are set to Yes but no email provided"
@@ -532,7 +532,7 @@ msgstr ""
 
 #: functions.inc/restore.php:100
 msgid "FTP Connection error!"
-msgstr "FTP连接错误"
+msgstr "FTP连接错误！"
 
 #: views/backup/backups.php:482 views/servers/mysql.php:148
 msgid "FTP Password"
@@ -544,7 +544,7 @@ msgstr "FTP服务器"
 
 #: functions.inc/servers.php:266 functions.inc/servers.php:321
 msgid "FTP Server "
-msgstr "FTP服务器"
+msgstr "FTP服务器。。。 "
 
 #: views/backup/backups.php:509
 msgid "FTP Transfer type"
@@ -589,15 +589,15 @@ msgstr "文件"
 
 #: functions.inc/restore.php:348
 msgid "File not found! "
-msgstr "未找到文件"
+msgstr "未找到文件！ "
 
 #: bin/restore.php:151
 msgid "File restore complete!"
-msgstr "还原文件成功"
+msgstr "还原文件成功！"
 
 #: bin/backup.php:125
 msgid "File verification failed. "
-msgstr "文件验证错误"
+msgstr "文件验证错误。 "
 
 #: functions.inc/class.backup.php:362 views/restore/browseserver.php:19
 msgid "Files"
@@ -701,7 +701,7 @@ msgstr "初始备份"
 
 #: bin/restore.php:90
 msgid "Initializing Restore..."
-msgstr "初始还原"
+msgstr "初始还原。。。"
 
 #: views/backup/backups.php:31
 msgid "Introduction"
@@ -750,7 +750,7 @@ msgstr "本地服务器"
 
 #: functions.inc/servers.php:269 functions.inc/servers.php:324
 msgid "Local Server "
-msgstr "本地服务器"
+msgstr "本地服务器。 "
 
 #: install.php:237
 msgid "Location of backups pre 2.10"
@@ -1092,7 +1092,7 @@ msgstr ""
 
 #: install.php:157
 msgid "Replacing ampbackup.pl in db.."
-msgstr "正在替换db中的ampbackup.pl"
+msgstr "正在替换db中的ampbackup.pl。。。"
 
 #: Backup.class.php:178
 msgid "Reset"
@@ -1240,7 +1240,7 @@ msgstr "SSH服务器"
 
 #: functions.inc/servers.php:275 functions.inc/servers.php:330
 msgid "SSH Server "
-msgstr "SSH服务器"
+msgstr "SSH服务器。 "
 
 #: views/servers/ssh.php:124
 msgid "SSH Username"
@@ -1357,7 +1357,7 @@ msgstr ""
 
 #: install.php:190 install.php:204
 msgid "Successfully migrated backup table!"
-msgstr "成功合并备份表。"
+msgstr "成功合并备份表！"
 
 #: views/cron.php:27 assets/js/backup.js:83
 msgid "Sunday"

@@ -385,10 +385,10 @@ class Backup {
 						ftp_pasv($ftp, ($s['transfer'] == 'passive'));
 
 						//switch to directory. If we fail, build directory structure and try again
-						if (!ftp_chdir($ftp, $s['path'] . '/' . $this->b['_dirname'])) {
+						if (!@ftp_chdir($ftp, $s['path'] . '/' . $this->b['_dirname'])) {
 							//ensure directory structure
-							ftp_mkdir($ftp, $s['path']);
-							ftp_mkdir($ftp, $s['path'] . '/' . $this->b['_dirname']);
+							@ftp_mkdir($ftp, $s['path']);
+							@ftp_mkdir($ftp, $s['path'] . '/' . $this->b['_dirname']);
 							ftp_chdir($ftp, $s['path'] . '/' . $this->b['_dirname']);
 						}
 

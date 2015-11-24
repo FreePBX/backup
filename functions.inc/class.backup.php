@@ -35,7 +35,7 @@ class Backup {
 		$this->amp_conf			= $amp_conf;
 
 		$this->b['_ctime']		= time();
-		$this->b['_file']		= date("Ymd-His-") . $this->b['_ctime'] . '-' . rand();
+		$this->b['_file']		= date("Ymd-His-") . $this->b['_ctime'] . '-' . get_framework_version() . '-' . rand();
 		$this->b['_dirname']		= trim(preg_replace('/[^a-zA-Z0-9]+/', '_', $this->b['name']), '_');
 		$this->db			= $db;
 		$this->cdrdb			= $cdrdb;

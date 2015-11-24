@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-03 09:28-0800\n"
+"POT-Creation-Date: 2015-11-24 14:31-0800\n"
 "PO-Revision-Date: 2015-04-18 01:09+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -108,6 +108,10 @@ msgstr ""
 msgid "Adding items..."
 msgstr "Agregando elementos..."
 
+#: backup.i18n.php:6 backup.i18n.php:12
+msgid "Admin"
+msgstr "Administrador"
+
 #: views/backup/backup.php:314
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
@@ -177,6 +181,26 @@ msgstr "BITACORA DE RESPALDOS ANEXADA"
 #: functions.inc/class.backup.php:368 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Respaldo"
+
+#: backup.i18n.php:4 backup.i18n.php:10
+msgid "Backup & Restore"
+msgstr "Copias de seguridad"
+
+#: backup.i18n.php:18
+msgid "Backup & Restore - Restore"
+msgstr "Respalda & Restaura - Restaura"
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Servers"
+msgstr "Respalda & Restaura - Servidores"
+
+#: backup.i18n.php:16
+msgid "Backup & Restore - Templates"
+msgstr "Respaldar & Restaurar - Plantillas"
+
+#: backup.i18n.php:8
+msgid "Backup & Restore for your FreePBX environment"
+msgstr "respaldar & restaurar para su ambiente FreePBX"
 
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
@@ -1699,24 +1723,6 @@ msgstr "(no servidores disponibles)"
 #~ msgstr ""
 #~ "Usted debe correr \"amportal a ma updateall\" para asegurar la integridad "
 #~ "del sistema"
-
-#~ msgid "Admin"
-#~ msgstr "Administrador"
-
-#~ msgid "Backup & Restore"
-#~ msgstr "Copias de seguridad"
-
-#~ msgid "Backup & Restore - Restore"
-#~ msgstr "Respalda & Restaura - Restaura"
-
-#~ msgid "Backup & Restore - Servers"
-#~ msgstr "Respalda & Restaura - Servidores"
-
-#~ msgid "Backup & Restore - Templates"
-#~ msgstr "Respaldar & Restaurar - Plantillas"
-
-#~ msgid "Backup & Restore for your FreePBX environment"
-#~ msgstr "respaldar & restaurar para su ambiente FreePBX"
 
 #~ msgid "Backup Module"
 #~ msgstr "Modulo de Respaldo"

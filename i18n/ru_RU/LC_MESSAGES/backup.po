@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-03 09:28-0800\n"
+"POT-Creation-Date: 2015-11-24 14:31-0800\n"
 "PO-Revision-Date: 2015-05-03 15:58+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -110,6 +110,10 @@ msgstr ""
 msgid "Adding items..."
 msgstr "Добавление элементов..."
 
+#: backup.i18n.php:6 backup.i18n.php:12
+msgid "Admin"
+msgstr "Админ"
+
 #: views/backup/backup.php:314
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
@@ -179,6 +183,26 @@ msgstr "Журнал копирования приложен"
 #: functions.inc/class.backup.php:368 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Бекап"
+
+#: backup.i18n.php:4 backup.i18n.php:10
+msgid "Backup & Restore"
+msgstr "Резервное копирование и восстановление"
+
+#: backup.i18n.php:18
+msgid "Backup & Restore - Restore"
+msgstr "Резервное копирование и восстановление - Восстановление"
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Servers"
+msgstr "Резервное копирование и восстановление - Серверы"
+
+#: backup.i18n.php:16
+msgid "Backup & Restore - Templates"
+msgstr "Резервное копирование и восстановление - Шаблоны"
+
+#: backup.i18n.php:8
+msgid "Backup & Restore for your FreePBX environment"
+msgstr "Резервное копирование и восстановление для вашего FreePBX"
 
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
@@ -1698,26 +1722,8 @@ msgstr ""
 #~ "Полное резервное копирование настроек ядра и web-интерфейса, исключая "
 #~ "системные звуки или записи. "
 
-#~ msgid "Admin"
-#~ msgstr "Админ"
-
 #~ msgid "All"
 #~ msgstr "Все"
-
-#~ msgid "Backup & Restore"
-#~ msgstr "Резервное копирование и восстановление"
-
-#~ msgid "Backup & Restore - Restore"
-#~ msgstr "Резервное копирование и восстановление - Восстановление"
-
-#~ msgid "Backup & Restore - Servers"
-#~ msgstr "Резервное копирование и восстановление - Серверы"
-
-#~ msgid "Backup & Restore - Templates"
-#~ msgstr "Резервное копирование и восстановление - Шаблоны"
-
-#~ msgid "Backup & Restore for your FreePBX environment"
-#~ msgstr "Резервное копирование и восстановление для вашего FreePBX"
 
 #~ msgid "Backup Module"
 #~ msgstr "Модуль резервного копирования"

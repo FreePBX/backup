@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-03 09:28-0800\n"
+"POT-Creation-Date: 2015-11-24 14:31-0800\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -106,6 +106,10 @@ msgstr "Добави Сървър"
 msgid "Adding items..."
 msgstr "Добавяне на елементи..."
 
+#: backup.i18n.php:6 backup.i18n.php:12
+msgid "Admin"
+msgstr "Админ"
+
 #: views/backup/backup.php:314
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
@@ -173,6 +177,26 @@ msgstr "ЛОГА НА АРХИВА Е ПРИКАЧЕН"
 #: functions.inc/class.backup.php:368 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Архивиране"
+
+#: backup.i18n.php:4 backup.i18n.php:10
+msgid "Backup & Restore"
+msgstr "Архивирай & Възстанови"
+
+#: backup.i18n.php:18
+msgid "Backup & Restore - Restore"
+msgstr "Архивирай & Възстанови - Възстановяване"
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Servers"
+msgstr "Архивирай & Възстанови - Сървъри"
+
+#: backup.i18n.php:16
+msgid "Backup & Restore - Templates"
+msgstr "Архивирай & Възстанови - Шаблони"
+
+#: backup.i18n.php:8
+msgid "Backup & Restore for your FreePBX environment"
+msgstr "Архивирай & Възстанови за вашата FreePBX система"
 
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
@@ -1658,15 +1682,6 @@ msgstr ""
 msgid "{no servers available}"
 msgstr ""
 
-#~ msgid "Backup & Restore - Restore"
-#~ msgstr "Архивирай & Възстанови - Възстановяване"
-
-#~ msgid "Backup & Restore - Servers"
-#~ msgstr "Архивирай & Възстанови - Сървъри"
-
-#~ msgid "Backup & Restore - Templates"
-#~ msgstr "Архивирай & Възстанови - Шаблони"
-
 #~ msgid "Backup Module"
 #~ msgstr "Модул за Архиви"
 
@@ -1711,9 +1726,6 @@ msgstr ""
 
 #~ msgid "Add Backup Schedule"
 #~ msgstr "Добави План за Архивиране"
-
-#~ msgid "Admin"
-#~ msgstr "Админ"
 
 #~ msgid "All"
 #~ msgstr "Всички"
@@ -1775,12 +1787,6 @@ msgstr ""
 #~ "необратимо ще презапише всички FreePBX и Asterisk файлове\\nЩе изгубите "
 #~ "всички ваши Детайлни Отчети на Разговорите и всяка Гласова Поща които са "
 #~ "били записани между ДАТАТА НА АРХИВИРАНЕ и СЕГА!"
-
-#~ msgid "Backup & Restore"
-#~ msgstr "Архивирай & Възстанови"
-
-#~ msgid "Backup & Restore for your FreePBX environment"
-#~ msgstr "Архивирай & Възстанови за вашата FreePBX система"
 
 #~ msgid "Backup the Operator Panel (HTML and Database)"
 #~ msgstr "Архивира Оператор Панела  (HTML и База Данни)"

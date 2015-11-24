@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-03 09:28-0800\n"
+"POT-Creation-Date: 2015-11-24 14:31-0800\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -98,6 +98,10 @@ msgstr ""
 msgid "Adding items..."
 msgstr "Onderdelen toevoegen..."
 
+#: backup.i18n.php:6 backup.i18n.php:12
+msgid "Admin"
+msgstr "Beheer"
+
 #: views/backup/backup.php:314
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
@@ -167,6 +171,26 @@ msgstr "RESERVEKOPIE LOG TOEGEVOEGD"
 #: functions.inc/class.backup.php:368 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Reservekopie"
+
+#: backup.i18n.php:4 backup.i18n.php:10
+msgid "Backup & Restore"
+msgstr "Reservekopie & Terugzetten"
+
+#: backup.i18n.php:18
+msgid "Backup & Restore - Restore"
+msgstr "Reservekopie & Terugzetten - Terugzetten"
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Servers"
+msgstr "Reservekopie & Terugzetten - Servers"
+
+#: backup.i18n.php:16
+msgid "Backup & Restore - Templates"
+msgstr "Reservekopie & Terugzetten - Sjablonen"
+
+#: backup.i18n.php:8
+msgid "Backup & Restore for your FreePBX environment"
+msgstr "Reservekopie & Terugzetten voor uw FreePBX omgeving"
 
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
@@ -1704,24 +1728,6 @@ msgstr "{geen servers beschikbaar}"
 #~ msgstr ""
 #~ "U moet het commando \"amportal a ma updateall\" uitvoeren om de "
 #~ "integriteit van het systeem te waarborgen"
-
-#~ msgid "Admin"
-#~ msgstr "Beheer"
-
-#~ msgid "Backup & Restore"
-#~ msgstr "Reservekopie & Terugzetten"
-
-#~ msgid "Backup & Restore - Restore"
-#~ msgstr "Reservekopie & Terugzetten - Terugzetten"
-
-#~ msgid "Backup & Restore - Servers"
-#~ msgstr "Reservekopie & Terugzetten - Servers"
-
-#~ msgid "Backup & Restore - Templates"
-#~ msgstr "Reservekopie & Terugzetten - Sjablonen"
-
-#~ msgid "Backup & Restore for your FreePBX environment"
-#~ msgstr "Reservekopie & Terugzetten voor uw FreePBX omgeving"
 
 #~ msgid "Backup Module"
 #~ msgstr "Reservekopie module"

@@ -39,12 +39,19 @@ class Backup {
 		$this->b['_dirname']		= trim(preg_replace('/[^a-zA-Z0-9]+/', '_', $this->b['name']), '_');
 		$this->db			= $db;
 		$this->cdrdb			= $cdrdb;
-		$this->amp_conf['CDRDBTYPE']	= $this->cdrdb->dsn['phptype'];
-		$this->amp_conf['CDRDBHOST']	= $this->cdrdb->dsn['hostspec'];
-		$this->amp_conf['CDRDBUSER']	= $this->cdrdb->dsn['username'];
-		$this->amp_conf['CDRDBPASS']	= $this->cdrdb->dsn['password'];
-		$this->amp_conf['CDRDBPORT']	= $this->cdrdb->dsn['port'];
-		$this->amp_conf['CDRDBNAME']	= $this->cdrdb->dsn['database'];
+
+		// If CDRDB vars aren't configured, we use the values from ASTDB.
+		$maps = array("CDRDBTYPE" => "AMPDBENGINE", "CDRDBHOST" => "AMPDBHOST", "CDRDBUSER" => "AMPDBUSER",
+			"CDRDBPASS" => "AMPDBPASS", "CDRDBPORT" => "AMPDBPORT");
+
+		foreach ($maps as $dst => $src) {
+			if (empty($this->amp_conf[$dst]) && !empty($this->amp_conf[$src])) {
+				$this->amp_conf[$dst] = $this->amp_conf[$src];
+			}
+		}
+		if (empty($this->amp_conf['CDRDBNAME'])) {
+			$this->amp_conf['CDRDBNAME'] = "asteriskcdrdb";
+		}
 
 		//defualt properties
 		$this->b['prebu_hook']		= isset($b['prebu_hook'])	? $b['prebu_hook']	: '';
@@ -245,7 +252,7 @@ class Backup {
 									. '.' . backup__($x);
 						}
 					}
-					$cmd[] = ' --opt --skip-comments --skip-extended-insert';
+					$cmd[] = ' --opt --skip-comments --skip-extended-insert --lock-tables=false --skip-add-locks --compatible=no_table_options ';
 
 					// Need to grep out leading /* comments and SET commands as they create problems
 					// restoring using the PEAR $db class
@@ -601,7 +608,7 @@ class Backup {
 		if (!isset($this->b['delete_time']) && !isset($this->b['delete_amount'])) {
 			return true;
 		}
-		$delete = $dir = array();
+		$delete = $dir = $files = array();
 
 		//get file list
 		switch ($type) {

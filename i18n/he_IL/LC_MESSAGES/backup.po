@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-24 14:31-0800\n"
+"POT-Creation-Date: 2015-11-26 15:02+1000\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +44,7 @@ msgstr ""
 msgid "/path/to/file"
 msgstr ""
 
-#: install.php:309
+#: install.php:142
 msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
@@ -116,7 +116,7 @@ msgid ""
 "base backup"
 msgstr ""
 
-#: install.php:382
+#: install.php:169
 msgid ""
 "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
 "VOICEMAIL"
@@ -167,7 +167,7 @@ msgid "BACKUP LOG ATTACHED"
 msgstr ""
 
 #: Backup.class.php:307 functions.inc/backup.php:79
-#: functions.inc/class.backup.php:368 views/backup/backup.php:6
+#: functions.inc/class.backup.php:380 views/backup/backup.php:6
 msgid "Backup"
 msgstr ""
 
@@ -247,7 +247,7 @@ msgstr ""
 msgid "Backup completed with errors!"
 msgstr ""
 
-#: functions.inc/class.backup.php:266
+#: functions.inc/class.backup.php:278
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -256,10 +256,6 @@ msgstr ""
 
 #: bin/restore.php:93
 msgid "Backup file not found! Aborting."
-msgstr ""
-
-#: install.php:135
-msgid "Backup migration completed"
 msgstr ""
 
 #: bin/backup.php:14
@@ -298,7 +294,7 @@ msgstr ""
 msgid "CDR and Call Log Data"
 msgstr ""
 
-#: install.php:268
+#: install.php:100
 msgid "CDR server, generally a local database server"
 msgstr ""
 
@@ -306,7 +302,7 @@ msgstr ""
 msgid "CDR's"
 msgstr ""
 
-#: install.php:350
+#: install.php:151
 #, fuzzy
 msgid "Call Detail Records"
 msgstr "שחזר דוח פרטי שיחות"
@@ -319,14 +315,6 @@ msgstr ""
 msgid "Can not create backup tables"
 msgstr ""
 
-#: install.php:132
-msgid "Can not migrate Backup table"
-msgstr ""
-
-#: install.php:82
-msgid "Can't check for Backup table"
-msgstr ""
-
 #: bin/restore.php:387
 msgid "Cleaning up..."
 msgstr ""
@@ -335,7 +323,7 @@ msgstr ""
 msgid "Click 'Next' to continue."
 msgstr ""
 
-#: install.php:292
+#: install.php:133
 #, fuzzy
 msgid "Configurations only"
 msgstr "תצורת מערכת"
@@ -344,16 +332,12 @@ msgstr "תצורת מערכת"
 msgid "Connecting to remote server..."
 msgstr ""
 
-#: functions.inc/class.backup.php:361 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:373 views/restore/browseserver.php:18
 msgid "Created"
 msgstr ""
 
 #: bin/backup.php:63
 msgid "Creating backup..."
-msgstr ""
-
-#: install.php:209
-msgid "Creating backups directory.."
 msgstr ""
 
 #: views/cron.php:10
@@ -396,7 +380,7 @@ msgstr "דצמבר"
 msgid "Default"
 msgstr ""
 
-#: install.php:630
+#: install.php:207
 msgid "Default backup; automatically installed"
 msgstr ""
 
@@ -480,15 +464,6 @@ msgstr ""
 msgid "Drop Here"
 msgstr ""
 
-#: install.php:142
-msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
-msgstr ""
-
-#: install.php:87
-msgid ""
-"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
-msgstr ""
-
 #: views/servers/email.php:64
 msgid "Email Address"
 msgstr ""
@@ -523,7 +498,7 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:404
+#: functions.inc/class.backup.php:416
 msgid "Error connecting to the FTP Server..."
 msgstr ""
 
@@ -539,9 +514,9 @@ msgstr ""
 msgid "Exclude"
 msgstr ""
 
-#: install.php:402
+#: install.php:178
 msgid ""
-"Exclude Backup's settings so that they dont get restored, usefull for a "
+"Exclude Backup's settings so that they dont get restored, useful for a "
 "remote restore"
 msgstr ""
 
@@ -604,10 +579,6 @@ msgstr ""
 msgid "Failed to retrieve file from server!"
 msgstr ""
 
-#: install.php:92
-msgid "Failure Message:"
-msgstr ""
-
 #: functions.inc/templates.php:303
 msgid "Family, one per line"
 msgstr ""
@@ -632,7 +603,7 @@ msgstr ""
 msgid "File verification failed. "
 msgstr ""
 
-#: functions.inc/class.backup.php:362 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:374 views/restore/browseserver.php:19
 msgid "Files"
 msgstr ""
 
@@ -785,20 +756,12 @@ msgstr ""
 msgid "Local Server "
 msgstr ""
 
-#: install.php:237
-msgid "Location of backups pre 2.10"
-msgstr ""
-
 #: views/servers/ssh.php:148
 msgid "Location of ssh private key to be used when connecting to a host"
 msgstr ""
 
 #: views/servers/email.php:103
 msgid "MB"
-msgstr ""
-
-#: install.php:457
-msgid "MIGRATED"
 msgstr ""
 
 #: views/backup/backup.php:447
@@ -816,26 +779,6 @@ msgstr ""
 #: views/cron.php:47
 msgid "May"
 msgstr "מאי"
-
-#: install.php:586
-msgid "Migrated EMAIL server for backup "
-msgstr ""
-
-#: install.php:554
-msgid "Migrated FTP server for backup "
-msgstr ""
-
-#: install.php:570
-msgid "Migrated SSH server for backup "
-msgstr ""
-
-#: install.php:599
-msgid "Migrated remote SSH server for backup "
-msgstr ""
-
-#: install.php:181 install.php:198
-msgid "Migrating backup table..."
-msgstr ""
 
 #: views/backup/backup.php:464 views/cron.php:168 views/cron.php:172
 msgid "Minutes"
@@ -865,7 +808,7 @@ msgstr ""
 msgid "Mysql DB's"
 msgstr ""
 
-#: functions.inc/class.backup.php:363
+#: functions.inc/class.backup.php:375
 msgid "Mysql Db's"
 msgstr ""
 
@@ -873,7 +816,7 @@ msgstr ""
 msgid "Mysql Server "
 msgstr ""
 
-#: functions.inc/class.backup.php:360 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:372 views/restore/browseserver.php:17
 msgid "Name"
 msgstr ""
 
@@ -945,10 +888,6 @@ msgstr ""
 msgid "No storage servers found! Aborting."
 msgstr ""
 
-#: install.php:137
-msgid "Nothing to migrate"
-msgstr ""
-
 #: bin/restore.php:86
 msgid "Nothing to restore!"
 msgstr ""
@@ -969,10 +908,6 @@ msgstr ""
 msgid "October"
 msgstr "אוקטובר"
 
-#: install.php:146
-msgid "Old Backup table removed"
-msgstr ""
-
 #: assets/js/backup.js:101
 msgid "On the"
 msgstr ""
@@ -989,7 +924,7 @@ msgstr ""
 msgid "PBX Settings"
 msgstr ""
 
-#: install.php:255
+#: install.php:88
 msgid "PBX config server, generally a local database server"
 msgstr ""
 
@@ -1121,10 +1056,6 @@ msgstr ""
 
 #: views/backup/backups.php:533
 msgid "Remote save path, blank for default"
-msgstr ""
-
-#: install.php:157
-msgid "Replacing ampbackup.pl in db.."
 msgstr ""
 
 #: Backup.class.php:178
@@ -1380,16 +1311,12 @@ msgstr ""
 msgid "Storage Servers"
 msgstr ""
 
-#: install.php:246
+#: install.php:80
 msgid "Storage location for backups"
 msgstr ""
 
 #: bin/backup.php:143
 msgid "Storing backup..."
-msgstr ""
-
-#: install.php:190 install.php:204
-msgid "Successfully migrated backup table!"
 msgstr ""
 
 #: views/cron.php:27 assets/js/backup.js:83
@@ -1425,10 +1352,6 @@ msgid ""
 "send data."
 msgstr ""
 
-#: install.php:88
-msgid "This error can result from a previous incomplete/failed install of"
-msgstr ""
-
 #: views/backup/backup.php:225
 msgid "This server"
 msgstr ""
@@ -1458,6 +1381,15 @@ msgstr "שלישי"
 msgid "Type"
 msgstr ""
 
+#: install.php:264
+#, php-format
+msgid "Updated Job %s with new custom sounds directory"
+msgstr ""
+
+#: install.php:252
+msgid "Updated System Recordings template"
+msgstr ""
+
 #: views/servers/mysql.php:112
 msgid "User Name"
 msgstr ""
@@ -1471,7 +1403,7 @@ msgstr ""
 msgid "Verifying received file..."
 msgstr ""
 
-#: install.php:366
+#: install.php:160
 #, fuzzy
 msgid "Voice Mail Storage"
 msgstr "דואר קולי"
@@ -1482,15 +1414,6 @@ msgstr ""
 
 #: bin/restore.php:258
 msgid "WARNING!"
-msgstr ""
-
-#: install.php:188 install.php:202
-msgid "WARNING: backup table not migrated"
-msgstr ""
-
-#: install.php:214
-#, php-format
-msgid "WARNING: failed to create backup directory: %s"
 msgstr ""
 
 #: bin/restore.php:259
@@ -1586,77 +1509,32 @@ msgstr ""
 msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
 msgstr ""
 
-#: install.php:286
+#: install.php:123
 msgid "added default backup servers"
 msgstr ""
 
-#: install.php:430
+#: install.php:196
 msgid "added default backup templates"
 msgstr ""
 
-#: install.php:160
-msgid "an error has occurred, update not done"
-msgstr ""
-
-#: install.php:143
-msgid "and then re-install this module. Settings will be lost but old"
-msgstr ""
-
-#: functions.inc/class.backup.php:364
+#: functions.inc/class.backup.php:376
 msgid "astDb's"
-msgstr ""
-
-#: install.php:91
-msgid "backup data will be preserved."
-msgstr ""
-
-#: install.php:144
-msgid "backup data will be retained."
 msgstr ""
 
 #: views/item_table.php:48
 msgid "chose"
 msgstr ""
 
-#: install.php:90
-msgid ""
-"doing so will result in a loss of all your backup settings though previous"
-msgstr ""
-
 #: functions.inc/restore.php:17
 msgid "error/not found!"
-msgstr ""
-
-#: install.php:173 install.php:213
-msgid "failed"
 msgstr ""
 
 #: functions.inc/restore.php:185
 msgid "manifest not found"
 msgstr ""
 
-#: install.php:459
-msgid "migrated backup"
-msgstr ""
-
-#: install.php:163 install.php:211
-msgid "ok"
-msgstr ""
-
-#: install.php:171
-msgid "removed"
-msgstr ""
-
-#: install.php:169
-msgid "removing retrieve_backup_cron_from_mysql.pl.."
-msgstr ""
-
 #: functions.inc/templates.php:289
 msgid "table names, one per line"
-msgstr ""
-
-#: install.php:89
-msgid "this module. You should probably uninstall and reinstall this module"
 msgstr ""
 
 #: bin/backup.php:47

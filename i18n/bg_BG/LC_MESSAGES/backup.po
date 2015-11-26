@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-24 14:31-0800\n"
+"POT-Creation-Date: 2015-11-26 15:02+1000\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -51,7 +51,7 @@ msgstr "/path/to/dir"
 msgid "/path/to/file"
 msgstr "/path/to/file"
 
-#: install.php:309
+#: install.php:142
 msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
@@ -123,7 +123,7 @@ msgid ""
 "base backup"
 msgstr ""
 
-#: install.php:382
+#: install.php:169
 msgid ""
 "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
 "VOICEMAIL"
@@ -174,7 +174,7 @@ msgid "BACKUP LOG ATTACHED"
 msgstr "ЛОГА НА АРХИВА Е ПРИКАЧЕН"
 
 #: Backup.class.php:307 functions.inc/backup.php:79
-#: functions.inc/class.backup.php:368 views/backup/backup.php:6
+#: functions.inc/class.backup.php:380 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Архивиране"
 
@@ -254,7 +254,7 @@ msgstr "Архивиране и Възстановяване"
 msgid "Backup completed with errors!"
 msgstr "Архивирането приключи с грешки!"
 
-#: functions.inc/class.backup.php:266
+#: functions.inc/class.backup.php:278
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -264,10 +264,6 @@ msgstr ""
 #: bin/restore.php:93
 msgid "Backup file not found! Aborting."
 msgstr "Файлът с архива не е намерен! Прекъсване."
-
-#: install.php:135
-msgid "Backup migration completed"
-msgstr "Преместването на архива приключи"
 
 #: bin/backup.php:14
 msgid "Backup module not found or is disabled. Aborting!"
@@ -305,7 +301,7 @@ msgstr "Създаване на манифест..."
 msgid "CDR and Call Log Data"
 msgstr "Данни на CDR и Лог на Разговори"
 
-#: install.php:268
+#: install.php:100
 msgid "CDR server, generally a local database server"
 msgstr "CDR сървър, обикновено локален сървър за база данни"
 
@@ -313,7 +309,7 @@ msgstr "CDR сървър, обикновено локален сървър за 
 msgid "CDR's"
 msgstr "CDR Отчети"
 
-#: install.php:350
+#: install.php:151
 msgid "Call Detail Records"
 msgstr "Подробни Отчети на Разговорите"
 
@@ -325,14 +321,6 @@ msgstr "Записи на Разговори"
 msgid "Can not create backup tables"
 msgstr "Не мога да създам таблици с архиви"
 
-#: install.php:132
-msgid "Can not migrate Backup table"
-msgstr "Не мога да преместя таблица Backup"
-
-#: install.php:82
-msgid "Can't check for Backup table"
-msgstr "Не мога да проверя таблица Backup"
-
 #: bin/restore.php:387
 msgid "Cleaning up..."
 msgstr "Почистване..."
@@ -341,7 +329,7 @@ msgstr "Почистване..."
 msgid "Click 'Next' to continue."
 msgstr "Кликнете 'Next' за да продължите."
 
-#: install.php:292
+#: install.php:133
 msgid "Configurations only"
 msgstr "Само настройки"
 
@@ -349,17 +337,13 @@ msgstr "Само настройки"
 msgid "Connecting to remote server..."
 msgstr "Свързване към отдалечен сървър..."
 
-#: functions.inc/class.backup.php:361 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:373 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Създадени"
 
 #: bin/backup.php:63
 msgid "Creating backup..."
 msgstr "Създаване на архив..."
-
-#: install.php:209
-msgid "Creating backups directory.."
-msgstr "Създаване на директория с архиви.."
 
 #: views/cron.php:10
 msgid "Custom"
@@ -401,7 +385,7 @@ msgstr "Декември"
 msgid "Default"
 msgstr "По-Подразбиране"
 
-#: install.php:630
+#: install.php:207
 msgid "Default backup; automatically installed"
 msgstr "Архив по-подразбиране; автоматично инсталиран"
 
@@ -486,19 +470,6 @@ msgstr ""
 msgid "Drop Here"
 msgstr "Пуснете Тук"
 
-#: install.php:142
-msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
-msgstr ""
-"ГРЕШКА: Неуспех при премахване на старата таблица \"Backup\". Трябва да "
-"деинсталирате"
-
-#: install.php:87
-msgid ""
-"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
-msgstr ""
-"ГРЕШКА: неуспех при преместване на старата таблица \"Backup\" в нова таблица "
-"\"backup\""
-
 #: views/servers/email.php:64
 msgid "Email Address"
 msgstr "Email Адрес"
@@ -533,7 +504,7 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:404
+#: functions.inc/class.backup.php:416
 msgid "Error connecting to the FTP Server..."
 msgstr "Грешка при свързване с FTP Сървър..."
 
@@ -549,9 +520,9 @@ msgstr "Грешка при проверка на качения файл!"
 msgid "Exclude"
 msgstr "Изключи"
 
-#: install.php:402
+#: install.php:178
 msgid ""
-"Exclude Backup's settings so that they dont get restored, usefull for a "
+"Exclude Backup's settings so that they dont get restored, useful for a "
 "remote restore"
 msgstr ""
 
@@ -614,10 +585,6 @@ msgstr ""
 msgid "Failed to retrieve file from server!"
 msgstr ""
 
-#: install.php:92
-msgid "Failure Message:"
-msgstr "Съобщение за Грешка:"
-
 #: functions.inc/templates.php:303
 msgid "Family, one per line"
 msgstr ""
@@ -642,7 +609,7 @@ msgstr "Възстановяването на файла приключи!"
 msgid "File verification failed. "
 msgstr "Проверката на файла е неуспешна. "
 
-#: functions.inc/class.backup.php:362 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:374 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Файлове"
 
@@ -795,10 +762,6 @@ msgstr "Локален Сървър"
 msgid "Local Server "
 msgstr "Локален Сървър "
 
-#: install.php:237
-msgid "Location of backups pre 2.10"
-msgstr "Местоположение на архиви от преди 2.10"
-
 #: views/servers/ssh.php:148
 msgid "Location of ssh private key to be used when connecting to a host"
 msgstr ""
@@ -807,10 +770,6 @@ msgstr ""
 #: views/servers/email.php:103
 msgid "MB"
 msgstr "MB"
-
-#: install.php:457
-msgid "MIGRATED"
-msgstr "ПРЕМЕСТЕН"
 
 #: views/backup/backup.php:447
 msgid "Maintinance"
@@ -827,26 +786,6 @@ msgstr "Макс. Размер на Email"
 #: views/cron.php:47
 msgid "May"
 msgstr "Май"
-
-#: install.php:586
-msgid "Migrated EMAIL server for backup "
-msgstr "Преместен EMAIL сървър за архивиране "
-
-#: install.php:554
-msgid "Migrated FTP server for backup "
-msgstr "Преместен FTP сървър за архивиране "
-
-#: install.php:570
-msgid "Migrated SSH server for backup "
-msgstr "Преместен SSH сървър за архивиране "
-
-#: install.php:599
-msgid "Migrated remote SSH server for backup "
-msgstr "Преместен отдалечен SSH сървър за архивиране "
-
-#: install.php:181 install.php:198
-msgid "Migrating backup table..."
-msgstr "Преместване на таблица backup..."
 
 #: views/backup/backup.php:464 views/cron.php:168 views/cron.php:172
 msgid "Minutes"
@@ -876,7 +815,7 @@ msgstr "MySQL"
 msgid "Mysql DB's"
 msgstr "Mysql БД"
 
-#: functions.inc/class.backup.php:363
+#: functions.inc/class.backup.php:375
 msgid "Mysql Db's"
 msgstr "Mysql БД"
 
@@ -884,7 +823,7 @@ msgstr "Mysql БД"
 msgid "Mysql Server "
 msgstr "Mysql Сървър "
 
-#: functions.inc/class.backup.php:360 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:372 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Име"
 
@@ -956,10 +895,6 @@ msgstr "Няма елементи в настройките за архивир�
 msgid "No storage servers found! Aborting."
 msgstr "Не е намерен сървър! Прекъсване."
 
-#: install.php:137
-msgid "Nothing to migrate"
-msgstr "Нищо за преместване"
-
 #: bin/restore.php:86
 msgid "Nothing to restore!"
 msgstr "Няма какво да се възстанови!"
@@ -980,10 +915,6 @@ msgstr "ВКЛЮЧЕН"
 msgid "October"
 msgstr "Октомври"
 
-#: install.php:146
-msgid "Old Backup table removed"
-msgstr "Премахната стара таблица архиви"
-
 #: assets/js/backup.js:101
 msgid "On the"
 msgstr ""
@@ -1000,7 +931,7 @@ msgstr ""
 msgid "PBX Settings"
 msgstr "PBX Настройки"
 
-#: install.php:255
+#: install.php:88
 msgid "PBX config server, generally a local database server"
 msgstr "PBX конфигурационен сървър, обикновено локален сървър за база данни"
 
@@ -1133,10 +1064,6 @@ msgstr ""
 #: views/backup/backups.php:533
 msgid "Remote save path, blank for default"
 msgstr ""
-
-#: install.php:157
-msgid "Replacing ampbackup.pl in db.."
-msgstr "Замяна на ampbackup.pl в db.."
 
 #: Backup.class.php:178
 msgid "Reset"
@@ -1391,17 +1318,13 @@ msgstr "Стъпка 5"
 msgid "Storage Servers"
 msgstr "Сървъри за Съхранение"
 
-#: install.php:246
+#: install.php:80
 msgid "Storage location for backups"
 msgstr "Местоположение за съхраняване на архиви"
 
 #: bin/backup.php:143
 msgid "Storing backup..."
 msgstr "Съхраняване на архив..."
-
-#: install.php:190 install.php:204
-msgid "Successfully migrated backup table!"
-msgstr "Успешно преместена таблица backup!"
 
 #: views/cron.php:27 assets/js/backup.js:83
 msgid "Sunday"
@@ -1436,11 +1359,6 @@ msgid ""
 "send data."
 msgstr ""
 
-#: install.php:88
-msgid "This error can result from a previous incomplete/failed install of"
-msgstr ""
-"Тази грешка може да е в резултат на предишна непълна/провалена инсталация на"
-
 #: views/backup/backup.php:225
 msgid "This server"
 msgstr "Този сървър"
@@ -1470,6 +1388,15 @@ msgstr "Вторник"
 msgid "Type"
 msgstr "Тип"
 
+#: install.php:264
+#, php-format
+msgid "Updated Job %s with new custom sounds directory"
+msgstr ""
+
+#: install.php:252
+msgid "Updated System Recordings template"
+msgstr ""
+
 #: views/servers/mysql.php:112
 msgid "User Name"
 msgstr "Потребителско Име"
@@ -1483,7 +1410,7 @@ msgstr "Потребителско Име"
 msgid "Verifying received file..."
 msgstr ""
 
-#: install.php:366
+#: install.php:160
 msgid "Voice Mail Storage"
 msgstr "Архив Гласова Поща"
 
@@ -1494,15 +1421,6 @@ msgstr "Гласови Пощи"
 #: bin/restore.php:258
 msgid "WARNING!"
 msgstr "ВНИМАНИЕ!"
-
-#: install.php:188 install.php:202
-msgid "WARNING: backup table not migrated"
-msgstr "ВНИМАНИЕ: таблица backup не е преместена"
-
-#: install.php:214
-#, php-format
-msgid "WARNING: failed to create backup directory: %s"
-msgstr "ВНИМАНИЕ: неуспех при създаване на директория с архиви: %s"
 
 #: bin/restore.php:259
 msgid "Web Root restore not detected, not restoring module table"
@@ -1597,82 +1515,33 @@ msgstr ""
 msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
 msgstr ""
 
-#: install.php:286
+#: install.php:123
 msgid "added default backup servers"
 msgstr "добавен е сървър за архиви по-подразбиране"
 
-#: install.php:430
+#: install.php:196
 msgid "added default backup templates"
 msgstr "добавени са шаблони за архивиране по-подразбиране"
 
-#: install.php:160
-msgid "an error has occurred, update not done"
-msgstr "появи се грешка, обновяването е прекратено"
-
-#: install.php:143
-msgid "and then re-install this module. Settings will be lost but old"
-msgstr ""
-"и след това да инсталирате наново този модул. Настройките ще се загубят но "
-"старите"
-
-#: functions.inc/class.backup.php:364
+#: functions.inc/class.backup.php:376
 msgid "astDb's"
 msgstr "astDb-и"
-
-#: install.php:91
-msgid "backup data will be preserved."
-msgstr "архивни данни ще се запазят."
-
-#: install.php:144
-msgid "backup data will be retained."
-msgstr "архивни данни ще се запазят."
 
 #: views/item_table.php:48
 msgid "chose"
 msgstr ""
 
-#: install.php:90
-msgid ""
-"doing so will result in a loss of all your backup settings though previous"
-msgstr ""
-"което ще доведе до загубване на всички Ваши настройки на архивиране като "
-"предишните"
-
 #: functions.inc/restore.php:17
 msgid "error/not found!"
 msgstr "грешка/не е намерен!"
-
-#: install.php:173 install.php:213
-msgid "failed"
-msgstr "неуспех"
 
 #: functions.inc/restore.php:185
 msgid "manifest not found"
 msgstr "не е намерен манифест"
 
-#: install.php:459
-msgid "migrated backup"
-msgstr "преместен архив"
-
-#: install.php:163 install.php:211
-msgid "ok"
-msgstr "ok"
-
-#: install.php:171
-msgid "removed"
-msgstr "премахнат"
-
-#: install.php:169
-msgid "removing retrieve_backup_cron_from_mysql.pl.."
-msgstr "премахване на retrieve_backup_cron_from_mysql.pl.."
-
 #: functions.inc/templates.php:289
 msgid "table names, one per line"
 msgstr ""
-
-#: install.php:89
-msgid "this module. You should probably uninstall and reinstall this module"
-msgstr "този модул. Трябва да деинсталирате и да инсталирате наново този модул"
 
 #: bin/backup.php:47
 msgid "waiting for lock..."
@@ -1681,6 +1550,115 @@ msgstr ""
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr ""
+
+#~ msgid "Backup migration completed"
+#~ msgstr "Преместването на архива приключи"
+
+#~ msgid "Can not migrate Backup table"
+#~ msgstr "Не мога да преместя таблица Backup"
+
+#~ msgid "Can't check for Backup table"
+#~ msgstr "Не мога да проверя таблица Backup"
+
+#~ msgid "Creating backups directory.."
+#~ msgstr "Създаване на директория с архиви.."
+
+#~ msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
+#~ msgstr ""
+#~ "ГРЕШКА: Неуспех при премахване на старата таблица \"Backup\". Трябва да "
+#~ "деинсталирате"
+
+#~ msgid ""
+#~ "ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+#~ msgstr ""
+#~ "ГРЕШКА: неуспех при преместване на старата таблица \"Backup\" в нова "
+#~ "таблица \"backup\""
+
+#~ msgid "Failure Message:"
+#~ msgstr "Съобщение за Грешка:"
+
+#~ msgid "Location of backups pre 2.10"
+#~ msgstr "Местоположение на архиви от преди 2.10"
+
+#~ msgid "MIGRATED"
+#~ msgstr "ПРЕМЕСТЕН"
+
+#~ msgid "Migrated EMAIL server for backup "
+#~ msgstr "Преместен EMAIL сървър за архивиране "
+
+#~ msgid "Migrated FTP server for backup "
+#~ msgstr "Преместен FTP сървър за архивиране "
+
+#~ msgid "Migrated SSH server for backup "
+#~ msgstr "Преместен SSH сървър за архивиране "
+
+#~ msgid "Migrated remote SSH server for backup "
+#~ msgstr "Преместен отдалечен SSH сървър за архивиране "
+
+#~ msgid "Migrating backup table..."
+#~ msgstr "Преместване на таблица backup..."
+
+#~ msgid "Nothing to migrate"
+#~ msgstr "Нищо за преместване"
+
+#~ msgid "Old Backup table removed"
+#~ msgstr "Премахната стара таблица архиви"
+
+#~ msgid "Replacing ampbackup.pl in db.."
+#~ msgstr "Замяна на ampbackup.pl в db.."
+
+#~ msgid "Successfully migrated backup table!"
+#~ msgstr "Успешно преместена таблица backup!"
+
+#~ msgid "This error can result from a previous incomplete/failed install of"
+#~ msgstr ""
+#~ "Тази грешка може да е в резултат на предишна непълна/провалена инсталация "
+#~ "на"
+
+#~ msgid "WARNING: backup table not migrated"
+#~ msgstr "ВНИМАНИЕ: таблица backup не е преместена"
+
+#~ msgid "WARNING: failed to create backup directory: %s"
+#~ msgstr "ВНИМАНИЕ: неуспех при създаване на директория с архиви: %s"
+
+#~ msgid "an error has occurred, update not done"
+#~ msgstr "появи се грешка, обновяването е прекратено"
+
+#~ msgid "and then re-install this module. Settings will be lost but old"
+#~ msgstr ""
+#~ "и след това да инсталирате наново този модул. Настройките ще се загубят "
+#~ "но старите"
+
+#~ msgid "backup data will be preserved."
+#~ msgstr "архивни данни ще се запазят."
+
+#~ msgid "backup data will be retained."
+#~ msgstr "архивни данни ще се запазят."
+
+#~ msgid ""
+#~ "doing so will result in a loss of all your backup settings though previous"
+#~ msgstr ""
+#~ "което ще доведе до загубване на всички Ваши настройки на архивиране като "
+#~ "предишните"
+
+#~ msgid "failed"
+#~ msgstr "неуспех"
+
+#~ msgid "migrated backup"
+#~ msgstr "преместен архив"
+
+#~ msgid "ok"
+#~ msgstr "ok"
+
+#~ msgid "removed"
+#~ msgstr "премахнат"
+
+#~ msgid "removing retrieve_backup_cron_from_mysql.pl.."
+#~ msgstr "премахване на retrieve_backup_cron_from_mysql.pl.."
+
+#~ msgid "this module. You should probably uninstall and reinstall this module"
+#~ msgstr ""
+#~ "този модул. Трябва да деинсталирате и да инсталирате наново този модул"
 
 #~ msgid "Backup Module"
 #~ msgstr "Модул за Архиви"

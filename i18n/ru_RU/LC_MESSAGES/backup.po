@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-24 14:31-0800\n"
+"POT-Creation-Date: 2015-11-26 15:02+1000\n"
 "PO-Revision-Date: 2015-05-03 15:58+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -53,7 +53,7 @@ msgstr "/путь/к/каталогу"
 msgid "/path/to/file"
 msgstr "/путь/к/файлу"
 
-#: install.php:309
+#: install.php:142
 msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
@@ -127,7 +127,7 @@ msgid ""
 "base backup"
 msgstr ""
 
-#: install.php:382
+#: install.php:169
 msgid ""
 "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
 "VOICEMAIL"
@@ -180,7 +180,7 @@ msgid "BACKUP LOG ATTACHED"
 msgstr "Журнал копирования приложен"
 
 #: Backup.class.php:307 functions.inc/backup.php:79
-#: functions.inc/class.backup.php:368 views/backup/backup.php:6
+#: functions.inc/class.backup.php:380 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Бекап"
 
@@ -260,7 +260,7 @@ msgstr ""
 msgid "Backup completed with errors!"
 msgstr "Резервное копирование завершилось с ошибками!"
 
-#: functions.inc/class.backup.php:266
+#: functions.inc/class.backup.php:278
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -272,10 +272,6 @@ msgstr ""
 #: bin/restore.php:93
 msgid "Backup file not found! Aborting."
 msgstr "Файл бекапа не найден! Прерывание."
-
-#: install.php:135
-msgid "Backup migration completed"
-msgstr "Перенос резервного копирования завершен"
 
 #: bin/backup.php:14
 msgid "Backup module not found or is disabled. Aborting!"
@@ -313,7 +309,7 @@ msgstr "Построение декларации..."
 msgid "CDR and Call Log Data"
 msgstr ""
 
-#: install.php:268
+#: install.php:100
 msgid "CDR server, generally a local database server"
 msgstr "CDR сервер, обычно локальная БД"
 
@@ -321,7 +317,7 @@ msgstr "CDR сервер, обычно локальная БД"
 msgid "CDR's"
 msgstr "Дтл. звонков"
 
-#: install.php:350
+#: install.php:151
 msgid "Call Detail Records"
 msgstr "Детализация записи звонков"
 
@@ -333,14 +329,6 @@ msgstr ""
 msgid "Can not create backup tables"
 msgstr "Невозможно создать таблицу резервного копирования"
 
-#: install.php:132
-msgid "Can not migrate Backup table"
-msgstr "Не удается перенести таблицу резервного копирования"
-
-#: install.php:82
-msgid "Can't check for Backup table"
-msgstr "Невозможно проверить таблицу резервного копирования"
-
 #: bin/restore.php:387
 msgid "Cleaning up..."
 msgstr "Прибираемся..."
@@ -349,7 +337,7 @@ msgstr "Прибираемся..."
 msgid "Click 'Next' to continue."
 msgstr ""
 
-#: install.php:292
+#: install.php:133
 msgid "Configurations only"
 msgstr "Только конфигурация"
 
@@ -357,17 +345,13 @@ msgstr "Только конфигурация"
 msgid "Connecting to remote server..."
 msgstr "Соединение с удаленным сервером..."
 
-#: functions.inc/class.backup.php:361 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:373 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Создано"
 
 #: bin/backup.php:63
 msgid "Creating backup..."
 msgstr "Создание бекапа..."
-
-#: install.php:209
-msgid "Creating backups directory.."
-msgstr "Создается каталог резервного копирования.."
 
 #: views/cron.php:10
 msgid "Custom"
@@ -409,7 +393,7 @@ msgstr "Декабрь"
 msgid "Default"
 msgstr ""
 
-#: install.php:630
+#: install.php:207
 msgid "Default backup; automatically installed"
 msgstr "Резервное копирование по умолчанию: устанавливается автоматически"
 
@@ -500,19 +484,6 @@ msgstr ""
 msgid "Drop Here"
 msgstr ""
 
-#: install.php:142
-msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
-msgstr ""
-"Ошибка: Не удалось удалить старую таблицу резервного копирования. Вам "
-"следует удалить"
-
-#: install.php:87
-msgid ""
-"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
-msgstr ""
-"Ошибка: не удалось перенести старую таблицу \"Резервного копирования\" в "
-"новую таблицу \"Резервного копирования\""
-
 #: views/servers/email.php:64
 msgid "Email Address"
 msgstr "Адрес эл. почты"
@@ -548,7 +519,7 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:404
+#: functions.inc/class.backup.php:416
 msgid "Error connecting to the FTP Server..."
 msgstr "Ошибка соединения с FTP сервером..."
 
@@ -564,13 +535,11 @@ msgstr "Ошибка верификации звгруженного файла!
 msgid "Exclude"
 msgstr "Исключить"
 
-#: install.php:402
+#: install.php:178
 msgid ""
-"Exclude Backup's settings so that they dont get restored, usefull for a "
+"Exclude Backup's settings so that they dont get restored, useful for a "
 "remote restore"
 msgstr ""
-"Исключить настройки резервного копирования, так что они не будут "
-"восстановлены, полезно для удаленного восстановления"
 
 #: views/backup/backup.php:326
 msgid "Exclude NAT settings"
@@ -635,10 +604,6 @@ msgstr ""
 msgid "Failed to retrieve file from server!"
 msgstr "Не удалось получить файл с сервера!"
 
-#: install.php:92
-msgid "Failure Message:"
-msgstr "Сообщение об ошибке:"
-
 #: functions.inc/templates.php:303
 msgid "Family, one per line"
 msgstr "Фамилия, по одной в строке"
@@ -663,7 +628,7 @@ msgstr "Восстановление файла завершено!"
 msgid "File verification failed. "
 msgstr "Проверка файла не удалась. "
 
-#: functions.inc/class.backup.php:362 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:374 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Файлы"
 
@@ -816,10 +781,6 @@ msgstr ""
 msgid "Local Server "
 msgstr "Локальный сервер "
 
-#: install.php:237
-msgid "Location of backups pre 2.10"
-msgstr "Расположение резервных копий до 2.10"
-
 #: views/servers/ssh.php:148
 msgid "Location of ssh private key to be used when connecting to a host"
 msgstr ""
@@ -827,10 +788,6 @@ msgstr ""
 #: views/servers/email.php:103
 msgid "MB"
 msgstr ""
-
-#: install.php:457
-msgid "MIGRATED"
-msgstr "Перенесено"
 
 #: views/backup/backup.php:447
 msgid "Maintinance"
@@ -847,26 +804,6 @@ msgstr ""
 #: views/cron.php:47
 msgid "May"
 msgstr "Май"
-
-#: install.php:586
-msgid "Migrated EMAIL server for backup "
-msgstr "Параметры EMAIL сервера резервного копирования перенесены "
-
-#: install.php:554
-msgid "Migrated FTP server for backup "
-msgstr "Параметры FTP сервера резервного копирования перенесены "
-
-#: install.php:570
-msgid "Migrated SSH server for backup "
-msgstr "Параметры SSH сервера резервного копирования перенесены "
-
-#: install.php:599
-msgid "Migrated remote SSH server for backup "
-msgstr "Параметры удаленного SSH сервера резервного копирования перенесены "
-
-#: install.php:181 install.php:198
-msgid "Migrating backup table..."
-msgstr "Перенос таблицы резервного копирования..."
 
 #: views/backup/backup.php:464 views/cron.php:168 views/cron.php:172
 msgid "Minutes"
@@ -896,7 +833,7 @@ msgstr ""
 msgid "Mysql DB's"
 msgstr ""
 
-#: functions.inc/class.backup.php:363
+#: functions.inc/class.backup.php:375
 msgid "Mysql Db's"
 msgstr ""
 
@@ -904,7 +841,7 @@ msgstr ""
 msgid "Mysql Server "
 msgstr ""
 
-#: functions.inc/class.backup.php:360 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:372 views/restore/browseserver.php:17
 msgid "Name"
 msgstr ""
 
@@ -976,10 +913,6 @@ msgstr ""
 msgid "No storage servers found! Aborting."
 msgstr ""
 
-#: install.php:137
-msgid "Nothing to migrate"
-msgstr "Нечего переносить"
-
 #: bin/restore.php:86
 msgid "Nothing to restore!"
 msgstr ""
@@ -1000,10 +933,6 @@ msgstr ""
 msgid "October"
 msgstr "Октябрь"
 
-#: install.php:146
-msgid "Old Backup table removed"
-msgstr "Старая таблица резервного копирования удалена"
-
 #: assets/js/backup.js:101
 msgid "On the"
 msgstr ""
@@ -1020,7 +949,7 @@ msgstr ""
 msgid "PBX Settings"
 msgstr ""
 
-#: install.php:255
+#: install.php:88
 msgid "PBX config server, generally a local database server"
 msgstr "Сервер конфигурации PBX, обычно локальная БД"
 
@@ -1153,10 +1082,6 @@ msgstr ""
 #: views/backup/backups.php:533
 msgid "Remote save path, blank for default"
 msgstr ""
-
-#: install.php:157
-msgid "Replacing ampbackup.pl in db.."
-msgstr "Заменяем ampbackup.pl в БД.."
 
 #: Backup.class.php:178
 msgid "Reset"
@@ -1411,17 +1336,13 @@ msgstr ""
 msgid "Storage Servers"
 msgstr ""
 
-#: install.php:246
+#: install.php:80
 msgid "Storage location for backups"
 msgstr "Расположение хранилища резервных копий"
 
 #: bin/backup.php:143
 msgid "Storing backup..."
 msgstr ""
-
-#: install.php:190 install.php:204
-msgid "Successfully migrated backup table!"
-msgstr "Таблица резервного копирования успешно перенесена!"
 
 #: views/cron.php:27 assets/js/backup.js:83
 msgid "Sunday"
@@ -1456,12 +1377,6 @@ msgid ""
 "send data."
 msgstr ""
 
-#: install.php:88
-msgid "This error can result from a previous incomplete/failed install of"
-msgstr ""
-"Эта ошибка могла стать результатом предыдущей незавершенной/неудачной "
-"установки"
-
 #: views/backup/backup.php:225
 msgid "This server"
 msgstr ""
@@ -1491,6 +1406,15 @@ msgstr "Вторник"
 msgid "Type"
 msgstr ""
 
+#: install.php:264
+#, php-format
+msgid "Updated Job %s with new custom sounds directory"
+msgstr ""
+
+#: install.php:252
+msgid "Updated System Recordings template"
+msgstr ""
+
 #: views/servers/mysql.php:112
 msgid "User Name"
 msgstr ""
@@ -1504,7 +1428,7 @@ msgstr ""
 msgid "Verifying received file..."
 msgstr ""
 
-#: install.php:366
+#: install.php:160
 msgid "Voice Mail Storage"
 msgstr "Хранилище голосовой почты"
 
@@ -1515,15 +1439,6 @@ msgstr ""
 #: bin/restore.php:258
 msgid "WARNING!"
 msgstr ""
-
-#: install.php:188 install.php:202
-msgid "WARNING: backup table not migrated"
-msgstr "Внимание: таблица резервного копирования не перенесена"
-
-#: install.php:214
-#, php-format
-msgid "WARNING: failed to create backup directory: %s"
-msgstr "Внимание: неудалось создать каталог резервного копирования: %s"
 
 #: bin/restore.php:259
 msgid "Web Root restore not detected, not restoring module table"
@@ -1618,79 +1533,33 @@ msgstr ""
 msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
 msgstr ""
 
-#: install.php:286
+#: install.php:123
 msgid "added default backup servers"
 msgstr "добавлены сервера резервного копирования по умолчанию"
 
-#: install.php:430
+#: install.php:196
 msgid "added default backup templates"
 msgstr "добавлены шаблоны резервного копирования по умолчанию"
 
-#: install.php:160
-msgid "an error has occurred, update not done"
-msgstr "Произошла ошибка, обновление не завершено"
-
-#: install.php:143
-msgid "and then re-install this module. Settings will be lost but old"
-msgstr "и переустановить этот модуль. Настройки будут утеряны, но старый"
-
-#: functions.inc/class.backup.php:364
+#: functions.inc/class.backup.php:376
 msgid "astDb's"
 msgstr ""
-
-#: install.php:91
-msgid "backup data will be preserved."
-msgstr "данные резервного копирования будут сохранены."
-
-#: install.php:144
-msgid "backup data will be retained."
-msgstr "резервные копии данных будут сохранены."
 
 #: views/item_table.php:48
 msgid "chose"
 msgstr ""
 
-#: install.php:90
-msgid ""
-"doing so will result in a loss of all your backup settings though previous"
-msgstr "что приведет к потере всех настроек резервного копирования"
-
 #: functions.inc/restore.php:17
 msgid "error/not found!"
 msgstr ""
-
-#: install.php:173 install.php:213
-msgid "failed"
-msgstr "сбой"
 
 #: functions.inc/restore.php:185
 msgid "manifest not found"
 msgstr ""
 
-#: install.php:459
-msgid "migrated backup"
-msgstr "Перенос резервного копирования"
-
-#: install.php:163 install.php:211
-msgid "ok"
-msgstr "ok"
-
-#: install.php:171
-msgid "removed"
-msgstr "удалено"
-
-#: install.php:169
-msgid "removing retrieve_backup_cron_from_mysql.pl.."
-msgstr "удаляется retrieve_backup_cron_from_mysql.pl.."
-
 #: functions.inc/templates.php:289
 msgid "table names, one per line"
 msgstr ""
-
-#: install.php:89
-msgid "this module. You should probably uninstall and reinstall this module"
-msgstr ""
-"этого модуля. Скорее всего вам следует удалить и переустановить этот модуль"
 
 #: bin/backup.php:47
 msgid "waiting for lock..."
@@ -1699,6 +1568,119 @@ msgstr ""
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr ""
+
+#~ msgid "Backup migration completed"
+#~ msgstr "Перенос резервного копирования завершен"
+
+#~ msgid "Can not migrate Backup table"
+#~ msgstr "Не удается перенести таблицу резервного копирования"
+
+#~ msgid "Can't check for Backup table"
+#~ msgstr "Невозможно проверить таблицу резервного копирования"
+
+#~ msgid "Creating backups directory.."
+#~ msgstr "Создается каталог резервного копирования.."
+
+#~ msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
+#~ msgstr ""
+#~ "Ошибка: Не удалось удалить старую таблицу резервного копирования. Вам "
+#~ "следует удалить"
+
+#~ msgid ""
+#~ "ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+#~ msgstr ""
+#~ "Ошибка: не удалось перенести старую таблицу \"Резервного копирования\" в "
+#~ "новую таблицу \"Резервного копирования\""
+
+#~ msgid ""
+#~ "Exclude Backup's settings so that they dont get restored, usefull for a "
+#~ "remote restore"
+#~ msgstr ""
+#~ "Исключить настройки резервного копирования, так что они не будут "
+#~ "восстановлены, полезно для удаленного восстановления"
+
+#~ msgid "Failure Message:"
+#~ msgstr "Сообщение об ошибке:"
+
+#~ msgid "Location of backups pre 2.10"
+#~ msgstr "Расположение резервных копий до 2.10"
+
+#~ msgid "MIGRATED"
+#~ msgstr "Перенесено"
+
+#~ msgid "Migrated EMAIL server for backup "
+#~ msgstr "Параметры EMAIL сервера резервного копирования перенесены "
+
+#~ msgid "Migrated FTP server for backup "
+#~ msgstr "Параметры FTP сервера резервного копирования перенесены "
+
+#~ msgid "Migrated SSH server for backup "
+#~ msgstr "Параметры SSH сервера резервного копирования перенесены "
+
+#~ msgid "Migrated remote SSH server for backup "
+#~ msgstr "Параметры удаленного SSH сервера резервного копирования перенесены "
+
+#~ msgid "Migrating backup table..."
+#~ msgstr "Перенос таблицы резервного копирования..."
+
+#~ msgid "Nothing to migrate"
+#~ msgstr "Нечего переносить"
+
+#~ msgid "Old Backup table removed"
+#~ msgstr "Старая таблица резервного копирования удалена"
+
+#~ msgid "Replacing ampbackup.pl in db.."
+#~ msgstr "Заменяем ampbackup.pl в БД.."
+
+#~ msgid "Successfully migrated backup table!"
+#~ msgstr "Таблица резервного копирования успешно перенесена!"
+
+#~ msgid "This error can result from a previous incomplete/failed install of"
+#~ msgstr ""
+#~ "Эта ошибка могла стать результатом предыдущей незавершенной/неудачной "
+#~ "установки"
+
+#~ msgid "WARNING: backup table not migrated"
+#~ msgstr "Внимание: таблица резервного копирования не перенесена"
+
+#~ msgid "WARNING: failed to create backup directory: %s"
+#~ msgstr "Внимание: неудалось создать каталог резервного копирования: %s"
+
+#~ msgid "an error has occurred, update not done"
+#~ msgstr "Произошла ошибка, обновление не завершено"
+
+#~ msgid "and then re-install this module. Settings will be lost but old"
+#~ msgstr "и переустановить этот модуль. Настройки будут утеряны, но старый"
+
+#~ msgid "backup data will be preserved."
+#~ msgstr "данные резервного копирования будут сохранены."
+
+#~ msgid "backup data will be retained."
+#~ msgstr "резервные копии данных будут сохранены."
+
+#~ msgid ""
+#~ "doing so will result in a loss of all your backup settings though previous"
+#~ msgstr "что приведет к потере всех настроек резервного копирования"
+
+#~ msgid "failed"
+#~ msgstr "сбой"
+
+#~ msgid "migrated backup"
+#~ msgstr "Перенос резервного копирования"
+
+#~ msgid "ok"
+#~ msgstr "ok"
+
+#~ msgid "removed"
+#~ msgstr "удалено"
+
+#~ msgid "removing retrieve_backup_cron_from_mysql.pl.."
+#~ msgstr "удаляется retrieve_backup_cron_from_mysql.pl.."
+
+#~ msgid "this module. You should probably uninstall and reinstall this module"
+#~ msgstr ""
+#~ "этого модуля. Скорее всего вам следует удалить и переустановить этот "
+#~ "модуль"
 
 #~ msgid "Intializing Backup"
 #~ msgstr "Подготовка резервного копирования"

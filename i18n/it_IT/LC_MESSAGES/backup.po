@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-26 15:02+1000\n"
+"POT-Creation-Date: 2015-11-26 15:24+1000\n"
 "PO-Revision-Date: 2010-01-23 14:24+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -380,7 +380,7 @@ msgstr "Dicembre"
 msgid "Default"
 msgstr ""
 
-#: install.php:207
+#: install.php:211
 msgid "Default backup; automatically installed"
 msgstr ""
 
@@ -1380,12 +1380,12 @@ msgstr "Martedì"
 msgid "Type"
 msgstr ""
 
-#: install.php:264
+#: install.php:268
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
 msgstr ""
 
-#: install.php:252
+#: install.php:256
 msgid "Updated System Recordings template"
 msgstr ""
 

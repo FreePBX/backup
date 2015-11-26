@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-26 15:02+1000\n"
+"POT-Creation-Date: 2015-11-26 15:24+1000\n"
 "PO-Revision-Date: 2015-05-03 15:58+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -393,7 +393,7 @@ msgstr "Декабрь"
 msgid "Default"
 msgstr ""
 
-#: install.php:207
+#: install.php:211
 msgid "Default backup; automatically installed"
 msgstr "Резервное копирование по умолчанию: устанавливается автоматически"
 
@@ -1406,12 +1406,12 @@ msgstr "Вторник"
 msgid "Type"
 msgstr ""
 
-#: install.php:264
+#: install.php:268
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
 msgstr ""
 
-#: install.php:252
+#: install.php:256
 msgid "Updated System Recordings template"
 msgstr ""
 

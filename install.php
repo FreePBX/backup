@@ -246,8 +246,21 @@ if (!$stmp) {
 	return;
 }
 // See if it has the new entry
-if ($db->getOne("SELECT COUNT(*) FROM `backup_template_details` WHERE `template_id`='$stmp' AND `path`='__ASTVARLIBDIR__/sounds/*/custom'") == 0) {
+if (!$db->getOne("SELECT COUNT(*) FROM `backup_template_details` WHERE `template_id`='$stmp' AND `path`='__ASTVARLIBDIR__/sounds/*/custom'")) {
 	// Add it!
 	$db->query("INSERT INTO `backup_template_details` (`template_id`, `type`, `path`, `exclude`) VALUES ('$stmp', 'dir', '__ASTVARLIBDIR__/sounds/*/custom', 'a:1:{i:0;s:0:\"\";}')");
 	out(_('Updated System Recordings template'));
+}
+
+// Now, look at existing jobs. Find any that are backing up sounds/custom, and add sounds/*/custom if they don't already have it.
+$jobs = $db->getAll("SELECT DISTINCT(`backup_id`) FROM `backup_items` WHERE `path`='__ASTVARLIBDIR__/sounds/custom'");
+foreach ($jobs as $tmparr) {
+	$jobid = $tmparr[0];
+	// Does this job have __ASTVARLIBDIR__/sounds/*/custom?
+	$hasnew = $db->getOne("SELECT COUNT(*) FROM `backup_items` WHERE `backup_id`='$jobid' AND `path`='__ASTVARLIBDIR__/sounds/*/custom'");
+	if (!$hasnew) {
+		// No. It doesn't. Add it!
+		$db->query("INSERT INTO `backup_items` (`backup_id`, `type`, `path`, `exclude`) VALUES ('$jobid', 'dir', '__ASTVARLIBDIR__/sounds/*/custom', 'a:0:{}')");
+		out(sprintf(_("Updated Job %s with new custom sounds directory"), $jobid));
+	}
 }

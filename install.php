@@ -209,7 +209,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup') < 1) {
 		'type'		=> array( 'mysql', 'astdb' ),
 		'path'		=> array( 'server-'.$server['mysql'], 'astdb' ),
 		'exclude'	=> array( '', '' ),
-		'storage_servers' => $serverids['local'],
+		'storage_servers' => array( $serverids['local'] ),
 		'bu_server'	=> 0,
 		'delete_amount'	=> 12,
 	);

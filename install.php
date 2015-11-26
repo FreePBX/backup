@@ -185,7 +185,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_servers') < 1) {
 			),
 		);
 
-		foreach ($temp as $that => $t) {
+		foreach ($template as $that => $t) {
 			backup_put_template($t);
 		}
 
@@ -195,6 +195,10 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_servers') < 1) {
 		sql('UPDATE backup_templates SET data = "' . addslashes($createdby) . '"');
 		out(_('added default backup templates'));
 	}
+} else {
+	// Load serverids. This is fixed. If you ever need to change these,
+	// be smarter.
+	$serverids = array ('local' => 1, 'mysql' => 2, 'cdr');
 }
 
 
@@ -243,7 +247,7 @@ $freepbx_conf->define_conf_setting('AMPBACKUPEMAILFROM',$set,true);
 $stmp = $db->getOne('SELECT `id` FROM `backup_templates` where `name`="System Audio"');
 if (!$stmp) {
 	// No system audio template?  Uh. Ok.
-	return;
+	return true;
 }
 // See if it has the new entry
 if (!$db->getOne("SELECT COUNT(*) FROM `backup_template_details` WHERE `template_id`='$stmp' AND `path`='__ASTVARLIBDIR__/sounds/*/custom'")) {
@@ -264,3 +268,4 @@ foreach ($jobs as $tmparr) {
 		out(sprintf(_("Updated Job %s with new custom sounds directory"), $jobid));
 	}
 }
+

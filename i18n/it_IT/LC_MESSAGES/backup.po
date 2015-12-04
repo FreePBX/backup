@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-26 15:24+1000\n"
+"POT-Creation-Date: 2015-12-05 04:32+1000\n"
 "PO-Revision-Date: 2010-01-23 14:24+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "/path/to/file"
 msgstr ""
 
-#: install.php:142
+#: install.php:145
 msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
@@ -101,10 +101,6 @@ msgstr ""
 msgid "Adding items..."
 msgstr ""
 
-#: backup.i18n.php:6 backup.i18n.php:12
-msgid "Admin"
-msgstr ""
-
 #: views/backup/backup.php:314
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
@@ -118,7 +114,7 @@ msgid ""
 "base backup"
 msgstr ""
 
-#: install.php:169
+#: install.php:172
 msgid ""
 "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
 "VOICEMAIL"
@@ -171,26 +167,6 @@ msgstr ""
 #: Backup.class.php:307 functions.inc/backup.php:79
 #: functions.inc/class.backup.php:380 views/backup/backup.php:6
 msgid "Backup"
-msgstr ""
-
-#: backup.i18n.php:4 backup.i18n.php:10
-msgid "Backup & Restore"
-msgstr "Backup & Ripristino"
-
-#: backup.i18n.php:18
-msgid "Backup & Restore - Restore"
-msgstr ""
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Servers"
-msgstr ""
-
-#: backup.i18n.php:16
-msgid "Backup & Restore - Templates"
-msgstr ""
-
-#: backup.i18n.php:8
-msgid "Backup & Restore for your FreePBX environment"
 msgstr ""
 
 #: views/backup/backups.php:248
@@ -304,7 +280,7 @@ msgstr ""
 msgid "CDR's"
 msgstr ""
 
-#: install.php:151
+#: install.php:154
 msgid "Call Detail Records"
 msgstr ""
 
@@ -324,7 +300,7 @@ msgstr ""
 msgid "Click 'Next' to continue."
 msgstr ""
 
-#: install.php:133
+#: install.php:136
 msgid "Configurations only"
 msgstr ""
 
@@ -380,7 +356,7 @@ msgstr "Dicembre"
 msgid "Default"
 msgstr ""
 
-#: install.php:211
+#: install.php:218
 msgid "Default backup; automatically installed"
 msgstr ""
 
@@ -513,7 +489,7 @@ msgstr ""
 msgid "Exclude"
 msgstr ""
 
-#: install.php:178
+#: install.php:181
 msgid ""
 "Exclude Backup's settings so that they dont get restored, useful for a "
 "remote restore"
@@ -1380,12 +1356,12 @@ msgstr "Martedì"
 msgid "Type"
 msgstr ""
 
-#: install.php:268
+#: install.php:278
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
 msgstr ""
 
-#: install.php:256
+#: install.php:266
 msgid "Updated System Recordings template"
 msgstr ""
 
@@ -1402,7 +1378,7 @@ msgstr ""
 msgid "Verifying received file..."
 msgstr ""
 
-#: install.php:160
+#: install.php:163
 msgid "Voice Mail Storage"
 msgstr ""
 
@@ -1507,11 +1483,11 @@ msgstr ""
 msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
 msgstr ""
 
-#: install.php:123
+#: install.php:126
 msgid "added default backup servers"
 msgstr ""
 
-#: install.php:196
+#: install.php:203
 msgid "added default backup templates"
 msgstr ""
 
@@ -1542,6 +1518,9 @@ msgstr ""
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr ""
+
+#~ msgid "Backup & Restore"
+#~ msgstr "Backup & Ripristino"
 
 #~ msgid "failed"
 #~ msgstr "fallito"

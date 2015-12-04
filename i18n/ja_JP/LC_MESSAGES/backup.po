@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-26 15:24+1000\n"
+"POT-Creation-Date: 2015-12-05 04:32+1000\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -66,7 +66,7 @@ msgstr "ディレクトリへのパス"
 msgid "/path/to/file"
 msgstr "ファイルへのパス"
 
-#: install.php:142
+#: install.php:145
 msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
@@ -123,10 +123,6 @@ msgstr ""
 msgid "Adding items..."
 msgstr "アイテムを追加中…"
 
-#: backup.i18n.php:6 backup.i18n.php:12
-msgid "Admin"
-msgstr "アドミン"
-
 #: views/backup/backup.php:314
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
@@ -140,7 +136,7 @@ msgid ""
 "base backup"
 msgstr ""
 
-#: install.php:169
+#: install.php:172
 msgid ""
 "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
 "VOICEMAIL"
@@ -196,26 +192,6 @@ msgstr "バックアップのログを送ります"
 #: functions.inc/class.backup.php:380 views/backup/backup.php:6
 msgid "Backup"
 msgstr "バックアップ"
-
-#: backup.i18n.php:4 backup.i18n.php:10
-msgid "Backup & Restore"
-msgstr "バックアップと復元"
-
-#: backup.i18n.php:18
-msgid "Backup & Restore - Restore"
-msgstr "バックアップと復元：復元"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Servers"
-msgstr "バックアップとリストア：サーバー"
-
-#: backup.i18n.php:16
-msgid "Backup & Restore - Templates"
-msgstr "バックアップと復元：テンプレート"
-
-#: backup.i18n.php:8
-msgid "Backup & Restore for your FreePBX environment"
-msgstr "FreePBX環境のバックアップとリストアができます。"
 
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
@@ -332,7 +308,7 @@ msgstr "CDRサーバー。通常はローカル DB サーバー。"
 msgid "CDR's"
 msgstr "CDR"
 
-#: install.php:151
+#: install.php:154
 msgid "Call Detail Records"
 msgstr "通話記録"
 
@@ -352,7 +328,7 @@ msgstr "クリーンアップしています..."
 msgid "Click 'Next' to continue."
 msgstr ""
 
-#: install.php:133
+#: install.php:136
 msgid "Configurations only"
 msgstr "設定のみ"
 
@@ -408,7 +384,7 @@ msgstr "12月"
 msgid "Default"
 msgstr ""
 
-#: install.php:211
+#: install.php:218
 msgid "Default backup; automatically installed"
 msgstr "デフォルトバックアップ。自動的にインストールされています。"
 
@@ -550,7 +526,7 @@ msgstr "アップロードされたファイルを確認中にエラーが発生
 msgid "Exclude"
 msgstr "除外する"
 
-#: install.php:178
+#: install.php:181
 msgid ""
 "Exclude Backup's settings so that they dont get restored, useful for a "
 "remote restore"
@@ -1426,12 +1402,12 @@ msgstr "火曜日"
 msgid "Type"
 msgstr "タイプ"
 
-#: install.php:268
+#: install.php:278
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
 msgstr ""
 
-#: install.php:256
+#: install.php:266
 msgid "Updated System Recordings template"
 msgstr ""
 
@@ -1448,7 +1424,7 @@ msgstr ""
 msgid "Verifying received file..."
 msgstr "受信したファイルを検証中…"
 
-#: install.php:160
+#: install.php:163
 msgid "Voice Mail Storage"
 msgstr "ボイスメールストレージ"
 
@@ -1554,11 +1530,11 @@ msgstr ""
 msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
 msgstr ""
 
-#: install.php:123
+#: install.php:126
 msgid "added default backup servers"
 msgstr "デフォルトバックアップサーバーを追加しました。"
 
-#: install.php:196
+#: install.php:203
 msgid "added default backup templates"
 msgstr "デフォルトバックアップテンプレートを追加しました。"
 
@@ -1589,6 +1565,24 @@ msgstr "ロックを待機中…"
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "{サーバーはありません}"
+
+#~ msgid "Admin"
+#~ msgstr "アドミン"
+
+#~ msgid "Backup & Restore"
+#~ msgstr "バックアップと復元"
+
+#~ msgid "Backup & Restore - Restore"
+#~ msgstr "バックアップと復元：復元"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "バックアップとリストア：サーバー"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "バックアップと復元：テンプレート"
+
+#~ msgid "Backup & Restore for your FreePBX environment"
+#~ msgstr "FreePBX環境のバックアップとリストアができます。"
 
 #~ msgid "Backup migration completed"
 #~ msgstr "バックアップの移行が完了しました。"

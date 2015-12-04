@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-26 15:24+1000\n"
+"POT-Creation-Date: 2015-12-05 04:32+1000\n"
 "PO-Revision-Date: 2015-04-18 01:09+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -51,7 +51,7 @@ msgstr "/path/to/dir"
 msgid "/path/to/file"
 msgstr "/path/to/file"
 
-#: install.php:142
+#: install.php:145
 msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
@@ -108,10 +108,6 @@ msgstr ""
 msgid "Adding items..."
 msgstr "Agregando elementos..."
 
-#: backup.i18n.php:6 backup.i18n.php:12
-msgid "Admin"
-msgstr "Administrador"
-
 #: views/backup/backup.php:314
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
@@ -125,7 +121,7 @@ msgid ""
 "base backup"
 msgstr ""
 
-#: install.php:169
+#: install.php:172
 msgid ""
 "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
 "VOICEMAIL"
@@ -181,26 +177,6 @@ msgstr "BITACORA DE RESPALDOS ANEXADA"
 #: functions.inc/class.backup.php:380 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Respaldo"
-
-#: backup.i18n.php:4 backup.i18n.php:10
-msgid "Backup & Restore"
-msgstr "Copias de seguridad"
-
-#: backup.i18n.php:18
-msgid "Backup & Restore - Restore"
-msgstr "Respalda & Restaura - Restaura"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Servers"
-msgstr "Respalda & Restaura - Servidores"
-
-#: backup.i18n.php:16
-msgid "Backup & Restore - Templates"
-msgstr "Respaldar & Restaurar - Plantillas"
-
-#: backup.i18n.php:8
-msgid "Backup & Restore for your FreePBX environment"
-msgstr "respaldar & restaurar para su ambiente FreePBX"
 
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
@@ -315,7 +291,7 @@ msgstr "Servidor CDR, generalmente un servidor local de base de datos"
 msgid "CDR's"
 msgstr "CDRs"
 
-#: install.php:151
+#: install.php:154
 msgid "Call Detail Records"
 msgstr "Registros Detallados de Llamadas"
 
@@ -335,7 +311,7 @@ msgstr "Limpiando ..."
 msgid "Click 'Next' to continue."
 msgstr ""
 
-#: install.php:133
+#: install.php:136
 msgid "Configurations only"
 msgstr "Solo Configuraciones"
 
@@ -391,7 +367,7 @@ msgstr "Diciembre"
 msgid "Default"
 msgstr ""
 
-#: install.php:211
+#: install.php:218
 msgid "Default backup; automatically installed"
 msgstr "Respaldo por defecto, automáticamente instalado"
 
@@ -533,7 +509,7 @@ msgstr "Error verificando archivo bajado!"
 msgid "Exclude"
 msgstr "Excluir"
 
-#: install.php:178
+#: install.php:181
 msgid ""
 "Exclude Backup's settings so that they dont get restored, useful for a "
 "remote restore"
@@ -1413,12 +1389,12 @@ msgstr "Martes"
 msgid "Type"
 msgstr "Tipo"
 
-#: install.php:268
+#: install.php:278
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
 msgstr ""
 
-#: install.php:256
+#: install.php:266
 msgid "Updated System Recordings template"
 msgstr ""
 
@@ -1435,7 +1411,7 @@ msgstr ""
 msgid "Verifying received file..."
 msgstr "Verificando archivo recibido..."
 
-#: install.php:160
+#: install.php:163
 msgid "Voice Mail Storage"
 msgstr "Almacenamiento de Correo de Voz"
 
@@ -1540,11 +1516,11 @@ msgstr ""
 msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
 msgstr ""
 
-#: install.php:123
+#: install.php:126
 msgid "added default backup servers"
 msgstr "Añadidos servidores de respaldo por defecto"
 
-#: install.php:196
+#: install.php:203
 msgid "added default backup templates"
 msgstr "Añadidas plantillas de respaldo por defecto"
 
@@ -1575,6 +1551,24 @@ msgstr "esperando por bloqueo..."
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "(no servidores disponibles)"
+
+#~ msgid "Admin"
+#~ msgstr "Administrador"
+
+#~ msgid "Backup & Restore"
+#~ msgstr "Copias de seguridad"
+
+#~ msgid "Backup & Restore - Restore"
+#~ msgstr "Respalda & Restaura - Restaura"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Respalda & Restaura - Servidores"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Respaldar & Restaurar - Plantillas"
+
+#~ msgid "Backup & Restore for your FreePBX environment"
+#~ msgstr "respaldar & restaurar para su ambiente FreePBX"
 
 #~ msgid "Backup migration completed"
 #~ msgstr "Migración del Respaldo completada"

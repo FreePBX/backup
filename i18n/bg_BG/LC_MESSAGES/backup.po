@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-26 15:24+1000\n"
+"POT-Creation-Date: 2015-12-05 04:32+1000\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -51,7 +51,7 @@ msgstr "/path/to/dir"
 msgid "/path/to/file"
 msgstr "/path/to/file"
 
-#: install.php:142
+#: install.php:145
 msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
@@ -106,10 +106,6 @@ msgstr "Добави Сървър"
 msgid "Adding items..."
 msgstr "Добавяне на елементи..."
 
-#: backup.i18n.php:6 backup.i18n.php:12
-msgid "Admin"
-msgstr "Админ"
-
 #: views/backup/backup.php:314
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
@@ -123,7 +119,7 @@ msgid ""
 "base backup"
 msgstr ""
 
-#: install.php:169
+#: install.php:172
 msgid ""
 "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
 "VOICEMAIL"
@@ -177,26 +173,6 @@ msgstr "ЛОГА НА АРХИВА Е ПРИКАЧЕН"
 #: functions.inc/class.backup.php:380 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Архивиране"
-
-#: backup.i18n.php:4 backup.i18n.php:10
-msgid "Backup & Restore"
-msgstr "Архивирай & Възстанови"
-
-#: backup.i18n.php:18
-msgid "Backup & Restore - Restore"
-msgstr "Архивирай & Възстанови - Възстановяване"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Servers"
-msgstr "Архивирай & Възстанови - Сървъри"
-
-#: backup.i18n.php:16
-msgid "Backup & Restore - Templates"
-msgstr "Архивирай & Възстанови - Шаблони"
-
-#: backup.i18n.php:8
-msgid "Backup & Restore for your FreePBX environment"
-msgstr "Архивирай & Възстанови за вашата FreePBX система"
 
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
@@ -309,7 +285,7 @@ msgstr "CDR сървър, обикновено локален сървър за 
 msgid "CDR's"
 msgstr "CDR Отчети"
 
-#: install.php:151
+#: install.php:154
 msgid "Call Detail Records"
 msgstr "Подробни Отчети на Разговорите"
 
@@ -329,7 +305,7 @@ msgstr "Почистване..."
 msgid "Click 'Next' to continue."
 msgstr "Кликнете 'Next' за да продължите."
 
-#: install.php:133
+#: install.php:136
 msgid "Configurations only"
 msgstr "Само настройки"
 
@@ -385,7 +361,7 @@ msgstr "Декември"
 msgid "Default"
 msgstr "По-Подразбиране"
 
-#: install.php:211
+#: install.php:218
 msgid "Default backup; automatically installed"
 msgstr "Архив по-подразбиране; автоматично инсталиран"
 
@@ -520,7 +496,7 @@ msgstr "Грешка при проверка на качения файл!"
 msgid "Exclude"
 msgstr "Изключи"
 
-#: install.php:178
+#: install.php:181
 msgid ""
 "Exclude Backup's settings so that they dont get restored, useful for a "
 "remote restore"
@@ -1388,12 +1364,12 @@ msgstr "Вторник"
 msgid "Type"
 msgstr "Тип"
 
-#: install.php:268
+#: install.php:278
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
 msgstr ""
 
-#: install.php:256
+#: install.php:266
 msgid "Updated System Recordings template"
 msgstr ""
 
@@ -1410,7 +1386,7 @@ msgstr "Потребителско Име"
 msgid "Verifying received file..."
 msgstr ""
 
-#: install.php:160
+#: install.php:163
 msgid "Voice Mail Storage"
 msgstr "Архив Гласова Поща"
 
@@ -1515,11 +1491,11 @@ msgstr ""
 msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
 msgstr ""
 
-#: install.php:123
+#: install.php:126
 msgid "added default backup servers"
 msgstr "добавен е сървър за архиви по-подразбиране"
 
-#: install.php:196
+#: install.php:203
 msgid "added default backup templates"
 msgstr "добавени са шаблони за архивиране по-подразбиране"
 
@@ -1550,6 +1526,24 @@ msgstr ""
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr ""
+
+#~ msgid "Admin"
+#~ msgstr "Админ"
+
+#~ msgid "Backup & Restore"
+#~ msgstr "Архивирай & Възстанови"
+
+#~ msgid "Backup & Restore - Restore"
+#~ msgstr "Архивирай & Възстанови - Възстановяване"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Архивирай & Възстанови - Сървъри"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Архивирай & Възстанови - Шаблони"
+
+#~ msgid "Backup & Restore for your FreePBX environment"
+#~ msgstr "Архивирай & Възстанови за вашата FreePBX система"
 
 #~ msgid "Backup migration completed"
 #~ msgstr "Преместването на архива приключи"

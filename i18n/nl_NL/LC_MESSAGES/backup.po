@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-26 15:24+1000\n"
+"POT-Creation-Date: 2015-12-05 04:32+1000\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -38,7 +38,7 @@ msgstr "/pad/naar/map"
 msgid "/path/to/file"
 msgstr "/pad/naar/bestand"
 
-#: install.php:142
+#: install.php:145
 msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
@@ -98,10 +98,6 @@ msgstr ""
 msgid "Adding items..."
 msgstr "Onderdelen toevoegen..."
 
-#: backup.i18n.php:6 backup.i18n.php:12
-msgid "Admin"
-msgstr "Beheer"
-
 #: views/backup/backup.php:314
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
@@ -115,7 +111,7 @@ msgid ""
 "base backup"
 msgstr ""
 
-#: install.php:169
+#: install.php:172
 msgid ""
 "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
 "VOICEMAIL"
@@ -171,26 +167,6 @@ msgstr "RESERVEKOPIE LOG TOEGEVOEGD"
 #: functions.inc/class.backup.php:380 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Reservekopie"
-
-#: backup.i18n.php:4 backup.i18n.php:10
-msgid "Backup & Restore"
-msgstr "Reservekopie & Terugzetten"
-
-#: backup.i18n.php:18
-msgid "Backup & Restore - Restore"
-msgstr "Reservekopie & Terugzetten - Terugzetten"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Servers"
-msgstr "Reservekopie & Terugzetten - Servers"
-
-#: backup.i18n.php:16
-msgid "Backup & Restore - Templates"
-msgstr "Reservekopie & Terugzetten - Sjablonen"
-
-#: backup.i18n.php:8
-msgid "Backup & Restore for your FreePBX environment"
-msgstr "Reservekopie & Terugzetten voor uw FreePBX omgeving"
 
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
@@ -306,7 +282,7 @@ msgstr "CDR server, meestal een lokale databaseserver"
 msgid "CDR's"
 msgstr "CDR's"
 
-#: install.php:151
+#: install.php:154
 msgid "Call Detail Records"
 msgstr "Gespreksdetailregels (CDR)"
 
@@ -326,7 +302,7 @@ msgstr "Opruimen..."
 msgid "Click 'Next' to continue."
 msgstr ""
 
-#: install.php:133
+#: install.php:136
 msgid "Configurations only"
 msgstr "Alleen configuraties"
 
@@ -383,7 +359,7 @@ msgstr "December"
 msgid "Default"
 msgstr ""
 
-#: install.php:211
+#: install.php:218
 msgid "Default backup; automatically installed"
 msgstr "Standaard reservekopie; automatisch geïnstalleerd"
 
@@ -528,7 +504,7 @@ msgstr "Fout bij het verifiëren van het bestand!"
 msgid "Exclude"
 msgstr "Uitsluiten"
 
-#: install.php:178
+#: install.php:181
 msgid ""
 "Exclude Backup's settings so that they dont get restored, useful for a "
 "remote restore"
@@ -1412,12 +1388,12 @@ msgstr "Dinsdag"
 msgid "Type"
 msgstr "Type"
 
-#: install.php:268
+#: install.php:278
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
 msgstr ""
 
-#: install.php:256
+#: install.php:266
 msgid "Updated System Recordings template"
 msgstr ""
 
@@ -1434,7 +1410,7 @@ msgstr ""
 msgid "Verifying received file..."
 msgstr "Controleren ontvangen bestand..."
 
-#: install.php:160
+#: install.php:163
 msgid "Voice Mail Storage"
 msgstr "Voicemail opslag"
 
@@ -1542,11 +1518,11 @@ msgstr ""
 msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
 msgstr ""
 
-#: install.php:123
+#: install.php:126
 msgid "added default backup servers"
 msgstr "Standaard reservekopie servers toegevoegd"
 
-#: install.php:196
+#: install.php:203
 msgid "added default backup templates"
 msgstr "Standaard reservekopie sjablonen toegevoegd"
 
@@ -1577,6 +1553,24 @@ msgstr "wachten op vergrendeling..."
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "{geen servers beschikbaar}"
+
+#~ msgid "Admin"
+#~ msgstr "Beheer"
+
+#~ msgid "Backup & Restore"
+#~ msgstr "Reservekopie & Terugzetten"
+
+#~ msgid "Backup & Restore - Restore"
+#~ msgstr "Reservekopie & Terugzetten - Terugzetten"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Reservekopie & Terugzetten - Servers"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Reservekopie & Terugzetten - Sjablonen"
+
+#~ msgid "Backup & Restore for your FreePBX environment"
+#~ msgstr "Reservekopie & Terugzetten voor uw FreePBX omgeving"
 
 #~ msgid "Backup migration completed"
 #~ msgstr "Reservekopie migratie uitgevoerd"

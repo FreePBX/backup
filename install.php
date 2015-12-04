@@ -112,6 +112,9 @@ $server = array(
 if ($db->getOne('SELECT COUNT(*) FROM backup_servers') < 1) {
 
 	$serverids = array();
+	if (!function_exists("backup_put_server")) {
+		include_once __DIR__."/functions.inc/servers.php";
+	}
 	foreach ($server as $id => $t) {
 		$serverids[$id] = backup_put_server($t);
 	}
@@ -185,6 +188,10 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_servers') < 1) {
 			),
 		);
 
+		if (!function_exists("backup_put_template")) {
+			include_once __DIR__."/functions.inc/templates.php";
+		}
+
 		foreach ($template as $that => $t) {
 			backup_put_template($t);
 		}
@@ -217,6 +224,9 @@ if ($db->getOne('SELECT COUNT(*) FROM backup') < 1) {
 		'bu_server'	=> 0,
 		'delete_amount'	=> 12,
 	);
+	if (!function_exists("backup_put_backup")) {
+		include_once __DIR__."/functions.inc/backup.php";
+	}
 	backup_put_backup($new);
 	$createdby = serialize(array('created_by' => 'install.php'));
 	sql('UPDATE backup SET data = "' . addslashes($createdby) . '"');

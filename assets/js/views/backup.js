@@ -83,15 +83,6 @@ $(document).ready(function(){
 			$('#save_backup').removeClass('ui-state-hover');
 		}
 	);
-
-	//Ensure we don't have a custom cron schedule with nothing selected
-	$('form#backup_form').on('submit', function() {
-		var custom_schedule = 0 + $("input[name='cron_minute[]']:checked").length + $("input[name='cron_hour[]']:checked").length + $("input[name='cron_month[]']:checked").length + $("input[name='cron_dom[]']:checked").length + $("input[name='cron_dow[]']:checked").length;
-		if ($("select[name='cron_schedule']").val() === 'custom' && custom_schedule <= 0) {
-			alert('You must choose a backup schedule');
-			return false;
-		}
-	});
 });
 
 

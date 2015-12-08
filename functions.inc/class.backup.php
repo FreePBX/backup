@@ -649,7 +649,7 @@ class Backup {
 		//sanitize file list
 		foreach ($dir as $file) {
 			//dont include the current backup or special items
-			if (in_array($file, array('.', '..', $this->b['_file'])) || !preg_match("/\d+-\d+-\d+-\d+.tgz/", $file)) {
+			if (in_array($file, array('.', '..', $this->b['_file'])) || !preg_match("/\d+-\d+-\d+(?:-[0-9.]+(?:alpha|beta|rc|RC)?(?:\d+(?:\.[^\.]+)*))?-\d+.tgz/", $file)) {
 				continue;
 			}
 			$f = explode('-', $file);

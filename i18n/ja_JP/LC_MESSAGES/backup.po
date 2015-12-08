@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-05 04:32+1000\n"
+"POT-Creation-Date: 2015-12-08 11:46-0800\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -123,6 +123,10 @@ msgstr ""
 msgid "Adding items..."
 msgstr "アイテムを追加中…"
 
+#: backup.i18n.php:6 backup.i18n.php:12
+msgid "Admin"
+msgstr "アドミン"
+
 #: views/backup/backup.php:314
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
@@ -192,6 +196,26 @@ msgstr "バックアップのログを送ります"
 #: functions.inc/class.backup.php:380 views/backup/backup.php:6
 msgid "Backup"
 msgstr "バックアップ"
+
+#: backup.i18n.php:4 backup.i18n.php:10
+msgid "Backup & Restore"
+msgstr "バックアップと復元"
+
+#: backup.i18n.php:18
+msgid "Backup & Restore - Restore"
+msgstr "バックアップと復元：復元"
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Servers"
+msgstr "バックアップとリストア：サーバー"
+
+#: backup.i18n.php:16
+msgid "Backup & Restore - Templates"
+msgstr "バックアップと復元：テンプレート"
+
+#: backup.i18n.php:8
+msgid "Backup & Restore for your FreePBX environment"
+msgstr "FreePBX環境のバックアップとリストアができます。"
 
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
@@ -510,9 +534,13 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:416
+#: functions.inc/class.backup.php:421
 msgid "Error connecting to the FTP Server..."
 msgstr "FTPサーバーに接続できません…"
+
+#: functions.inc/class.backup.php:396
+msgid "Error connecting to the FTP Server... Check your host name or DNS"
+msgstr ""
 
 #: page.backup_restore.php:41
 msgid "Error uploading file!"
@@ -1565,24 +1593,6 @@ msgstr "ロックを待機中…"
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "{サーバーはありません}"
-
-#~ msgid "Admin"
-#~ msgstr "アドミン"
-
-#~ msgid "Backup & Restore"
-#~ msgstr "バックアップと復元"
-
-#~ msgid "Backup & Restore - Restore"
-#~ msgstr "バックアップと復元：復元"
-
-#~ msgid "Backup & Restore - Servers"
-#~ msgstr "バックアップとリストア：サーバー"
-
-#~ msgid "Backup & Restore - Templates"
-#~ msgstr "バックアップと復元：テンプレート"
-
-#~ msgid "Backup & Restore for your FreePBX environment"
-#~ msgstr "FreePBX環境のバックアップとリストアができます。"
 
 #~ msgid "Backup migration completed"
 #~ msgstr "バックアップの移行が完了しました。"

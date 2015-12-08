@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-05 04:32+1000\n"
+"POT-Creation-Date: 2015-12-08 11:46-0800\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -99,6 +99,10 @@ msgstr ""
 msgid "Adding items..."
 msgstr ""
 
+#: backup.i18n.php:6 backup.i18n.php:12
+msgid "Admin"
+msgstr ""
+
 #: views/backup/backup.php:314
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
@@ -165,6 +169,26 @@ msgstr ""
 #: Backup.class.php:307 functions.inc/backup.php:79
 #: functions.inc/class.backup.php:380 views/backup/backup.php:6
 msgid "Backup"
+msgstr ""
+
+#: backup.i18n.php:4 backup.i18n.php:10
+msgid "Backup & Restore"
+msgstr ""
+
+#: backup.i18n.php:18
+msgid "Backup & Restore - Restore"
+msgstr ""
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Servers"
+msgstr ""
+
+#: backup.i18n.php:16
+msgid "Backup & Restore - Templates"
+msgstr ""
+
+#: backup.i18n.php:8
+msgid "Backup & Restore for your FreePBX environment"
 msgstr ""
 
 #: views/backup/backups.php:248
@@ -474,8 +498,12 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:416
+#: functions.inc/class.backup.php:421
 msgid "Error connecting to the FTP Server..."
+msgstr ""
+
+#: functions.inc/class.backup.php:396
+msgid "Error connecting to the FTP Server... Check your host name or DNS"
 msgstr ""
 
 #: page.backup_restore.php:41

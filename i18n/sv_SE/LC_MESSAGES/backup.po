@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-05 04:32+1000\n"
+"POT-Creation-Date: 2015-12-08 11:46-0800\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -101,6 +101,10 @@ msgstr ""
 msgid "Adding items..."
 msgstr ""
 
+#: backup.i18n.php:6 backup.i18n.php:12
+msgid "Admin"
+msgstr ""
+
 #: views/backup/backup.php:314
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
@@ -168,6 +172,26 @@ msgstr ""
 #: functions.inc/class.backup.php:380 views/backup/backup.php:6
 msgid "Backup"
 msgstr ""
+
+#: backup.i18n.php:4 backup.i18n.php:10
+msgid "Backup & Restore"
+msgstr "Säkerhetskopiering"
+
+#: backup.i18n.php:18
+msgid "Backup & Restore - Restore"
+msgstr ""
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Servers"
+msgstr ""
+
+#: backup.i18n.php:16
+msgid "Backup & Restore - Templates"
+msgstr ""
+
+#: backup.i18n.php:8
+msgid "Backup & Restore for your FreePBX environment"
+msgstr "Säkerhestkopieringsmodul för FreePBX"
 
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
@@ -473,8 +497,12 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:416
+#: functions.inc/class.backup.php:421
 msgid "Error connecting to the FTP Server..."
+msgstr ""
+
+#: functions.inc/class.backup.php:396
+msgid "Error connecting to the FTP Server... Check your host name or DNS"
 msgstr ""
 
 #: page.backup_restore.php:41
@@ -1520,12 +1548,6 @@ msgstr ""
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr ""
-
-#~ msgid "Backup & Restore"
-#~ msgstr "Säkerhetskopiering"
-
-#~ msgid "Backup & Restore for your FreePBX environment"
-#~ msgstr "Säkerhestkopieringsmodul för FreePBX"
 
 #~ msgid "Backup migration completed"
 #~ msgstr "Migreringen av Backup klar"

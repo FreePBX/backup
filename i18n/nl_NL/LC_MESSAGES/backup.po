@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-05 04:32+1000\n"
+"POT-Creation-Date: 2015-12-08 11:46-0800\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -98,6 +98,10 @@ msgstr ""
 msgid "Adding items..."
 msgstr "Onderdelen toevoegen..."
 
+#: backup.i18n.php:6 backup.i18n.php:12
+msgid "Admin"
+msgstr "Beheer"
+
 #: views/backup/backup.php:314
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
@@ -167,6 +171,26 @@ msgstr "RESERVEKOPIE LOG TOEGEVOEGD"
 #: functions.inc/class.backup.php:380 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Reservekopie"
+
+#: backup.i18n.php:4 backup.i18n.php:10
+msgid "Backup & Restore"
+msgstr "Reservekopie & Terugzetten"
+
+#: backup.i18n.php:18
+msgid "Backup & Restore - Restore"
+msgstr "Reservekopie & Terugzetten - Terugzetten"
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Servers"
+msgstr "Reservekopie & Terugzetten - Servers"
+
+#: backup.i18n.php:16
+msgid "Backup & Restore - Templates"
+msgstr "Reservekopie & Terugzetten - Sjablonen"
+
+#: backup.i18n.php:8
+msgid "Backup & Restore for your FreePBX environment"
+msgstr "Reservekopie & Terugzetten voor uw FreePBX omgeving"
 
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
@@ -488,9 +512,13 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:416
+#: functions.inc/class.backup.php:421
 msgid "Error connecting to the FTP Server..."
 msgstr "Fout bij het verbinden met de FTP server..."
+
+#: functions.inc/class.backup.php:396
+msgid "Error connecting to the FTP Server... Check your host name or DNS"
+msgstr ""
 
 #: page.backup_restore.php:41
 msgid "Error uploading file!"
@@ -1553,24 +1581,6 @@ msgstr "wachten op vergrendeling..."
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "{geen servers beschikbaar}"
-
-#~ msgid "Admin"
-#~ msgstr "Beheer"
-
-#~ msgid "Backup & Restore"
-#~ msgstr "Reservekopie & Terugzetten"
-
-#~ msgid "Backup & Restore - Restore"
-#~ msgstr "Reservekopie & Terugzetten - Terugzetten"
-
-#~ msgid "Backup & Restore - Servers"
-#~ msgstr "Reservekopie & Terugzetten - Servers"
-
-#~ msgid "Backup & Restore - Templates"
-#~ msgstr "Reservekopie & Terugzetten - Sjablonen"
-
-#~ msgid "Backup & Restore for your FreePBX environment"
-#~ msgstr "Reservekopie & Terugzetten voor uw FreePBX omgeving"
 
 #~ msgid "Backup migration completed"
 #~ msgstr "Reservekopie migratie uitgevoerd"

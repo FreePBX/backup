@@ -391,7 +391,12 @@ class Backup {
 					$s['user'] = backup__($s['user']);
 					$s['password'] = backup__($s['password']);
 					$s['path'] = backup__($s['path']);
-					$ftp = ftp_connect($s['host'], $s['port']);
+					$ftp = @ftp_connect($s['host'], $s['port']);
+					if($ftp === false){
+						$this->b['error'] = _("Error connecting to the FTP Server... Check your host name or DNS");
+						backup_log($this->b['error']);
+						return $ftp;
+					}
 					if (ftp_login($ftp, $s['user'], $s['password'])) {
 						//chose pasive/active transfer mode
 						ftp_pasv($ftp, ($s['transfer'] == 'passive'));

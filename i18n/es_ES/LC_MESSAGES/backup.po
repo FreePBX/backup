@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-08 11:46-0800\n"
-"PO-Revision-Date: 2016-01-03 07:41+0200\n"
+"PO-Revision-Date: 2016-01-03 07:42+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/backup/es_ES/>\n"
@@ -601,7 +601,7 @@ msgstr "FTP Tipo de Transferencia"
 
 #: views/servers/mysql.php:124
 msgid "FTP Username"
-msgstr "FTP Username"
+msgstr "FTP Usuario"
 
 #: functions.inc/restore.php:474
 msgid ""

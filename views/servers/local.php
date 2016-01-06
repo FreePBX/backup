@@ -5,7 +5,7 @@ $disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
 <form class="fpbx-submit" action="" method="post" id="server_form" name="server_form">
 	<input type="hidden" name="action" value="save">
 	<input type="hidden" name="id" value="<?php echo isset($id)?$id:''?>">
-	<input type="hidden" name="server_type" value="ssh">
+	<input type="hidden" name="server_type" value="local">
 	<!--Server Name-->
 	<div class="element-container">
 		<div class="row">

@@ -357,10 +357,6 @@ class Backup {
 					$this->maintenance($s['type'], $s);
 					break;
 				case 'email':
-					//dont run if the file is too big
-					if (filesize($this->b['_tmpfile']) > $s['maxsize']) {
-						continue;
-					}
 
 					//TODO: set agent to something informative, including fpbx & backup versions
 					$email_options = array('useragent' => 'freepbx', 'protocol' => 'mail');
@@ -378,8 +374,19 @@ class Backup {
 					$email->from($from);
 					$email->to(backup__($s['addr']));
 					$email->subject(_('Backup') . ' ' . $this->b['name']);
-					$email->message(implode("\n", $msg));
-					$email->attach($this->b['_tmpfile']);
+					$body = implode("\n", $msg);
+					// If the backup file is more than 25MB, yell
+					$encodedsize = ceil(filesize($this->b['_tmpfile'])/3)*4;
+					if ($encodedsize > 26214400) {
+						$email->subject(_('Backup ERROR (exceeded SMTP limits)') . ' ' . $this->b['name']);
+						$email->message(_('BACKUP NOT ATTACHED')."\n"._('The backup file exceeded the maximum SMTP limits of 25MB. It was not attempted to be sent. Please shrink your backup, or use a different method of transferring your backup.')."\n$body\n");
+					} elseif ($encodedsize > $s['maxsize']) {
+						$email->subject(_('Backup ERROR (exceeded soft limit)') . ' ' . $this->b['name']);
+						$email->message(_('BACKUP NOT ATTACHED')."\n"._('The backup file exceeded the soft limit set in SMTP configuration (%s bytes). It was not attempted to be sent. Please shrink your backup, or use a different method of transferring your backup.')."\n$body\n");
+					} else {
+						$email->message($body);
+						$email->attach($this->b['_tmpfile']);
+					}
 					$email->send();
 
 					unset($msg);

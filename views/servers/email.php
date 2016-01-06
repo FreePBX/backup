@@ -91,7 +91,7 @@ $disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
 					<div class="col-md-9">
 						<?php
 						$maxsize	= explode(' ', bytes2string($maxsize));
-						$maxtype = isset($maxsize[1])?$maxsize[1]:'gb';
+						$maxtype = isset($maxsize[1])?$maxsize[1]:'mb';
 						?>
 						<input type="number" class="form-control" id="maxsize" name="maxsize" value="<?php echo isset($maxsize[0])?$maxsize[0]:'10'?>"<?php echo $disabled?>>
 						<div class="radioset">
@@ -101,8 +101,6 @@ $disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
 							<label for="maxtypekb"><?php echo _("KB")?></label>
 							<input type="radio" name="maxtype" id="maxtypemb" value="mb" <?php echo $maxtype =='mb'?'CHECKED':''?><?php echo $disabled?>>
 							<label for="maxtypemb"><?php echo _("MB")?></label>
-							<input type="radio" name="maxtype" id="maxtypegb" value="gb" <?php echo $maxtype =='gb'?'CHECKED':''?><?php echo $disabled?>>
-							<label for="maxtypegb"><?php echo _("GB")?></label>
 						</div>
 					</div>
 				</div>
@@ -111,10 +109,15 @@ $disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="maxsize-help" class="help-block fpbx-help-block"><?php echo _('The maximum size a backup can be and still be emailed. '
-			. 'Some email servers limit the size of email attachments, '
-			. 'this will make sure that files larger than the max size '
-			. 'are not sent.')?></span>
+			<span id="maxsize-help" class="help-block fpbx-help-block"><?php 
+echo _('The maximum size a backup can be and still be emailed. '
+	. 'Some email servers limit the size of email attachments, '
+	. 'this will make sure that files larger than the max size '
+	. 'are not sent.');
+echo "<br>\n";
+echo _('This has a maximum size of 25MB.'); 
+?>
+			</span>
 		</div>
 	</div>
 </div>

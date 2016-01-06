@@ -46,7 +46,12 @@ if ($var['id'] && !$var['server_type']) {
 //action actions
 switch ($var['action']) {
 	case 'save':
-		$var['maxsize'] = string2bytes($var['maxsize'], $var['maxtype']);
+		// Make sure people can't set it to be more than 25MB
+		$maxsize = string2bytes($var['maxsize'], $var['maxtype']);
+		if ($maxsize > 26214400) {
+			$maxsize = 26214400;
+		}
+		$var['maxsize'] = $maxsize;
 		unset($var['maxtype']);
 		$var['id'] = backup_put_server($var);
 		break;

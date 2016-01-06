@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-06 13:44+1000\n"
+"POT-Creation-Date: 2016-01-07 09:14+1000\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -790,8 +790,8 @@ msgid "MB"
 msgstr ""
 
 #: views/backup/backup.php:447
-msgid "Maintinance"
-msgstr ""
+msgid "Maintenance"
+msgstr "Manutenção"
 
 #: views/cron.php:45
 msgid "March"
@@ -1033,8 +1033,8 @@ msgid "Provide the name for this server"
 msgstr ""
 
 #: views/cron.php:140
-msgid "Random"
-msgstr ""
+msgid "Randomize"
+msgstr "Aleatório"
 
 #: views/cron.php:9
 msgid "Reboot"
@@ -1760,9 +1760,6 @@ msgstr "{nenhum servidor disponível}"
 #~ msgid "IP address or FQDN of remote ssh host"
 #~ msgstr "Endereço IP ou FQDN do host ssh remoto"
 
-#~ msgid "Maintenance"
-#~ msgstr "Manutenção"
-
 #~ msgid "Month"
 #~ msgstr "Mês"
 
@@ -1790,9 +1787,6 @@ msgstr "{nenhum servidor disponível}"
 #~ msgid "Provides Backup & Restore capabilities for your PBX"
 #~ msgstr ""
 #~ "Proporciona funcionalidades de Cópia de Segurança & Restauro ao seu PBX"
-
-#~ msgid "Randomize"
-#~ msgstr "Aleatório"
 
 #~ msgid "Storage Locations"
 #~ msgstr "Localizações de Armazenamento"

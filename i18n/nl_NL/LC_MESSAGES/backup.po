@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-06 13:44+1000\n"
+"POT-Creation-Date: 2016-01-07 09:14+1000\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -801,8 +801,8 @@ msgid "MB"
 msgstr ""
 
 #: views/backup/backup.php:447
-msgid "Maintinance"
-msgstr ""
+msgid "Maintenance"
+msgstr "Onderhoud"
 
 #: views/cron.php:45
 msgid "March"
@@ -1043,8 +1043,8 @@ msgid "Provide the name for this server"
 msgstr ""
 
 #: views/cron.php:140
-msgid "Random"
-msgstr ""
+msgid "Randomize"
+msgstr "Willekeurig"
 
 #: views/cron.php:9
 msgid "Reboot"
@@ -1777,9 +1777,6 @@ msgstr "{geen servers beschikbaar}"
 #~ msgid "IP address or FQDN of remote ssh host"
 #~ msgstr "IP-adres of volledige naam (FQDN) van andere SSH server"
 
-#~ msgid "Maintenance"
-#~ msgstr "Onderhoud"
-
 #~ msgid "Month"
 #~ msgstr "Maand"
 
@@ -1806,9 +1803,6 @@ msgstr "{geen servers beschikbaar}"
 
 #~ msgid "Processed "
 #~ msgstr "Verwerkt "
-
-#~ msgid "Randomize"
-#~ msgstr "Willekeurig"
 
 #~ msgid "Restored all CDRs."
 #~ msgstr "Alle CDR's teruggezet."

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-06 13:44+1000\n"
+"POT-Creation-Date: 2016-01-07 09:14+1000\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -778,7 +778,7 @@ msgid "MB"
 msgstr ""
 
 #: views/backup/backup.php:447
-msgid "Maintinance"
+msgid "Maintenance"
 msgstr ""
 
 #: views/cron.php:45
@@ -1020,7 +1020,7 @@ msgid "Provide the name for this server"
 msgstr ""
 
 #: views/cron.php:140
-msgid "Random"
+msgid "Randomize"
 msgstr ""
 
 #: views/cron.php:9

@@ -145,7 +145,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_servers') < 1) {
 				'desc'		=> _('A full backup of core settings and web files, doesn\'t include system sounds or recordings.'),
 				'type'		=> array( 'mysql', 'mysql', 'astdb', 'dir', 'dir', 'dir', 'dir', 'dir' ),
 				'path'		=> array( 'server-'.$server['cdr'], 'server-'.$server['mysql'], 'astdb', '__ASTETCDIR__',
-								'__AMPWEBROOT', '__AMPBIN__', '/etc/dahdi', '/tftpboot' ),
+								'__AMPWEBROOT__', '__AMPBIN__', '/etc/dahdi', '/tftpboot' ),
 				'exclude'	=> array( '', '', '', '', '', '', '', '' ),
 			),
 			'cdr' => array(

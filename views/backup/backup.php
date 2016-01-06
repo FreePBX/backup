@@ -444,7 +444,7 @@ foreach ($storage_servers as $s) {
 		echo load_view(dirname(__FILE__) . '/../cron.php', $cron);
 		?>
 </div>
-<div class="section-title" data-for="bumaint"><h3><i class="fa fa-minus"></i> <?php echo _("Maintinance")?></h3></div>
+<div class="section-title" data-for="bumaint"><h3><i class="fa fa-minus"></i> <?php echo _("Maintenance")?></h3></div>
 <div class="section" data-id="bumaint">
 <!--Delete After-->
 <div class="element-container">

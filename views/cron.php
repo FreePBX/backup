@@ -137,7 +137,7 @@ for($i = 1; $i < 32; $i++) {
 			<div class="row">
 				<div class="form-group">
 					<div class="col-md-3">
-						<label class="control-label" for="cron_random"><?php echo _("Random") ?></label>
+						<label class="control-label" for="cron_random"><?php echo _("Randomize") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="cron_random"></i>
 					</div>
 					<div class="col-md-9 radioset">

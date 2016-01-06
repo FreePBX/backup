@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-06 12:02+1000\n"
+"POT-Creation-Date: 2016-01-06 13:44+1000\n"
 "PO-Revision-Date: 2016-01-03 07:42+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -183,8 +183,12 @@ msgstr "B"
 msgid "BACKUP LOG ATTACHED"
 msgstr "BITACORA DE RESPALDOS ANEXADA"
 
+#: functions.inc/class.backup.php:382 functions.inc/class.backup.php:385
+msgid "BACKUP NOT ATTACHED"
+msgstr ""
+
 #: Backup.class.php:307 functions.inc/backup.php:79
-#: functions.inc/class.backup.php:380 views/backup/backup.php:6
+#: functions.inc/class.backup.php:376 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Respaldo"
 
@@ -215,6 +219,14 @@ msgstr "Respaldar CDR y datos de grabación de llamadas?"
 #: views/backup/backups.php:121
 msgid "Backup Desctiption"
 msgstr "Descripcion de Respaldo"
+
+#: functions.inc/class.backup.php:381
+msgid "Backup ERROR (exceeded SMTP limits)"
+msgstr ""
+
+#: functions.inc/class.backup.php:384
+msgid "Backup ERROR (exceeded soft limit)"
+msgstr ""
 
 #: views/backup/backups.php:49
 msgid "Backup Frequency"
@@ -349,7 +361,7 @@ msgstr "Solo Configuraciones"
 msgid "Connecting to remote server..."
 msgstr "Conectando a Servidor remoto..."
 
-#: functions.inc/class.backup.php:373 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:369 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Creado"
 
@@ -529,11 +541,11 @@ msgstr ""
 "Equivalente de hacer clic en el botón rojo, se producirá automáticamente "
 "después de una restauración en un sistema de espera"
 
-#: functions.inc/class.backup.php:421
+#: functions.inc/class.backup.php:428
 msgid "Error connecting to the FTP Server..."
 msgstr "Error conectando al Servidor FTP..."
 
-#: functions.inc/class.backup.php:396
+#: functions.inc/class.backup.php:403
 msgid "Error connecting to the FTP Server... Check your host name or DNS"
 msgstr ""
 "Error al conectar con el servidor FTP ... Compruebe su nombre de host o DNS"
@@ -648,7 +660,7 @@ msgstr "Restauración de Archivo Completada!"
 msgid "File verification failed. "
 msgstr "Verificación de Archivo Fallida. "
 
-#: functions.inc/class.backup.php:374 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:370 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Archivos"
 
@@ -659,10 +671,6 @@ msgstr "FreePBX"
 #: views/cron.php:32 assets/js/backup.js:83
 msgid "Friday"
 msgstr "Viernes"
-
-#: views/servers/email.php:105
-msgid "GB"
-msgstr "GB"
 
 #: bin/restore.php:211
 msgid "Getting CDR size..."
@@ -868,7 +876,7 @@ msgstr "\"Mysql\""
 msgid "Mysql DB's"
 msgstr "BD's Mysql"
 
-#: functions.inc/class.backup.php:375
+#: functions.inc/class.backup.php:371
 msgid "Mysql Db's"
 msgstr "Bd's Mysql"
 
@@ -876,7 +884,7 @@ msgstr "Bd's Mysql"
 msgid "Mysql Server "
 msgstr "Servidor Mysql "
 
-#: functions.inc/class.backup.php:372 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:368 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Nombre"
 
@@ -1342,7 +1350,7 @@ msgstr "Usuario Servidor"
 msgid "Server address can not be blank"
 msgstr "Direccion de servidor no puede estar en blanco"
 
-#: page.backup_servers.php:74 views/rnav/main.php:5
+#: page.backup_servers.php:79 views/rnav/main.php:5
 msgid "Servers"
 msgstr "Servidores"
 
@@ -1403,7 +1411,22 @@ msgstr "Nombre Plantilla"
 msgid "Templates"
 msgstr "Plantillas"
 
-#: views/servers/email.php:114
+#: functions.inc/class.backup.php:382
+msgid ""
+"The backup file exceeded the maximum SMTP limits of 25MB. It was not "
+"attempted to be sent. Please shrink your backup, or use a different method "
+"of transferring your backup."
+msgstr ""
+
+#: functions.inc/class.backup.php:385
+#, php-format
+msgid ""
+"The backup file exceeded the soft limit set in SMTP configuration (%s "
+"bytes). It was not attempted to be sent. Please shrink your backup, or use a "
+"different method of transferring your backup."
+msgstr ""
+
+#: views/servers/email.php:113
 msgid ""
 "The maximum size a backup can be and still be emailed. Some email servers "
 "limit the size of email attachments, this will make sure that files larger "
@@ -1426,6 +1449,10 @@ msgstr ""
 "modo 'activo', el servidor FTP establece una conexión con el servidor de "
 "VoIP para recibir los datos. En el modo 'pasivo', el servidor VoIP se "
 "conecta con el servidor FTP para enviar datos."
+
+#: views/servers/email.php:118
+msgid "This has a maximum size of 25MB."
+msgstr ""
 
 #: views/backup/backup.php:225
 msgid "This server"
@@ -1598,7 +1625,7 @@ msgstr "Añadidos servidores de respaldo por defecto"
 msgid "added default backup templates"
 msgstr "Añadidas plantillas de respaldo por defecto"
 
-#: functions.inc/class.backup.php:376
+#: functions.inc/class.backup.php:372
 msgid "astDb's"
 msgstr "\"astDb's\""
 
@@ -1625,6 +1652,9 @@ msgstr "esperando por bloqueo..."
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "(no servidores disponibles)"
+
+#~ msgid "GB"
+#~ msgstr "GB"
 
 #~ msgid "Backup migration completed"
 #~ msgstr "Migración del Respaldo completada"

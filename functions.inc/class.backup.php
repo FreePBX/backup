@@ -617,7 +617,33 @@ class Backup {
 				$sql = 'INSERT INTO backup_cache (id, manifest) VALUES (?, ?)';
 				$stmt = \FreePBX::Database()->prepare($sql);
 				$stmt->execute(array($this->b['_file'], serialize($manifest)));
+				$this->prune_backup_cache();
 				break;
+		}
+	}
+
+	public function prune_backup_cache() {
+		$dbh = \FreePBX::Database();
+
+		// We want to delete anything that's older than 90 days.
+		$date = new \DateTime("90 days ago");
+		// Get the utime of that
+		$purgebefore = $date->format("U");
+
+		// Prepare statement
+		$del = 'DELETE FROM `backup_cache` WHERE `id`=?';
+		$delstmt = $dbh->prepare($sql);
+
+		// Find old ones
+		$ret = $dbh->query('SELECT `id` FROM `backup_cache`')->fetchAll();
+		foreach ($ret as $row) {
+			$id = $row[0];
+			// Explode it into sections. It's currently YYYYMMDD-HHMMSS-utime-....
+			$sections = explode("-", $id);
+			// If it's incorrectly formatted, or, its old, delete it.
+			if (!isset($sections[2]) || $sections[2] < $purgebefore) {
+				$delstmt->execute($id);
+			}
 		}
 	}
 

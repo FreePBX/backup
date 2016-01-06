@@ -437,7 +437,7 @@ class Backup {
 					}
 
 					//copy file
-					if ($awss3->putObjectFile($this->b['_tmpfile'], $s['bucket'], $this->b['_file'] . '.tgz', \S3::ACL_PUBLIC_READ)) {
+					if ($awss3->putObjectFile($this->b['_tmpfile'], $s['bucket'], $this->b['name']."/".$this->b['_file'] . '.tgz', \S3::ACL_PUBLIC_READ)) {
 						dbug('S3 successfully uploaded your backup file.');
 					} else {
 						dbug('S3 failed to accept your backup file');

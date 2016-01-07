@@ -642,7 +642,7 @@ class Backup {
 			$sections = explode("-", $id);
 			// If it's incorrectly formatted, or, its old, delete it.
 			if (!isset($sections[2]) || $sections[2] < $purgebefore) {
-				$delstmt->execute($id);
+				$delstmt->execute(array($id));
 			}
 		}
 	}

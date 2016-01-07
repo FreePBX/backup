@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>13.0.21</version>
+	<version>13.0.21.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,7 +18,7 @@
 		<module>core</module>
 	</depends>
 	<changelog>
-		*13.0.21* #10606 - Fix local server creation, and Minor fixes #8791, #10670
+		*13.0.21.1* #10606 - Fix local server creation, and Minor fixes #8791, #10670
 		*13.0.20* #10885 - Fix email size limits
 		*13.0.19.1* #11130 - Ensure backup path is correct when saving to S3
 		*13.0.19* FREEPBX-10923 FREEPBX-10926 FREEPBX-10972

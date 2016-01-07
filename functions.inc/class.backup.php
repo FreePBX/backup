@@ -632,12 +632,17 @@ class Backup {
 
 		// Prepare statement
 		$del = 'DELETE FROM `backup_cache` WHERE `id`=?';
-		$delstmt = $dbh->prepare($sql);
+		$delstmt = $dbh->prepare($del);
 
 		// Find old ones
 		$ret = $dbh->query('SELECT `id` FROM `backup_cache`')->fetchAll();
 		foreach ($ret as $row) {
 			$id = $row[0];
+			// Avoid bad tables. This would be fixed by a mysqlcheck, but
+			// it'll cause an exception in the interim.
+			if (empty($id)) {
+				continue;
+			}
 			// Explode it into sections. It's currently YYYYMMDD-HHMMSS-utime-....
 			$sections = explode("-", $id);
 			// If it's incorrectly formatted, or, its old, delete it.

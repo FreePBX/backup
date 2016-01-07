@@ -152,7 +152,7 @@ for($i = 1; $i < 32; $i++) {
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="cron_random-help" class="help-block fpbx-help-block"><?php echo _("If Randomize is selcted, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved")?></span>
+			<span id="cron_random-help" class="help-block fpbx-help-block"><?php echo _("If Randomize is selected, a similar frequency will be followed, only the exact times will be randomized (avoiding peak business hours, when possible). Please note: randomized schedules will be rescheduled (randomly) every time ANY backup is saved")?></span>
 		</div>
 	</div>
 </div>

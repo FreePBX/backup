@@ -404,7 +404,7 @@ class Backup {
 						backup_log($this->b['error']);
 						return $ftp;
 					}
-					if (ftp_login($ftp, $s['user'], $s['password'])) {
+					if (@ftp_login($ftp, $s['user'], $s['password'])) {
 						//chose pasive/active transfer mode
 						ftp_pasv($ftp, ($s['transfer'] == 'passive'));
 
@@ -425,7 +425,7 @@ class Backup {
 						//release handel
 						ftp_close($ftp);
 					} else {
-						$this->b['error'] = _("Error connecting to the FTP Server...");
+						$this->b['error'] = _("Error connecting to the FTP Server...") . _(" Authentication Failure");
 						backup_log($this->b['error']);
 					}
 					break;

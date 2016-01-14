@@ -102,7 +102,7 @@ for($i = 1; $i < 32; $i++) {
 				</div>
 			<div class="section-title" data-for="bucronc"><b><i class="fa fa-minus"></i> <?php echo ("Custom")?></b></div>
 				<div class="section" data-id="bucronc">
-    			<?php echo _("If a custom schedule is selected, any section not specficed will be considered to be \"any\" (aka: wildcard).
+			<?php echo _("If a custom schedule is selected, any section not specified will be considered to be \"any\" (aka: wildcard).
 					I.e. if Day of Month is set to 12 and Day of Week is not set, the Backup will be run on ANY 12th of
 					the month - regardless of the day of the week. If Day of Week is set to, say, Monday, the Backup will run ONLY
 					 on a Monday, and ONLY if it's the 12th of the month.")?>

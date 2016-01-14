@@ -111,14 +111,14 @@
 						</div>
 					</div>
 					<!--END Backup Name-->
-					<!--Backup Desctiption-->
+					<!--Backup Description-->
 					<div class="element-container">
 						<div class="row">
 							<div class="col-md-12">
 								<div class="row">
 									<div class="form-group">
 										<div class="col-md-3">
-											<label class="control-label" for="wizdesc"><?php echo _("Backup Desctiption") ?></label>
+											<label class="control-label" for="wizdesc"><?php echo _("Backup Description") ?></label>
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="wizdesc"></i>
 										</div>
 										<div class="col-md-9">
@@ -134,7 +134,7 @@
 							</div>
 						</div>
 					</div>
-					<!--END Backup Desctiption-->
+					<!--END Backup Description-->
 				</div>
 				<div id="step-2">
 					<h2 class="StepTitle"><?php echo _("How often should we backup?")?></h2>

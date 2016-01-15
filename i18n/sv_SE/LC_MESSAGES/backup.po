@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-15 07:34-0800\n"
+"POT-Creation-Date: 2016-01-15 11:19-0800\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -28,6 +28,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: swedish\n"
 "X-Poedit-Country: SWEDEN\n"
+
+#: functions.inc/class.backup.php:429
+msgid " Authentication Failure"
+msgstr ""
 
 #: views/backup/backups.php:23
 #, php-format

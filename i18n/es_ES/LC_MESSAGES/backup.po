@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-15 07:34-0800\n"
+"POT-Creation-Date: 2016-01-15 11:19-0800\n"
 "PO-Revision-Date: 2016-01-07 02:17+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -33,6 +33,10 @@ msgstr ""
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-Country: SPAIN\n"
 "X-Poedit-SourceCharset: utf-8\n"
+
+#: functions.inc/class.backup.php:429
+msgid " Authentication Failure"
+msgstr ""
 
 #: views/backup/backups.php:23
 #, php-format

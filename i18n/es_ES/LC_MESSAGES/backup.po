@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-07 09:14+1000\n"
+"POT-Creation-Date: 2016-01-15 07:34-0800\n"
 "PO-Revision-Date: 2016-01-07 02:17+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -183,12 +183,12 @@ msgstr "B"
 msgid "BACKUP LOG ATTACHED"
 msgstr "BITACORA DE RESPALDOS ANEXADA"
 
-#: functions.inc/class.backup.php:382 functions.inc/class.backup.php:385
+#: functions.inc/class.backup.php:383 functions.inc/class.backup.php:386
 msgid "BACKUP NOT ATTACHED"
 msgstr "RESPALDO NO ANEXO"
 
-#: Backup.class.php:307 functions.inc/backup.php:79
-#: functions.inc/class.backup.php:376 views/backup/backup.php:6
+#: Backup.class.php:316 functions.inc/backup.php:79
+#: functions.inc/class.backup.php:377 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Respaldo"
 
@@ -217,14 +217,14 @@ msgid "Backup CDR and call record data?"
 msgstr "Respaldar CDR y datos de grabación de llamadas?"
 
 #: views/backup/backups.php:121
-msgid "Backup Desctiption"
-msgstr "Descripcion de Respaldo"
+msgid "Backup Description"
+msgstr ""
 
-#: functions.inc/class.backup.php:381
+#: functions.inc/class.backup.php:382
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr "ERROR respaldo (excedio los limites SMTP)"
 
-#: functions.inc/class.backup.php:384
+#: functions.inc/class.backup.php:385
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr "ERROR respaldo (excede limites blandos)"
 
@@ -272,11 +272,11 @@ msgstr "Asistente de Respaldo"
 msgid "Backup and Restore"
 msgstr "Respaldo y Restauración"
 
-#: bin/backup.php:151 bin/backup.php:199
+#: bin/backup.php:152 bin/backup.php:200
 msgid "Backup completed with errors!"
 msgstr "Respaldo completado con errores!"
 
-#: functions.inc/class.backup.php:278
+#: functions.inc/class.backup.php:279
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -293,7 +293,7 @@ msgstr "Archivo de Respaldo no encontrado!. Abortando."
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "Modulo de Respaldo  no encontrado o esta deshabilitado. Abortando!"
 
-#: bin/backup.php:153 bin/backup.php:201
+#: bin/backup.php:154 bin/backup.php:202
 msgid "Backup successfully completed!"
 msgstr "Respaldo satisfactoriamente completado!"
 
@@ -318,8 +318,8 @@ msgid "Bucket Name"
 msgstr "Nombre del Bucket"
 
 #: bin/backup.php:58
-msgid "Bulding manifest..."
-msgstr "Construyendo el manifiesto..."
+msgid "Building manifest..."
+msgstr ""
 
 #: views/backup/backups.php:233
 msgid "CDR and Call Log Data"
@@ -357,11 +357,11 @@ msgstr "Oprima \"Próximo\" para Continuar."
 msgid "Configurations only"
 msgstr "Solo Configuraciones"
 
-#: bin/backup.php:77
+#: bin/backup.php:78
 msgid "Connecting to remote server..."
 msgstr "Conectando a Servidor remoto..."
 
-#: functions.inc/class.backup.php:369 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:370 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Creado"
 
@@ -409,11 +409,11 @@ msgstr "Diciembre"
 msgid "Default"
 msgstr "Defecto"
 
-#: install.php:218
+#: install.php:230
 msgid "Default backup; automatically installed"
 msgstr "Respaldo por defecto, automáticamente instalado"
 
-#: Backup.class.php:38 Backup.class.php:193 page.backup.php:45
+#: Backup.class.php:38 Backup.class.php:202 page.backup.php:45
 #: page.backup_servers.php:35 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
@@ -541,11 +541,11 @@ msgstr ""
 "Equivalente de hacer clic en el botón rojo, se producirá automáticamente "
 "después de una restauración en un sistema de espera"
 
-#: functions.inc/class.backup.php:428
+#: functions.inc/class.backup.php:429
 msgid "Error connecting to the FTP Server..."
 msgstr "Error conectando al Servidor FTP..."
 
-#: functions.inc/class.backup.php:403
+#: functions.inc/class.backup.php:404
 msgid "Error connecting to the FTP Server... Check your host name or DNS"
 msgstr ""
 "Error al conectar con el servidor FTP ... Compruebe su nombre de host o DNS"
@@ -656,11 +656,11 @@ msgstr "Archivo no encontrado! "
 msgid "File restore complete!"
 msgstr "Restauración de Archivo Completada!"
 
-#: bin/backup.php:125
+#: bin/backup.php:126
 msgid "File verification failed. "
 msgstr "Verificación de Archivo Fallida. "
 
-#: functions.inc/class.backup.php:370 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:371 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Archivos"
 
@@ -692,7 +692,7 @@ msgstr "Asigne a su respaldo un nombre amigable"
 msgid "Go!"
 msgstr "Ir!"
 
-#: bin/backup.php:126
+#: bin/backup.php:127
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr ""
 "Estas son las primeras líneas del archivo como fue enviado por el servidor "
@@ -737,19 +737,15 @@ msgstr "Dirección IP o FQDN del host remoto mysql"
 
 #: views/cron.php:155
 msgid ""
-"If Randomize is selcted, a similar frequency will be followed, only the "
+"If Randomize is selected, a similar frequency will be followed, only the "
 "exact times will be randomized (avoiding peak business hours, when "
 "possible). Please note: randomized schedules will be rescheduled (randomly) "
 "every time ANY backup is saved"
 msgstr ""
-"Si se selecciona Randomize, una frecuencia similar será asumida, sólo se "
-"asignaran al azar los tiempos exactos (evitando el horario comercial pico, "
-"cuando sea posible). Tenga en cuenta: los horarios aleatorios serán "
-"reprogramados (al azar) cada vez que se guarda cualquier copia de seguridad"
 
 #: views/cron.php:105
 msgid ""
-"If a custom schedule is selected, any section not specficed will be "
+"If a custom schedule is selected, any section not specified will be "
 "considered to be \"any\" (aka: wildcard).\n"
 "\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, the "
 "Backup will be run on ANY 12th of\n"
@@ -757,14 +753,6 @@ msgid ""
 "set to, say, Monday, the Backup will run ONLY\n"
 "\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
 msgstr ""
-"Si se selecciona una programación personalizada, cualquier sección no "
-"especificado se considera que es \"cualquiera\" (aka: comodín) .↵\n"
-"→→→→→ es decir. si día del mes se establece en 12 y el día de la semana no "
-"se ha establecido, la copia de seguridad se llevará a cabo en CUALQUIER "
-"12avo del↵\n"
-"→→→→→ mes - sin importar el día de la semana. Si el día de la semana se "
-"ajusta en, digamos, el lunes, la copia de seguridad se ejecutará SOLO↵\n"
-"→→→→→ un lunes, y sólo si es el día 12 del mes."
 
 #: bin/backup.php:41
 msgid "Initializing Backup"
@@ -876,7 +864,7 @@ msgstr "\"Mysql\""
 msgid "Mysql DB's"
 msgstr "BD's Mysql"
 
-#: functions.inc/class.backup.php:371
+#: functions.inc/class.backup.php:372
 msgid "Mysql Db's"
 msgstr "Bd's Mysql"
 
@@ -884,7 +872,7 @@ msgstr "Bd's Mysql"
 msgid "Mysql Server "
 msgstr "Servidor Mysql "
 
-#: functions.inc/class.backup.php:368 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:369 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Nombre"
 
@@ -948,7 +936,7 @@ msgstr "Nocturno"
 msgid "No"
 msgstr "No"
 
-#: bin/backup.php:74
+#: bin/backup.php:75
 msgid "No items in backup set. Aborting."
 msgstr "No hay elementos en el conjunto de respaldo. Abortando..."
 
@@ -1067,7 +1055,7 @@ msgstr "Procesado %s%% de CDR (%s de %s líneas)"
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "Procesado %s%% de Ajustes (%s de  %s líneas)"
 
-#: bin/backup.php:138
+#: bin/backup.php:139
 msgid "Processing received file..."
 msgstr "Procesando archivo recibido..."
 
@@ -1127,7 +1115,7 @@ msgstr "Opciones guardar remoto"
 msgid "Remote save path, blank for default"
 msgstr "Camino salvar remoto, dejar en blanco para valor por defecto"
 
-#: Backup.class.php:178
+#: Backup.class.php:187
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -1189,7 +1177,7 @@ msgstr "Restaurando todos los archivos (esto puede tomar un tiempo)..."
 msgid "Restoring astDB..."
 msgstr "restaurando astDB..."
 
-#: bin/backup.php:172
+#: bin/backup.php:173
 msgid "Restoring backup..."
 msgstr "Restaurando respaldo..."
 
@@ -1237,7 +1225,7 @@ msgstr "Ejecutar una vez cada hora, a inicio de la hora"
 msgid "Running post restore script..."
 msgstr "Corriendo Script post-restauración..."
 
-#: bin/backup.php:146 bin/backup.php:184
+#: bin/backup.php:147 bin/backup.php:185
 msgid "Running post-backup hooks..."
 msgstr "Corriendo enganches post-respaldo..."
 
@@ -1285,11 +1273,11 @@ msgstr "Usuario SSH"
 msgid "Saturday"
 msgstr "Sábado"
 
-#: Backup.class.php:183
+#: Backup.class.php:192
 msgid "Save"
 msgstr "Salvar"
 
-#: Backup.class.php:188
+#: Backup.class.php:197
 msgid "Save and Run"
 msgstr "Guardar y Ejecutar"
 
@@ -1354,7 +1342,7 @@ msgstr "Direccion de servidor no puede estar en blanco"
 msgid "Servers"
 msgstr "Servidores"
 
-#: bin/backup.php:105
+#: bin/backup.php:106
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr "Algo salio mal conectándose al servidor remoto. Abortando!"
 
@@ -1390,7 +1378,7 @@ msgstr "Servidores de Almacenaje"
 msgid "Storage location for backups"
 msgstr "Localidad de almacenamiento para respaldos"
 
-#: bin/backup.php:143
+#: bin/backup.php:144
 msgid "Storing backup..."
 msgstr "Almacenando Respaldo..."
 
@@ -1411,7 +1399,7 @@ msgstr "Nombre Plantilla"
 msgid "Templates"
 msgstr "Plantillas"
 
-#: functions.inc/class.backup.php:382
+#: functions.inc/class.backup.php:383
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
@@ -1421,7 +1409,7 @@ msgstr ""
 "se intentó ser enviados. Por favor, encoger la copia de seguridad, o "
 "utilizar un método diferente de transferencia de la copia de seguridad."
 
-#: functions.inc/class.backup.php:385
+#: functions.inc/class.backup.php:386
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1492,13 +1480,13 @@ msgstr "Martes"
 msgid "Type"
 msgstr "Tipo"
 
-#: install.php:278
+#: install.php:290
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
 msgstr ""
 "Trabajo Actualizado %s con el nuevo directorio de sonidos personalizados"
 
-#: install.php:266
+#: install.php:278
 msgid "Updated System Recordings template"
 msgstr "Plantilla actualizada sistema de grabaciones"
 
@@ -1511,7 +1499,7 @@ msgstr "Nombre de usuario"
 msgid "Username"
 msgstr "Usuario"
 
-#: bin/backup.php:110
+#: bin/backup.php:111
 msgid "Verifying received file..."
 msgstr "Verificando archivo recibido..."
 
@@ -1628,11 +1616,11 @@ msgstr ""
 msgid "added default backup servers"
 msgstr "Añadidos servidores de respaldo por defecto"
 
-#: install.php:203
+#: install.php:215
 msgid "added default backup templates"
 msgstr "Añadidas plantillas de respaldo por defecto"
 
-#: functions.inc/class.backup.php:372
+#: functions.inc/class.backup.php:373
 msgid "astDb's"
 msgstr "\"astDb's\""
 
@@ -1659,6 +1647,42 @@ msgstr "esperando por bloqueo..."
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "(no servidores disponibles)"
+
+#~ msgid "Backup Desctiption"
+#~ msgstr "Descripcion de Respaldo"
+
+#~ msgid "Bulding manifest..."
+#~ msgstr "Construyendo el manifiesto..."
+
+#~ msgid ""
+#~ "If Randomize is selcted, a similar frequency will be followed, only the "
+#~ "exact times will be randomized (avoiding peak business hours, when "
+#~ "possible). Please note: randomized schedules will be rescheduled "
+#~ "(randomly) every time ANY backup is saved"
+#~ msgstr ""
+#~ "Si se selecciona Randomize, una frecuencia similar será asumida, sólo se "
+#~ "asignaran al azar los tiempos exactos (evitando el horario comercial "
+#~ "pico, cuando sea posible). Tenga en cuenta: los horarios aleatorios serán "
+#~ "reprogramados (al azar) cada vez que se guarda cualquier copia de "
+#~ "seguridad"
+
+#~ msgid ""
+#~ "If a custom schedule is selected, any section not specficed will be "
+#~ "considered to be \"any\" (aka: wildcard).\n"
+#~ "\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, "
+#~ "the Backup will be run on ANY 12th of\n"
+#~ "\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week "
+#~ "is set to, say, Monday, the Backup will run ONLY\n"
+#~ "\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
+#~ msgstr ""
+#~ "Si se selecciona una programación personalizada, cualquier sección no "
+#~ "especificado se considera que es \"cualquiera\" (aka: comodín) .↵\n"
+#~ "→→→→→ es decir. si día del mes se establece en 12 y el día de la semana "
+#~ "no se ha establecido, la copia de seguridad se llevará a cabo en "
+#~ "CUALQUIER 12avo del↵\n"
+#~ "→→→→→ mes - sin importar el día de la semana. Si el día de la semana se "
+#~ "ajusta en, digamos, el lunes, la copia de seguridad se ejecutará SOLO↵\n"
+#~ "→→→→→ un lunes, y sólo si es el día 12 del mes."
 
 #~ msgid "Maintinance"
 #~ msgstr "Mantenimeinto"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-07 09:14+1000\n"
+"POT-Creation-Date: 2016-01-15 07:34-0800\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -167,12 +167,12 @@ msgstr ""
 msgid "BACKUP LOG ATTACHED"
 msgstr "RESERVEKOPIE LOG TOEGEVOEGD"
 
-#: functions.inc/class.backup.php:382 functions.inc/class.backup.php:385
+#: functions.inc/class.backup.php:383 functions.inc/class.backup.php:386
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
-#: Backup.class.php:307 functions.inc/backup.php:79
-#: functions.inc/class.backup.php:376 views/backup/backup.php:6
+#: Backup.class.php:316 functions.inc/backup.php:79
+#: functions.inc/class.backup.php:377 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Reservekopie"
 
@@ -201,14 +201,14 @@ msgid "Backup CDR and call record data?"
 msgstr ""
 
 #: views/backup/backups.php:121
-msgid "Backup Desctiption"
+msgid "Backup Description"
 msgstr ""
 
-#: functions.inc/class.backup.php:381
+#: functions.inc/class.backup.php:382
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr ""
 
-#: functions.inc/class.backup.php:384
+#: functions.inc/class.backup.php:385
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr ""
 
@@ -256,11 +256,11 @@ msgstr ""
 msgid "Backup and Restore"
 msgstr ""
 
-#: bin/backup.php:151 bin/backup.php:199
+#: bin/backup.php:152 bin/backup.php:200
 msgid "Backup completed with errors!"
 msgstr "Reservekopie voltooid met fouten!"
 
-#: functions.inc/class.backup.php:278
+#: functions.inc/class.backup.php:279
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -277,7 +277,7 @@ msgstr "Reservekopie bestand niet gevonden! Afgebroken."
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "Reservekopie module niet gevonden of uitgeschakeld. Afgebroken!"
 
-#: bin/backup.php:153 bin/backup.php:201
+#: bin/backup.php:154 bin/backup.php:202
 msgid "Backup successfully completed!"
 msgstr "Reservekopie geslaagd!"
 
@@ -302,9 +302,8 @@ msgid "Bucket Name"
 msgstr ""
 
 #: bin/backup.php:58
-#, fuzzy
-msgid "Bulding manifest..."
-msgstr "Verklaring opbouwen..."
+msgid "Building manifest..."
+msgstr ""
 
 #: views/backup/backups.php:233
 msgid "CDR and Call Log Data"
@@ -342,12 +341,12 @@ msgstr ""
 msgid "Configurations only"
 msgstr "Alleen configuraties"
 
-#: bin/backup.php:77
+#: bin/backup.php:78
 #, fuzzy
 msgid "Connecting to remote server..."
 msgstr "Verbinden met andere server..."
 
-#: functions.inc/class.backup.php:369 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:370 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Gemaakt"
 
@@ -395,11 +394,11 @@ msgstr "December"
 msgid "Default"
 msgstr ""
 
-#: install.php:218
+#: install.php:230
 msgid "Default backup; automatically installed"
 msgstr "Standaard reservekopie; automatisch geïnstalleerd"
 
-#: Backup.class.php:38 Backup.class.php:193 page.backup.php:45
+#: Backup.class.php:38 Backup.class.php:202 page.backup.php:45
 #: page.backup_servers.php:35 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
@@ -524,11 +523,11 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:428
+#: functions.inc/class.backup.php:429
 msgid "Error connecting to the FTP Server..."
 msgstr "Fout bij het verbinden met de FTP server..."
 
-#: functions.inc/class.backup.php:403
+#: functions.inc/class.backup.php:404
 msgid "Error connecting to the FTP Server... Check your host name or DNS"
 msgstr ""
 
@@ -634,11 +633,11 @@ msgstr "Bestand niet gevonden! "
 msgid "File restore complete!"
 msgstr "Bestand terugzetten uitgevoerd!"
 
-#: bin/backup.php:125
+#: bin/backup.php:126
 msgid "File verification failed. "
 msgstr "Bestandsverificatie mislukt. "
 
-#: functions.inc/class.backup.php:370 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:371 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Bestanden"
 
@@ -670,7 +669,7 @@ msgstr ""
 msgid "Go!"
 msgstr "Uitvoeren!"
 
-#: bin/backup.php:126
+#: bin/backup.php:127
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr ""
 "Dit zijn de eerste paar regels van het bestand zoals verzonden vanaf de "
@@ -716,7 +715,7 @@ msgstr "IP-adres of volledige naam (FQDN) van andere MySQL server"
 
 #: views/cron.php:155
 msgid ""
-"If Randomize is selcted, a similar frequency will be followed, only the "
+"If Randomize is selected, a similar frequency will be followed, only the "
 "exact times will be randomized (avoiding peak business hours, when "
 "possible). Please note: randomized schedules will be rescheduled (randomly) "
 "every time ANY backup is saved"
@@ -724,7 +723,7 @@ msgstr ""
 
 #: views/cron.php:105
 msgid ""
-"If a custom schedule is selected, any section not specficed will be "
+"If a custom schedule is selected, any section not specified will be "
 "considered to be \"any\" (aka: wildcard).\n"
 "\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, the "
 "Backup will be run on ANY 12th of\n"
@@ -844,7 +843,7 @@ msgstr "MySQL"
 msgid "Mysql DB's"
 msgstr "MySQL DB's"
 
-#: functions.inc/class.backup.php:371
+#: functions.inc/class.backup.php:372
 msgid "Mysql Db's"
 msgstr "MySQL DB's"
 
@@ -852,7 +851,7 @@ msgstr "MySQL DB's"
 msgid "Mysql Server "
 msgstr "MySQL server "
 
-#: functions.inc/class.backup.php:368 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:369 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Naam"
 
@@ -916,7 +915,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: bin/backup.php:74
+#: bin/backup.php:75
 msgid "No items in backup set. Aborting."
 msgstr "Geen onderdelen in reservekopie-set. Afgebroken."
 
@@ -1034,7 +1033,7 @@ msgstr ""
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr ""
 
-#: bin/backup.php:138
+#: bin/backup.php:139
 msgid "Processing received file..."
 msgstr "Ontvangen bestand verwerken..."
 
@@ -1094,7 +1093,7 @@ msgstr ""
 msgid "Remote save path, blank for default"
 msgstr ""
 
-#: Backup.class.php:178
+#: Backup.class.php:187
 msgid "Reset"
 msgstr ""
 
@@ -1156,7 +1155,7 @@ msgstr "Terugzetten alle bestanden (dit kan enige tijd duren)..."
 msgid "Restoring astDB..."
 msgstr "Terugzetten astDB..."
 
-#: bin/backup.php:172
+#: bin/backup.php:173
 msgid "Restoring backup..."
 msgstr "Terugzetten reservekopie..."
 
@@ -1202,7 +1201,7 @@ msgstr ""
 msgid "Running post restore script..."
 msgstr "Uitvoeren Na-terugzetten script..."
 
-#: bin/backup.php:146 bin/backup.php:184
+#: bin/backup.php:147 bin/backup.php:185
 msgid "Running post-backup hooks..."
 msgstr "Uitvoeren Voor-reservekopie taken..."
 
@@ -1250,11 +1249,11 @@ msgstr ""
 msgid "Saturday"
 msgstr "Zaterdag"
 
-#: Backup.class.php:183
+#: Backup.class.php:192
 msgid "Save"
 msgstr "Opslaan"
 
-#: Backup.class.php:188
+#: Backup.class.php:197
 msgid "Save and Run"
 msgstr ""
 
@@ -1317,7 +1316,7 @@ msgstr ""
 msgid "Servers"
 msgstr "Servers"
 
-#: bin/backup.php:105
+#: bin/backup.php:106
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr ""
 "Iets ging er niet goed tijdens de verbinding met de andere server. "
@@ -1355,7 +1354,7 @@ msgstr "Opslagservers"
 msgid "Storage location for backups"
 msgstr "Opslaglocatie voor reservekopieën"
 
-#: bin/backup.php:143
+#: bin/backup.php:144
 msgid "Storing backup..."
 msgstr "Reservekopie opslaan..."
 
@@ -1376,14 +1375,14 @@ msgstr "Sjabloon naam"
 msgid "Templates"
 msgstr "Sjablonen"
 
-#: functions.inc/class.backup.php:382
+#: functions.inc/class.backup.php:383
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
 "of transferring your backup."
 msgstr ""
 
-#: functions.inc/class.backup.php:385
+#: functions.inc/class.backup.php:386
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1443,12 +1442,12 @@ msgstr "Dinsdag"
 msgid "Type"
 msgstr "Type"
 
-#: install.php:278
+#: install.php:290
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
 msgstr ""
 
-#: install.php:266
+#: install.php:278
 msgid "Updated System Recordings template"
 msgstr ""
 
@@ -1461,7 +1460,7 @@ msgstr "Gebruikersnaam"
 msgid "Username"
 msgstr ""
 
-#: bin/backup.php:110
+#: bin/backup.php:111
 msgid "Verifying received file..."
 msgstr "Controleren ontvangen bestand..."
 
@@ -1577,11 +1576,11 @@ msgstr ""
 msgid "added default backup servers"
 msgstr "Standaard reservekopie servers toegevoegd"
 
-#: install.php:203
+#: install.php:215
 msgid "added default backup templates"
 msgstr "Standaard reservekopie sjablonen toegevoegd"
 
-#: functions.inc/class.backup.php:372
+#: functions.inc/class.backup.php:373
 msgid "astDb's"
 msgstr "astDB's"
 
@@ -1608,6 +1607,10 @@ msgstr "wachten op vergrendeling..."
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "{geen servers beschikbaar}"
+
+#, fuzzy
+#~ msgid "Bulding manifest..."
+#~ msgstr "Verklaring opbouwen..."
 
 #~ msgid "Backup migration completed"
 #~ msgstr "Reservekopie migratie uitgevoerd"

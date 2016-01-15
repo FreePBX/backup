@@ -128,9 +128,18 @@ class Backup implements \BMO {
 					$backup['type'][] = 'dir';
 					$backup['path'][] = '__AMPBIN__';
 					$backup['exclude'][] = '';
-					$backup['type'][] = 'dir';
-					$backup['path'][] = '/etc/dahdi';
-					$backup['exclude'][] = '';
+					if (PHP_OS == "FreeBSD") {
+						$backup['type'][] = 'dir';
+						$backup['path'][] = '/usr/local/etc/dahdi';
+						$backup['exclude'][] = '';
+						$backup['type'][] = 'dir';
+						$backup['path'][] = '/usr/local/lib/dahdi';
+						$backup['exclude'][] = '';
+					} else {
+						$backup['type'][] = 'dir';
+						$backup['path'][] = '/etc/dahdi';
+						$backup['exclude'][] = '';
+					}
 					$backup['type'][] = 'file';
 					$backup['path'][] = '/etc/freepbx.conf';
 					$backup['exclude'][] = '';

@@ -237,6 +237,7 @@ class Backup {
 						// backup_log("Backing up $src");
 						$cmd = fpbx_which('rsync')."$excludes -rlptgov $src/ $dest/";
 						exec($cmd);
+						// XXX - should check for errors here!
 						unset($cmd);
 					}
 					break;

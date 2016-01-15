@@ -143,10 +143,10 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_servers') < 1) {
 				'id'		=> '',
 				'name'		=> 'Full Backup',
 				'desc'		=> _('A full backup of core settings and web files, doesn\'t include system sounds or recordings.'),
-				'type'		=> array( 'mysql', 'mysql', 'astdb', 'dir', 'dir', 'dir', 'dir', 'dir' ),
-				'path'		=> array( 'server-'.$server['cdr'], 'server-'.$server['mysql'], 'astdb', '__ASTETCDIR__',
-								'__AMPWEBROOT__', '__AMPBIN__', '/etc/dahdi', '/tftpboot' ),
-				'exclude'	=> array( '', '', '', '', '', '', '', '' ),
+				'type'		=> array( 'mysql', 'mysql', 'astdb', 'dir', 'dir', 'dir', 'dir'),
+				'path'		=> array( 'server-'.$serverids['cdr'], 'server-'.$serverids['mysql'], 'astdb', '__ASTETCDIR__',
+								'__AMPWEBROOT__', '__AMPBIN__', '/tftpboot' ),
+				'exclude'	=> array( '', '', '', '', '', '', '' ),
 			),
 			'cdr' => array(
 				'id'		=> '',
@@ -154,7 +154,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_servers') < 1) {
 				'desc'		=> _('Call Detail Records'),
 				'immortal'	=> 'true',
 				'type'		=> array( 'mysql' ),
-				'path'		=> array( 'server-' . $server['cdr'] ),
+				'path'		=> array( 'server-' . $serverids['cdr'] ),
 				'exclude'	=> array( '' ),
 			),
 			'voicemail' =>  array(
@@ -181,12 +181,24 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_servers') < 1) {
 				'desc'		=> _('Exclude Backup\'s settings so that they dont get restored, useful for a remote restore'),
 				'immortal'	=> 'true',
 				'type'		=> array( 'mysql' ),
-				'path'		=> array( 'server-' . $server['mysql'] ),
+				'path'		=> array( 'server-' . $serverids['mysql'] ),
 				'exclude'	=> array( "backup\nbackup_cache\nbackup_details\nbackup_items\n"
 				. "backup_server_details\nbackup_servers\nbackup_template_details\n"
 				. "backup_templates\n")
 			),
 		);
+		if (PHP_OS == "FreeBSD") {
+			$template['full']['type'][] = 'dir';
+			$template['full']['path'][] = '/usr/local/etc/dahdi';
+			$template['full']['exclude'][] = '';
+			$template['full']['type'][] = 'dir';
+			$template['full']['path'][] = '/usr/local/lib/dahdi';
+			$template['full']['exclude'][] = '';
+		} else {
+			$template['full']['type'][] = 'dir';
+			$template['full']['path'][] = '/etc/dahdi';
+			$template['full']['exclude'][] = '';
+		}
 
 		if (!function_exists("backup_put_template")) {
 			include_once __DIR__."/functions.inc/templates.php";
@@ -218,7 +230,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup') < 1) {
 		'desc'		=> _('Default backup; automatically installed'),
 		'cron_schedule'	=> 'monthly',
 		'type'		=> array( 'mysql', 'astdb' ),
-		'path'		=> array( 'server-'.$server['mysql'], 'astdb' ),
+		'path'		=> array( 'server-'.$serverids['mysql'], 'astdb' ),
 		'exclude'	=> array( '', '' ),
 		'storage_servers' => array( $serverids['local'] ),
 		'bu_server'	=> 0,

@@ -42,7 +42,7 @@ if (isset($vars['id']) && $vars['id']) {
 		backup_clear_log();
 		$b->init();
 		if ($b->b['bu_server'] == "0") {
-			//get lock to prevent backups from being run cuncurently
+			// lock to prevent backups from being run concurrently
 			while (!$b->acquire_lock()) {
 				backup_log(_('waiting for lock...'));
 				sleep(10);
@@ -55,21 +55,22 @@ if (isset($vars['id']) && $vars['id']) {
 			backup_log(_('Adding items...'));
 			$b->add_items();
 
-			backup_log(_('Bulding manifest...'));
+			backup_log(_('Building manifest...'));
 			$b->build_manifest();
 			$b->save_manifest('local');
 			$b->save_manifest('db');
 
 			backup_log(_('Creating backup...'));
 			$b->create_backup_file();
-		} else {//run backup remotly
+			// XXX - need to check for errors here...
+		} else { // run backup remotely
 			$opts = array(
 					'bu'	=> $bu,
 					's'		=> $s,
 					'b'		=> $b
 			);
 
-			//dont run if there are no items to backup
+			// do not run if there are no items to backup
 			if (!$opts['bu']['items']) {
 				backup_log(_('No items in backup set. Aborting.'));
 				exit();

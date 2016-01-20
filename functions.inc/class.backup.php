@@ -362,10 +362,18 @@ class Backup {
 					//TODO: set agent to something informative, including fpbx & backup versions
 					$email_options = array('useragent' => 'freepbx', 'protocol' => 'mail');
 					$email = new \CI_Email();
-					$from = $this->amp_conf['AMPBACKUPEMAILFROM']
-							? $this->amp_conf['AMPBACKUPEMAILFROM']
-							: 'freepbx@freepbx.org';
-
+					//Generic email
+					$from = 'freepbx@freepbx.local';
+					//If we have sysadmin and "from is set"
+					if(function_exists('sysadmin_get_storage_email')){
+						$emails = sysadmin_get_storage_email();
+						//Check that what we got back above is a email address
+						if(!empty($emails['fromemail']) && filter_var($emails['fromemail'],FILTER_VALIDATE_EMAIL)){
+							$from = $emails['fromemail'];
+						}
+					}
+					//If the user set an email in advanced settings it wins, otherwise take whatever won above.
+					$from = filter_var($this->amp_conf['AMPBACKUPEMAILFROM'],FILTER_VALIDATE_EMAIL)?$this->amp_conf['AMPBACKUPEMAILFROM']:$from;
 					$msg[] = _('Name')		. ': ' . $this->b['name'];
 					$msg[] = _('Created')		. ': ' . date('r', $this->b['_ctime']);
 					$msg[] = _('Files')		. ': ' . $this->manifest['file_count'];

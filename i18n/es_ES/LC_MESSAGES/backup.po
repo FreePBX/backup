@@ -20,14 +20,14 @@ msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-15 11:19-0800\n"
-"PO-Revision-Date: 2016-01-07 02:17+0200\n"
+"PO-Revision-Date: 2016-01-20 04:55+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
-"es_ES/>\n"
+"Language-Team: Spanish "
+"<http://weblate.freepbx.org/projects/freepbx/backup/es_ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Spanish\n"
@@ -36,7 +36,7 @@ msgstr ""
 
 #: functions.inc/class.backup.php:429
 msgid " Authentication Failure"
-msgstr ""
+msgstr " Error de autenticación"
 
 #: views/backup/backups.php:23
 #, php-format
@@ -222,7 +222,7 @@ msgstr "Respaldar CDR y datos de grabación de llamadas?"
 
 #: views/backup/backups.php:121
 msgid "Backup Description"
-msgstr ""
+msgstr "Descripción de Respaldo"
 
 #: functions.inc/class.backup.php:382
 msgid "Backup ERROR (exceeded SMTP limits)"
@@ -323,7 +323,7 @@ msgstr "Nombre del Bucket"
 
 #: bin/backup.php:58
 msgid "Building manifest..."
-msgstr ""
+msgstr "Construyendo manifiesto ..."
 
 #: views/backup/backups.php:233
 msgid "CDR and Call Log Data"
@@ -746,6 +746,10 @@ msgid ""
 "possible). Please note: randomized schedules will be rescheduled (randomly) "
 "every time ANY backup is saved"
 msgstr ""
+"Si se selecciona Randomize, una frecuencia similar será seguida, sólo se "
+"asignaran  al azar los tiempos exactos (evitando el horario comercial pico, "
+"cuando sea posible). Tenga en cuenta: los horarios aleatorios serán "
+"reprogramados (al azar) cada vez que se guarda CUALQUIER copia de seguridad"
 
 #: views/cron.php:105
 msgid ""
@@ -757,6 +761,14 @@ msgid ""
 "set to, say, Monday, the Backup will run ONLY\n"
 "\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
 msgstr ""
+"Si se selecciona una programación personalizada, cualquier sección no "
+"especificada se considera que es \"cualquier\" (aka: comodín) .↵\n"
+"→→→→→ En caso de Día del mes se establece en 12 y el día de la semana no se "
+"ha establecido, la copia de seguridad se llevará a cabo en CUALQUIER 12avo "
+"del↵\n"
+"→→→→→ mes - sin importar el día de la semana. Si el día de la semana se "
+"ajusta en, digamos, el lunes, la copia de seguridad se ejecutará SOLAMENTE↵\n"
+"→→→→→ un lunes, y sólo si es el día 12 del mes."
 
 #: bin/backup.php:41
 msgid "Initializing Backup"
@@ -1451,7 +1463,7 @@ msgstr ""
 
 #: views/servers/email.php:118
 msgid "This has a maximum size of 25MB."
-msgstr ""
+msgstr "Esto tiene un tamaño máximo de 25 MB."
 
 #: views/backup/backup.php:225
 msgid "This server"

@@ -275,9 +275,9 @@ if ($restore == "true" || $restore == "on") {
 }
 ?>
 			<div class="col-md-9 radioset">
-				<input type="radio" name="restore" id="restoreyes" value="on" <?php echo $restyes; ?>>
+				<input type="radio" name="restore" id="restoreyes" value="true" <?php echo $restyes; ?>>
 				<label for="restoreyes"><?php echo _("Yes");?></label>
-				<input type="radio" name="restore" id="restoreno" value="off" <?php echo $restno; ?>>
+				<input type="radio" name="restore" id="restoreno" value="" <?php echo $restno; ?>>
 				<label for="restoreno"><?php echo _("No");?></label>
 			</div>
 		</div>
@@ -302,7 +302,7 @@ if ($restore == "true" || $restore == "on") {
 					<div class="col-md-9 radioset">
             <input type="radio" name="disabletrunks" id="disabletrunksyes" value="true" <?php echo ($disabletrunks == "true"?"CHECKED":"") ?>>
             <label for="disabletrunksyes"><?php echo _("Yes");?></label>
-            <input type="radio" name="disabletrunks" id="disabletrunksno" <?php echo ($disabletrunks == "true"?"":"CHECKED") ?>>
+            <input type="radio" name="disabletrunks" id="disabletrunksno" value="" <?php echo ($disabletrunks == "true"?"":"CHECKED") ?>>
             <label for="disabletrunksno"><?php echo _("No");?></label>
 					</div>
 				</div>
@@ -329,7 +329,7 @@ if ($restore == "true" || $restore == "on") {
 					<div class="col-md-9 radioset">
             <input type="radio" name="skipnat" id="skipnatyes" value="true" <?php echo ($skipnat == "true"?"CHECKED":"") ?>>
             <label for="skipnatyes"><?php echo _("Yes");?></label>
-            <input type="radio" name="skipnat" id="skipnatno" <?php echo ($skipnat == "true"?"":"CHECKED") ?>>
+            <input type="radio" name="skipnat" id="skipnatno" value = "" <?php echo ($skipnat == "true"?"":"CHECKED") ?>>
             <label for="skipnatno"><?php echo _("No");?></label>
 					</div>
 				</div>
@@ -356,7 +356,7 @@ if ($restore == "true" || $restore == "on") {
 					<div class="col-md-9 radioset">
             <input type="radio" name="applyconfigs" id="applyconfigsyes" value="true" <?php echo ($applyconfigs == "true"?"CHECKED":"") ?>>
             <label for="applyconfigsyes"><?php echo _("Yes");?></label>
-            <input type="radio" name="applyconfigs" id="applyconfigsno" <?php echo ($applyconfigs == "true"?"":"CHECKED") ?>>
+            <input type="radio" name="applyconfigs" id="applyconfigsno" value="" <?php echo ($applyconfigs == "true"?"":"CHECKED") ?>>
             <label for="applyconfigsno"><?php echo _("No");?></label>
 					</div>
 				</div>

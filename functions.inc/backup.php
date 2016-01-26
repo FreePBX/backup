@@ -251,7 +251,7 @@ function backup_put_backup($var) {
 			case 'applyconfigs':
 			case 'skipnat':
 				//only save if we have a value, we didnt select the local server, and were doing a restore
-				if ($value !== '' && $var['bu_server'] > 0 && $var['restore'] == 'true') {
+				if ($value == 'true' && $var['bu_server'] > 0 && $var['restore'] == 'true') {
 					$data[] = array($var['id'],  $key, '', $value);
 				}
 				break;

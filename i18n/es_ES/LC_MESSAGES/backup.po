@@ -19,22 +19,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-15 11:19-0800\n"
+"POT-Creation-Date: 2016-01-26 16:34-0800\n"
 "PO-Revision-Date: 2016-01-20 04:55+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish "
-"<http://weblate.freepbx.org/projects/freepbx/backup/es_ES/>\n"
-"Language: es_ES\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
+"es_ES/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-Country: SPAIN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: functions.inc/class.backup.php:429
+#: functions.inc/class.backup.php:437
 msgid " Authentication Failure"
 msgstr " Error de autenticación"
 
@@ -187,12 +187,12 @@ msgstr "B"
 msgid "BACKUP LOG ATTACHED"
 msgstr "BITACORA DE RESPALDOS ANEXADA"
 
-#: functions.inc/class.backup.php:383 functions.inc/class.backup.php:386
+#: functions.inc/class.backup.php:391 functions.inc/class.backup.php:394
 msgid "BACKUP NOT ATTACHED"
 msgstr "RESPALDO NO ANEXO"
 
 #: Backup.class.php:316 functions.inc/backup.php:79
-#: functions.inc/class.backup.php:377 views/backup/backup.php:6
+#: functions.inc/class.backup.php:385 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Respaldo"
 
@@ -224,11 +224,11 @@ msgstr "Respaldar CDR y datos de grabación de llamadas?"
 msgid "Backup Description"
 msgstr "Descripción de Respaldo"
 
-#: functions.inc/class.backup.php:382
+#: functions.inc/class.backup.php:390
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr "ERROR respaldo (excedio los limites SMTP)"
 
-#: functions.inc/class.backup.php:385
+#: functions.inc/class.backup.php:393
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr "ERROR respaldo (excede limites blandos)"
 
@@ -247,6 +247,10 @@ msgstr "Bloqueo de copia de seguridad adquirida!"
 #: functions.inc.php:70
 msgid "Backup Log:"
 msgstr "Bitacora del respaldo:"
+
+#: backup.i18n.php:22
+msgid "Backup Module"
+msgstr "Modulo de Respaldo"
 
 #: views/backup/backup.php:17 views/backup/backups.php:97
 msgid "Backup Name"
@@ -365,7 +369,7 @@ msgstr "Solo Configuraciones"
 msgid "Connecting to remote server..."
 msgstr "Conectando a Servidor remoto..."
 
-#: functions.inc/class.backup.php:370 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:378 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Creado"
 
@@ -507,6 +511,10 @@ msgstr ""
 msgid "Drop Here"
 msgstr "Sueltelos aqui"
 
+#: backup.i18n.php:20
+msgid "Email "
+msgstr "Correo "
+
 #: views/servers/email.php:64
 msgid "Email Address"
 msgstr "Dirección de Correo"
@@ -545,11 +553,11 @@ msgstr ""
 "Equivalente de hacer clic en el botón rojo, se producirá automáticamente "
 "después de una restauración en un sistema de espera"
 
-#: functions.inc/class.backup.php:429
+#: functions.inc/class.backup.php:437
 msgid "Error connecting to the FTP Server..."
 msgstr "Error conectando al Servidor FTP..."
 
-#: functions.inc/class.backup.php:404
+#: functions.inc/class.backup.php:412
 msgid "Error connecting to the FTP Server... Check your host name or DNS"
 msgstr ""
 "Error al conectar con el servidor FTP ... Compruebe su nombre de host o DNS"
@@ -664,7 +672,7 @@ msgstr "Restauración de Archivo Completada!"
 msgid "File verification failed. "
 msgstr "Verificación de Archivo Fallida. "
 
-#: functions.inc/class.backup.php:371 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:379 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Archivos"
 
@@ -880,7 +888,7 @@ msgstr "\"Mysql\""
 msgid "Mysql DB's"
 msgstr "BD's Mysql"
 
-#: functions.inc/class.backup.php:372
+#: functions.inc/class.backup.php:380
 msgid "Mysql Db's"
 msgstr "Bd's Mysql"
 
@@ -888,7 +896,7 @@ msgstr "Bd's Mysql"
 msgid "Mysql Server "
 msgstr "Servidor Mysql "
 
-#: functions.inc/class.backup.php:369 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:377 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Nombre"
 
@@ -1415,7 +1423,13 @@ msgstr "Nombre Plantilla"
 msgid "Templates"
 msgstr "Plantillas"
 
-#: functions.inc/class.backup.php:383
+#: backup.i18n.php:24
+msgid "The From: field for emails when using the backup email feature."
+msgstr ""
+"El campo From: para correos cuando se usa la funcionalidad de email del "
+"respaldo."
+
+#: functions.inc/class.backup.php:391
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
@@ -1425,7 +1439,7 @@ msgstr ""
 "se intentó ser enviados. Por favor, encoger la copia de seguridad, o "
 "utilizar un método diferente de transferencia de la copia de seguridad."
 
-#: functions.inc/class.backup.php:386
+#: functions.inc/class.backup.php:394
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1636,7 +1650,7 @@ msgstr "Añadidos servidores de respaldo por defecto"
 msgid "added default backup templates"
 msgstr "Añadidas plantillas de respaldo por defecto"
 
-#: functions.inc/class.backup.php:373
+#: functions.inc/class.backup.php:381
 msgid "astDb's"
 msgstr "\"astDb's\""
 
@@ -1838,17 +1852,6 @@ msgstr "(no servidores disponibles)"
 #~ msgstr ""
 #~ "Usted debe correr \"amportal a ma updateall\" para asegurar la integridad "
 #~ "del sistema"
-
-#~ msgid "Backup Module"
-#~ msgstr "Modulo de Respaldo"
-
-#~ msgid "Email "
-#~ msgstr "Correo "
-
-#~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr ""
-#~ "El campo From: para correos cuando se usa la funcionalidad de email del "
-#~ "respaldo."
 
 #~ msgid " runs"
 #~ msgstr " Corre"

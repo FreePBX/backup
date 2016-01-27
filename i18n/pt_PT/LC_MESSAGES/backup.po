@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-15 11:19-0800\n"
+"POT-Creation-Date: 2016-01-26 16:34-0800\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: functions.inc/class.backup.php:429
+#: functions.inc/class.backup.php:437
 msgid " Authentication Failure"
 msgstr ""
 
@@ -168,12 +168,12 @@ msgstr ""
 msgid "BACKUP LOG ATTACHED"
 msgstr "REGISTO DE BACKUP ANEXO"
 
-#: functions.inc/class.backup.php:383 functions.inc/class.backup.php:386
+#: functions.inc/class.backup.php:391 functions.inc/class.backup.php:394
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
 #: Backup.class.php:316 functions.inc/backup.php:79
-#: functions.inc/class.backup.php:377 views/backup/backup.php:6
+#: functions.inc/class.backup.php:385 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Cópia de Segurança"
 
@@ -205,11 +205,11 @@ msgstr ""
 msgid "Backup Description"
 msgstr ""
 
-#: functions.inc/class.backup.php:382
+#: functions.inc/class.backup.php:390
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr ""
 
-#: functions.inc/class.backup.php:385
+#: functions.inc/class.backup.php:393
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr ""
 
@@ -228,6 +228,10 @@ msgstr "Bloqueio de Cópia de Segurança adquirido!"
 #: functions.inc.php:70
 msgid "Backup Log:"
 msgstr "Log de Cópia de Segurança:"
+
+#: backup.i18n.php:22
+msgid "Backup Module"
+msgstr "Módulo de Cópia de Segurança"
 
 #: views/backup/backup.php:17 views/backup/backups.php:97
 msgid "Backup Name"
@@ -346,7 +350,7 @@ msgstr "Somente configurações"
 msgid "Connecting to remote server..."
 msgstr "Conectando ao servidor remoto..."
 
-#: functions.inc/class.backup.php:370 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:378 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Criado"
 
@@ -486,6 +490,10 @@ msgstr ""
 msgid "Drop Here"
 msgstr ""
 
+#: backup.i18n.php:20
+msgid "Email "
+msgstr "Email "
+
 #: views/servers/email.php:64
 msgid "Email Address"
 msgstr "Endereço Email"
@@ -521,11 +529,11 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:429
+#: functions.inc/class.backup.php:437
 msgid "Error connecting to the FTP Server..."
 msgstr "Erro conectando ao Servidor FTP..."
 
-#: functions.inc/class.backup.php:404
+#: functions.inc/class.backup.php:412
 msgid "Error connecting to the FTP Server... Check your host name or DNS"
 msgstr ""
 
@@ -634,7 +642,7 @@ msgstr "Restauro de ficheiro terminado!"
 msgid "File verification failed. "
 msgstr "Verificação de ficheiro falhou. "
 
-#: functions.inc/class.backup.php:371 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:379 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Ficheiros"
 
@@ -837,7 +845,7 @@ msgstr "Mysql"
 msgid "Mysql DB's"
 msgstr "BDs Mysql"
 
-#: functions.inc/class.backup.php:372
+#: functions.inc/class.backup.php:380
 msgid "Mysql Db's"
 msgstr "Bds Mysql"
 
@@ -845,7 +853,7 @@ msgstr "Bds Mysql"
 msgid "Mysql Server "
 msgstr "Servidor Mysql "
 
-#: functions.inc/class.backup.php:369 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:377 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Nome"
 
@@ -1368,14 +1376,20 @@ msgstr "Nome do Modelo"
 msgid "Templates"
 msgstr "Modelos"
 
-#: functions.inc/class.backup.php:383
+#: backup.i18n.php:24
+msgid "The From: field for emails when using the backup email feature."
+msgstr ""
+"O campo De: para os emails ao usar a funcionalidade email de cópia de "
+"segurança."
+
+#: functions.inc/class.backup.php:391
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
 "of transferring your backup."
 msgstr ""
 
-#: functions.inc/class.backup.php:386
+#: functions.inc/class.backup.php:394
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1567,7 +1581,7 @@ msgstr "adicionados os servidores por defeito"
 msgid "added default backup templates"
 msgstr "adicionados modelos por defeito"
 
-#: functions.inc/class.backup.php:373
+#: functions.inc/class.backup.php:381
 msgid "astDb's"
 msgstr "astDb's"
 
@@ -1730,17 +1744,6 @@ msgstr "{nenhum servidor disponível}"
 #~ msgstr ""
 #~ "Deve executar \"amportal a ma updateall\" para garantir a integridade do "
 #~ "sistema"
-
-#~ msgid "Backup Module"
-#~ msgstr "Módulo de Cópia de Segurança"
-
-#~ msgid "Email "
-#~ msgstr "Email "
-
-#~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr ""
-#~ "O campo De: para os emails ao usar a funcionalidade email de cópia de "
-#~ "segurança."
 
 #~ msgid " runs"
 #~ msgstr " executa"

@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-26 16:34-0800\n"
-"PO-Revision-Date: 2016-02-03 12:48+0200\n"
+"PO-Revision-Date: 2016-02-03 18:50+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/backup/fr_FR/>\n"
@@ -33,12 +33,12 @@ msgstr ""
 
 #: functions.inc/class.backup.php:437
 msgid " Authentication Failure"
-msgstr ""
+msgstr " Échec d'authentification"
 
 #: views/backup/backups.php:23
 #, php-format
 msgid "%s Backup Wizard"
-msgstr ""
+msgstr "Assistant de sauvegarde de %s"
 
 #: views/servers/local.php:52 views/servers/ssh.php:52
 msgid "'Description or notes for this server"
@@ -72,7 +72,7 @@ msgstr ""
 
 #: views/backup/backup.php:146
 msgid "A script to be run BEFORE a backup is started."
-msgstr "Un script à exécuter AVAT que la copie de sauvegarde soit débutée."
+msgstr "Un script à exécuter AVANT que la copie de sauvegarde soit débutée."
 
 #: views/backup/backups.php:154 assets/js/backup.js:93 assets/js/backup.js:105
 msgid "AT"
@@ -168,7 +168,7 @@ msgstr "Serveurs disponibles"
 
 #: views/servers/email.php:99
 msgid "B"
-msgstr ""
+msgstr "o"
 
 #: functions.inc.php:67
 msgid "BACKUP LOG ATTACHED"
@@ -296,11 +296,11 @@ msgstr "Copies de sauvegarde"
 
 #: views/backup/backups.php:88
 msgid "Basic Backup Information"
-msgstr ""
+msgstr "Information de base de la copie de sauvegarde"
 
 #: views/backup/backups.php:40
 msgid "Basic Information"
-msgstr ""
+msgstr "Information de base"
 
 #: views/restore/restore.php:4
 msgid "Browse"
@@ -368,7 +368,7 @@ msgstr ""
 
 #: views/servers/mysql.php:160
 msgid "DB Name"
-msgstr ""
+msgstr "Nom de la base de données"
 
 #: views/cron.php:5
 msgid "Daily"
@@ -410,11 +410,11 @@ msgstr ""
 #: page.backup_servers.php:35 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 #: views/backup/backup.php:456 views/backup/backup.php:493
 msgid "Delete After"
-msgstr ""
+msgstr "Supprimer après"
 
 #: views/backup/backup.php:483
 msgid ""
@@ -440,23 +440,23 @@ msgstr ""
 #: views/servers/ssh.php:40 views/templates/template.php:36
 #: views/templates/templates.php:8
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: views/backup/backup.php:53
 msgid "Description or notes for this backup"
-msgstr ""
+msgstr "Description ou notes pour cette copie de sauvegarde"
 
 #: views/servers/email.php:52 views/servers/mysql.php:52
 msgid "Description or notes for this server"
-msgstr ""
+msgstr "Description ou notes pour ce serveur"
 
 #: views/backup/backups.php:76
 msgid "Destination"
-msgstr ""
+msgstr "Destination"
 
 #: functions.inc/templates.php:246
 msgid "Directory"
-msgstr ""
+msgstr "Répertoire"
 
 #: views/backup/backup.php:299
 msgid "Disable Registered Trunks"

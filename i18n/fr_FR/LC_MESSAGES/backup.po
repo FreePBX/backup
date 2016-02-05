@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-26 16:34-0800\n"
-"PO-Revision-Date: 2016-02-03 18:50+0200\n"
+"PO-Revision-Date: 2016-02-05 11:17+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/backup/fr_FR/>\n"
@@ -960,17 +960,17 @@ msgstr ""
 #: views/backup/backups.php:470 views/servers/ftp.php:116
 #: views/servers/mysql.php:136
 msgid "Password"
-msgstr ""
+msgstr "Mot de passe"
 
 #: views/servers/ftp.php:134 views/servers/local.php:64
 #: views/servers/ssh.php:160
 msgid "Path"
-msgstr ""
+msgstr "Chemin"
 
 #: views/servers/ftp.php:146 views/servers/local.php:76
 #: views/servers/ssh.php:172
 msgid "Path on remote server"
-msgstr ""
+msgstr "Chemin sur le serveur distant"
 
 #: views/backup/backups.php:557
 msgid "Path to ssh key, example /home/asterisk/.ssh/id_rsa"

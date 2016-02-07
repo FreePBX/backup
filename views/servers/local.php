@@ -49,7 +49,7 @@ $disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="desc-help" class="help-block fpbx-help-block"><?php echo _("'Description or notes for this server")?></span>
+				<span id="desc-help" class="help-block fpbx-help-block"><?php echo _("Description or notes for this server")?></span>
 			</div>
 		</div>
 	</div>

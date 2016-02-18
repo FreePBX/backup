@@ -181,7 +181,6 @@ class Backup {
 					// Match wildcards.
 					$dirs = glob($i['path'], \GLOB_ONLYDIR);
 					if (!isset($dirs[0])) {
-						backup_log("Skipping requested directory '".$i['path']."' as it does not exist.");
 						break;
 					}
 

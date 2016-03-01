@@ -20,21 +20,25 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-26 16:34-0800\n"
-"PO-Revision-Date: 2010-01-23 00:00+0100\n"
-"Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
-"Language-Team: Français <LL@li.org>\n"
+"PO-Revision-Date: 2016-02-05 11:17+0200\n"
+"Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/backup/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: functions.inc/class.backup.php:437
 msgid " Authentication Failure"
-msgstr ""
+msgstr " Échec d'authentification"
 
 #: views/backup/backups.php:23
 #, php-format
 msgid "%s Backup Wizard"
-msgstr ""
+msgstr "Assistant de sauvegarde de %s"
 
 #: views/servers/local.php:52 views/servers/ssh.php:52
 msgid "'Description or notes for this server"
@@ -56,11 +60,11 @@ msgstr ""
 
 #: views/backup/backup.php:170
 msgid "A script to be run AFTER a backup is completed."
-msgstr ""
+msgstr "Un script à exécuter APRÈS que la copie de sauvegarde soit complétée."
 
 #: views/backup/backup.php:218
 msgid "A script to be run AFTER a backup is restored."
-msgstr ""
+msgstr "Un script à exécuter APRÈS que la copie de sauvegarde soit récupérée."
 
 #: views/backup/backup.php:194
 msgid "A script to be run BEFORE a backup is restored."
@@ -68,7 +72,7 @@ msgstr ""
 
 #: views/backup/backup.php:146
 msgid "A script to be run BEFORE a backup is started."
-msgstr ""
+msgstr "Un script à exécuter AVANT que la copie de sauvegarde soit débutée."
 
 #: views/backup/backups.php:154 assets/js/backup.js:93 assets/js/backup.js:105
 msgid "AT"
@@ -76,28 +80,28 @@ msgstr ""
 
 #: views/servers/awss3.php:41
 msgid "AWS Access Key"
-msgstr ""
+msgstr "Clé d'accès AWS"
 
 #: functions.inc/servers.php:333
 msgid "AWS S3 Server "
-msgstr ""
+msgstr "Serveur S3 AWS "
 
 #: views/servers/awss3.php:58
 msgid "AWS Secret"
-msgstr ""
+msgstr "Secret AWS"
 
 #: views/backup/backups.php:11 views/servers/servers.php:22
 #: views/templates/templates.php:9
 msgid "Actions"
-msgstr ""
+msgstr "Actions"
 
 #: views/backup/backups.php:501 views/servers/ftp.php:163
 msgid "Active"
-msgstr ""
+msgstr "Actif"
 
 #: views/servers/servers.php:4
 msgid "Add Server"
-msgstr ""
+msgstr "Ajouter un serveur"
 
 #: bin/backup.php:55
 msgid "Adding items..."
@@ -105,7 +109,7 @@ msgstr ""
 
 #: backup.i18n.php:6 backup.i18n.php:12
 msgid "Admin"
-msgstr ""
+msgstr "Admin"
 
 #: views/backup/backup.php:314
 msgid ""
@@ -128,19 +132,19 @@ msgstr ""
 
 #: functions.inc/servers.php:278
 msgid "Amazon S3 Server "
-msgstr ""
+msgstr "Serveur Amazon S3 "
 
 #: views/servers/awss3.php:4
 msgid "Amazon S3&trade; Server"
-msgstr ""
+msgstr "Serveur Amazon S3&trade;"
 
 #: views/cron.php:8
 msgid "Annually"
-msgstr ""
+msgstr "Annuellement"
 
 #: views/backup/backup.php:353
 msgid "Apply Configs"
-msgstr ""
+msgstr "Appliquer la configuration"
 
 #: views/cron.php:46
 msgid "April"
@@ -148,11 +152,11 @@ msgstr "Avril"
 
 #: views/restore/browseserver.php:21
 msgid "AstDB's"
-msgstr ""
+msgstr "Bases de données AstDB"
 
 #: functions.inc/templates.php:296
 msgid "Asterisk DB"
-msgstr ""
+msgstr "Bases de données Asterisk"
 
 #: views/cron.php:50
 msgid "August"
@@ -160,11 +164,11 @@ msgstr "Août"
 
 #: views/backup/backup.php:410
 msgid "Available Servers"
-msgstr ""
+msgstr "Serveurs disponibles"
 
 #: views/servers/email.php:99
 msgid "B"
-msgstr ""
+msgstr "o"
 
 #: functions.inc.php:67
 msgid "BACKUP LOG ATTACHED"
@@ -177,27 +181,27 @@ msgstr ""
 #: Backup.class.php:316 functions.inc/backup.php:79
 #: functions.inc/class.backup.php:385 views/backup/backup.php:6
 msgid "Backup"
-msgstr ""
+msgstr "Copie de sauvegarde"
 
 #: backup.i18n.php:4 backup.i18n.php:10
 msgid "Backup & Restore"
-msgstr "Sauvegarder & Restaurer"
+msgstr "Sauvegarder et restaurer"
 
 #: backup.i18n.php:18
 msgid "Backup & Restore - Restore"
-msgstr ""
+msgstr "Sauvegarder et restaurer - Restaurer"
 
 #: backup.i18n.php:14
 msgid "Backup & Restore - Servers"
-msgstr ""
+msgstr "Sauvegarder et restaurer - Serveurs"
 
 #: backup.i18n.php:16
 msgid "Backup & Restore - Templates"
-msgstr ""
+msgstr "Sauvegarder et restaurer - Modèles"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
-msgstr ""
+msgstr "Sauvegarder et restaurer pour votre environnement FreePBX"
 
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
@@ -205,11 +209,11 @@ msgstr ""
 
 #: views/backup/backups.php:121
 msgid "Backup Description"
-msgstr ""
+msgstr "Description de la copie de sauvegarde"
 
 #: functions.inc/class.backup.php:390
 msgid "Backup ERROR (exceeded SMTP limits)"
-msgstr ""
+msgstr "ERREUR de copie de sauvegarde (dépassement des limites SMTP)"
 
 #: functions.inc/class.backup.php:393
 msgid "Backup ERROR (exceeded soft limit)"
@@ -217,7 +221,7 @@ msgstr ""
 
 #: views/backup/backups.php:49
 msgid "Backup Frequency"
-msgstr ""
+msgstr "Fréquence de la copie de sauvegarde"
 
 #: views/backup/backups.php:58
 msgid "Backup Items"
@@ -229,15 +233,15 @@ msgstr ""
 
 #: functions.inc.php:70
 msgid "Backup Log:"
-msgstr ""
+msgstr "Journal de la copie de sauvegarde :"
 
 #: backup.i18n.php:22
 msgid "Backup Module"
-msgstr ""
+msgstr "Modele de copie de sauvegarde"
 
 #: views/backup/backup.php:17 views/backup/backups.php:97
 msgid "Backup Name"
-msgstr ""
+msgstr "Nom de la copie de sauvegarde"
 
 #: views/backup/backup.php:432
 msgid "Backup Schedule"
@@ -245,15 +249,15 @@ msgstr ""
 
 #: views/backup/backup.php:240
 msgid "Backup Server"
-msgstr ""
+msgstr "Serveur de copie de sauvegarde"
 
 #: functions.inc/restore.php:275
 msgid "Backup Server not found!"
-msgstr ""
+msgstr "Serveur de copie de sauvegarde non trouvé !"
 
 #: views/templates/template.php:7
 msgid "Backup Template"
-msgstr ""
+msgstr "Modèle de copie de sauvegarde"
 
 #: views/backup/backups.php:2
 msgid "Backup Wizard"
@@ -261,11 +265,11 @@ msgstr ""
 
 #: page.backup.php:111
 msgid "Backup and Restore"
-msgstr ""
+msgstr "Sauvegarder et restaurer"
 
 #: bin/backup.php:152 bin/backup.php:200
 msgid "Backup completed with errors!"
-msgstr ""
+msgstr "La copie de sauvegarde a complété avec des erreurs !"
 
 #: functions.inc/class.backup.php:279
 #, php-format
@@ -284,23 +288,23 @@ msgstr ""
 
 #: bin/backup.php:154 bin/backup.php:202
 msgid "Backup successfully completed!"
-msgstr ""
+msgstr "La copie de sauvegarde a complété avec succès !"
 
 #: views/rnav/main.php:3
 msgid "Backups"
-msgstr ""
+msgstr "Copies de sauvegarde"
 
 #: views/backup/backups.php:88
 msgid "Basic Backup Information"
-msgstr ""
+msgstr "Information de base de la copie de sauvegarde"
 
 #: views/backup/backups.php:40
 msgid "Basic Information"
-msgstr ""
+msgstr "Information de base"
 
 #: views/restore/restore.php:4
 msgid "Browse"
-msgstr ""
+msgstr "Parcourir"
 
 #: views/servers/awss3.php:14
 msgid "Bucket Name"
@@ -344,11 +348,11 @@ msgstr ""
 
 #: install.php:136
 msgid "Configurations only"
-msgstr ""
+msgstr "Configurations seulement"
 
 #: bin/backup.php:78
 msgid "Connecting to remote server..."
-msgstr ""
+msgstr "Connexion au serveur distant..."
 
 #: functions.inc/class.backup.php:378 views/restore/browseserver.php:18
 msgid "Created"
@@ -356,7 +360,7 @@ msgstr ""
 
 #: bin/backup.php:63
 msgid "Creating backup..."
-msgstr ""
+msgstr "Création de la copie de sauvegarde..."
 
 #: views/cron.php:10
 msgid "Custom"
@@ -364,19 +368,19 @@ msgstr ""
 
 #: views/servers/mysql.php:160
 msgid "DB Name"
-msgstr ""
+msgstr "Nom de la base de données"
 
 #: views/cron.php:5
 msgid "Daily"
-msgstr ""
+msgstr "Journalier"
 
 #: assets/js/backup.js:99
 msgid "Day each month"
-msgstr ""
+msgstr "Jour à chaque mois"
 
 #: views/cron.php:224
 msgid "Day of Week"
-msgstr ""
+msgstr "Jour de la semaine"
 
 #: views/backup/backup.php:468
 msgid "Days"
@@ -384,7 +388,7 @@ msgstr "Jours"
 
 #: views/cron.php:272 views/cron.php:276
 msgid "Days of Month"
-msgstr ""
+msgstr "Jours du mois"
 
 #: views/cron.php:286
 msgid "Days of month to run"
@@ -396,7 +400,7 @@ msgstr "Décembre"
 
 #: views/backup/backups.php:426 views/backup/backups.php:525
 msgid "Default"
-msgstr ""
+msgstr "Par défaut"
 
 #: install.php:230
 msgid "Default backup; automatically installed"
@@ -406,11 +410,11 @@ msgstr ""
 #: page.backup_servers.php:35 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 #: views/backup/backup.php:456 views/backup/backup.php:493
 msgid "Delete After"
-msgstr ""
+msgstr "Supprimer après"
 
 #: views/backup/backup.php:483
 msgid ""
@@ -436,23 +440,23 @@ msgstr ""
 #: views/servers/ssh.php:40 views/templates/template.php:36
 #: views/templates/templates.php:8
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: views/backup/backup.php:53
 msgid "Description or notes for this backup"
-msgstr ""
+msgstr "Description ou notes pour cette copie de sauvegarde"
 
 #: views/servers/email.php:52 views/servers/mysql.php:52
 msgid "Description or notes for this server"
-msgstr ""
+msgstr "Description ou notes pour ce serveur"
 
 #: views/backup/backups.php:76
 msgid "Destination"
-msgstr ""
+msgstr "Destination"
 
 #: functions.inc/templates.php:246
 msgid "Directory"
-msgstr ""
+msgstr "Répertoire"
 
 #: views/backup/backup.php:299
 msgid "Disable Registered Trunks"
@@ -956,17 +960,17 @@ msgstr ""
 #: views/backup/backups.php:470 views/servers/ftp.php:116
 #: views/servers/mysql.php:136
 msgid "Password"
-msgstr ""
+msgstr "Mot de passe"
 
 #: views/servers/ftp.php:134 views/servers/local.php:64
 #: views/servers/ssh.php:160
 msgid "Path"
-msgstr ""
+msgstr "Chemin"
 
 #: views/servers/ftp.php:146 views/servers/local.php:76
 #: views/servers/ssh.php:172
 msgid "Path on remote server"
-msgstr ""
+msgstr "Chemin sur le serveur distant"
 
 #: views/backup/backups.php:557
 msgid "Path to ssh key, example /home/asterisk/.ssh/id_rsa"

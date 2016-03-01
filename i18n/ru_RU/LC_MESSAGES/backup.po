@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-26 16:34-0800\n"
+"POT-Creation-Date: 2016-03-01 11:30-0800\n"
 "PO-Revision-Date: 2015-05-03 15:58+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -36,17 +36,13 @@ msgstr ""
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: functions.inc/class.backup.php:437
+#: functions.inc/class.backup.php:436
 msgid " Authentication Failure"
 msgstr ""
 
 #: views/backup/backups.php:23
 #, php-format
 msgid "%s Backup Wizard"
-msgstr ""
-
-#: views/servers/local.php:52 views/servers/ssh.php:52
-msgid "'Description or notes for this server"
 msgstr ""
 
 #: functions.inc/templates.php:251
@@ -183,12 +179,12 @@ msgstr ""
 msgid "BACKUP LOG ATTACHED"
 msgstr "Журнал копирования приложен"
 
-#: functions.inc/class.backup.php:391 functions.inc/class.backup.php:394
+#: functions.inc/class.backup.php:390 functions.inc/class.backup.php:393
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
 #: Backup.class.php:316 functions.inc/backup.php:79
-#: functions.inc/class.backup.php:385 views/backup/backup.php:6
+#: functions.inc/class.backup.php:384 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Бекап"
 
@@ -220,11 +216,11 @@ msgstr ""
 msgid "Backup Description"
 msgstr ""
 
-#: functions.inc/class.backup.php:390
+#: functions.inc/class.backup.php:389
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr ""
 
-#: functions.inc/class.backup.php:393
+#: functions.inc/class.backup.php:392
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr ""
 
@@ -280,7 +276,7 @@ msgstr ""
 msgid "Backup completed with errors!"
 msgstr "Резервное копирование завершилось с ошибками!"
 
-#: functions.inc/class.backup.php:279
+#: functions.inc/class.backup.php:278
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -365,7 +361,7 @@ msgstr "Только конфигурация"
 msgid "Connecting to remote server..."
 msgstr "Соединение с удаленным сервером..."
 
-#: functions.inc/class.backup.php:378 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:377 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Создано"
 
@@ -463,7 +459,8 @@ msgstr "Описание"
 msgid "Description or notes for this backup"
 msgstr "Описание или примечание для этого бекапа"
 
-#: views/servers/email.php:52 views/servers/mysql.php:52
+#: views/servers/email.php:52 views/servers/local.php:52
+#: views/servers/mysql.php:52 views/servers/ssh.php:52
 msgid "Description or notes for this server"
 msgstr "Описание или примечание для этого сервера"
 
@@ -543,11 +540,11 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:437
+#: functions.inc/class.backup.php:436
 msgid "Error connecting to the FTP Server..."
 msgstr "Ошибка соединения с FTP сервером..."
 
-#: functions.inc/class.backup.php:412
+#: functions.inc/class.backup.php:411
 msgid "Error connecting to the FTP Server... Check your host name or DNS"
 msgstr ""
 
@@ -656,7 +653,7 @@ msgstr "Восстановление файла завершено!"
 msgid "File verification failed. "
 msgstr "Проверка файла не удалась. "
 
-#: functions.inc/class.backup.php:379 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:378 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Файлы"
 
@@ -857,7 +854,7 @@ msgstr ""
 msgid "Mysql DB's"
 msgstr ""
 
-#: functions.inc/class.backup.php:380
+#: functions.inc/class.backup.php:379
 msgid "Mysql Db's"
 msgstr ""
 
@@ -865,7 +862,7 @@ msgstr ""
 msgid "Mysql Server "
 msgstr ""
 
-#: functions.inc/class.backup.php:377 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:376 views/restore/browseserver.php:17
 msgid "Name"
 msgstr ""
 
@@ -1389,14 +1386,14 @@ msgstr ""
 msgid "The From: field for emails when using the backup email feature."
 msgstr "Форма: поле для e-mail's, когда используется функция backup e-mail."
 
-#: functions.inc/class.backup.php:391
+#: functions.inc/class.backup.php:390
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
 "of transferring your backup."
 msgstr ""
 
-#: functions.inc/class.backup.php:394
+#: functions.inc/class.backup.php:393
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1588,7 +1585,7 @@ msgstr "добавлены сервера резервного копирова�
 msgid "added default backup templates"
 msgstr "добавлены шаблоны резервного копирования по умолчанию"
 
-#: functions.inc/class.backup.php:381
+#: functions.inc/class.backup.php:380
 msgid "astDb's"
 msgstr ""
 

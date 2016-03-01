@@ -61,6 +61,9 @@ switch ($var['action']) {
 		exit();//no need to do anything else, get out
 	case 'save':
 		$var['id'] = backup_put_backup($var);
+		$_REQUEST['id'] = $var['id'];
+		$_REQUEST['action'] = 'edit';
+		\FreePBX::View()->redirect_standard('id','action');
 		break;
 	case 'run':
 		//dont stop untill were all done

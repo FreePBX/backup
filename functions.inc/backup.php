@@ -35,6 +35,7 @@ function backup_get_backup($id = '') {
 		case '':
 			$ret = array(
 				'applyconfigs'		=> '',
+				'emailfailonly' => false,
 				'bu_server'			=> '',
 				'cron_dom'			=> array(),
 				'cron_dow'			=> array(),
@@ -135,6 +136,7 @@ function backup_get_backup($id = '') {
 			$ret['applyconfigs']	= isset($ret['applyconfigs'])	? $ret['applyconfigs'] : false;
 			$ret['disabletrunks']	= isset($ret['disabletrunks'])	? $ret['disabletrunks'] : false;
 			$ret['skipnat']		= isset($ret['skipnat'])	? $ret['skipnat'] : false;
+			$ret['emailfailonly']		= isset($ret['emailfailonly'])	? $ret['emailfailonly'] : false;
 
 			//get items
 			$sql = 'SELECT type, path, exclude FROM backup_items WHERE backup_id = ?';
@@ -241,6 +243,9 @@ function backup_put_backup($var) {
 						$data[] = array($var['id'],  $key, '', $value);
 				}
 				break;
+			case 'emailfailonly':
+				$value  = ($value == "true")?true:false;
+				$data[] = array($var['id'],  $key, '', $value);
 			case 'restore':
 				//only save if we have a value and we didnt select the local server
 				if ($value !== '' && $var['bu_server'] > 0) {
@@ -263,7 +268,6 @@ function backup_put_backup($var) {
 				break;
 		}
 	}
-
 	//then insert fresh
 	$sql = $db->prepare('INSERT INTO backup_details (backup_id, `key`, `index`, value) VALUES (?, ?, ?, ?)');
 	$ret = $db->executeMultiple($sql, $data);

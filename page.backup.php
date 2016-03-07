@@ -26,6 +26,7 @@ $get_vars = array(
 				'menu'				=> '',
 				'name'				=> '',
 				'email'				=> '',
+				'emailfailonly' => false,
 				'path'				=> '',
 				'postbu_hook'		=> '',
 				'postre_hook'		=> '',

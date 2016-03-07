@@ -79,6 +79,33 @@ if (!isset($id)) {
 		</div>
 	</div>
 	<!--END Status Email-->
+	<!--On Failure Only-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="emailfailonly"><?php echo _("On Failure Only") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="emailfailonly"></i>
+						</div>
+						<div class="col-md-9 radioset">
+	            <input type="radio" name="emailfailonly" id="emailfailonlyes" value="true" <?php echo ($emailfailonly?"CHECKED":"") ?>>
+	            <label for="emailfailonlyes"><?php echo _("Yes");?></label>
+	            <input type="radio" name="emailfailonly" id="emailfailonlyno" value="false" <?php echo ($emailfailonly?"":"CHECKED") ?>>
+	            <label for="emailfailonlyno"><?php echo _("No");?></label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="emailfailonly-help" class="help-block fpbx-help-block"><?php echo _("Only send an email on failure")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END On Failure Only-->
 <div class="row">
 	<div class="col-md-12">
 		<div class="well well-default">

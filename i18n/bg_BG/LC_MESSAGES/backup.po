@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-01 11:30-0800\n"
+"POT-Creation-Date: 2016-03-15 17:42-0700\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -57,19 +57,19 @@ msgid ""
 "or recordings."
 msgstr ""
 
-#: views/backup/backup.php:170
+#: views/backup/backup.php:197
 msgid "A script to be run AFTER a backup is completed."
 msgstr ""
 
-#: views/backup/backup.php:218
+#: views/backup/backup.php:245
 msgid "A script to be run AFTER a backup is restored."
 msgstr ""
 
-#: views/backup/backup.php:194
+#: views/backup/backup.php:221
 msgid "A script to be run BEFORE a backup is restored."
 msgstr ""
 
-#: views/backup/backup.php:146
+#: views/backup/backup.php:173
 msgid "A script to be run BEFORE a backup is started."
 msgstr ""
 
@@ -110,7 +110,7 @@ msgstr "Добавяне на елементи..."
 msgid "Admin"
 msgstr "Админ"
 
-#: views/backup/backup.php:314
+#: views/backup/backup.php:341
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
 "to prevent the Primary and Standby systems from \"fighting\" for the "
@@ -141,7 +141,7 @@ msgstr "Amazon S3&trade; Сървър"
 msgid "Annually"
 msgstr "Всяка Година"
 
-#: views/backup/backup.php:353
+#: views/backup/backup.php:380
 msgid "Apply Configs"
 msgstr "Приложи Настройки"
 
@@ -161,7 +161,7 @@ msgstr "Астериск БД"
 msgid "August"
 msgstr "Август"
 
-#: views/backup/backup.php:410
+#: views/backup/backup.php:437
 msgid "Available Servers"
 msgstr "Налични Сървъри"
 
@@ -177,7 +177,7 @@ msgstr "ЛОГА НА АРХИВА Е ПРИКАЧЕН"
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
-#: Backup.class.php:316 functions.inc/backup.php:79
+#: Backup.class.php:316 functions.inc/backup.php:80
 #: functions.inc/class.backup.php:384 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Архивиране"
@@ -242,11 +242,11 @@ msgstr "Модул за Архиви"
 msgid "Backup Name"
 msgstr "Име на Архив"
 
-#: views/backup/backup.php:432
+#: views/backup/backup.php:459
 msgid "Backup Schedule"
 msgstr "План за Архивиране"
 
-#: views/backup/backup.php:240
+#: views/backup/backup.php:267
 msgid "Backup Server"
 msgstr "Сървър с Архиви"
 
@@ -262,7 +262,7 @@ msgstr "Шаблон за Архивиране"
 msgid "Backup Wizard"
 msgstr "Помощник за Архивиране"
 
-#: page.backup.php:111
+#: page.backup.php:115
 msgid "Backup and Restore"
 msgstr "Архивиране и Възстановяване"
 
@@ -381,7 +381,7 @@ msgstr "Ден на всеки месец"
 msgid "Day of Week"
 msgstr "Ден от Седмицата"
 
-#: views/backup/backup.php:468
+#: views/backup/backup.php:495
 msgid "Days"
 msgstr "Дни"
 
@@ -405,24 +405,24 @@ msgstr "По-Подразбиране"
 msgid "Default backup; automatically installed"
 msgstr "Архив по-подразбиране; автоматично инсталиран"
 
-#: Backup.class.php:38 Backup.class.php:202 page.backup.php:45
+#: Backup.class.php:38 Backup.class.php:202 page.backup.php:46
 #: page.backup_servers.php:35 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
 msgstr "Изтрий"
 
-#: views/backup/backup.php:456 views/backup/backup.php:493
+#: views/backup/backup.php:483 views/backup/backup.php:520
 msgid "Delete After"
 msgstr "Изтрий След"
 
-#: views/backup/backup.php:483
+#: views/backup/backup.php:510
 msgid ""
 "Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
 "Please note that deletes aren't time based and will only happen after a "
 "backup was run. Setting the value to 0 will disable any deleting"
 msgstr ""
 
-#: views/backup/backup.php:506
+#: views/backup/backup.php:533
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -460,7 +460,7 @@ msgstr "Направление"
 msgid "Directory"
 msgstr "Директория"
 
-#: views/backup/backup.php:299
+#: views/backup/backup.php:326
 msgid "Disable Registered Trunks"
 msgstr "Забрани Регистрираните Външни Линии"
 
@@ -472,18 +472,18 @@ msgstr "Изпълнено!"
 msgid "Download"
 msgstr "Изтегли"
 
-#: views/backup/backup.php:381
+#: views/backup/backup.php:408
 msgid ""
 "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
 
-#: views/backup/backup.php:85
+#: views/backup/backup.php:112
 msgid ""
 "Drag templates and drop them in the items table to add the templates items "
 "to the table"
 msgstr ""
 
-#: views/backup/backup.php:94
+#: views/backup/backup.php:121
 msgid "Drop Here"
 msgstr "Пуснете Тук"
 
@@ -519,7 +519,7 @@ msgstr ""
 msgid "Email to send status messages to when this task is run"
 msgstr ""
 
-#: views/backup/backup.php:368
+#: views/backup/backup.php:395
 msgid ""
 "Equivalence of clicking the red button, will happen automatically after a "
 "restore on a Standby system"
@@ -551,11 +551,11 @@ msgid ""
 "remote restore"
 msgstr ""
 
-#: views/backup/backup.php:326
+#: views/backup/backup.php:353
 msgid "Exclude NAT settings"
 msgstr "Изключи настройки на NAT"
 
-#: views/backup/backup.php:341
+#: views/backup/backup.php:368
 msgid ""
 "Explicitly exclude any machine-specific IP settings. This allows you to have "
 "a warm-spare machine with a different IP address."
@@ -638,7 +638,7 @@ msgstr "Проверката на файла е неуспешна. "
 msgid "Files"
 msgstr "Файлове"
 
-#: page.backup.php:51
+#: page.backup.php:52
 msgid "FreePBX"
 msgstr "FrееPBX"
 
@@ -670,7 +670,7 @@ msgstr "Напред!"
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr ""
 
-#: views/backup/backup.php:125
+#: views/backup/backup.php:152
 msgid "Hooks"
 msgstr ""
 
@@ -683,7 +683,7 @@ msgstr "Име на хост"
 msgid "Hourly"
 msgstr "Всеки Час"
 
-#: views/backup/backup.php:466 views/cron.php:194 views/cron.php:198
+#: views/backup/backup.php:493 views/cron.php:194 views/cron.php:198
 msgid "Hours"
 msgstr "Часа"
 
@@ -751,7 +751,7 @@ msgstr "Невалиден архив или неопределена грешк
 msgid "Item"
 msgstr "Елемент"
 
-#: views/backup/backup.php:91
+#: views/backup/backup.php:118
 msgid "Items"
 msgstr "Елементи"
 
@@ -792,7 +792,7 @@ msgstr ""
 msgid "MB"
 msgstr "MB"
 
-#: views/backup/backup.php:447
+#: views/backup/backup.php:474
 msgid "Maintenance"
 msgstr "Поддръжка"
 
@@ -808,7 +808,7 @@ msgstr "Макс. Размер на Email"
 msgid "May"
 msgstr "Май"
 
-#: views/backup/backup.php:464 views/cron.php:168 views/cron.php:172
+#: views/backup/backup.php:491 views/cron.php:168 views/cron.php:172
 msgid "Minutes"
 msgstr "Минути"
 
@@ -820,7 +820,7 @@ msgstr "Понеделник"
 msgid "Monthly"
 msgstr "Всеки Месец"
 
-#: views/backup/backup.php:472 views/cron.php:246 views/cron.php:250
+#: views/backup/backup.php:499 views/cron.php:246 views/cron.php:250
 msgid "Months"
 msgstr "Месеца"
 
@@ -900,11 +900,12 @@ msgstr "Нов Шаблон"
 msgid "Nightly"
 msgstr "Всяка Вечер"
 
-#: views/backup/backup.php:281 views/backup/backup.php:306
+#: views/backup/backup.php:96 views/backup/backup.php:308
 #: views/backup/backup.php:333 views/backup/backup.php:360
-#: views/backup/backups.php:186 views/backup/backups.php:213
-#: views/backup/backups.php:240 views/backup/backups.php:271
-#: views/backup/backups.php:327 views/cron.php:147
+#: views/backup/backup.php:387 views/backup/backups.php:186
+#: views/backup/backups.php:213 views/backup/backups.php:240
+#: views/backup/backups.php:271 views/backup/backups.php:327
+#: views/cron.php:147
 msgid "No"
 msgstr "Не"
 
@@ -936,8 +937,16 @@ msgstr "ВКЛЮЧЕН"
 msgid "October"
 msgstr "Октомври"
 
+#: views/backup/backup.php:89
+msgid "On Failure Only"
+msgstr ""
+
 #: assets/js/backup.js:101
 msgid "On the"
+msgstr ""
+
+#: views/backup/backup.php:104
+msgid "Only send an email on failure"
 msgstr ""
 
 #: views/templates/template.php:48
@@ -996,19 +1005,19 @@ msgstr "Моля изчакайте, зареждам..."
 msgid "Port"
 msgstr "Порт"
 
-#: views/backup/backup.php:158
+#: views/backup/backup.php:185
 msgid "Post-Backup Hook"
 msgstr ""
 
-#: views/backup/backup.php:206
+#: views/backup/backup.php:233
 msgid "Post-Restore Hook"
 msgstr ""
 
-#: views/backup/backup.php:134
+#: views/backup/backup.php:161
 msgid "Pre-Backup Hook"
 msgstr ""
 
-#: views/backup/backup.php:182
+#: views/backup/backup.php:209
 msgid "Pre-Restore Hook"
 msgstr ""
 
@@ -1100,7 +1109,7 @@ msgstr "Възстановяване"
 msgid "Restore CDR records stored in this backup"
 msgstr ""
 
-#: views/backup/backup.php:265
+#: views/backup/backup.php:292
 msgid "Restore Here"
 msgstr "Възстанови Тук"
 
@@ -1108,7 +1117,7 @@ msgstr "Възстанови Тук"
 msgid "Restore all setting stored in the database"
 msgstr ""
 
-#: views/backup/backup.php:287
+#: views/backup/backup.php:314
 msgid "Restore backup to this server after the backup is complete"
 msgstr ""
 
@@ -1166,7 +1175,7 @@ msgid ""
 "<code>service cron restart</code>)"
 msgstr ""
 
-#: page.backup.php:47
+#: page.backup.php:48
 msgid "Run now"
 msgstr "Стартирай сега"
 
@@ -1214,7 +1223,7 @@ msgstr ""
 msgid "Running pre-restore scripts..."
 msgstr ""
 
-#: views/backup/backup.php:499
+#: views/backup/backup.php:526
 msgid "Runs"
 msgstr "Стартирания"
 
@@ -1264,7 +1273,7 @@ msgid ""
 "for all but custom."
 msgstr ""
 
-#: views/backup/backup.php:254
+#: views/backup/backup.php:281
 msgid ""
 "Select the server to be backed up (this server, or any other SSH server)"
 msgstr ""
@@ -1335,7 +1344,7 @@ msgstr "Стъпка 4"
 msgid "Step 5"
 msgstr "Стъпка 5"
 
-#: views/backup/backup.php:387
+#: views/backup/backup.php:414
 msgid "Storage Servers"
 msgstr "Сървъри за Съхранение"
 
@@ -1359,7 +1368,7 @@ msgstr "Въведете име на сървъра"
 msgid "Template Name"
 msgstr "Име на Шаблон"
 
-#: page.backup_templates.php:52 views/backup/backup.php:102
+#: page.backup_templates.php:52 views/backup/backup.php:129
 #: views/rnav/main.php:6
 msgid "Templates"
 msgstr "Шаблони"
@@ -1403,7 +1412,7 @@ msgstr ""
 msgid "This has a maximum size of 25MB."
 msgstr ""
 
-#: views/backup/backup.php:225
+#: views/backup/backup.php:252
 msgid "This server"
 msgstr "Този сървър"
 
@@ -1482,7 +1491,7 @@ msgstr "Дни от Седмица"
 msgid "Weekly"
 msgstr "Всяка Седмица"
 
-#: views/backup/backup.php:470
+#: views/backup/backup.php:497
 msgid "Weeks"
 msgstr "Седмици"
 
@@ -1538,15 +1547,16 @@ msgstr ""
 msgid "Would you like voicemails backded up."
 msgstr ""
 
-#: views/backup/backup.php:474
+#: views/backup/backup.php:501
 msgid "Years"
 msgstr "Години"
 
-#: views/backup/backup.php:279 views/backup/backup.php:304
+#: views/backup/backup.php:94 views/backup/backup.php:306
 #: views/backup/backup.php:331 views/backup/backup.php:358
-#: views/backup/backups.php:184 views/backup/backups.php:211
-#: views/backup/backups.php:238 views/backup/backups.php:269
-#: views/backup/backups.php:325 views/cron.php:145
+#: views/backup/backup.php:385 views/backup/backups.php:184
+#: views/backup/backups.php:211 views/backup/backups.php:238
+#: views/backup/backups.php:269 views/backup/backups.php:325
+#: views/cron.php:145
 msgid "Yes"
 msgstr "Да"
 

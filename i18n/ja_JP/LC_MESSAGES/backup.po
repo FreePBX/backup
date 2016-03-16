@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-01 11:30-0800\n"
+"POT-Creation-Date: 2016-03-15 17:42-0700\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -74,19 +74,19 @@ msgstr ""
 "コア設定とウェブファイルの完全バックアップ。音声ファイルや録音したファイルは"
 "含まれません。"
 
-#: views/backup/backup.php:170
+#: views/backup/backup.php:197
 msgid "A script to be run AFTER a backup is completed."
 msgstr "バックアップ完了後に実行するスクリプト。"
 
-#: views/backup/backup.php:218
+#: views/backup/backup.php:245
 msgid "A script to be run AFTER a backup is restored."
 msgstr "バックアップから復元した後に実行されるスクリプト。"
 
-#: views/backup/backup.php:194
+#: views/backup/backup.php:221
 msgid "A script to be run BEFORE a backup is restored."
 msgstr "バックアップから復元する前に実行されるスクリプト。"
 
-#: views/backup/backup.php:146
+#: views/backup/backup.php:173
 msgid "A script to be run BEFORE a backup is started."
 msgstr "バックアップを開始する前に実行するスクリプト。"
 
@@ -127,7 +127,7 @@ msgstr "アイテムを追加中…"
 msgid "Admin"
 msgstr "アドミン"
 
-#: views/backup/backup.php:314
+#: views/backup/backup.php:341
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
 "to prevent the Primary and Standby systems from \"fighting\" for the "
@@ -160,7 +160,7 @@ msgstr ""
 msgid "Annually"
 msgstr "毎年"
 
-#: views/backup/backup.php:353
+#: views/backup/backup.php:380
 msgid "Apply Configs"
 msgstr "変更を適用"
 
@@ -180,7 +180,7 @@ msgstr "Asterisk DB"
 msgid "August"
 msgstr "8月"
 
-#: views/backup/backup.php:410
+#: views/backup/backup.php:437
 msgid "Available Servers"
 msgstr "利用可能なサーバー"
 
@@ -196,7 +196,7 @@ msgstr "バックアップのログを送ります"
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
-#: Backup.class.php:316 functions.inc/backup.php:79
+#: Backup.class.php:316 functions.inc/backup.php:80
 #: functions.inc/class.backup.php:384 views/backup/backup.php:6
 msgid "Backup"
 msgstr "バックアップ"
@@ -261,11 +261,11 @@ msgstr "バックアップモジュール"
 msgid "Backup Name"
 msgstr "バックアップ名"
 
-#: views/backup/backup.php:432
+#: views/backup/backup.php:459
 msgid "Backup Schedule"
 msgstr "バックアップスケジュール"
 
-#: views/backup/backup.php:240
+#: views/backup/backup.php:267
 msgid "Backup Server"
 msgstr "バックアップサーバー"
 
@@ -281,7 +281,7 @@ msgstr ""
 msgid "Backup Wizard"
 msgstr ""
 
-#: page.backup.php:111
+#: page.backup.php:115
 msgid "Backup and Restore"
 msgstr "バックアップと復元"
 
@@ -404,7 +404,7 @@ msgstr ""
 msgid "Day of Week"
 msgstr "曜日"
 
-#: views/backup/backup.php:468
+#: views/backup/backup.php:495
 msgid "Days"
 msgstr "日"
 
@@ -428,17 +428,17 @@ msgstr ""
 msgid "Default backup; automatically installed"
 msgstr "デフォルトバックアップ。自動的にインストールされています。"
 
-#: Backup.class.php:38 Backup.class.php:202 page.backup.php:45
+#: Backup.class.php:38 Backup.class.php:202 page.backup.php:46
 #: page.backup_servers.php:35 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
 msgstr "削除"
 
-#: views/backup/backup.php:456 views/backup/backup.php:493
+#: views/backup/backup.php:483 views/backup/backup.php:520
 msgid "Delete After"
 msgstr ""
 
-#: views/backup/backup.php:483
+#: views/backup/backup.php:510
 msgid ""
 "Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
 "Please note that deletes aren't time based and will only happen after a "
@@ -448,7 +448,7 @@ msgstr ""
 "単に時間が経過した場合ではなく、新しいバックアップが行われたときに限って削除"
 "されるので、ご注意ください。この数値を0に設定すると、削除を一切しません。"
 
-#: views/backup/backup.php:506
+#: views/backup/backup.php:533
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -486,7 +486,7 @@ msgstr ""
 msgid "Directory"
 msgstr "ディレクトリ"
 
-#: views/backup/backup.php:299
+#: views/backup/backup.php:326
 msgid "Disable Registered Trunks"
 msgstr "登録されたトランクを無効にする"
 
@@ -498,12 +498,12 @@ msgstr "完了"
 msgid "Download"
 msgstr "ダウンロード"
 
-#: views/backup/backup.php:381
+#: views/backup/backup.php:408
 msgid ""
 "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
 
-#: views/backup/backup.php:85
+#: views/backup/backup.php:112
 msgid ""
 "Drag templates and drop them in the items table to add the templates items "
 "to the table"
@@ -511,7 +511,7 @@ msgstr ""
 "テンプレートアイテムをテーブルに追加するには、テンプレートをドラッグして、ア"
 "イテムのテーブルにドロップしてください。"
 
-#: views/backup/backup.php:94
+#: views/backup/backup.php:121
 msgid "Drop Here"
 msgstr ""
 
@@ -549,7 +549,7 @@ msgstr ""
 "このタスクを実行した時に、指定されたメールアドレスにステータスメッセージを送"
 "ります"
 
-#: views/backup/backup.php:368
+#: views/backup/backup.php:395
 msgid ""
 "Equivalence of clicking the red button, will happen automatically after a "
 "restore on a Standby system"
@@ -581,11 +581,11 @@ msgid ""
 "remote restore"
 msgstr ""
 
-#: views/backup/backup.php:326
+#: views/backup/backup.php:353
 msgid "Exclude NAT settings"
 msgstr "NAT設定を除外する"
 
-#: views/backup/backup.php:341
+#: views/backup/backup.php:368
 msgid ""
 "Explicitly exclude any machine-specific IP settings. This allows you to have "
 "a warm-spare machine with a different IP address."
@@ -672,7 +672,7 @@ msgstr "ファイル検証は失敗しました。 "
 msgid "Files"
 msgstr "ファイル"
 
-#: page.backup.php:51
+#: page.backup.php:52
 msgid "FreePBX"
 msgstr ""
 
@@ -704,7 +704,7 @@ msgstr "実行"
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr "リモートサーバーが送ったファイルの最初の数行は以下のとおり："
 
-#: views/backup/backup.php:125
+#: views/backup/backup.php:152
 msgid "Hooks"
 msgstr "フック"
 
@@ -717,7 +717,7 @@ msgstr "ホスト名"
 msgid "Hourly"
 msgstr "毎時"
 
-#: views/backup/backup.php:466 views/cron.php:194 views/cron.php:198
+#: views/backup/backup.php:493 views/cron.php:194 views/cron.php:198
 msgid "Hours"
 msgstr "時間"
 
@@ -785,7 +785,7 @@ msgstr "不正なバックアップまたは不明なエラー"
 msgid "Item"
 msgstr ""
 
-#: views/backup/backup.php:91
+#: views/backup/backup.php:118
 msgid "Items"
 msgstr "アイテム"
 
@@ -825,7 +825,7 @@ msgstr "ホストに接続する際に使用するSSHプライベートキーの
 msgid "MB"
 msgstr ""
 
-#: views/backup/backup.php:447
+#: views/backup/backup.php:474
 msgid "Maintenance"
 msgstr "メンテナンス"
 
@@ -841,7 +841,7 @@ msgstr "最大Eメールサイズ"
 msgid "May"
 msgstr "5月"
 
-#: views/backup/backup.php:464 views/cron.php:168 views/cron.php:172
+#: views/backup/backup.php:491 views/cron.php:168 views/cron.php:172
 msgid "Minutes"
 msgstr "分"
 
@@ -853,7 +853,7 @@ msgstr "月曜日"
 msgid "Monthly"
 msgstr "毎月"
 
-#: views/backup/backup.php:472 views/cron.php:246 views/cron.php:250
+#: views/backup/backup.php:499 views/cron.php:246 views/cron.php:250
 msgid "Months"
 msgstr "月"
 
@@ -933,11 +933,12 @@ msgstr "新規テンプレート"
 msgid "Nightly"
 msgstr ""
 
-#: views/backup/backup.php:281 views/backup/backup.php:306
+#: views/backup/backup.php:96 views/backup/backup.php:308
 #: views/backup/backup.php:333 views/backup/backup.php:360
-#: views/backup/backups.php:186 views/backup/backups.php:213
-#: views/backup/backups.php:240 views/backup/backups.php:271
-#: views/backup/backups.php:327 views/cron.php:147
+#: views/backup/backup.php:387 views/backup/backups.php:186
+#: views/backup/backups.php:213 views/backup/backups.php:240
+#: views/backup/backups.php:271 views/backup/backups.php:327
+#: views/cron.php:147
 msgid "No"
 msgstr ""
 
@@ -969,8 +970,16 @@ msgstr ""
 msgid "October"
 msgstr "10月"
 
+#: views/backup/backup.php:89
+msgid "On Failure Only"
+msgstr ""
+
 #: assets/js/backup.js:101
 msgid "On the"
+msgstr ""
+
+#: views/backup/backup.php:104
+msgid "Only send an email on failure"
 msgstr ""
 
 #: views/templates/template.php:48
@@ -1029,19 +1038,19 @@ msgstr ""
 msgid "Port"
 msgstr "ポート"
 
-#: views/backup/backup.php:158
+#: views/backup/backup.php:185
 msgid "Post-Backup Hook"
 msgstr ""
 
-#: views/backup/backup.php:206
+#: views/backup/backup.php:233
 msgid "Post-Restore Hook"
 msgstr ""
 
-#: views/backup/backup.php:134
+#: views/backup/backup.php:161
 msgid "Pre-Backup Hook"
 msgstr ""
 
-#: views/backup/backup.php:182
+#: views/backup/backup.php:209
 msgid "Pre-Restore Hook"
 msgstr ""
 
@@ -1133,7 +1142,7 @@ msgstr "復元"
 msgid "Restore CDR records stored in this backup"
 msgstr "このバックアップに入っているCDRレコードを復元します。"
 
-#: views/backup/backup.php:265
+#: views/backup/backup.php:292
 msgid "Restore Here"
 msgstr "ここに復元する"
 
@@ -1141,7 +1150,7 @@ msgstr "ここに復元する"
 msgid "Restore all setting stored in the database"
 msgstr "データベースに保存されている全ての設定を復元する"
 
-#: views/backup/backup.php:287
+#: views/backup/backup.php:314
 msgid "Restore backup to this server after the backup is complete"
 msgstr ""
 
@@ -1199,7 +1208,7 @@ msgid ""
 "<code>service cron restart</code>)"
 msgstr ""
 
-#: page.backup.php:47
+#: page.backup.php:48
 msgid "Run now"
 msgstr "すぐに実行する"
 
@@ -1247,7 +1256,7 @@ msgstr "復元前フックがある場合は実行します..."
 msgid "Running pre-restore scripts..."
 msgstr "復元前スクリプトを実行中..."
 
-#: views/backup/backup.php:499
+#: views/backup/backup.php:526
 msgid "Runs"
 msgstr ""
 
@@ -1297,7 +1306,7 @@ msgid ""
 "for all but custom."
 msgstr ""
 
-#: views/backup/backup.php:254
+#: views/backup/backup.php:281
 msgid ""
 "Select the server to be backed up (this server, or any other SSH server)"
 msgstr ""
@@ -1370,7 +1379,7 @@ msgstr ""
 msgid "Step 5"
 msgstr ""
 
-#: views/backup/backup.php:387
+#: views/backup/backup.php:414
 msgid "Storage Servers"
 msgstr "ストレージサーバー"
 
@@ -1394,7 +1403,7 @@ msgstr ""
 msgid "Template Name"
 msgstr "テンプレート名"
 
-#: page.backup_templates.php:52 views/backup/backup.php:102
+#: page.backup_templates.php:52 views/backup/backup.php:129
 #: views/rnav/main.php:6
 msgid "Templates"
 msgstr "テンプレート"
@@ -1441,7 +1450,7 @@ msgstr ""
 msgid "This has a maximum size of 25MB."
 msgstr ""
 
-#: views/backup/backup.php:225
+#: views/backup/backup.php:252
 msgid "This server"
 msgstr "このサーバー"
 
@@ -1521,7 +1530,7 @@ msgstr ""
 msgid "Weekly"
 msgstr "毎週"
 
-#: views/backup/backup.php:470
+#: views/backup/backup.php:497
 msgid "Weeks"
 msgstr "週"
 
@@ -1577,15 +1586,16 @@ msgstr ""
 msgid "Would you like voicemails backded up."
 msgstr ""
 
-#: views/backup/backup.php:474
+#: views/backup/backup.php:501
 msgid "Years"
 msgstr "年"
 
-#: views/backup/backup.php:279 views/backup/backup.php:304
+#: views/backup/backup.php:94 views/backup/backup.php:306
 #: views/backup/backup.php:331 views/backup/backup.php:358
-#: views/backup/backups.php:184 views/backup/backups.php:211
-#: views/backup/backups.php:238 views/backup/backups.php:269
-#: views/backup/backups.php:325 views/cron.php:145
+#: views/backup/backup.php:385 views/backup/backups.php:184
+#: views/backup/backups.php:211 views/backup/backups.php:238
+#: views/backup/backups.php:269 views/backup/backups.php:325
+#: views/cron.php:145
 msgid "Yes"
 msgstr ""
 

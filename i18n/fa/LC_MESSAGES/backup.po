@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-01 11:30-0800\n"
-"PO-Revision-Date: 2016-02-14 07:55+0200\n"
+"PO-Revision-Date: 2016-03-15 23:14+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/backup/"
-"fa/>\n"
+"Language-Team: Persian "
+"<http://weblate.freepbx.org/projects/freepbx/backup/fa/>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.4\n"
 
 #: functions.inc/class.backup.php:436
 msgid " Authentication Failure"
@@ -28,15 +28,17 @@ msgstr " احراز هویت ناموفق"
 #: views/backup/backups.php:23
 #, php-format
 msgid "%s Backup Wizard"
-msgstr ""
+msgstr "%s ویزارد پشتیبان"
 
 #: functions.inc/templates.php:251
+#, fuzzy
 msgid "/path/to/dir"
-msgstr ""
+msgstr "/path/to/dir"
 
 #: functions.inc/templates.php:238
+#, fuzzy
 msgid "/path/to/file"
-msgstr ""
+msgstr "/path/to/file"
 
 #: install.php:145
 msgid ""
@@ -48,56 +50,56 @@ msgstr ""
 
 #: views/backup/backup.php:170
 msgid "A script to be run AFTER a backup is completed."
-msgstr ""
+msgstr "اسکریپتی که پس از پشتیبان گیری باید اجرا شود."
 
 #: views/backup/backup.php:218
 msgid "A script to be run AFTER a backup is restored."
-msgstr ""
+msgstr "اسکریپتی که پس از بازنشانی پشتیبان باید اجرا شود."
 
 #: views/backup/backup.php:194
 msgid "A script to be run BEFORE a backup is restored."
-msgstr ""
+msgstr "اسکریپتی که قبل از بازنشانی پشتیبان باید اجرا شود."
 
 #: views/backup/backup.php:146
 msgid "A script to be run BEFORE a backup is started."
-msgstr ""
+msgstr "اسکریپتی که قبل از پستیبان گیری باید اجرا شود."
 
 #: views/backup/backups.php:154 assets/js/backup.js:93 assets/js/backup.js:105
 msgid "AT"
-msgstr ""
+msgstr "در"
 
 #: views/servers/awss3.php:41
 msgid "AWS Access Key"
-msgstr ""
+msgstr "کلید دسترسی AWS"
 
 #: functions.inc/servers.php:333
 msgid "AWS S3 Server "
-msgstr ""
+msgstr "سرور AWS S3 "
 
 #: views/servers/awss3.php:58
 msgid "AWS Secret"
-msgstr ""
+msgstr "راز AWS"
 
 #: views/backup/backups.php:11 views/servers/servers.php:22
 #: views/templates/templates.php:9
 msgid "Actions"
-msgstr ""
+msgstr "فعالیت ها"
 
 #: views/backup/backups.php:501 views/servers/ftp.php:163
 msgid "Active"
-msgstr ""
+msgstr "فعال"
 
 #: views/servers/servers.php:4
 msgid "Add Server"
-msgstr ""
+msgstr "افزودن سرور"
 
 #: bin/backup.php:55
 msgid "Adding items..."
-msgstr ""
+msgstr "افزودن آیتم ها..."
 
 #: backup.i18n.php:6 backup.i18n.php:12
 msgid "Admin"
-msgstr ""
+msgstr "مدیر"
 
 #: views/backup/backup.php:314
 msgid ""
@@ -120,23 +122,23 @@ msgstr ""
 
 #: functions.inc/servers.php:278
 msgid "Amazon S3 Server "
-msgstr ""
+msgstr "سرور S3 Server "
 
 #: views/servers/awss3.php:4
 msgid "Amazon S3&trade; Server"
-msgstr ""
+msgstr "Amazon S3&trade; Server"
 
 #: views/cron.php:8
 msgid "Annually"
-msgstr ""
+msgstr "سالانه"
 
 #: views/backup/backup.php:353
 msgid "Apply Configs"
-msgstr ""
+msgstr "اعمال تنظیمات"
 
 #: views/cron.php:46
 msgid "April"
-msgstr ""
+msgstr "آپریل"
 
 #: views/restore/browseserver.php:21
 msgid "AstDB's"
@@ -144,36 +146,36 @@ msgstr ""
 
 #: functions.inc/templates.php:296
 msgid "Asterisk DB"
-msgstr ""
+msgstr "دیتابیس استریسک"
 
 #: views/cron.php:50
 msgid "August"
-msgstr ""
+msgstr "آگوست"
 
 #: views/backup/backup.php:410
 msgid "Available Servers"
-msgstr ""
+msgstr "سرور های در دسترس"
 
 #: views/servers/email.php:99
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: functions.inc.php:67
 msgid "BACKUP LOG ATTACHED"
-msgstr ""
+msgstr "گزارش پشتیبان در ضمیمه"
 
 #: functions.inc/class.backup.php:390 functions.inc/class.backup.php:393
 msgid "BACKUP NOT ATTACHED"
-msgstr ""
+msgstr "پشتیبان الصاق نشد"
 
 #: Backup.class.php:316 functions.inc/backup.php:79
 #: functions.inc/class.backup.php:384 views/backup/backup.php:6
 msgid "Backup"
-msgstr ""
+msgstr "پشتیبان گیری"
 
 #: backup.i18n.php:4 backup.i18n.php:10
 msgid "Backup & Restore"
-msgstr ""
+msgstr "پشتیبان گیری و بازنشانی"
 
 #: backup.i18n.php:18
 msgid "Backup & Restore - Restore"

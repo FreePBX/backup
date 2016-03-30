@@ -405,7 +405,9 @@ class Backup {
 					$s['port'] = backup__($s['port']);
 					$s['user'] = backup__($s['user']);
 					$s['password'] = backup__($s['password']);
-					$s['path'] = backup__($s['path']);
+					$s['path'] = trim(backup__($s['path']),'/');
+					$ftp_path = 'ftp://'.$s['user'].':'.$s['password'].'@'.$s['host'].':'.$host;
+
 					$ftp = @ftp_connect($s['host'], $s['port']);
 					if($ftp === false){
 						$this->b['error'] = _("Error connecting to the FTP Server... Check your host name or DNS");
@@ -413,6 +415,7 @@ class Backup {
 						return $ftp;
 					}
 					if (@ftp_login($ftp, $s['user'], $s['password'])) {
+
 						//chose pasive/active transfer mode
 						ftp_pasv($ftp, ($s['transfer'] == 'passive'));
 
@@ -425,7 +428,10 @@ class Backup {
 						}
 
 						//copy file
-						ftp_put($ftp, $this->b['_file'] . '.tgz', $this->b['_tmpfile'], FTP_BINARY);
+						if(!@ftp_put($ftp, $this->b['_file'] . '.tgz', $this->b['_tmpfile'], FTP_BINARY)){
+							$this->b['error'] = _("Error Saving file to the server");
+							backup_log($this->b['error']);
+						}
 
 						//run maintenance on the directory
 						$this->maintenance($s['type'], $s, $ftp);
@@ -436,6 +442,7 @@ class Backup {
 						$this->b['error'] = _("Error connecting to the FTP Server...") . _(" Authentication Failure");
 						backup_log($this->b['error']);
 					}
+
 					break;
 				case 'awss3':
 					//subsitute variables if nesesary
@@ -672,7 +679,7 @@ class Backup {
 				$dir = scandir(backup__($data['path']) . '/' . $this->b['_dirname']);
 				break;
 			case 'ftp':
-				$dir = ftp_nlist($handle, '.');
+				$dir = ftp_nlist($handle, '-la');
 				break;
 			case 'ssh':
 				$cmd[] = fpbx_which('ssh');
@@ -691,7 +698,7 @@ class Backup {
 				}
 				break;
 		}
-
+		$dir = is_array($dir)?$dir:array();
 		//sanitize file list
 		foreach ($dir as $file) {
 			//dont include the current backup or special items
@@ -735,7 +742,10 @@ class Backup {
 					unset($delete[$key]);
 					break;
 				case 'ftp':
-					ftp_delete($handle, $file);
+					if(!@ftp_delete($handle, $file)){
+						$this->b['error'] = sprintf(_("Error deleting %s"),$file);
+						backup_log($this->b['error']);
+					}
 					unset($delete[$key]);
 					break;
 				case 'awss3':

@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-15 17:42-0700\n"
+"POT-Creation-Date: 2016-04-04 17:53-0700\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -49,7 +49,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: functions.inc/class.backup.php:436
+#: functions.inc/class.backup.php:442
 msgid " Authentication Failure"
 msgstr ""
 
@@ -555,12 +555,21 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:436
+#: functions.inc/class.backup.php:432
+msgid "Error Saving file to the server"
+msgstr ""
+
+#: functions.inc/class.backup.php:442
 msgid "Error connecting to the FTP Server..."
 msgstr "FTPサーバーに接続できません…"
 
-#: functions.inc/class.backup.php:411
+#: functions.inc/class.backup.php:413
 msgid "Error connecting to the FTP Server... Check your host name or DNS"
+msgstr ""
+
+#: functions.inc/class.backup.php:746
+#, php-format
+msgid "Error deleting %s"
 msgstr ""
 
 #: page.backup_restore.php:41

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-15 17:42-0700\n"
+"POT-Creation-Date: 2016-04-04 17:53-0700\n"
 "PO-Revision-Date: 2016-01-20 04:55+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -34,7 +34,7 @@ msgstr ""
 "X-Poedit-Country: SPAIN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: functions.inc/class.backup.php:436
+#: functions.inc/class.backup.php:442
 msgid " Authentication Failure"
 msgstr " Error de autenticación"
 
@@ -550,14 +550,23 @@ msgstr ""
 "Equivalente de hacer clic en el botón rojo, se producirá automáticamente "
 "después de una restauración en un sistema de espera"
 
-#: functions.inc/class.backup.php:436
+#: functions.inc/class.backup.php:432
+msgid "Error Saving file to the server"
+msgstr ""
+
+#: functions.inc/class.backup.php:442
 msgid "Error connecting to the FTP Server..."
 msgstr "Error conectando al Servidor FTP..."
 
-#: functions.inc/class.backup.php:411
+#: functions.inc/class.backup.php:413
 msgid "Error connecting to the FTP Server... Check your host name or DNS"
 msgstr ""
 "Error al conectar con el servidor FTP ... Compruebe su nombre de host o DNS"
+
+#: functions.inc/class.backup.php:746
+#, php-format
+msgid "Error deleting %s"
+msgstr ""
 
 #: page.backup_restore.php:41
 msgid "Error uploading file!"

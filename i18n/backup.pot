@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-15 17:42-0700\n"
+"POT-Creation-Date: 2016-04-04 17:53-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: functions.inc/class.backup.php:436
+#: functions.inc/class.backup.php:442
 msgid " Authentication Failure"
 msgstr ""
 
@@ -534,12 +534,21 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:436
+#: functions.inc/class.backup.php:432
+msgid "Error Saving file to the server"
+msgstr ""
+
+#: functions.inc/class.backup.php:442
 msgid "Error connecting to the FTP Server..."
 msgstr ""
 
-#: functions.inc/class.backup.php:411
+#: functions.inc/class.backup.php:413
 msgid "Error connecting to the FTP Server... Check your host name or DNS"
+msgstr ""
+
+#: functions.inc/class.backup.php:746
+#, php-format
+msgid "Error deleting %s"
 msgstr ""
 
 #: page.backup_restore.php:41

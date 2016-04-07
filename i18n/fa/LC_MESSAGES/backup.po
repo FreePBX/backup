@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-04 17:53-0700\n"
-"PO-Revision-Date: 2016-04-06 19:03+0300\n"
+"PO-Revision-Date: 2016-04-06 21:20+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian "
 "<http://weblate.freepbx.org/projects/freepbx/backup/fa/>\n"
@@ -490,7 +490,7 @@ msgstr "اینجا بیندازید"
 
 #: backup.i18n.php:20
 msgid "Email "
-msgstr "ایمیل"
+msgstr "ایمیل "
 
 #: views/servers/email.php:64
 msgid "Email Address"
@@ -506,7 +506,7 @@ msgstr "سرور ایمیل"
 
 #: functions.inc/servers.php:263 functions.inc/servers.php:318
 msgid "Email Server "
-msgstr "سرور ایمیل"
+msgstr "سرور ایمیل "
 
 #: views/servers/email.php:76
 msgid "Email address where backups should be emailed to"
@@ -530,7 +530,7 @@ msgstr ""
 
 #: functions.inc/class.backup.php:432
 msgid "Error Saving file to the server"
-msgstr ""
+msgstr "خطا در ذخیر فایل در سرور"
 
 #: functions.inc/class.backup.php:442
 msgid "Error connecting to the FTP Server..."
@@ -543,7 +543,7 @@ msgstr "خطا در اتصال به سرور FTP... لطفا نام هاست ی�
 #: functions.inc/class.backup.php:746
 #, php-format
 msgid "Error deleting %s"
-msgstr ""
+msgstr "خطا حذف کردن %s"
 
 #: page.backup_restore.php:41
 msgid "Error uploading file!"
@@ -599,7 +599,7 @@ msgstr "سرور FTP"
 
 #: functions.inc/servers.php:266 functions.inc/servers.php:321
 msgid "FTP Server "
-msgstr "سرور FTP"
+msgstr "سرور FTP "
 
 #: views/backup/backups.php:509
 msgid "FTP Transfer type"
@@ -644,7 +644,7 @@ msgstr "فایل"
 
 #: functions.inc/restore.php:348
 msgid "File not found! "
-msgstr "فایل پیدا نشد!"
+msgstr "فایل پیدا نشد! "
 
 #: bin/restore.php:151
 msgid "File restore complete!"
@@ -652,7 +652,7 @@ msgstr "بازگردانی فایل تکمیل شد!"
 
 #: bin/backup.php:126
 msgid "File verification failed. "
-msgstr "تایید فایل شکست خورد."
+msgstr "تایید فایل شکست خورد. "
 
 #: functions.inc/class.backup.php:378 views/restore/browseserver.php:19
 msgid "Files"
@@ -819,7 +819,7 @@ msgstr "سرور محلی"
 
 #: functions.inc/servers.php:269 functions.inc/servers.php:324
 msgid "Local Server "
-msgstr "سرور محلی"
+msgstr "سرور محلی "
 
 #: views/servers/ssh.php:148
 msgid "Location of ssh private key to be used when connecting to a host"
@@ -879,7 +879,7 @@ msgstr "Mysql Db's"
 
 #: functions.inc/servers.php:272 functions.inc/servers.php:327
 msgid "Mysql Server "
-msgstr "سرور MySQL"
+msgstr "سرور  MySQL "
 
 #: functions.inc/class.backup.php:376 views/restore/browseserver.php:17
 msgid "Name"
@@ -976,7 +976,7 @@ msgstr "اکتبر"
 
 #: views/backup/backup.php:89
 msgid "On Failure Only"
-msgstr ""
+msgstr "فقط در صورت شکست"
 
 #: assets/js/backup.js:101
 msgid "On the"
@@ -984,7 +984,7 @@ msgstr "در"
 
 #: views/backup/backup.php:104
 msgid "Only send an email on failure"
-msgstr ""
+msgstr "فقط در صورت شکست ایمیل ارسال کن"
 
 #: views/templates/template.php:48
 msgid "Optional description or notes for this backup temnplate."
@@ -1619,7 +1619,7 @@ msgstr "بله"
 #: bin/restore.php:260
 #, php-format
 msgid "You should run \"%s\" to ensure system integrity"
-msgstr "You should run \"%s\" to ensure system integrity"
+msgstr "You  should run \"%s\" to ensure system integrity"
 
 #: views/backup/backups.php:312
 msgid "Your backup will be saved locally to /var/spool/asterisk/backup"

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-04 17:53-0700\n"
-"PO-Revision-Date: 2016-04-06 21:20+0200\n"
+"PO-Revision-Date: 2016-04-06 21:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian "
 "<http://weblate.freepbx.org/projects/freepbx/backup/fa/>\n"
@@ -903,7 +903,7 @@ msgstr "هرگز پشتیبان گیری به صورت خودکار اجرا ن�
 
 #: views/servers/servers.php:12
 msgid "New Amazon S3 server"
-msgstr "New Amazon S3 server"
+msgstr "سرور آمازون S3 جدید"
 
 #: views/backup/backups.php:3
 msgid "New Backup"

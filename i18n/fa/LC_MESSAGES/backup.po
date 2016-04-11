@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-04 17:53-0700\n"
-"PO-Revision-Date: 2016-04-06 21:21+0200\n"
+"PO-Revision-Date: 2016-04-11 12:26+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian "
 "<http://weblate.freepbx.org/projects/freepbx/backup/fa/>\n"
@@ -147,7 +147,7 @@ msgstr "آپریل"
 
 #: views/restore/browseserver.php:21
 msgid "AstDB's"
-msgstr "AstDB's"
+msgstr "بانکهای استریسک"
 
 #: functions.inc/templates.php:296
 msgid "Asterisk DB"
@@ -320,6 +320,7 @@ msgid "CDR server, generally a local database server"
 msgstr "سرور CDR، عموما بانک اطلاعات محلی است"
 
 #: views/restore/backup_list.php:26
+#, fuzzy
 msgid "CDR's"
 msgstr "CDR's"
 
@@ -659,6 +660,7 @@ msgid "Files"
 msgstr "فایلها"
 
 #: page.backup.php:52
+#, fuzzy
 msgid "FreePBX"
 msgstr "FreePBX"
 
@@ -692,7 +694,7 @@ msgstr "اینجا چند خط اول فایلی که برای سرور خارج
 
 #: views/backup/backup.php:152
 msgid "Hooks"
-msgstr "Hooks"
+msgstr "قلاب"
 
 #: views/servers/ftp.php:56 views/servers/mysql.php:64
 #: views/servers/ssh.php:64
@@ -1636,7 +1638,7 @@ msgstr "قالب های پشتیبان پیشفرض اضافه شد"
 
 #: functions.inc/class.backup.php:380
 msgid "astDb's"
-msgstr "astDb's"
+msgstr "بانکهای استریسک"
 
 #: views/item_table.php:48
 msgid "chose"

@@ -1,4 +1,5 @@
 <?php
+
 /*
  * returns a json object of a directory in a jstree compatiable way
  *
@@ -57,30 +58,32 @@ function backup_jstree_list_dir($id, $path = '') {
 			}
 			break;
 		case 'ftp':
+			require __DIR__ . '/../vendor/autoload.php';
+
 			//subsitute variables if nesesary
 			$s['host'] = backup__($s['host']);
 			$s['port'] = backup__($s['port']);
 			$s['user'] = backup__($s['user']);
 			$s['password'] = backup__($s['password']);
-			$s['path'] = backup__($s['path']);
-			$path = trim($path, '/') . '/';
-			$ftp = ftp_connect($s['host'], $s['port']);
-			if (ftp_login($ftp, $s['user'], $s['password'])) {
-				ftp_pasv($ftp, ($s['transfer'] == 'passive'));
-				ftp_chdir($ftp, $s['path'] . '/' . $path);
-				$pwd = ftp_pwd($ftp);
-				$ls = ftp_nlist($ftp,  '');
-				$dir = ftp_rawlist($ftp, '-d1 */');
+			$ftpc = new \Touki\FTP\Connection\Connection($s['host'], $s['user'], $s['password'], $s['port'], 90, ($s['transfer'] == 'passive'));
+			$factory = new \Touki\FTP\FTPFactory;
+			try{
+				$ftpw = $factory->build($ftpc);
+			} catch (\Exception $e){
+				return array('error_msg' => _('Unable to connect to server!'));;
+			}
+			$ftpdirs = $ftpw->findFilesystems(new \Touki\FTP\Model\Directory($s['path']));
+			$ls = array();
+			foreach($ftpdirs as $thisdir){
+				$files = $ftpw->findFilesystems(new \Touki\FTP\Model\Directory($thisdir->getRealPath()));
+				foreach ($files as $f) {
+					$ls[] = $thisdir->getRealPath().'/'.$f->getRealpath();
+				}
+
+			}
 				foreach ($ls as $file) {
 					$file = basename($file);
 					//determine if we are a directory or not, rather than using rawlist
-					if (@ftp_chdir($ftp, $pwd.'/'.$file)) {
-						$ret[] = array(
-									'attr'	=> array('data-path' => $path . '/' . $file),
-									'data'	=> $file,
-									'state'	=> 'closed'
-									);
-					} else {
 						if (substr($file, -7) == '.tar.gz' || substr($file, -4) == '.tgz') {
 							$ret[] = array(
 										'attr' => array(
@@ -91,15 +94,9 @@ function backup_jstree_list_dir($id, $path = '') {
 										);
 						}
 					}
-				}
 				//dbug('ftp ls', $ls);
 				//dbug('ftp dir ' . $s['path'] . '/' . $path, $dir);
 				//release handel
-				ftp_close($ftp);
-			} else {
-				$ret[] = array('data' => _('FTP Connection error!'));
-				dbug('ftp connect error');
-			}
 			break;
 		case 'ssh':
 			$s['path'] = backup__($s['path']);
@@ -288,23 +285,41 @@ function backup_restore_locate_file($id, $path) {
 			$path = $s['path'] . '/' . $path;
 			break;
 		case 'ftp':
+			require __DIR__ . '/../vendor/autoload.php';
 			//subsitute variables if nesesary
 			$s['host'] = backup__($s['host']);
 			$s['port'] = backup__($s['port']);
 			$s['user'] = backup__($s['user']);
 			$s['password'] = backup__($s['password']);
 			$s['path'] = backup__($s['path']);
-			$ftp = ftp_connect($s['host'], $s['port']);
-			if (ftp_login($ftp, $s['user'], $s['password'])) {
-				ftp_pasv($ftp, ($s['transfer'] == 'passive'));
-				if (ftp_get($ftp, $dest, $s['path'] . '/' . $path, FTP_BINARY)) {
-					$path = $dest;
-				} else {
-					return array('error_msg' => _('Failed to retrieve file from server!'));
+			$path = ltrim($path,'/');
+			$factory = new \Touki\FTP\FTPFactory;
+			$ftpc = new \Touki\FTP\Connection\Connection($s['host'], $s['user'], $s['password'], $s['port'], 90, ($s['transfer'] == 'passive'));
+			try{
+				$fct = $factory->build($ftpc);
+				$ftp = new \Touki\FTP\FTP(
+					$factory->getManager(),
+					$factory->getDownloaderVoter(),
+					$factory->getUploaderVoter(),
+					$factory->getCreatorVoter(),
+					$factory->getDeleterVoter()
+				);
+			} catch (\Exception $e){
+				return array('error_msg' => _('Unable to connect to server!'));;
+			}
+			$ftpdirs = $ftp->findFilesystems(new \Touki\FTP\Model\Directory($s['path']));
+			 $file = null;
+			foreach($ftpdirs as $thisdir){
+				if($ftp->fileExists(new \Touki\FTP\Model\File($thisdir->getRealPath().'/'.$path))){
+					$file = $ftp->findFileByName($thisdir->getRealPath().'/'.$path);
 				}
-				ftp_close($ftp);
-			} else {
-				dbug('ftp connect error');
+			}
+
+			try{
+				$ftp->download($dest,$file);
+				$path = $dest;
+			}catch(\Exception $e){
+					return array('error_msg' => _('Failed to retrieve file from server!'));
 			}
 			break;
 		case 'ssh':
@@ -341,7 +356,6 @@ function backup_restore_locate_file($id, $path) {
 			}
 			break;
 	}
-
 	if (file_exists($path)) {
 		return $path;
 	} else {

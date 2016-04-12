@@ -102,7 +102,6 @@ switch ($var['action']) {
 	case 'backup_list':
 		$var['servers'] = backup_get_server('all');
 		$var['templates'] = backup_get_template('all_detailed');
-
 		//transalate variables
 		//TODO: make this anonymous once we require php 5.3
 		function callback(&$var) {

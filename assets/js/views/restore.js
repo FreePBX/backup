@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$.jstree._themes = 'modules/backup/assets/js/views/themes/';
-	
+
 	//backup picker
 	$('#list_tree').jstree({
 		'plugins': ['themes', 'json_data', 'ui', 'types'],
@@ -9,21 +9,21 @@ $(document).ready(function(){
 			'dots': false,
 			'icons': true
 		},
-		'json_data': { 
+		'json_data': {
 			'ajax': {
 				'url': window.href,
-				'data': function (n) { 
-					return { 
+				'data': function (n) {
+					return {
 						'quietmode': true,
-						'action': 'list_dir', 
+						'action': 'list_dir',
 						'path': $(n).data('path')
-					}; 
+					};
 				}
 			}
 		},
-		'types': { 
-			'types': { 
-				'default': { 
+		'types': {
+			'types': {
+				'default': {
 					'select_node': function(e) {
 						var info = e.data('manifest');
 						if (info && typeof info == 'object') {
@@ -37,12 +37,12 @@ $(document).ready(function(){
 							$('#list_data').hide();
 							this.toggle_node(e);
 						}
-					} 
-				},	
-			} 
+					}
+				},
+			}
 		},
 	});
-	
+
 	//set path before clicking submit
 	$('#restore_browes_frm').submit(function(){
 		file = $('#list_tree').jstree('get_selected');
@@ -53,7 +53,7 @@ $(document).ready(function(){
 			return false;
 		}
 	});
-	
+
 	//backup file picker
 	if ($('#backup_files').length > 0) {
 		$('#backup_files').jstree({
@@ -63,22 +63,22 @@ $(document).ready(function(){
 				'dots': false,
 				'icons': true
 			},
-			'json_data': { 
+			'json_data': {
 				'data' : FILE_LIST,
 				'progressive_render': true
 			},
-			'types': { 
-				'types': { 
-					'default': { 
+			'types': {
+				'types': {
+					'default': {
 						'select_node': function(e) {
 							this.toggle_node(e);
-						} 
-					},	
-				} 
+						}
+					},
+				}
 			},
 		})
 	}
-	
+
 	//include items to restore
 	$('#files_browes_frm').submit(function(){
 		prepare_post();
@@ -90,7 +90,7 @@ $(document).ready(function(){
 		revert: true,
 		cursor: 'move'
 	}).disableSelection();
-	
+
 	$("#backup_files").droppable({
 		drop: function(event, ui) {
 			current_items_over_helper('show');
@@ -120,10 +120,10 @@ $(document).ready(function(){
 			var msg = 'For real-time status of the restore prosses, it is '
 					+ 'recommend that use a moder browser. Would you like '
 					+ 'to continue anyway?';
-					
+
 			return confirm(msg);
 		}
-		
+
 		 box = $('<div></div>')
 			.html('<div class="restore_status"></div>'
 				+ '<progress style="width: 100%">'
@@ -138,7 +138,7 @@ $(document).ready(function(){
 					$(e.target).dialog("destroy").remove();
 				}
 			});
-		
+
 		//post data to server, as eventsource is a get request
 		//change action to restore_post
 		prepare_post();
@@ -149,7 +149,7 @@ $(document).ready(function(){
 				break;
 			}
 		}
-		
+
 		//console.log(data);
 		$.ajax({
 			type: 'POST',
@@ -161,20 +161,20 @@ $(document).ready(function(){
 			},
 			error: function() {
 				//TODO: deal with errors
-				backup_log($('.restore_status'), 
+				backup_log($('.restore_status'),
 				'<br>' + 'Error: Could not start!' + '<br>');
 				$('.restore_status').next('progress').val('1');
 				return false;
 			}
 		});
-	});	
+	});
 });
 
 //
 function check_node() {
 	var level	= typeof level == 'undefined' ? 1 : level;
 	var worker	= function(el, path) {
-		
+
 		root	= level == 1 ? el : root;
 		path	= path.slice(-1) == '/' ? path.slice(0, - 1) : path;
 		tempath	= '/' + path.substring(1).split('/').splice(0, level).toString().replace(/,/g, '/');
@@ -187,7 +187,7 @@ function check_node() {
 			//if we have a node with a matching path
 			if ($(this).data('path') == tempath) {
 				//console.log('searching', $(this).data('path'));
-				
+
 				//if this node is checked, everything deep will be included, so no need to traverse deeper
 				if (root.jstree("is_checked", this)) {
 					return false;
@@ -213,7 +213,7 @@ function check_node() {
 			root.jstree("close_node", this);
 		})
 	}
-	
+
 	return worker;
 }
 
@@ -229,11 +229,11 @@ function current_items_over_helper(action) {
 			width = $("#restore_items").width();
 			//height = $("#backup_files").height();
 			//height2 = $("#backup_files").height();
-			
+
 			$('#items_over').width(width);
 			$('#items_over').height('200px');
-			
-			
+
+
 			$("#restore_items").hide();
 			//$('#add_entry').hide();
 			$('#items_over').show();
@@ -245,10 +245,10 @@ function current_items_over_helper(action) {
 function prepare_post() {
 	//remove stale file entires
 	$('input[name^="restore[files]"]').remove();
-	
+
 	//get checked files
 	$("#backup_files").jstree("get_checked",null,false).each(function() {
-		
+
 		//add them to the form
 		$('#files_browes_frm').append(
 			'<input type="hidden" name="restore[files][]" value="'
@@ -261,9 +261,9 @@ function prepare_post() {
 //stage2 of restore
 function restore_stage2() {
 		//set eventsrouce url
-	url = window.location.pathname 
+	url = window.location.pathname
 		+ '?display=backup_restore&action=restore_get';
-	
+
 
 	var eventSource = new EventSource(url);
 	eventSource.addEventListener('message', function (event) {

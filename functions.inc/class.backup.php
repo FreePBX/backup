@@ -1,5 +1,11 @@
 <?php
 namespace FreePBX\modules\Backup;
+require __DIR__ . '/../vendor/autoload.php';
+use Touki\FTP\Connection\Connection;
+use Touki\FTP\Model\Directory;
+use Touki\FTP\Model\File;
+use Touki\FTP\FTPFactory;
+
 class Backup {
 
 	/**
@@ -406,43 +412,32 @@ class Backup {
 					$s['user'] = backup__($s['user']);
 					$s['password'] = backup__($s['password']);
 					$s['path'] = trim(backup__($s['path']),'/');
-					$ftp_path = 'ftp://'.$s['user'].':'.$s['password'].'@'.$s['host'].':'.$host;
-
-					$ftp = @ftp_connect($s['host'], $s['port']);
-					if($ftp === false){
+					$path = $s['path'] . '/' . $this->b['_dirname'];
+					$ftpc = new Connection($s['host'], $s['user'], $s['password'], $s['port'], 90, ($s['transfer'] == 'passive'));
+					$factory = new FTPFactory;
+					try{
+						$ftpw = $ftp = $factory->build($ftpc);
+					} catch (\Exception $e){
 						$this->b['error'] = _("Error connecting to the FTP Server... Check your host name or DNS");
-						backup_log($this->b['error']);
-						return $ftp;
 					}
-					if (@ftp_login($ftp, $s['user'], $s['password'])) {
-
-						//chose pasive/active transfer mode
-						ftp_pasv($ftp, ($s['transfer'] == 'passive'));
-
-						//switch to directory. If we fail, build directory structure and try again
-						if (!@ftp_chdir($ftp, $s['path'] . '/' . $this->b['_dirname'])) {
-							//ensure directory structure
-							@ftp_mkdir($ftp, $s['path']);
-							@ftp_mkdir($ftp, $s['path'] . '/' . $this->b['_dirname']);
-							ftp_chdir($ftp, $s['path'] . '/' . $this->b['_dirname']);
-						}
-
-						//copy file
-						if(!@ftp_put($ftp, $this->b['_file'] . '.tgz', $this->b['_tmpfile'], FTP_BINARY)){
-							$this->b['error'] = _("Error Saving file to the server");
+					if(!$ftpw->directoryExists(new Directory($path))){
+						backup_log(sprintf(_("Creating directory '%s'"),$path));
+						try{
+							$ftpw->create(new Directory($path),array(FTP::RECURSIVE => true));
+						}catch (\Exception $e){
+							$this->b['error'] = sprintf(_("Directory '%s' did not exist and we could not create it"),$path);
 							backup_log($this->b['error']);
 						}
-
-						//run maintenance on the directory
-						$this->maintenance($s['type'], $s, $ftp);
-
-						//release handel
-						ftp_close($ftp);
-					} else {
-						$this->b['error'] = _("Error connecting to the FTP Server...") . _(" Authentication Failure");
+					}
+					try{
+						backup_log(_("Saving file to remote ftp"));
+						$ftpw->upload(new File($path.'/'.$this->b['_file'] . '.tgz'),$this->b['_tmpfile']);
+					}catch (\Exception $e){
+						$this->b['error'] = _("Unable to upload file to the remote server");
 						backup_log($this->b['error']);
 					}
-
+						//run maintenance on the directory
+					$this->maintenance($s['type'], $path, $ftpw);
 					break;
 				case 'awss3':
 					//subsitute variables if nesesary
@@ -679,7 +674,11 @@ class Backup {
 				$dir = scandir(backup__($data['path']) . '/' . $this->b['_dirname']);
 				break;
 			case 'ftp':
-				$dir = ftp_nlist($handle, '-la');
+				$ftplist = $handle->findFilesystems(new Directory($data));
+				$dir = array();
+				foreach($ftplist as $ftpitem){
+					$dir[] = $ftpitem->getRealpath();
+				}
 				break;
 			case 'ssh':
 				$cmd[] = fpbx_which('ssh');
@@ -742,7 +741,10 @@ class Backup {
 					unset($delete[$key]);
 					break;
 				case 'ftp':
-					if(!@ftp_delete($handle, $file)){
+					$f = $handle->findFileByName($file);
+					try{
+						$handle->delete($f);
+					}catch(\Exception $e){
 						$this->b['error'] = sprintf(_("Error deleting %s"),$file);
 						backup_log($this->b['error']);
 					}

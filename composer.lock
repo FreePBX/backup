@@ -1,0 +1,58 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "eb3e756ac49c6bf9e7a5679ed7f5bc53",
+    "content-hash": "4cbc87ca39344542200d8a011e613a00",
+    "packages": [
+        {
+            "name": "touki/ftp",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/touki653/php-ftp-wrapper.git",
+                "reference": "c4ddbc5ef286f02229ef379090fb2c3381da9cc5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/touki653/php-ftp-wrapper/zipball/c4ddbc5ef286f02229ef379090fb2c3381da9cc5",
+                "reference": "c4ddbc5ef286f02229ef379090fb2c3381da9cc5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Touki\\FTP": [
+                        "lib/",
+                        "tests/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Touki",
+                    "email": "g.vincendon@vithemis.com"
+                }
+            ],
+            "description": "A fully object oriented library for PHP FTP functions",
+            "time": "2015-11-19 12:14:51"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

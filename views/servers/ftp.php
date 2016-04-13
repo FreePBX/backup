@@ -116,7 +116,7 @@ if (!isset($id)) {
 							<label class="control-label" for="password"><?php echo _("Password") ?></label>
 						</div>
 						<div class="col-md-9">
-							<input type="password" class="form-control" id="password" name="password" value="<?php echo isset($password)?$password:''?>"<?php echo $disabled?>>
+							<input type="password" class="form-control" id="password" name="password clicktoedit" value="<?php echo isset($password)?$password:''?>"<?php echo $disabled?>>
 						</div>
 					</div>
 				</div>

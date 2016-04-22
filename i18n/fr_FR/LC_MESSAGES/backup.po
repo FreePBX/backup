@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-04 17:53-0700\n"
+"POT-Creation-Date: 2016-04-22 14:23-0700\n"
 "PO-Revision-Date: 2016-02-05 11:17+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -30,10 +30,6 @@ msgstr ""
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
-
-#: functions.inc/class.backup.php:442
-msgid " Authentication Failure"
-msgstr " Échec d'authentification"
 
 #: views/backup/backups.php:23
 #, php-format
@@ -170,12 +166,12 @@ msgstr "o"
 msgid "BACKUP LOG ATTACHED"
 msgstr ""
 
-#: functions.inc/class.backup.php:390 functions.inc/class.backup.php:393
+#: functions.inc/class.backup.php:396 functions.inc/class.backup.php:399
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
 #: Backup.class.php:316 functions.inc/backup.php:80
-#: functions.inc/class.backup.php:384 views/backup/backup.php:6
+#: functions.inc/class.backup.php:390 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Copie de sauvegarde"
 
@@ -207,11 +203,11 @@ msgstr ""
 msgid "Backup Description"
 msgstr "Description de la copie de sauvegarde"
 
-#: functions.inc/class.backup.php:389
+#: functions.inc/class.backup.php:395
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr "ERREUR de copie de sauvegarde (dépassement des limites SMTP)"
 
-#: functions.inc/class.backup.php:392
+#: functions.inc/class.backup.php:398
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr ""
 
@@ -247,7 +243,7 @@ msgstr ""
 msgid "Backup Server"
 msgstr "Serveur de copie de sauvegarde"
 
-#: functions.inc/restore.php:275
+#: functions.inc/restore.php:272
 msgid "Backup Server not found!"
 msgstr "Serveur de copie de sauvegarde non trouvé !"
 
@@ -267,7 +263,7 @@ msgstr "Sauvegarder et restaurer"
 msgid "Backup completed with errors!"
 msgstr "La copie de sauvegarde a complété avec des erreurs !"
 
-#: functions.inc/class.backup.php:278
+#: functions.inc/class.backup.php:284
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -298,7 +294,7 @@ msgstr "Information de base de la copie de sauvegarde"
 msgid "Basic Information"
 msgstr "Information de base"
 
-#: views/restore/restore.php:4
+#: views/restore/restore.php:7 views/restore/restore.php:24
 msgid "Browse"
 msgstr "Parcourir"
 
@@ -350,13 +346,18 @@ msgstr "Configurations seulement"
 msgid "Connecting to remote server..."
 msgstr "Connexion au serveur distant..."
 
-#: functions.inc/class.backup.php:377 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:383 views/restore/browseserver.php:18
 msgid "Created"
 msgstr ""
 
 #: bin/backup.php:63
 msgid "Creating backup..."
 msgstr "Création de la copie de sauvegarde..."
+
+#: functions.inc/class.backup.php:424
+#, php-format
+msgid "Creating directory '%s'"
+msgstr ""
 
 #: views/cron.php:10
 msgid "Custom"
@@ -404,7 +405,7 @@ msgstr ""
 
 #: Backup.class.php:38 Backup.class.php:202 page.backup.php:46
 #: page.backup_servers.php:35 page.backup_templates.php:20
-#: views/item_table.php:14
+#: views/item_table.php:14 views/restore/restore.php:46
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -454,6 +455,11 @@ msgstr "Destination"
 #: functions.inc/templates.php:246
 msgid "Directory"
 msgstr "Répertoire"
+
+#: functions.inc/class.backup.php:428
+#, php-format
+msgid "Directory '%s' did not exist and we could not create it"
+msgstr ""
 
 #: views/backup/backup.php:326
 msgid "Disable Registered Trunks"
@@ -520,19 +526,11 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:432
-msgid "Error Saving file to the server"
-msgstr ""
-
-#: functions.inc/class.backup.php:442
-msgid "Error connecting to the FTP Server..."
-msgstr ""
-
-#: functions.inc/class.backup.php:413
+#: functions.inc/class.backup.php:421
 msgid "Error connecting to the FTP Server... Check your host name or DNS"
 msgstr ""
 
-#: functions.inc/class.backup.php:746
+#: functions.inc/class.backup.php:748
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -573,10 +571,6 @@ msgstr ""
 msgid "FTP"
 msgstr ""
 
-#: functions.inc/restore.php:100
-msgid "FTP Connection error!"
-msgstr ""
-
 #: views/backup/backups.php:482 views/servers/mysql.php:148
 msgid "FTP Password"
 msgstr ""
@@ -597,20 +591,20 @@ msgstr ""
 msgid "FTP Username"
 msgstr ""
 
-#: functions.inc/restore.php:474
+#: functions.inc/restore.php:488
 msgid ""
 "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
 "current state"
 msgstr ""
 
-#: functions.inc/restore.php:501
+#: functions.inc/restore.php:515
 msgid ""
 "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
 "sql in current state"
 msgstr ""
 
-#: functions.inc/restore.php:303 functions.inc/restore.php:327
-#: functions.inc/restore.php:340
+#: functions.inc/restore.php:322 functions.inc/restore.php:342
+#: functions.inc/restore.php:355
 msgid "Failed to retrieve file from server!"
 msgstr ""
 
@@ -626,7 +620,7 @@ msgstr "Février"
 msgid "File"
 msgstr ""
 
-#: functions.inc/restore.php:348
+#: functions.inc/restore.php:362
 msgid "File not found! "
 msgstr ""
 
@@ -638,7 +632,7 @@ msgstr ""
 msgid "File verification failed. "
 msgstr ""
 
-#: functions.inc/class.backup.php:378 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:384 views/restore/browseserver.php:19
 msgid "Files"
 msgstr ""
 
@@ -730,6 +724,10 @@ msgid ""
 "\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
 msgstr ""
 
+#: views/restore/restore.php:6
+msgid "Import"
+msgstr ""
+
 #: bin/backup.php:41
 msgid "Initializing Backup"
 msgstr ""
@@ -746,7 +744,7 @@ msgstr ""
 msgid "Invalid Backup Name"
 msgstr ""
 
-#: page.backup_restore.php:117 page.backup_restore.php:137
+#: page.backup_restore.php:116 page.backup_restore.php:136
 msgid "Invalid backup for or undefined error"
 msgstr ""
 
@@ -839,7 +837,7 @@ msgstr ""
 msgid "Mysql DB's"
 msgstr ""
 
-#: functions.inc/class.backup.php:379
+#: functions.inc/class.backup.php:385
 msgid "Mysql Db's"
 msgstr ""
 
@@ -847,7 +845,7 @@ msgstr ""
 msgid "Mysql Server "
 msgstr ""
 
-#: functions.inc/class.backup.php:376 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:382 views/restore/browseserver.php:17
 msgid "Name"
 msgstr ""
 
@@ -1102,8 +1100,8 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: page.backup_restore.php:192 views/restore/backup_list.php:34
-#: views/restore/browseserver.php:4 views/restore/restore.php:8
+#: page.backup_restore.php:191 views/restore/backup_list.php:34
+#: views/restore/browseserver.php:4 views/restore/restore.php:40
 #: views/rnav/main.php:4
 msgid "Restore"
 msgstr ""
@@ -1262,6 +1260,10 @@ msgstr ""
 msgid "Save and Run"
 msgstr ""
 
+#: functions.inc/class.backup.php:433
+msgid "Saving file to remote ftp"
+msgstr ""
+
 #: views/cron.php:71
 msgid "Schedule Help"
 msgstr ""
@@ -1284,6 +1286,10 @@ msgstr ""
 #: views/cron.php:51
 msgid "September"
 msgstr "Septembre"
+
+#: views/restore/restore.php:64
+msgid "Server"
+msgstr ""
 
 #: views/backup/backups.php:398
 msgid "Server Address"
@@ -1380,14 +1386,14 @@ msgstr ""
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 
-#: functions.inc/class.backup.php:390
+#: functions.inc/class.backup.php:396
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
 "of transferring your backup."
 msgstr ""
 
-#: functions.inc/class.backup.php:393
+#: functions.inc/class.backup.php:399
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1444,6 +1450,14 @@ msgstr "Mardi"
 msgid "Type"
 msgstr ""
 
+#: functions.inc/restore.php:73 functions.inc/restore.php:308
+msgid "Unable to connect to server!"
+msgstr ""
+
+#: functions.inc/class.backup.php:436
+msgid "Unable to upload file to the remote server"
+msgstr ""
+
 #: install.php:290
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
@@ -1451,6 +1465,10 @@ msgstr ""
 
 #: install.php:278
 msgid "Updated System Recordings template"
+msgstr ""
+
+#: views/restore/restore.php:19
+msgid "Upload File"
 msgstr ""
 
 #: views/servers/mysql.php:112
@@ -1580,7 +1598,7 @@ msgstr ""
 msgid "added default backup templates"
 msgstr ""
 
-#: functions.inc/class.backup.php:380
+#: functions.inc/class.backup.php:386
 msgid "astDb's"
 msgstr ""
 
@@ -1588,11 +1606,11 @@ msgstr ""
 msgid "chose"
 msgstr ""
 
-#: functions.inc/restore.php:17
+#: functions.inc/restore.php:18
 msgid "error/not found!"
 msgstr ""
 
-#: functions.inc/restore.php:185
+#: functions.inc/restore.php:182
 msgid "manifest not found"
 msgstr ""
 
@@ -1607,6 +1625,9 @@ msgstr ""
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr ""
+
+#~ msgid " Authentication Failure"
+#~ msgstr " Échec d'authentification"
 
 #~ msgid "failed"
 #~ msgstr "echec"

@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-04 17:53-0700\n"
+"POT-Creation-Date: 2016-04-22 14:23-0700\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -48,10 +48,6 @@ msgstr ""
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
-
-#: functions.inc/class.backup.php:442
-msgid " Authentication Failure"
-msgstr ""
 
 #: views/backup/backups.php:23
 #, php-format
@@ -192,12 +188,12 @@ msgstr ""
 msgid "BACKUP LOG ATTACHED"
 msgstr "バックアップのログを送ります"
 
-#: functions.inc/class.backup.php:390 functions.inc/class.backup.php:393
+#: functions.inc/class.backup.php:396 functions.inc/class.backup.php:399
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
 #: Backup.class.php:316 functions.inc/backup.php:80
-#: functions.inc/class.backup.php:384 views/backup/backup.php:6
+#: functions.inc/class.backup.php:390 views/backup/backup.php:6
 msgid "Backup"
 msgstr "バックアップ"
 
@@ -229,11 +225,11 @@ msgstr ""
 msgid "Backup Description"
 msgstr ""
 
-#: functions.inc/class.backup.php:389
+#: functions.inc/class.backup.php:395
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr ""
 
-#: functions.inc/class.backup.php:392
+#: functions.inc/class.backup.php:398
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr ""
 
@@ -269,7 +265,7 @@ msgstr "バックアップスケジュール"
 msgid "Backup Server"
 msgstr "バックアップサーバー"
 
-#: functions.inc/restore.php:275
+#: functions.inc/restore.php:272
 msgid "Backup Server not found!"
 msgstr "バックアップサーバーが見つかりません！"
 
@@ -289,7 +285,7 @@ msgstr "バックアップと復元"
 msgid "Backup completed with errors!"
 msgstr "バックアップは完了しましたが一部エラーが発生しました。"
 
-#: functions.inc/class.backup.php:278
+#: functions.inc/class.backup.php:284
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -324,7 +320,7 @@ msgstr ""
 msgid "Basic Information"
 msgstr ""
 
-#: views/restore/restore.php:4
+#: views/restore/restore.php:7 views/restore/restore.php:24
 msgid "Browse"
 msgstr ""
 
@@ -376,13 +372,18 @@ msgstr "設定のみ"
 msgid "Connecting to remote server..."
 msgstr "リモートサーバーに接続中..."
 
-#: functions.inc/class.backup.php:377 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:383 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "作成日時"
 
 #: bin/backup.php:63
 msgid "Creating backup..."
 msgstr "バックアップを作成中…"
+
+#: functions.inc/class.backup.php:424
+#, php-format
+msgid "Creating directory '%s'"
+msgstr ""
 
 #: views/cron.php:10
 msgid "Custom"
@@ -430,7 +431,7 @@ msgstr "デフォルトバックアップ。自動的にインストールされ
 
 #: Backup.class.php:38 Backup.class.php:202 page.backup.php:46
 #: page.backup_servers.php:35 page.backup_templates.php:20
-#: views/item_table.php:14
+#: views/item_table.php:14 views/restore/restore.php:46
 msgid "Delete"
 msgstr "削除"
 
@@ -485,6 +486,11 @@ msgstr ""
 #: functions.inc/templates.php:246
 msgid "Directory"
 msgstr "ディレクトリ"
+
+#: functions.inc/class.backup.php:428
+#, php-format
+msgid "Directory '%s' did not exist and we could not create it"
+msgstr ""
 
 #: views/backup/backup.php:326
 msgid "Disable Registered Trunks"
@@ -555,19 +561,11 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:432
-msgid "Error Saving file to the server"
-msgstr ""
-
-#: functions.inc/class.backup.php:442
-msgid "Error connecting to the FTP Server..."
-msgstr "FTPサーバーに接続できません…"
-
-#: functions.inc/class.backup.php:413
+#: functions.inc/class.backup.php:421
 msgid "Error connecting to the FTP Server... Check your host name or DNS"
 msgstr ""
 
-#: functions.inc/class.backup.php:746
+#: functions.inc/class.backup.php:748
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -608,10 +606,6 @@ msgstr "ホスト特有のNAT設定を意図的にスキップする"
 msgid "FTP"
 msgstr ""
 
-#: functions.inc/restore.php:100
-msgid "FTP Connection error!"
-msgstr "FTP接続エラー！"
-
 #: views/backup/backups.php:482 views/servers/mysql.php:148
 msgid "FTP Password"
 msgstr ""
@@ -632,7 +626,7 @@ msgstr ""
 msgid "FTP Username"
 msgstr ""
 
-#: functions.inc/restore.php:474
+#: functions.inc/restore.php:488
 msgid ""
 "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
 "current state"
@@ -640,7 +634,7 @@ msgstr ""
 "asterisk.sqlを独自フォーマットに変換できませんでした。現在の状態で名前を"
 "mysql-db.sqlに変更します。"
 
-#: functions.inc/restore.php:501
+#: functions.inc/restore.php:515
 msgid ""
 "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
 "sql in current state"
@@ -648,8 +642,8 @@ msgstr ""
 "asteriskcdr.sqlを独自フォーマットに変換できませんでした。現在の状態で名前を"
 "mysql-cdr.sqlに変更します。"
 
-#: functions.inc/restore.php:303 functions.inc/restore.php:327
-#: functions.inc/restore.php:340
+#: functions.inc/restore.php:322 functions.inc/restore.php:342
+#: functions.inc/restore.php:355
 msgid "Failed to retrieve file from server!"
 msgstr "ファイルをサーバーから取得できませんでした。"
 
@@ -665,7 +659,7 @@ msgstr "2月"
 msgid "File"
 msgstr "ファイル"
 
-#: functions.inc/restore.php:348
+#: functions.inc/restore.php:362
 msgid "File not found! "
 msgstr "ファイルが見つかりません！ "
 
@@ -677,7 +671,7 @@ msgstr "ファイルの復元が完了しました！"
 msgid "File verification failed. "
 msgstr "ファイル検証は失敗しました。 "
 
-#: functions.inc/class.backup.php:378 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:384 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "ファイル"
 
@@ -769,6 +763,10 @@ msgid ""
 "\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
 msgstr ""
 
+#: views/restore/restore.php:6
+msgid "Import"
+msgstr ""
+
 #: bin/backup.php:41
 msgid "Initializing Backup"
 msgstr ""
@@ -785,7 +783,7 @@ msgstr ""
 msgid "Invalid Backup Name"
 msgstr ""
 
-#: page.backup_restore.php:117 page.backup_restore.php:137
+#: page.backup_restore.php:116 page.backup_restore.php:136
 msgid "Invalid backup for or undefined error"
 msgstr "不正なバックアップまたは不明なエラー"
 
@@ -878,7 +876,7 @@ msgstr "MySQL"
 msgid "Mysql DB's"
 msgstr "MySQLデータベース"
 
-#: functions.inc/class.backup.php:379
+#: functions.inc/class.backup.php:385
 msgid "Mysql Db's"
 msgstr "MySQL DB"
 
@@ -886,7 +884,7 @@ msgstr "MySQL DB"
 msgid "Mysql Server "
 msgstr "MySQLサーバー "
 
-#: functions.inc/class.backup.php:376 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:382 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "名前"
 
@@ -1141,8 +1139,8 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: page.backup_restore.php:192 views/restore/backup_list.php:34
-#: views/restore/browseserver.php:4 views/restore/restore.php:8
+#: page.backup_restore.php:191 views/restore/backup_list.php:34
+#: views/restore/browseserver.php:4 views/restore/restore.php:40
 #: views/rnav/main.php:4
 msgid "Restore"
 msgstr "復元"
@@ -1301,6 +1299,10 @@ msgstr "保存"
 msgid "Save and Run"
 msgstr ""
 
+#: functions.inc/class.backup.php:433
+msgid "Saving file to remote ftp"
+msgstr ""
+
 #: views/cron.php:71
 msgid "Schedule Help"
 msgstr ""
@@ -1325,6 +1327,10 @@ msgstr ""
 #: views/cron.php:51
 msgid "September"
 msgstr "9月"
+
+#: views/restore/restore.php:64
+msgid "Server"
+msgstr ""
 
 #: views/backup/backups.php:398
 msgid "Server Address"
@@ -1421,14 +1427,14 @@ msgstr "テンプレート"
 msgid "The From: field for emails when using the backup email feature."
 msgstr "バックアップEメール機能使用時のFrom:フィールド。"
 
-#: functions.inc/class.backup.php:390
+#: functions.inc/class.backup.php:396
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
 "of transferring your backup."
 msgstr ""
 
-#: functions.inc/class.backup.php:393
+#: functions.inc/class.backup.php:399
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1488,6 +1494,14 @@ msgstr "火曜日"
 msgid "Type"
 msgstr "タイプ"
 
+#: functions.inc/restore.php:73 functions.inc/restore.php:308
+msgid "Unable to connect to server!"
+msgstr ""
+
+#: functions.inc/class.backup.php:436
+msgid "Unable to upload file to the remote server"
+msgstr ""
+
 #: install.php:290
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
@@ -1495,6 +1509,10 @@ msgstr ""
 
 #: install.php:278
 msgid "Updated System Recordings template"
+msgstr ""
+
+#: views/restore/restore.php:19
+msgid "Upload File"
 msgstr ""
 
 #: views/servers/mysql.php:112
@@ -1625,7 +1643,7 @@ msgstr "デフォルトバックアップサーバーを追加しました。"
 msgid "added default backup templates"
 msgstr "デフォルトバックアップテンプレートを追加しました。"
 
-#: functions.inc/class.backup.php:380
+#: functions.inc/class.backup.php:386
 msgid "astDb's"
 msgstr "astDb"
 
@@ -1633,11 +1651,11 @@ msgstr "astDb"
 msgid "chose"
 msgstr "選択する"
 
-#: functions.inc/restore.php:17
+#: functions.inc/restore.php:18
 msgid "error/not found!"
 msgstr "エラー：見つかりません！"
 
-#: functions.inc/restore.php:185
+#: functions.inc/restore.php:182
 msgid "manifest not found"
 msgstr "manifestが見つかりません"
 
@@ -1652,6 +1670,12 @@ msgstr "ロックを待機中…"
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "{サーバーはありません}"
+
+#~ msgid "Error connecting to the FTP Server..."
+#~ msgstr "FTPサーバーに接続できません…"
+
+#~ msgid "FTP Connection error!"
+#~ msgstr "FTP接続エラー！"
 
 #~ msgid "Bulding manifest..."
 #~ msgstr "manifestを構築中…"

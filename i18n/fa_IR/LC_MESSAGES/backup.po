@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-22 14:23-0700\n"
-"PO-Revision-Date: 2016-04-26 15:57+0200\n"
+"PO-Revision-Date: 2016-04-26 17:34+0200\n"
 "Last-Translator: psdk <hyavari26@gmail.com>\n"
 "Language-Team: Persian (Iran) "
 "<http://weblate.freepbx.org/projects/freepbx/backup/fa_IR/>\n"
@@ -655,9 +655,8 @@ msgid "Files"
 msgstr "فایل ها"
 
 #: page.backup.php:52
-#, fuzzy
 msgid "FreePBX"
-msgstr "FreePBX"
+msgstr "سیستم FreePBX"
 
 #: views/cron.php:32 assets/js/backup.js:83
 msgid "Friday"
@@ -990,7 +989,7 @@ msgstr "تنظیمات PBX"
 
 #: install.php:88
 msgid "PBX config server, generally a local database server"
-msgstr "پیکربندی سرور PBX، عموما سرور بانک اطلاعاتی محلی"
+msgstr "پیکربندی سرور PBX، عموما سرور دیتابیس محلی"
 
 #: views/backup/backups.php:499 views/servers/ftp.php:165
 msgid "Passive"
@@ -999,7 +998,7 @@ msgstr "غیرفعال"
 #: views/backup/backups.php:470 views/servers/ftp.php:116
 #: views/servers/mysql.php:136
 msgid "Password"
-msgstr "کلمه عبور"
+msgstr "رمز عبور"
 
 #: views/servers/ftp.php:134 views/servers/local.php:64
 #: views/servers/ssh.php:160
@@ -1009,23 +1008,23 @@ msgstr "مسیر"
 #: views/servers/ftp.php:146 views/servers/local.php:76
 #: views/servers/ssh.php:172
 msgid "Path on remote server"
-msgstr "مسیر در سرور خارجی"
+msgstr "مسیر در سرور راه دور"
 
 #: views/backup/backups.php:557
 msgid "Path to ssh key, example /home/asterisk/.ssh/id_rsa"
-msgstr "مسیر برای کلید ssh، برای مثال /home/asterisk/.ssh/id_rsa"
+msgstr "مسیر کلید SSH، به عنوان مثال home/asterisk/.ssh/id_rsa/"
 
 #: views/item_table.php:8
 msgid "Path/DB"
-msgstr "مسیر/DB"
+msgstr "مسیر/دیتابیس"
 
 #: assets/js/backup.js:146
 msgid "Please wait"
-msgstr "منتظر بمانید"
+msgstr "لطفا منتظر بمانید"
 
 #: views/restore/backup_list.php:13
 msgid "Please wait, loading..."
-msgstr "منتظر بمانید، بارگذاری..."
+msgstr "لطفا منتظر بمانید، در حال بارگذاری..."
 
 #: views/servers/ftp.php:80 views/servers/mysql.php:88
 #: views/servers/ssh.php:88
@@ -1034,33 +1033,33 @@ msgstr "پورت"
 
 #: views/backup/backup.php:185
 msgid "Post-Backup Hook"
-msgstr "Post-Backup  Hook"
+msgstr "تله بعد از اجرای پشتیبان"
 
 #: views/backup/backup.php:233
 msgid "Post-Restore Hook"
-msgstr "Post-Restore  Hook"
+msgstr "تله بعد از اجرای بازیابی"
 
 #: views/backup/backup.php:161
 msgid "Pre-Backup Hook"
-msgstr "Pre-Backup  Hook"
+msgstr "تله پیش از اجرای پشتیبان"
 
 #: views/backup/backup.php:209
 msgid "Pre-Restore Hook"
-msgstr "Pre-Restore  Hook"
+msgstr "تله پیش از اجرای بازیابی"
 
 #: bin/restore.php:294
 msgid "Preserving local NAT settings"
-msgstr "Preserving  local NAT settings"
+msgstr "حفظ تنظیمات NAT محلی"
 
 #: bin/restore.php:245
 #, php-format
 msgid "Processed %s%% of CDRs (%s of %s lines)"
-msgstr "Processed %s%% of  CDRs (%s of %s lines)"
+msgstr "پردازش %s%% از CDR ها (%s از %s خط)"
 
 #: bin/restore.php:339
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
-msgstr "Processed %s%% of  Settings (%s of %s lines)"
+msgstr "پردازش %s%% از تنظیمات (%s از %s خط)"
 
 #: bin/backup.php:139
 msgid "Processing received file..."
@@ -1068,7 +1067,7 @@ msgstr "پردازش فایل دریافتی..."
 
 #: views/servers/local.php:28 views/servers/ssh.php:28
 msgid "Provide the name for this server"
-msgstr "ایجاد نام برای این سرور"
+msgstr "برای این سرور یک نام  تعریف کنید"
 
 #: views/cron.php:140
 msgid "Randomize"
@@ -1084,53 +1083,54 @@ msgstr "بارگذاری..."
 
 #: views/servers/mysql.php:172
 msgid "Remote Database Name"
-msgstr "نام بانک اطلاعاتی خارجی"
+msgstr "نام دیتابیس راه دور"
 
 #: views/servers/mysql.php:100
 msgid "Remote MySQL Port"
-msgstr "پورت MySQL خارجی"
+msgstr "پورت MySQL راه دور"
 
 #: views/backup/backups.php:521
 msgid "Remote Path"
-msgstr "مسیر سرور خارجی"
+msgstr "مسیر سرور راه دور"
 
 #: views/servers/ssh.php:100
 msgid "Remote SSH Port"
-msgstr "پورت SSH خارجی"
+msgstr "پورت SSH سرور راه دور"
 
 #: views/backup/backups.php:320
 msgid "Remote Save"
-msgstr "ذخیره سرور خارجی"
+msgstr "ذخیره در سرور راه دور"
 
 #: views/backup/backups.php:335
 msgid "Remote Server Settings?"
-msgstr "تنظیمات سرور خارجی؟"
+msgstr "تنظیمات سرور راه دور؟"
 
 #: views/backup/backups.php:347
 msgid "Remote Server Type"
-msgstr "نوع سرور خارجی"
+msgstr "نوع سرور راه دور"
 
 #: views/backup/backups.php:362
 msgid "Remote Server type"
-msgstr "نوع سرور خارجی"
+msgstr "نوع سرور راه دور"
 
 #: views/backup/backups.php:310
 msgid "Remote save options"
-msgstr "گزینه های ذخیره سرور خارجی"
+msgstr "تنظیمات ذخیره سرور راه دور"
 
 #: views/backup/backups.php:533
 msgid "Remote save path, blank for default"
-msgstr "مسیر ذخیره سرور خارجی، خالی برای پیشفرض"
+msgstr ""
+"مسیر ذخیره سازی راه دور، در صورت خالی بودن مقدار پیش فرض در نظر گرفته می شود"
 
 #: Backup.class.php:187
 msgid "Reset"
-msgstr "تنظیم مجدد"
+msgstr "بازنشانی"
 
 #: page.backup_restore.php:191 views/restore/backup_list.php:34
 #: views/restore/browseserver.php:4 views/restore/restore.php:40
 #: views/rnav/main.php:4
 msgid "Restore"
-msgstr "بازگردانی"
+msgstr "بازیابی"
 
 #: views/restore/backup_list.php:26
 msgid "Restore CDR records stored in this backup"
@@ -1138,59 +1138,59 @@ msgstr "بازگردانی رکوردهای CDR ذخیره شده در این پ
 
 #: views/backup/backup.php:292
 msgid "Restore Here"
-msgstr "بازگردانی به اینجا"
+msgstr "بازیابی در اینجا"
 
 #: views/restore/backup_list.php:19
 msgid "Restore all setting stored in the database"
-msgstr "بازگردانی تمام تنظیمات ذخیره شده در این بانک اطلاعاتی"
+msgstr "بازیابی تمامی تنظیمات ذخیره شده در دیتابیس"
 
 #: views/backup/backup.php:314
 msgid "Restore backup to this server after the backup is complete"
-msgstr "بازگردانی پشتیبان این سرور بعد از تکمیل پشتیبان گیری"
+msgstr "بازیابی پشتیبان بر روی این سرور بعد از اتمام پشتیبان گیری"
 
 #: bin/restore.php:417
 msgid "Restore complete!"
-msgstr "تکمیل بازگردانی!"
+msgstr "بازیابی کامل شد!"
 
 #: bin/restore.php:343
 msgid "Restored Database"
-msgstr "بانک اطلاعاتی بازگردانی شد"
+msgstr "دیتابیس بازیابی شد"
 
 #: bin/restore.php:252
 msgid "Restoring CDRs complete"
-msgstr "تکمیل بازگردانی CDRs"
+msgstr "تکمیل بازیابی CDR ها"
 
 #: bin/restore.php:170
 msgid "Restoring CDRs..."
-msgstr "بازگردانی CDRs..."
+msgstr "بازیابی CDR ها…"
 
 #: bin/restore.php:301
 msgid "Restoring Database..."
-msgstr "بازگردانی بانک اطلاعاتی..."
+msgstr "بازیابی دیتابیس..."
 
 #: bin/restore.php:351
 msgid "Restoring NAT settings"
-msgstr "بازگردانی تنظیمات NAT"
+msgstr "بازیابی تنظیمات NAT"
 
 #: bin/restore.php:372
 msgid "Restoring Settings complete"
-msgstr "تکمیل بازگردانی تنظیمات"
+msgstr "تکمیل بازیابی تنظیمات"
 
 #: bin/restore.php:115
 msgid "Restoring all files (this may take some time)..."
-msgstr "بازگردانی تمام فایل ها (ممکن است طول بکشد)..."
+msgstr "بازیابی تمامی فایل ها (ممکن است طول بکشد)..."
 
 #: bin/restore.php:362
 msgid "Restoring astDB..."
-msgstr "بازگردانی دیتابیس استریسک..."
+msgstr "بازیابی دیتابیس استریسک..."
 
 #: bin/backup.php:173
 msgid "Restoring backup..."
-msgstr "بازگردانی پشتیبان..."
+msgstr "بازیابی پشتیبان..."
 
 #: bin/restore.php:119
 msgid "Restoring files (this may take some time)..."
-msgstr "بازگردانی فایل ها (ممکن است طول بکشد)..."
+msgstr "بازیابی فایل ها (ممکن است طول بکشد)..."
 
 #: views/cron.php:120
 msgid "Run Automatically"
@@ -1201,60 +1201,60 @@ msgid ""
 "Run at startup of the server OR of the cron deamon (i.e. after every "
 "<code>service cron restart</code>)"
 msgstr ""
-"Run at startup of the  server OR of the cron deamon (i.e. after every "
-"<code>service cron restart</code>)"
+"در زمان راه اندازی سرور و یا سرویس cron اجرا شود (بعد از هر <code> سرویس "
+"cron راه اندازی مجدد می نماید<code/>)"
 
 #: page.backup.php:48
 msgid "Run now"
-msgstr "اجرا کن"
+msgstr "اجرا شود"
 
 #: views/cron.php:81
 msgid "Run once a day, at midnight"
-msgstr "اجرا یکبار در روز، در نیمه شب"
+msgstr "یک مرتبه در روز اجرا شود، در نیمه شب"
 
 #: views/cron.php:89
 msgid "Run once a month, midnight, first of month"
-msgstr "اجرا یک بار در ماه، نیمه شب، اولین روز ماه"
+msgstr "یک مرتبه در ماه اجرا شود، در نیمه شب، اول هر ماه"
 
 #: views/cron.php:85
 msgid "Run once a week, midnight on Sun"
-msgstr "اجرا یک بار در هفته، نیمه شب یکشنبه"
+msgstr "یک مرتبه در هفته اجرا شود، در نیمه شب جمعه"
 
 #: views/cron.php:93
 msgid "Run once a year, midnight, Jan. 1"
-msgstr "اجرا یک بار در سال، نیمه شب، روز اول ژانویه"
+msgstr "یک مرتبه در سال اجرا شود، در نیمه شب یکم ژانویه"
 
 #: views/cron.php:77
 msgid "Run once an hour, beginning of hour"
-msgstr "اجرا یک بار در ساعت، آغاز ساعت"
+msgstr "یک مرتبه در هر ساعت اجرا شود، در ابتدای هر ساعت"
 
 #: bin/restore.php:378
 msgid "Running post restore script..."
-msgstr "اجرای اسکریپت بازگردانی..."
+msgstr "اجرای اسکریپت پس از بازیابی..."
 
 #: bin/backup.php:147 bin/backup.php:185
 msgid "Running post-backup hooks..."
-msgstr "Running  post-backup hooks..."
+msgstr "اجرای تله های بعد از پشتیبان گیری…"
 
 #: bin/restore.php:382
 msgid "Running post-restore hooks, if any..."
-msgstr "Running  post-restore hooks, if any..."
+msgstr "اجرای تله های پس از بازیابی…"
 
 #: bin/backup.php:52
 msgid "Running pre-backup hooks..."
-msgstr "Running  pre-backup hooks..."
+msgstr "اجرای تله های پیش از پشتیبان گیری…"
 
 #: bin/restore.php:105
 msgid "Running pre-restore hooks, if any..."
-msgstr "Running  pre-restore hooks, if any..."
+msgstr "اجرای تله های پیش از بازیابی…"
 
 #: bin/restore.php:102
 msgid "Running pre-restore scripts..."
-msgstr "Running  pre-restore scripts..."
+msgstr "اجرای اسکریپت های پیش از بازیابی…"
 
 #: views/backup/backup.php:526
 msgid "Runs"
-msgstr "اجراها"
+msgstr "اجرا"
 
 #: views/backup/backups.php:354
 msgid "SSH"
@@ -1290,7 +1290,7 @@ msgstr "ذخیره و اجرا"
 
 #: functions.inc/class.backup.php:433
 msgid "Saving file to remote ftp"
-msgstr "ذخیره فایل در ftp خارجی"
+msgstr "ذخیره فایل در FTP راه دور"
 
 #: views/cron.php:71
 msgid "Schedule Help"
@@ -1298,21 +1298,20 @@ msgstr "راهنمای زمان بندی"
 
 #: views/restore/browseserver.php:12
 msgid "Select a file and click go"
-msgstr "یک فایل انتخاب کنید و رفتن را بزنید"
+msgstr "یک فایل را انتخاب کرده و گزینه \"برو\" را انتخاب نمایید"
 
 #: views/cron.php:73
 msgid ""
 "Select how often to run this backup. The following schedule will be followed "
 "for all but custom."
-msgstr ""
-"Select  how often to run this backup. The following schedule will be "
-"followed for all but custom."
+msgstr "روش زمانبندی تهیه این پشتیبان را انتخاب نمایید."
 
 #: views/backup/backup.php:281
 msgid ""
 "Select the server to be backed up (this server, or any other SSH server)"
 msgstr ""
-"Select  the server to be backed up (this server, or any other SSH server)"
+"سرور مورد نظر جهت تهیه پشتیبان را انتخاب نمایید (این سرور و یا هر سرو SSH "
+"دیگر)"
 
 #: views/cron.php:51
 msgid "September"
@@ -1334,7 +1333,7 @@ msgstr "نام سرور"
 
 #: assets/js/backup.js:24
 msgid "Server Name can not be blank"
-msgstr "نام سرور نمیتواند خالی باشد"
+msgstr "نام سرور نمی تواند خالی باشد"
 
 #: views/backup/backups.php:422
 msgid "Server Port"
@@ -1342,7 +1341,7 @@ msgstr "پورت سرور"
 
 #: views/backup/backups.php:434
 msgid "Server Port, leave blank for default"
-msgstr "پورت سرور، خالی برای پیشفرض"
+msgstr "پورت سرور، در صورت خالی بودن مقدار پیش فرض در نظر گرفته می شود"
 
 #: views/backup/backups.php:458
 msgid "Server Username"
@@ -1350,7 +1349,7 @@ msgstr "نام کاربری سرور"
 
 #: assets/js/backup.js:28
 msgid "Server address can not be blank"
-msgstr "آدرس سرور نمیتواند خالی باشد"
+msgstr "آدرس سرور نمی تواند خالی باشد"
 
 #: page.backup_servers.php:79 views/rnav/main.php:5
 msgid "Servers"
@@ -1358,7 +1357,8 @@ msgstr "سرورها"
 
 #: bin/backup.php:106
 msgid "Something went wrong when connecting to remote server. Aborting!"
-msgstr "بعضی اوقات ممکن است خطای اتصال به سرور خارجی باشد. شکست!"
+msgstr ""
+"ممکن است برخی تنظیمات برای ارتباط با سرور راه دور اشتباه باشد. بی نتیجه!"
 
 #: views/backup/backup.php:65 views/backup/backups.php:291
 msgid "Status Email"
@@ -1366,23 +1366,23 @@ msgstr "ایمیل وضعیت"
 
 #: views/backup/backups.php:39
 msgid "Step 1"
-msgstr "مرحله 1"
+msgstr "گام اول"
 
 #: views/backup/backups.php:48
 msgid "Step 2"
-msgstr "مرحله 2"
+msgstr "گام دوم"
 
 #: views/backup/backups.php:57
 msgid "Step 3"
-msgstr "مرحله 3"
+msgstr "گام سوم"
 
 #: views/backup/backups.php:66
 msgid "Step 4"
-msgstr "مرحله 4"
+msgstr "گام چهارم"
 
 #: views/backup/backups.php:75
 msgid "Step 5"
-msgstr "مرحله 5"
+msgstr "گام پنجم"
 
 #: views/backup/backup.php:414
 msgid "Storage Servers"
@@ -1402,7 +1402,7 @@ msgstr "یک شنبه"
 
 #: views/servers/mysql.php:28
 msgid "Supply a server name"
-msgstr "فراهم آوری نام سرور"
+msgstr "یک نام برای سرور انتخاب نمایید"
 
 #: views/templates/template.php:18
 msgid "Template Name"
@@ -1415,7 +1415,8 @@ msgstr "قالب ها"
 
 #: backup.i18n.php:24
 msgid "The From: field for emails when using the backup email feature."
-msgstr "از: فیلد برای ایمیل ها وقتی از ویژگی ایمیل پشتیبان استفاده میشود."
+msgstr ""
+"از طرف: فیلد مبدا ایمیل ها وقتی از قابلیت ارسال ایمیل پشتیبان استفاده می شود."
 
 #: functions.inc/class.backup.php:396
 msgid ""
@@ -1423,9 +1424,9 @@ msgid ""
 "attempted to be sent. Please shrink your backup, or use a different method "
 "of transferring your backup."
 msgstr ""
-"The backup file  exceeded the maximum SMTP limits of 25MB. It was not "
-"attempted to be sent. Please shrink your backup, or use a different method "
-"of transferring your backup."
+"فایل پشتیبان از حداکثر اندازه مجاز برای SMTP یعنی 25 مگابایت تجاوز کرده است. "
+"امکان ارسال این فایل وجود ندارد لذا باید فایل مورد نظر را کوچک تر کرده و یا "
+"از روش های دیگر برای انتقال آن استفاده نمایید."
 
 #: functions.inc/class.backup.php:399
 #, php-format
@@ -1434,9 +1435,9 @@ msgid ""
 "bytes). It was not attempted to be sent. Please shrink your backup, or use a "
 "different method of transferring your backup."
 msgstr ""
-"The backup  file exceeded the soft limit set in SMTP configuration (%s "
-"bytes). It was not attempted to be sent. Please shrink your backup, or use a "
-"different method of transferring your backup."
+"فایل پشتیبان از محدودیت ایجاد شده در SMTP تجاوز کرده است (%s بایت). امکان "
+"ارسال این فایل وجود ندارد لذا باید فایل مورد نظر را کوچک تر کرده و یا از روش "
+"های دیگر برای انتقال آن استفاده نمایید."
 
 #: views/servers/email.php:113
 msgid ""
@@ -1444,9 +1445,9 @@ msgid ""
 "limit the size of email attachments, this will make sure that files larger "
 "than the max size are not sent."
 msgstr ""
-"The  maximum size a backup can be and still be emailed. Some email servers "
-"limit the size of email attachments, this will make sure that files larger "
-"than the max size are not sent."
+"حداکثر اندازه ای که یک پشتیبان می تواند داشته باشد تا ایمیل گردد. برخی از "
+"ایمیل سرور ها سایز فایل های ضمیمه شده را محدود می کنند. لذا از این طریق می "
+"توان از ارسال فایل های بزرگ جلوگیری کرد."
 
 #: views/servers/ftp.php:173
 msgid ""
@@ -1456,15 +1457,14 @@ msgid ""
 "the data. In 'Passive' mode, the VoIP server connects to the FTP Server to "
 "send data."
 msgstr ""
-"This  defaults to 'Passive'. If your FTP server is behind a seperate NAT or "
-"Firewall to this VoIP server, you should select 'Active'. In 'Active' mode, "
-"the FTP server establishes a connection back to the VoIP server to receive "
-"the data. In 'Passive' mode, the VoIP server connects to the FTP Server to "
-"send data."
+"به صورت پیش فرض نوع پسیو انتخاب شده است. اگر فایل سرور شما پشت فایروال قرار "
+"دارد شما باید حالت اکتیو را انتخاب نمایید. در حالت اکتیو، فایل سرور یک اتصال "
+"با سرور تلفنی برای دریافت داده ها برقرار می کند؛ در صورتی که در حالت پسیو "
+"سرور تلفنی برای ارسال داده ها به فایل سرور متصل می شود."
 
 #: views/servers/email.php:118
 msgid "This has a maximum size of 25MB."
-msgstr "بیشترین حچم 25مگابایت است."
+msgstr "حداکثر اندازه 25 مگابایت می باشد."
 
 #: views/backup/backup.php:252
 msgid "This server"
@@ -1473,7 +1473,8 @@ msgstr "این سرور"
 #: views/backup/backups.php:84
 #, php-format
 msgid "This wizard can be used to add a basic backup task for your %s system"
-msgstr "This  wizard can be used to add a basic backup task for your %s system"
+msgstr ""
+"این ویزارد به شما کمک می کند تا یک پشتیبان پایه برای سیستم %s ایجاد کنید"
 
 #: views/cron.php:31 assets/js/backup.js:83
 msgid "Thursday"
@@ -1501,16 +1502,16 @@ msgstr "عدم امکان اتصال به سرور!"
 
 #: functions.inc/class.backup.php:436
 msgid "Unable to upload file to the remote server"
-msgstr "عدم امکان بارگذاری فایل در سرور خارجی"
+msgstr "عدم امکان بارگذاری فایل در سرور راه دور"
 
 #: install.php:290
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
-msgstr "Updated  Job %s with new custom sounds directory"
+msgstr "بروز رسانی Job به میزان %s با دایرکتوری صداهای سفارشی"
 
 #: install.php:278
 msgid "Updated System Recordings template"
-msgstr "Updated  System Recordings template"
+msgstr "قالب صداهای ضبط شده سیستمی بروز رسانی شده"
 
 #: views/restore/restore.php:19
 msgid "Upload File"
@@ -1527,15 +1528,15 @@ msgstr "نام کاربری"
 
 #: bin/backup.php:111
 msgid "Verifying received file..."
-msgstr "تایید فایل دریافتی..."
+msgstr "بازبینی فایل دریافتی..."
 
 #: install.php:163
 msgid "Voice Mail Storage"
-msgstr "ذخیره میل صوتی"
+msgstr "محل ذخیره سازی صندوق صوتی"
 
 #: views/backup/backups.php:179
 msgid "Voicemails"
-msgstr "میل های صوتی"
+msgstr "صندوق های صوتی"
 
 #: bin/restore.php:258
 msgid "WARNING!"
@@ -1543,7 +1544,7 @@ msgstr "هشدار!"
 
 #: bin/restore.php:259
 msgid "Web Root restore not detected, not restoring module table"
-msgstr "Web Root  restore not detected, not restoring module table"
+msgstr "بازیابی شاخه اصلی وب شناسایی نگردید، عدم وجود جدول ماژول بازیابی"
 
 #: views/cron.php:30 assets/js/backup.js:83
 msgid "Wednesday"
@@ -1559,7 +1560,7 @@ msgstr "هفتگی"
 
 #: views/backup/backup.php:497
 msgid "Weeks"
-msgstr "هفته ها"
+msgstr "هفته"
 
 #: views/backup/backups.php:82
 msgid "Welcome to the Backup Wizard"
@@ -1567,7 +1568,7 @@ msgstr "به ویزارد پشتیبان گیری خوش آمدید"
 
 #: views/backup/backups.php:169
 msgid "What should we backup?"
-msgstr "از چه چیز میخواهید پشتیبان بگیرید؟"
+msgstr "از چه چیز می خواهید پشتیبان بگیرید؟"
 
 #: views/servers/awss3.php:46 views/servers/awss3.php:63
 msgid "What's this?"
@@ -1579,19 +1580,19 @@ msgstr "ایمیل وضعیت باید به کجا ارسال شود؟"
 
 #: views/cron.php:234
 msgid "Which Days of the week to run"
-msgstr "کدام روزهای هفته باید اجرا شود"
+msgstr "پشتیبان گیری در چه روزی از هفته انجام خواهد شد"
 
 #: views/cron.php:208
 msgid "Which Hours to run."
-msgstr "کدام ساعات اجرا شود."
+msgstr "پشتیبان گیری در چه ساعتی انجام خواهد شد."
 
 #: views/cron.php:260
 msgid "Which Months to run"
-msgstr "کدام ماه ها اجرا شود"
+msgstr "پشتیبان گیری در چه ماهی انجام خواهد شد"
 
 #: views/cron.php:182
 msgid "Which minutes to run"
-msgstr "کدام دقایق اجرا شود"
+msgstr "پشتیبان گیری در چه دقیقه ای انجام خواهد شد"
 
 #: Backup.class.php:67
 msgid "Wizard"
@@ -1599,23 +1600,23 @@ msgstr "ویزارد"
 
 #: views/backup/backups.php:279
 msgid "Would you like an email when this job runs?"
-msgstr "آیا میخواهید در هنگام اجرا ایمیلی دریافت کنید؟"
+msgstr "آیا تمایل به ارسال ایمیل در زمان اجرای این پشتیبان دارید؟"
 
 #: views/backup/backups.php:255
 msgid "Would you like notifications?"
-msgstr "آیا میخواهید اعلانی داشته باشید؟"
+msgstr "آیا تمایل به اطلاع رسانی دارید؟"
 
 #: views/backup/backups.php:221
 msgid "Would you like to backup recordings?"
-msgstr "آیا میخواهید از ضبط شده ها پشتیبان گیرید؟"
+msgstr "آیا تمایل به تهیه پشتیبان از مکالمات ضبط شده دارید؟"
 
 #: views/backup/backups.php:194
 msgid "Would you like voicemails backded up."
-msgstr "آیا میخواهید از ایمیل های صوتی پشتیبان گیرید."
+msgstr "آیا تمایل به تهیه پشتیبان از صندوق های صوتی دارید."
 
 #: views/backup/backup.php:501
 msgid "Years"
-msgstr "سال ها"
+msgstr "سال"
 
 #: views/backup/backup.php:94 views/backup/backup.php:306
 #: views/backup/backup.php:331 views/backup/backup.php:358
@@ -1629,24 +1630,24 @@ msgstr "بله"
 #: bin/restore.php:260
 #, php-format
 msgid "You should run \"%s\" to ensure system integrity"
-msgstr "You  should run \"%s\" to ensure system integrity"
+msgstr "برای اطمینان از یکپارچگی اطلاعات باید \"%s\" را اجرا کنید"
 
 #: views/backup/backups.php:312
 msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
 msgstr ""
-"پشتیبان شما در سرور محلی ذخیره شده است در مسیر /var/spool/asterisk/backup"
+"فایل پشتیبان به صورت محلی در مسیر var/spool/asterisk/backup/ ذخیر می شود"
 
 #: install.php:126
 msgid "added default backup servers"
-msgstr "سرورهای پشتیبان پیشفرض اضافه شد"
+msgstr "سرورهای پشتیبان پیش فرض اضافه شد"
 
 #: install.php:215
 msgid "added default backup templates"
-msgstr "قالب های پشتیبان پیشفرض اضافه شد"
+msgstr "قالب های پشتیبان پیش فرض اضافه شد"
 
 #: functions.inc/class.backup.php:386
 msgid "astDb's"
-msgstr "بانکهای استریسک"
+msgstr "دیتابیس های استریسک"
 
 #: views/item_table.php:48
 msgid "chose"
@@ -1654,7 +1655,7 @@ msgstr "انتخاب"
 
 #: functions.inc/restore.php:18
 msgid "error/not found!"
-msgstr "خطا/یافت نشد!"
+msgstr "خطا/ یافت نشد!"
 
 #: functions.inc/restore.php:182
 msgid "manifest not found"

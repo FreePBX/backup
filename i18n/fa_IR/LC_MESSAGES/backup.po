@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-22 14:23-0700\n"
-"PO-Revision-Date: 2016-04-26 03:59+0200\n"
+"PO-Revision-Date: 2016-04-26 04:09+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) "
 "<http://weblate.freepbx.org/projects/freepbx/backup/fa_IR/>\n"
@@ -762,7 +762,7 @@ msgstr ""
 
 #: views/restore/restore.php:6
 msgid "Import"
-msgstr ""
+msgstr "ورود"
 
 #: bin/backup.php:41
 msgid "Initializing Backup"
@@ -1300,7 +1300,7 @@ msgstr "ذخیره و اجرا"
 
 #: functions.inc/class.backup.php:433
 msgid "Saving file to remote ftp"
-msgstr ""
+msgstr "ذخیره فایل در ftp خارجی"
 
 #: views/cron.php:71
 msgid "Schedule Help"
@@ -1330,7 +1330,7 @@ msgstr "سپتامبر"
 
 #: views/restore/restore.php:64
 msgid "Server"
-msgstr ""
+msgstr "سرور"
 
 #: views/backup/backups.php:398
 msgid "Server Address"
@@ -1507,11 +1507,11 @@ msgstr "نوع"
 
 #: functions.inc/restore.php:73 functions.inc/restore.php:308
 msgid "Unable to connect to server!"
-msgstr ""
+msgstr "عدم امکان اتصال به سرور!"
 
 #: functions.inc/class.backup.php:436
 msgid "Unable to upload file to the remote server"
-msgstr ""
+msgstr "عدم امکان بارگذاری فایل در سرور خارجی"
 
 #: install.php:290
 #, php-format
@@ -1524,7 +1524,7 @@ msgstr "Updated  System Recordings template"
 
 #: views/restore/restore.php:19
 msgid "Upload File"
-msgstr ""
+msgstr "بارگذاری فایل"
 
 #: views/servers/mysql.php:112
 msgid "User Name"

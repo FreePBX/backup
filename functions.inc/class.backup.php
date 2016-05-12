@@ -1,10 +1,21 @@
 <?php
 namespace FreePBX\modules\Backup;
 require __DIR__ . '/../vendor/autoload.php';
+/*FTP Stuff*/
+use Touki\FTP\FTP;
+use Touki\FTP\FTPWrapper;
 use Touki\FTP\Connection\Connection;
-use Touki\FTP\Model\Directory;
+use Touki\FTP\PermissionsFactory;
+use Touki\FTP\FilesystemFactory;
+use Touki\FTP\WindowsFilesystemFactory;
+use Touki\FTP\DownloaderVoter;
+use Touki\FTP\UploaderVoter;
+use Touki\FTP\CreatorVoter;
+use Touki\FTP\DeleterVoter;
+use Touki\FTP\Manager\FTPFilesystemManager;
 use Touki\FTP\Model\File;
-use Touki\FTP\FTPFactory;
+use Touki\FTP\Model\Directory;
+use Touki\FTP\Exception\DirectoryException;
 
 class Backup {
 
@@ -413,17 +424,39 @@ class Backup {
 					$s['password'] = backup__($s['password']);
 					$s['path'] = trim(backup__($s['path']),'/');
 					$path = $s['path'] . '/' . $this->b['_dirname'];
-					$ftpc = new Connection($s['host'], $s['user'], $s['password'], $s['port'], 90, ($s['transfer'] == 'passive'));
-					$factory = new FTPFactory;
+					$connection = new Connection($s['host'], $s['user'], $s['password'], $s['port'], 90, ($s['transfer'] == 'passive'));
 					try{
-						$ftpw = $ftp = $factory->build($ftpc);
-					} catch (\Exception $e){
-						$this->b['error'] = _("Error connecting to the FTP Server... Check your host name or DNS");
+						$connection->open();
+					}catch (\Exception $e){
+						$this->b['error'] = $e->getMessage();
+						backup_log($this->b['error']);
+						return;
 					}
-					if(!$ftpw->directoryExists(new Directory($path))){
+					$wrapper = new FTPWrapper($connection);
+					$permFactory = new PermissionsFactory;
+					$ftptype = $wrapper->systype();
+					if(strtolower($ftptype) == "unix"){
+						$fsFactory = new FilesystemFactory($permFactory);
+					}else{
+						$fsFactory = new WindowsFilesystemFactory;
+					}
+					$manager = new FTPFilesystemManager($wrapper, $fsFactory);
+					$dlVoter = new DownloaderVoter;
+					$ulVoter = new UploaderVoter;
+					$ulVoter->addDefaultFTPUploaders($wrapper);
+					$crVoter = new CreatorVoter;
+					$crVoter->addDefaultFTPCreators($wrapper, $manager);
+					$deVoter = new DeleterVoter;
+					$deVoter->addDefaultFTPDeleters($wrapper, $manager);
+					$ftp = new FTP($manager, $dlVoter, $ulVoter, $crVoter, $deVoter);
+					if(!$ftp){
+						$this->b['error'] = _("Error creating the FTP object");
+					}
+
+					if(!$ftp->directoryExists(new Directory($path))){
 						backup_log(sprintf(_("Creating directory '%s'"),$path));
 						try{
-							$ftpw->create(new Directory($path),array(FTP::RECURSIVE => true));
+							$ftp->create(new Directory($path),array(FTP::RECURSIVE => true));
 						}catch (\Exception $e){
 							$this->b['error'] = sprintf(_("Directory '%s' did not exist and we could not create it"),$path);
 							backup_log($this->b['error']);
@@ -431,13 +464,13 @@ class Backup {
 					}
 					try{
 						backup_log(_("Saving file to remote ftp"));
-						$ftpw->upload(new File($path.'/'.$this->b['_file'] . '.tgz'),$this->b['_tmpfile']);
+						$ftp->upload(new File($path.'/'.$this->b['_file'] . '.tgz'),$this->b['_tmpfile']);
 					}catch (\Exception $e){
 						$this->b['error'] = _("Unable to upload file to the remote server");
 						backup_log($this->b['error']);
 					}
 						//run maintenance on the directory
-					$this->maintenance($s['type'], $path, $ftpw);
+					$this->maintenance($s['type'], $path, $ftp);
 					break;
 				case 'awss3':
 					//subsitute variables if nesesary

@@ -1,5 +1,19 @@
 <?php
-
+require __DIR__ . '/../vendor/autoload.php';
+use Touki\FTP\FTP;
+use Touki\FTP\FTPWrapper;
+use Touki\FTP\Connection\Connection;
+use Touki\FTP\PermissionsFactory;
+use Touki\FTP\FilesystemFactory;
+use Touki\FTP\WindowsFilesystemFactory;
+use Touki\FTP\DownloaderVoter;
+use Touki\FTP\UploaderVoter;
+use Touki\FTP\CreatorVoter;
+use Touki\FTP\DeleterVoter;
+use Touki\FTP\Manager\FTPFilesystemManager;
+use Touki\FTP\Model\File;
+use Touki\FTP\Model\Directory;
+use Touki\FTP\Exception\DirectoryException;
 /*
  * returns a json object of a directory in a jstree compatiable way
  *
@@ -58,24 +72,43 @@ function backup_jstree_list_dir($id, $path = '') {
 			}
 			break;
 		case 'ftp':
-			require __DIR__ . '/../vendor/autoload.php';
-
 			//subsitute variables if nesesary
 			$s['host'] = backup__($s['host']);
 			$s['port'] = backup__($s['port']);
 			$s['user'] = backup__($s['user']);
 			$s['password'] = backup__($s['password']);
-			$ftpc = new \Touki\FTP\Connection\Connection($s['host'], $s['user'], $s['password'], $s['port'], 90, ($s['transfer'] == 'passive'));
-			$factory = new \Touki\FTP\FTPFactory;
+			$connection = new Connection($s['host'], $s['user'], $s['password'], $s['port'], 90, ($s['transfer'] == 'passive'));
 			try{
-				$ftpw = $factory->build($ftpc);
-			} catch (\Exception $e){
-				return array('error_msg' => _('Unable to connect to server!'));;
+				$connection->open();
+			}catch (\Exception $e){
+				$this->b['error'] = $e->getMessage();
+				backup_log($this->b['error']);
+				return;
 			}
-			$ftpdirs = $ftpw->findFilesystems(new \Touki\FTP\Model\Directory($s['path']));
+			$wrapper = new FTPWrapper($connection);
+			$permFactory = new PermissionsFactory;
+			$ftptype = $wrapper->systype();
+			if(strtolower($ftptype) == "unix"){
+				$fsFactory = new FilesystemFactory($permFactory);
+			}else{
+				$fsFactory = new WindowsFilesystemFactory;
+			}
+			$manager = new FTPFilesystemManager($wrapper, $fsFactory);
+			$dlVoter = new DownloaderVoter;
+			$ulVoter = new UploaderVoter;
+			$ulVoter->addDefaultFTPUploaders($wrapper);
+			$crVoter = new CreatorVoter;
+			$crVoter->addDefaultFTPCreators($wrapper, $manager);
+			$deVoter = new DeleterVoter;
+			$deVoter->addDefaultFTPDeleters($wrapper, $manager);
+			$ftp = new FTP($manager, $dlVoter, $ulVoter, $crVoter, $deVoter);
+			if(!$ftp){
+				$this->b['error'] = _("Error creating the FTP object");
+			}
+			$ftpdirs = $ftp->findFilesystems(new Directory($s['path']));
 			$ls = array();
 			foreach($ftpdirs as $thisdir){
-				$files = $ftpw->findFilesystems(new \Touki\FTP\Model\Directory($thisdir->getRealPath()));
+				$files = $ftp->findFilesystems(new Directory($thisdir->getRealPath()));
 				foreach ($files as $f) {
 					$ls[] = $thisdir->getRealPath().'/'.$f->getRealpath();
 				}
@@ -285,7 +318,6 @@ function backup_restore_locate_file($id, $path) {
 			$path = $s['path'] . '/' . $path;
 			break;
 		case 'ftp':
-			require __DIR__ . '/../vendor/autoload.php';
 			//subsitute variables if nesesary
 			$s['host'] = backup__($s['host']);
 			$s['port'] = backup__($s['port']);
@@ -293,19 +325,33 @@ function backup_restore_locate_file($id, $path) {
 			$s['password'] = backup__($s['password']);
 			$s['path'] = backup__($s['path']);
 			$path = ltrim($path,'/');
-			$factory = new \Touki\FTP\FTPFactory;
-			$ftpc = new \Touki\FTP\Connection\Connection($s['host'], $s['user'], $s['password'], $s['port'], 90, ($s['transfer'] == 'passive'));
+			$connection = new Connection($s['host'], $s['user'], $s['password'], $s['port'], 90, ($s['transfer'] == 'passive'));
 			try{
-				$fct = $factory->build($ftpc);
-				$ftp = new \Touki\FTP\FTP(
-					$factory->getManager(),
-					$factory->getDownloaderVoter(),
-					$factory->getUploaderVoter(),
-					$factory->getCreatorVoter(),
-					$factory->getDeleterVoter()
-				);
-			} catch (\Exception $e){
-				return array('error_msg' => _('Unable to connect to server!'));;
+				$connection->open();
+			}catch (\Exception $e){
+				$this->b['error'] = $e->getMessage();
+				backup_log($this->b['error']);
+				return;
+			}
+			$wrapper = new FTPWrapper($connection);
+			$permFactory = new PermissionsFactory;
+			$ftptype = $wrapper->systype();
+			if(strtolower($ftptype) == "unix"){
+				$fsFactory = new FilesystemFactory($permFactory);
+			}else{
+				$fsFactory = new WindowsFilesystemFactory;
+			}
+			$manager = new FTPFilesystemManager($wrapper, $fsFactory);
+			$dlVoter = new DownloaderVoter;
+			$ulVoter = new UploaderVoter;
+			$ulVoter->addDefaultFTPUploaders($wrapper);
+			$crVoter = new CreatorVoter;
+			$crVoter->addDefaultFTPCreators($wrapper, $manager);
+			$deVoter = new DeleterVoter;
+			$deVoter->addDefaultFTPDeleters($wrapper, $manager);
+			$ftp = new FTP($manager, $dlVoter, $ulVoter, $crVoter, $deVoter);
+			if(!$ftp){
+				$this->b['error'] = _("Error creating the FTP object");
 			}
 			$ftpdirs = $ftp->findFilesystems(new \Touki\FTP\Model\Directory($s['path']));
 			 $file = null;

@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-22 14:23-0700\n"
+"POT-Creation-Date: 2016-05-15 14:02-0700\n"
 "PO-Revision-Date: 2016-05-05 04:22+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian (Iran) "
-"<http://weblate.freepbx.org/projects/freepbx/backup/fa_IR/>\n"
-"Language: fa_IR\n"
+"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
+"backup/fa_IR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fa_IR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -163,12 +163,12 @@ msgstr "B"
 msgid "BACKUP LOG ATTACHED"
 msgstr "لاگ پشتیبان ضمیمه شده"
 
-#: functions.inc/class.backup.php:396 functions.inc/class.backup.php:399
+#: functions.inc/class.backup.php:407 functions.inc/class.backup.php:410
 msgid "BACKUP NOT ATTACHED"
 msgstr "پشتیبان ضمیمه نشد"
 
 #: Backup.class.php:316 functions.inc/backup.php:80
-#: functions.inc/class.backup.php:390 views/backup/backup.php:6
+#: functions.inc/class.backup.php:401 views/backup/backup.php:6
 msgid "Backup"
 msgstr "پشتیبان گیری"
 
@@ -201,11 +201,11 @@ msgstr ""
 msgid "Backup Description"
 msgstr "توضیحات پشتیبان"
 
-#: functions.inc/class.backup.php:395
+#: functions.inc/class.backup.php:406
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr "خطای پشتیبان گیری (exceeded SMTP limits)"
 
-#: functions.inc/class.backup.php:398
+#: functions.inc/class.backup.php:409
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr "خطای پشتیبان گیری (exceeded soft limit)"
 
@@ -241,7 +241,7 @@ msgstr "زمان بندی پشتیبان"
 msgid "Backup Server"
 msgstr "سرور پشتیبان"
 
-#: functions.inc/restore.php:272
+#: functions.inc/restore.php:305
 msgid "Backup Server not found!"
 msgstr "سرور پشتیبان یافت نشد!"
 
@@ -261,7 +261,7 @@ msgstr "پشتیبان گیری و بازیابی"
 msgid "Backup completed with errors!"
 msgstr "پشتیبان گیری با خطا پایان یافت!"
 
-#: functions.inc/class.backup.php:284
+#: functions.inc/class.backup.php:295
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -346,7 +346,7 @@ msgstr "فقط پیکربندی ها"
 msgid "Connecting to remote server..."
 msgstr "اتصال به سرور دور دست..."
 
-#: functions.inc/class.backup.php:383 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:394 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "ساخته شد"
 
@@ -354,7 +354,7 @@ msgstr "ساخته شد"
 msgid "Creating backup..."
 msgstr "در حال پشتیبان گیری..."
 
-#: functions.inc/class.backup.php:424
+#: functions.inc/class.backup.php:457
 #, php-format
 msgid "Creating directory '%s'"
 msgstr "در حال ایجاد دایرکتوری '%s'"
@@ -420,8 +420,8 @@ msgid ""
 "backup was run. Setting the value to 0 will disable any deleting"
 msgstr ""
 "حذف این پشتیبان پس از X دقیقه/ساعت/روز/هفته/ماه/سال. لطفا توجه داشته باشید "
-"که عمل حذف مبتنی بر زمان نیست و تنها پس از اجرای پشتیبان صورت می پذیرد "
-".مقدار صفر هرگونه حذف را غیرفعال می نماید"
+"که عمل حذف مبتنی بر زمان نیست و تنها پس از اجرای پشتیبان صورت می پذیرد ."
+"مقدار صفر هرگونه حذف را غیرفعال می نماید"
 
 #: views/backup/backup.php:533
 msgid ""
@@ -462,7 +462,7 @@ msgstr "مقصد"
 msgid "Directory"
 msgstr "دایرکتوری"
 
-#: functions.inc/class.backup.php:428
+#: functions.inc/class.backup.php:461
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr "دایرکتوری '%s' وجود ندارد و نمی توان آن را ایجاد کرد"
@@ -536,11 +536,12 @@ msgstr ""
 "پس از کلیک بر روی دکمه قرمز رنگ، هم ارزی به صورت خودکار پس از بازیابی بر روی "
 "سیستم فرعی انجام خواهد شد"
 
-#: functions.inc/class.backup.php:421
-msgid "Error connecting to the FTP Server... Check your host name or DNS"
-msgstr "خطا در اتصال به سرور FTP... لطفا نام میزبان یا DNS را بررسی کنید"
+#: functions.inc/class.backup.php:453 functions.inc/restore.php:106
+#: functions.inc/restore.php:354
+msgid "Error creating the FTP object"
+msgstr ""
 
-#: functions.inc/class.backup.php:748
+#: functions.inc/class.backup.php:781
 #, php-format
 msgid "Error deleting %s"
 msgstr "خطا در حذف کردن %s"
@@ -605,7 +606,7 @@ msgstr "نوع تبادل FTP"
 msgid "FTP Username"
 msgstr "نام کاربری FTP"
 
-#: functions.inc/restore.php:488
+#: functions.inc/restore.php:534
 msgid ""
 "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
 "current state"
@@ -613,7 +614,7 @@ msgstr ""
 "شکست در تبدیل asterisk.sql به فرمت صحیح، نام mysql-db.sql را در وضعیت کنونی "
 "تغییر دهید"
 
-#: functions.inc/restore.php:515
+#: functions.inc/restore.php:561
 msgid ""
 "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
 "sql in current state"
@@ -621,8 +622,8 @@ msgstr ""
 "شکست در تبدیل asteriskcdr.sql به فرمت صحیح، نام mysql-cdr.sql را در وضعیت "
 "کنونی تغییر دهید"
 
-#: functions.inc/restore.php:322 functions.inc/restore.php:342
-#: functions.inc/restore.php:355
+#: functions.inc/restore.php:368 functions.inc/restore.php:388
+#: functions.inc/restore.php:401
 msgid "Failed to retrieve file from server!"
 msgstr "شکست در بازیابی فایل از سرور!"
 
@@ -638,7 +639,7 @@ msgstr "فوریه"
 msgid "File"
 msgstr "فایل"
 
-#: functions.inc/restore.php:362
+#: functions.inc/restore.php:408
 msgid "File not found! "
 msgstr "فایل یافت نشد! "
 
@@ -650,7 +651,7 @@ msgstr "بازیابی فایل پایان یافت!"
 msgid "File verification failed. "
 msgstr "بازبینی فایل شکست خورد. "
 
-#: functions.inc/class.backup.php:384 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:395 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "فایل ها"
 
@@ -862,7 +863,7 @@ msgstr "MySQL"
 msgid "Mysql DB's"
 msgstr "دیتابیس های MySQL"
 
-#: functions.inc/class.backup.php:385
+#: functions.inc/class.backup.php:396
 msgid "Mysql Db's"
 msgstr "دیتابیس های MySQL"
 
@@ -870,7 +871,7 @@ msgstr "دیتابیس های MySQL"
 msgid "Mysql Server "
 msgstr "سرور MySQL "
 
-#: functions.inc/class.backup.php:382 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:393 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "نام"
 
@@ -1288,7 +1289,7 @@ msgstr "ذخیره"
 msgid "Save and Run"
 msgstr "ذخیره و اجرا"
 
-#: functions.inc/class.backup.php:433
+#: functions.inc/class.backup.php:466
 msgid "Saving file to remote ftp"
 msgstr "ذخیره فایل در FTP راه دور"
 
@@ -1418,7 +1419,7 @@ msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "از طرف: فیلد مبدا ایمیل ها وقتی از قابلیت ارسال ایمیل پشتیبان استفاده می شود."
 
-#: functions.inc/class.backup.php:396
+#: functions.inc/class.backup.php:407
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
@@ -1428,7 +1429,7 @@ msgstr ""
 "امکان ارسال این فایل وجود ندارد لذا باید فایل مورد نظر را کوچک تر کرده و یا "
 "از روش های دیگر برای انتقال آن استفاده نمایید."
 
-#: functions.inc/class.backup.php:399
+#: functions.inc/class.backup.php:410
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1496,11 +1497,7 @@ msgstr "سه شنبه"
 msgid "Type"
 msgstr "نوع"
 
-#: functions.inc/restore.php:73 functions.inc/restore.php:308
-msgid "Unable to connect to server!"
-msgstr "عدم امکان اتصال به سرور!"
-
-#: functions.inc/class.backup.php:436
+#: functions.inc/class.backup.php:469
 msgid "Unable to upload file to the remote server"
 msgstr "عدم امکان بارگذاری فایل در سرور راه دور"
 
@@ -1645,7 +1642,7 @@ msgstr "سرورهای پشتیبان پیش فرض اضافه شد"
 msgid "added default backup templates"
 msgstr "قالب های پشتیبان پیش فرض اضافه شد"
 
-#: functions.inc/class.backup.php:386
+#: functions.inc/class.backup.php:397
 msgid "astDb's"
 msgstr "دیتابیس های استریسک"
 
@@ -1653,11 +1650,11 @@ msgstr "دیتابیس های استریسک"
 msgid "chose"
 msgstr "انتخاب"
 
-#: functions.inc/restore.php:18
+#: functions.inc/restore.php:32
 msgid "error/not found!"
 msgstr "خطا/ یافت نشد!"
 
-#: functions.inc/restore.php:182
+#: functions.inc/restore.php:215
 msgid "manifest not found"
 msgstr "ظاهر یافت نشد"
 
@@ -1672,6 +1669,12 @@ msgstr "انتظار برای قفل..."
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "{سروری در دسترس نیست}"
+
+#~ msgid "Error connecting to the FTP Server... Check your host name or DNS"
+#~ msgstr "خطا در اتصال به سرور FTP... لطفا نام میزبان یا DNS را بررسی کنید"
+
+#~ msgid "Unable to connect to server!"
+#~ msgstr "عدم امکان اتصال به سرور!"
 
 #~ msgid " Authentication Failure"
 #~ msgstr " احراز هویت ناموفق"

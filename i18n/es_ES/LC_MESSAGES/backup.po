@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-22 14:23-0700\n"
+"POT-Creation-Date: 2016-05-15 14:02-0700\n"
 "PO-Revision-Date: 2016-01-20 04:55+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -179,12 +179,12 @@ msgstr "B"
 msgid "BACKUP LOG ATTACHED"
 msgstr "BITACORA DE RESPALDOS ANEXADA"
 
-#: functions.inc/class.backup.php:396 functions.inc/class.backup.php:399
+#: functions.inc/class.backup.php:407 functions.inc/class.backup.php:410
 msgid "BACKUP NOT ATTACHED"
 msgstr "RESPALDO NO ANEXO"
 
 #: Backup.class.php:316 functions.inc/backup.php:80
-#: functions.inc/class.backup.php:390 views/backup/backup.php:6
+#: functions.inc/class.backup.php:401 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Respaldo"
 
@@ -216,11 +216,11 @@ msgstr "Respaldar CDR y datos de grabación de llamadas?"
 msgid "Backup Description"
 msgstr "Descripción de Respaldo"
 
-#: functions.inc/class.backup.php:395
+#: functions.inc/class.backup.php:406
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr "ERROR respaldo (excedio los limites SMTP)"
 
-#: functions.inc/class.backup.php:398
+#: functions.inc/class.backup.php:409
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr "ERROR respaldo (excede limites blandos)"
 
@@ -256,7 +256,7 @@ msgstr "Crongrama de Respaldos"
 msgid "Backup Server"
 msgstr "Servidor de Respaldo"
 
-#: functions.inc/restore.php:272
+#: functions.inc/restore.php:305
 msgid "Backup Server not found!"
 msgstr "Servidor de Respaldo no encontrado!"
 
@@ -276,7 +276,7 @@ msgstr "Respaldo y Restauración"
 msgid "Backup completed with errors!"
 msgstr "Respaldo completado con errores!"
 
-#: functions.inc/class.backup.php:284
+#: functions.inc/class.backup.php:295
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -361,7 +361,7 @@ msgstr "Solo Configuraciones"
 msgid "Connecting to remote server..."
 msgstr "Conectando a Servidor remoto..."
 
-#: functions.inc/class.backup.php:383 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:394 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Creado"
 
@@ -369,7 +369,7 @@ msgstr "Creado"
 msgid "Creating backup..."
 msgstr "Creando respaldo ..."
 
-#: functions.inc/class.backup.php:424
+#: functions.inc/class.backup.php:457
 #, php-format
 msgid "Creating directory '%s'"
 msgstr ""
@@ -478,7 +478,7 @@ msgstr "Destino"
 msgid "Directory"
 msgstr "Directorio"
 
-#: functions.inc/class.backup.php:428
+#: functions.inc/class.backup.php:461
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr ""
@@ -556,12 +556,12 @@ msgstr ""
 "Equivalente de hacer clic en el botón rojo, se producirá automáticamente "
 "después de una restauración en un sistema de espera"
 
-#: functions.inc/class.backup.php:421
-msgid "Error connecting to the FTP Server... Check your host name or DNS"
+#: functions.inc/class.backup.php:453 functions.inc/restore.php:106
+#: functions.inc/restore.php:354
+msgid "Error creating the FTP object"
 msgstr ""
-"Error al conectar con el servidor FTP ... Compruebe su nombre de host o DNS"
 
-#: functions.inc/class.backup.php:748
+#: functions.inc/class.backup.php:781
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -627,7 +627,7 @@ msgstr "FTP Tipo de Transferencia"
 msgid "FTP Username"
 msgstr "FTP Usuario"
 
-#: functions.inc/restore.php:488
+#: functions.inc/restore.php:534
 msgid ""
 "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
 "current state"
@@ -635,7 +635,7 @@ msgstr ""
 "Fallo convirtiendo asterisk.sql al formato adecuado, renombrando a mysql-db."
 "sql en su estado actual"
 
-#: functions.inc/restore.php:515
+#: functions.inc/restore.php:561
 msgid ""
 "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
 "sql in current state"
@@ -643,8 +643,8 @@ msgstr ""
 "Fallo convirtiendo asteriskcdr.sql al formato adecuado, renombrando a mysql-"
 "cdr.sql en su estado actual"
 
-#: functions.inc/restore.php:322 functions.inc/restore.php:342
-#: functions.inc/restore.php:355
+#: functions.inc/restore.php:368 functions.inc/restore.php:388
+#: functions.inc/restore.php:401
 msgid "Failed to retrieve file from server!"
 msgstr "Fallo recuperando archivo desde el servidor!"
 
@@ -660,7 +660,7 @@ msgstr "Febrero"
 msgid "File"
 msgstr "Archivo"
 
-#: functions.inc/restore.php:362
+#: functions.inc/restore.php:408
 msgid "File not found! "
 msgstr "Archivo no encontrado! "
 
@@ -672,7 +672,7 @@ msgstr "Restauración de Archivo Completada!"
 msgid "File verification failed. "
 msgstr "Verificación de Archivo Fallida. "
 
-#: functions.inc/class.backup.php:384 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:395 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Archivos"
 
@@ -892,7 +892,7 @@ msgstr "\"Mysql\""
 msgid "Mysql DB's"
 msgstr "BD's Mysql"
 
-#: functions.inc/class.backup.php:385
+#: functions.inc/class.backup.php:396
 msgid "Mysql Db's"
 msgstr "Bd's Mysql"
 
@@ -900,7 +900,7 @@ msgstr "Bd's Mysql"
 msgid "Mysql Server "
 msgstr "Servidor Mysql "
 
-#: functions.inc/class.backup.php:382 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:393 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Nombre"
 
@@ -1318,7 +1318,7 @@ msgstr "Salvar"
 msgid "Save and Run"
 msgstr "Guardar y Ejecutar"
 
-#: functions.inc/class.backup.php:433
+#: functions.inc/class.backup.php:466
 msgid "Saving file to remote ftp"
 msgstr ""
 
@@ -1450,7 +1450,7 @@ msgstr ""
 "El campo From: para correos cuando se usa la funcionalidad de email del "
 "respaldo."
 
-#: functions.inc/class.backup.php:396
+#: functions.inc/class.backup.php:407
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
@@ -1460,7 +1460,7 @@ msgstr ""
 "se intentó ser enviados. Por favor, encoger la copia de seguridad, o "
 "utilizar un método diferente de transferencia de la copia de seguridad."
 
-#: functions.inc/class.backup.php:399
+#: functions.inc/class.backup.php:410
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1531,11 +1531,7 @@ msgstr "Martes"
 msgid "Type"
 msgstr "Tipo"
 
-#: functions.inc/restore.php:73 functions.inc/restore.php:308
-msgid "Unable to connect to server!"
-msgstr ""
-
-#: functions.inc/class.backup.php:436
+#: functions.inc/class.backup.php:469
 msgid "Unable to upload file to the remote server"
 msgstr ""
 
@@ -1684,7 +1680,7 @@ msgstr "Añadidos servidores de respaldo por defecto"
 msgid "added default backup templates"
 msgstr "Añadidas plantillas de respaldo por defecto"
 
-#: functions.inc/class.backup.php:386
+#: functions.inc/class.backup.php:397
 msgid "astDb's"
 msgstr "\"astDb's\""
 
@@ -1692,11 +1688,11 @@ msgstr "\"astDb's\""
 msgid "chose"
 msgstr "Escoge"
 
-#: functions.inc/restore.php:18
+#: functions.inc/restore.php:32
 msgid "error/not found!"
 msgstr "error/no encontrado!"
 
-#: functions.inc/restore.php:182
+#: functions.inc/restore.php:215
 msgid "manifest not found"
 msgstr "manifiesto no encontrado"
 
@@ -1711,6 +1707,11 @@ msgstr "esperando por bloqueo..."
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
 msgstr "(no servidores disponibles)"
+
+#~ msgid "Error connecting to the FTP Server... Check your host name or DNS"
+#~ msgstr ""
+#~ "Error al conectar con el servidor FTP ... Compruebe su nombre de host o "
+#~ "DNS"
 
 #~ msgid " Authentication Failure"
 #~ msgstr " Error de autenticación"

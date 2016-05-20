@@ -398,15 +398,15 @@ class Backup {
 
 					$email->from($from);
 					$email->to(backup__($s['addr']));
-					$email->subject(_('Backup') . ' ' . $this->b['name']);
+					$email->subject($this->amp_conf['FREEPBX_SYSTEM_IDENT'] . ' ' . _('Backup') . ' ' . $this->b['name'] );
 					$body = implode("\n", $msg);
 					// If the backup file is more than 25MB, yell
 					$encodedsize = ceil(filesize($this->b['_tmpfile'])/3)*4;
 					if ($encodedsize > 26214400) {
-						$email->subject(_('Backup ERROR (exceeded SMTP limits)') . ' ' . $this->b['name']);
+						$email->subject($this->amp_conf['FREEPBX_SYSTEM_IDENT'] . ' ' . _('Backup ERROR (exceeded SMTP limits)') . ' ' . $this->b['name']);
 						$email->message(_('BACKUP NOT ATTACHED')."\n"._('The backup file exceeded the maximum SMTP limits of 25MB. It was not attempted to be sent. Please shrink your backup, or use a different method of transferring your backup.')."\n$body\n");
 					} elseif ($encodedsize > $s['maxsize']) {
-						$email->subject(_('Backup ERROR (exceeded soft limit)') . ' ' . $this->b['name']);
+						$email->subject($this->amp_conf['FREEPBX_SYSTEM_IDENT'] . ' ' . _('Backup ERROR (exceeded soft limit)') . ' ' . $this->b['name']);
 						$email->message(_('BACKUP NOT ATTACHED')."\n"._('The backup file exceeded the soft limit set in SMTP configuration (%s bytes). It was not attempted to be sent. Please shrink your backup, or use a different method of transferring your backup.')."\n$body\n");
 					} else {
 						$email->message($body);
@@ -812,7 +812,7 @@ class Backup {
 				}
 			}
 
-			$subject = date("F j, Y, g:i a").'-'.$this->b['name'];
+			$subject = $this->amp_conf['FREEPBX_SYSTEM_IDENT'] . '-' . date("F j, Y, g:i a").'-'.$this->b['name'];
 			backup_email_log($this->b['email'], $from, $subject);
 
 		}

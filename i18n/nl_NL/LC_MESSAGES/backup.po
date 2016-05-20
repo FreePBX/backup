@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-15 14:02-0700\n"
+"POT-Creation-Date: 2016-05-20 15:23-0700\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -539,7 +539,7 @@ msgid ""
 msgstr ""
 
 #: functions.inc/class.backup.php:453 functions.inc/restore.php:106
-#: functions.inc/restore.php:354
+#: functions.inc/restore.php:355
 msgid "Error creating the FTP object"
 msgstr ""
 
@@ -604,7 +604,7 @@ msgstr ""
 msgid "FTP Username"
 msgstr ""
 
-#: functions.inc/restore.php:534
+#: functions.inc/restore.php:539
 msgid ""
 "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
 "current state"
@@ -612,7 +612,7 @@ msgstr ""
 "Converteren van asterisk.sql in juist formaat mislukt. Hernoemen naar mysql-"
 "db.sql in huidige staat"
 
-#: functions.inc/restore.php:561
+#: functions.inc/restore.php:566
 msgid ""
 "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
 "sql in current state"
@@ -620,8 +620,8 @@ msgstr ""
 "Converteren van asteriskcdr.sql in juist formaat mislukt. Hernoemen naar "
 "mysql-cdr.sql in huidige staat"
 
-#: functions.inc/restore.php:368 functions.inc/restore.php:388
-#: functions.inc/restore.php:401
+#: functions.inc/restore.php:373 functions.inc/restore.php:393
+#: functions.inc/restore.php:406
 msgid "Failed to retrieve file from server!"
 msgstr "Bestand ontvangen van server mislukt!"
 
@@ -638,7 +638,7 @@ msgstr "Februari"
 msgid "File"
 msgstr "Bestand"
 
-#: functions.inc/restore.php:408
+#: functions.inc/restore.php:413
 msgid "File not found! "
 msgstr "Bestand niet gevonden! "
 

@@ -343,6 +343,7 @@ function backup_restore_locate_file($id, $path) {
 			}
 			$manager = new FTPFilesystemManager($wrapper, $fsFactory);
 			$dlVoter = new DownloaderVoter;
+			$dlVoter->addDefaultFTPDownloaders($wrapper);
 			$ulVoter = new UploaderVoter;
 			$ulVoter->addDefaultFTPUploaders($wrapper);
 			$crVoter = new CreatorVoter;
@@ -362,7 +363,11 @@ function backup_restore_locate_file($id, $path) {
 			}
 
 			try{
-				$ftp->download($dest,$file);
+				$options = array(
+    			FTP::NON_BLOCKING  => false,     // Whether to deal with a callback while downloading
+    			FTP::TRANSFER_MODE => FTP_BINARY // Transfer Mode
+				);
+				$ftp->download($dest,$file,$options);
 				$path = $dest;
 			}catch(\Exception $e){
 					return array('error_msg' => _('Failed to retrieve file from server!'));

@@ -77,6 +77,7 @@ function backup_jstree_list_dir($id, $path = '') {
 			$s['port'] = backup__($s['port']);
 			$s['user'] = backup__($s['user']);
 			$s['password'] = backup__($s['password']);
+			$fstype = isset($s['fstype'])?$s['fstype']:'auto';
 			$connection = new Connection($s['host'], $s['user'], $s['password'], $s['port'], 90, ($s['transfer'] == 'passive'));
 			try{
 				$connection->open();
@@ -87,11 +88,21 @@ function backup_jstree_list_dir($id, $path = '') {
 			}
 			$wrapper = new FTPWrapper($connection);
 			$permFactory = new PermissionsFactory;
-			$ftptype = $wrapper->systype();
-			if(strtolower($ftptype) == "unix"){
-				$fsFactory = new FilesystemFactory($permFactory);
-			}else{
-				$fsFactory = new WindowsFilesystemFactory;
+			switch ($fstype) {
+				case 'auto':
+					$ftptype = $wrapper->systype();
+					if(strtolower($ftptype) == "unix"){
+						$fsFactory = new FilesystemFactory($permFactory);
+					}else{
+						$fsFactory = new WindowsFilesystemFactory;
+					}
+				break;
+				case 'unix':
+					$fsFactory = new FilesystemFactory($permFactory);
+				break;
+				case 'windows':
+					$fsFactory = new WindowsFilesystemFactory;
+				break;
 			}
 			$manager = new FTPFilesystemManager($wrapper, $fsFactory);
 			$dlVoter = new DownloaderVoter;

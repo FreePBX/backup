@@ -3,7 +3,8 @@ $disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
 if (!isset($id)) {
 	$id = "";
 }
-
+$fstype = isset($fstype)?$fstype:'auto';
+dbug($fstype);
 ?>
 <h2><?php echo _("FTP Server")?></h2>
 <form class="fpbx-submit" action="" method="post" id="server_form" name="server_form" data-fpbx-delete="?display=backup_servers&action=delete&id=<?php echo $id; ?>">
@@ -124,6 +125,35 @@ if (!isset($id)) {
 		</div>
 	</div>
 	<!--END Password-->
+	<!--Filesystem Type-->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="fstype"><?php echo _("Filesystem Type") ?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="fstype"></i>
+						</div>
+						<div class="col-md-9 radioset">
+	            <input type="radio" name="fstype" id="fstypeauto" value="auto" <?php echo ($fstype == "auto"?"CHECKED":"") ?>>
+	            <label for="fstypeauto"><?php echo _("Auto");?></label>
+	            <input type="radio" name="fstype" id="fstypeunix" value="unix" <?php echo ($fstype == "unix"?"CHECKED":"") ?>>
+	            <label for="fstypeunix"><?php echo _("Unix/Linux");?></label>
+	            <input type="radio" name="fstype" id="fstypewindows" value="windows" <?php echo ($fstype == "windows"?"CHECKED":"") ?>>
+	            <label for="fstypewindows"><?php echo _("Windows");?></label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span id="fstype-help" class="help-block fpbx-help-block"><?php echo _("The FTP Server's file system type. If you are unsure set this to Auto")?></span>
+			</div>
+		</div>
+	</div>
+	<!--END Filesystem Type-->
 	<!--Path-->
 	<div class="element-container">
 		<div class="row">

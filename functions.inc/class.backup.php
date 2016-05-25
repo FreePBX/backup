@@ -463,6 +463,7 @@ class Backup {
 					$ftp = new FTP($manager, $dlVoter, $ulVoter, $crVoter, $deVoter);
 					if(!$ftp){
 						$this->b['error'] = _("Error creating the FTP object");
+						die($this->b['error']);
 					}
 
 					if(!$ftp->directoryExists(new Directory($path))){
@@ -472,6 +473,7 @@ class Backup {
 						}catch (\Exception $e){
 							$this->b['error'] = sprintf(_("Directory '%s' did not exist and we could not create it"),$path);
 							backup_log($this->b['error']);
+							die($e->getMessage());
 						}
 					}
 					try{
@@ -480,6 +482,7 @@ class Backup {
 					}catch (\Exception $e){
 						$this->b['error'] = _("Unable to upload file to the remote server");
 						backup_log($this->b['error']);
+						die($e->getMessage());
 					}
 						//run maintenance on the directory
 					$this->maintenance($s['type'], $path, $ftp);

@@ -66,3 +66,5 @@ $heading = _("Templates");
 		</div>
 	</div>
 </div>
+</br>
+</br>

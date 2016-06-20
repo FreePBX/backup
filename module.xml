@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>13.0.23</version>
+	<version>13.0.24</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,15 +18,16 @@
 		<module>core</module>
 	</depends>
 	<changelog>
+		*13.0.24* FREEPBX-12494 add breaks to page so that action bar is lower than form
 		*13.0.23* FREEPBX-12344 FREEPBX-12363
 		*13.0.22* FREEPBX-12272 fixes window server issues
 		*13.0.21.9* FREEPBX-12028 switch to a better ftp class
 		*13.0.21.8* FREEPBX-11822 More ftp error handling
 		*13.0.21.7* FREEPBX-9705 FREEPBX-11704
 		*13.0.21.6* FREEPBX-11410 remove unneeded chatter from log file.
-		*13.0.21.5* FREEPBX-11364 Fix warm spare GUI options FREEPBX-11321 Check for sysadmin from address id advanced setting is not set.			
+		*13.0.21.5* FREEPBX-11364 Fix warm spare GUI options FREEPBX-11321 Check for sysadmin from address id advanced setting is not set.
 		*13.0.21.4* FREEPBX-11293
-		*13.0.21.3* Fix spelling errors in messages 
+		*13.0.21.3* Fix spelling errors in messages
 		*13.0.21.2* #10606 - Fix local server creation, and Minor fixes #8791, #10670
 		*13.0.20* #10885 - Fix email size limits
 		*13.0.19.1* #11130 - Ensure backup path is correct when saving to S3

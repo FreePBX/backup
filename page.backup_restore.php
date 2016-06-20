@@ -208,3 +208,5 @@ $heading = _("Restore");
 		</div>
 	</div>
 </div>
+</br>
+</br>

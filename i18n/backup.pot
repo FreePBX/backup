@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-20 15:23-0700\n"
+"POT-Creation-Date: 2016-07-18 11:46-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,7 +62,7 @@ msgstr ""
 msgid "AWS Access Key"
 msgstr ""
 
-#: functions.inc/servers.php:333
+#: functions.inc/servers.php:335
 msgid "AWS S3 Server "
 msgstr ""
 
@@ -77,7 +77,7 @@ msgid "Actions"
 msgstr ""
 
 #: views/backup/backups.php:501
-#: views/servers/ftp.php:163
+#: views/servers/ftp.php:193
 msgid "Active"
 msgstr ""
 
@@ -113,7 +113,7 @@ msgid ""
 "VOICEMAIL"
 msgstr ""
 
-#: functions.inc/servers.php:278
+#: functions.inc/servers.php:280
 msgid "Amazon S3 Server "
 msgstr ""
 
@@ -143,6 +143,10 @@ msgstr ""
 
 #: views/cron.php:50
 msgid "August"
+msgstr ""
+
+#: views/servers/ftp.php:140
+msgid "Auto"
 msgstr ""
 
 #: views/backup/backup.php:437
@@ -239,7 +243,7 @@ msgstr ""
 msgid "Backup Server"
 msgstr ""
 
-#: functions.inc/restore.php:305
+#: functions.inc/restore.php:316
 msgid "Backup Server not found!"
 msgstr ""
 
@@ -354,7 +358,7 @@ msgstr ""
 msgid "Creating backup..."
 msgstr ""
 
-#: functions.inc/class.backup.php:457
+#: functions.inc/class.backup.php:471
 #, php-format
 msgid "Creating directory '%s'"
 msgstr ""
@@ -408,7 +412,7 @@ msgstr ""
 #: Backup.class.php:38
 #: Backup.class.php:202
 #: page.backup.php:46
-#: page.backup_servers.php:35
+#: page.backup_servers.php:36
 #: page.backup_templates.php:20
 #: views/item_table.php:14
 #: views/restore/restore.php:46
@@ -441,7 +445,7 @@ msgstr ""
 #: views/backup/backups.php:10
 #: views/servers/awss3.php:27
 #: views/servers/email.php:40
-#: views/servers/ftp.php:38
+#: views/servers/ftp.php:39
 #: views/servers/local.php:40
 #: views/servers/mysql.php:40
 #: views/servers/servers.php:20
@@ -470,7 +474,7 @@ msgstr ""
 msgid "Directory"
 msgstr ""
 
-#: functions.inc/class.backup.php:461
+#: functions.inc/class.backup.php:475
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr ""
@@ -519,8 +523,8 @@ msgstr ""
 msgid "Email Server"
 msgstr ""
 
-#: functions.inc/servers.php:263
-#: functions.inc/servers.php:318
+#: functions.inc/servers.php:265
+#: functions.inc/servers.php:320
 msgid "Email Server "
 msgstr ""
 
@@ -542,13 +546,13 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:453
-#: functions.inc/restore.php:106
-#: functions.inc/restore.php:355
+#: functions.inc/class.backup.php:465
+#: functions.inc/restore.php:117
+#: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:781
+#: functions.inc/class.backup.php:799
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -594,12 +598,12 @@ msgstr ""
 msgid "FTP Password"
 msgstr ""
 
-#: views/servers/ftp.php:8
+#: views/servers/ftp.php:9
 msgid "FTP Server"
 msgstr ""
 
-#: functions.inc/servers.php:266
-#: functions.inc/servers.php:321
+#: functions.inc/servers.php:268
+#: functions.inc/servers.php:323
 msgid "FTP Server "
 msgstr ""
 
@@ -611,21 +615,21 @@ msgstr ""
 msgid "FTP Username"
 msgstr ""
 
-#: functions.inc/restore.php:539
+#: functions.inc/restore.php:550
 msgid ""
 "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
 "current state"
 msgstr ""
 
-#: functions.inc/restore.php:566
+#: functions.inc/restore.php:577
 msgid ""
 "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
 "sql in current state"
 msgstr ""
 
-#: functions.inc/restore.php:373
-#: functions.inc/restore.php:393
-#: functions.inc/restore.php:406
+#: functions.inc/restore.php:384
+#: functions.inc/restore.php:404
+#: functions.inc/restore.php:417
 msgid "Failed to retrieve file from server!"
 msgstr ""
 
@@ -641,7 +645,7 @@ msgstr ""
 msgid "File"
 msgstr ""
 
-#: functions.inc/restore.php:413
+#: functions.inc/restore.php:424
 msgid "File not found! "
 msgstr ""
 
@@ -656,6 +660,10 @@ msgstr ""
 #: functions.inc/class.backup.php:395
 #: views/restore/browseserver.php:19
 msgid "Files"
+msgstr ""
+
+#: views/servers/ftp.php:135
+msgid "Filesystem Type"
 msgstr ""
 
 #: page.backup.php:52
@@ -695,7 +703,7 @@ msgstr ""
 msgid "Hooks"
 msgstr ""
 
-#: views/servers/ftp.php:56
+#: views/servers/ftp.php:57
 #: views/servers/mysql.php:64
 #: views/servers/ssh.php:64
 msgid "Hostname"
@@ -723,7 +731,7 @@ msgstr ""
 msgid "IP address or FQDN of remote SSH server"
 msgstr ""
 
-#: views/servers/ftp.php:68
+#: views/servers/ftp.php:69
 msgid "IP address or FQDN of remote ftp host"
 msgstr ""
 
@@ -809,8 +817,8 @@ msgstr ""
 msgid "Local Server"
 msgstr ""
 
-#: functions.inc/servers.php:269
-#: functions.inc/servers.php:324
+#: functions.inc/servers.php:271
+#: functions.inc/servers.php:326
 msgid "Local Server "
 msgstr ""
 
@@ -876,8 +884,8 @@ msgstr ""
 msgid "Mysql Db's"
 msgstr ""
 
-#: functions.inc/servers.php:272
-#: functions.inc/servers.php:327
+#: functions.inc/servers.php:274
+#: functions.inc/servers.php:329
 msgid "Mysql Server "
 msgstr ""
 
@@ -1009,23 +1017,23 @@ msgid "PBX config server, generally a local database server"
 msgstr ""
 
 #: views/backup/backups.php:499
-#: views/servers/ftp.php:165
+#: views/servers/ftp.php:195
 msgid "Passive"
 msgstr ""
 
 #: views/backup/backups.php:470
-#: views/servers/ftp.php:116
+#: views/servers/ftp.php:117
 #: views/servers/mysql.php:136
 msgid "Password"
 msgstr ""
 
-#: views/servers/ftp.php:134
+#: views/servers/ftp.php:164
 #: views/servers/local.php:64
 #: views/servers/ssh.php:160
 msgid "Path"
 msgstr ""
 
-#: views/servers/ftp.php:146
+#: views/servers/ftp.php:176
 #: views/servers/local.php:76
 #: views/servers/ssh.php:172
 msgid "Path on remote server"
@@ -1047,7 +1055,7 @@ msgstr ""
 msgid "Please wait, loading..."
 msgstr ""
 
-#: views/servers/ftp.php:80
+#: views/servers/ftp.php:81
 #: views/servers/mysql.php:88
 #: views/servers/ssh.php:88
 msgid "Port"
@@ -1291,8 +1299,8 @@ msgstr ""
 msgid "SSH Server"
 msgstr ""
 
-#: functions.inc/servers.php:275
-#: functions.inc/servers.php:330
+#: functions.inc/servers.php:277
+#: functions.inc/servers.php:332
 msgid "SSH Server "
 msgstr ""
 
@@ -1313,7 +1321,7 @@ msgstr ""
 msgid "Save and Run"
 msgstr ""
 
-#: functions.inc/class.backup.php:466
+#: functions.inc/class.backup.php:482
 msgid "Saving file to remote ftp"
 msgstr ""
 
@@ -1350,7 +1358,7 @@ msgstr ""
 
 #: views/backup/backups.php:374
 #: views/servers/email.php:16
-#: views/servers/ftp.php:20
+#: views/servers/ftp.php:21
 #: views/servers/local.php:16
 #: views/servers/mysql.php:16
 #: views/servers/ssh.php:16
@@ -1377,7 +1385,7 @@ msgstr ""
 msgid "Server address can not be blank"
 msgstr ""
 
-#: page.backup_servers.php:79
+#: page.backup_servers.php:80
 #: views/rnav/main.php:5
 msgid "Servers"
 msgstr ""
@@ -1442,6 +1450,10 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
+#: views/servers/ftp.php:152
+msgid "The FTP Server's file system type. If you are unsure set this to Auto"
+msgstr ""
+
 #: backup.i18n.php:24
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
@@ -1468,7 +1480,7 @@ msgid ""
 "than the max size are not sent."
 msgstr ""
 
-#: views/servers/ftp.php:173
+#: views/servers/ftp.php:203
 msgid ""
 "This defaults to 'Passive'. If your FTP server is behind a seperate NAT or "
 "Firewall to this VoIP server, you should select 'Active'. In 'Active' mode, "
@@ -1495,7 +1507,7 @@ msgstr ""
 msgid "Thursday"
 msgstr ""
 
-#: views/servers/ftp.php:158
+#: views/servers/ftp.php:188
 msgid "Transfer Mode"
 msgstr ""
 
@@ -1513,8 +1525,12 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
-#: functions.inc/class.backup.php:469
+#: functions.inc/class.backup.php:485
 msgid "Unable to upload file to the remote server"
+msgstr ""
+
+#: views/servers/ftp.php:142
+msgid "Unix/Linux"
 msgstr ""
 
 #: install.php:290
@@ -1535,7 +1551,7 @@ msgid "User Name"
 msgstr ""
 
 #: views/backup/backups.php:446
-#: views/servers/ftp.php:98
+#: views/servers/ftp.php:99
 #: views/servers/ssh.php:112
 msgid "Username"
 msgstr ""
@@ -1611,6 +1627,10 @@ msgstr ""
 msgid "Which minutes to run"
 msgstr ""
 
+#: views/servers/ftp.php:144
+msgid "Windows"
+msgstr ""
+
 #: Backup.class.php:67
 msgid "Wizard"
 msgstr ""
@@ -1678,7 +1698,7 @@ msgstr ""
 msgid "error/not found!"
 msgstr ""
 
-#: functions.inc/restore.php:215
+#: functions.inc/restore.php:226
 msgid "manifest not found"
 msgstr ""
 

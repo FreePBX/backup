@@ -236,7 +236,7 @@ if (!isset($vars['restore'])) {
 				$sql = "";
 			}
 			// This just resets the timelimit of the script.
-			set_time_limit(30);
+			set_time_limit(100);
 
 			// Update the user every 30 seconds.
 			if (time() > $nextnotify) {
@@ -329,7 +329,7 @@ if (!isset($vars['restore'])) {
 						$sql = "";
 					}
 					// This just resets the timelimit of the script.
-					set_time_limit(30);
+					set_time_limit(100);
 				}
 
 				// Update the user once every 30 seconds

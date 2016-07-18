@@ -423,6 +423,7 @@ class Backup {
 					$s['user'] = backup__($s['user']);
 					$s['password'] = backup__($s['password']);
 					$s['path'] = trim(backup__($s['path']),'/');
+					$fstype = isset($s['fstype'])?$s['fstype']:'auto';
 					$path = $s['path'] . '/' . $this->b['_dirname'];
 					$connection = new Connection($s['host'], $s['user'], $s['password'], $s['port'], 90, ($s['transfer'] == 'passive'));
 					try{
@@ -434,12 +435,23 @@ class Backup {
 					}
 					$wrapper = new FTPWrapper($connection);
 					$permFactory = new PermissionsFactory;
-					$ftptype = $wrapper->systype();
-					if(strtolower($ftptype) == "unix"){
-						$fsFactory = new FilesystemFactory($permFactory);
-					}else{
-						$fsFactory = new WindowsFilesystemFactory;
+					switch ($fstype) {
+						case 'auto':
+							$ftptype = $wrapper->systype();
+							if(strtolower($ftptype) == "unix"){
+								$fsFactory = new FilesystemFactory($permFactory);
+							}else{
+								$fsFactory = new WindowsFilesystemFactory;
+							}
+						break;
+						case 'unix':
+							$fsFactory = new FilesystemFactory($permFactory);
+						break;
+						case 'windows':
+							$fsFactory = new WindowsFilesystemFactory;
+						break;
 					}
+
 					$manager = new FTPFilesystemManager($wrapper, $fsFactory);
 					$dlVoter = new DownloaderVoter;
 					$ulVoter = new UploaderVoter;
@@ -451,6 +463,8 @@ class Backup {
 					$ftp = new FTP($manager, $dlVoter, $ulVoter, $crVoter, $deVoter);
 					if(!$ftp){
 						$this->b['error'] = _("Error creating the FTP object");
+							backup_log($this->b['error']);
+							return;
 					}
 
 					if(!$ftp->directoryExists(new Directory($path))){
@@ -460,6 +474,8 @@ class Backup {
 						}catch (\Exception $e){
 							$this->b['error'] = sprintf(_("Directory '%s' did not exist and we could not create it"),$path);
 							backup_log($this->b['error']);
+							backup_log($e->getMessage());
+							return;
 						}
 					}
 					try{
@@ -468,6 +484,8 @@ class Backup {
 					}catch (\Exception $e){
 						$this->b['error'] = _("Unable to upload file to the remote server");
 						backup_log($this->b['error']);
+						backup_log($e->getMessage());
+						return;
 					}
 						//run maintenance on the directory
 					$this->maintenance($s['type'], $path, $ftp);

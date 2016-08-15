@@ -165,9 +165,9 @@ switch ($var['action']) {
         header('Content-Type: text/event-stream');
         header('Cache-Control: no-cache');
         $cmd = $amp_conf['AMPBIN'] . '/restore.php --restore='
-                . $_SESSION['backup_restore_path']
+                . escapeshellarg($_SESSION['backup_restore_path'])
                 . ' --items='
-                . base64_encode(serialize($restore))
+                . base64_encode(json_encode($restore))
                 . ' 2>&1';
 
         //start running backup

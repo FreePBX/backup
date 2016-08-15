@@ -28,7 +28,7 @@ $vars = $getopt($short = '', $long = array('restore::', 'items::', 'manifest::',
 // Let items be descriptive - it may NOT be an encoded array.
 if (isset($vars['items'])) {
 	// Is it an encoded array though?
-	$items = unserialize(base64_decode($vars['items']));
+	$items = json_decode(base64_decode($vars['items']),true);
 	if (!is_array($items)) {
 		// Ok, it's not. It may just be a comma delimited set of things
 		// to restore.
@@ -134,12 +134,12 @@ if (!isset($vars['restore'])) {
 
 		$cmd[] = fpbx_which('tar');
 		$cmd[] = 'zxvf'; // We use 'v' to check for module root later
-		$cmd[] = $vars['restore'];
+		$cmd[] = escapeshellarg($vars['restore']);
 		//switch to root so that files get put back where they belong
 		//aslo, dont preseve access/modified times, as we may not always have the perms to do this
 		//across the entire heirachy of a file we are restoring
 		$cmd[] = '--atime-preserve -m -C /';
-		$cmd[] = "--files-from=$tmpfile";
+		$cmd[] = "--files-from=".escapeshellarg($tmpfile);
 		// Never restore asterisk.conf. No matter what.
 		$cmd[] = "--exclude='asterisk.conf'";
 		// Same for cdr_mysql.conf
@@ -200,7 +200,7 @@ if (!isset($vars['restore'])) {
 		//get db
 		$cmd[] = fpbx_which('tar');
 		$cmd[] = 'zxOf';
-		$cmd[] = $vars['restore'];
+		$cmd[] = escapeshellarg($vars['restore']);
 		$cmd[] = './' . $file;
 		$cmd[] = '>';
 		$cmd[] = $path;

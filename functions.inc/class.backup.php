@@ -95,7 +95,7 @@ class Backup {
 		}
 
 		if (is_dir($this->b['_tmpdir'])) {
-			$cmd = 'rm -rf ' . $this->b['_tmpdir'];
+			$cmd = 'rm -rf ' . escapeshellarg($this->b['_tmpdir']);
 			exec($cmd);
 		}
 

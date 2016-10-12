@@ -32,7 +32,11 @@ switch ($var['action']) {
 	case 'download':
 		$var['restore_path'] = backup_restore_locate_file($var['id'], $var['restore_path']);
 		$_SESSION['backup_restore_path'] = $var['restore_path'];
-		download_file($var['restore_path']);
+		if (is_array($_SESSION['backup_restore_path'])) {
+			echo '<script>alert("'.$_SESSION['backup_restore_path']['error_msg'].'");</script>';
+		}else{
+			download_file($var['restore_path']);
+		}
 		break;
 	case 'upload':
 

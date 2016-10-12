@@ -1,23 +1,5 @@
 <?php
 namespace FreePBX\modules\Backup;
-require __DIR__ . '/../vendor/autoload.php';
-/*FTP Stuff*/
-use Touki\FTP\FTP;
-use Touki\FTP\FTPWrapper;
-use Touki\FTP\Connection\Connection;
-use Touki\FTP\PermissionsFactory;
-use Touki\FTP\FilesystemFactory;
-use Touki\FTP\WindowsFilesystemFactory;
-use Touki\FTP\DownloaderVoter;
-use Touki\FTP\UploaderVoter;
-use Touki\FTP\CreatorVoter;
-use Touki\FTP\DeleterVoter;
-use Touki\FTP\Manager\FTPFilesystemManager;
-use Touki\FTP\Model\File;
-use Touki\FTP\Model\Directory;
-use Touki\FTP\Exception\DirectoryException;
-use Touki\FTP\Exception\ConnectionEstablishedException;
-use Touki\FTP\Exception\InvalidArgumentException;
 
 class Backup {
 
@@ -419,80 +401,35 @@ class Backup {
 					unset($msg);
 					break;
 				case 'ftp':
-					//subsitute variables if nesesary
-					$s['host'] = backup__($s['host']);
-					$s['port'] = backup__($s['port']);
-					$s['user'] = backup__($s['user']);
-					$s['password'] = backup__($s['password']);
+					include __DIR__.'/../components/interfaces/Communications.class.php';
+					$ftpconfig = array(
+						'fstype' => $s['fstype'],
+						'host' => backup__($s['host']),
+						'user' => backup__($s['user']),
+						'password' => backup__($s['password']),
+						'port' => backup__($s['port']),
+						'transfer' => $s['transfer']
+					);
 					$s['path'] = trim(backup__($s['path']),'/');
-					$fstype = isset($s['fstype'])?$s['fstype']:'auto';
 					$path = $s['path'] . '/' . $this->b['_dirname'];
-					$connection = new Connection($s['host'], $s['user'], $s['password'], $s['port'], 90, ($s['transfer'] == 'passive'));
 					try{
-						$connection->open();
-					}catch (ConnectionEstablishedException $e){
+						$ftpi = new \FreePBX\modules\Backup\components\interfaces\Communications('ftp',$ftpconfig);
+					}catch (Exception $e){
 						$this->b['error'] = $e->getMessage();
 						backup_log($this->b['error']);
 						return;
 					}
-
-					$wrapper = new FTPWrapper($connection);
-					$permFactory = new PermissionsFactory;
-					switch ($fstype) {
-						case 'unix':
-							$fsFactory = new FilesystemFactory($permFactory);
-						break;
-						case 'windows':
-							$fsFactory = new WindowsFilesystemFactory;
-						break;
-						case 'auto':
-						default:
-							$ftptype = $wrapper->systype();
-							if(strtolower($ftptype) == "unix"){
-								$fsFactory = new FilesystemFactory($permFactory);
-							}else{
-								$fsFactory = new WindowsFilesystemFactory;
-							}
-						break;
-					}
-
-					$manager = new FTPFilesystemManager($wrapper, $fsFactory);
-					$dlVoter = new DownloaderVoter;
-					$ulVoter = new UploaderVoter;
-					$ulVoter->addDefaultFTPUploaders($wrapper);
-					$crVoter = new CreatorVoter;
-					$crVoter->addDefaultFTPCreators($wrapper, $manager);
-					$deVoter = new DeleterVoter;
-					$deVoter->addDefaultFTPDeleters($wrapper, $manager);
-					$ftp = new FTP($manager, $dlVoter, $ulVoter, $crVoter, $deVoter);
-					if(!$ftp){
-						$this->b['error'] = _("Error creating the FTP object");
-							backup_log($this->b['error']);
-							return;
-					}
-
-					if(!$ftp->directoryExists(new Directory($path))){
-						backup_log(sprintf(_("Creating directory '%s'"),$path));
-						try{
-							$ftp->create(new Directory($path),array(FTP::RECURSIVE => true));
-						}catch (DirectoryException $e){
-							$this->b['error'] = sprintf(_("Directory '%s' did not exist and we could not create it"),$path);
-							backup_log($this->b['error']);
-							backup_log($e->getMessage());
-							return;
-						}
-					}
+					$ftpi->createDirectory($path);
 					try{
 						backup_log(_("Saving file to remote ftp"));
-						$ftp->upload(new File($path.'/'.$this->b['_file'] . '.tgz'),$this->b['_tmpfile']);
-					}catch (InvalidArgumentException $e){
-						$this->b['error'] = _("Unable to upload file to the remote server");
+						$ftpi->push($path.'/'.$this->b['_file'] . '.tgz',$this->b['_tmpfile']);
+					}catch (\Exception $e){
+						$this->b['error'] = $e->getMessage();
 						backup_log($this->b['error']);
-						backup_log($e->getMessage());
 						return;
 					}
 						//run maintenance on the directory
-					$this->maintenance($s['type'], $path, $ftp);
+					$this->maintenance($s['type'], $path, $ftpi);
 					break;
 				case 'awss3':
 					//subsitute variables if nesesary
@@ -729,10 +666,10 @@ class Backup {
 				$dir = scandir(backup__($data['path']) . '/' . $this->b['_dirname']);
 				break;
 			case 'ftp':
-				$ftplist = $handle->findFilesystems(new Directory($data));
+				$ftplist = $handle->listFiles($data);
 				$dir = array();
 				foreach($ftplist as $ftpitem){
-					$dir[] = $ftpitem->getRealpath();
+					$dir[] = $ftpitem;
 				}
 				break;
 			case 'ssh':
@@ -792,15 +729,14 @@ class Backup {
 		foreach($delete as $key => $file) {
 			switch($type) {
 				case 'local':
-					unlink(backup__($data['path']) . '/' . $this->b['_dirname'] . '/' . $file);
+					@unlink(backup__($data['path']) . '/' . $this->b['_dirname'] . '/' . $file);
 					unset($delete[$key]);
 					break;
 				case 'ftp':
-					$f = $handle->findFileByName($file);
 					try{
-						$handle->delete($f);
-					}catch(DirectoryException $e){
-						$this->b['error'] = sprintf(_("Error deleting %s"),$file);
+						$handle->delete(backup__($file));
+					}catch(Exception $e){
+						$this->b['error'] = sprintf($e->getMessage());
 						backup_log($this->b['error']);
 					}
 					unset($delete[$key]);

@@ -1,19 +1,5 @@
 <?php
-require __DIR__ . '/../vendor/autoload.php';
-use Touki\FTP\FTP;
-use Touki\FTP\FTPWrapper;
-use Touki\FTP\Connection\Connection;
-use Touki\FTP\PermissionsFactory;
-use Touki\FTP\FilesystemFactory;
-use Touki\FTP\WindowsFilesystemFactory;
-use Touki\FTP\DownloaderVoter;
-use Touki\FTP\UploaderVoter;
-use Touki\FTP\CreatorVoter;
-use Touki\FTP\DeleterVoter;
-use Touki\FTP\Manager\FTPFilesystemManager;
-use Touki\FTP\Model\File;
-use Touki\FTP\Model\Directory;
-use Touki\FTP\Exception\DirectoryException;
+
 /*
  * returns a json object of a directory in a jstree compatiable way
  *
@@ -72,59 +58,18 @@ function backup_jstree_list_dir($id, $path = '') {
 			}
 			break;
 		case 'ftp':
-			//subsitute variables if nesesary
-			$s['host'] = backup__($s['host']);
-			$s['port'] = backup__($s['port']);
-			$s['user'] = backup__($s['user']);
-			$s['password'] = backup__($s['password']);
-			$fstype = isset($s['fstype'])?$s['fstype']:'auto';
-			$connection = new Connection($s['host'], $s['user'], $s['password'], $s['port'], 90, ($s['transfer'] == 'passive'));
-			try{
-				$connection->open();
-			}catch (\Exception $e){
-				$this->b['error'] = $e->getMessage();
-				backup_log($this->b['error']);
-				return;
-			}
-			$wrapper = new FTPWrapper($connection);
-			$permFactory = new PermissionsFactory;
-			switch ($fstype) {
-				case 'auto':
-					$ftptype = $wrapper->systype();
-					if(strtolower($ftptype) == "unix"){
-						$fsFactory = new FilesystemFactory($permFactory);
-					}else{
-						$fsFactory = new WindowsFilesystemFactory;
-					}
-				break;
-				case 'unix':
-					$fsFactory = new FilesystemFactory($permFactory);
-				break;
-				case 'windows':
-					$fsFactory = new WindowsFilesystemFactory;
-				break;
-			}
-			$manager = new FTPFilesystemManager($wrapper, $fsFactory);
-			$dlVoter = new DownloaderVoter;
-			$ulVoter = new UploaderVoter;
-			$ulVoter->addDefaultFTPUploaders($wrapper);
-			$crVoter = new CreatorVoter;
-			$crVoter->addDefaultFTPCreators($wrapper, $manager);
-			$deVoter = new DeleterVoter;
-			$deVoter->addDefaultFTPDeleters($wrapper, $manager);
-			$ftp = new FTP($manager, $dlVoter, $ulVoter, $crVoter, $deVoter);
-			if(!$ftp){
-				$this->b['error'] = _("Error creating the FTP object");
-			}
-			$ftpdirs = $ftp->findFilesystems(new Directory($s['path']));
-			$ls = array();
-			foreach($ftpdirs as $thisdir){
-				$files = $ftp->findFilesystems(new Directory($thisdir->getRealPath()));
-				foreach ($files as $f) {
-					$ls[] = $thisdir->getRealPath().'/'.$f->getRealpath();
-				}
-
-			}
+		include __DIR__.'/../components/interfaces/Communications.class.php';
+			$ftpconfig = array(
+				'fstype' => $s['fstype'],
+				'host' => backup__($s['host']),
+				'user' => backup__($s['user']),
+				'password' => backup__($s['password']),
+				'port' => backup__($s['port']),
+				'transfer' => $s['transfer']
+			);
+			$ftpi = new \FreePBX\modules\Backup\components\interfaces\Communications('ftp',$ftpconfig);
+			$ftpdirs = $ftpi->listFiles($s['path'],true);
+			$ls = is_array($ftpdirs)?$ftpdirs:array();
 				foreach ($ls as $file) {
 					$file = basename($file);
 					//determine if we are a directory or not, rather than using rawlist
@@ -329,59 +274,28 @@ function backup_restore_locate_file($id, $path) {
 			$path = $s['path'] . '/' . $path;
 			break;
 		case 'ftp':
-			//subsitute variables if nesesary
-			$s['host'] = backup__($s['host']);
-			$s['port'] = backup__($s['port']);
-			$s['user'] = backup__($s['user']);
-			$s['password'] = backup__($s['password']);
-			$s['path'] = backup__($s['path']);
-			$path = ltrim($path,'/');
-			$connection = new Connection($s['host'], $s['user'], $s['password'], $s['port'], 90, ($s['transfer'] == 'passive'));
-			try{
-				$connection->open();
-			}catch (\Exception $e){
-				$this->b['error'] = $e->getMessage();
-				backup_log($this->b['error']);
-				return;
-			}
-			$wrapper = new FTPWrapper($connection);
-			$permFactory = new PermissionsFactory;
-			$ftptype = $wrapper->systype();
-			if(strtolower($ftptype) == "unix"){
-				$fsFactory = new FilesystemFactory($permFactory);
-			}else{
-				$fsFactory = new WindowsFilesystemFactory;
-			}
-			$manager = new FTPFilesystemManager($wrapper, $fsFactory);
-			$dlVoter = new DownloaderVoter;
-			$dlVoter->addDefaultFTPDownloaders($wrapper);
-			$ulVoter = new UploaderVoter;
-			$ulVoter->addDefaultFTPUploaders($wrapper);
-			$crVoter = new CreatorVoter;
-			$crVoter->addDefaultFTPCreators($wrapper, $manager);
-			$deVoter = new DeleterVoter;
-			$deVoter->addDefaultFTPDeleters($wrapper, $manager);
-			$ftp = new FTP($manager, $dlVoter, $ulVoter, $crVoter, $deVoter);
-			if(!$ftp){
-				$this->b['error'] = _("Error creating the FTP object");
-			}
-			$ftpdirs = $ftp->findFilesystems(new \Touki\FTP\Model\Directory($s['path']));
-			 $file = null;
-			foreach($ftpdirs as $thisdir){
-				if($ftp->fileExists(new \Touki\FTP\Model\File($thisdir->getRealPath().'/'.$path))){
-					$file = $ftp->findFileByName($thisdir->getRealPath().'/'.$path);
-				}
-			}
-
-			try{
-				$options = array(
-    			FTP::NON_BLOCKING  => false,     // Whether to deal with a callback while downloading
-    			FTP::TRANSFER_MODE => FTP_BINARY // Transfer Mode
-				);
-				$ftp->download($dest,$file,$options);
+		include __DIR__.'/../components/interfaces/Communications.class.php';
+			$ftpconfig = array(
+				'fstype' => $s['fstype'],
+				'host' => backup__($s['host']),
+				'user' => backup__($s['user']),
+				'password' => backup__($s['password']),
+				'port' => backup__($s['port']),
+				'transfer' => $s['transfer']
+			);
+			$ftpi = new \FreePBX\modules\Backup\components\interfaces\Communications('ftp',$ftpconfig);
+			$s['path'] = backup__($path);
+			try {
+				$ftpi->pull($s['path'],$dest);
 				$path = $dest;
-			}catch(\Exception $e){
-					return array('error_msg' => _('Failed to retrieve file from server!'));
+			} catch (Exception $e) {
+				return array('error_msg' => _('Failed to retrieve file from server!'));
+			}
+			dbug($path);
+			if (file_exists($path)) {
+				return $path;
+			} else {
+				return array('error_msg' => _('File not found! ' . $path));
 			}
 			break;
 		case 'ssh':

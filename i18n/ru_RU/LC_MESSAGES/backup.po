@@ -24,22 +24,22 @@ msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-18 11:46-0700\n"
-"PO-Revision-Date: 2015-05-03 15:58+0200\n"
-"Last-Translator: Yuriy <alliancesko@gmail.com>\n"
-"Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/backup/"
-"ru_RU/>\n"
+"PO-Revision-Date: 2016-07-11 13:48+0000\n"
+"Last-Translator: Weblate Admin <admin@postmet.com>\n"
+"Language-Team: Russian "
+"<https://weblate.postmet.com/projects/freepbx/backup/ru_RU/>\n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru_RU\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: views/backup/backups.php:23
 #, php-format
 msgid "%s Backup Wizard"
-msgstr ""
+msgstr "%s Мастер создания резервной копии"
 
 #: functions.inc/templates.php:251
 msgid "/path/to/dir"
@@ -75,32 +75,32 @@ msgstr "Сценарий, запускаемый ПОСЛЕ запуска ре�
 
 #: views/backup/backups.php:154 assets/js/backup.js:93 assets/js/backup.js:105
 msgid "AT"
-msgstr ""
+msgstr "АТ"
 
 #: views/servers/awss3.php:41
 msgid "AWS Access Key"
-msgstr ""
+msgstr "Ключ доступа к AWS"
 
 #: functions.inc/servers.php:335
 msgid "AWS S3 Server "
-msgstr ""
+msgstr "Сервер AWS S3 "
 
 #: views/servers/awss3.php:58
 msgid "AWS Secret"
-msgstr ""
+msgstr "Пароль AWS"
 
 #: views/backup/backups.php:11 views/servers/servers.php:22
 #: views/templates/templates.php:9
 msgid "Actions"
-msgstr ""
+msgstr "Действия"
 
 #: views/backup/backups.php:501 views/servers/ftp.php:193
 msgid "Active"
-msgstr ""
+msgstr "Активно"
 
 #: views/servers/servers.php:4
 msgid "Add Server"
-msgstr ""
+msgstr "Добавить сервер"
 
 #: bin/backup.php:55
 msgid "Adding items..."
@@ -116,12 +116,18 @@ msgid ""
 "to prevent the Primary and Standby systems from \"fighting\" for the "
 "registration, resulting in some calls routed to the Standby system."
 msgstr ""
+"После восстановления отключите все транки ,использующие регистрацию. Это "
+"помогает предотвратить основную и  резерную системы от \"борьбы\" за "
+"регистрацию,в результате чего некоторые звонки могут пойти на резервную "
+"систему."
 
 #: views/backup/backups.php:171
 msgid ""
 "All PBX Configuration files and any Custom Sound Prompts are included in the "
 "base backup"
 msgstr ""
+"Все конфигурационные файлы PBX  и любые  пользовательские голосовые "
+"приглашения включаются в базовую резервную копию"
 
 #: install.php:172
 msgid ""
@@ -133,11 +139,11 @@ msgstr ""
 
 #: functions.inc/servers.php:280
 msgid "Amazon S3 Server "
-msgstr ""
+msgstr "Amazon S3 сервер "
 
 #: views/servers/awss3.php:4
 msgid "Amazon S3&trade; Server"
-msgstr ""
+msgstr "Amazon S3&trade; Сервер"
 
 #: views/cron.php:8
 msgid "Annually"
@@ -173,7 +179,7 @@ msgstr "Доступные серверы"
 
 #: views/servers/email.php:99
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: functions.inc.php:67
 msgid "BACKUP LOG ATTACHED"
@@ -181,7 +187,7 @@ msgstr "Журнал копирования приложен"
 
 #: functions.inc/class.backup.php:407 functions.inc/class.backup.php:410
 msgid "BACKUP NOT ATTACHED"
-msgstr ""
+msgstr "АРХИВ НЕ ПРИСОЕДИНЁН"
 
 #: Backup.class.php:316 functions.inc/backup.php:80
 #: functions.inc/class.backup.php:401 views/backup/backup.php:6
@@ -211,22 +217,23 @@ msgstr "Резервное копирование и восстановлени�
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
 msgstr ""
+"Произвести резервное копирование CDR-файлов  и файлов записей разговоров?"
 
 #: views/backup/backups.php:121
 msgid "Backup Description"
-msgstr ""
+msgstr "Описание резервной копии"
 
 #: functions.inc/class.backup.php:406
 msgid "Backup ERROR (exceeded SMTP limits)"
-msgstr ""
+msgstr "ОШИБКА при отсылке резервной копии (превышен лимит SMTP)"
 
 #: functions.inc/class.backup.php:409
 msgid "Backup ERROR (exceeded soft limit)"
-msgstr ""
+msgstr "ОШИБКА при создании резервной копии (превышен софт лимит)"
 
 #: views/backup/backups.php:49
 msgid "Backup Frequency"
-msgstr ""
+msgstr "Частота выполнения резервного копирования"
 
 #: views/backup/backups.php:58
 msgid "Backup Items"
@@ -262,15 +269,15 @@ msgstr "Сервер бекапа не найден!"
 
 #: views/templates/template.php:7
 msgid "Backup Template"
-msgstr ""
+msgstr "Образец резервной копии"
 
 #: views/backup/backups.php:2
 msgid "Backup Wizard"
-msgstr ""
+msgstr "Мастер создания  резервной копии"
 
 #: page.backup.php:115
 msgid "Backup and Restore"
-msgstr ""
+msgstr "Резервное копирование и  восстановление"
 
 #: bin/backup.php:152 bin/backup.php:200
 msgid "Backup completed with errors!"
@@ -303,27 +310,27 @@ msgstr "Бекапы"
 
 #: views/backup/backups.php:88
 msgid "Basic Backup Information"
-msgstr ""
+msgstr "Информация базовой резервной копии"
 
 #: views/backup/backups.php:40
 msgid "Basic Information"
-msgstr ""
+msgstr "Базовая информация"
 
 #: views/restore/restore.php:7 views/restore/restore.php:24
 msgid "Browse"
-msgstr ""
+msgstr "Просмотр"
 
 #: views/servers/awss3.php:14
 msgid "Bucket Name"
-msgstr ""
+msgstr "Имя хранилища"
 
 #: bin/backup.php:58
 msgid "Building manifest..."
-msgstr ""
+msgstr "Генерируется манифест..."
 
 #: views/backup/backups.php:233
 msgid "CDR and Call Log Data"
-msgstr ""
+msgstr "CDR и логи звонков"
 
 #: install.php:100
 msgid "CDR server, generally a local database server"
@@ -339,7 +346,7 @@ msgstr "Детализация записи звонков"
 
 #: views/backup/backups.php:206
 msgid "Call Recordings"
-msgstr ""
+msgstr "Записи разговоров"
 
 #: install.php:71
 msgid "Can not create backup tables"
@@ -351,7 +358,7 @@ msgstr "Прибираемся..."
 
 #: views/backup/backups.php:85
 msgid "Click 'Next' to continue."
-msgstr ""
+msgstr "Нажмите \"Next\" чтобы продолжить."
 
 #: install.php:136
 msgid "Configurations only"
@@ -388,7 +395,7 @@ msgstr "Ежедневно"
 
 #: assets/js/backup.js:99
 msgid "Day each month"
-msgstr ""
+msgstr "День каждого месяца"
 
 #: views/cron.php:224
 msgid "Day of Week"
@@ -400,11 +407,11 @@ msgstr "Дни"
 
 #: views/cron.php:272 views/cron.php:276
 msgid "Days of Month"
-msgstr ""
+msgstr "Дни месяца"
 
 #: views/cron.php:286
 msgid "Days of month to run"
-msgstr ""
+msgstr "Дни месяца когда запускать"
 
 #: views/cron.php:54
 msgid "December"
@@ -412,7 +419,7 @@ msgstr "Декабрь"
 
 #: views/backup/backups.php:426 views/backup/backups.php:525
 msgid "Default"
-msgstr ""
+msgstr "По-умолчанию"
 
 #: install.php:230
 msgid "Default backup; automatically installed"
@@ -426,7 +433,7 @@ msgstr "Удалить "
 
 #: views/backup/backup.php:483 views/backup/backup.php:520
 msgid "Delete After"
-msgstr ""
+msgstr "Удалить После"
 
 #: views/backup/backup.php:510
 msgid ""
@@ -471,7 +478,7 @@ msgstr "Описание или примечание для этого серв�
 
 #: views/backup/backups.php:76
 msgid "Destination"
-msgstr ""
+msgstr "Назначение"
 
 #: functions.inc/templates.php:246
 msgid "Directory"
@@ -498,6 +505,8 @@ msgstr "Загрузить "
 msgid ""
 "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
+"Перенесите сервера из списка доступных серверов для назначения их в качестве "
+"серверов хранения"
 
 #: views/backup/backup.php:112
 msgid ""
@@ -509,7 +518,7 @@ msgstr ""
 
 #: views/backup/backup.php:121
 msgid "Drop Here"
-msgstr ""
+msgstr "Бросить здесь"
 
 #: backup.i18n.php:20
 msgid "Email "
@@ -521,11 +530,11 @@ msgstr "Адрес эл. почты"
 
 #: views/backup/backups.php:264
 msgid "Email Notifications"
-msgstr ""
+msgstr "Уведомления по Email"
 
 #: views/servers/email.php:4
 msgid "Email Server"
-msgstr ""
+msgstr "Email сервер"
 
 #: functions.inc/servers.php:265 functions.inc/servers.php:320
 msgid "Email Server "
@@ -538,6 +547,7 @@ msgstr "E-mail, куда отправить сделанные бекапы"
 #: assets/js/backup.js:14
 msgid "Email notifications are set to Yes but no email provided"
 msgstr ""
+"Функция \"Уведомлять по Email\" установлена в \"Да\", но не указан Email"
 
 #: views/backup/backup.php:77
 msgid "Email to send status messages to when this task is run"
@@ -549,6 +559,8 @@ msgid ""
 "Equivalence of clicking the red button, will happen automatically after a "
 "restore on a Standby system"
 msgstr ""
+"Эквивалентно нажатию на красную кнопку, происходит автоматически после "
+"восстановления на резервной системе"
 
 #: functions.inc/class.backup.php:465 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
@@ -577,6 +589,8 @@ msgid ""
 "Exclude Backup's settings so that they dont get restored, useful for a "
 "remote restore"
 msgstr ""
+"Исключить настройки резервной копии так, чтобы они не восстанавливались, это "
+"полезно для удаленного восстановления"
 
 #: views/backup/backup.php:353
 msgid "Exclude NAT settings"
@@ -587,22 +601,24 @@ msgid ""
 "Explicitly exclude any machine-specific IP settings. This allows you to have "
 "a warm-spare machine with a different IP address."
 msgstr ""
+"Явно исключать любые специфичные для конкретной системы IP-настройки. Это "
+"позволяет иметь запасную систему с другими IP-адресами."
 
 #: bin/restore.php:67
 msgid "Explicitly skipping host-specific NAT settings"
-msgstr ""
+msgstr "Явно пропускать специфичные для хоста настройки NAT"
 
 #: views/backup/backups.php:352
 msgid "FTP"
-msgstr ""
+msgstr "FTP"
 
 #: views/backup/backups.php:482 views/servers/mysql.php:148
 msgid "FTP Password"
-msgstr ""
+msgstr "Пароль FTP"
 
 #: views/servers/ftp.php:9
 msgid "FTP Server"
-msgstr ""
+msgstr "FTP сервер"
 
 #: functions.inc/servers.php:268 functions.inc/servers.php:323
 msgid "FTP Server "
@@ -610,11 +626,11 @@ msgstr "FTP сервер "
 
 #: views/backup/backups.php:509
 msgid "FTP Transfer type"
-msgstr ""
+msgstr "Тип передачи FTP"
 
 #: views/servers/mysql.php:124
 msgid "FTP Username"
-msgstr ""
+msgstr "Имя пользователя FTP"
 
 #: functions.inc/restore.php:550
 msgid ""
@@ -671,7 +687,7 @@ msgstr ""
 
 #: page.backup.php:52
 msgid "FreePBX"
-msgstr ""
+msgstr "Система FreePBX"
 
 #: views/cron.php:32 assets/js/backup.js:83
 msgid "Friday"
@@ -683,15 +699,15 @@ msgstr "Получение размера CDR ..."
 
 #: views/backup/backups.php:386
 msgid "Give the server a descriptive name"
-msgstr ""
+msgstr "Присвойте серверу  описывающее имя"
 
 #: views/backup/backups.php:133
 msgid "Give your backup a description"
-msgstr ""
+msgstr "Присвойте резервной копии   описывающее имя"
 
 #: views/backup/backups.php:109
 msgid "Give your backup a friendly name"
-msgstr ""
+msgstr "Присвойте резервной копии   дружественное имя"
 
 #: views/restore/browseserver.php:29
 msgid "Go!"
@@ -720,15 +736,15 @@ msgstr "Часы"
 
 #: views/backup/backups.php:140
 msgid "How often should we backup?"
-msgstr ""
+msgstr "Как часто делать бэкап?"
 
 #: views/backup/backups.php:410
 msgid "IP Address or FQDN of your server"
-msgstr ""
+msgstr "IP адрес или FQDN-имя вашего сервера"
 
 #: views/servers/ssh.php:76
 msgid "IP address or FQDN of remote SSH server"
-msgstr ""
+msgstr "IP адрес или FQDN удалённого SSH сервера"
 
 #: views/servers/ftp.php:69
 msgid "IP address or FQDN of remote ftp host"
@@ -745,6 +761,11 @@ msgid ""
 "possible). Please note: randomized schedules will be rescheduled (randomly) "
 "every time ANY backup is saved"
 msgstr ""
+"Если выбрана опция Случайный выбор, аналогичная частота будет соблюдаться, "
+"только точное количество будет рандомизировано (избегая пиковых рабочих "
+"часов, если возможно). Обратите внимание: рандомизированное расписание "
+"перепланируется (случайным образом) каждый раз, когда резервная копия "
+"сохраняется"
 
 #: views/cron.php:105
 msgid ""
@@ -756,6 +777,12 @@ msgid ""
 "set to, say, Monday, the Backup will run ONLY\n"
 "\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
 msgstr ""
+"Если выбрано настраиваемое расписание, любые не определённые секции будут "
+"рассматриваться как \"любые\" (известное как wildcard).\n"
+"Например, если День месяца установлен в 12 и день недели не установлен, то "
+"резервное копирование будет запущено в 12-го числа месяца, независимо от дня "
+"недели.Если день недели установлен,скажем в понедельник, то резервное "
+"копирование будет запущено только 12о-го числа и если это понедельник."
 
 #: views/restore/restore.php:6
 msgid "Import"
@@ -763,19 +790,19 @@ msgstr ""
 
 #: bin/backup.php:41
 msgid "Initializing Backup"
-msgstr ""
+msgstr "Инициализация резервного копирования"
 
 #: bin/restore.php:90
 msgid "Initializing Restore..."
-msgstr ""
+msgstr "Инициализация восстановления..."
 
 #: views/backup/backups.php:31
 msgid "Introduction"
-msgstr ""
+msgstr "Введение"
 
 #: assets/js/backup.js:8
 msgid "Invalid Backup Name"
-msgstr ""
+msgstr "Неверное имя резервной копии"
 
 #: page.backup_restore.php:116 page.backup_restore.php:136
 msgid "Invalid backup for or undefined error"
@@ -784,7 +811,7 @@ msgstr "Некорректная резервная копия или неизв
 #: views/backup/backups.php:9 views/servers/servers.php:19
 #: views/templates/templates.php:7
 msgid "Item"
-msgstr ""
+msgstr "Элемент"
 
 #: views/backup/backup.php:118
 msgid "Items"
@@ -804,7 +831,7 @@ msgstr "Июнь"
 
 #: views/servers/email.php:101
 msgid "KB"
-msgstr ""
+msgstr "Кб"
 
 #: views/servers/ssh.php:136
 msgid "Key"
@@ -812,7 +839,7 @@ msgstr "Ключ"
 
 #: views/servers/local.php:4
 msgid "Local Server"
-msgstr ""
+msgstr "Локальный сервер"
 
 #: functions.inc/servers.php:271 functions.inc/servers.php:326
 msgid "Local Server "
@@ -821,14 +848,15 @@ msgstr "Локальный сервер "
 #: views/servers/ssh.php:148
 msgid "Location of ssh private key to be used when connecting to a host"
 msgstr ""
+"Расположение приватного ssh-ключа , используемого для подключения   к хосту"
 
 #: views/servers/email.php:103
 msgid "MB"
-msgstr ""
+msgstr "Мб"
 
 #: views/backup/backup.php:474
 msgid "Maintenance"
-msgstr ""
+msgstr "Сопровождение"
 
 #: views/cron.php:45
 msgid "March"
@@ -836,7 +864,7 @@ msgstr "Март"
 
 #: views/servers/email.php:88
 msgid "Max Email Size"
-msgstr ""
+msgstr "Максимальный размер Email"
 
 #: views/cron.php:47
 msgid "May"
@@ -852,7 +880,7 @@ msgstr "Понедельник"
 
 #: views/backup/backups.php:151 views/cron.php:7
 msgid "Monthly"
-msgstr ""
+msgstr "Ежемесячный"
 
 #: views/backup/backup.php:499 views/cron.php:246 views/cron.php:250
 msgid "Months"
@@ -860,79 +888,79 @@ msgstr "Месяцы"
 
 #: views/servers/mysql.php:4
 msgid "MySQL Server"
-msgstr ""
+msgstr "MySQL Server"
 
 #: functions.inc/templates.php:267
 msgid "Mysql"
-msgstr ""
+msgstr "MySQL"
 
 #: views/restore/browseserver.php:20
 msgid "Mysql DB's"
-msgstr ""
+msgstr "База данных  MySQL"
 
 #: functions.inc/class.backup.php:396
 msgid "Mysql Db's"
-msgstr ""
+msgstr "База данных  MySQL"
 
 #: functions.inc/servers.php:274 functions.inc/servers.php:329
 msgid "Mysql Server "
-msgstr ""
+msgstr "MySQL Server "
 
 #: functions.inc/class.backup.php:393 views/restore/browseserver.php:17
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 #: views/servers/email.php:28
 msgid "Name this Server"
-msgstr ""
+msgstr "Имя этого сервера"
 
 #: views/backup/backup.php:29
 msgid "Name this backup"
-msgstr ""
+msgstr "Имя этой  резервной копии"
 
 #: views/cron.php:3
 msgid "Never"
-msgstr ""
+msgstr "Никогда"
 
 #: views/cron.php:101
 msgid "Never will never run the backup automatically"
-msgstr ""
+msgstr "Никогда  Процедура резервного копирования не будет запущена никогда"
 
 #: views/servers/servers.php:12
 msgid "New Amazon S3 server"
-msgstr ""
+msgstr "Новый Amazon S3 сервер"
 
 #: views/backup/backups.php:3
 msgid "New Backup"
-msgstr ""
+msgstr "Новая резервная копия"
 
 #: views/servers/servers.php:9
 msgid "New Email server"
-msgstr ""
+msgstr "Новый Email сервер"
 
 #: views/servers/servers.php:7
 msgid "New FTP server"
-msgstr ""
+msgstr "Новый FTP сервер"
 
 #: views/servers/servers.php:10
 msgid "New Local server"
-msgstr ""
+msgstr "Новый локальный сервер"
 
 #: views/servers/servers.php:11
 msgid "New MySQL server"
-msgstr ""
+msgstr "Новый MySQL сервер"
 
 #: views/servers/servers.php:8
 msgid "New SSH server"
-msgstr ""
+msgstr "Новый SSH сервер"
 
 #: views/templates/templates.php:2
 msgid "New Template"
-msgstr ""
+msgstr "Новый образец"
 
 #: views/backup/backups.php:147
 msgid "Nightly"
-msgstr ""
+msgstr "Каждую ночь"
 
 #: views/backup/backup.php:96 views/backup/backup.php:308
 #: views/backup/backup.php:333 views/backup/backup.php:360
@@ -941,23 +969,23 @@ msgstr ""
 #: views/backup/backups.php:271 views/backup/backups.php:327
 #: views/cron.php:147
 msgid "No"
-msgstr ""
+msgstr "Нет"
 
 #: bin/backup.php:75
 msgid "No items in backup set. Aborting."
-msgstr ""
+msgstr "Нет элементов в резервной копии . Завершение."
 
 #: bin/backup.php:36
 msgid "No storage servers found! Aborting."
-msgstr ""
+msgstr "Не найден сервер хранения! Завершение."
 
 #: bin/restore.php:86
 msgid "Nothing to restore!"
-msgstr ""
+msgstr "Нет ничего для восстановления!"
 
 #: views/backup/backups.php:67
 msgid "Notifications"
-msgstr ""
+msgstr "Уведомления"
 
 #: views/cron.php:53
 msgid "November"
@@ -965,7 +993,7 @@ msgstr "Ноябрь"
 
 #: assets/js/backup.js:94
 msgid "ON"
-msgstr ""
+msgstr "Вкл"
 
 #: views/cron.php:52
 msgid "October"
@@ -977,7 +1005,7 @@ msgstr ""
 
 #: assets/js/backup.js:101
 msgid "On the"
-msgstr ""
+msgstr "На"
 
 #: views/backup/backup.php:104
 msgid "Only send an email on failure"
@@ -985,15 +1013,15 @@ msgstr ""
 
 #: views/templates/template.php:48
 msgid "Optional description or notes for this backup temnplate."
-msgstr ""
+msgstr "Опциональное описание или заметки для этого образца резервной копии."
 
 #: functions.inc/templates.php:260
 msgid "PATTERNs, one per line"
-msgstr ""
+msgstr "Шаблоны, один на линию"
 
 #: views/restore/backup_list.php:19
 msgid "PBX Settings"
-msgstr ""
+msgstr "Настройки PBX"
 
 #: install.php:88
 msgid "PBX config server, generally a local database server"
@@ -1001,213 +1029,217 @@ msgstr "Сервер конфигурации PBX, обычно локальна
 
 #: views/backup/backups.php:499 views/servers/ftp.php:195
 msgid "Passive"
-msgstr ""
+msgstr "Пассивный"
 
 #: views/backup/backups.php:470 views/servers/ftp.php:117
 #: views/servers/mysql.php:136
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: views/servers/ftp.php:164 views/servers/local.php:64
 #: views/servers/ssh.php:160
 msgid "Path"
-msgstr ""
+msgstr "Путь"
 
 #: views/servers/ftp.php:176 views/servers/local.php:76
 #: views/servers/ssh.php:172
 msgid "Path on remote server"
-msgstr ""
+msgstr "Путь на удалённом сервере"
 
 #: views/backup/backups.php:557
 msgid "Path to ssh key, example /home/asterisk/.ssh/id_rsa"
-msgstr ""
+msgstr "Путь к ключу ssh, например  /home/asterisk/.ssh/id_rsa"
 
 #: views/item_table.php:8
 msgid "Path/DB"
-msgstr ""
+msgstr "Путь/DB"
 
 #: assets/js/backup.js:146
 msgid "Please wait"
-msgstr ""
+msgstr "Пожалуйста подождите"
 
 #: views/restore/backup_list.php:13
 msgid "Please wait, loading..."
-msgstr ""
+msgstr "Пожалуйста подождите,загрузка..."
 
 #: views/servers/ftp.php:81 views/servers/mysql.php:88
 #: views/servers/ssh.php:88
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 #: views/backup/backup.php:185
 msgid "Post-Backup Hook"
-msgstr ""
+msgstr "Обработчик после завершения резервного копирования"
 
 #: views/backup/backup.php:233
 msgid "Post-Restore Hook"
-msgstr ""
+msgstr "Обработчик после завершения восстановления"
 
 #: views/backup/backup.php:161
 msgid "Pre-Backup Hook"
-msgstr ""
+msgstr "Обработчик перед началом резервного копирования"
 
 #: views/backup/backup.php:209
 msgid "Pre-Restore Hook"
-msgstr ""
+msgstr "Обработчик перед началом восстановления"
 
 #: bin/restore.php:294
 msgid "Preserving local NAT settings"
-msgstr ""
+msgstr "Сохранения локальных NAT-установок"
 
 #: bin/restore.php:245
 #, php-format
 msgid "Processed %s%% of CDRs (%s of %s lines)"
-msgstr ""
+msgstr "Обработано  %s%%  CDR-ов (%s of %s строк)"
 
 #: bin/restore.php:339
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
-msgstr ""
+msgstr "Обработано  %s%% настроек (%s  %s строк)"
 
 #: bin/backup.php:139
 msgid "Processing received file..."
-msgstr ""
+msgstr "Обработка принятого файла..."
 
 #: views/servers/local.php:28 views/servers/ssh.php:28
 msgid "Provide the name for this server"
-msgstr ""
+msgstr "Укажите имя для этого сервера"
 
 #: views/cron.php:140
 msgid "Randomize"
-msgstr ""
+msgstr "Случайный"
 
 #: views/cron.php:9
 msgid "Reboot"
-msgstr ""
+msgstr "Перегрузка"
 
 #: bin/restore.php:418
 msgid "Reloading..."
-msgstr ""
+msgstr "Перезагрузка..."
 
 #: views/servers/mysql.php:172
 msgid "Remote Database Name"
-msgstr ""
+msgstr "Имя удалённой базы данных"
 
 #: views/servers/mysql.php:100
 msgid "Remote MySQL Port"
-msgstr ""
+msgstr "Удалённый порт MySQL"
 
 #: views/backup/backups.php:521
 msgid "Remote Path"
-msgstr ""
+msgstr "Удалённый путь"
 
 #: views/servers/ssh.php:100
 msgid "Remote SSH Port"
-msgstr ""
+msgstr "Удалённый SSH-порт"
 
 #: views/backup/backups.php:320
 msgid "Remote Save"
-msgstr ""
+msgstr "Удалённое сохранение"
 
 #: views/backup/backups.php:335
 msgid "Remote Server Settings?"
-msgstr ""
+msgstr "Настройки удалённого сервера?"
 
 #: views/backup/backups.php:347
 msgid "Remote Server Type"
-msgstr ""
+msgstr "Тип удалённого сервера"
 
 #: views/backup/backups.php:362
 msgid "Remote Server type"
-msgstr ""
+msgstr "Тип удалённого сервера"
 
 #: views/backup/backups.php:310
 msgid "Remote save options"
-msgstr ""
+msgstr "Опции удалённого сохранения"
 
 #: views/backup/backups.php:533
 msgid "Remote save path, blank for default"
-msgstr ""
+msgstr "Путь удалённого сохранения , пусто по умолчанию"
 
 #: Backup.class.php:187
 msgid "Reset"
-msgstr ""
+msgstr "Сброс"
 
 #: page.backup_restore.php:191 views/restore/backup_list.php:34
 #: views/restore/browseserver.php:4 views/restore/restore.php:40
 #: views/rnav/main.php:4
 msgid "Restore"
-msgstr ""
+msgstr "Восстановить"
 
 #: views/restore/backup_list.php:26
 msgid "Restore CDR records stored in this backup"
-msgstr ""
+msgstr "Восстановить  CDR-записи, сохранённые в этой резервной копии"
 
 #: views/backup/backup.php:292
 msgid "Restore Here"
-msgstr ""
+msgstr "Восстановить здесь"
 
 #: views/restore/backup_list.php:19
 msgid "Restore all setting stored in the database"
-msgstr ""
+msgstr "Восстановить все  настройки,сохранённые в базе данных"
 
 #: views/backup/backup.php:314
 msgid "Restore backup to this server after the backup is complete"
 msgstr ""
+"Восстановить резервную  копию для этого сервера после завершения резервного "
+"копирования"
 
 #: bin/restore.php:417
 msgid "Restore complete!"
-msgstr ""
+msgstr "Восстановление  завершено!"
 
 #: bin/restore.php:343
 msgid "Restored Database"
-msgstr ""
+msgstr "Восстановленная база данных"
 
 #: bin/restore.php:252
 msgid "Restoring CDRs complete"
-msgstr ""
+msgstr "Восстановление CDR-файлов завершено"
 
 #: bin/restore.php:170
 msgid "Restoring CDRs..."
-msgstr ""
+msgstr "Восстановление CDR-файлов..."
 
 #: bin/restore.php:301
 msgid "Restoring Database..."
-msgstr ""
+msgstr "Восстановленние базы данных..."
 
 #: bin/restore.php:351
 msgid "Restoring NAT settings"
-msgstr ""
+msgstr "Восстановление NAT-установок"
 
 #: bin/restore.php:372
 msgid "Restoring Settings complete"
-msgstr ""
+msgstr "Восстановление установок завершено"
 
 #: bin/restore.php:115
 msgid "Restoring all files (this may take some time)..."
-msgstr ""
+msgstr "Восстановление всех файлов (это может занять некоторое время)..."
 
 #: bin/restore.php:362
 msgid "Restoring astDB..."
-msgstr ""
+msgstr "Восстановление  astDB..."
 
 #: bin/backup.php:173
 msgid "Restoring backup..."
-msgstr ""
+msgstr "Восстановление резервной копии ..."
 
 #: bin/restore.php:119
 msgid "Restoring files (this may take some time)..."
-msgstr ""
+msgstr "Восстановление файлов (это может занять некоторое время)..."
 
 #: views/cron.php:120
 msgid "Run Automatically"
-msgstr ""
+msgstr "Запустить автоматически"
 
 #: views/cron.php:97
 msgid ""
 "Run at startup of the server OR of the cron deamon (i.e. after every "
 "<code>service cron restart</code>)"
 msgstr ""
+"Запускать при загрузке сервера ИЛИ в cron-демоне (т.е после каждого  <code>"
+"перезапуска сервиса cron-а</code>)"
 
 #: page.backup.php:48
 msgid "Run now"
@@ -1215,71 +1247,73 @@ msgstr "Запустить немедленно"
 
 #: views/cron.php:81
 msgid "Run once a day, at midnight"
-msgstr ""
+msgstr "Запустить единожды в один из дней , в полночь"
 
 #: views/cron.php:89
 msgid "Run once a month, midnight, first of month"
-msgstr ""
+msgstr "Запустить единожды в один из месяцев, в полночь, в первый месяц"
 
 #: views/cron.php:85
 msgid "Run once a week, midnight on Sun"
-msgstr ""
+msgstr "Запустить единожды  в одну  из недель , в полночь, в воскресенье"
 
 #: views/cron.php:93
 msgid "Run once a year, midnight, Jan. 1"
-msgstr ""
+msgstr "Запустить единожды в один из годов , в полночь 1-го Янв"
 
 #: views/cron.php:77
 msgid "Run once an hour, beginning of hour"
-msgstr ""
+msgstr "Запустить единожды в один из часов , начиная с часа"
 
 #: bin/restore.php:378
 msgid "Running post restore script..."
-msgstr ""
+msgstr "Запускается  скрипт после окончания процедуры восстановления..."
 
 #: bin/backup.php:147 bin/backup.php:185
 msgid "Running post-backup hooks..."
-msgstr ""
+msgstr "Запускаются   обработчики после создания резервной копии..."
 
 #: bin/restore.php:382
 msgid "Running post-restore hooks, if any..."
 msgstr ""
+"Запускаются   обработчики после окончания процедуры восстановления, если что "
+"..."
 
 #: bin/backup.php:52
 msgid "Running pre-backup hooks..."
-msgstr ""
+msgstr "Запускаются  обработчики перед процедурой создания резервной копии ..."
 
 #: bin/restore.php:105
 msgid "Running pre-restore hooks, if any..."
-msgstr ""
+msgstr "Запускаются  обработчики перед процедурой  восстановления, если что ..."
 
 #: bin/restore.php:102
 msgid "Running pre-restore scripts..."
-msgstr ""
+msgstr "Запускаются  скрипты  перед процедурой  восстановления ...."
 
 #: views/backup/backup.php:526
 msgid "Runs"
-msgstr ""
+msgstr "Запущены"
 
 #: views/backup/backups.php:354
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 #: views/backup/backups.php:545
 msgid "SSH Key Path"
-msgstr ""
+msgstr "Путь к ключам SSH"
 
 #: views/servers/ssh.php:4
 msgid "SSH Server"
-msgstr ""
+msgstr "SSH сервер"
 
 #: functions.inc/servers.php:277 functions.inc/servers.php:332
 msgid "SSH Server "
-msgstr ""
+msgstr "SSH сервер "
 
 #: views/servers/ssh.php:124
 msgid "SSH Username"
-msgstr ""
+msgstr "SSH имя пользователя"
 
 #: views/cron.php:33 assets/js/backup.js:83
 msgid "Saturday"
@@ -1287,11 +1321,11 @@ msgstr "Суббота"
 
 #: Backup.class.php:192
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 #: Backup.class.php:197
 msgid "Save and Run"
-msgstr ""
+msgstr "Сохранить и запустить"
 
 #: functions.inc/class.backup.php:482
 msgid "Saving file to remote ftp"
@@ -1299,22 +1333,24 @@ msgstr ""
 
 #: views/cron.php:71
 msgid "Schedule Help"
-msgstr ""
+msgstr "Помощь по планировщику"
 
 #: views/restore/browseserver.php:12
 msgid "Select a file and click go"
-msgstr ""
+msgstr "Выберите файл и нажмите \"Вперёд\""
 
 #: views/cron.php:73
 msgid ""
 "Select how often to run this backup. The following schedule will be followed "
 "for all but custom."
-msgstr ""
+msgstr "Выбрать как часто запускать эту процедуру создания резервной копии."
 
 #: views/backup/backup.php:281
 msgid ""
 "Select the server to be backed up (this server, or any other SSH server)"
 msgstr ""
+"Выбрать сервер ,для которого будет создана резервная копия   (этот сервер "
+"или любой другой SSH сервер)"
 
 #: views/cron.php:51
 msgid "September"
@@ -1326,69 +1362,69 @@ msgstr ""
 
 #: views/backup/backups.php:398
 msgid "Server Address"
-msgstr ""
+msgstr "Адрес сервера"
 
 #: views/backup/backups.php:374 views/servers/email.php:16
 #: views/servers/ftp.php:21 views/servers/local.php:16
 #: views/servers/mysql.php:16 views/servers/ssh.php:16
 msgid "Server Name"
-msgstr ""
+msgstr "Имя сервера"
 
 #: assets/js/backup.js:24
 msgid "Server Name can not be blank"
-msgstr ""
+msgstr "Имя сервера не может быть пустым"
 
 #: views/backup/backups.php:422
 msgid "Server Port"
-msgstr ""
+msgstr "Порт сервера"
 
 #: views/backup/backups.php:434
 msgid "Server Port, leave blank for default"
-msgstr ""
+msgstr "Порт сервера , оставьте пустым для использования по умолчанию"
 
 #: views/backup/backups.php:458
 msgid "Server Username"
-msgstr ""
+msgstr "Имя пользователя сервера"
 
 #: assets/js/backup.js:28
 msgid "Server address can not be blank"
-msgstr ""
+msgstr "Имя сервера не может быть пустым"
 
 #: page.backup_servers.php:80 views/rnav/main.php:5
 msgid "Servers"
-msgstr ""
+msgstr "Сервера"
 
 #: bin/backup.php:106
 msgid "Something went wrong when connecting to remote server. Aborting!"
-msgstr ""
+msgstr "Что-то пошло не так при подключении к удалённому серверу. Завершаем!"
 
 #: views/backup/backup.php:65 views/backup/backups.php:291
 msgid "Status Email"
-msgstr ""
+msgstr "Статусный Email"
 
 #: views/backup/backups.php:39
 msgid "Step 1"
-msgstr ""
+msgstr "Шаг1"
 
 #: views/backup/backups.php:48
 msgid "Step 2"
-msgstr ""
+msgstr "Шаг2"
 
 #: views/backup/backups.php:57
 msgid "Step 3"
-msgstr ""
+msgstr "Шаг3"
 
 #: views/backup/backups.php:66
 msgid "Step 4"
-msgstr ""
+msgstr "Шаг4"
 
 #: views/backup/backups.php:75
 msgid "Step 5"
-msgstr ""
+msgstr "Шаг5"
 
 #: views/backup/backup.php:414
 msgid "Storage Servers"
-msgstr ""
+msgstr "Сервер хранения"
 
 #: install.php:80
 msgid "Storage location for backups"
@@ -1396,7 +1432,7 @@ msgstr "Расположение хранилища резервных копи�
 
 #: bin/backup.php:144
 msgid "Storing backup..."
-msgstr ""
+msgstr "Сохранение резервной копии..."
 
 #: views/cron.php:27 assets/js/backup.js:83
 msgid "Sunday"
@@ -1404,16 +1440,16 @@ msgstr "Воскресенье"
 
 #: views/servers/mysql.php:28
 msgid "Supply a server name"
-msgstr ""
+msgstr "Укажите имя сервера"
 
 #: views/templates/template.php:18
 msgid "Template Name"
-msgstr ""
+msgstr "Образец имени"
 
 #: page.backup_templates.php:52 views/backup/backup.php:129
 #: views/rnav/main.php:6
 msgid "Templates"
-msgstr ""
+msgstr "Образцы"
 
 #: views/servers/ftp.php:152
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
@@ -1429,6 +1465,9 @@ msgid ""
 "attempted to be sent. Please shrink your backup, or use a different method "
 "of transferring your backup."
 msgstr ""
+"Файл резервной копии превысил максимальный лимит для SMTP в 25 МБ. Попытки "
+"отправить не будет возобновлены.Пожалуйста уменьшите размер вашей резервной "
+"копии, или используйте другой метод передачи вашей резервной копии."
 
 #: functions.inc/class.backup.php:410
 #, php-format
@@ -1437,6 +1476,9 @@ msgid ""
 "bytes). It was not attempted to be sent. Please shrink your backup, or use a "
 "different method of transferring your backup."
 msgstr ""
+"Файл резервной копии превысил максимальный лимит для SMTP (%s). Попытки "
+"отправить не будет возобновлены. Пожалуйста уменьшите размер вашей резервной "
+"копии, или используйте другой метод передачи вашей резервной копии."
 
 #: views/servers/email.php:113
 msgid ""
@@ -1444,6 +1486,8 @@ msgid ""
 "limit the size of email attachments, this will make sure that files larger "
 "than the max size are not sent."
 msgstr ""
+"Максимальный размер резервной копии  ограничен размером  email-сообщения, "
+"допускаемым для обработки email-сервером."
 
 #: views/servers/ftp.php:203
 msgid ""
@@ -1453,19 +1497,26 @@ msgid ""
 "the data. In 'Passive' mode, the VoIP server connects to the FTP Server to "
 "send data."
 msgstr ""
+"По умолчанию это установлено в \"Пассивный\" . Если ваш FTP находится за "
+"выделенным для этого VoIP-сервера  файерволом с NAT , вы должны указать \""
+"Активный\"  режим.  В этом режиме  FTP-сервер устанавливает соединение с "
+"VoIP-сервером для получения данных. В режиме \"Пассивный\" VoIP сервер "
+"подключается к FTP-серверу для передачи данных."
 
 #: views/servers/email.php:118
 msgid "This has a maximum size of 25MB."
-msgstr ""
+msgstr "Максимальный размер 25 МБ."
 
 #: views/backup/backup.php:252
 msgid "This server"
-msgstr ""
+msgstr "Этот сервер"
 
 #: views/backup/backups.php:84
 #, php-format
 msgid "This wizard can be used to add a basic backup task for your %s system"
 msgstr ""
+"Этот мастер  может использоваться для добавления задачи создания базовой  "
+"резервной копии  для вашей %s системы"
 
 #: views/cron.php:31 assets/js/backup.js:83
 msgid "Thursday"
@@ -1473,11 +1524,11 @@ msgstr "Четверг"
 
 #: views/servers/ftp.php:188
 msgid "Transfer Mode"
-msgstr ""
+msgstr "Метод передачи"
 
 #: views/backup/backups.php:494
 msgid "Transfer Type"
-msgstr ""
+msgstr "Тип передачи"
 
 #: views/cron.php:29 assets/js/backup.js:83
 msgid "Tuesday"
@@ -1485,7 +1536,7 @@ msgstr "Вторник"
 
 #: views/item_table.php:5 views/servers/servers.php:21
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: functions.inc/class.backup.php:485
 msgid "Unable to upload file to the remote server"
@@ -1498,11 +1549,11 @@ msgstr ""
 #: install.php:290
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
-msgstr ""
+msgstr "Задание %s обновлено установкой новой директории для звуковых файлов"
 
 #: install.php:278
 msgid "Updated System Recordings template"
-msgstr ""
+msgstr "Обновлённый шаблон системных записей"
 
 #: views/restore/restore.php:19
 msgid "Upload File"
@@ -1510,16 +1561,16 @@ msgstr ""
 
 #: views/servers/mysql.php:112
 msgid "User Name"
-msgstr ""
+msgstr "Имя пользователя"
 
 #: views/backup/backups.php:446 views/servers/ftp.php:99
 #: views/servers/ssh.php:112
 msgid "Username"
-msgstr ""
+msgstr "Имя пользователя"
 
 #: bin/backup.php:111
 msgid "Verifying received file..."
-msgstr ""
+msgstr "Проверка принятого файла..."
 
 #: install.php:163
 msgid "Voice Mail Storage"
@@ -1527,15 +1578,16 @@ msgstr "Хранилище голосовой почты"
 
 #: views/backup/backups.php:179
 msgid "Voicemails"
-msgstr ""
+msgstr "Голосовые сообщения"
 
 #: bin/restore.php:258
 msgid "WARNING!"
-msgstr ""
+msgstr "ПРЕДУПРЕЖДЕНИЕ!"
 
 #: bin/restore.php:259
 msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
+"Не обнаружено восстановление Web Root, нет восстанавливающей таблицы модуля"
 
 #: views/cron.php:30 assets/js/backup.js:83
 msgid "Wednesday"
@@ -1543,47 +1595,47 @@ msgstr "Среда"
 
 #: views/cron.php:220
 msgid "Week Days"
-msgstr ""
+msgstr "Дни недели"
 
 #: views/backup/backups.php:149 views/cron.php:6
 msgid "Weekly"
-msgstr ""
+msgstr "Еженедельно"
 
 #: views/backup/backup.php:497
 msgid "Weeks"
-msgstr ""
+msgstr "Недели"
 
 #: views/backup/backups.php:82
 msgid "Welcome to the Backup Wizard"
-msgstr ""
+msgstr "Добро пожаловать к помощник создания резервной копии"
 
 #: views/backup/backups.php:169
 msgid "What should we backup?"
-msgstr ""
+msgstr "Для чего  будем  делать резервную копию ?"
 
 #: views/servers/awss3.php:46 views/servers/awss3.php:63
 msgid "What's this?"
-msgstr ""
+msgstr "Что это?"
 
 #: views/backup/backups.php:303
 msgid "Where should status emails for this job be sent?"
-msgstr ""
+msgstr "Куда отправить email с сообщением о статусе этого задания?"
 
 #: views/cron.php:234
 msgid "Which Days of the week to run"
-msgstr ""
+msgstr "В какие дни недели запускать"
 
 #: views/cron.php:208
 msgid "Which Hours to run."
-msgstr ""
+msgstr "В какие часы запускать."
 
 #: views/cron.php:260
 msgid "Which Months to run"
-msgstr ""
+msgstr "В какие месяцы запускать"
 
 #: views/cron.php:182
 msgid "Which minutes to run"
-msgstr ""
+msgstr "В какие минуты запускать"
 
 #: views/servers/ftp.php:144
 msgid "Windows"
@@ -1591,27 +1643,27 @@ msgstr ""
 
 #: Backup.class.php:67
 msgid "Wizard"
-msgstr ""
+msgstr "Мастер"
 
 #: views/backup/backups.php:279
 msgid "Would you like an email when this job runs?"
-msgstr ""
+msgstr "Вы желаете отправить email когда запустится выполнение данного задания?"
 
 #: views/backup/backups.php:255
 msgid "Would you like notifications?"
-msgstr ""
+msgstr "Вы желаете получать уведомления?"
 
 #: views/backup/backups.php:221
 msgid "Would you like to backup recordings?"
-msgstr ""
+msgstr "Вы желаете бэкапировать записи?"
 
 #: views/backup/backups.php:194
 msgid "Would you like voicemails backded up."
-msgstr ""
+msgstr "Вы желаете  создать резервную копию  сообщений голосовой почты."
 
 #: views/backup/backup.php:501
 msgid "Years"
-msgstr ""
+msgstr "Года"
 
 #: views/backup/backup.php:94 views/backup/backup.php:306
 #: views/backup/backup.php:331 views/backup/backup.php:358
@@ -1620,16 +1672,17 @@ msgstr ""
 #: views/backup/backups.php:269 views/backup/backups.php:325
 #: views/cron.php:145
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 #: bin/restore.php:260
 #, php-format
 msgid "You should run \"%s\" to ensure system integrity"
-msgstr ""
+msgstr "Вы должны запустить \"%s\" для проверки целостности системы"
 
 #: views/backup/backups.php:312
 msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
 msgstr ""
+"Ваша резервная копия  будет сохранена локально в  /var/spool/asterisk/backup"
 
 #: install.php:126
 msgid "added default backup servers"
@@ -1641,31 +1694,31 @@ msgstr "добавлены шаблоны резервного копирова�
 
 #: functions.inc/class.backup.php:397
 msgid "astDb's"
-msgstr ""
+msgstr "astDb'-ы"
 
 #: views/item_table.php:48
 msgid "chose"
-msgstr ""
+msgstr "выбрать"
 
 #: functions.inc/restore.php:32
 msgid "error/not found!"
-msgstr ""
+msgstr "ошибка/не найден!"
 
 #: functions.inc/restore.php:226
 msgid "manifest not found"
-msgstr ""
+msgstr "манифест не найден"
 
 #: functions.inc/templates.php:289
 msgid "table names, one per line"
-msgstr ""
+msgstr "имена таблицы, одно на строку"
 
 #: bin/backup.php:47
 msgid "waiting for lock..."
-msgstr ""
+msgstr "ожидание блокировки..."
 
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
-msgstr ""
+msgstr "{сервера не доступны}"
 
 #~ msgid "Error connecting to the FTP Server..."
 #~ msgstr "Ошибка соединения с FTP сервером..."

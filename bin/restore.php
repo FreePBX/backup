@@ -14,14 +14,6 @@ if (!function_exists('backup_log')) {
 	// we're just going to force load it, and hang the consequences.
 	include (__DIR__."/../functions.inc.php");
 }
-$lockfile = sys_get_temp_dir().'/restore.lock';
-
-$fp = fopen($lockfile, "r+");
-if (!flock($fp, LOCK_EX)) {
-	backup_log(_('Could not aquire a lock, is restore already running?'));
-	fclose($fp);
-	exit(-1);
-}
 
 /**
  * OPTIONS

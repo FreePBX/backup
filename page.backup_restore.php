@@ -146,7 +146,8 @@ switch ($var['action']) {
 		break;
 	case 'restore':
 	case 'restore_get':
-
+		$headers = getallheaders();
+		$reconnect = (isset($headers['Last-Event-ID']) && ($headers['Last-Event-ID'] === 'bb2ac0b8da1f64a3498af147ba43fc10'));
 		//if action is restore_get, get restore data from session
 		$restore = $var['action'] == 'restore_get'
 					? $_SESSION['backup_restore_data']
@@ -169,17 +170,26 @@ switch ($var['action']) {
                 . ' --items='
                 . base64_encode(json_encode($restore))
                 . ' 2>&1';
+				if(!$reconnect){
+	        //start running backup
+	        $run = popen($cmd, 'r');
+	        while (($msg = fgets($run)) !== false) {
+	            //dbug('backup', $msg);
+	            //send results back to the user
+	            backup_log($msg);
+	        }
+					pclose($run);
 
-        //start running backup
-        $run = popen($cmd, 'r');
-        while (($msg = fgets($run)) !== false) {
-            //dbug('backup', $msg);
-            //send results back to the user
-            backup_log($msg);
-        }
-
-        pclose($run);
-
+				}else{
+					backup_log(_("Browser reconnected realtime updates are unavailable."));
+					$ret = 0;
+					while($ret == 0){
+						exec("pgrep restore.php", $output, $ret);
+						backup_log(_("The Restore script is still running"));
+						sleep(5);
+					}
+					backup_log(_("The Restore script Finished You can close this window"));
+				}
         //send messgae to browser that were done
         backup_log('END');
         exit();

@@ -99,8 +99,7 @@ class Communications implements \FreePBX\modules\Backup\components\interfaces\Co
 
 	public function pull($file, $path){
 		$pp = pathinfo($file);
-
-		$f = $this->ftp->findFileByName($pp['basename'], new Directory($pp['dirname']));
+		$f = $this->ftp->findFileByName($pp['basename']);
 		if($f === null){
 			return false;
 		}

@@ -1,5 +1,5 @@
 <?php
-
+include __DIR__.'/../components/interfaces/Communications.class.php';
 /*
  * returns a json object of a directory in a jstree compatiable way
  *
@@ -58,7 +58,6 @@ function backup_jstree_list_dir($id, $path = '') {
 			}
 			break;
 		case 'ftp':
-		include __DIR__.'/../components/interfaces/Communications.class.php';
 			$ftpconfig = array(
 				'fstype' => $s['fstype'],
 				'host' => backup__($s['host']),
@@ -83,9 +82,6 @@ function backup_jstree_list_dir($id, $path = '') {
 										);
 						}
 					}
-				//dbug('ftp ls', $ls);
-				//dbug('ftp dir ' . $s['path'] . '/' . $path, $dir);
-				//release handel
 			break;
 		case 'ssh':
 			$s['path'] = backup__($s['path']);
@@ -274,7 +270,6 @@ function backup_restore_locate_file($id, $path) {
 			$path = $s['path'] . '/' . $path;
 			break;
 		case 'ftp':
-		include __DIR__.'/../components/interfaces/Communications.class.php';
 			$ftpconfig = array(
 				'fstype' => $s['fstype'],
 				'host' => backup__($s['host']),
@@ -284,14 +279,15 @@ function backup_restore_locate_file($id, $path) {
 				'transfer' => $s['transfer']
 			);
 			$ftpi = new \FreePBX\modules\Backup\components\interfaces\Communications('ftp',$ftpconfig);
-			$s['path'] = backup__($path);
+			//$s['path'] = backup__($path);
 			try {
-				$ftpi->pull($s['path'],$dest);
+				$s['path'] = backup__($s['path']);
+				$path = $s['path'] . '/' . $path;
+				$ftpi->pull($path,$dest);
 				$path = $dest;
 			} catch (Exception $e) {
 				return array('error_msg' => _('Failed to retrieve file from server!'));
 			}
-			dbug($path);
 			if (file_exists($path)) {
 				return $path;
 			} else {

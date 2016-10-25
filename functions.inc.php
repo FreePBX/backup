@@ -12,7 +12,7 @@ require_once($dir . '/functions.inc/restore.php');
 require_once($dir . '/functions.inc/s3.php');
 
 /**
-* do variable substitution 
+* do variable substitution
 */
 function backup__($var) {
 	global $amp_conf;
@@ -22,7 +22,7 @@ function backup__($var) {
 	 * If no __VAR__, return $var
 	 * If Config var doesn't exist, throws an exception.
 	 */
-	
+
 	if (!preg_match("/__(.+)__/", $var, $out)) {
 		return $var;
 	}
@@ -47,6 +47,7 @@ function backup_log($msg) {
 	$tmp = (function_exists('sys_get_temp_dir')) ? sys_get_temp_dir() : '/tmp';
 	$cli = php_sapi_name() == 'cli' ? true : false;
 	$str = '';
+	$str .= $cli ? '' : "id: bb2ac0b8da1f64a3498af147ba43fc10\n";
 	$str .= $cli ? '' : 'data: ';
 	$str .= $msg;
 	$str .= $cli ? "\n" : "\n\n";
@@ -57,7 +58,7 @@ function backup_log($msg) {
 		ob_flush();
 		flush();
 	}
-	
+
 }
 
 function backup_email_log($to, $from, $subject) {
@@ -71,7 +72,7 @@ function backup_email_log($to, $from, $subject) {
 	$email->message(implode("\n", $msg));
 	$email->attach($tmp.'/backup.log');
 	$email->send();
-	
+
 	unset($msg);
 }
 
@@ -80,4 +81,3 @@ function backup_clear_log() {
 	$fh = fopen($tmp.'/backup.log', 'w');
 	fclose($fh);
 }
-

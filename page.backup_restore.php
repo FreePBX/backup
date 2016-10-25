@@ -168,7 +168,7 @@ switch ($var['action']) {
         $cmd = $amp_conf['AMPBIN'] . '/restore.php --restore='
                 . escapeshellarg($_SESSION['backup_restore_path'])
                 . ' --items='
-                . base64_encode(json_encode($restore))
+                . escapeshellarg(base64_encode(json_encode($restore)))
                 . ' 2>&1';
 				if(!$reconnect){
 	        //start running backup

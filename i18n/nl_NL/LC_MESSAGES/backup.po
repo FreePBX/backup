@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 11:46-0700\n"
+"POT-Creation-Date: 2016-10-25 04:50+0000\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
 "nl_NL/>\n"
+"Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -167,12 +167,12 @@ msgstr ""
 msgid "BACKUP LOG ATTACHED"
 msgstr "RESERVEKOPIE LOG TOEGEVOEGD"
 
-#: functions.inc/class.backup.php:407 functions.inc/class.backup.php:410
+#: functions.inc/class.backup.php:409 functions.inc/class.backup.php:412
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
 #: Backup.class.php:316 functions.inc/backup.php:80
-#: functions.inc/class.backup.php:401 views/backup/backup.php:6
+#: functions.inc/class.backup.php:403 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Reservekopie"
 
@@ -204,11 +204,11 @@ msgstr ""
 msgid "Backup Description"
 msgstr ""
 
-#: functions.inc/class.backup.php:406
+#: functions.inc/class.backup.php:408
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr ""
 
-#: functions.inc/class.backup.php:409
+#: functions.inc/class.backup.php:411
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr ""
 
@@ -264,14 +264,14 @@ msgstr ""
 msgid "Backup completed with errors!"
 msgstr "Reservekopie voltooid met fouten!"
 
-#: functions.inc/class.backup.php:295
+#: functions.inc/class.backup.php:297
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
 "backup from server [%s]."
 msgstr ""
-"Reservekopie mislukt tijdens het dumpen van SQL database [%s] naar bestand [%"
-"s]. U heeft een corrupte reservekopie van server [%s]."
+"Reservekopie mislukt tijdens het dumpen van SQL database [%s] naar bestand "
+"[%s]. U heeft een corrupte reservekopie van server [%s]."
 
 #: bin/restore.php:93
 msgid "Backup file not found! Aborting."
@@ -350,7 +350,7 @@ msgstr "Alleen configuraties"
 msgid "Connecting to remote server..."
 msgstr "Verbinden met andere server..."
 
-#: functions.inc/class.backup.php:394 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:396 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Gemaakt"
 
@@ -358,7 +358,7 @@ msgstr "Gemaakt"
 msgid "Creating backup..."
 msgstr "Aanmaken reservekopie..."
 
-#: functions.inc/class.backup.php:471
+#: functions.inc/class.backup.php:475
 #, php-format
 msgid "Creating directory '%s'"
 msgstr ""
@@ -468,7 +468,7 @@ msgstr ""
 msgid "Directory"
 msgstr "Map"
 
-#: functions.inc/class.backup.php:475
+#: functions.inc/class.backup.php:479
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr ""
@@ -542,12 +542,12 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:465 functions.inc/restore.php:117
+#: functions.inc/class.backup.php:469 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:799
+#: functions.inc/class.backup.php:803
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -654,7 +654,7 @@ msgstr "Bestand terugzetten uitgevoerd!"
 msgid "File verification failed. "
 msgstr "Bestandsverificatie mislukt. "
 
-#: functions.inc/class.backup.php:395 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:397 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Bestanden"
 
@@ -868,7 +868,7 @@ msgstr "MySQL"
 msgid "Mysql DB's"
 msgstr "MySQL DB's"
 
-#: functions.inc/class.backup.php:396
+#: functions.inc/class.backup.php:398
 msgid "Mysql Db's"
 msgstr "MySQL DB's"
 
@@ -876,7 +876,7 @@ msgstr "MySQL DB's"
 msgid "Mysql Server "
 msgstr "MySQL server "
 
-#: functions.inc/class.backup.php:393 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:395 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Naam"
 
@@ -1291,7 +1291,7 @@ msgstr "Opslaan"
 msgid "Save and Run"
 msgstr ""
 
-#: functions.inc/class.backup.php:482
+#: functions.inc/class.backup.php:486
 msgid "Saving file to remote ftp"
 msgstr ""
 
@@ -1427,14 +1427,14 @@ msgstr ""
 "Het Van: veld voor e-mails wanneer gebruik wordt gemaakt van de reservekopie "
 "e-mail functie."
 
-#: functions.inc/class.backup.php:407
+#: functions.inc/class.backup.php:409
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
 "of transferring your backup."
 msgstr ""
 
-#: functions.inc/class.backup.php:410
+#: functions.inc/class.backup.php:412
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1494,7 +1494,7 @@ msgstr "Dinsdag"
 msgid "Type"
 msgstr "Type"
 
-#: functions.inc/class.backup.php:485
+#: functions.inc/class.backup.php:489
 msgid "Unable to upload file to the remote server"
 msgstr ""
 
@@ -1649,7 +1649,7 @@ msgstr "Standaard reservekopie servers toegevoegd"
 msgid "added default backup templates"
 msgstr "Standaard reservekopie sjablonen toegevoegd"
 
-#: functions.inc/class.backup.php:397
+#: functions.inc/class.backup.php:399
 msgid "astDb's"
 msgstr "astDB's"
 

@@ -207,6 +207,8 @@ function run_backup(id) {
 	      }, false);
 	      eventSource.addEventListener('onerror', function (event) {
 		      console.log('e', event.data);
+		      eventSource.close();
+		      $('.backup_status').next('progress').val('1');
 	      }, false);
 	      return false;
 }

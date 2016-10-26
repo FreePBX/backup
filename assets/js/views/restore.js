@@ -278,6 +278,8 @@ function restore_stage2() {
 	}, false);
 	eventSource.addEventListener('onerror', function (event) {
 		console.log('e', event.data);
+		eventSource.close();
+		backup_log('Task Complete<br>');
 	}, false);
 	return false;
 }

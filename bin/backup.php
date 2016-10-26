@@ -178,7 +178,7 @@ if (isset($vars['id']) && $vars['id']) {
 				}
 				$cmd = $amp_conf['AMPBIN'] . "/restore.php $skipnat "
 						. '--restore=' . $b->b['_tmpfile']
-						. ' --items=' . base64_encode(serialize($restore));
+						. ' --items=' . base64_encode(json_encode($restore));
 				system($cmd);
 			}
 

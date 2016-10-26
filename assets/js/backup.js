@@ -205,11 +205,12 @@ function run_backup(id) {
 			      backup_log($('.backup_status'), event.data + '<br>');
 		      }
 	      }, false);
-	      eventSource.addEventListener('onerror', function (event) {
-		      console.log('e', event.data);
+
+	      eventSource.onerror = function (event) {
 		      eventSource.close();
 		      $('.backup_status').next('progress').val('1');
-	      }, false);
+	      };
+
 	      return false;
 }
 

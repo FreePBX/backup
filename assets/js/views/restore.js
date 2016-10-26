@@ -276,10 +276,11 @@ function restore_stage2() {
 			backup_log($('.restore_status'), event.data + '<br>');
 		}
 	}, false);
-	eventSource.addEventListener('onerror', function (event) {
-		console.log('e', event.data);
+
+	eventSource.onerror = function (event) {
 		eventSource.close();
 		backup_log('Task Complete<br>');
-	}, false);
+	};
+
 	return false;
 }

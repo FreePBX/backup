@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>13.0.25.5</version>
+	<version>13.0.25.6</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,7 +18,7 @@
 		<module>core</module>
 	</depends>
 	<changelog>
-		*13.0.25.5* FREEPBX-9156 Restore Loops when warmspare backup is set to apply conf
+		*13.0.25.6* FREEPBX-9156 Restore Loops when warmspare backup is set to apply conf
 		*13.0.25.1* Remove deprecated 'andSelf' jquery call.
 		*13.0.25* Better backup errors
 		*13.0.24* FREEPBX-12494 add breaks to page so that action bar is lower than form
@@ -34,60 +34,6 @@
 		*13.0.21.2* #10606 - Fix local server creation, and Minor fixes #8791, #10670
 		*13.0.20* #10885 - Fix email size limits
 		*13.0.19.1* #11130 - Ensure backup path is correct when saving to S3
-		*13.0.19* FREEPBX-10923 FREEPBX-10926 FREEPBX-10972
-		*13.0.18.2* Fix install issues.
-		*13.0.18.1* #10574 - Backup sounds/*/custom, to support v13 languages.
-		*13.0.17* FREEPBX-10601 FREEPBX-8156
-		*13.0.16* If other files are present in the backup directory they can a)interfere with the backup count for 'delete after x backups' and b)get deleted by the backup process. This does a check of the file name to make sure it's more likely to be a backup.
-		*13.0.15* Floating menu update
-		*13.0.14.1* FREEPBX-10322 Update text in wizard
-		*13.0.14* FREEPBX-10222 Fix restore from file
-		*13.0.13* FREEPBX-10154 Repair SSH-to-this-machine and modal location
-		*13.0.12* FREEPBX-9065 - Remove unusable restore templates
-		*13.0.11* FREEPBX-10122 Unable to drag Storage Servers and Available Servers in Safari
-		*13.0.10* Fix S3 backups.
-		*13.0.9* Fix javascript issues
-		*13.0.8* FREEPBX-10029 Fix email backup
-		*13.0.7* FREEPBX-9959 Escape the class name for amazon
-		*13.0.6* FREEPBX-9647 backup and restore wizard broken
-		*13.0.5* FREEPBX-9620 Missing "Restore Here" option
-		*13.0.4* #9554, #9555, #9556 bugfixes
-		*13.0.3* #8170, #9525, #9550 bugfixes
-		*13.0.2* Version bump Beta
-		*13.0.1alpha5* Fix saving functionality
-		*13.0.1alpha4* Cleanup wizard views and modal boxes and fix functionality
-		*13.0.1alpha3* Backup wizard and cleanup
-		*13.0.1alpha2* Fix order of arguments in restore array
-		*13.0.1alpha1* FREEPBX-8961 Fix fatal class conflict error
-		*12.0.9* FREEPBX-8045 - onclick won't bind to new elements being added to the DOM
-		*12.0.8* FREEPBX-8059 Re-fix.
-		*12.0.7* FREEPBX-8059
-		*12.0.6* FREEPBX-5690 and FREEPBX-6978
-		*12.0.5* FREEPBX-7896 Backup email missing from Advanced Settings
-		*12.0.4* FREEPBX-7842
-		*12.0.3* Another fix for inital installing
-		*12.0.2* #7682 and #7433
-		*12.0.1* Updating Issue
-		*12.0.0* #5751 Send Email on backup
-		*2.11.0.18* #7347
-		*2.11.0.17* #7358
-		*2.11.0.16* #7383
-		*2.11.0.15* #7364
-		*2.11.0.14* #7354
-		*2.11.0.13* #7349
-		*2.11.0.12* #7300
-		*2.11.0.11* Fix License to be  v3+
-		*2.11.0.10* #7239
-		*2.11.0.9* Generate a license file
-		*2.11.0.8* #5832 Ensure AstDB is regenerated on restore
-		*2.11.0.7* #7155
-		*2.11.0.6* #6380
-		*2.11.0.5* #6862, #6863
-		*2.11.0.4* #6761
-		*2.11.0.3* #6772
-		*2.11.0.2* #6730, #6549, #6553
-		*2.11.0.1* #6083
-		*2.11.0.0* #6555
 	</changelog>
 	<supported>
 		<version>13.0</version>

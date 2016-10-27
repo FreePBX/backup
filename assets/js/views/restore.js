@@ -279,7 +279,8 @@ function restore_stage2() {
 
 	eventSource.onerror = function (event) {
 		eventSource.close();
-		backup_log('Task Complete<br>');
+		backup_log('Complete (Connection closed)<br>');
+		$('.restore_status').next('progress').val('1');
 	};
 
 	return false;

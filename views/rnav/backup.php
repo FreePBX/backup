@@ -1,15 +1,17 @@
 <?php
 require(dirname(__FILE__) . '/main.php');
-if (isset($backup)){
+
+if (isset($backup)) {
 	foreach ($backup as $b) {
-		$li[] = '<a '
-			. ( $id == $b['id'] ? ' class="list-group-item active" ' : ' class="list-group-item"')
-			. ' href="config.php?display=backup&action=edit&id='
-			. $b['id'] . '">'
-			. $b['name']
-			.'</a>';
+		$li[] = sprintf(
+			'<a href="config.php?display=backup&amp;action=edit&amp;id=%d" class="list-group-item %s">%s</a>',
+			$b['id'],
+			($id == $b['id'] ? 'active' : ''),
+			htmlspecialchars($b['name'])
+		);
 	}
 }
- foreach ($li as $item) {
- 	echo $item;
- }
+
+foreach ($li as $item) {
+	echo $item;
+}

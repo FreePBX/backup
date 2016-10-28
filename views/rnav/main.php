@@ -13,7 +13,7 @@ foreach ($list as $k => $v) {
 		continue;
 	}
 	$li[] = '<a href="config.php?display=' . $k . '"'
-			. ( $display == $k ? ' class="list-group-item current" ' : ' class="list-group-item"')
+			. ( $display == $k ? ' class="list-group-item active" ' : ' class="list-group-item"')
 			. '>' 
 			. $v . '</a>';
 }

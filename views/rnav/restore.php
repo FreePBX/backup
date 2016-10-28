@@ -10,7 +10,7 @@ if (isset($servers)){
 		}
 		
 		$li[] = '<a ' 
-			. ( $id == $s['id'] ? ' class="list-group-item current" ' : ' class="list-group-item"') 
+			. ( $id == $s['id'] ? ' class="list-group-item active" ' : ' class="list-group-item"') 
 			. '" href="config.php?display=backup_restore&id=' 
 			. $s['id'] . '">' 
 			. $s['name'] 

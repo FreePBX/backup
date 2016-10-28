@@ -4,7 +4,7 @@ require(dirname(__FILE__) . '/main.php');
 if (isset($servers)){
 	foreach ($servers as $s) {
 		$li[] = '<a ' 
-				. ( $id == $s['id'] ? ' class="list-group-item current" ' : ' class="list-group-item"') 
+				. ( $id == $s['id'] ? ' class="list-group-item active" ' : ' class="list-group-item"') 
 				. '" href="config.php?display=backup_servers&action=edit&id=' 
 				. $s['id'] . '">' 
 				. $s['name'] 

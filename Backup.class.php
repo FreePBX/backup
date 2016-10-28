@@ -320,7 +320,10 @@ class Backup implements \BMO {
 		return $backups;
 	}
 	public function getRightNav($request) {
-		$var = array();
+		$var = array(
+			'id' => isset($request['id']) ? $request['id'] : '',
+			'display' => isset($request['display']) ? $request['display'] : '',
+		);
 		switch ($request['display']) {
 			case 'backup':
 				if(isset($request['action']) && $request['action'] == 'edit'){

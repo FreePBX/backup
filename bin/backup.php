@@ -3,9 +3,7 @@
 $restrict_mods						= array('backup' => true, 'core' => true, 'sysadmin' => true);
 $bootstrap_settings['cdrdb']		= true;
 $bootstrap_settings['freepbx_auth']	= false;
-if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
-	include_once('/etc/asterisk/freepbx.conf');
-}
+include '/etc/freepbx.conf';
 
 //ensure the backup modules is avalible before continuing
 $mod_info = module_getinfo('backup', MODULE_STATUS_ENABLED);

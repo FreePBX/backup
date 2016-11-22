@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-22 14:45+1000\n"
+"POT-Creation-Date: 2016-11-22 14:48+1000\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -324,7 +324,7 @@ msgstr ""
 msgid "Basic Information"
 msgstr ""
 
-#: views/restore/restore.php:7 views/restore/restore.php:24
+#: views/restore/restore.php:7 views/restore/restore.php:23
 msgid "Browse"
 msgstr ""
 
@@ -439,7 +439,7 @@ msgstr "デフォルトバックアップ。自動的にインストールされ
 
 #: Backup.class.php:38 Backup.class.php:202 page.backup.php:46
 #: page.backup_servers.php:36 page.backup_templates.php:20
-#: views/item_table.php:14 views/restore/restore.php:46
+#: views/item_table.php:14 views/restore/restore.php:40
 msgid "Delete"
 msgstr "削除"
 
@@ -1159,7 +1159,7 @@ msgid "Reset"
 msgstr ""
 
 #: page.backup_restore.php:201 views/restore/backup_list.php:34
-#: views/restore/browseserver.php:4 views/restore/restore.php:40
+#: views/restore/browseserver.php:4 views/restore/restore.php:34
 #: views/rnav/main.php:4
 msgid "Restore"
 msgstr "復元"
@@ -1347,7 +1347,7 @@ msgstr ""
 msgid "September"
 msgstr "9月"
 
-#: views/restore/restore.php:64
+#: views/restore/restore.php:58
 msgid "Server"
 msgstr ""
 

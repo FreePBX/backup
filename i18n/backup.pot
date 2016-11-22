@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-22 14:45+1000\n"
+"POT-Creation-Date: 2016-11-22 14:48+1000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -297,7 +297,7 @@ msgid "Basic Information"
 msgstr ""
 
 #: views/restore/restore.php:7
-#: views/restore/restore.php:24
+#: views/restore/restore.php:23
 msgid "Browse"
 msgstr ""
 
@@ -419,7 +419,7 @@ msgstr ""
 #: page.backup_servers.php:36
 #: page.backup_templates.php:20
 #: views/item_table.php:14
-#: views/restore/restore.php:46
+#: views/restore/restore.php:40
 msgid "Delete"
 msgstr ""
 
@@ -1169,7 +1169,7 @@ msgstr ""
 #: page.backup_restore.php:201
 #: views/restore/backup_list.php:34
 #: views/restore/browseserver.php:4
-#: views/restore/restore.php:40
+#: views/restore/restore.php:34
 #: views/rnav/main.php:4
 msgid "Restore"
 msgstr ""
@@ -1358,7 +1358,7 @@ msgstr ""
 msgid "September"
 msgstr ""
 
-#: views/restore/restore.php:64
+#: views/restore/restore.php:58
 msgid "Server"
 msgstr ""
 

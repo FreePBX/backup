@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-22 14:45+1000\n"
+"POT-Creation-Date: 2016-11-22 14:48+1000\n"
 "PO-Revision-Date: 2015-11-17 12:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -288,7 +288,7 @@ msgstr "基本备份信息"
 msgid "Basic Information"
 msgstr "基本信息"
 
-#: views/restore/restore.php:7 views/restore/restore.php:24
+#: views/restore/restore.php:7 views/restore/restore.php:23
 msgid "Browse"
 msgstr "浏览"
 
@@ -403,7 +403,7 @@ msgstr "默认备份；已自动安装"
 
 #: Backup.class.php:38 Backup.class.php:202 page.backup.php:46
 #: page.backup_servers.php:36 page.backup_templates.php:20
-#: views/item_table.php:14 views/restore/restore.php:46
+#: views/item_table.php:14 views/restore/restore.php:40
 msgid "Delete"
 msgstr "删除"
 
@@ -1110,7 +1110,7 @@ msgid "Reset"
 msgstr ""
 
 #: page.backup_restore.php:201 views/restore/backup_list.php:34
-#: views/restore/browseserver.php:4 views/restore/restore.php:40
+#: views/restore/browseserver.php:4 views/restore/restore.php:34
 #: views/rnav/main.php:4
 msgid "Restore"
 msgstr ""
@@ -1296,7 +1296,7 @@ msgstr ""
 msgid "September"
 msgstr "九月"
 
-#: views/restore/restore.php:64
+#: views/restore/restore.php:58
 msgid "Server"
 msgstr ""
 

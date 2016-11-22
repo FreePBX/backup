@@ -4,7 +4,6 @@ if (!isset($id)) {
 	$id = "";
 }
 $fstype = isset($fstype)?$fstype:'auto';
-dbug($fstype);
 ?>
 <h2><?php echo _("FTP Server")?></h2>
 <form class="fpbx-submit" action="" method="post" id="server_form" name="server_form" data-fpbx-delete="?display=backup_servers&action=delete&id=<?php echo $id; ?>">

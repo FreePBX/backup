@@ -424,7 +424,7 @@ class Backup {
 					$s['port'] = backup__($s['port']);
 					$s['user'] = backup__($s['user']);
 					$s['password'] = backup__($s['password']);
-					$s['path'] = trim(backup__($s['path']),'/');
+					$s['path'] = rtrim(backup__($s['path']),'/');
 					$fstype = isset($s['fstype'])?$s['fstype']:'auto';
 					$path = $s['path'] . '/' . $this->b['_dirname'];
 					$connection = new Connection($s['host'], $s['user'], $s['password'], $s['port'], 90, ($s['transfer'] == 'passive'));

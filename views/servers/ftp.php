@@ -140,7 +140,7 @@ $fstype = isset($fstype)?$fstype:'auto';
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<span id="path-help" class="help-block fpbx-help-block"><?php echo _("Path on remote server")?></span>
+				<span id="path-help" class="help-block fpbx-help-block"><?php echo _("Path on remote server. This must be a COMPLETE PATH, starting with a / - for example, <tt>/home/backups/freepbx</tt>. A path without a leading slash will not work, and will behave in unexpected ways.")?></span>
 			</div>
 		</div>
 	</div>

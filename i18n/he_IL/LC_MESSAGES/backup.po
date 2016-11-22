@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-25 10:22-0700\n"
+"POT-Creation-Date: 2016-11-22 14:45+1000\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -83,7 +83,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: views/backup/backups.php:501 views/servers/ftp.php:193
+#: views/backup/backups.php:501 views/servers/ftp.php:158
 msgid "Active"
 msgstr ""
 
@@ -150,7 +150,7 @@ msgstr ""
 msgid "August"
 msgstr "אוגוסט"
 
-#: views/servers/ftp.php:140
+#: views/servers/ftp.php:113
 msgid "Auto"
 msgstr ""
 
@@ -439,7 +439,7 @@ msgstr ""
 
 #: views/backup/backup.php:41 views/backup/backups.php:10
 #: views/servers/awss3.php:27 views/servers/email.php:40
-#: views/servers/ftp.php:39 views/servers/local.php:40
+#: views/servers/ftp.php:32 views/servers/local.php:40
 #: views/servers/mysql.php:40 views/servers/servers.php:20
 #: views/servers/ssh.php:40 views/templates/template.php:36
 #: views/templates/templates.php:8
@@ -583,7 +583,7 @@ msgstr ""
 msgid "FTP Password"
 msgstr ""
 
-#: views/servers/ftp.php:9
+#: views/servers/ftp.php:8
 msgid "FTP Server"
 msgstr ""
 
@@ -644,7 +644,7 @@ msgstr ""
 msgid "Files"
 msgstr ""
 
-#: views/servers/ftp.php:135
+#: views/servers/ftp.php:108
 msgid "Filesystem Type"
 msgstr ""
 
@@ -684,7 +684,7 @@ msgstr ""
 msgid "Hooks"
 msgstr ""
 
-#: views/servers/ftp.php:57 views/servers/mysql.php:64
+#: views/servers/ftp.php:46 views/servers/mysql.php:64
 #: views/servers/ssh.php:64
 msgid "Hostname"
 msgstr ""
@@ -709,7 +709,7 @@ msgstr ""
 msgid "IP address or FQDN of remote SSH server"
 msgstr ""
 
-#: views/servers/ftp.php:69
+#: views/servers/ftp.php:56
 msgid "IP address or FQDN of remote ftp host"
 msgstr ""
 
@@ -978,23 +978,29 @@ msgstr ""
 msgid "PBX config server, generally a local database server"
 msgstr ""
 
-#: views/backup/backups.php:499 views/servers/ftp.php:195
+#: views/backup/backups.php:499 views/servers/ftp.php:160
 msgid "Passive"
 msgstr ""
 
-#: views/backup/backups.php:470 views/servers/ftp.php:117
+#: views/backup/backups.php:470 views/servers/ftp.php:94
 #: views/servers/mysql.php:136
 msgid "Password"
 msgstr ""
 
-#: views/servers/ftp.php:164 views/servers/local.php:64
+#: views/servers/ftp.php:133 views/servers/local.php:64
 #: views/servers/ssh.php:160
 msgid "Path"
 msgstr ""
 
-#: views/servers/ftp.php:176 views/servers/local.php:76
-#: views/servers/ssh.php:172
+#: views/servers/local.php:76 views/servers/ssh.php:172
 msgid "Path on remote server"
+msgstr ""
+
+#: views/servers/ftp.php:143
+msgid ""
+"Path on remote server. This must be a COMPLETE PATH, starting with a / - for "
+"example, <tt>/home/backups/freepbx</tt>. A path without a leading slash will "
+"not work, and will behave in unexpected ways."
 msgstr ""
 
 #: views/backup/backups.php:557
@@ -1013,7 +1019,7 @@ msgstr ""
 msgid "Please wait, loading..."
 msgstr ""
 
-#: views/servers/ftp.php:81 views/servers/mysql.php:88
+#: views/servers/ftp.php:66 views/servers/mysql.php:88
 #: views/servers/ssh.php:88
 msgid "Port"
 msgstr ""
@@ -1308,7 +1314,7 @@ msgid "Server Address"
 msgstr ""
 
 #: views/backup/backups.php:374 views/servers/email.php:16
-#: views/servers/ftp.php:21 views/servers/local.php:16
+#: views/servers/ftp.php:18 views/servers/local.php:16
 #: views/servers/mysql.php:16 views/servers/ssh.php:16
 msgid "Server Name"
 msgstr ""
@@ -1394,7 +1400,7 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: views/servers/ftp.php:152
+#: views/servers/ftp.php:123
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr ""
 
@@ -1432,7 +1438,7 @@ msgid ""
 "than the max size are not sent."
 msgstr ""
 
-#: views/servers/ftp.php:203
+#: views/servers/ftp.php:166
 msgid ""
 "This defaults to 'Passive'. If your FTP server is behind a seperate NAT or "
 "Firewall to this VoIP server, you should select 'Active'. In 'Active' mode, "
@@ -1458,7 +1464,7 @@ msgstr ""
 msgid "Thursday"
 msgstr "חמישי"
 
-#: views/servers/ftp.php:188
+#: views/servers/ftp.php:153
 msgid "Transfer Mode"
 msgstr ""
 
@@ -1478,7 +1484,7 @@ msgstr ""
 msgid "Unable to upload file to the remote server"
 msgstr ""
 
-#: views/servers/ftp.php:142
+#: views/servers/ftp.php:115
 msgid "Unix/Linux"
 msgstr ""
 
@@ -1499,7 +1505,7 @@ msgstr ""
 msgid "User Name"
 msgstr ""
 
-#: views/backup/backups.php:446 views/servers/ftp.php:99
+#: views/backup/backups.php:446 views/servers/ftp.php:80
 #: views/servers/ssh.php:112
 msgid "Username"
 msgstr ""
@@ -1573,7 +1579,7 @@ msgstr ""
 msgid "Which minutes to run"
 msgstr ""
 
-#: views/servers/ftp.php:144
+#: views/servers/ftp.php:117
 msgid "Windows"
 msgstr ""
 

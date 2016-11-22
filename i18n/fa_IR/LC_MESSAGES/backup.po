@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-26 20:44+0000\n"
+"POT-Creation-Date: 2016-11-22 14:45+1000\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
 "backup/fa_IR/>\n"
-"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fa_IR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -79,7 +79,7 @@ msgstr "رمز عبور AWS"
 msgid "Actions"
 msgstr "عملیات"
 
-#: views/backup/backups.php:501 views/servers/ftp.php:193
+#: views/backup/backups.php:501 views/servers/ftp.php:158
 msgid "Active"
 msgstr "فعال"
 
@@ -151,7 +151,7 @@ msgstr "دیتابیس استریسک"
 msgid "August"
 msgstr "آگوست"
 
-#: views/servers/ftp.php:140
+#: views/servers/ftp.php:113
 msgid "Auto"
 msgstr "خودکار"
 
@@ -446,7 +446,7 @@ msgstr ""
 
 #: views/backup/backup.php:41 views/backup/backups.php:10
 #: views/servers/awss3.php:27 views/servers/email.php:40
-#: views/servers/ftp.php:39 views/servers/local.php:40
+#: views/servers/ftp.php:32 views/servers/local.php:40
 #: views/servers/mysql.php:40 views/servers/servers.php:20
 #: views/servers/ssh.php:40 views/templates/template.php:36
 #: views/templates/templates.php:8
@@ -598,7 +598,7 @@ msgstr "FTP"
 msgid "FTP Password"
 msgstr "رمز عبور FTP"
 
-#: views/servers/ftp.php:9
+#: views/servers/ftp.php:8
 msgid "FTP Server"
 msgstr "سرور FTP"
 
@@ -663,7 +663,7 @@ msgstr "بازبینی فایل شکست خورد. "
 msgid "Files"
 msgstr "فایل ها"
 
-#: views/servers/ftp.php:135
+#: views/servers/ftp.php:108
 msgid "Filesystem Type"
 msgstr "نوع فایل سیستم"
 
@@ -703,7 +703,7 @@ msgstr "چند خط ابتدایی فایلی که برای سرور راه دو
 msgid "Hooks"
 msgstr "تله ها"
 
-#: views/servers/ftp.php:57 views/servers/mysql.php:64
+#: views/servers/ftp.php:46 views/servers/mysql.php:64
 #: views/servers/ssh.php:64
 msgid "Hostname"
 msgstr "نام میزبان"
@@ -728,7 +728,7 @@ msgstr "آدرس IP یا FQDN سرور شما"
 msgid "IP address or FQDN of remote SSH server"
 msgstr "آدرس IP یا FQDN سرور SSH راه دور"
 
-#: views/servers/ftp.php:69
+#: views/servers/ftp.php:56
 msgid "IP address or FQDN of remote ftp host"
 msgstr "آدرس IP یا FQDN سرور FTP راه دور"
 
@@ -1004,24 +1004,30 @@ msgstr "تنظیمات PBX"
 msgid "PBX config server, generally a local database server"
 msgstr "پیکربندی سرور PBX، عموما سرور دیتابیس محلی"
 
-#: views/backup/backups.php:499 views/servers/ftp.php:195
+#: views/backup/backups.php:499 views/servers/ftp.php:160
 msgid "Passive"
 msgstr "غیرفعال"
 
-#: views/backup/backups.php:470 views/servers/ftp.php:117
+#: views/backup/backups.php:470 views/servers/ftp.php:94
 #: views/servers/mysql.php:136
 msgid "Password"
 msgstr "رمز عبور"
 
-#: views/servers/ftp.php:164 views/servers/local.php:64
+#: views/servers/ftp.php:133 views/servers/local.php:64
 #: views/servers/ssh.php:160
 msgid "Path"
 msgstr "مسیر"
 
-#: views/servers/ftp.php:176 views/servers/local.php:76
-#: views/servers/ssh.php:172
+#: views/servers/local.php:76 views/servers/ssh.php:172
 msgid "Path on remote server"
 msgstr "مسیر در سرور راه دور"
+
+#: views/servers/ftp.php:143
+msgid ""
+"Path on remote server. This must be a COMPLETE PATH, starting with a / - for "
+"example, <tt>/home/backups/freepbx</tt>. A path without a leading slash will "
+"not work, and will behave in unexpected ways."
+msgstr ""
 
 #: views/backup/backups.php:557
 msgid "Path to ssh key, example /home/asterisk/.ssh/id_rsa"
@@ -1039,7 +1045,7 @@ msgstr "لطفا منتظر بمانید"
 msgid "Please wait, loading..."
 msgstr "لطفا منتظر بمانید، در حال بارگذاری..."
 
-#: views/servers/ftp.php:81 views/servers/mysql.php:88
+#: views/servers/ftp.php:66 views/servers/mysql.php:88
 #: views/servers/ssh.php:88
 msgid "Port"
 msgstr "پورت"
@@ -1339,7 +1345,7 @@ msgid "Server Address"
 msgstr "آدرس سرور"
 
 #: views/backup/backups.php:374 views/servers/email.php:16
-#: views/servers/ftp.php:21 views/servers/local.php:16
+#: views/servers/ftp.php:18 views/servers/local.php:16
 #: views/servers/mysql.php:16 views/servers/ssh.php:16
 msgid "Server Name"
 msgstr "نام سرور"
@@ -1426,7 +1432,7 @@ msgstr "نام قالب"
 msgid "Templates"
 msgstr "قالب ها"
 
-#: views/servers/ftp.php:152
+#: views/servers/ftp.php:123
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr "سیستم فایل از نوع سرور FTP . اگر مطمئن نیستید به صورت خودکارتنظیم کنید"
 
@@ -1474,7 +1480,7 @@ msgstr ""
 "ایمیل سرور ها سایز فایل های ضمیمه شده را محدود می کنند. لذا از این طریق می "
 "توان از ارسال فایل های بزرگ جلوگیری کرد."
 
-#: views/servers/ftp.php:203
+#: views/servers/ftp.php:166
 msgid ""
 "This defaults to 'Passive'. If your FTP server is behind a seperate NAT or "
 "Firewall to this VoIP server, you should select 'Active'. In 'Active' mode, "
@@ -1505,7 +1511,7 @@ msgstr ""
 msgid "Thursday"
 msgstr "پنج شنبه"
 
-#: views/servers/ftp.php:188
+#: views/servers/ftp.php:153
 msgid "Transfer Mode"
 msgstr "حالت انتقال"
 
@@ -1525,7 +1531,7 @@ msgstr "نوع"
 msgid "Unable to upload file to the remote server"
 msgstr "عدم امکان بارگذاری فایل در سرور راه دور"
 
-#: views/servers/ftp.php:142
+#: views/servers/ftp.php:115
 msgid "Unix/Linux"
 msgstr "یونیکس/لینوکس"
 
@@ -1546,7 +1552,7 @@ msgstr "بارگذاری فایل"
 msgid "User Name"
 msgstr "نام کاربری"
 
-#: views/backup/backups.php:446 views/servers/ftp.php:99
+#: views/backup/backups.php:446 views/servers/ftp.php:80
 #: views/servers/ssh.php:112
 msgid "Username"
 msgstr "نام کاربری"
@@ -1619,7 +1625,7 @@ msgstr "پشتیبان گیری در چه ماهی انجام خواهد شد"
 msgid "Which minutes to run"
 msgstr "پشتیبان گیری در چه دقیقه ای انجام خواهد شد"
 
-#: views/servers/ftp.php:144
+#: views/servers/ftp.php:117
 msgid "Windows"
 msgstr "ویندوز"
 

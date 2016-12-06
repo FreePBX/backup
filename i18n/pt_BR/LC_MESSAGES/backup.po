@@ -10,51 +10,53 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-22 14:48+1000\n"
-"PO-Revision-Date: 2015-04-29 08:49+0200\n"
-"Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
-"Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
-"freepbx/backup/pt_BR/>\n"
+"PO-Revision-Date: 2016-12-05 21:58+0200\n"
+"Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://weblate.freepbx.org/projects/freepbx/backup/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.4\n"
 
 #: views/backup/backups.php:23
 #, php-format
 msgid "%s Backup Wizard"
-msgstr ""
+msgstr "%s Assistente de Backup"
 
 #: functions.inc/templates.php:251
 msgid "/path/to/dir"
-msgstr ""
+msgstr "/caminho/do/diretório"
 
 #: functions.inc/templates.php:238
 msgid "/path/to/file"
-msgstr ""
+msgstr "/caminho/do/arquivo"
 
 #: install.php:145
 msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
 msgstr ""
+"Um backup completo das configurações principais e arquivos da web, não "
+"inclui sons ou gravações do sistema."
 
 #: views/backup/backup.php:197
 msgid "A script to be run AFTER a backup is completed."
-msgstr ""
+msgstr "Script a ser executado APÓS um backup concluído."
 
 #: views/backup/backup.php:245
 msgid "A script to be run AFTER a backup is restored."
-msgstr ""
+msgstr "Script a ser executado APÓS um backup restaurado."
 
 #: views/backup/backup.php:221
 msgid "A script to be run BEFORE a backup is restored."
-msgstr ""
+msgstr "Script a ser executado ANTES de um backup ser restaurado."
 
 #: views/backup/backup.php:173
 msgid "A script to be run BEFORE a backup is started."
-msgstr ""
+msgstr "Script a ser executado ANTES de um backup ser iniciado."
 
 #: views/backup/backups.php:154 assets/js/backup.js:93 assets/js/backup.js:105
 msgid "AT"
@@ -62,36 +64,37 @@ msgstr ""
 
 #: views/servers/awss3.php:41
 msgid "AWS Access Key"
-msgstr ""
+msgstr "Chave de Acesso AWS"
 
 #: functions.inc/servers.php:335
 msgid "AWS S3 Server "
-msgstr ""
+msgstr "Servidor S3 AWS "
 
 #: views/servers/awss3.php:58
+#, fuzzy
 msgid "AWS Secret"
-msgstr ""
+msgstr "Segredo AWS"
 
 #: views/backup/backups.php:11 views/servers/servers.php:22
 #: views/templates/templates.php:9
 msgid "Actions"
-msgstr ""
+msgstr "Ações"
 
 #: views/backup/backups.php:501 views/servers/ftp.php:158
 msgid "Active"
-msgstr ""
+msgstr "Ativo"
 
 #: views/servers/servers.php:4
 msgid "Add Server"
-msgstr ""
+msgstr "Adicionar Servidor"
 
 #: bin/backup.php:55
 msgid "Adding items..."
-msgstr ""
+msgstr "Adicionando itens..."
 
 #: backup.i18n.php:6 backup.i18n.php:12
 msgid "Admin"
-msgstr ""
+msgstr "Administrador"
 
 #: views/backup/backup.php:341
 msgid ""
@@ -99,50 +102,58 @@ msgid ""
 "to prevent the Primary and Standby systems from \"fighting\" for the "
 "registration, resulting in some calls routed to the Standby system."
 msgstr ""
+"Após uma restauração, desative todos os troncos que usam o registro. Isso é "
+"útil para evitar que os sistemas Primário e de Espera \"briguem\" pelo "
+"registro, resultando em algumas chamadas encaminhadas para o sistema em "
+"Espera."
 
 #: views/backup/backups.php:171
 msgid ""
 "All PBX Configuration files and any Custom Sound Prompts are included in the "
 "base backup"
 msgstr ""
+"Todos os arquivos de Configuração do PBX e quaisquer Avisos de Som "
+"Personalizados estão incluídos na base de backup"
 
 #: install.php:172
 msgid ""
 "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
 "VOICEMAIL"
 msgstr ""
+"Todo o áudio do sistema - incluindo os avisos URA e Música em Espera . NÃO "
+"FAZ BACKUP DO VOICEMAIL"
 
 #: functions.inc/servers.php:280
 msgid "Amazon S3 Server "
-msgstr ""
+msgstr "Servidor S3 da Amazon "
 
 #: views/servers/awss3.php:4
 msgid "Amazon S3&trade; Server"
-msgstr ""
+msgstr "Servidor S3&trade; Amazon"
 
 #: views/cron.php:8
 msgid "Annually"
-msgstr ""
+msgstr "Anualmente"
 
 #: views/backup/backup.php:380
 msgid "Apply Configs"
-msgstr ""
+msgstr "Aplicar Configurações"
 
 #: views/cron.php:46
 msgid "April"
-msgstr ""
+msgstr "Abril"
 
 #: views/restore/browseserver.php:21
 msgid "AstDB's"
-msgstr ""
+msgstr "\"AstDB's\""
 
 #: functions.inc/templates.php:296
 msgid "Asterisk DB"
-msgstr ""
+msgstr "DB Asterisk"
 
 #: views/cron.php:50
 msgid "August"
-msgstr ""
+msgstr "Agosto"
 
 #: views/servers/ftp.php:113
 msgid "Auto"

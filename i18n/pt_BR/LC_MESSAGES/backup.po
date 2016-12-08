@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-22 14:48+1000\n"
-"PO-Revision-Date: 2016-12-07 02:29+0200\n"
+"PO-Revision-Date: 2016-12-07 21:59+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/backup/pt_BR/>\n"
@@ -1511,8 +1511,12 @@ msgid ""
 "limit the size of email attachments, this will make sure that files larger "
 "than the max size are not sent."
 msgstr ""
+"O tamanho máximo que um backup poderá ser enviado por e-mail. Alguns "
+"servidores de e-mail limitam o tamanho dos anexos de e-mail, isso garantirá "
+"que os arquivos maiores que o tamanho máximo não sejam enviados."
 
 #: views/servers/ftp.php:166
+#, fuzzy
 msgid ""
 "This defaults to 'Passive'. If your FTP server is behind a seperate NAT or "
 "Firewall to this VoIP server, you should select 'Active'. In 'Active' mode, "
@@ -1520,43 +1524,50 @@ msgid ""
 "the data. In 'Passive' mode, the VoIP server connects to the FTP Server to "
 "send data."
 msgstr ""
+"Por padrão é 'Passivo'. Se o seu servidor FTP estiver atrás de um NAT ou "
+"firewall separados neste servidor VoIP, selecione 'Ativo'. No modo 'Ativo', "
+"o servidor FTP estabelece uma conexão com o servidor VoIP para receber os "
+"dados. No modo 'Passivo', o servidor VoIP se conecta ao Servidor FTP para "
+"enviar os dados."
 
 #: views/servers/email.php:118
 msgid "This has a maximum size of 25MB."
-msgstr ""
+msgstr "Este tem um tamanho máximo de 25MB."
 
 #: views/backup/backup.php:252
 msgid "This server"
-msgstr ""
+msgstr "Este servidor"
 
 #: views/backup/backups.php:84
 #, php-format
 msgid "This wizard can be used to add a basic backup task for your %s system"
 msgstr ""
+"Este assistente pode ser usado para adicionar uma tarefa de backup básica "
+"para o seu sistema %s"
 
 #: views/cron.php:31 assets/js/backup.js:83
 msgid "Thursday"
-msgstr ""
+msgstr "Quinta"
 
 #: views/servers/ftp.php:153
 msgid "Transfer Mode"
-msgstr ""
+msgstr "Modo de Transferência"
 
 #: views/backup/backups.php:494
 msgid "Transfer Type"
-msgstr ""
+msgstr "Tipo de Transferência"
 
 #: views/cron.php:29 assets/js/backup.js:83
 msgid "Tuesday"
-msgstr ""
+msgstr "Terça"
 
 #: views/item_table.php:5 views/servers/servers.php:21
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: functions.inc/class.backup.php:489
 msgid "Unable to upload file to the remote server"
-msgstr ""
+msgstr "Não é possível carregar o arquivo no servidor remoto"
 
 #: views/servers/ftp.php:115
 msgid "Unix/Linux"
@@ -1565,68 +1576,68 @@ msgstr ""
 #: install.php:290
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
-msgstr ""
+msgstr "Tarefa %s atualizada com novo diretório de sons personalizados"
 
 #: install.php:278
 msgid "Updated System Recordings template"
-msgstr ""
+msgstr "Modelo de Gravações do Sistema atualizado"
 
 #: views/restore/restore.php:19
 msgid "Upload File"
-msgstr ""
+msgstr "Carregar Arquivo"
 
 #: views/servers/mysql.php:112
 msgid "User Name"
-msgstr ""
+msgstr "Nome de Usuário"
 
 #: views/backup/backups.php:446 views/servers/ftp.php:80
 #: views/servers/ssh.php:112
 msgid "Username"
-msgstr ""
+msgstr "Nome de Usuário"
 
 #: bin/backup.php:111
 msgid "Verifying received file..."
-msgstr ""
+msgstr "Verificando arquivo recebido..."
 
 #: install.php:163
 msgid "Voice Mail Storage"
-msgstr ""
+msgstr "Armazenamento de Correio de Voz"
 
 #: views/backup/backups.php:179
 msgid "Voicemails"
-msgstr ""
+msgstr "Correios de Voz"
 
 #: bin/restore.php:259
 msgid "WARNING!"
-msgstr ""
+msgstr "ATENÇÃO!"
 
 #: bin/restore.php:260
 msgid "Web Root restore not detected, not restoring module table"
-msgstr ""
+msgstr "Restauração Web Root não detectada, não restaurando a tabela de módulos"
 
 #: views/cron.php:30 assets/js/backup.js:83
 msgid "Wednesday"
-msgstr ""
+msgstr "Quarta"
 
 #: views/cron.php:220
 msgid "Week Days"
-msgstr ""
+msgstr "Dias da Semana"
 
 #: views/backup/backups.php:149 views/cron.php:6
 msgid "Weekly"
-msgstr ""
+msgstr "Semanalmente"
 
 #: views/backup/backup.php:497
 msgid "Weeks"
-msgstr ""
+msgstr "Semanas"
 
 #: views/backup/backups.php:82
 msgid "Welcome to the Backup Wizard"
-msgstr ""
+msgstr "Bem-Vindo ao Assistente de Backup"
 
 #: views/backup/backups.php:169
 msgid "What should we backup?"
-msgstr ""
+msgstr "Do que devemos realizar backup?"
 
 #: views/servers/awss3.php:46 views/servers/awss3.php:63
 msgid "What's this?"

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-22 14:48+1000\n"
-"PO-Revision-Date: 2016-12-07 21:59+0200\n"
+"PO-Revision-Date: 2016-12-07 22:23+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/backup/pt_BR/>\n"
@@ -1641,27 +1641,27 @@ msgstr "Do que devemos realizar backup?"
 
 #: views/servers/awss3.php:46 views/servers/awss3.php:63
 msgid "What's this?"
-msgstr ""
+msgstr "O que é isso?"
 
 #: views/backup/backups.php:303
 msgid "Where should status emails for this job be sent?"
-msgstr ""
+msgstr "Onde devem ser enviados os e-mails de status desta tarefa?"
 
 #: views/cron.php:234
 msgid "Which Days of the week to run"
-msgstr ""
+msgstr "Em quais dias da semana deverá executar"
 
 #: views/cron.php:208
 msgid "Which Hours to run."
-msgstr ""
+msgstr "Em que horário deverá executar."
 
 #: views/cron.php:260
 msgid "Which Months to run"
-msgstr ""
+msgstr "Em quais meses deverá executar"
 
 #: views/cron.php:182
 msgid "Which minutes to run"
-msgstr ""
+msgstr "Em que minutos deverá executar"
 
 #: views/servers/ftp.php:117
 msgid "Windows"
@@ -1669,27 +1669,28 @@ msgstr ""
 
 #: Backup.class.php:67
 msgid "Wizard"
-msgstr ""
+msgstr "Assistente"
 
 #: views/backup/backups.php:279
 msgid "Would you like an email when this job runs?"
-msgstr ""
+msgstr "Gostaria de um e-mail quando esta tarefa for executada?"
 
 #: views/backup/backups.php:255
 msgid "Would you like notifications?"
-msgstr ""
+msgstr "Gostaria de notificações?"
 
 #: views/backup/backups.php:221
+#, fuzzy
 msgid "Would you like to backup recordings?"
-msgstr ""
+msgstr "Gostaria de fazer backup de gravações?"
 
 #: views/backup/backups.php:194
 msgid "Would you like voicemails backded up."
-msgstr ""
+msgstr "Gostaria de fazer backup de correios de voz."
 
 #: views/backup/backup.php:501
 msgid "Years"
-msgstr ""
+msgstr "Anos"
 
 #: views/backup/backup.php:94 views/backup/backup.php:306
 #: views/backup/backup.php:331 views/backup/backup.php:358
@@ -1698,24 +1699,24 @@ msgstr ""
 #: views/backup/backups.php:269 views/backup/backups.php:325
 #: views/cron.php:145
 msgid "Yes"
-msgstr ""
+msgstr "Sim"
 
 #: bin/restore.php:261
 #, php-format
 msgid "You should run \"%s\" to ensure system integrity"
-msgstr ""
+msgstr "Você deve executar \"%s\" para garantir a integridade do sistema"
 
 #: views/backup/backups.php:312
 msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
-msgstr ""
+msgstr "O backup será salvo localmente em /var/spool/asterisk/backup"
 
 #: install.php:126
 msgid "added default backup servers"
-msgstr ""
+msgstr "servidores de backup padrão adicionados"
 
 #: install.php:215
 msgid "added default backup templates"
-msgstr ""
+msgstr "modelos de backup padrão adicionados"
 
 #: functions.inc/class.backup.php:399
 msgid "astDb's"
@@ -1723,24 +1724,24 @@ msgstr ""
 
 #: views/item_table.php:48
 msgid "chose"
-msgstr ""
+msgstr "selecione"
 
 #: functions.inc/restore.php:32
 msgid "error/not found!"
-msgstr ""
+msgstr "erro/não encontrado!"
 
 #: functions.inc/restore.php:226
 msgid "manifest not found"
-msgstr ""
+msgstr "manifesto não encontrado"
 
 #: functions.inc/templates.php:289
 msgid "table names, one per line"
-msgstr ""
+msgstr "nome das tabelas, uma por linha"
 
 #: bin/backup.php:47
 msgid "waiting for lock..."
-msgstr ""
+msgstr "esperando por bloqueio..."
 
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
-msgstr ""
+msgstr "{sem servidores disponíveis}"

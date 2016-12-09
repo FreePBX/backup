@@ -20,14 +20,14 @@ msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-22 14:48+1000\n"
-"PO-Revision-Date: 2016-06-06 20:25+0200\n"
+"PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
-"es_ES/>\n"
+"Language-Team: Spanish "
+"<http://weblate.freepbx.org/projects/freepbx/backup/es_ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 "X-Poedit-Language: Spanish\n"
@@ -169,7 +169,7 @@ msgstr "Agosto"
 
 #: views/servers/ftp.php:113
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 #: views/backup/backup.php:437
 msgid "Available Servers"
@@ -319,7 +319,7 @@ msgstr "Vistazo"
 
 #: page.backup_restore.php:184
 msgid "Browser reconnected realtime updates are unavailable."
-msgstr ""
+msgstr "Navegador re-conectado actualizaciones en tiempo real no disponibles."
 
 #: views/servers/awss3.php:14
 msgid "Bucket Name"
@@ -686,7 +686,7 @@ msgstr "Archivos"
 
 #: views/servers/ftp.php:108
 msgid "Filesystem Type"
-msgstr ""
+msgstr "Tipo de Filesystem"
 
 #: page.backup.php:52
 msgid "FreePBX"
@@ -1058,6 +1058,10 @@ msgid ""
 "example, <tt>/home/backups/freepbx</tt>. A path without a leading slash will "
 "not work, and will behave in unexpected ways."
 msgstr ""
+"Ruta de acceso en el servidor remoto. Debe ser un PATH COMPLETO, comenzando "
+"con un / - por ejemplo, <tt>/home/backups/freepbx</tt>. Un camino sin una "
+"barra inclinada principal no funcionará, y se comportará de manera "
+"inesperada."
 
 #: views/backup/backups.php:557
 msgid "Path to ssh key, example /home/asterisk/.ssh/id_rsa"
@@ -1465,6 +1469,7 @@ msgstr "Plantillas"
 #: views/servers/ftp.php:123
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr ""
+"El tipo de Filesystem del servidor FTP. Si no esta seguro déjelo en Auto"
 
 #: backup.i18n.php:24
 msgid "The From: field for emails when using the backup email feature."
@@ -1474,11 +1479,11 @@ msgstr ""
 
 #: page.backup_restore.php:191
 msgid "The Restore script Finished You can close this window"
-msgstr ""
+msgstr "El script de restauración Finalizado Puede cerrar esta ventana"
 
 #: page.backup_restore.php:188
 msgid "The Restore script is still running"
-msgstr ""
+msgstr "El script de Restauración aun esta corriendo"
 
 #: functions.inc/class.backup.php:409
 msgid ""
@@ -1567,7 +1572,7 @@ msgstr "No se puede subir el archivo al servidor remoto"
 
 #: views/servers/ftp.php:115
 msgid "Unix/Linux"
-msgstr ""
+msgstr "Unix/Linux"
 
 #: install.php:290
 #, php-format
@@ -1664,7 +1669,7 @@ msgstr "Qué minutos para ejecutar"
 
 #: views/servers/ftp.php:117
 msgid "Windows"
-msgstr ""
+msgstr "Windows"
 
 #: Backup.class.php:67
 msgid "Wizard"

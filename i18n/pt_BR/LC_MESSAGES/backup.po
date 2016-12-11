@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-22 14:48+1000\n"
-"PO-Revision-Date: 2016-12-10 22:03+0200\n"
+"PO-Revision-Date: 2016-12-11 02:37+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/backup/pt_BR/>\n"
@@ -60,7 +60,7 @@ msgstr "Script a ser executado ANTES de um backup ser iniciado."
 
 #: views/backup/backups.php:154 assets/js/backup.js:93 assets/js/backup.js:105
 msgid "AT"
-msgstr ""
+msgstr "DE"
 
 #: views/servers/awss3.php:41
 msgid "AWS Access Key"
@@ -986,7 +986,7 @@ msgstr "Novembro"
 
 #: assets/js/backup.js:94
 msgid "ON"
-msgstr ""
+msgstr "EM"
 
 #: views/cron.php:52
 msgid "October"

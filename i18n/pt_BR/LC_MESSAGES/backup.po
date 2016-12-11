@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-22 14:48+1000\n"
-"PO-Revision-Date: 2016-12-10 21:59+0200\n"
+"PO-Revision-Date: 2016-12-10 22:03+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/backup/pt_BR/>\n"
@@ -513,7 +513,7 @@ msgstr "Solte Aqui"
 
 #: backup.i18n.php:20
 msgid "Email "
-msgstr ""
+msgstr "Email "
 
 #: views/servers/email.php:64
 msgid "Email Address"
@@ -1502,7 +1502,6 @@ msgstr ""
 "que os arquivos maiores que o tamanho máximo não sejam enviados."
 
 #: views/servers/ftp.php:166
-#, fuzzy
 msgid ""
 "This defaults to 'Passive'. If your FTP server is behind a seperate NAT or "
 "Firewall to this VoIP server, you should select 'Active'. In 'Active' mode, "
@@ -1557,7 +1556,7 @@ msgstr "Não é possível carregar o arquivo no servidor remoto"
 
 #: views/servers/ftp.php:115
 msgid "Unix/Linux"
-msgstr ""
+msgstr "Unix/Linux"
 
 #: install.php:290
 #, php-format
@@ -1651,7 +1650,7 @@ msgstr "Em que minutos deverá executar"
 
 #: views/servers/ftp.php:117
 msgid "Windows"
-msgstr ""
+msgstr "Windows"
 
 #: Backup.class.php:67
 msgid "Wizard"
@@ -1666,7 +1665,6 @@ msgid "Would you like notifications?"
 msgstr "Gostaria de notificações?"
 
 #: views/backup/backups.php:221
-#, fuzzy
 msgid "Would you like to backup recordings?"
 msgstr "Gostaria de fazer backup de gravações?"
 
@@ -1706,7 +1704,7 @@ msgstr "modelos de backup padrão adicionados"
 
 #: functions.inc/class.backup.php:399
 msgid "astDb's"
-msgstr ""
+msgstr "astDb's"
 
 #: views/item_table.php:48
 msgid "chose"

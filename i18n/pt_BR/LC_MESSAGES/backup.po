@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-22 14:48+1000\n"
-"PO-Revision-Date: 2016-12-07 22:23+0200\n"
+"PO-Revision-Date: 2016-12-10 21:59+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/backup/pt_BR/>\n"
@@ -71,7 +71,6 @@ msgid "AWS S3 Server "
 msgstr "Servidor S3 AWS "
 
 #: views/servers/awss3.php:58
-#, fuzzy
 msgid "AWS Secret"
 msgstr "Segredo AWS"
 
@@ -157,7 +156,7 @@ msgstr "Agosto"
 
 #: views/servers/ftp.php:113
 msgid "Auto"
-msgstr ""
+msgstr "Automático"
 
 #: views/backup/backup.php:437
 msgid "Available Servers"
@@ -165,15 +164,15 @@ msgstr "Servidores Disponíveis"
 
 #: views/servers/email.php:99
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: functions.inc.php:68
 msgid "BACKUP LOG ATTACHED"
-msgstr ""
+msgstr "LOG DE BACKUP ANEXADO"
 
 #: functions.inc/class.backup.php:409 functions.inc/class.backup.php:412
 msgid "BACKUP NOT ATTACHED"
-msgstr ""
+msgstr "BACKUP NÃO ANEXADO"
 
 #: Backup.class.php:316 functions.inc/backup.php:80
 #: functions.inc/class.backup.php:403 views/backup/backup.php:6
@@ -213,7 +212,6 @@ msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr "ERRO de Backup (limite de SMTP excedido)"
 
 #: functions.inc/class.backup.php:411
-#, fuzzy
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr "ERRO de Backup (limite suave excedido)"
 
@@ -307,14 +305,13 @@ msgid "Browse"
 msgstr "Navegar"
 
 #: page.backup_restore.php:184
-#, fuzzy
 msgid "Browser reconnected realtime updates are unavailable."
 msgstr ""
 "Navegador reconectado, as atualizações em tempo real estão indisponíveis."
 
 #: views/servers/awss3.php:14
 msgid "Bucket Name"
-msgstr ""
+msgstr "Nome do Bucket"
 
 #: bin/backup.php:58
 msgid "Building manifest..."
@@ -503,12 +500,11 @@ msgstr ""
 "Servidores de Armazenamento"
 
 #: views/backup/backup.php:112
-#, fuzzy
 msgid ""
 "Drag templates and drop them in the items table to add the templates items "
 "to the table"
 msgstr ""
-"Arraste modelos e solte-os na tabela de itens para adicionar os itens de "
+"Arraste os modelos e solte-os na tabela de itens para adicionar os itens de "
 "modelos à tabela"
 
 #: views/backup/backup.php:121
@@ -550,13 +546,12 @@ msgid "Email to send status messages to when this task is run"
 msgstr "Email para enviar mensagens de status quando esta tarefa for executada"
 
 #: views/backup/backup.php:395
-#, fuzzy
 msgid ""
 "Equivalence of clicking the red button, will happen automatically after a "
 "restore on a Standby system"
 msgstr ""
 "Equivalente à clicar no \"botão vermelho\", ocorrerá automaticamente após "
-"uma restauração em um Sistema em Espera"
+"uma restauração de um Sistema em Espera"
 
 #: functions.inc/class.backup.php:469 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
@@ -607,7 +602,7 @@ msgstr "Ignorando explicitamente as configurações de NAT específicas do host"
 
 #: views/backup/backups.php:352
 msgid "FTP"
-msgstr ""
+msgstr "FTP"
 
 #: views/backup/backups.php:482 views/servers/mysql.php:148
 msgid "FTP Password"
@@ -684,7 +679,7 @@ msgstr "Tipo de Sistema de Arquivos"
 
 #: page.backup.php:52
 msgid "FreePBX"
-msgstr ""
+msgstr "FreePBX"
 
 #: views/cron.php:32 assets/js/backup.js:83
 msgid "Friday"
@@ -695,7 +690,6 @@ msgid "Getting CDR size..."
 msgstr "Obtendo tamanho do CDR ..."
 
 #: views/backup/backups.php:386
-#, fuzzy
 msgid "Give the server a descriptive name"
 msgstr "Dê ao servidor um nome descritivo"
 
@@ -708,7 +702,6 @@ msgid "Give your backup a friendly name"
 msgstr "Dê um nome amigável ao seu backup"
 
 #: views/restore/browseserver.php:29
-#, fuzzy
 msgid "Go!"
 msgstr "Ir!"
 
@@ -755,7 +748,6 @@ msgid "IP address or FQDN of remote mysql host"
 msgstr "Endereço IP ou FQDN de um host mysql remoto"
 
 #: views/cron.php:155
-#, fuzzy
 msgid ""
 "If Randomize is selected, a similar frequency will be followed, only the "
 "exact times will be randomized (avoiding peak business hours, when "
@@ -833,7 +825,7 @@ msgstr "Junho"
 
 #: views/servers/email.php:101
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: views/servers/ssh.php:136
 msgid "Key"
@@ -853,7 +845,7 @@ msgstr "Localização da chave privada ssh a ser usada ao se conectar a um host"
 
 #: views/servers/email.php:103
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #: views/backup/backup.php:474
 msgid "Maintenance"
@@ -893,7 +885,7 @@ msgstr "Servidor MySQL"
 
 #: functions.inc/templates.php:267
 msgid "Mysql"
-msgstr ""
+msgstr "Mysql"
 
 #: views/restore/browseserver.php:20
 msgid "Mysql DB's"
@@ -1005,7 +997,6 @@ msgid "On Failure Only"
 msgstr "Somente em Falha"
 
 #: assets/js/backup.js:101
-#, fuzzy
 msgid "On the"
 msgstr "No(a)"
 
@@ -1019,7 +1010,7 @@ msgstr "Descrição ou comentários opcionais para este modelo de backup."
 
 #: functions.inc/templates.php:260
 msgid "PATTERNs, one per line"
-msgstr ""
+msgstr "PADRÕES, um por linha"
 
 #: views/restore/backup_list.php:19
 msgid "PBX Settings"
@@ -1076,9 +1067,8 @@ msgstr "Por favor espere, carregando..."
 
 #: views/servers/ftp.php:66 views/servers/mysql.php:88
 #: views/servers/ssh.php:88
-#, fuzzy
 msgid "Port"
-msgstr "Porto"
+msgstr "Porta"
 
 #: views/backup/backup.php:185
 msgid "Post-Backup Hook"
@@ -1245,7 +1235,6 @@ msgid "Run Automatically"
 msgstr "Executar Automaticamente"
 
 #: views/cron.php:97
-#, fuzzy
 msgid ""
 "Run at startup of the server OR of the cron deamon (i.e. after every "
 "<code>service cron restart</code>)"
@@ -1302,13 +1291,12 @@ msgid "Running pre-restore scripts..."
 msgstr "Executando scripts pré-restauração..."
 
 #: views/backup/backup.php:526
-#, fuzzy
 msgid "Runs"
-msgstr "Executa"
+msgstr "Executar"
 
 #: views/backup/backups.php:354
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 #: views/backup/backups.php:545
 msgid "SSH Key Path"
@@ -1343,12 +1331,10 @@ msgid "Saving file to remote ftp"
 msgstr "Salvando arquivo no ftp remoto"
 
 #: views/cron.php:71
-#, fuzzy
 msgid "Schedule Help"
 msgstr "Ajuda do Cronograma"
 
 #: views/restore/browseserver.php:12
-#, fuzzy
 msgid "Select a file and click go"
 msgstr "Selecione um arquivo e clique em ir"
 

@@ -10,36 +10,41 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-22 14:48+1000\n"
-"PO-Revision-Date: 2016-11-22 14:48+1000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2016-12-15 12:30+0200\n"
+"Last-Translator: Sven <spiderrs4@web.de>\n"
+"Language-Team: German "
+"<http://weblate.freepbx.org/projects/freepbx/backup/de_DE/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: views/backup/backups.php:23
 #, php-format
 msgid "%s Backup Wizard"
-msgstr ""
+msgstr "%s Sicherungsassistent"
 
 #: functions.inc/templates.php:251
 msgid "/path/to/dir"
-msgstr ""
+msgstr "Ordnerpfad"
 
 #: functions.inc/templates.php:238
 msgid "/path/to/file"
-msgstr ""
+msgstr "Dateipfad"
 
 #: install.php:145
 msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
 msgstr ""
+"Eine vollständige Sicherung von System-Einstellungen und Web-Dateien, "
+"enthält keine System-Sounds oder Aufnahmen."
 
 #: views/backup/backup.php:197
 msgid "A script to be run AFTER a backup is completed."
-msgstr ""
+msgstr "Ein Skript, das nach der Sicherung ausgeführt wird, wurde beendet."
 
 #: views/backup/backup.php:245
 msgid "A script to be run AFTER a backup is restored."

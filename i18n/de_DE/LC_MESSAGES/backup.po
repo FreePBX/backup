@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-22 14:48+1000\n"
-"PO-Revision-Date: 2016-12-16 00:48+0200\n"
+"PO-Revision-Date: 2016-12-16 18:21+0200\n"
 "Last-Translator: Sven <spiderrs4@web.de>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/backup/de_DE/>\n"
@@ -144,11 +144,11 @@ msgstr "April"
 
 #: views/restore/browseserver.php:21
 msgid "AstDB's"
-msgstr "AstDB's"
+msgstr "Ast-DB's"
 
 #: functions.inc/templates.php:296
 msgid "Asterisk DB"
-msgstr "Asterisk DB"
+msgstr "Asterisk-DB"
 
 #: views/cron.php:50
 msgid "August"
@@ -604,11 +604,11 @@ msgstr "FTP Passwort"
 
 #: views/servers/ftp.php:8
 msgid "FTP Server"
-msgstr "FTP Server"
+msgstr "FTP-Server"
 
 #: functions.inc/servers.php:268 functions.inc/servers.php:323
 msgid "FTP Server "
-msgstr "FTP Server "
+msgstr "FTP-Server "
 
 #: views/backup/backups.php:509
 msgid "FTP Transfer type"
@@ -1261,19 +1261,19 @@ msgstr "Laufendes Wiederherstellungs-Post-Skript..."
 
 #: bin/backup.php:147 bin/backup.php:185
 msgid "Running post-backup hooks..."
-msgstr "Laufendes Sicherungs-Post-Skript..."
+msgstr "Laufende Sicherungs-Post-Skripte..."
 
 #: bin/restore.php:383
 msgid "Running post-restore hooks, if any..."
-msgstr ""
+msgstr "Laufende Wiederherstellungs-Post-Skripte, falls vorhanden..."
 
 #: bin/backup.php:52
 msgid "Running pre-backup hooks..."
-msgstr "Laufendes Sicherungs-Pre-Skripts"
+msgstr "Laufende Sicherungs-Pre-Skripte..."
 
 #: bin/restore.php:106
 msgid "Running pre-restore hooks, if any..."
-msgstr ""
+msgstr "Laufende Wiederherstellungs-Pre-Skripte, falls vorhanden..."
 
 #: bin/restore.php:103
 msgid "Running pre-restore scripts..."
@@ -1483,6 +1483,10 @@ msgid ""
 "limit the size of email attachments, this will make sure that files larger "
 "than the max size are not sent."
 msgstr ""
+"Die maximale Größe einer Sicherung die noch per E-Mail gesendet werden kann. "
+"Einige E-Mail-Server beschränken die Größe von E-Mail-Anhängen, dies stellt "
+"sicher, dass Dateien die größer als die maximale Größe sind, nicht gesendet "
+"werden."
 
 #: views/servers/ftp.php:166
 msgid ""
@@ -1495,7 +1499,7 @@ msgstr ""
 
 #: views/servers/email.php:118
 msgid "This has a maximum size of 25MB."
-msgstr ""
+msgstr "Dies hat eine maximale Größe von 25MB."
 
 #: views/backup/backup.php:252
 msgid "This server"
@@ -1564,15 +1568,15 @@ msgstr "Überprüfen der empfangenen Datei ..."
 
 #: install.php:163
 msgid "Voice Mail Storage"
-msgstr ""
+msgstr "Speicher für Anrufbeantworter"
 
 #: views/backup/backups.php:179
 msgid "Voicemails"
-msgstr ""
+msgstr "Anrufbeantworter"
 
 #: bin/restore.php:259
 msgid "WARNING!"
-msgstr ""
+msgstr "Achtung!"
 
 #: bin/restore.php:260
 msgid "Web Root restore not detected, not restoring module table"
@@ -1580,51 +1584,51 @@ msgstr ""
 
 #: views/cron.php:30 assets/js/backup.js:83
 msgid "Wednesday"
-msgstr ""
+msgstr "Mittwoch"
 
 #: views/cron.php:220
 msgid "Week Days"
-msgstr ""
+msgstr "Wochentag(e)"
 
 #: views/backup/backups.php:149 views/cron.php:6
 msgid "Weekly"
-msgstr ""
+msgstr "Wöchentlich"
 
 #: views/backup/backup.php:497
 msgid "Weeks"
-msgstr ""
+msgstr "Wochen"
 
 #: views/backup/backups.php:82
 msgid "Welcome to the Backup Wizard"
-msgstr ""
+msgstr "Willkommen beim Sicherungsassistent"
 
 #: views/backup/backups.php:169
 msgid "What should we backup?"
-msgstr ""
+msgstr "Was soll gesichert werden?"
 
 #: views/servers/awss3.php:46 views/servers/awss3.php:63
 msgid "What's this?"
-msgstr ""
+msgstr "Was ist das?"
 
 #: views/backup/backups.php:303
 msgid "Where should status emails for this job be sent?"
-msgstr ""
+msgstr "Wohin soll die Statusmeldung für diese Aufgabe gesendet werden?"
 
 #: views/cron.php:234
 msgid "Which Days of the week to run"
-msgstr ""
+msgstr "An welchem/welchen Tag(en) soll die Sicherung ausgeführt werden?"
 
 #: views/cron.php:208
 msgid "Which Hours to run."
-msgstr ""
+msgstr "Zu welcher/welchen Stunde(n) soll die Sicherung ausgeführt werden?"
 
 #: views/cron.php:260
 msgid "Which Months to run"
-msgstr ""
+msgstr "An welchem/welchen Monat(en) soll die Sicherung ausgeführt werden?"
 
 #: views/cron.php:182
 msgid "Which minutes to run"
-msgstr ""
+msgstr "Zu welcher/welchen Minute(n) soll die Sicherung ausgeführt werden?"
 
 #: views/servers/ftp.php:117
 msgid "Windows"
@@ -1632,19 +1636,19 @@ msgstr ""
 
 #: Backup.class.php:67
 msgid "Wizard"
-msgstr ""
+msgstr "Assistent"
 
 #: views/backup/backups.php:279
 msgid "Would you like an email when this job runs?"
-msgstr ""
+msgstr "Möchten Sie eine E-Mail, wenn dieser Job läuft?"
 
 #: views/backup/backups.php:255
 msgid "Would you like notifications?"
-msgstr ""
+msgstr "Möchten Sie Benachrichtigungen erhalten?"
 
 #: views/backup/backups.php:221
 msgid "Would you like to backup recordings?"
-msgstr ""
+msgstr "Möchten Sie Aufnahmen sichern?"
 
 #: views/backup/backups.php:194
 msgid "Would you like voicemails backded up."
@@ -1652,7 +1656,7 @@ msgstr ""
 
 #: views/backup/backup.php:501
 msgid "Years"
-msgstr ""
+msgstr "Jahre"
 
 #: views/backup/backup.php:94 views/backup/backup.php:306
 #: views/backup/backup.php:331 views/backup/backup.php:358
@@ -1661,7 +1665,7 @@ msgstr ""
 #: views/backup/backups.php:269 views/backup/backups.php:325
 #: views/cron.php:145
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: bin/restore.php:261
 #, php-format
@@ -1674,31 +1678,31 @@ msgstr ""
 
 #: install.php:126
 msgid "added default backup servers"
-msgstr ""
+msgstr "Standard-Sicherungsserver hinzugefügt"
 
 #: install.php:215
 msgid "added default backup templates"
-msgstr ""
+msgstr "Standard-Sicherungsvorlagen hinzugefügt"
 
 #: functions.inc/class.backup.php:399
 msgid "astDb's"
-msgstr ""
+msgstr "ast-Db's"
 
 #: views/item_table.php:48
 msgid "chose"
-msgstr ""
+msgstr "wähle"
 
 #: functions.inc/restore.php:32
 msgid "error/not found!"
-msgstr ""
+msgstr "Fehler/ nicht gefunden!"
 
 #: functions.inc/restore.php:226
 msgid "manifest not found"
-msgstr ""
+msgstr "Manifest nicht gefunden"
 
 #: functions.inc/templates.php:289
 msgid "table names, one per line"
-msgstr ""
+msgstr "Tabellennamen, einer pro Zeile."
 
 #: bin/backup.php:47
 msgid "waiting for lock..."
@@ -1706,4 +1710,4 @@ msgstr ""
 
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
-msgstr ""
+msgstr "{keine Server Verfügbar}"

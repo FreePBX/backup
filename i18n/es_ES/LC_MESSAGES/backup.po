@@ -19,15 +19,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-22 14:48+1000\n"
+"POT-Creation-Date: 2016-12-19 13:57-0800\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish "
-"<http://weblate.freepbx.org/projects/freepbx/backup/es_ES/>\n"
-"Language: es_ES\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
+"es_ES/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 "X-Poedit-Language: Spanish\n"
@@ -100,7 +100,7 @@ msgstr "Activo"
 msgid "Add Server"
 msgstr "Agregar Servidor"
 
-#: bin/backup.php:55
+#: bin/backup.php:53
 msgid "Adding items..."
 msgstr "Agregando elementos..."
 
@@ -236,7 +236,7 @@ msgstr "Frecuencia de Respaldo"
 msgid "Backup Items"
 msgstr "Respaldar Elementos"
 
-#: bin/backup.php:50
+#: bin/backup.php:48
 msgid "Backup Lock acquired!"
 msgstr "Bloqueo de copia de seguridad adquirida!"
 
@@ -276,7 +276,7 @@ msgstr "Asistente de Respaldo"
 msgid "Backup and Restore"
 msgstr "Respaldo y Restauración"
 
-#: bin/backup.php:152 bin/backup.php:200
+#: bin/backup.php:150 bin/backup.php:198
 msgid "Backup completed with errors!"
 msgstr "Respaldo completado con errores!"
 
@@ -289,15 +289,15 @@ msgstr ""
 "Respaldo fallo vaciando base de datos SQL [%s] al archivo [%s], usted tiene "
 "un respaldo corrupto en el servidor [%s]."
 
-#: bin/restore.php:94
+#: bin/restore.php:92
 msgid "Backup file not found! Aborting."
 msgstr "Archivo de Respaldo no encontrado!. Abortando."
 
-#: bin/backup.php:14
+#: bin/backup.php:12
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "Modulo de Respaldo  no encontrado o esta deshabilitado. Abortando!"
 
-#: bin/backup.php:154 bin/backup.php:202
+#: bin/backup.php:152 bin/backup.php:200
 msgid "Backup successfully completed!"
 msgstr "Respaldo satisfactoriamente completado!"
 
@@ -325,7 +325,7 @@ msgstr "Navegador re-conectado actualizaciones en tiempo real no disponibles."
 msgid "Bucket Name"
 msgstr "Nombre del Bucket"
 
-#: bin/backup.php:58
+#: bin/backup.php:56
 msgid "Building manifest..."
 msgstr "Construyendo manifiesto ..."
 
@@ -353,7 +353,7 @@ msgstr "Grabaciones de Llamadas"
 msgid "Can not create backup tables"
 msgstr "No se pueden crear tablas de Respandos"
 
-#: bin/restore.php:388
+#: bin/restore.php:386
 msgid "Cleaning up..."
 msgstr "Limpiando ..."
 
@@ -365,7 +365,7 @@ msgstr "Oprima \"Próximo\" para Continuar."
 msgid "Configurations only"
 msgstr "Solo Configuraciones"
 
-#: bin/backup.php:78
+#: bin/backup.php:76
 msgid "Connecting to remote server..."
 msgstr "Conectando a Servidor remoto..."
 
@@ -373,7 +373,7 @@ msgstr "Conectando a Servidor remoto..."
 msgid "Created"
 msgstr "Creado"
 
-#: bin/backup.php:63
+#: bin/backup.php:61
 msgid "Creating backup..."
 msgstr "Creando respaldo ..."
 
@@ -495,7 +495,7 @@ msgstr "Directorio '%s' no existe y no pudo ser creado"
 msgid "Disable Registered Trunks"
 msgstr "Deshabilitar Troncales Registrados"
 
-#: bin/restore.php:434
+#: bin/restore.php:432
 msgid "Done!"
 msgstr "Hecho!"
 
@@ -607,7 +607,7 @@ msgstr ""
 "Esto le permite tener una máquina de repuesto para una dirección IP "
 "diferente."
 
-#: bin/restore.php:68
+#: bin/restore.php:66
 msgid "Explicitly skipping host-specific NAT settings"
 msgstr "Explícitamente saltando configuraciones NAT especificas a host"
 
@@ -672,11 +672,11 @@ msgstr "Archivo"
 msgid "File not found! "
 msgstr "Archivo no encontrado! "
 
-#: bin/restore.php:152
+#: bin/restore.php:150
 msgid "File restore complete!"
 msgstr "Restauración de Archivo Completada!"
 
-#: bin/backup.php:126
+#: bin/backup.php:124
 msgid "File verification failed. "
 msgstr "Verificación de Archivo Fallida. "
 
@@ -696,7 +696,7 @@ msgstr "FreePBX"
 msgid "Friday"
 msgstr "Viernes"
 
-#: bin/restore.php:212
+#: bin/restore.php:210
 msgid "Getting CDR size..."
 msgstr "Obteniendo tamaño de CDR ..."
 
@@ -716,7 +716,7 @@ msgstr "Asigne a su respaldo un nombre amigable"
 msgid "Go!"
 msgstr "Ir!"
 
-#: bin/backup.php:127
+#: bin/backup.php:125
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr ""
 "Estas son las primeras líneas del archivo como fue enviado por el servidor "
@@ -794,11 +794,11 @@ msgstr ""
 msgid "Import"
 msgstr "Importar"
 
-#: bin/backup.php:41
+#: bin/backup.php:39
 msgid "Initializing Backup"
 msgstr "Iniciando Respaldo"
 
-#: bin/restore.php:91
+#: bin/restore.php:89
 msgid "Initializing Restore..."
 msgstr "Iniciando Restauracion..."
 
@@ -977,15 +977,15 @@ msgstr "Nocturno"
 msgid "No"
 msgstr "No"
 
-#: bin/backup.php:75
+#: bin/backup.php:73
 msgid "No items in backup set. Aborting."
 msgstr "No hay elementos en el conjunto de respaldo. Abortando..."
 
-#: bin/backup.php:36
+#: bin/backup.php:34
 msgid "No storage servers found! Aborting."
 msgstr "No se encontraron servidores de almacenamiento. Abortando..."
 
-#: bin/restore.php:87
+#: bin/restore.php:85
 msgid "Nothing to restore!"
 msgstr "Nada que restaurar!"
 
@@ -1100,21 +1100,21 @@ msgstr "Gancho Pre-Respaldo"
 msgid "Pre-Restore Hook"
 msgstr "Gancho Pre-Restaurar"
 
-#: bin/restore.php:295
+#: bin/restore.php:293
 msgid "Preserving local NAT settings"
 msgstr "Preservando configuración local NAT"
 
-#: bin/restore.php:246
+#: bin/restore.php:244
 #, php-format
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr "Procesado %s%% de CDR (%s de %s líneas)"
 
-#: bin/restore.php:340
+#: bin/restore.php:338
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "Procesado %s%% de Ajustes (%s de  %s líneas)"
 
-#: bin/backup.php:139
+#: bin/backup.php:137
 msgid "Processing received file..."
 msgstr "Procesando archivo recibido..."
 
@@ -1130,7 +1130,7 @@ msgstr "Randomizar"
 msgid "Reboot"
 msgstr "Reiniciar"
 
-#: bin/restore.php:419
+#: bin/restore.php:417
 msgid "Reloading..."
 msgstr "Recargando..."
 
@@ -1200,47 +1200,47 @@ msgstr "Restaurar toda la configuración almacenada en la base de datos"
 msgid "Restore backup to this server after the backup is complete"
 msgstr "Restaurar respaldo en este server luego que el respaldo sea completado"
 
-#: bin/restore.php:418
+#: bin/restore.php:416
 msgid "Restore complete!"
 msgstr "Restauración completada!"
 
-#: bin/restore.php:344
+#: bin/restore.php:342
 msgid "Restored Database"
 msgstr "Base de Datos restaurada"
 
-#: bin/restore.php:253
+#: bin/restore.php:251
 msgid "Restoring CDRs complete"
 msgstr "Restauración de CDRs completada"
 
-#: bin/restore.php:171
+#: bin/restore.php:169
 msgid "Restoring CDRs..."
 msgstr "restaurando CDRs..."
 
-#: bin/restore.php:302
+#: bin/restore.php:300
 msgid "Restoring Database..."
 msgstr "Restaurando Base de Datos..."
 
-#: bin/restore.php:352
+#: bin/restore.php:350
 msgid "Restoring NAT settings"
 msgstr "Restaurando configuración NAT"
 
-#: bin/restore.php:373
+#: bin/restore.php:371
 msgid "Restoring Settings complete"
 msgstr "Restauración de configuración completada"
 
-#: bin/restore.php:116
+#: bin/restore.php:114
 msgid "Restoring all files (this may take some time)..."
 msgstr "Restaurando todos los archivos (esto puede tomar un tiempo)..."
 
-#: bin/restore.php:363
+#: bin/restore.php:361
 msgid "Restoring astDB..."
 msgstr "restaurando astDB..."
 
-#: bin/backup.php:173
+#: bin/backup.php:171
 msgid "Restoring backup..."
 msgstr "Restaurando respaldo..."
 
-#: bin/restore.php:120
+#: bin/restore.php:118
 msgid "Restoring files (this may take some time)..."
 msgstr "Restaurando archivos (esto puede tomar un tiempo)..."
 
@@ -1280,27 +1280,27 @@ msgstr "Ejecutar una vez al año, medianoche, 01 de enero"
 msgid "Run once an hour, beginning of hour"
 msgstr "Ejecutar una vez cada hora, a inicio de la hora"
 
-#: bin/restore.php:379
+#: bin/restore.php:377
 msgid "Running post restore script..."
 msgstr "Corriendo Script post-restauración..."
 
-#: bin/backup.php:147 bin/backup.php:185
+#: bin/backup.php:145 bin/backup.php:183
 msgid "Running post-backup hooks..."
 msgstr "Corriendo enganches post-respaldo..."
 
-#: bin/restore.php:383
+#: bin/restore.php:381
 msgid "Running post-restore hooks, if any..."
 msgstr "Corriendo enganches post-restauración, si hay alguno..."
 
-#: bin/backup.php:52
+#: bin/backup.php:50
 msgid "Running pre-backup hooks..."
 msgstr "Corriendo enganches pre-respaldo..."
 
-#: bin/restore.php:106
+#: bin/restore.php:104
 msgid "Running pre-restore hooks, if any..."
 msgstr "Corriendo enganches pre-restauración, si hay alguno..."
 
-#: bin/restore.php:103
+#: bin/restore.php:101
 msgid "Running pre-restore scripts..."
 msgstr "Corriendo scripts pre-restauración..."
 
@@ -1409,7 +1409,7 @@ msgstr "Direccion de servidor no puede estar en blanco"
 msgid "Servers"
 msgstr "Servidores"
 
-#: bin/backup.php:106
+#: bin/backup.php:104
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr "Algo salio mal conectándose al servidor remoto. Abortando!"
 
@@ -1445,7 +1445,7 @@ msgstr "Servidores de Almacenaje"
 msgid "Storage location for backups"
 msgstr "Localidad de almacenamiento para respaldos"
 
-#: bin/backup.php:144
+#: bin/backup.php:142
 msgid "Storing backup..."
 msgstr "Almacenando Respaldo..."
 
@@ -1597,7 +1597,7 @@ msgstr "Nombre de usuario"
 msgid "Username"
 msgstr "Usuario"
 
-#: bin/backup.php:111
+#: bin/backup.php:109
 msgid "Verifying received file..."
 msgstr "Verificando archivo recibido..."
 
@@ -1609,11 +1609,11 @@ msgstr "Almacenamiento de Correo de Voz"
 msgid "Voicemails"
 msgstr "CorreosdeVoz"
 
-#: bin/restore.php:259
+#: bin/restore.php:257
 msgid "WARNING!"
 msgstr "ADVERTENCIA!"
 
-#: bin/restore.php:260
+#: bin/restore.php:258
 msgid "Web Root restore not detected, not restoring module table"
 msgstr "Restauración web Root no detectada, no se restaura tabla de modulo"
 
@@ -1705,7 +1705,7 @@ msgstr "Años"
 msgid "Yes"
 msgstr "Si"
 
-#: bin/restore.php:261
+#: bin/restore.php:259
 #, php-format
 msgid "You should run \"%s\" to ensure system integrity"
 msgstr "Debe ejecutar \"%s\" para asegurar la integridad del sistema"
@@ -1743,7 +1743,7 @@ msgstr "manifiesto no encontrado"
 msgid "table names, one per line"
 msgstr "nombres de tablas, una por linea"
 
-#: bin/backup.php:47
+#: bin/backup.php:45
 msgid "waiting for lock..."
 msgstr "esperando por bloqueo..."
 

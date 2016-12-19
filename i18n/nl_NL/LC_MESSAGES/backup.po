@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-22 14:48+1000\n"
+"POT-Creation-Date: 2016-12-19 13:57-0800\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -90,7 +90,7 @@ msgstr ""
 msgid "Add Server"
 msgstr ""
 
-#: bin/backup.php:55
+#: bin/backup.php:53
 msgid "Adding items..."
 msgstr "Onderdelen toevoegen..."
 
@@ -220,7 +220,7 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Reservekopie onderdelen"
 
-#: bin/backup.php:50
+#: bin/backup.php:48
 msgid "Backup Lock acquired!"
 msgstr "Reservekopie vergrendeling verkregen!"
 
@@ -260,7 +260,7 @@ msgstr ""
 msgid "Backup and Restore"
 msgstr ""
 
-#: bin/backup.php:152 bin/backup.php:200
+#: bin/backup.php:150 bin/backup.php:198
 msgid "Backup completed with errors!"
 msgstr "Reservekopie voltooid met fouten!"
 
@@ -273,15 +273,15 @@ msgstr ""
 "Reservekopie mislukt tijdens het dumpen van SQL database [%s] naar bestand [%"
 "s]. U heeft een corrupte reservekopie van server [%s]."
 
-#: bin/restore.php:94
+#: bin/restore.php:92
 msgid "Backup file not found! Aborting."
 msgstr "Reservekopie bestand niet gevonden! Afgebroken."
 
-#: bin/backup.php:14
+#: bin/backup.php:12
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "Reservekopie module niet gevonden of uitgeschakeld. Afgebroken!"
 
-#: bin/backup.php:154 bin/backup.php:202
+#: bin/backup.php:152 bin/backup.php:200
 msgid "Backup successfully completed!"
 msgstr "Reservekopie geslaagd!"
 
@@ -309,7 +309,7 @@ msgstr ""
 msgid "Bucket Name"
 msgstr ""
 
-#: bin/backup.php:58
+#: bin/backup.php:56
 msgid "Building manifest..."
 msgstr ""
 
@@ -337,7 +337,7 @@ msgstr ""
 msgid "Can not create backup tables"
 msgstr "Kan de reservekopietabellen niet aanmaken"
 
-#: bin/restore.php:388
+#: bin/restore.php:386
 msgid "Cleaning up..."
 msgstr "Opruimen..."
 
@@ -349,7 +349,7 @@ msgstr ""
 msgid "Configurations only"
 msgstr "Alleen configuraties"
 
-#: bin/backup.php:78
+#: bin/backup.php:76
 #, fuzzy
 msgid "Connecting to remote server..."
 msgstr "Verbinden met andere server..."
@@ -358,7 +358,7 @@ msgstr "Verbinden met andere server..."
 msgid "Created"
 msgstr "Gemaakt"
 
-#: bin/backup.php:63
+#: bin/backup.php:61
 msgid "Creating backup..."
 msgstr "Aanmaken reservekopie..."
 
@@ -481,7 +481,7 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr "Schakel geregistreerde Trunks uit"
 
-#: bin/restore.php:434
+#: bin/restore.php:432
 msgid "Done!"
 msgstr "Klaar!"
 
@@ -584,7 +584,7 @@ msgid ""
 "a warm-spare machine with a different IP address."
 msgstr ""
 
-#: bin/restore.php:68
+#: bin/restore.php:66
 msgid "Explicitly skipping host-specific NAT settings"
 msgstr "Uitdrukkelijk overslaan van de server-specifieke NAT instellingen"
 
@@ -650,11 +650,11 @@ msgstr "Bestand"
 msgid "File not found! "
 msgstr "Bestand niet gevonden! "
 
-#: bin/restore.php:152
+#: bin/restore.php:150
 msgid "File restore complete!"
 msgstr "Bestand terugzetten uitgevoerd!"
 
-#: bin/backup.php:126
+#: bin/backup.php:124
 msgid "File verification failed. "
 msgstr "Bestandsverificatie mislukt. "
 
@@ -674,7 +674,7 @@ msgstr ""
 msgid "Friday"
 msgstr "Vrijdag"
 
-#: bin/restore.php:212
+#: bin/restore.php:210
 msgid "Getting CDR size..."
 msgstr "Opvragen CDR grootte..."
 
@@ -694,7 +694,7 @@ msgstr ""
 msgid "Go!"
 msgstr "Uitvoeren!"
 
-#: bin/backup.php:127
+#: bin/backup.php:125
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr ""
 "Dit zijn de eerste paar regels van het bestand zoals verzonden vanaf de "
@@ -761,11 +761,11 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
-#: bin/backup.php:41
+#: bin/backup.php:39
 msgid "Initializing Backup"
 msgstr ""
 
-#: bin/restore.php:91
+#: bin/restore.php:89
 msgid "Initializing Restore..."
 msgstr ""
 
@@ -945,15 +945,15 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: bin/backup.php:75
+#: bin/backup.php:73
 msgid "No items in backup set. Aborting."
 msgstr "Geen onderdelen in reservekopie-set. Afgebroken."
 
-#: bin/backup.php:36
+#: bin/backup.php:34
 msgid "No storage servers found! Aborting."
 msgstr "Geen opslagservers gevonden! Afgebroken."
 
-#: bin/restore.php:87
+#: bin/restore.php:85
 msgid "Nothing to restore!"
 msgstr "Niets terug te zetten!"
 
@@ -1063,21 +1063,21 @@ msgstr ""
 msgid "Pre-Restore Hook"
 msgstr ""
 
-#: bin/restore.php:295
+#: bin/restore.php:293
 msgid "Preserving local NAT settings"
 msgstr "Lokale NAT instellingen bewaren"
 
-#: bin/restore.php:246
+#: bin/restore.php:244
 #, php-format
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr ""
 
-#: bin/restore.php:340
+#: bin/restore.php:338
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr ""
 
-#: bin/backup.php:139
+#: bin/backup.php:137
 msgid "Processing received file..."
 msgstr "Ontvangen bestand verwerken..."
 
@@ -1093,7 +1093,7 @@ msgstr "Willekeurig"
 msgid "Reboot"
 msgstr "Herstart"
 
-#: bin/restore.php:419
+#: bin/restore.php:417
 msgid "Reloading..."
 msgstr "Herladen..."
 
@@ -1163,47 +1163,47 @@ msgstr "Zet alle instellingen terug opgeslagen in de database"
 msgid "Restore backup to this server after the backup is complete"
 msgstr ""
 
-#: bin/restore.php:418
+#: bin/restore.php:416
 msgid "Restore complete!"
 msgstr "Terugzetten voltooid!"
 
-#: bin/restore.php:344
+#: bin/restore.php:342
 msgid "Restored Database"
 msgstr "Database teruggezet"
 
-#: bin/restore.php:253
+#: bin/restore.php:251
 msgid "Restoring CDRs complete"
 msgstr "Terugzetten CDR's voltooid"
 
-#: bin/restore.php:171
+#: bin/restore.php:169
 msgid "Restoring CDRs..."
 msgstr "Terugzetten CDR's..."
 
-#: bin/restore.php:302
+#: bin/restore.php:300
 msgid "Restoring Database..."
 msgstr "Terugzetten database..."
 
-#: bin/restore.php:352
+#: bin/restore.php:350
 msgid "Restoring NAT settings"
 msgstr "Terugzetten NAT instellingen"
 
-#: bin/restore.php:373
+#: bin/restore.php:371
 msgid "Restoring Settings complete"
 msgstr "Terugzetten instellingen voltooid"
 
-#: bin/restore.php:116
+#: bin/restore.php:114
 msgid "Restoring all files (this may take some time)..."
 msgstr "Terugzetten alle bestanden (dit kan enige tijd duren)..."
 
-#: bin/restore.php:363
+#: bin/restore.php:361
 msgid "Restoring astDB..."
 msgstr "Terugzetten astDB..."
 
-#: bin/backup.php:173
+#: bin/backup.php:171
 msgid "Restoring backup..."
 msgstr "Terugzetten reservekopie..."
 
-#: bin/restore.php:120
+#: bin/restore.php:118
 msgid "Restoring files (this may take some time)..."
 msgstr "Terugzetten bestanden (dit kan enige tijd duren)..."
 
@@ -1241,27 +1241,27 @@ msgstr ""
 msgid "Run once an hour, beginning of hour"
 msgstr ""
 
-#: bin/restore.php:379
+#: bin/restore.php:377
 msgid "Running post restore script..."
 msgstr "Uitvoeren Na-terugzetten script..."
 
-#: bin/backup.php:147 bin/backup.php:185
+#: bin/backup.php:145 bin/backup.php:183
 msgid "Running post-backup hooks..."
 msgstr "Uitvoeren Voor-reservekopie taken..."
 
-#: bin/restore.php:383
+#: bin/restore.php:381
 msgid "Running post-restore hooks, if any..."
 msgstr "Uitvoeren Voor-terugzetten taken, als bestaan..."
 
-#: bin/backup.php:52
+#: bin/backup.php:50
 msgid "Running pre-backup hooks..."
 msgstr "Uitvoeren Voor-reservekopie taken..."
 
-#: bin/restore.php:106
+#: bin/restore.php:104
 msgid "Running pre-restore hooks, if any..."
 msgstr "Uitvoeren Voor-terugzetten taken, als bestaan..."
 
-#: bin/restore.php:103
+#: bin/restore.php:101
 msgid "Running pre-restore scripts..."
 msgstr "Uitvoeren Voor-terugzetten scripts..."
 
@@ -1368,7 +1368,7 @@ msgstr ""
 msgid "Servers"
 msgstr "Servers"
 
-#: bin/backup.php:106
+#: bin/backup.php:104
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr ""
 "Iets ging er niet goed tijdens de verbinding met de andere server. "
@@ -1406,7 +1406,7 @@ msgstr "Opslagservers"
 msgid "Storage location for backups"
 msgstr "Opslaglocatie voor reservekopieën"
 
-#: bin/backup.php:144
+#: bin/backup.php:142
 msgid "Storing backup..."
 msgstr "Reservekopie opslaan..."
 
@@ -1542,7 +1542,7 @@ msgstr "Gebruikersnaam"
 msgid "Username"
 msgstr ""
 
-#: bin/backup.php:111
+#: bin/backup.php:109
 msgid "Verifying received file..."
 msgstr "Controleren ontvangen bestand..."
 
@@ -1554,11 +1554,11 @@ msgstr "Voicemail opslag"
 msgid "Voicemails"
 msgstr ""
 
-#: bin/restore.php:259
+#: bin/restore.php:257
 msgid "WARNING!"
 msgstr "WAARSCHUWING!"
 
-#: bin/restore.php:260
+#: bin/restore.php:258
 #, fuzzy
 msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
@@ -1650,7 +1650,7 @@ msgstr "Jaren"
 msgid "Yes"
 msgstr ""
 
-#: bin/restore.php:261
+#: bin/restore.php:259
 #, php-format
 msgid "You should run \"%s\" to ensure system integrity"
 msgstr ""
@@ -1687,7 +1687,7 @@ msgstr ""
 msgid "table names, one per line"
 msgstr "tabel namen, één per regel"
 
-#: bin/backup.php:47
+#: bin/backup.php:45
 msgid "waiting for lock..."
 msgstr "wachten op vergrendeling..."
 

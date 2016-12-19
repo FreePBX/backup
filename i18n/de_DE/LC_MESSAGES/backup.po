@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-22 14:48+1000\n"
+"POT-Creation-Date: 2016-12-19 13:57-0800\n"
 "PO-Revision-Date: 2016-12-16 18:21+0200\n"
 "Last-Translator: Sven <spiderrs4@web.de>\n"
-"Language-Team: German "
-"<http://weblate.freepbx.org/projects/freepbx/backup/de_DE/>\n"
-"Language: de_DE\n"
+"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/backup/"
+"de_DE/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -48,7 +48,8 @@ msgstr "Ein Script, dass NACH der Durchführung einer Sicherung startet."
 
 #: views/backup/backup.php:245
 msgid "A script to be run AFTER a backup is restored."
-msgstr "Ein Script, dass NACH der Durchführung einer Wiederherstellung startet."
+msgstr ""
+"Ein Script, dass NACH der Durchführung einer Wiederherstellung startet."
 
 #: views/backup/backup.php:221
 msgid "A script to be run BEFORE a backup is restored."
@@ -87,7 +88,7 @@ msgstr "Aktive"
 msgid "Add Server"
 msgstr "Server hinzufügen"
 
-#: bin/backup.php:55
+#: bin/backup.php:53
 msgid "Adding items..."
 msgstr "Elemente hinzufügen..."
 
@@ -223,7 +224,7 @@ msgstr "Sicherungshäufigkeit"
 msgid "Backup Items"
 msgstr "Sicherungselemente"
 
-#: bin/backup.php:50
+#: bin/backup.php:48
 msgid "Backup Lock acquired!"
 msgstr "Sicherungssperre erworben!"
 
@@ -263,7 +264,7 @@ msgstr "Sicherungsassistent"
 msgid "Backup and Restore"
 msgstr "Sichern und Wiederherstellen"
 
-#: bin/backup.php:152 bin/backup.php:200
+#: bin/backup.php:150 bin/backup.php:198
 msgid "Backup completed with errors!"
 msgstr "Sicherung mit Fehler beendet!"
 
@@ -274,15 +275,15 @@ msgid ""
 "backup from server [%s]."
 msgstr ""
 
-#: bin/restore.php:94
+#: bin/restore.php:92
 msgid "Backup file not found! Aborting."
 msgstr "Sicherungsdatei nicht gefunden! Abbrechen."
 
-#: bin/backup.php:14
+#: bin/backup.php:12
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "Sicherungsmodul nicht gefunden oder deaktiviert. Abbrechen!"
 
-#: bin/backup.php:154 bin/backup.php:202
+#: bin/backup.php:152 bin/backup.php:200
 msgid "Backup successfully completed!"
 msgstr "Sicherung erfolgreich erstellt!"
 
@@ -310,7 +311,7 @@ msgstr "Browser Echtzeitaktualisierungen sind nicht verfügbar."
 msgid "Bucket Name"
 msgstr "Bucket-Name"
 
-#: bin/backup.php:58
+#: bin/backup.php:56
 msgid "Building manifest..."
 msgstr ""
 
@@ -338,7 +339,7 @@ msgstr "Anruferberichte"
 msgid "Can not create backup tables"
 msgstr "Es können keine Sicherungstabellen erstellt werden."
 
-#: bin/restore.php:388
+#: bin/restore.php:386
 msgid "Cleaning up..."
 msgstr "Aufräumen..."
 
@@ -350,7 +351,7 @@ msgstr "Klicken Sie 'Weiter' um fortzufahren."
 msgid "Configurations only"
 msgstr "Nur Konfigurationen"
 
-#: bin/backup.php:78
+#: bin/backup.php:76
 msgid "Connecting to remote server..."
 msgstr "Verbindung zum Remote-Server ..."
 
@@ -358,7 +359,7 @@ msgstr "Verbindung zum Remote-Server ..."
 msgid "Created"
 msgstr "Erstellt"
 
-#: bin/backup.php:63
+#: bin/backup.php:61
 msgid "Creating backup..."
 msgstr "Erstelle Sicherung..."
 
@@ -481,7 +482,7 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr "Deaktivieren Sie registrierte Hauptleitungen."
 
-#: bin/restore.php:434
+#: bin/restore.php:432
 msgid "Done!"
 msgstr "Erledigt!"
 
@@ -590,7 +591,7 @@ msgid ""
 "a warm-spare machine with a different IP address."
 msgstr ""
 
-#: bin/restore.php:68
+#: bin/restore.php:66
 msgid "Explicitly skipping host-specific NAT settings"
 msgstr ""
 
@@ -651,11 +652,11 @@ msgstr "Datei"
 msgid "File not found! "
 msgstr "Datei nicht gefunden! "
 
-#: bin/restore.php:152
+#: bin/restore.php:150
 msgid "File restore complete!"
 msgstr "Dateiwiederherstellung vollständig!"
 
-#: bin/backup.php:126
+#: bin/backup.php:124
 msgid "File verification failed. "
 msgstr "Dateiüberprüfung fehlgeschlagen. "
 
@@ -675,7 +676,7 @@ msgstr "FreePBX"
 msgid "Friday"
 msgstr "Freitag"
 
-#: bin/restore.php:212
+#: bin/restore.php:210
 msgid "Getting CDR size..."
 msgstr "CDR-Größe erhalten ..."
 
@@ -695,7 +696,7 @@ msgstr "Geben Sie der Sicherung einen aussagekräftige Namen."
 msgid "Go!"
 msgstr "Los!"
 
-#: bin/backup.php:127
+#: bin/backup.php:125
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr ""
 "Hier sind die ersten Zeilen der Datei, die vom Remote Server gesendet werden:"
@@ -756,21 +757,21 @@ msgid ""
 "\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
 msgstr ""
 "Wenn ein benutzerdefinierter Zeitplan ausgewählt wird, wird jeder nicht "
-"angegebene Abschnitt als \\\"beliebig\\\" (aka: Platzhalter) betrachtet. "
-"D.h. Wenn der Tag des Monats auf 12 und der Wochentag ist nicht gesetzt, "
-"wird die Sicherung an jedem 12. des Monats, unabhängig vom Wochentag, "
-"ausgeführt. Wenn der Wochentag auf Montag gesetzt ist, wird die Sicherung "
-"NUR an einen Montag ausgeführt, und NUR, wenn es der 12. des Monats ist."
+"angegebene Abschnitt als \\\"beliebig\\\" (aka: Platzhalter) betrachtet. D."
+"h. Wenn der Tag des Monats auf 12 und der Wochentag ist nicht gesetzt, wird "
+"die Sicherung an jedem 12. des Monats, unabhängig vom Wochentag, ausgeführt. "
+"Wenn der Wochentag auf Montag gesetzt ist, wird die Sicherung NUR an einen "
+"Montag ausgeführt, und NUR, wenn es der 12. des Monats ist."
 
 #: views/restore/restore.php:6
 msgid "Import"
 msgstr "Importieren"
 
-#: bin/backup.php:41
+#: bin/backup.php:39
 msgid "Initializing Backup"
 msgstr "Sicherung initialisieren"
 
-#: bin/restore.php:91
+#: bin/restore.php:89
 msgid "Initializing Restore..."
 msgstr "Wiederherstellung initialisieren..."
 
@@ -948,15 +949,15 @@ msgstr "Nächtlich"
 msgid "No"
 msgstr "Nein"
 
-#: bin/backup.php:75
+#: bin/backup.php:73
 msgid "No items in backup set. Aborting."
 msgstr "Keine Elemente in der Sicherung! Abgebrochen."
 
-#: bin/backup.php:36
+#: bin/backup.php:34
 msgid "No storage servers found! Aborting."
 msgstr "Keinen Speicherserver gefunden! Abgebrochen."
 
-#: bin/restore.php:87
+#: bin/restore.php:85
 msgid "Nothing to restore!"
 msgstr "Nichts Wiederherzustellen!"
 
@@ -1071,21 +1072,21 @@ msgstr "Sicherung-Vor-Skript"
 msgid "Pre-Restore Hook"
 msgstr "Wiederherstellung-Vor-Skript"
 
-#: bin/restore.php:295
+#: bin/restore.php:293
 msgid "Preserving local NAT settings"
 msgstr "Lokale NAT-Einstellungen werden beibehalten"
 
-#: bin/restore.php:246
+#: bin/restore.php:244
 #, php-format
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr ""
 
-#: bin/restore.php:340
+#: bin/restore.php:338
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr ""
 
-#: bin/backup.php:139
+#: bin/backup.php:137
 msgid "Processing received file..."
 msgstr "Verarbeitung der empfangenen Datei ..."
 
@@ -1101,7 +1102,7 @@ msgstr "Zufällig"
 msgid "Reboot"
 msgstr "Neustart"
 
-#: bin/restore.php:419
+#: bin/restore.php:417
 msgid "Reloading..."
 msgstr "Neu laden..."
 
@@ -1175,47 +1176,47 @@ msgstr ""
 "Stellen Sie die Sicherung auf diesem Server wieder her, nachdem die "
 "Sicherung abgeschlossen ist."
 
-#: bin/restore.php:418
+#: bin/restore.php:416
 msgid "Restore complete!"
 msgstr "Wiederherstellung abgeschlossen!"
 
-#: bin/restore.php:344
+#: bin/restore.php:342
 msgid "Restored Database"
 msgstr "Wiederhergestellte Datenbank"
 
-#: bin/restore.php:253
+#: bin/restore.php:251
 msgid "Restoring CDRs complete"
 msgstr "Wiederherstellen von CDRs abgeschlossen"
 
-#: bin/restore.php:171
+#: bin/restore.php:169
 msgid "Restoring CDRs..."
 msgstr "Wiederherstellen von CDRs ..."
 
-#: bin/restore.php:302
+#: bin/restore.php:300
 msgid "Restoring Database..."
 msgstr "Datenbank wird wiederhergestellt ..."
 
-#: bin/restore.php:352
+#: bin/restore.php:350
 msgid "Restoring NAT settings"
 msgstr "NAT-Einstellungen werden wiederhergestellt"
 
-#: bin/restore.php:373
+#: bin/restore.php:371
 msgid "Restoring Settings complete"
 msgstr "Wiederherstellen der Einstellungen abgeschlossen."
 
-#: bin/restore.php:116
+#: bin/restore.php:114
 msgid "Restoring all files (this may take some time)..."
 msgstr "Wiederherstellen aller Dateien (dies kann einige Zeit dauern) ..."
 
-#: bin/restore.php:363
+#: bin/restore.php:361
 msgid "Restoring astDB..."
 msgstr "AstDB wiederherstellen ...."
 
-#: bin/backup.php:173
+#: bin/backup.php:171
 msgid "Restoring backup..."
 msgstr "Sicherung wird wiederhergestellt ..."
 
-#: bin/restore.php:120
+#: bin/restore.php:118
 msgid "Restoring files (this may take some time)..."
 msgstr "Wiederherstellen von Dateien (dies kann einige Zeit dauern) ..."
 
@@ -1255,27 +1256,27 @@ msgstr "Startet einmal jährlich, am 1.Januar, um Mitternacht."
 msgid "Run once an hour, beginning of hour"
 msgstr "Startet einmal Stündlich, am Stundenanfang."
 
-#: bin/restore.php:379
+#: bin/restore.php:377
 msgid "Running post restore script..."
 msgstr "Laufendes Wiederherstellungs-Post-Skript..."
 
-#: bin/backup.php:147 bin/backup.php:185
+#: bin/backup.php:145 bin/backup.php:183
 msgid "Running post-backup hooks..."
 msgstr "Laufende Sicherungs-Post-Skripte..."
 
-#: bin/restore.php:383
+#: bin/restore.php:381
 msgid "Running post-restore hooks, if any..."
 msgstr "Laufende Wiederherstellungs-Post-Skripte, falls vorhanden..."
 
-#: bin/backup.php:52
+#: bin/backup.php:50
 msgid "Running pre-backup hooks..."
 msgstr "Laufende Sicherungs-Pre-Skripte..."
 
-#: bin/restore.php:106
+#: bin/restore.php:104
 msgid "Running pre-restore hooks, if any..."
 msgstr "Laufende Wiederherstellungs-Pre-Skripte, falls vorhanden..."
 
-#: bin/restore.php:103
+#: bin/restore.php:101
 msgid "Running pre-restore scripts..."
 msgstr "Laufende Wiederherstellungs-Pre-Skripte..."
 
@@ -1384,7 +1385,7 @@ msgstr "Server-Adresse darf nicht leer sein."
 msgid "Servers"
 msgstr "Server"
 
-#: bin/backup.php:106
+#: bin/backup.php:104
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr ""
 "Bei der Verbindung zum Remoteserver ist ein Fehler aufgetreten. Abgebrochen!"
@@ -1421,7 +1422,7 @@ msgstr "Speicherserver"
 msgid "Storage location for backups"
 msgstr "Speicherort für Sicherungen"
 
-#: bin/backup.php:144
+#: bin/backup.php:142
 msgid "Storing backup..."
 msgstr "Speichere Sicherung..."
 
@@ -1543,7 +1544,8 @@ msgstr "Unix/Linux"
 #: install.php:290
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
-msgstr "Aktualisierter Job %s mit neuem benutzerdefinierten Sounds-Verzeichnis."
+msgstr ""
+"Aktualisierter Job %s mit neuem benutzerdefinierten Sounds-Verzeichnis."
 
 #: install.php:278
 msgid "Updated System Recordings template"
@@ -1562,7 +1564,7 @@ msgstr "Benutzername"
 msgid "Username"
 msgstr "Benutzername"
 
-#: bin/backup.php:111
+#: bin/backup.php:109
 msgid "Verifying received file..."
 msgstr "Überprüfen der empfangenen Datei ..."
 
@@ -1574,11 +1576,11 @@ msgstr "Speicher für Anrufbeantworter"
 msgid "Voicemails"
 msgstr "Anrufbeantworter"
 
-#: bin/restore.php:259
+#: bin/restore.php:257
 msgid "WARNING!"
 msgstr "Achtung!"
 
-#: bin/restore.php:260
+#: bin/restore.php:258
 msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
 
@@ -1667,7 +1669,7 @@ msgstr "Jahre"
 msgid "Yes"
 msgstr "Ja"
 
-#: bin/restore.php:261
+#: bin/restore.php:259
 #, php-format
 msgid "You should run \"%s\" to ensure system integrity"
 msgstr ""
@@ -1704,7 +1706,7 @@ msgstr "Manifest nicht gefunden"
 msgid "table names, one per line"
 msgstr "Tabellennamen, einer pro Zeile."
 
-#: bin/backup.php:47
+#: bin/backup.php:45
 msgid "waiting for lock..."
 msgstr ""
 

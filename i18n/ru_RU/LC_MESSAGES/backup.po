@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-22 14:48+1000\n"
+"POT-Creation-Date: 2016-12-19 13:57-0800\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -102,7 +102,7 @@ msgstr "Активно"
 msgid "Add Server"
 msgstr "Добавить сервер"
 
-#: bin/backup.php:55
+#: bin/backup.php:53
 msgid "Adding items..."
 msgstr "Добавление элементов..."
 
@@ -239,7 +239,7 @@ msgstr "Частота выполнения резервного копиров�
 msgid "Backup Items"
 msgstr "Пункты бекапа"
 
-#: bin/backup.php:50
+#: bin/backup.php:48
 msgid "Backup Lock acquired!"
 msgstr "Блокировка бекапа установлена!"
 
@@ -279,7 +279,7 @@ msgstr "Мастер создания  резервной копии"
 msgid "Backup and Restore"
 msgstr "Резервное копирование и  восстановление"
 
-#: bin/backup.php:152 bin/backup.php:200
+#: bin/backup.php:150 bin/backup.php:198
 msgid "Backup completed with errors!"
 msgstr "Резервное копирование завершилось с ошибками!"
 
@@ -292,15 +292,15 @@ msgstr ""
 "Не удалось резервное копирование дампа SQL базы [%s] в файл [%s]. У вас есть "
 "поврежденная резервная копия с сервера [%s]."
 
-#: bin/restore.php:94
+#: bin/restore.php:92
 msgid "Backup file not found! Aborting."
 msgstr "Файл бекапа не найден! Прерывание."
 
-#: bin/backup.php:14
+#: bin/backup.php:12
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "Модуль резервного копирования не найден или отключен. Прерывание!"
 
-#: bin/backup.php:154 bin/backup.php:202
+#: bin/backup.php:152 bin/backup.php:200
 msgid "Backup successfully completed!"
 msgstr "Резервное копирование выполнено успешно!"
 
@@ -328,7 +328,7 @@ msgstr ""
 msgid "Bucket Name"
 msgstr "Имя хранилища"
 
-#: bin/backup.php:58
+#: bin/backup.php:56
 msgid "Building manifest..."
 msgstr "Генерируется манифест..."
 
@@ -356,7 +356,7 @@ msgstr "Записи разговоров"
 msgid "Can not create backup tables"
 msgstr "Невозможно создать таблицу резервного копирования"
 
-#: bin/restore.php:388
+#: bin/restore.php:386
 msgid "Cleaning up..."
 msgstr "Прибираемся..."
 
@@ -368,7 +368,7 @@ msgstr "Нажмите \"Next\" чтобы продолжить."
 msgid "Configurations only"
 msgstr "Только конфигурация"
 
-#: bin/backup.php:78
+#: bin/backup.php:76
 msgid "Connecting to remote server..."
 msgstr "Соединение с удаленным сервером..."
 
@@ -376,7 +376,7 @@ msgstr "Соединение с удаленным сервером..."
 msgid "Created"
 msgstr "Создано"
 
-#: bin/backup.php:63
+#: bin/backup.php:61
 msgid "Creating backup..."
 msgstr "Создание бекапа..."
 
@@ -497,7 +497,7 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr "Отключить зарегистрированные транки"
 
-#: bin/restore.php:434
+#: bin/restore.php:432
 msgid "Done!"
 msgstr "Готово!"
 
@@ -608,7 +608,7 @@ msgstr ""
 "Явно исключать любые специфичные для конкретной системы IP-настройки. Это "
 "позволяет иметь запасную систему с другими IP-адресами."
 
-#: bin/restore.php:68
+#: bin/restore.php:66
 msgid "Explicitly skipping host-specific NAT settings"
 msgstr "Явно пропускать специфичные для хоста настройки NAT"
 
@@ -673,11 +673,11 @@ msgstr "Файл"
 msgid "File not found! "
 msgstr "Файл не найден! "
 
-#: bin/restore.php:152
+#: bin/restore.php:150
 msgid "File restore complete!"
 msgstr "Восстановление файла завершено!"
 
-#: bin/backup.php:126
+#: bin/backup.php:124
 msgid "File verification failed. "
 msgstr "Проверка файла не удалась. "
 
@@ -697,7 +697,7 @@ msgstr "Система FreePBX"
 msgid "Friday"
 msgstr "Пятница"
 
-#: bin/restore.php:212
+#: bin/restore.php:210
 msgid "Getting CDR size..."
 msgstr "Получение размера CDR ..."
 
@@ -717,7 +717,7 @@ msgstr "Присвойте резервной копии   дружествен�
 msgid "Go!"
 msgstr "Погнали!"
 
-#: bin/backup.php:127
+#: bin/backup.php:125
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr "Вот первые несколько строк файла, посланного удаленным сервером:"
 
@@ -792,11 +792,11 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
-#: bin/backup.php:41
+#: bin/backup.php:39
 msgid "Initializing Backup"
 msgstr "Инициализация резервного копирования"
 
-#: bin/restore.php:91
+#: bin/restore.php:89
 msgid "Initializing Restore..."
 msgstr "Инициализация восстановления..."
 
@@ -975,15 +975,15 @@ msgstr "Каждую ночь"
 msgid "No"
 msgstr "Нет"
 
-#: bin/backup.php:75
+#: bin/backup.php:73
 msgid "No items in backup set. Aborting."
 msgstr "Нет элементов в резервной копии . Завершение."
 
-#: bin/backup.php:36
+#: bin/backup.php:34
 msgid "No storage servers found! Aborting."
 msgstr "Не найден сервер хранения! Завершение."
 
-#: bin/restore.php:87
+#: bin/restore.php:85
 msgid "Nothing to restore!"
 msgstr "Нет ничего для восстановления!"
 
@@ -1093,21 +1093,21 @@ msgstr "Обработчик перед началом резервного ко
 msgid "Pre-Restore Hook"
 msgstr "Обработчик перед началом восстановления"
 
-#: bin/restore.php:295
+#: bin/restore.php:293
 msgid "Preserving local NAT settings"
 msgstr "Сохранения локальных NAT-установок"
 
-#: bin/restore.php:246
+#: bin/restore.php:244
 #, php-format
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr "Обработано  %s%%  CDR-ов (%s of %s строк)"
 
-#: bin/restore.php:340
+#: bin/restore.php:338
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "Обработано  %s%% настроек (%s  %s строк)"
 
-#: bin/backup.php:139
+#: bin/backup.php:137
 msgid "Processing received file..."
 msgstr "Обработка принятого файла..."
 
@@ -1123,7 +1123,7 @@ msgstr "Случайный"
 msgid "Reboot"
 msgstr "Перегрузка"
 
-#: bin/restore.php:419
+#: bin/restore.php:417
 msgid "Reloading..."
 msgstr "Перезагрузка..."
 
@@ -1195,47 +1195,47 @@ msgstr ""
 "Восстановить резервную  копию для этого сервера после завершения резервного "
 "копирования"
 
-#: bin/restore.php:418
+#: bin/restore.php:416
 msgid "Restore complete!"
 msgstr "Восстановление  завершено!"
 
-#: bin/restore.php:344
+#: bin/restore.php:342
 msgid "Restored Database"
 msgstr "Восстановленная база данных"
 
-#: bin/restore.php:253
+#: bin/restore.php:251
 msgid "Restoring CDRs complete"
 msgstr "Восстановление CDR-файлов завершено"
 
-#: bin/restore.php:171
+#: bin/restore.php:169
 msgid "Restoring CDRs..."
 msgstr "Восстановление CDR-файлов..."
 
-#: bin/restore.php:302
+#: bin/restore.php:300
 msgid "Restoring Database..."
 msgstr "Восстановленние базы данных..."
 
-#: bin/restore.php:352
+#: bin/restore.php:350
 msgid "Restoring NAT settings"
 msgstr "Восстановление NAT-установок"
 
-#: bin/restore.php:373
+#: bin/restore.php:371
 msgid "Restoring Settings complete"
 msgstr "Восстановление установок завершено"
 
-#: bin/restore.php:116
+#: bin/restore.php:114
 msgid "Restoring all files (this may take some time)..."
 msgstr "Восстановление всех файлов (это может занять некоторое время)..."
 
-#: bin/restore.php:363
+#: bin/restore.php:361
 msgid "Restoring astDB..."
 msgstr "Восстановление  astDB..."
 
-#: bin/backup.php:173
+#: bin/backup.php:171
 msgid "Restoring backup..."
 msgstr "Восстановление резервной копии ..."
 
-#: bin/restore.php:120
+#: bin/restore.php:118
 msgid "Restoring files (this may take some time)..."
 msgstr "Восстановление файлов (это может занять некоторое время)..."
 
@@ -1275,30 +1275,30 @@ msgstr "Запустить единожды в один из годов , в п�
 msgid "Run once an hour, beginning of hour"
 msgstr "Запустить единожды в один из часов , начиная с часа"
 
-#: bin/restore.php:379
+#: bin/restore.php:377
 msgid "Running post restore script..."
 msgstr "Запускается  скрипт после окончания процедуры восстановления..."
 
-#: bin/backup.php:147 bin/backup.php:185
+#: bin/backup.php:145 bin/backup.php:183
 msgid "Running post-backup hooks..."
 msgstr "Запускаются   обработчики после создания резервной копии..."
 
-#: bin/restore.php:383
+#: bin/restore.php:381
 msgid "Running post-restore hooks, if any..."
 msgstr ""
 "Запускаются   обработчики после окончания процедуры восстановления, если "
 "что ..."
 
-#: bin/backup.php:52
+#: bin/backup.php:50
 msgid "Running pre-backup hooks..."
 msgstr "Запускаются  обработчики перед процедурой создания резервной копии ..."
 
-#: bin/restore.php:106
+#: bin/restore.php:104
 msgid "Running pre-restore hooks, if any..."
 msgstr ""
 "Запускаются  обработчики перед процедурой  восстановления, если что ..."
 
-#: bin/restore.php:103
+#: bin/restore.php:101
 msgid "Running pre-restore scripts..."
 msgstr "Запускаются  скрипты  перед процедурой  восстановления ...."
 
@@ -1405,7 +1405,7 @@ msgstr "Имя сервера не может быть пустым"
 msgid "Servers"
 msgstr "Сервера"
 
-#: bin/backup.php:106
+#: bin/backup.php:104
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr "Что-то пошло не так при подключении к удалённому серверу. Завершаем!"
 
@@ -1441,7 +1441,7 @@ msgstr "Сервер хранения"
 msgid "Storage location for backups"
 msgstr "Расположение хранилища резервных копий"
 
-#: bin/backup.php:144
+#: bin/backup.php:142
 msgid "Storing backup..."
 msgstr "Сохранение резервной копии..."
 
@@ -1587,7 +1587,7 @@ msgstr "Имя пользователя"
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: bin/backup.php:111
+#: bin/backup.php:109
 msgid "Verifying received file..."
 msgstr "Проверка принятого файла..."
 
@@ -1599,11 +1599,11 @@ msgstr "Хранилище голосовой почты"
 msgid "Voicemails"
 msgstr "Голосовые сообщения"
 
-#: bin/restore.php:259
+#: bin/restore.php:257
 msgid "WARNING!"
 msgstr "ПРЕДУПРЕЖДЕНИЕ!"
 
-#: bin/restore.php:260
+#: bin/restore.php:258
 msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
 "Не обнаружено восстановление Web Root, нет восстанавливающей таблицы модуля"
@@ -1694,7 +1694,7 @@ msgstr "Года"
 msgid "Yes"
 msgstr "Да"
 
-#: bin/restore.php:261
+#: bin/restore.php:259
 #, php-format
 msgid "You should run \"%s\" to ensure system integrity"
 msgstr "Вы должны запустить \"%s\" для проверки целостности системы"
@@ -1732,7 +1732,7 @@ msgstr "манифест не найден"
 msgid "table names, one per line"
 msgstr "имена таблицы, одно на строку"
 
-#: bin/backup.php:47
+#: bin/backup.php:45
 msgid "waiting for lock..."
 msgstr "ожидание блокировки..."
 

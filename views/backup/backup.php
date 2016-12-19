@@ -492,7 +492,7 @@ foreach ($storage_servers as $s) {
 							<input type="radio" name="delete_time_type" id="delete_time_type_hours" value="hours" <?php echo ($delete_time_type == 'hours'?'CHECKED':'')?>>
 							<label for="delete_time_type_hours"><?php echo _("Hours")?></label>
 							<input type="radio" name="delete_time_type" id="delete_time_type_days" value="days" <?php echo ($delete_time_type == 'days'?'CHECKED':'')?>>
-							<label for="delete_time_days"><?php echo _("Days")?></label>
+							<label for="delete_time_type_days"><?php echo _("Days")?></label>
 							<input type="radio" name="delete_time_type" id="delete_time_type_weeks" value="weeks" <?php echo ($delete_time_type == 'weeks'?'CHECKED':'')?>>
 							<label for="delete_time_type_weeks"><?php echo _("Weeks")?></label>
 							<input type="radio" name="delete_time_type" id="delete_time_type_months" value="months" <?php echo ($delete_time_type == 'months'?'CHECKED':'')?>>

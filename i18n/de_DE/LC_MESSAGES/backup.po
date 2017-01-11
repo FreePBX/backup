@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-19 13:57-0800\n"
-"PO-Revision-Date: 2016-12-16 18:21+0200\n"
+"PO-Revision-Date: 2017-01-10 18:55+0200\n"
 "Last-Translator: Sven <spiderrs4@web.de>\n"
-"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/backup/"
-"de_DE/>\n"
+"Language-Team: German "
+"<http://weblate.freepbx.org/projects/freepbx/backup/de_DE/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -1318,7 +1318,7 @@ msgstr "Speichern und Starten"
 
 #: functions.inc/class.backup.php:486
 msgid "Saving file to remote ftp"
-msgstr ""
+msgstr "Datei auf FTP-Server Speichern."
 
 #: views/cron.php:71
 msgid "Schedule Help"

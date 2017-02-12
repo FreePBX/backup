@@ -6,20 +6,22 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-19 13:57-0800\n"
-"PO-Revision-Date: 2011-09-23 09:52+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2017-02-12 17:05+0200\n"
+"Last-Translator: Michal <mboltz@tlen.pl>\n"
+"Language-Team: Polish "
+"<http://weblate.freepbx.org/projects/freepbx/backup/pl/>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: views/backup/backups.php:23
 #, php-format
 msgid "%s Backup Wizard"
-msgstr ""
+msgstr "%s Kreator kopii zapasowej"
 
 #: functions.inc/templates.php:251
 msgid "/path/to/dir"
@@ -34,22 +36,24 @@ msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
 msgstr ""
+"Pełna kopia zapasowa ustawień podstawowych i plików internetowych, nie "
+"uwzględnia dźwięków i nagrań systemowych."
 
 #: views/backup/backup.php:197
 msgid "A script to be run AFTER a backup is completed."
-msgstr ""
+msgstr "Skrypt należy uruchomić PO wykonaniu kopii zapasowej."
 
 #: views/backup/backup.php:245
 msgid "A script to be run AFTER a backup is restored."
-msgstr ""
+msgstr "Skrypt należy uruchomić PO przywróceniu kopii zapasowej."
 
 #: views/backup/backup.php:221
 msgid "A script to be run BEFORE a backup is restored."
-msgstr ""
+msgstr "Skrypt należy uruchomić PRZED przywróceniem kopii zapasowej."
 
 #: views/backup/backup.php:173
 msgid "A script to be run BEFORE a backup is started."
-msgstr ""
+msgstr "Skrypt należy uruchomić PRZED rozpoczęciem tworzenia kopii zapasowej."
 
 #: views/backup/backups.php:154 assets/js/backup.js:93 assets/js/backup.js:105
 msgid "AT"
@@ -57,36 +61,36 @@ msgstr ""
 
 #: views/servers/awss3.php:41
 msgid "AWS Access Key"
-msgstr ""
+msgstr "Klucz dostępu AWS"
 
 #: functions.inc/servers.php:335
 msgid "AWS S3 Server "
-msgstr ""
+msgstr "Serwer AWS S3 "
 
 #: views/servers/awss3.php:58
 msgid "AWS Secret"
-msgstr ""
+msgstr "AWS ukryty"
 
 #: views/backup/backups.php:11 views/servers/servers.php:22
 #: views/templates/templates.php:9
 msgid "Actions"
-msgstr ""
+msgstr "Działania"
 
 #: views/backup/backups.php:501 views/servers/ftp.php:158
 msgid "Active"
-msgstr ""
+msgstr "Aktywny"
 
 #: views/servers/servers.php:4
 msgid "Add Server"
-msgstr ""
+msgstr "Dodaj serwer"
 
 #: bin/backup.php:53
 msgid "Adding items..."
-msgstr ""
+msgstr "Dodawanie obiektów..."
 
 #: backup.i18n.php:6 backup.i18n.php:12
 msgid "Admin"
-msgstr ""
+msgstr "Administrator"
 
 #: views/backup/backup.php:341
 msgid ""
@@ -109,23 +113,23 @@ msgstr ""
 
 #: functions.inc/servers.php:280
 msgid "Amazon S3 Server "
-msgstr ""
+msgstr "Serwer Amazon S3 "
 
 #: views/servers/awss3.php:4
 msgid "Amazon S3&trade; Server"
-msgstr ""
+msgstr "Serwer Amazon S3&trade"
 
 #: views/cron.php:8
 msgid "Annually"
-msgstr ""
+msgstr "Rocznie"
 
 #: views/backup/backup.php:380
 msgid "Apply Configs"
-msgstr ""
+msgstr "Zastosuj konfiguracje"
 
 #: views/cron.php:46
 msgid "April"
-msgstr ""
+msgstr "Kwiecień"
 
 #: views/restore/browseserver.php:21
 msgid "AstDB's"
@@ -133,23 +137,23 @@ msgstr ""
 
 #: functions.inc/templates.php:296
 msgid "Asterisk DB"
-msgstr ""
+msgstr "Odsyłacz DB"
 
 #: views/cron.php:50
 msgid "August"
-msgstr ""
+msgstr "Sierpień"
 
 #: views/servers/ftp.php:113
 msgid "Auto"
-msgstr ""
+msgstr "Automatycznie"
 
 #: views/backup/backup.php:437
 msgid "Available Servers"
-msgstr ""
+msgstr "Dostępne serwery"
 
 #: views/servers/email.php:99
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: functions.inc.php:68
 msgid "BACKUP LOG ATTACHED"

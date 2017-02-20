@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-19 13:57-0800\n"
-"PO-Revision-Date: 2017-02-16 18:48+0200\n"
+"PO-Revision-Date: 2017-02-19 21:17+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish "
 "<http://weblate.freepbx.org/projects/freepbx/backup/pl/>\n"
@@ -265,31 +265,31 @@ msgstr ""
 
 #: bin/restore.php:92
 msgid "Backup file not found! Aborting."
-msgstr ""
+msgstr "Nie zaleziono pliku kopii zapasowej! Przerywanie."
 
 #: bin/backup.php:12
 msgid "Backup module not found or is disabled. Aborting!"
-msgstr ""
+msgstr "Moduł kopii zapasowej nie znaleziony lub wyłączony. Przerywanie!"
 
 #: bin/backup.php:152 bin/backup.php:200
 msgid "Backup successfully completed!"
-msgstr ""
+msgstr "Tworzenie kopii zapasowej zakończono sukcesem!"
 
 #: views/rnav/main.php:3
 msgid "Backups"
-msgstr ""
+msgstr "Kopie zapasowe"
 
 #: views/backup/backups.php:88
 msgid "Basic Backup Information"
-msgstr ""
+msgstr "podstawowe informacje kopii zapasowej"
 
 #: views/backup/backups.php:40
 msgid "Basic Information"
-msgstr ""
+msgstr "Podstawowe informacje"
 
 #: views/restore/restore.php:7 views/restore/restore.php:23
 msgid "Browse"
-msgstr ""
+msgstr "Przeglądanie"
 
 #: page.backup_restore.php:184
 msgid "Browser reconnected realtime updates are unavailable."
@@ -301,114 +301,114 @@ msgstr ""
 
 #: bin/backup.php:56
 msgid "Building manifest..."
-msgstr ""
+msgstr "Budowanie manifestu..."
 
 #: views/backup/backups.php:233
 msgid "CDR and Call Log Data"
-msgstr ""
+msgstr "CDR i dane rejestru połączeń"
 
 #: install.php:100
 msgid "CDR server, generally a local database server"
-msgstr ""
+msgstr "Serwer CDR, zwykle lokalny serwer baz danych"
 
 #: views/restore/backup_list.php:26
 msgid "CDR's"
-msgstr ""
+msgstr "CDR"
 
 #: install.php:154
 msgid "Call Detail Records"
-msgstr ""
+msgstr "Szczegółowe zapisy połączenia"
 
 #: views/backup/backups.php:206
 msgid "Call Recordings"
-msgstr ""
+msgstr "Nagrania rozmowy"
 
 #: install.php:71
 msgid "Can not create backup tables"
-msgstr ""
+msgstr "Nie można stworzyć tabeli kopii zapasowej"
 
 #: bin/restore.php:386
 msgid "Cleaning up..."
-msgstr ""
+msgstr "Czyszczenie..."
 
 #: views/backup/backups.php:85
 msgid "Click 'Next' to continue."
-msgstr ""
+msgstr "Naciśnij \"Dalej\" aby kontynuować."
 
 #: install.php:136
 msgid "Configurations only"
-msgstr ""
+msgstr "Tylko konfiguracje"
 
 #: bin/backup.php:76
 msgid "Connecting to remote server..."
-msgstr ""
+msgstr "Łączenie z serwerem zdalnym..."
 
 #: functions.inc/class.backup.php:396 views/restore/browseserver.php:18
 msgid "Created"
-msgstr ""
+msgstr "Stworzono"
 
 #: bin/backup.php:61
 msgid "Creating backup..."
-msgstr ""
+msgstr "Tworzenie kopii zapasowej..."
 
 #: functions.inc/class.backup.php:475
 #, php-format
 msgid "Creating directory '%s'"
-msgstr ""
+msgstr "Tworzenie katalogu '%s'"
 
 #: views/cron.php:10
 msgid "Custom"
-msgstr ""
+msgstr "Zwyczajny"
 
 #: views/servers/mysql.php:160
 msgid "DB Name"
-msgstr ""
+msgstr "Nazwa DB"
 
 #: views/cron.php:5
 msgid "Daily"
-msgstr ""
+msgstr "Codziennie"
 
 #: assets/js/backup.js:99
 msgid "Day each month"
-msgstr ""
+msgstr "Dzień każdego miesiąca"
 
 #: views/cron.php:224
 msgid "Day of Week"
-msgstr ""
+msgstr "Dzień tygodnia"
 
 #: views/backup/backup.php:495
 msgid "Days"
-msgstr ""
+msgstr "Dni"
 
 #: views/cron.php:272 views/cron.php:276
 msgid "Days of Month"
-msgstr ""
+msgstr "Dni miesiąca"
 
 #: views/cron.php:286
 msgid "Days of month to run"
-msgstr ""
+msgstr "Dni miesiąca do uruchomienia"
 
 #: views/cron.php:54
 msgid "December"
-msgstr ""
+msgstr "Grudzień"
 
 #: views/backup/backups.php:426 views/backup/backups.php:525
 msgid "Default"
-msgstr ""
+msgstr "Fabryczny"
 
 #: install.php:230
 msgid "Default backup; automatically installed"
-msgstr ""
+msgstr "Fabryczna kopia zapasowa; zainstalowana automatycznie"
 
 #: Backup.class.php:38 Backup.class.php:202 page.backup.php:46
 #: page.backup_servers.php:36 page.backup_templates.php:20
 #: views/item_table.php:14 views/restore/restore.php:40
 msgid "Delete"
-msgstr ""
+msgstr "Skasuj"
 
 #: views/backup/backup.php:483 views/backup/backup.php:520
 msgid "Delete After"
-msgstr ""
+msgstr "Skasuj później"
 
 #: views/backup/backup.php:510
 msgid ""
@@ -416,16 +416,22 @@ msgid ""
 "Please note that deletes aren't time based and will only happen after a "
 "backup was run. Setting the value to 0 will disable any deleting"
 msgstr ""
+"Skasuj tę kopię zapasową po X liczbie minut/godzin/dni/tygodni/miesięcy/lat. "
+"Należy pamiętać, że usuwanie nie jest osadzone w czasie i nastąpi dopiero po "
+"włączeniu kopii zapasowej. Ustawienie wartości 0 spowoduje wyłączenie "
+"każdego usuwania"
 
 #: views/backup/backup.php:533
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
 msgstr ""
+"Skasuj tę kopię zapasową po X liczbie uruchomień. Ustawienie wartości 0 "
+"spowoduje wyłączenie każdego usuwania"
 
 #: functions.inc/templates.php:310
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
-msgstr ""
+msgstr "Usuń ten wpis. Nie zapomnij kliknąć 'Zatwierdź' aby zapisać zmiany!"
 
 #: views/backup/backup.php:41 views/backup/backups.php:10
 #: views/servers/awss3.php:27 views/servers/email.php:40
@@ -434,20 +440,20 @@ msgstr ""
 #: views/servers/ssh.php:40 views/templates/template.php:36
 #: views/templates/templates.php:8
 msgid "Description"
-msgstr ""
+msgstr "Opis"
 
 #: views/backup/backup.php:53
 msgid "Description or notes for this backup"
-msgstr ""
+msgstr "Opis lub notatka dla tej kopii zapasowej"
 
 #: views/servers/email.php:52 views/servers/local.php:52
 #: views/servers/mysql.php:52 views/servers/ssh.php:52
 msgid "Description or notes for this server"
-msgstr ""
+msgstr "Opis lub notatka dla tego serwera"
 
 #: views/backup/backups.php:76
 msgid "Destination"
-msgstr ""
+msgstr "Miejsce docelowe"
 
 #: functions.inc/templates.php:246
 msgid "Directory"

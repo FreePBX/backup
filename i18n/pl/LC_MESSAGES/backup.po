@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-19 13:57-0800\n"
-"PO-Revision-Date: 2017-02-19 21:17+0200\n"
+"PO-Revision-Date: 2017-02-20 20:14+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish "
 "<http://weblate.freepbx.org/projects/freepbx/backup/pl/>\n"
@@ -25,11 +25,11 @@ msgstr "%s Kreator kopii zapasowej"
 
 #: functions.inc/templates.php:251
 msgid "/path/to/dir"
-msgstr ""
+msgstr "/ścieżka/do/katalogu"
 
 #: functions.inc/templates.php:238
 msgid "/path/to/file"
-msgstr ""
+msgstr "/ścieżka/do/pliku"
 
 #: install.php:145
 msgid ""
@@ -56,8 +56,9 @@ msgid "A script to be run BEFORE a backup is started."
 msgstr "Skrypt należy uruchomić PRZED rozpoczęciem tworzenia kopii zapasowej."
 
 #: views/backup/backups.php:154 assets/js/backup.js:93 assets/js/backup.js:105
+#, fuzzy
 msgid "AT"
-msgstr ""
+msgstr "AT"
 
 #: views/servers/awss3.php:41
 msgid "AWS Access Key"
@@ -132,12 +133,14 @@ msgid "April"
 msgstr "Kwiecień"
 
 #: views/restore/browseserver.php:21
+#, fuzzy
 msgid "AstDB's"
-msgstr ""
+msgstr "AstDB's"
 
 #: functions.inc/templates.php:296
+#, fuzzy
 msgid "Asterisk DB"
-msgstr "Odsyłacz DB"
+msgstr "Asterisk DB"
 
 #: views/cron.php:50
 msgid "August"
@@ -157,7 +160,7 @@ msgstr "B"
 
 #: functions.inc.php:68
 msgid "BACKUP LOG ATTACHED"
-msgstr ""
+msgstr "LOG KOPII ZAPASOWEJ DOŁĄCZONY"
 
 #: functions.inc/class.backup.php:409 functions.inc/class.backup.php:412
 msgid "BACKUP NOT ATTACHED"
@@ -202,7 +205,7 @@ msgstr "Błąd kopii zapasowej (przekroczono limit SMTP)"
 
 #: functions.inc/class.backup.php:411
 msgid "Backup ERROR (exceeded soft limit)"
-msgstr ""
+msgstr "Błąd kopii zapasowej (przekroczono limit oprogramowania)"
 
 #: views/backup/backups.php:49
 msgid "Backup Frequency"
@@ -214,11 +217,12 @@ msgstr "Obiekty kopii zapasowej"
 
 #: bin/backup.php:48
 msgid "Backup Lock acquired!"
-msgstr ""
+msgstr "Backup Lock wymagany!"
 
 #: functions.inc.php:71
+#, fuzzy
 msgid "Backup Log:"
-msgstr ""
+msgstr "Backup Log:"
 
 #: backup.i18n.php:22
 msgid "Backup Module"
@@ -246,7 +250,7 @@ msgstr "Szablon kopii zapasowej"
 
 #: views/backup/backups.php:2
 msgid "Backup Wizard"
-msgstr ""
+msgstr "Kreator tworzenia kopii zapasowych"
 
 #: page.backup.php:115
 msgid "Backup and Restore"
@@ -262,6 +266,8 @@ msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
 "backup from server [%s]."
 msgstr ""
+"Błąd podczas tworzenia kopii zapasowej, baza danych SQL zrzuca [%s] do pliku "
+"[%s], masz uszkodzoną kopię zapasową z serwera [%s]."
 
 #: bin/restore.php:92
 msgid "Backup file not found! Aborting."
@@ -294,10 +300,12 @@ msgstr "Przeglądanie"
 #: page.backup_restore.php:184
 msgid "Browser reconnected realtime updates are unavailable."
 msgstr ""
+"Przeglądarka odświeżona, aktualizacje w czasie rzeczywistym nie są możliwe."
 
 #: views/servers/awss3.php:14
+#, fuzzy
 msgid "Bucket Name"
-msgstr ""
+msgstr "Bucket Name"
 
 #: bin/backup.php:56
 msgid "Building manifest..."
@@ -317,7 +325,7 @@ msgstr "CDR"
 
 #: install.php:154
 msgid "Call Detail Records"
-msgstr "Szczegółowe zapisy połączenia"
+msgstr "Szczegółowe zapisy połączeń"
 
 #: views/backup/backups.php:206
 msgid "Call Recordings"

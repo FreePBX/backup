@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-19 13:57-0800\n"
-"PO-Revision-Date: 2017-02-20 20:14+0200\n"
+"PO-Revision-Date: 2017-02-24 00:26+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish "
 "<http://weblate.freepbx.org/projects/freepbx/backup/pl/>\n"
@@ -470,7 +470,7 @@ msgstr ""
 #: functions.inc/class.backup.php:479
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
-msgstr ""
+msgstr "Książka adresowa '%s' nie istnieje i nie można jej stworzyć"
 
 #: views/backup/backup.php:326
 msgid "Disable Registered Trunks"
@@ -478,11 +478,11 @@ msgstr ""
 
 #: bin/restore.php:432
 msgid "Done!"
-msgstr ""
+msgstr "Zrobione!"
 
 #: page.backup_restore.php:21 views/restore/browseserver.php:30
 msgid "Download"
-msgstr ""
+msgstr "Pobieranie"
 
 #: views/backup/backup.php:408
 msgid ""
@@ -494,34 +494,36 @@ msgid ""
 "Drag templates and drop them in the items table to add the templates items "
 "to the table"
 msgstr ""
+"Przeciągnij szablony i upuść je w tabeli przedmiotów aby dodać szablony do "
+"tabeli"
 
 #: views/backup/backup.php:121
 msgid "Drop Here"
-msgstr ""
+msgstr "Upuść tutaj"
 
 #: backup.i18n.php:20
 msgid "Email "
-msgstr ""
+msgstr "Email "
 
 #: views/servers/email.php:64
 msgid "Email Address"
-msgstr ""
+msgstr "Adres email"
 
 #: views/backup/backups.php:264
 msgid "Email Notifications"
-msgstr ""
+msgstr "Zgłoszenia email"
 
 #: views/servers/email.php:4
 msgid "Email Server"
-msgstr ""
+msgstr "Serwer email"
 
 #: functions.inc/servers.php:265 functions.inc/servers.php:320
 msgid "Email Server "
-msgstr ""
+msgstr "Serwer email "
 
 #: views/servers/email.php:76
 msgid "Email address where backups should be emailed to"
-msgstr ""
+msgstr "Adres email na który powinna zostać wysłana kopia zapasowa"
 
 #: assets/js/backup.js:14
 msgid "Email notifications are set to Yes but no email provided"
@@ -530,6 +532,8 @@ msgstr ""
 #: views/backup/backup.php:77
 msgid "Email to send status messages to when this task is run"
 msgstr ""
+"Email na który ma zostać wysłany status wiadomości kiedy to zadanie jest "
+"włączone"
 
 #: views/backup/backup.php:395
 msgid ""

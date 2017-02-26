@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-19 13:57-0800\n"
-"PO-Revision-Date: 2017-02-24 00:26+0200\n"
+"PO-Revision-Date: 2017-02-26 17:05+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish "
 "<http://weblate.freepbx.org/projects/freepbx/backup/pl/>\n"
@@ -544,34 +544,36 @@ msgstr ""
 #: functions.inc/class.backup.php:469 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
-msgstr ""
+msgstr "Błąd tworzenia obiektu FTP"
 
 #: functions.inc/class.backup.php:803
 #, php-format
 msgid "Error deleting %s"
-msgstr ""
+msgstr "Błąd usuwania %s"
 
 #: page.backup_restore.php:41
 msgid "Error uploading file!"
-msgstr ""
+msgstr "Błąd przenoszenia pliku!"
 
 #: page.backup_restore.php:50
 msgid "Error verifying uploaded file!"
-msgstr ""
+msgstr "Błąd weryfikacji przeniesionego pliku!"
 
 #: views/item_table.php:11
 msgid "Exclude"
-msgstr ""
+msgstr "Wykluczyć"
 
 #: install.php:181
 msgid ""
 "Exclude Backup's settings so that they dont get restored, useful for a "
 "remote restore"
 msgstr ""
+"Wykluczyć ustawienia kopii zapasowej tak aby ich nie przywrócić, przydatne "
+"przy zdalnym przywracaniu"
 
 #: views/backup/backup.php:353
 msgid "Exclude NAT settings"
-msgstr ""
+msgstr "Wykluczyć ustawienia NAT"
 
 #: views/backup/backup.php:368
 msgid ""
@@ -585,27 +587,27 @@ msgstr ""
 
 #: views/backup/backups.php:352
 msgid "FTP"
-msgstr ""
+msgstr "FTP"
 
 #: views/backup/backups.php:482 views/servers/mysql.php:148
 msgid "FTP Password"
-msgstr ""
+msgstr "Hasło FTP"
 
 #: views/servers/ftp.php:8
 msgid "FTP Server"
-msgstr ""
+msgstr "Serwer FTP"
 
 #: functions.inc/servers.php:268 functions.inc/servers.php:323
 msgid "FTP Server "
-msgstr ""
+msgstr "Serwer FTP "
 
 #: views/backup/backups.php:509
 msgid "FTP Transfer type"
-msgstr ""
+msgstr "Typ transferu FTP"
 
 #: views/servers/mysql.php:124
 msgid "FTP Username"
-msgstr ""
+msgstr "Nazwa użytkownika FTP"
 
 #: functions.inc/restore.php:550
 msgid ""
@@ -622,7 +624,7 @@ msgstr ""
 #: functions.inc/restore.php:384 functions.inc/restore.php:404
 #: functions.inc/restore.php:417
 msgid "Failed to retrieve file from server!"
-msgstr ""
+msgstr "Odzyskiwanie pliku z serwera nie powiodło się!"
 
 #: functions.inc/templates.php:303
 msgid "Family, one per line"
@@ -630,27 +632,27 @@ msgstr ""
 
 #: views/cron.php:44
 msgid "February"
-msgstr ""
+msgstr "Luty"
 
 #: functions.inc/templates.php:233
 msgid "File"
-msgstr ""
+msgstr "Plik"
 
 #: functions.inc/restore.php:424
 msgid "File not found! "
-msgstr ""
+msgstr "Plik nie znaleziony! "
 
 #: bin/restore.php:150
 msgid "File restore complete!"
-msgstr ""
+msgstr "Odzyskiwanie pliku zakończone!"
 
 #: bin/backup.php:124
 msgid "File verification failed. "
-msgstr ""
+msgstr "Weryfikacja pliku nie powiodła się. "
 
 #: functions.inc/class.backup.php:397 views/restore/browseserver.php:19
 msgid "Files"
-msgstr ""
+msgstr "Pliki"
 
 #: views/servers/ftp.php:108
 msgid "Filesystem Type"
@@ -658,15 +660,15 @@ msgstr ""
 
 #: page.backup.php:52
 msgid "FreePBX"
-msgstr ""
+msgstr "FreePBX"
 
 #: views/cron.php:32 assets/js/backup.js:83
 msgid "Friday"
-msgstr ""
+msgstr "Piątek"
 
 #: bin/restore.php:210
 msgid "Getting CDR size..."
-msgstr ""
+msgstr "Uzyskiwanie rozmiaru CDR..."
 
 #: views/backup/backups.php:386
 msgid "Give the server a descriptive name"
@@ -674,7 +676,7 @@ msgstr ""
 
 #: views/backup/backups.php:133
 msgid "Give your backup a description"
-msgstr ""
+msgstr "Daj opis kopii zapasowej"
 
 #: views/backup/backups.php:109
 msgid "Give your backup a friendly name"
@@ -682,11 +684,11 @@ msgstr ""
 
 #: views/restore/browseserver.php:29
 msgid "Go!"
-msgstr ""
+msgstr "Start!"
 
 #: bin/backup.php:125
 msgid "Here are the first few lines of the file as sent by the remote server:"
-msgstr ""
+msgstr "To jest kilka pierwszych wersów pliku wysłanych przez serwer zdalny:"
 
 #: views/backup/backup.php:152
 msgid "Hooks"
@@ -695,35 +697,35 @@ msgstr ""
 #: views/servers/ftp.php:46 views/servers/mysql.php:64
 #: views/servers/ssh.php:64
 msgid "Hostname"
-msgstr ""
+msgstr "Nazwa hosta"
 
 #: views/cron.php:4
 msgid "Hourly"
-msgstr ""
+msgstr "Cogodzinny"
 
 #: views/backup/backup.php:493 views/cron.php:194 views/cron.php:198
 msgid "Hours"
-msgstr ""
+msgstr "Godziny"
 
 #: views/backup/backups.php:140
 msgid "How often should we backup?"
-msgstr ""
+msgstr "Jak często tworzyć kopię zapasową?"
 
 #: views/backup/backups.php:410
 msgid "IP Address or FQDN of your server"
-msgstr ""
+msgstr "Adres IP lub FQDN dla serwera"
 
 #: views/servers/ssh.php:76
 msgid "IP address or FQDN of remote SSH server"
-msgstr ""
+msgstr "Adres IP lub FQDN lub zdalny serwer SSH"
 
 #: views/servers/ftp.php:56
 msgid "IP address or FQDN of remote ftp host"
-msgstr ""
+msgstr "Adres IP lub FQDN dla zdalnego hosta ftp"
 
 #: views/servers/mysql.php:76
 msgid "IP address or FQDN of remote mysql host"
-msgstr ""
+msgstr "Adres IP lub FQDN dla zdalnego hosta mysql"
 
 #: views/cron.php:155
 msgid ""

@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-19 13:57-0800\n"
-"PO-Revision-Date: 2017-01-10 19:04+0200\n"
-"Last-Translator: Sven <spiderrs4@web.de>\n"
+"PO-Revision-Date: 2017-03-06 03:04+0200\n"
+"Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/backup/de_DE/>\n"
 "Language: de_DE\n"
@@ -65,15 +65,15 @@ msgstr ""
 
 #: views/servers/awss3.php:41
 msgid "AWS Access Key"
-msgstr ""
+msgstr "AWS Zugriffsschlüssel"
 
 #: functions.inc/servers.php:335
 msgid "AWS S3 Server "
-msgstr ""
+msgstr "AWS S3-Server "
 
 #: views/servers/awss3.php:58
 msgid "AWS Secret"
-msgstr ""
+msgstr "AWS Secret (geheime Prase)"
 
 #: views/backup/backups.php:11 views/servers/servers.php:22
 #: views/templates/templates.php:9
@@ -113,7 +113,7 @@ msgid ""
 "base backup"
 msgstr ""
 "Alle PBX-Konfigurationsdateien und alle Benutzerdefinierten Sound eingaben "
-"sind im Basis-Backup enthalten."
+"sind im Basis-Backup enthalten"
 
 #: install.php:172
 msgid ""
@@ -121,7 +121,7 @@ msgid ""
 "VOICEMAIL"
 msgstr ""
 "Alle System-Audio einschließlich IVR-Eingaben und Musik bei Halten. KEINE "
-"SICHERUNG DES ANRUFBEANTWORTER."
+"SICHERUNG DES ANRUFBEANTWORTERS"
 
 #: functions.inc/servers.php:280
 msgid "Amazon S3 Server "
@@ -274,6 +274,8 @@ msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
 "backup from server [%s]."
 msgstr ""
+"Backup der SQL-Datenbank [%s] in die Datei [%s] nicht erfolgreich, Sie haben "
+"ein fehlerhaftes Backup vom Server [%s]."
 
 #: bin/restore.php:92
 msgid "Backup file not found! Aborting."
@@ -325,7 +327,7 @@ msgstr "CDR-Server, in der Regel ein lokaler Datenbank-Server"
 
 #: views/restore/backup_list.php:26
 msgid "CDR's"
-msgstr "CDR's"
+msgstr "CDRs"
 
 #: install.php:154
 msgid "Call Detail Records"
@@ -337,7 +339,7 @@ msgstr "Anruferberichte"
 
 #: install.php:71
 msgid "Can not create backup tables"
-msgstr "Es können keine Sicherungstabellen erstellt werden."
+msgstr "Es können keine Sicherungstabellen erstellt werden"
 
 #: bin/restore.php:386
 msgid "Cleaning up..."
@@ -431,7 +433,7 @@ msgstr ""
 "Löschen der Sicherung nach x Minuten / Stunden / Tagen / Wochen / Jahren. "
 "Bitte beachten Sie, dass Löschungen nicht Zeitabhängig sind und erst nach "
 "einer Sicherung durchgeführt werden. Wenn Sie den Wert auf 0 setzen, wird "
-"das Löschen deaktiviert."
+"das Löschen deaktiviert"
 
 #: views/backup/backup.php:533
 msgid ""
@@ -439,7 +441,7 @@ msgid ""
 "disable any deleting"
 msgstr ""
 "Löschen der Sicherung erfolgt erst nach x Durchgängen. Wenn Sie den Wert auf "
-"0 setzen, wird das Löschen deaktiviert."
+"0 setzen, wird das Löschen deaktiviert"
 
 #: functions.inc/templates.php:310
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
@@ -457,12 +459,12 @@ msgstr "Beschreibung"
 
 #: views/backup/backup.php:53
 msgid "Description or notes for this backup"
-msgstr "Erstellen Sie eine aussagekräftige Beschreibung der Sicherung."
+msgstr "Erstellen Sie eine aussagekräftige Beschreibung der Sicherung"
 
 #: views/servers/email.php:52 views/servers/local.php:52
 #: views/servers/mysql.php:52 views/servers/ssh.php:52
 msgid "Description or notes for this server"
-msgstr "Erstellen Sie eine aussagekräftige Beschreibung für diesen Server."
+msgstr "Erstellen Sie eine aussagekräftige Beschreibung für diesen Server"
 
 #: views/backup/backups.php:76
 msgid "Destination"
@@ -476,11 +478,11 @@ msgstr "Verzeichnis"
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr ""
-"Das Verzeichnis '%s' existiert nicht und es konnte nicht erstellt werden."
+"Das Verzeichnis '%s' existiert nicht und es konnte nicht erstellt werden"
 
 #: views/backup/backup.php:326
 msgid "Disable Registered Trunks"
-msgstr "Deaktivieren Sie registrierte Hauptleitungen."
+msgstr "Deaktivieren Sie registrierte Hauptleitungen"
 
 #: bin/restore.php:432
 msgid "Done!"
@@ -495,15 +497,14 @@ msgid ""
 "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
 "Ziehen Sie Server von der Liste der verfügbaren Server in die Liste "
-"Speicherserver."
+"Speicherserver"
 
 #: views/backup/backup.php:112
 msgid ""
 "Drag templates and drop them in the items table to add the templates items "
 "to the table"
 msgstr ""
-"Ziehen Sie die Vorlagen in die Elementetabelle, um Sie der Tabelle "
-"hinzufügen."
+"Ziehen Sie die Vorlagen in die Elementetabelle, um Sie der Tabelle hinzufügen"
 
 #: views/backup/backup.php:121
 msgid "Drop Here"
@@ -537,24 +538,26 @@ msgstr "E-Mail-Adresse, an die Backups gesendet werden sollen"
 msgid "Email notifications are set to Yes but no email provided"
 msgstr ""
 "E-Mail-Benachrichtigungen ist aktiviert aber es ist keine E-Mail Adresse "
-"angegeben."
+"angegeben"
 
 #: views/backup/backup.php:77
 msgid "Email to send status messages to when this task is run"
 msgstr ""
 "Geben Sie eine E-Mail Adresse ein, um eine Statusmeldung zu senden, wenn die "
-"Aufgabe ausgeführt wird."
+"Aufgabe ausgeführt wird"
 
 #: views/backup/backup.php:395
 msgid ""
 "Equivalence of clicking the red button, will happen automatically after a "
 "restore on a Standby system"
 msgstr ""
+"Das Gleiche, wie auf den Roten Button zu drücken, passiert automatisch nach "
+"einer Wiederherstellung (restore) auf einem Standby-System"
 
 #: functions.inc/class.backup.php:469 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
-msgstr "Fehler beim Erstellen des FTP-Objekts."
+msgstr "Fehler beim Erstellen des FTP-Objekts"
 
 #: functions.inc/class.backup.php:803
 #, php-format
@@ -579,7 +582,7 @@ msgid ""
 "remote restore"
 msgstr ""
 "Sicherungseinstellungen ausschließen, damit sie nicht wiederhergestellt "
-"werden. Nützlich für eine Remote-Wiederherstellung."
+"werden. Nützlich für eine Remote-Wiederherstellung"
 
 #: views/backup/backup.php:353
 msgid "Exclude NAT settings"
@@ -593,7 +596,7 @@ msgstr ""
 
 #: bin/restore.php:66
 msgid "Explicitly skipping host-specific NAT settings"
-msgstr ""
+msgstr "überspringe ausdrücklich host-spezifische NAT-Einstellungen"
 
 #: views/backup/backups.php:352
 msgid "FTP"
@@ -630,6 +633,8 @@ msgid ""
 "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
 "sql in current state"
 msgstr ""
+"Umwandlung von asteriskcdr.sql in das richtige Format fehlgeschlagen, wird "
+"umbenannt in mysql-cdr.sql"
 
 #: functions.inc/restore.php:384 functions.inc/restore.php:404
 #: functions.inc/restore.php:417
@@ -638,7 +643,7 @@ msgstr "Fehler beim Abrufen der Datei vom Server!"
 
 #: functions.inc/templates.php:303
 msgid "Family, one per line"
-msgstr ""
+msgstr "Familie, eine pro Zeile"
 
 #: views/cron.php:44
 msgid "February"
@@ -682,15 +687,15 @@ msgstr "CDR-Größe erhalten ..."
 
 #: views/backup/backups.php:386
 msgid "Give the server a descriptive name"
-msgstr "Geben Sie dem Server einen aussagekräftigen Namen."
+msgstr "Geben Sie dem Server einen aussagekräftigen Namen"
 
 #: views/backup/backups.php:133
 msgid "Give your backup a description"
-msgstr "Geben Sie der Sicherung eine aussagekräftige Beschreibung."
+msgstr "Geben Sie der Sicherung eine aussagekräftige Beschreibung"
 
 #: views/backup/backups.php:109
 msgid "Give your backup a friendly name"
-msgstr "Geben Sie der Sicherung einen aussagekräftige Namen."
+msgstr "Geben Sie der Sicherung einen aussagekräftige Namen"
 
 #: views/restore/browseserver.php:29
 msgid "Go!"
@@ -827,6 +832,8 @@ msgstr "Lokaler Server "
 #: views/servers/ssh.php:148
 msgid "Location of ssh private key to be used when connecting to a host"
 msgstr ""
+"Der Ort des privaten SSH-Schlüssels wird verwendet, wenn mit dem Host "
+"verbunden wird"
 
 #: views/servers/email.php:103
 msgid "MB"
@@ -894,7 +901,7 @@ msgstr "Name des Server"
 
 #: views/backup/backup.php:29
 msgid "Name this backup"
-msgstr "Beschriften Sie die Sicherung."
+msgstr "Beschriften Sie die Sicherung"
 
 #: views/cron.php:3
 msgid "Never"
@@ -902,7 +909,7 @@ msgstr "Niemals"
 
 #: views/cron.php:101
 msgid "Never will never run the backup automatically"
-msgstr "Die Sicherung wird niemals automatisch gestartet."
+msgstr "Die Sicherung wird niemals automatisch gestartet"
 
 #: views/servers/servers.php:12
 msgid "New Amazon S3 server"
@@ -987,7 +994,7 @@ msgstr "Auf dem"
 
 #: views/backup/backup.php:104
 msgid "Only send an email on failure"
-msgstr "E-Mail wird nur bei Fehler versendet."
+msgstr "E-Mail wird nur bei Fehler versendet"
 
 #: views/templates/template.php:48
 msgid "Optional description or notes for this backup temnplate."
@@ -996,7 +1003,7 @@ msgstr ""
 
 #: functions.inc/templates.php:260
 msgid "PATTERNs, one per line"
-msgstr ""
+msgstr "PATTERN (Erkennungsmuster), eines pro Zeile"
 
 #: views/restore/backup_list.php:19
 msgid "PBX Settings"
@@ -1004,7 +1011,7 @@ msgstr "PBX Einstellungen"
 
 #: install.php:88
 msgid "PBX config server, generally a local database server"
-msgstr "PBX-Konfigurations-Server, in der Regel ein lokaler Datenbank-Server."
+msgstr "PBX-Konfigurations-Server, in der Regel ein lokaler Datenbank-Server"
 
 #: views/backup/backups.php:499 views/servers/ftp.php:160
 msgid "Passive"
@@ -1037,7 +1044,7 @@ msgstr ""
 
 #: views/backup/backups.php:557
 msgid "Path to ssh key, example /home/asterisk/.ssh/id_rsa"
-msgstr "Pfad zum SSH-Schlüssel (Beispiel /home/asterisk/.ssh/id_rsa)."
+msgstr "Pfad zum SSH-Schlüssel (Beispiel /home/asterisk/.ssh/id_rsa)"
 
 #: views/item_table.php:8
 msgid "Path/DB"
@@ -1079,12 +1086,12 @@ msgstr "Lokale NAT-Einstellungen werden beibehalten"
 #: bin/restore.php:244
 #, php-format
 msgid "Processed %s%% of CDRs (%s of %s lines)"
-msgstr ""
+msgstr "durchgeführt %s%% der CDRs (%s von %s Zeilen)"
 
 #: bin/restore.php:338
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
-msgstr ""
+msgstr "durchgeführt %s%% der Einstellungen (%s von %s Zeilen)"
 
 #: bin/backup.php:137
 msgid "Processing received file..."
@@ -1092,7 +1099,7 @@ msgstr "Verarbeitung der empfangenen Datei ..."
 
 #: views/servers/local.php:28 views/servers/ssh.php:28
 msgid "Provide the name for this server"
-msgstr "Geben Sie den Namen für diesen Server an."
+msgstr "Geben Sie den Namen für diesen Server an"
 
 #: views/cron.php:140
 msgid "Randomize"
@@ -1144,7 +1151,7 @@ msgstr "Remote Speicheroptionen"
 
 #: views/backup/backups.php:533
 msgid "Remote save path, blank for default"
-msgstr "Remote Speicherpfad, für Standardpfad Feld leer lassen."
+msgstr "Remote Speicherpfad, für Standardpfad Feld leer lassen"
 
 #: Backup.class.php:187
 msgid "Reset"
@@ -1160,7 +1167,7 @@ msgstr "Wiederherstellen"
 msgid "Restore CDR records stored in this backup"
 msgstr ""
 "Wiederherstellen von CDR-Datensätzen, die in dieser Sicherung gespeichert "
-"sind."
+"sind"
 
 #: views/backup/backup.php:292
 msgid "Restore Here"
@@ -1168,13 +1175,13 @@ msgstr "Hier wiederherstellen"
 
 #: views/restore/backup_list.php:19
 msgid "Restore all setting stored in the database"
-msgstr "Alle in der Datenbank gespeicherten Einstellungen wieder herstellen."
+msgstr "Alle in der Datenbank gespeicherten Einstellungen wieder herstellen"
 
 #: views/backup/backup.php:314
 msgid "Restore backup to this server after the backup is complete"
 msgstr ""
 "Stellen Sie die Sicherung auf diesem Server wieder her, nachdem die "
-"Sicherung abgeschlossen ist."
+"Sicherung abgeschlossen ist"
 
 #: bin/restore.php:416
 msgid "Restore complete!"
@@ -1202,7 +1209,7 @@ msgstr "NAT-Einstellungen werden wiederhergestellt"
 
 #: bin/restore.php:371
 msgid "Restoring Settings complete"
-msgstr "Wiederherstellen der Einstellungen abgeschlossen."
+msgstr "Wiederherstellen der Einstellungen abgeschlossen"
 
 #: bin/restore.php:114
 msgid "Restoring all files (this may take some time)..."
@@ -1230,7 +1237,7 @@ msgid ""
 "<code>service cron restart</code>)"
 msgstr ""
 "Läuft nach jedem Server oder cron Start (z.B. nach jedem <code>crondienst "
-"Neustart</code>)."
+"Neustart</code>)"
 
 #: page.backup.php:48
 msgid "Run now"
@@ -1238,23 +1245,23 @@ msgstr "Jetzt starten"
 
 #: views/cron.php:81
 msgid "Run once a day, at midnight"
-msgstr "Startet einmal pro Tag um Mitternacht."
+msgstr "Startet einmal pro Tag um Mitternacht"
 
 #: views/cron.php:89
 msgid "Run once a month, midnight, first of month"
-msgstr "Startet einmal pro Monat, am ersten des Monats, um Mitternacht."
+msgstr "Startet einmal pro Monat, am ersten des Monats, um Mitternacht"
 
 #: views/cron.php:85
 msgid "Run once a week, midnight on Sun"
-msgstr "Startet einmal pro Woche, am Sonntag, um Mitternacht."
+msgstr "Startet einmal pro Woche, am Sonntag, um Mitternacht"
 
 #: views/cron.php:93
 msgid "Run once a year, midnight, Jan. 1"
-msgstr "Startet einmal jährlich, am 1.Januar, um Mitternacht."
+msgstr "Startet einmal jährlich, am 1.Januar, um Mitternacht"
 
 #: views/cron.php:77
 msgid "Run once an hour, beginning of hour"
-msgstr "Startet einmal Stündlich, am Stundenanfang."
+msgstr "Startet einmal stündlich, am Stundenanfang"
 
 #: bin/restore.php:377
 msgid "Running post restore script..."
@@ -1318,7 +1325,7 @@ msgstr "Speichern und Starten"
 
 #: functions.inc/class.backup.php:486
 msgid "Saving file to remote ftp"
-msgstr "Datei auf FTP-Server Speichern."
+msgstr "Datei auf FTP-Server speichern"
 
 #: views/cron.php:71
 msgid "Schedule Help"
@@ -1326,7 +1333,7 @@ msgstr "Hilfe"
 
 #: views/restore/browseserver.php:12
 msgid "Select a file and click go"
-msgstr "Markiere eine Datei und Klick auf Los."
+msgstr "Markiere eine Datei und Klick auf Los"
 
 #: views/cron.php:73
 msgid ""
@@ -1341,7 +1348,7 @@ msgid ""
 "Select the server to be backed up (this server, or any other SSH server)"
 msgstr ""
 "Wählen Sie den zu sichernden Server (diesen Server, oder einen anderen SSH "
-"Server)."
+"Server)"
 
 #: views/cron.php:51
 msgid "September"
@@ -1363,7 +1370,7 @@ msgstr "Server-Name"
 
 #: assets/js/backup.js:24
 msgid "Server Name can not be blank"
-msgstr "Server-Name darf nicht leer sein."
+msgstr "Server-Name darf nicht leer sein"
 
 #: views/backup/backups.php:422
 msgid "Server Port"
@@ -1371,7 +1378,7 @@ msgstr "Server-Port"
 
 #: views/backup/backups.php:434
 msgid "Server Port, leave blank for default"
-msgstr "Server-Port, für Standardeinstellung lassen Sie das Feld leer."
+msgstr "Server-Port, für Standardeinstellung lassen Sie das Feld leer"
 
 #: views/backup/backups.php:458
 msgid "Server Username"
@@ -1379,7 +1386,7 @@ msgstr "Server-Benutzername"
 
 #: assets/js/backup.js:28
 msgid "Server address can not be blank"
-msgstr "Server-Adresse darf nicht leer sein."
+msgstr "Server-Adresse darf nicht leer sein"
 
 #: page.backup_servers.php:80 views/rnav/main.php:5
 msgid "Servers"
@@ -1432,7 +1439,7 @@ msgstr "Sonntag"
 
 #: views/servers/mysql.php:28
 msgid "Supply a server name"
-msgstr "Geben Sie einen Server-Name ein."
+msgstr "Geben Sie einen Server-Name ein"
 
 #: views/templates/template.php:18
 msgid "Template Name"
@@ -1447,7 +1454,7 @@ msgstr "Vorlagen"
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr ""
 "Der Dateisystemtyp des FTP-Servers. Wenn Sie nicht sicher sind, stellen Sie "
-"dies auf Auto."
+"dies auf Auto"
 
 #: backup.i18n.php:24
 msgid "The From: field for emails when using the backup email feature."
@@ -1457,11 +1464,11 @@ msgstr "Von: Ein Feld für E-Mails, wenn Sie das E-Mail-Feature verwenden."
 msgid "The Restore script Finished You can close this window"
 msgstr ""
 "Das Wiederherstellungsskript wurde abgeschlossen. Sie können dieses Fenster "
-"schließen."
+"schließen"
 
 #: page.backup_restore.php:188
 msgid "The Restore script is still running"
-msgstr "Das Wiederherstellungsskript wird weiterhin ausgeführt."
+msgstr "Das Wiederherstellungsskript wird weiterhin ausgeführt"
 
 #: functions.inc/class.backup.php:409
 msgid ""
@@ -1518,7 +1525,7 @@ msgstr "Dieser Server"
 msgid "This wizard can be used to add a basic backup task for your %s system"
 msgstr ""
 "Mit diesen Assistenten können Sie Ihrem %s eine Standard-Sicherungsaufgabe "
-"hinzufügen."
+"hinzufügen"
 
 #: views/cron.php:31 assets/js/backup.js:83
 msgid "Thursday"
@@ -1542,7 +1549,7 @@ msgstr "Typ"
 
 #: functions.inc/class.backup.php:489
 msgid "Unable to upload file to the remote server"
-msgstr "Die Datei kann nicht auf dem Remoteserver hochgeladen werden."
+msgstr "Die Datei kann nicht auf dem Remoteserver hochgeladen werden"
 
 #: views/servers/ftp.php:115
 msgid "Unix/Linux"
@@ -1551,8 +1558,7 @@ msgstr "Unix/Linux"
 #: install.php:290
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
-msgstr ""
-"Aktualisierter Job %s mit neuem benutzerdefinierten Sounds-Verzeichnis."
+msgstr "Aktualisierter Job %s mit neuem benutzerdefinierten Sounds-Verzeichnis"
 
 #: install.php:278
 msgid "Updated System Recordings template"
@@ -1625,19 +1631,19 @@ msgstr "Wohin soll die Statusmeldung für diese Aufgabe gesendet werden?"
 
 #: views/cron.php:234
 msgid "Which Days of the week to run"
-msgstr "An welchem/welchen Tag(en) soll die Sicherung ausgeführt werden?"
+msgstr "An welchem/welchen Tag(en) soll die Sicherung ausgeführt werden"
 
 #: views/cron.php:208
 msgid "Which Hours to run."
-msgstr "Zu welcher/welchen Stunde(n) soll die Sicherung ausgeführt werden?"
+msgstr "Zu welcher/welchen Stunde(n) soll die Sicherung ausgeführt werden."
 
 #: views/cron.php:260
 msgid "Which Months to run"
-msgstr "An welchem/welchen Monat(en) soll die Sicherung ausgeführt werden?"
+msgstr "An welchem/welchen Monat(en) soll die Sicherung ausgeführt werden"
 
 #: views/cron.php:182
 msgid "Which minutes to run"
-msgstr "Zu welcher/welchen Minute(n) soll die Sicherung ausgeführt werden?"
+msgstr "Zu welcher/welchen Minute(n) soll die Sicherung ausgeführt werden"
 
 #: views/servers/ftp.php:117
 msgid "Windows"
@@ -1661,7 +1667,7 @@ msgstr "Möchten Sie Aufnahmen sichern?"
 
 #: views/backup/backups.php:194
 msgid "Would you like voicemails backded up."
-msgstr ""
+msgstr "Soll der Anrufbeantworter gesichert werden."
 
 #: views/backup/backup.php:501
 msgid "Years"
@@ -1680,10 +1686,11 @@ msgstr "Ja"
 #, php-format
 msgid "You should run \"%s\" to ensure system integrity"
 msgstr ""
+"Sie sollten \"%s\" durchführen, um die Systemintegrität sicher zu stellen"
 
 #: views/backup/backups.php:312
 msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
-msgstr ""
+msgstr "Ihr Backup wird nach /var/spool/asterisk/backup lokal gespeichert"
 
 #: install.php:126
 msgid "added default backup servers"
@@ -1711,11 +1718,11 @@ msgstr "Manifest nicht gefunden"
 
 #: functions.inc/templates.php:289
 msgid "table names, one per line"
-msgstr "Tabellennamen, einer pro Zeile."
+msgstr "Tabellennamen, einer pro Zeile"
 
 #: bin/backup.php:45
 msgid "waiting for lock..."
-msgstr ""
+msgstr "warte auf Sperrung..."
 
 #: functions.inc/templates.php:281
 msgid "{no servers available}"

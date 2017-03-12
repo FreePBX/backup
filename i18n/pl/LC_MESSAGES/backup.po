@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-19 13:57-0800\n"
-"PO-Revision-Date: 2017-03-01 04:00+0200\n"
+"PO-Revision-Date: 2017-03-12 16:47+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish "
 "<http://weblate.freepbx.org/projects/freepbx/backup/pl/>\n"
@@ -1202,7 +1202,7 @@ msgstr "Przywracanie plików (może to zająć kilka minut)..."
 
 #: views/cron.php:120
 msgid "Run Automatically"
-msgstr ""
+msgstr "Uruchom automatycznie"
 
 #: views/cron.php:97
 msgid ""
@@ -1212,31 +1212,31 @@ msgstr ""
 
 #: page.backup.php:48
 msgid "Run now"
-msgstr ""
+msgstr "Uruchom teraz"
 
 #: views/cron.php:81
 msgid "Run once a day, at midnight"
-msgstr ""
+msgstr "Uruchom raz dziennie o północy"
 
 #: views/cron.php:89
 msgid "Run once a month, midnight, first of month"
-msgstr ""
+msgstr "Uruchom raz w miesiącu o północy pierwszego dnia miesiąca"
 
 #: views/cron.php:85
 msgid "Run once a week, midnight on Sun"
-msgstr ""
+msgstr "Uruchom raz w tygodniu o północy w niedzielę"
 
 #: views/cron.php:93
 msgid "Run once a year, midnight, Jan. 1"
-msgstr ""
+msgstr "Uruchom raz w roku, 1 stycznia o północy"
 
 #: views/cron.php:77
 msgid "Run once an hour, beginning of hour"
-msgstr ""
+msgstr "Uruchom raz na godzinę, zaczynając od godziny"
 
 #: bin/restore.php:377
 msgid "Running post restore script..."
-msgstr ""
+msgstr "Uruchamianie przywracania skryptu..."
 
 #: bin/backup.php:145 bin/backup.php:183
 msgid "Running post-backup hooks..."
@@ -1260,11 +1260,11 @@ msgstr ""
 
 #: views/backup/backup.php:526
 msgid "Runs"
-msgstr ""
+msgstr "Uruchomione"
 
 #: views/backup/backups.php:354
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 #: views/backup/backups.php:545
 msgid "SSH Key Path"
@@ -1272,27 +1272,27 @@ msgstr ""
 
 #: views/servers/ssh.php:4
 msgid "SSH Server"
-msgstr ""
+msgstr "Serwer SSH"
 
 #: functions.inc/servers.php:277 functions.inc/servers.php:332
 msgid "SSH Server "
-msgstr ""
+msgstr "Serwer SSH "
 
 #: views/servers/ssh.php:124
 msgid "SSH Username"
-msgstr ""
+msgstr "Nazwa użytkownika SSH"
 
 #: views/cron.php:33 assets/js/backup.js:83
 msgid "Saturday"
-msgstr ""
+msgstr "Sobota"
 
 #: Backup.class.php:192
 msgid "Save"
-msgstr ""
+msgstr "Zapisz"
 
 #: Backup.class.php:197
 msgid "Save and Run"
-msgstr ""
+msgstr "Zapisz i uruchom"
 
 #: functions.inc/class.backup.php:486
 msgid "Saving file to remote ftp"

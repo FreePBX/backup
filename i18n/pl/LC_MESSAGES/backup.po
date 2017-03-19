@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-19 13:57-0800\n"
-"PO-Revision-Date: 2017-03-19 08:57+0200\n"
+"PO-Revision-Date: 2017-03-19 12:53+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish "
 "<http://weblate.freepbx.org/projects/freepbx/backup/pl/>\n"
@@ -1304,44 +1304,46 @@ msgstr "Harmonogram pomocy"
 
 #: views/restore/browseserver.php:12
 msgid "Select a file and click go"
-msgstr ""
+msgstr "Wybierz plik i kliknij start"
 
 #: views/cron.php:73
 msgid ""
 "Select how often to run this backup. The following schedule will be followed "
 "for all but custom."
 msgstr ""
+"Wybierz jak często uruchomić tę kopię zapasową. Następujący harmonogram "
+"będzie obowiązywał dla wszystkich prócz niestandardowych."
 
 #: views/backup/backup.php:281
 msgid ""
 "Select the server to be backed up (this server, or any other SSH server)"
-msgstr ""
+msgstr "Wybierz serwer do archiwizacji (ten serwer lub inny serwer SSH)"
 
 #: views/cron.php:51
 msgid "September"
-msgstr ""
+msgstr "Wrzesień"
 
 #: views/restore/restore.php:58
 msgid "Server"
-msgstr ""
+msgstr "Serwer"
 
 #: views/backup/backups.php:398
 msgid "Server Address"
-msgstr ""
+msgstr "Adres serwera"
 
 #: views/backup/backups.php:374 views/servers/email.php:16
 #: views/servers/ftp.php:18 views/servers/local.php:16
 #: views/servers/mysql.php:16 views/servers/ssh.php:16
 msgid "Server Name"
-msgstr ""
+msgstr "Nazwa Serwera"
 
 #: assets/js/backup.js:24
 msgid "Server Name can not be blank"
-msgstr ""
+msgstr "Nazwa serwera nie może być pusta"
 
 #: views/backup/backups.php:422
 msgid "Server Port"
-msgstr ""
+msgstr "Port serwera"
 
 #: views/backup/backups.php:434
 msgid "Server Port, leave blank for default"

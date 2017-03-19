@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-19 13:57-0800\n"
-"PO-Revision-Date: 2017-03-12 16:47+0200\n"
+"PO-Revision-Date: 2017-03-19 08:57+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish "
 "<http://weblate.freepbx.org/projects/freepbx/backup/pl/>\n"
@@ -465,7 +465,7 @@ msgstr "Miejsce docelowe"
 
 #: functions.inc/templates.php:246
 msgid "Directory"
-msgstr ""
+msgstr "Książka adresowa"
 
 #: functions.inc/class.backup.php:479
 #, php-format
@@ -773,11 +773,11 @@ msgstr "Nieprawidłowy do tworzenia kopii zapasowej lub niezidentyfikowany błą
 #: views/backup/backups.php:9 views/servers/servers.php:19
 #: views/templates/templates.php:7
 msgid "Item"
-msgstr ""
+msgstr "Pozycja"
 
 #: views/backup/backup.php:118
 msgid "Items"
-msgstr ""
+msgstr "Pozycje"
 
 #: views/cron.php:43
 msgid "January"
@@ -850,7 +850,7 @@ msgstr "Miesiące"
 
 #: views/servers/mysql.php:4
 msgid "MySQL Server"
-msgstr ""
+msgstr "Serwer MySQL"
 
 #: functions.inc/templates.php:267
 msgid "Mysql"
@@ -1296,11 +1296,11 @@ msgstr "Zapisz i uruchom"
 
 #: functions.inc/class.backup.php:486
 msgid "Saving file to remote ftp"
-msgstr ""
+msgstr "Zapisywanie pliku do zdalnego ftp"
 
 #: views/cron.php:71
 msgid "Schedule Help"
-msgstr ""
+msgstr "Harmonogram pomocy"
 
 #: views/restore/browseserver.php:12
 msgid "Select a file and click go"

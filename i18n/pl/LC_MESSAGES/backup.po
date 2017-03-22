@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-19 13:57-0800\n"
-"PO-Revision-Date: 2017-03-21 20:13+0200\n"
+"PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish "
 "<http://weblate.freepbx.org/projects/freepbx/backup/pl/>\n"
@@ -1481,49 +1481,53 @@ msgstr ""
 
 #: views/servers/email.php:118
 msgid "This has a maximum size of 25MB."
-msgstr ""
+msgstr "To ma maksymalny rozmiar 25MB."
 
 #: views/backup/backup.php:252
 msgid "This server"
-msgstr ""
+msgstr "Ten serwer"
 
 #: views/backup/backups.php:84
 #, php-format
 msgid "This wizard can be used to add a basic backup task for your %s system"
 msgstr ""
+"Ten kreator może zostać użyty do dodania podstawowego zadania tworzenia "
+"kopii zapasowych dla systemu %s"
 
 #: views/cron.php:31 assets/js/backup.js:83
 msgid "Thursday"
-msgstr ""
+msgstr "Czwartek"
 
 #: views/servers/ftp.php:153
 msgid "Transfer Mode"
-msgstr ""
+msgstr "Tryb transferu"
 
 #: views/backup/backups.php:494
 msgid "Transfer Type"
-msgstr ""
+msgstr "Typ transferu"
 
 #: views/cron.php:29 assets/js/backup.js:83
 msgid "Tuesday"
-msgstr ""
+msgstr "Wtorek"
 
 #: views/item_table.php:5 views/servers/servers.php:21
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 #: functions.inc/class.backup.php:489
 msgid "Unable to upload file to the remote server"
-msgstr ""
+msgstr "Nie można przesłać pliku na serwer zdalny"
 
 #: views/servers/ftp.php:115
 msgid "Unix/Linux"
-msgstr ""
+msgstr "Unix/Linux"
 
 #: install.php:290
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
 msgstr ""
+"Zaktualizowano zadanie %s przy użyciu nowego katalogu dźwięków "
+"niestandardowych"
 
 #: install.php:278
 msgid "Updated System Recordings template"
@@ -1531,32 +1535,32 @@ msgstr ""
 
 #: views/restore/restore.php:19
 msgid "Upload File"
-msgstr ""
+msgstr "Przesyłanie pliku"
 
 #: views/servers/mysql.php:112
 msgid "User Name"
-msgstr ""
+msgstr "Nazwa użytkownika"
 
 #: views/backup/backups.php:446 views/servers/ftp.php:80
 #: views/servers/ssh.php:112
 msgid "Username"
-msgstr ""
+msgstr "Nazwa użytkownika"
 
 #: bin/backup.php:109
 msgid "Verifying received file..."
-msgstr ""
+msgstr "Weryfikacja otrzymanego pliku..."
 
 #: install.php:163
 msgid "Voice Mail Storage"
-msgstr ""
+msgstr "Przechowywanie poczty głosowej"
 
 #: views/backup/backups.php:179
 msgid "Voicemails"
-msgstr ""
+msgstr "Poczta głosowa"
 
 #: bin/restore.php:257
 msgid "WARNING!"
-msgstr ""
+msgstr "OSTRZEŻENIE!"
 
 #: bin/restore.php:258
 msgid "Web Root restore not detected, not restoring module table"
@@ -1564,51 +1568,51 @@ msgstr ""
 
 #: views/cron.php:30 assets/js/backup.js:83
 msgid "Wednesday"
-msgstr ""
+msgstr "Środa"
 
 #: views/cron.php:220
 msgid "Week Days"
-msgstr ""
+msgstr "Dni tygodnia"
 
 #: views/backup/backups.php:149 views/cron.php:6
 msgid "Weekly"
-msgstr ""
+msgstr "Co tydzień"
 
 #: views/backup/backup.php:497
 msgid "Weeks"
-msgstr ""
+msgstr "Tygodnie"
 
 #: views/backup/backups.php:82
 msgid "Welcome to the Backup Wizard"
-msgstr ""
+msgstr "Witaj w kreatorze kopii zapasowej"
 
 #: views/backup/backups.php:169
 msgid "What should we backup?"
-msgstr ""
+msgstr "Czego kopię zapasową utworzyć?"
 
 #: views/servers/awss3.php:46 views/servers/awss3.php:63
 msgid "What's this?"
-msgstr ""
+msgstr "Co to jest?"
 
 #: views/backup/backups.php:303
 msgid "Where should status emails for this job be sent?"
-msgstr ""
+msgstr "Gdzie powinny być przesyłane wiadomości e-mail o statusie tego zadania?"
 
 #: views/cron.php:234
 msgid "Which Days of the week to run"
-msgstr ""
+msgstr "W które dni tygodnia uruchomić"
 
 #: views/cron.php:208
 msgid "Which Hours to run."
-msgstr ""
+msgstr "W które godziny uruchomić."
 
 #: views/cron.php:260
 msgid "Which Months to run"
-msgstr ""
+msgstr "W które miesiące uruchomić"
 
 #: views/cron.php:182
 msgid "Which minutes to run"
-msgstr ""
+msgstr "W które minuty uruchomić"
 
 #: views/servers/ftp.php:117
 msgid "Windows"
@@ -1616,27 +1620,27 @@ msgstr ""
 
 #: Backup.class.php:67
 msgid "Wizard"
-msgstr ""
+msgstr "Kreator"
 
 #: views/backup/backups.php:279
 msgid "Would you like an email when this job runs?"
-msgstr ""
+msgstr "Czy wysłać e-mail kiedy to zadanie zostanie uruchomione?"
 
 #: views/backup/backups.php:255
 msgid "Would you like notifications?"
-msgstr ""
+msgstr "Czy chcesz otrzymywać powiadomienia?"
 
 #: views/backup/backups.php:221
 msgid "Would you like to backup recordings?"
-msgstr ""
+msgstr "Czy utworzyć kopię zapasową nagrań?"
 
 #: views/backup/backups.php:194
 msgid "Would you like voicemails backded up."
-msgstr ""
+msgstr "Czy utworzyć kopię zapasową poczty głosowej."
 
 #: views/backup/backup.php:501
 msgid "Years"
-msgstr ""
+msgstr "Lata"
 
 #: views/backup/backup.php:94 views/backup/backup.php:306
 #: views/backup/backup.php:331 views/backup/backup.php:358
@@ -1645,36 +1649,37 @@ msgstr ""
 #: views/backup/backups.php:269 views/backup/backups.php:325
 #: views/cron.php:145
 msgid "Yes"
-msgstr ""
+msgstr "Tak"
 
 #: bin/restore.php:259
 #, php-format
 msgid "You should run \"%s\" to ensure system integrity"
-msgstr ""
+msgstr "Powinieneś uruchomić \"%s\" w celu zapewnienia integralności systemu"
 
 #: views/backup/backups.php:312
 msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
 msgstr ""
+"Twoja kopia zapasowa zostanie zapisana lokalnie na /var/spool/asterisk/backup"
 
 #: install.php:126
 msgid "added default backup servers"
-msgstr ""
+msgstr "Dodano domyślne serwery kopii zapasowych"
 
 #: install.php:215
 msgid "added default backup templates"
-msgstr ""
+msgstr "Dodane domyślne szablony tworzenia kopii zapasowych"
 
 #: functions.inc/class.backup.php:399
 msgid "astDb's"
-msgstr ""
+msgstr "astDb's"
 
 #: views/item_table.php:48
 msgid "chose"
-msgstr ""
+msgstr "wybierz"
 
 #: functions.inc/restore.php:32
 msgid "error/not found!"
-msgstr ""
+msgstr "błąd nie znaleziony!"
 
 #: functions.inc/restore.php:226
 msgid "manifest not found"
@@ -1682,12 +1687,12 @@ msgstr ""
 
 #: functions.inc/templates.php:289
 msgid "table names, one per line"
-msgstr ""
+msgstr "Nazwy tabel, po jednej w wierszu"
 
 #: bin/backup.php:45
 msgid "waiting for lock..."
-msgstr ""
+msgstr "oczekiwanie na blokadę..."
 
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
-msgstr ""
+msgstr "{brak dostępnych serwerów}"

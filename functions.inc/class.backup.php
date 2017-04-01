@@ -505,11 +505,11 @@ class Backup {
 					$buckets = $awss3->listBuckets();
 					if (!in_array($s['bucket'], $buckets)) {
 						// Create the bucket
-						$awss3->putBucket($s['bucket'], \S3::ACL_PUBLIC_READ);
+						$awss3->putBucket($s['bucket'], \S3::ACL_PRIVATE);
 					}
 
 					//copy file
-					if ($awss3->putObjectFile($this->b['_tmpfile'], $s['bucket'], $this->b['name']."/".$this->b['_file'] . '.tgz', \S3::ACL_PUBLIC_READ)) {
+					if ($awss3->putObjectFile($this->b['_tmpfile'], $s['bucket'], $this->b['name']."/".$this->b['_file'] . '.tgz', \S3::ACL_PRIVATE)) {
 						dbug('S3 successfully uploaded your backup file.');
 					} else {
 						dbug('S3 failed to accept your backup file');

@@ -5,15 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-19 13:57-0800\n"
+"POT-Creation-Date: 2017-04-06 15:03-0400\n"
 "PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
-"Language-Team: Polish "
-"<http://weblate.freepbx.org/projects/freepbx/backup/pl/>\n"
-"Language: pl\n"
+"Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/backup/pl/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
@@ -89,7 +89,7 @@ msgstr "Dodaj serwer"
 msgid "Adding items..."
 msgstr "Dodawanie obiektów..."
 
-#: backup.i18n.php:6 backup.i18n.php:12
+#: backup.i18n.php:6
 msgid "Admin"
 msgstr "Administrator"
 
@@ -175,15 +175,15 @@ msgstr "Kopa zapasowa"
 msgid "Backup & Restore"
 msgstr "Kopia zapasowa & Przywracanie"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
 msgstr "Kopia zapasowa & Przywracanie - Przywracanie"
 
-#: backup.i18n.php:14
+#: backup.i18n.php:12
 msgid "Backup & Restore - Servers"
 msgstr "Kopia zapasowa & Przywracanie - Serwery"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:14
 msgid "Backup & Restore - Templates"
 msgstr "Kopia zapasowa & Przywracanie - Szblony"
 
@@ -224,7 +224,7 @@ msgstr "Backup Lock wymagany!"
 msgid "Backup Log:"
 msgstr "Backup Log:"
 
-#: backup.i18n.php:22
+#: backup.i18n.php:20
 msgid "Backup Module"
 msgstr "Moduł kopii zapasowej"
 
@@ -501,7 +501,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr "Upuść tutaj"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:18
 msgid "Email "
 msgstr "Email "
 
@@ -1424,7 +1424,7 @@ msgstr ""
 "Typ plików systemu serwera FTP. Jeśli nie jesteś pewny, ustaw to na "
 "automatyczne"
 
-#: backup.i18n.php:24
+#: backup.i18n.php:22
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "Pole od: dla wiadomości e-mail podczas korzystania z funkcji tworzenia kopii "
@@ -1455,9 +1455,9 @@ msgid ""
 "bytes). It was not attempted to be sent. Please shrink your backup, or use a "
 "different method of transferring your backup."
 msgstr ""
-"Plik kopii zapasowej przekroczył limit miękki w konfiguracji SMTP (%s bajtów)"
-". Nie próbowano go wysłać. Proszę zmniejszyć kopię zapasową lub użyć innej "
-"metody przenoszenia kopii zapasowej."
+"Plik kopii zapasowej przekroczył limit miękki w konfiguracji SMTP (%s "
+"bajtów). Nie próbowano go wysłać. Proszę zmniejszyć kopię zapasową lub użyć "
+"innej metody przenoszenia kopii zapasowej."
 
 #: views/servers/email.php:113
 msgid ""
@@ -1596,7 +1596,8 @@ msgstr "Co to jest?"
 
 #: views/backup/backups.php:303
 msgid "Where should status emails for this job be sent?"
-msgstr "Gdzie powinny być przesyłane wiadomości e-mail o statusie tego zadania?"
+msgstr ""
+"Gdzie powinny być przesyłane wiadomości e-mail o statusie tego zadania?"
 
 #: views/cron.php:234
 msgid "Which Days of the week to run"

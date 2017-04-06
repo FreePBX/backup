@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-19 13:57-0800\n"
+"POT-Creation-Date: 2017-04-06 15:03-0400\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -106,7 +106,7 @@ msgstr "Добавить сервер"
 msgid "Adding items..."
 msgstr "Добавление элементов..."
 
-#: backup.i18n.php:6 backup.i18n.php:12
+#: backup.i18n.php:6
 msgid "Admin"
 msgstr "Админ"
 
@@ -198,15 +198,15 @@ msgstr "Бекап"
 msgid "Backup & Restore"
 msgstr "Резервное копирование и восстановление"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
 msgstr "Резервное копирование и восстановление - Восстановление"
 
-#: backup.i18n.php:14
+#: backup.i18n.php:12
 msgid "Backup & Restore - Servers"
 msgstr "Резервное копирование и восстановление - Серверы"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:14
 msgid "Backup & Restore - Templates"
 msgstr "Резервное копирование и восстановление - Шаблоны"
 
@@ -247,7 +247,7 @@ msgstr "Блокировка бекапа установлена!"
 msgid "Backup Log:"
 msgstr "Лог бекапа:"
 
-#: backup.i18n.php:22
+#: backup.i18n.php:20
 msgid "Backup Module"
 msgstr "Модуль резервного копирования"
 
@@ -524,7 +524,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr "Бросить здесь"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:18
 msgid "Email "
 msgstr "E-mail "
 
@@ -1466,7 +1466,7 @@ msgstr "Образцы"
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr ""
 
-#: backup.i18n.php:24
+#: backup.i18n.php:22
 msgid "The From: field for emails when using the backup email feature."
 msgstr "Форма: поле для e-mail's, когда используется функция backup e-mail."
 

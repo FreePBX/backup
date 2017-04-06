@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-19 13:57-0800\n"
+"POT-Creation-Date: 2017-04-06 15:03-0400\n"
 "PO-Revision-Date: 2016-02-05 11:17+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -99,7 +99,7 @@ msgstr "Ajouter un serveur"
 msgid "Adding items..."
 msgstr ""
 
-#: backup.i18n.php:6 backup.i18n.php:12
+#: backup.i18n.php:6
 msgid "Admin"
 msgstr "Admin"
 
@@ -183,15 +183,15 @@ msgstr "Copie de sauvegarde"
 msgid "Backup & Restore"
 msgstr "Sauvegarder et restaurer"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
 msgstr "Sauvegarder et restaurer - Restaurer"
 
-#: backup.i18n.php:14
+#: backup.i18n.php:12
 msgid "Backup & Restore - Servers"
 msgstr "Sauvegarder et restaurer - Serveurs"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:14
 msgid "Backup & Restore - Templates"
 msgstr "Sauvegarder et restaurer - Modèles"
 
@@ -231,7 +231,7 @@ msgstr ""
 msgid "Backup Log:"
 msgstr "Journal de la copie de sauvegarde :"
 
-#: backup.i18n.php:22
+#: backup.i18n.php:20
 msgid "Backup Module"
 msgstr "Modele de copie de sauvegarde"
 
@@ -496,7 +496,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr ""
 
-#: backup.i18n.php:20
+#: backup.i18n.php:18
 msgid "Email "
 msgstr ""
 
@@ -1405,7 +1405,7 @@ msgstr ""
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr ""
 
-#: backup.i18n.php:24
+#: backup.i18n.php:22
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 

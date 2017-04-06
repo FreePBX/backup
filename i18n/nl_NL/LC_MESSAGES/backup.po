@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-19 13:57-0800\n"
+"POT-Creation-Date: 2017-04-06 15:03-0400\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -94,7 +94,7 @@ msgstr ""
 msgid "Adding items..."
 msgstr "Onderdelen toevoegen..."
 
-#: backup.i18n.php:6 backup.i18n.php:12
+#: backup.i18n.php:6
 msgid "Admin"
 msgstr "Beheer"
 
@@ -180,15 +180,15 @@ msgstr "Reservekopie"
 msgid "Backup & Restore"
 msgstr "Reservekopie & Terugzetten"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
 msgstr "Reservekopie & Terugzetten - Terugzetten"
 
-#: backup.i18n.php:14
+#: backup.i18n.php:12
 msgid "Backup & Restore - Servers"
 msgstr "Reservekopie & Terugzetten - Servers"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:14
 msgid "Backup & Restore - Templates"
 msgstr "Reservekopie & Terugzetten - Sjablonen"
 
@@ -228,7 +228,7 @@ msgstr "Reservekopie vergrendeling verkregen!"
 msgid "Backup Log:"
 msgstr "Reservekopie log:"
 
-#: backup.i18n.php:22
+#: backup.i18n.php:20
 msgid "Backup Module"
 msgstr "Reservekopie module"
 
@@ -506,7 +506,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr ""
 
-#: backup.i18n.php:20
+#: backup.i18n.php:18
 msgid "Email "
 msgstr "e-mail: "
 
@@ -1431,7 +1431,7 @@ msgstr "Sjablonen"
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr ""
 
-#: backup.i18n.php:24
+#: backup.i18n.php:22
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "Het Van: veld voor e-mails wanneer gebruik wordt gemaakt van de reservekopie "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-19 13:57-0800\n"
+"POT-Creation-Date: 2017-04-06 15:03-0400\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -91,7 +91,7 @@ msgstr "افزودن سرور"
 msgid "Adding items..."
 msgstr "افزودن آیتم ها..."
 
-#: backup.i18n.php:6 backup.i18n.php:12
+#: backup.i18n.php:6
 msgid "Admin"
 msgstr "مدیر"
 
@@ -180,15 +180,15 @@ msgstr "پشتیبان گیری"
 msgid "Backup & Restore"
 msgstr "پشتیبان گیری و بازیابی"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
 msgstr "پشتیبان گیری و بازیابی - بازیابی"
 
-#: backup.i18n.php:14
+#: backup.i18n.php:12
 msgid "Backup & Restore - Servers"
 msgstr "پشتیبان گیری و بازیابی - سرورها"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:14
 msgid "Backup & Restore - Templates"
 msgstr "پشتیبان گیری و بازیابی - قالب ها"
 
@@ -229,7 +229,7 @@ msgstr "به وجود آمدن قفل پشتیبان گیری!"
 msgid "Backup Log:"
 msgstr "لاگ پشتیبان گیری:"
 
-#: backup.i18n.php:22
+#: backup.i18n.php:20
 msgid "Backup Module"
 msgstr "ماژول پشتیبان گیری"
 
@@ -504,7 +504,7 @@ msgstr "برای اضافه کردن قالب ها به جدول، آن ها ر�
 msgid "Drop Here"
 msgstr "اینجا بیندازید"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:18
 msgid "Email "
 msgstr "ایمیل "
 
@@ -1436,7 +1436,7 @@ msgstr "قالب ها"
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr "سیستم فایل از نوع سرور FTP . اگر مطمئن نیستید به صورت خودکارتنظیم کنید"
 
-#: backup.i18n.php:24
+#: backup.i18n.php:22
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "از طرف: فیلد مبدا ایمیل ها وقتی از قابلیت ارسال ایمیل پشتیبان استفاده می شود."

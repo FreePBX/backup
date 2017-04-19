@@ -82,8 +82,8 @@ function backup_jstree_list_dir($id, $path = '') {
 			try{
 				$connection->open();
 			}catch (\Exception $e){
-				$this->b['error'] = $e->getMessage();
-				backup_log($this->b['error']);
+				backup_log($e->getMessage());
+				echo $e->getMessage();
 				return;
 			}
 			$wrapper = new FTPWrapper($connection);

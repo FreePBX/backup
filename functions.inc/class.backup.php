@@ -491,7 +491,11 @@ class Backup {
 						backup_log($e->getMessage());
 						return;
 					}
-						//run maintenance on the directory
+					//Adding a backup upload confirmation to the backup_log (FREEPBX-14466 ->Whoops error when ftp backup can't delete old backups)
+					// hope it will not reach here, if backup encounters an Exception
+					 backup_log( _("Backup file uploaded to the remote server"));
+					 backup_log( _("Run the manitenance.."));
+					 //run maintenance on the directory
 					$this->maintenance($s['type'], $path, $ftp);
 					break;
 				case 'awss3':

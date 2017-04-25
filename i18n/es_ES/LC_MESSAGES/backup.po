@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-06 15:03-0400\n"
+"POT-Creation-Date: 2017-04-25 14:50-0400\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -292,6 +292,10 @@ msgstr ""
 #: bin/restore.php:92
 msgid "Backup file not found! Aborting."
 msgstr "Archivo de Respaldo no encontrado!. Abortando."
+
+#: functions.inc/class.backup.php:496
+msgid "Backup file uploaded to the remote server"
+msgstr ""
 
 #: bin/backup.php:12
 msgid "Backup module not found or is disabled. Aborting!"
@@ -569,7 +573,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr "Error creando el objeto FTP"
 
-#: functions.inc/class.backup.php:803
+#: functions.inc/class.backup.php:807
 #, php-format
 msgid "Error deleting %s"
 msgstr "Error borrando %s"
@@ -1279,6 +1283,10 @@ msgstr "Ejecutar una vez al año, medianoche, 01 de enero"
 #: views/cron.php:77
 msgid "Run once an hour, beginning of hour"
 msgstr "Ejecutar una vez cada hora, a inicio de la hora"
+
+#: functions.inc/class.backup.php:497
+msgid "Running maintenance.."
+msgstr ""
 
 #: bin/restore.php:377
 msgid "Running post restore script..."

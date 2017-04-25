@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-06 15:03-0400\n"
+"POT-Creation-Date: 2017-04-25 14:50-0400\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -295,6 +295,10 @@ msgstr ""
 #: bin/restore.php:92
 msgid "Backup file not found! Aborting."
 msgstr "Файл бекапа не найден! Прерывание."
+
+#: functions.inc/class.backup.php:496
+msgid "Backup file uploaded to the remote server"
+msgstr ""
 
 #: bin/backup.php:12
 msgid "Backup module not found or is disabled. Aborting!"
@@ -571,7 +575,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:803
+#: functions.inc/class.backup.php:807
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -1274,6 +1278,10 @@ msgstr "Запустить единожды в один из годов , в п�
 #: views/cron.php:77
 msgid "Run once an hour, beginning of hour"
 msgstr "Запустить единожды в один из часов , начиная с часа"
+
+#: functions.inc/class.backup.php:497
+msgid "Running maintenance.."
+msgstr ""
 
 #: bin/restore.php:377
 msgid "Running post restore script..."

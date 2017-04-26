@@ -49,6 +49,7 @@ function backup_get_backup($id = '') {
 				'delete_time_type'	=> '',
 				'delete_time'		=> 0,
 				'disabletrunks'		=> '',
+				'skipbind'		=> '',
 				'exclude'			=> '',
 				'host'				=> '',
 				'id'				=> '',
@@ -136,6 +137,7 @@ function backup_get_backup($id = '') {
 			$ret['applyconfigs']	= isset($ret['applyconfigs'])	? $ret['applyconfigs'] : false;
 			$ret['disabletrunks']	= isset($ret['disabletrunks'])	? $ret['disabletrunks'] : false;
 			$ret['skipnat']		= isset($ret['skipnat'])	? $ret['skipnat'] : false;
+			$ret['skipbind']		= isset($ret['skipbind'])	? $ret['skipbind'] : false;
 			$ret['emailfailonly']		= isset($ret['emailfailonly'])	? $ret['emailfailonly'] : false;
 
 			//get items
@@ -210,7 +212,6 @@ function backup_put_backup($var) {
 			$var['cron_random'] = '';
 			break;
 	}
-
 	foreach ($var as $key => $value) {
 		switch ($key) {
 			case 'cron_minute':
@@ -260,6 +261,12 @@ function backup_put_backup($var) {
 					$data[] = array($var['id'],  $key, '', $value);
 				}
 				break;
+			 case 'skipbind':
+                                //only save if we have a value, we didnt select the local server, and were doing a restore
+                                if ($value == 'true' && $var['bu_server'] > 0 && $var['restore'] == 'true') {
+                                        $data[] = array($var['id'],  $key, '', $value);
+                                }
+                                break;
 			case 'storage_servers':
 				$index = 0;
 				foreach ($value as $v) {

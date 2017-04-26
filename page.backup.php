@@ -18,6 +18,7 @@ $get_vars = array(
 				'delete_time'		=> '',
 				'disabletrunks'		=> '',
 				'skipnat'		=> '',
+				'skipbind'		=> '',
 				'display'			=> '',
 				'exclude'			=> '',
 				'host'				=> '',

@@ -174,7 +174,14 @@ if (isset($vars['id']) && $vars['id']) {
 				} else {
 					$skipnat = "";
 				}
-				$cmd = $amp_conf['AMPBIN'] . "/restore.php $skipnat "
+                                if (!empty($b->b['skipbind'])) {
+                                        $skipbind = "--skipbind ";
+					backup_log(_('Skip Bindaddrss is Enabled... '));
+                                } else {
+                                        $skipbind = "";
+                                }
+
+				$cmd = $amp_conf['AMPBIN'] . "/restore.php  $skipnat $skipbind"
 						. '--restore=' . $b->b['_tmpfile']
 						. ' --items=' . base64_encode(json_encode($restore));
 				system($cmd);

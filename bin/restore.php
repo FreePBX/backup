@@ -305,14 +305,40 @@ if (!isset($vars['restore'])) {
 			}
 
 			if ($skipbind) {
-                                backup_log(_('Preserving local Bind address'));
-                                // Back up the bindaddress, to restore later.
-                                $ss = FreePBX::Sipsettings();
+				backup_log(_('Preserving local Bind address'));
+				// Back up the bindaddress, to restore later.
+				$ss = FreePBX::Sipsettings();
 				$siparray=$ss->getChanSipSettings();
+				unset($presvars);
 				$backup['bindaddr'] = $siparray['bindaddr'];
 				backup_log('backup server bindaddress='.$backup['bindaddr']);
+				// This is something tricky ahhh  PJSIP!!!!!!!!
+					$allBindsprese = $ss->getConfig("binds");
+					$protocolsprese = $ss->getConfig("protocols");
 
-                        }
+					foreach($protocolsprese as $p) {
+						$binds = !empty($allBindsprese[$p]) && is_array($allBindsprese[$p]) ? $allBindsprese[$p] : array();
+
+						foreach ($binds as $ip => $stat){
+							if ($stat != "on") {
+								continue;
+							}
+
+						// ws and wss are not configurable
+						if (strpos($p, "ws") === 0) {
+							continue;
+						}
+
+							$presvars[] = array(
+							$p."port-$ip" => $ss->getConfig($p."port-$ip"),
+							$p."domain-$ip" => $ss->getConfig($p."domain-$ip"),
+							$p."extip-$ip" => $ss->getConfig($p."extip-$ip"),
+							$p."localnet-$ip" =>$ss->getConfig($p."localnet-$ip"),
+							);
+						}
+						}
+
+               }
 
 			backup_log(_('Restoring Database...'));
 
@@ -374,8 +400,16 @@ if (!isset($vars['restore'])) {
 			if ($skipbind) {
 				backup_log(_('Restoring Bindaddres Settings'));
 				$ss = FreePBX::Sipsettings();
-                                $ss->updateChanSipSettings('bindaddr',$backup['bindaddr']);
-				backup_log('Restored preserved bindaddres'.$backup['bindaddr']);
+		                $ss->updateChanSipSettings('bindaddr',$backup['bindaddr']);
+				// lets restore pjsip bindaddress
+				$ss->setConfig('binds',$allBindsprese);
+				foreach ($presvars as $v ) 	{
+					foreach($v as $proto => $val) {
+						$ss->setConfig($proto,$val);
+					}
+				}
+
+
 			}
 
 		}

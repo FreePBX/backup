@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-25 14:50-0400\n"
+"POT-Creation-Date: 2017-04-27 15:26-0400\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -131,7 +131,7 @@ msgstr "Amazon S3&trade; سرور"
 msgid "Annually"
 msgstr "سالیانه"
 
-#: views/backup/backup.php:380
+#: views/backup/backup.php:408
 msgid "Apply Configs"
 msgstr "اعمال تنظیمات"
 
@@ -155,7 +155,7 @@ msgstr "آگوست"
 msgid "Auto"
 msgstr "خودکار"
 
-#: views/backup/backup.php:437
+#: views/backup/backup.php:465
 msgid "Available Servers"
 msgstr "سرور های در دسترس"
 
@@ -171,7 +171,7 @@ msgstr "لاگ پشتیبان ضمیمه شده"
 msgid "BACKUP NOT ATTACHED"
 msgstr "پشتیبان ضمیمه نشد"
 
-#: Backup.class.php:316 functions.inc/backup.php:80
+#: Backup.class.php:316 functions.inc/backup.php:81
 #: functions.inc/class.backup.php:403 views/backup/backup.php:6
 msgid "Backup"
 msgstr "پشتیبان گیری"
@@ -237,7 +237,7 @@ msgstr "ماژول پشتیبان گیری"
 msgid "Backup Name"
 msgstr "نام پشتیبان"
 
-#: views/backup/backup.php:459
+#: views/backup/backup.php:487
 msgid "Backup Schedule"
 msgstr "زمان بندی پشتیبان"
 
@@ -257,11 +257,11 @@ msgstr "قالب پشتیبان"
 msgid "Backup Wizard"
 msgstr "ویزارد پشتیبان گیری"
 
-#: page.backup.php:115
+#: page.backup.php:116
 msgid "Backup and Restore"
 msgstr "پشتیبان گیری و بازیابی"
 
-#: bin/backup.php:150 bin/backup.php:198
+#: bin/backup.php:150 bin/backup.php:205
 msgid "Backup completed with errors!"
 msgstr "پشتیبان گیری با خطا پایان یافت!"
 
@@ -274,7 +274,7 @@ msgstr ""
 "شکست در پشتیبان گیری از دیتابیس [%s] در فایل [%s]. شما یک پشتیبان معیوب از "
 "سرور [%s] در اختیار دارید."
 
-#: bin/restore.php:92
+#: bin/restore.php:99
 msgid "Backup file not found! Aborting."
 msgstr "فایل پشتیبان یافت نشد! بی نتیجه."
 
@@ -286,7 +286,7 @@ msgstr ""
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "ماژول پشتیبان گیری یافت نشد و یا غیرفعال است. بی نتیجه!"
 
-#: bin/backup.php:152 bin/backup.php:200
+#: bin/backup.php:152 bin/backup.php:207
 msgid "Backup successfully completed!"
 msgstr "پشتیبان گیری با موفقیت پایان یافت!"
 
@@ -342,7 +342,7 @@ msgstr "تماس های ضبط شده"
 msgid "Can not create backup tables"
 msgstr "امکان ایجاد جداول پشتیبان وجود ندارد"
 
-#: bin/restore.php:386
+#: bin/restore.php:446
 msgid "Cleaning up..."
 msgstr "پاک کردن..."
 
@@ -391,7 +391,7 @@ msgstr "روز هر ماه"
 msgid "Day of Week"
 msgstr "روز هفته"
 
-#: views/backup/backup.php:495
+#: views/backup/backup.php:523
 msgid "Days"
 msgstr "روز"
 
@@ -415,17 +415,17 @@ msgstr "پیش فرض"
 msgid "Default backup; automatically installed"
 msgstr "پشتیبان پیش فرض، که به صورت خودکار نصب شده است"
 
-#: Backup.class.php:38 Backup.class.php:202 page.backup.php:46
+#: Backup.class.php:38 Backup.class.php:202 page.backup.php:47
 #: page.backup_servers.php:36 page.backup_templates.php:20
 #: views/item_table.php:14 views/restore/restore.php:40
 msgid "Delete"
 msgstr "حذف"
 
-#: views/backup/backup.php:483 views/backup/backup.php:520
+#: views/backup/backup.php:511 views/backup/backup.php:548
 msgid "Delete After"
 msgstr "حذف بعد از"
 
-#: views/backup/backup.php:510
+#: views/backup/backup.php:538
 msgid ""
 "Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
 "Please note that deletes aren't time based and will only happen after a "
@@ -435,7 +435,7 @@ msgstr ""
 "که عمل حذف مبتنی بر زمان نیست و تنها پس از اجرای پشتیبان صورت می پذیرد ."
 "مقدار صفر هرگونه حذف را غیرفعال می نماید"
 
-#: views/backup/backup.php:533
+#: views/backup/backup.php:561
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -483,7 +483,7 @@ msgstr "دایرکتوری '%s' وجود ندارد و نمی توان آن را
 msgid "Disable Registered Trunks"
 msgstr "غیرفعال کردن ترانک های رجیستر شده"
 
-#: bin/restore.php:432
+#: bin/restore.php:492
 msgid "Done!"
 msgstr "انجام شد!"
 
@@ -491,7 +491,7 @@ msgstr "انجام شد!"
 msgid "Download"
 msgstr "دانلود"
 
-#: views/backup/backup.php:408
+#: views/backup/backup.php:436
 msgid ""
 "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
@@ -540,7 +540,7 @@ msgstr "اطلاع رسانی از طریق ایمیل روی بله تنظیم 
 msgid "Email to send status messages to when this task is run"
 msgstr "آدرس ایمیلی که وضعیت اجرای این پشتیبان گیری به آن ارسال می گردد"
 
-#: views/backup/backup.php:395
+#: views/backup/backup.php:423
 msgid ""
 "Equivalence of clicking the red button, will happen automatically after a "
 "restore on a Standby system"
@@ -570,6 +570,10 @@ msgstr "خطا در بازبینی فایل بارگذاری شده!"
 msgid "Exclude"
 msgstr "به جز"
 
+#: views/backup/backup.php:380
+msgid "Exclude BIND address"
+msgstr ""
+
 #: install.php:181
 msgid ""
 "Exclude Backup's settings so that they dont get restored, useful for a "
@@ -582,6 +586,12 @@ msgstr ""
 msgid "Exclude NAT settings"
 msgstr "به استثناء تنظیمات NAT"
 
+#: views/backup/backup.php:395
+msgid ""
+"Explicitly exclude any machine-specific Bindaddres. This allows you to have "
+"a warm-spare machine with a different IP address."
+msgstr ""
+
 #: views/backup/backup.php:368
 msgid ""
 "Explicitly exclude any machine-specific IP settings. This allows you to have "
@@ -590,7 +600,7 @@ msgstr ""
 "به استثناء تنظیمات مربوط به سیستم به خصوص تنظیمات شبکه. این گزینه برای شما "
 "امکان راه اندازی سیستم جدید با آدرس IP متفاوت را فراهم می کند."
 
-#: bin/restore.php:66
+#: bin/restore.php:65
 msgid "Explicitly skipping host-specific NAT settings"
 msgstr "به استثناء تنظیمات مربوط به NAT میزبان"
 
@@ -655,7 +665,7 @@ msgstr "فایل"
 msgid "File not found! "
 msgstr "فایل یافت نشد! "
 
-#: bin/restore.php:150
+#: bin/restore.php:157
 msgid "File restore complete!"
 msgstr "بازیابی فایل پایان یافت!"
 
@@ -671,7 +681,7 @@ msgstr "فایل ها"
 msgid "Filesystem Type"
 msgstr "نوع فایل سیستم"
 
-#: page.backup.php:52
+#: page.backup.php:53
 msgid "FreePBX"
 msgstr "مرکزتماس رایگان"
 
@@ -679,7 +689,7 @@ msgstr "مرکزتماس رایگان"
 msgid "Friday"
 msgstr "جمعه"
 
-#: bin/restore.php:210
+#: bin/restore.php:217
 msgid "Getting CDR size..."
 msgstr "دریافت اندازه جزئیات تماس..."
 
@@ -716,7 +726,7 @@ msgstr "نام میزبان"
 msgid "Hourly"
 msgstr "ساعتی"
 
-#: views/backup/backup.php:493 views/cron.php:194 views/cron.php:198
+#: views/backup/backup.php:521 views/cron.php:194 views/cron.php:198
 msgid "Hours"
 msgstr "ساعت"
 
@@ -774,7 +784,7 @@ msgstr "ورود"
 msgid "Initializing Backup"
 msgstr "مقداردهی اولیه پشتیبان گیری"
 
-#: bin/restore.php:89
+#: bin/restore.php:96
 msgid "Initializing Restore..."
 msgstr "مقداردهی اولیه بازیابی..."
 
@@ -835,7 +845,7 @@ msgstr "محل کلید خصوصی SSH که برای اتصال به میزبا�
 msgid "MB"
 msgstr "مگابایت"
 
-#: views/backup/backup.php:474
+#: views/backup/backup.php:502
 msgid "Maintenance"
 msgstr "نگهداری"
 
@@ -851,7 +861,7 @@ msgstr "حداکثراندازه ایمیل"
 msgid "May"
 msgstr "می"
 
-#: views/backup/backup.php:491 views/cron.php:168 views/cron.php:172
+#: views/backup/backup.php:519 views/cron.php:168 views/cron.php:172
 msgid "Minutes"
 msgstr "دقیقه"
 
@@ -863,7 +873,7 @@ msgstr "دوشنبه"
 msgid "Monthly"
 msgstr "ماهانه"
 
-#: views/backup/backup.php:499 views/cron.php:246 views/cron.php:250
+#: views/backup/backup.php:527 views/cron.php:246 views/cron.php:250
 msgid "Months"
 msgstr "ماه"
 
@@ -945,10 +955,10 @@ msgstr "شبانه"
 
 #: views/backup/backup.php:96 views/backup/backup.php:308
 #: views/backup/backup.php:333 views/backup/backup.php:360
-#: views/backup/backup.php:387 views/backup/backups.php:186
-#: views/backup/backups.php:213 views/backup/backups.php:240
-#: views/backup/backups.php:271 views/backup/backups.php:327
-#: views/cron.php:147
+#: views/backup/backup.php:387 views/backup/backup.php:415
+#: views/backup/backups.php:186 views/backup/backups.php:213
+#: views/backup/backups.php:240 views/backup/backups.php:271
+#: views/backup/backups.php:327 views/cron.php:147
 msgid "No"
 msgstr "خیر"
 
@@ -960,7 +970,7 @@ msgstr "مواردی برای پشتیبان تعیین نشده. بی نتیج�
 msgid "No storage servers found! Aborting."
 msgstr "سروری برای ذخیره سازی یافت نشد! بی نتیجه."
 
-#: bin/restore.php:85
+#: bin/restore.php:92
 msgid "Nothing to restore!"
 msgstr "چیزی برای بازیابی وجود ندارد!"
 
@@ -1070,16 +1080,20 @@ msgstr "تله پیش از اجرای پشتیبان"
 msgid "Pre-Restore Hook"
 msgstr "تله پیش از اجرای بازیابی"
 
-#: bin/restore.php:293
+#: bin/restore.php:308
+msgid "Preserving local Bind address"
+msgstr ""
+
+#: bin/restore.php:300
 msgid "Preserving local NAT settings"
 msgstr "حفظ تنظیمات NAT محلی"
 
-#: bin/restore.php:244
+#: bin/restore.php:251
 #, php-format
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr "پردازش %s%% از CDR ها (%s از %s خط)"
 
-#: bin/restore.php:338
+#: bin/restore.php:381
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "پردازش %s%% از تنظیمات (%s از %s خط)"
@@ -1100,7 +1114,7 @@ msgstr "تصادفی"
 msgid "Reboot"
 msgstr "راه اندازی مجدد"
 
-#: bin/restore.php:417
+#: bin/restore.php:477
 msgid "Reloading..."
 msgstr "بارگذاری..."
 
@@ -1171,39 +1185,43 @@ msgstr "بازیابی تمامی تنظیمات ذخیره شده در دیتا
 msgid "Restore backup to this server after the backup is complete"
 msgstr "بازیابی پشتیبان بر روی این سرور بعد از اتمام پشتیبان گیری"
 
-#: bin/restore.php:416
+#: bin/restore.php:476
 msgid "Restore complete!"
 msgstr "بازیابی کامل شد!"
 
-#: bin/restore.php:342
+#: bin/restore.php:385
 msgid "Restored Database"
 msgstr "دیتابیس بازیابی شد"
 
-#: bin/restore.php:251
+#: bin/restore.php:401
+msgid "Restoring Bindaddres Settings"
+msgstr ""
+
+#: bin/restore.php:258
 msgid "Restoring CDRs complete"
 msgstr "تکمیل بازیابی CDR ها"
 
-#: bin/restore.php:169
+#: bin/restore.php:176
 msgid "Restoring CDRs..."
 msgstr "بازیابی CDR ها…"
 
-#: bin/restore.php:300
+#: bin/restore.php:343
 msgid "Restoring Database..."
 msgstr "بازیابی دیتابیس..."
 
-#: bin/restore.php:350
+#: bin/restore.php:393
 msgid "Restoring NAT settings"
 msgstr "بازیابی تنظیمات NAT"
 
-#: bin/restore.php:371
+#: bin/restore.php:431
 msgid "Restoring Settings complete"
 msgstr "تکمیل بازیابی تنظیمات"
 
-#: bin/restore.php:114
+#: bin/restore.php:121
 msgid "Restoring all files (this may take some time)..."
 msgstr "بازیابی تمامی فایل ها (ممکن است طول بکشد)..."
 
-#: bin/restore.php:361
+#: bin/restore.php:421
 msgid "Restoring astDB..."
 msgstr "بازیابی دیتابیس استریسک..."
 
@@ -1211,7 +1229,7 @@ msgstr "بازیابی دیتابیس استریسک..."
 msgid "Restoring backup..."
 msgstr "بازیابی پشتیبان..."
 
-#: bin/restore.php:118
+#: bin/restore.php:125
 msgid "Restoring files (this may take some time)..."
 msgstr "بازیابی فایل ها (ممکن است طول بکشد)..."
 
@@ -1227,7 +1245,7 @@ msgstr ""
 "در زمان راه اندازی سرور و یا سرویس cron اجرا شود (بعد از هر <code> سرویس "
 "cron راه اندازی مجدد می نماید</code>)"
 
-#: page.backup.php:48
+#: page.backup.php:49
 msgid "Run now"
 msgstr "اجرا شود"
 
@@ -1255,15 +1273,15 @@ msgstr "یک مرتبه در هر ساعت اجرا شود، در ابتدای �
 msgid "Running maintenance.."
 msgstr ""
 
-#: bin/restore.php:377
+#: bin/restore.php:437
 msgid "Running post restore script..."
 msgstr "اجرای اسکریپت پس از بازیابی..."
 
-#: bin/backup.php:145 bin/backup.php:183
+#: bin/backup.php:145 bin/backup.php:190
 msgid "Running post-backup hooks..."
 msgstr "اجرای تله های بعد از پشتیبان گیری…"
 
-#: bin/restore.php:381
+#: bin/restore.php:441
 msgid "Running post-restore hooks, if any..."
 msgstr "اجرای تله های پس از بازیابی…"
 
@@ -1271,15 +1289,15 @@ msgstr "اجرای تله های پس از بازیابی…"
 msgid "Running pre-backup hooks..."
 msgstr "اجرای تله های پیش از پشتیبان گیری…"
 
-#: bin/restore.php:104
+#: bin/restore.php:111
 msgid "Running pre-restore hooks, if any..."
 msgstr "اجرای تله های پیش از بازیابی…"
 
-#: bin/restore.php:101
+#: bin/restore.php:108
 msgid "Running pre-restore scripts..."
 msgstr "اجرای اسکریپت های پیش از بازیابی…"
 
-#: views/backup/backup.php:526
+#: views/backup/backup.php:554
 msgid "Runs"
 msgstr "اجرا"
 
@@ -1382,6 +1400,14 @@ msgstr "آدرس سرور نمی تواند خالی باشد"
 msgid "Servers"
 msgstr "سرورها"
 
+#: bin/backup.php:179
+msgid "Skip Bindaddrss is Enabled... "
+msgstr ""
+
+#: bin/restore.php:73
+msgid "Skipping host-specific Bind address"
+msgstr ""
+
 #: bin/backup.php:104
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr ""
@@ -1411,7 +1437,7 @@ msgstr "گام چهارم"
 msgid "Step 5"
 msgstr "گام پنجم"
 
-#: views/backup/backup.php:414
+#: views/backup/backup.php:442
 msgid "Storage Servers"
 msgstr "سرورهای ذخیره سازی"
 
@@ -1577,11 +1603,11 @@ msgstr "محل ذخیره سازی صندوق صوتی"
 msgid "Voicemails"
 msgstr "صندوق های صوتی"
 
-#: bin/restore.php:257
+#: bin/restore.php:264
 msgid "WARNING!"
 msgstr "هشدار!"
 
-#: bin/restore.php:258
+#: bin/restore.php:265
 msgid "Web Root restore not detected, not restoring module table"
 msgstr "بازیابی شاخه اصلی وب شناسایی نگردید، عدم وجود جدول ماژول بازیابی"
 
@@ -1597,7 +1623,7 @@ msgstr "روزهای هفته"
 msgid "Weekly"
 msgstr "هفتگی"
 
-#: views/backup/backup.php:497
+#: views/backup/backup.php:525
 msgid "Weeks"
 msgstr "هفته"
 
@@ -1657,20 +1683,20 @@ msgstr "آیا تمایل به تهیه پشتیبان از مکالمات ضب�
 msgid "Would you like voicemails backded up."
 msgstr "آیا تمایل به تهیه پشتیبان از صندوق های صوتی دارید."
 
-#: views/backup/backup.php:501
+#: views/backup/backup.php:529
 msgid "Years"
 msgstr "سال"
 
 #: views/backup/backup.php:94 views/backup/backup.php:306
 #: views/backup/backup.php:331 views/backup/backup.php:358
-#: views/backup/backup.php:385 views/backup/backups.php:184
-#: views/backup/backups.php:211 views/backup/backups.php:238
-#: views/backup/backups.php:269 views/backup/backups.php:325
-#: views/cron.php:145
+#: views/backup/backup.php:385 views/backup/backup.php:413
+#: views/backup/backups.php:184 views/backup/backups.php:211
+#: views/backup/backups.php:238 views/backup/backups.php:269
+#: views/backup/backups.php:325 views/cron.php:145
 msgid "Yes"
 msgstr "بله"
 
-#: bin/restore.php:259
+#: bin/restore.php:266
 #, php-format
 msgid "You should run \"%s\" to ensure system integrity"
 msgstr "برای اطمینان از یکپارچگی اطلاعات باید \"%s\" را اجرا کنید"

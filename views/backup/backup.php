@@ -370,6 +370,34 @@ if ($restore == "true" || $restore == "on") {
 	</div>
 </div>
 <!--END Exclude NAT settings-->
+<!--Exclude Bindaddre settings-->
+<div class="element-container remote restore">
+        <div class="row">
+                <div class="col-md-12">
+                        <div class="row">
+                                <div class="form-group">
+                                        <div class="col-md-3">
+                                                <label class="control-label" for="skipbind"><?php echo _("Exclude BIND address") ?></label>
+                                                <i class="fa fa-question-circle fpbx-help-icon" data-for="skipbind"></i>
+                                        </div>
+                                        <div class="col-md-9 radioset">
+            <input type="radio" name="skipbind" id="skipbindyes" value="true" <?php echo ($skipbind == "true"?"CHECKED":"") ?>>
+            <label for="skipbindyes"><?php echo _("Yes");?></label>
+            <input type="radio" name="skipbind" id="skipbindno" value = "" <?php echo ($skipbind == "true"?"":"CHECKED") ?>>
+            <label for="skipbindno"><?php echo _("No");?></label>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                        <span id="skipbind-help" class="help-block fpbx-help-block"><?php echo _("Explicitly exclude any machine-specific Bindaddres. This allows you to have a warm-spare machine with a different IP address.")?></span>
+                </div>
+        </div>
+</div>
+<!--END Exclude Bindaddre settings-->
+
 <!--Apply Configs-->
 <div class="element-container remote restore">
 	<div class="row">

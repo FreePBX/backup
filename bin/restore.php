@@ -22,8 +22,7 @@ if (!function_exists('backup_log')) {
  */
 
 $getopt = (function_exists('_getopt') ? '_' : '') . 'getopt';
-$vars = $getopt($short = '', $long = array('restore::', 'items::', 'manifest::', 'skipnat::'));
-
+$vars = $getopt($short = '', $long = array('restore::', 'items::', 'manifest::', 'skipnat::', 'skipbind::'));
 // Let items be descriptive - it may NOT be an encoded array.
 if (isset($vars['items'])) {
 	// Is it an encoded array though?
@@ -66,6 +65,14 @@ if (isset($vars['skipnat'])) {
 	backup_log(_('Explicitly skipping host-specific NAT settings'));
 } else {
 	$skipnat = false;
+}
+
+// Checking  skip Bind address
+if (isset($vars['skipbind'])) {
+        $skipbind = true;
+        backup_log(_('Skipping host-specific Bind address'));
+} else {
+        $skipbind = false;
 }
 
 
@@ -297,6 +304,42 @@ if (!isset($vars['restore'])) {
 				$backup['externip'] = $ss->getConfig('externip');
 			}
 
+			if ($skipbind) {
+				backup_log(_('Preserving local Bind address'));
+				// Back up the bindaddress, to restore later.
+				$ss = FreePBX::Sipsettings();
+				$siparray=$ss->getChanSipSettings();
+				unset($presvars);
+				$backup['bindaddr'] = $siparray['bindaddr'];
+				backup_log('backup server bindaddress='.$backup['bindaddr']);
+				// This is something tricky ahhh  PJSIP!!!!!!!!
+					$allBindsprese = $ss->getConfig("binds");
+					$protocolsprese = $ss->getConfig("protocols");
+
+					foreach($protocolsprese as $p) {
+						$binds = !empty($allBindsprese[$p]) && is_array($allBindsprese[$p]) ? $allBindsprese[$p] : array();
+
+						foreach ($binds as $ip => $stat){
+							if ($stat != "on") {
+								continue;
+							}
+
+						// ws and wss are not configurable
+						if (strpos($p, "ws") === 0) {
+							continue;
+						}
+
+							$presvars[] = array(
+							$p."port-$ip" => $ss->getConfig($p."port-$ip"),
+							$p."domain-$ip" => $ss->getConfig($p."domain-$ip"),
+							$p."extip-$ip" => $ss->getConfig($p."extip-$ip"),
+							$p."localnet-$ip" =>$ss->getConfig($p."localnet-$ip"),
+							);
+						}
+						}
+
+               }
+
 			backup_log(_('Restoring Database...'));
 
 			$linecount = 0;
@@ -351,7 +394,24 @@ if (!isset($vars['restore'])) {
 				$ss = FreePBX::create()->Sipsettings;
 				$ss->setConfig('localnets', $backup['localnets']);
 				$ss->setConfig('externip',  $backup['externip']);
+                         }
+
+			// Restore the same bindaddess preserved earlier
+			if ($skipbind) {
+				backup_log(_('Restoring Bindaddres Settings'));
+				$ss = FreePBX::Sipsettings();
+		                $ss->updateChanSipSettings('bindaddr',$backup['bindaddr']);
+				// lets restore pjsip bindaddress
+				$ss->setConfig('binds',$allBindsprese);
+				foreach ($presvars as $v ) 	{
+					foreach($v as $proto => $val) {
+						$ss->setConfig($proto,$val);
+					}
+				}
+
+
 			}
+
 		}
 	}
 
@@ -454,7 +514,9 @@ function show_opts() {
 	$e[] = "\t\tDisplay the manifest file embedded in the backup .tgz.";
 	$e[] = "\t--skipnat";
 	$e[] = "\t\tThis explicitly skips any per-machine NAT settings (eg, externip)";
-	$e[] = '';
+	$e[] = "\t--skipbind";
+	$e[] = "\t\tSkips any per-machine Bind address settings";
+        $e[] = '';
 	$e[] = '';
 	echo implode("\n", $e);
 }

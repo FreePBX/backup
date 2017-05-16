@@ -161,7 +161,7 @@ $disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
 							<i class="fa fa-question-circle fpbx-help-icon" data-for="path"></i>
 						</div>
 						<div class="col-md-9">
-							<input type="text" class="form-control" id="path" name="path" value="<?php echo isset($path)?$path:''?>"<?php echo $disabled?>>
+							<input type="text" class="form-control" id="path" name="path" value="<?php echo isset($path)?htmlspecialchars($path):''?>"<?php echo $disabled?>>
 						</div>
 					</div>
 				</div>

@@ -208,6 +208,10 @@ if (!isset($vars['restore'])) {
 		$cmd[] = 'zxOf';
 		$cmd[] = escapeshellarg($vars['restore']);
 		$cmd[] = './' . $file;
+		if (preg_match("/\.gz$/", $file)) {
+			$cmd[] = '|';
+			$cmd[] = fpbx_which('gunzip');
+		}
 		$cmd[] = '>';
 		$cmd[] = $path;
 
@@ -277,6 +281,10 @@ if (!isset($vars['restore'])) {
 			$cmd[] = 'zxOf';
 			$cmd[] = $vars['restore'];
 			$cmd[] = './' . $file;
+			if (preg_match("/\.gz$/", $file)) {
+				$cmd[] = '|';
+				$cmd[] = fpbx_which('gunzip');
+			}
 			$cmd[] = '>';
 			$cmd[] = $path;
 

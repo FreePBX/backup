@@ -262,7 +262,7 @@ class Backup {
 				case 'mysql':
 					//build command
 					$s = str_replace('server-', '', $i['path']);
-					$sql_file = $this->b['_tmpdir'] . '/' . 'mysql-' . $s . '.sql';
+					$sql_file = $this->b['_tmpdir'] . '/' . 'mysql-' . $s . '.sql.gz';
 					$cmd[] = fpbx_which('mysqldump');
 					$cmd[] = '--host='	. backup__($this->s[$s]['host']);
 					$cmd[] = '--port='	. backup__($this->s[$s]['port']);
@@ -284,6 +284,7 @@ class Backup {
 					$cmd[] = ' | ';
 					$cmd[] = fpbx_which('grep');
 					$cmd[] = "-v '^\/\*\|^SET'";
+					$cmd[] = ' | ' . fpbx_which('gzip');
 					$cmd[] = ' > ' . $sql_file;
 
 					exec(implode(' ', $cmd), $file, $status);
@@ -607,12 +608,12 @@ class Backup {
 			}
 
 			// Is it a MySQL dump?
-			if (strpos($file, 'mysql-') === 0) {
+			if (preg_match("/^mysql-(\d+).sql/", $file, $matches)) {
 				//get server id
-				$s = substr($file, 6);
-				$s = substr($s, 0, -4);
+				$s = $matches[1];
 
 				//get exclude
+				$exclude = '';
 				foreach($this->b['items'] as $i) {
 					if($i['type'] == 'mysql' && $i['path'] == 'server-' . $s) {
 						$exclude = $i['exclude'];

@@ -172,4 +172,13 @@ $fstype = isset($fstype)?$fstype:'auto';
 
 <script type="text/javascript">
   var immortal = <?php echo (isset($immortal) && !empty($immortal))?'true':'false';?>;
+	$('#server_form').on('submit', function(e) {
+			if($("#host").val().length === 0 ) {
+				e.preventDefault();
+				warnInvalid($("#host"),_("The host cannot be empty"));
+				return false;
+			}else{
+				return true;
+			}
+	});
 </script>

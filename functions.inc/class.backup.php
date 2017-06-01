@@ -801,10 +801,15 @@ class Backup {
 					break;
 				case 'ftp':
 					$f = $handle->findFileByName($this->b['_dirname'].'/'.$file);
+					if(empty($f)){
+						$this->b['error'] = sprintf(_("Could not find %s on the remote system"),$file);
+						backup_log($this->b['error']);
+						continue;
+					}
 					try{
 						$handle->delete($f);
 					}catch(DirectoryException $e){
-						$this->b['error'] = sprintf(_("Error deleting %s %s"),$file, $f);
+						$this->b['error'] = sprintf(_("Error deleting %s"),$file);
 						backup_log($this->b['error']);
 					}
 					unset($delete[$key]);

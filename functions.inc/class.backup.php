@@ -736,7 +736,7 @@ class Backup {
 				$ftplist = $handle->findFilesystems(new Directory($data));
 				$dir = array();
 				foreach($ftplist as $ftpitem){
-					$dir[] = $ftpitem->getRealpath();
+					$dir[] = basename($ftpitem->getRealpath());
 				}
 				break;
 			case 'ssh':
@@ -800,11 +800,11 @@ class Backup {
 					unset($delete[$key]);
 					break;
 				case 'ftp':
-					$f = $handle->findFileByName($file);
+					$f = $handle->findFileByName($this->b['_dirname'].'/'.$file);
 					try{
 						$handle->delete($f);
 					}catch(DirectoryException $e){
-						$this->b['error'] = sprintf(_("Error deleting %s"),$file);
+						$this->b['error'] = sprintf(_("Error deleting %s %s"),$file, $f);
 						backup_log($this->b['error']);
 					}
 					unset($delete[$key]);

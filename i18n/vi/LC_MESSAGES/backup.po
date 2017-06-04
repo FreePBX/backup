@@ -10,85 +10,90 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27 15:26-0400\n"
-"PO-Revision-Date: 2017-04-27 15:26-0400\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2017-06-04 12:15+0200\n"
+"Last-Translator: PETER <ftek@ymail.com>\n"
+"Language-Team: Vietnamese "
+"<http://weblate.freepbx.org/projects/freepbx/backup/vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: views/backup/backups.php:23
 #, php-format
 msgid "%s Backup Wizard"
-msgstr ""
+msgstr "%s Sao lưu Wizard"
 
 #: functions.inc/templates.php:251
 msgid "/path/to/dir"
-msgstr ""
+msgstr "/path/to/dir"
 
 #: functions.inc/templates.php:238
 msgid "/path/to/file"
-msgstr ""
+msgstr "/path/to/file"
 
 #: install.php:145
 msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
 msgstr ""
+"Một sao lưu đầy đủ của các cài đặt và các tệp web, không bao gồm hệ thống "
+"các âm thanh và các bản ghi."
 
 #: views/backup/backup.php:197
 msgid "A script to be run AFTER a backup is completed."
-msgstr ""
+msgstr "Một kịch bản sẽ được chạy sau khi một sao lưu hoàn thành."
 
 #: views/backup/backup.php:245
 msgid "A script to be run AFTER a backup is restored."
-msgstr ""
+msgstr "Một kịch bản sẽ được chạy sau khi một sao lưu được phục hồi."
 
 #: views/backup/backup.php:221
 msgid "A script to be run BEFORE a backup is restored."
-msgstr ""
+msgstr "Một kịch bản sẽ được chạy trước khi một sao lưu được phục hồi."
 
 #: views/backup/backup.php:173
 msgid "A script to be run BEFORE a backup is started."
-msgstr ""
+msgstr "Một kịch bản sẽ được chạy trước khi một sao lưu được khởi động."
 
 #: views/backup/backups.php:154 assets/js/backup.js:93 assets/js/backup.js:105
 msgid "AT"
-msgstr ""
+msgstr "AT"
 
 #: views/servers/awss3.php:41
 msgid "AWS Access Key"
-msgstr ""
+msgstr "Khóa truy nhập AWS (  Các dịch vụ Web Amazon)"
 
 #: functions.inc/servers.php:335
 msgid "AWS S3 Server "
-msgstr ""
+msgstr "Máy chủ AWS S3 "
 
 #: views/servers/awss3.php:58
 msgid "AWS Secret"
-msgstr ""
+msgstr "Bảo mật AWS ( Các dịch vụ Web Amazon)"
 
 #: views/backup/backups.php:11 views/servers/servers.php:22
 #: views/templates/templates.php:9
 msgid "Actions"
-msgstr ""
+msgstr "Các thao tác"
 
 #: views/backup/backups.php:501 views/servers/ftp.php:158
 msgid "Active"
-msgstr ""
+msgstr "Hoạt động"
 
 #: views/servers/servers.php:4
 msgid "Add Server"
-msgstr ""
+msgstr "Thêm máy chủ"
 
 #: bin/backup.php:53
 msgid "Adding items..."
-msgstr ""
+msgstr "Đang thêm các hạng mục...."
 
 #: backup.i18n.php:6
 msgid "Admin"
-msgstr ""
+msgstr "Quản trị viên"
 
 #: views/backup/backup.php:341
 msgid ""

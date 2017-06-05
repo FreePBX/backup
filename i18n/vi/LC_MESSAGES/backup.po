@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27 15:26-0400\n"
-"PO-Revision-Date: 2017-06-05 08:25+0200\n"
+"PO-Revision-Date: 2017-06-05 15:37+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/backup/vi/>\n"
@@ -48,11 +48,11 @@ msgstr "Một kịch bản sẽ được chạy sau khi một sao lưu hoàn th�
 
 #: views/backup/backup.php:245
 msgid "A script to be run AFTER a backup is restored."
-msgstr "Một kịch bản sẽ được chạy sau khi một sao lưu được phục hồi."
+msgstr "Một kịch bản sẽ được chạy sau khi một sao lưu được khôi phục."
 
 #: views/backup/backup.php:221
 msgid "A script to be run BEFORE a backup is restored."
-msgstr "Một kịch bản sẽ được chạy trước khi một sao lưu được phục hồi."
+msgstr "Một kịch bản sẽ được chạy trước khi một sao lưu được khôi phục."
 
 #: views/backup/backup.php:173
 msgid "A script to be run BEFORE a backup is started."
@@ -101,9 +101,9 @@ msgid ""
 "to prevent the Primary and Standby systems from \"fighting\" for the "
 "registration, resulting in some calls routed to the Standby system."
 msgstr ""
-"Sau phục hồi, vô hiệu tất cả các trung kế có sử dụng đăng ký. Điều này nhằm "
-"giúp ngăn chặn các hệ thống sơ cấp và dự phòng khỏi \"xung đột\" cho việc "
-"đăng ký, gây nên một số cuộc gọi bị chuyển đến hệ thống dự phòng."
+"Sau khi khôi phục, vô hiệu tất cả các trung kế có sử dụng đăng ký. Điều này "
+"nhằm giúp ngăn chặn các hệ thống sơ cấp và dự phòng khỏi \"xung đột\" cho "
+"việc đăng ký, gây nên một số cuộc gọi bị chuyển đến hệ thống dự phòng."
 
 #: views/backup/backups.php:171
 msgid ""
@@ -180,23 +180,23 @@ msgstr "Sao lưu"
 
 #: backup.i18n.php:4 backup.i18n.php:10
 msgid "Backup & Restore"
-msgstr "Sao lưu và phục hồi"
+msgstr "Sao lưu và khôi phục"
 
 #: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
-msgstr "Sao lưu và phục hồi- Phục hồi"
+msgstr "Sao lưu và Khôi phục- Khôi phục"
 
 #: backup.i18n.php:12
 msgid "Backup & Restore - Servers"
-msgstr "Sao lưu & phục hồi- Các máy chủ"
+msgstr "Sao lưu & Khôi phục- Các máy chủ"
 
 #: backup.i18n.php:14
 msgid "Backup & Restore - Templates"
-msgstr "Sao lưu & phục hồi- Các mẫu"
+msgstr "Sao lưu & Khôi phục- Các mẫu"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
-msgstr "Sao lưu & Phục hồi cho môi trường FreePBX của bạn"
+msgstr "Sao lưu & Khôi phục cho môi trường FreePBX của bạn"
 
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
@@ -260,7 +260,7 @@ msgstr "Sao lưu Wizard"
 
 #: page.backup.php:116
 msgid "Backup and Restore"
-msgstr "Sao lưu & Phục hồi"
+msgstr "Sao lưu & Khôi phục"
 
 #: bin/backup.php:150 bin/backup.php:205
 msgid "Backup completed with errors!"
@@ -317,15 +317,15 @@ msgstr "Tên bộ chứa"
 
 #: bin/backup.php:56
 msgid "Building manifest..."
-msgstr ""
+msgstr "Đang xây dựng kê khai..."
 
 #: views/backup/backups.php:233
 msgid "CDR and Call Log Data"
-msgstr ""
+msgstr "CDR và dữ liệu Log cuộc gọi"
 
 #: install.php:100
 msgid "CDR server, generally a local database server"
-msgstr ""
+msgstr "Máy chủ CDR, thông thường là một máy chủ cơ sở dữ liệu tại chỗ"
 
 #: views/restore/backup_list.php:26
 msgid "CDR's"
@@ -402,29 +402,29 @@ msgstr "Các ngày trong tháng"
 
 #: views/cron.php:286
 msgid "Days of month to run"
-msgstr ""
+msgstr "Các ngày trong tháng để chạy"
 
 #: views/cron.php:54
 msgid "December"
-msgstr ""
+msgstr "Tháng 12"
 
 #: views/backup/backups.php:426 views/backup/backups.php:525
 msgid "Default"
-msgstr ""
+msgstr "Mặc định"
 
 #: install.php:230
 msgid "Default backup; automatically installed"
-msgstr ""
+msgstr "Mặc định sao lưu; cài đặt tự động"
 
 #: Backup.class.php:38 Backup.class.php:202 page.backup.php:47
 #: page.backup_servers.php:36 page.backup_templates.php:20
 #: views/item_table.php:14 views/restore/restore.php:40
 msgid "Delete"
-msgstr ""
+msgstr "Xóa"
 
 #: views/backup/backup.php:511 views/backup/backup.php:548
 msgid "Delete After"
-msgstr ""
+msgstr "Xóa Sau khi"
 
 #: views/backup/backup.php:538
 msgid ""
@@ -432,16 +432,22 @@ msgid ""
 "Please note that deletes aren't time based and will only happen after a "
 "backup was run. Setting the value to 0 will disable any deleting"
 msgstr ""
+"Xóa sao lưu này sau khi X phút/ giờ/ ngày/ tuần/ tháng/ năm. Vui lòng lưu ý "
+"rằng những gì đã xóa không phải là dựa trên thời gian và sẽ chỉ xảy ra sau "
+"khi một sao lưu được chạy. Cài đặt giá trị trở về 0 sẽ vô hiệu bất kỳ thao "
+"tác xóa nào"
 
 #: views/backup/backup.php:561
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
 msgstr ""
+"Xóa bản sao lưu này sau khi đã chạy x lần. Cài đặt giá trị về 0 sẽ vô hiệu "
+"thao tác xóa"
 
 #: functions.inc/templates.php:310
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
-msgstr ""
+msgstr "Xóa mục nhập này. Đừng quên kích Gửi đi để lưu các thay đổi!"
 
 #: views/backup/backup.php:41 views/backup/backups.php:10
 #: views/servers/awss3.php:27 views/servers/email.php:40
@@ -450,130 +456,138 @@ msgstr ""
 #: views/servers/ssh.php:40 views/templates/template.php:36
 #: views/templates/templates.php:8
 msgid "Description"
-msgstr ""
+msgstr "Mô tả"
 
 #: views/backup/backup.php:53
 msgid "Description or notes for this backup"
-msgstr ""
+msgstr "Mô tả hoặc các lưu ý cho sao lưu này"
 
 #: views/servers/email.php:52 views/servers/local.php:52
 #: views/servers/mysql.php:52 views/servers/ssh.php:52
 msgid "Description or notes for this server"
-msgstr ""
+msgstr "Mô tả hoặc các lưu ý cho máy chủ này"
 
 #: views/backup/backups.php:76
 msgid "Destination"
-msgstr ""
+msgstr "Điểm đến"
 
 #: functions.inc/templates.php:246
 msgid "Directory"
-msgstr ""
+msgstr "Thư mục"
 
 #: functions.inc/class.backup.php:479
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
-msgstr ""
+msgstr "Thư mục '%s' không tồn tại và chúng tôi không thể tạo nó"
 
 #: views/backup/backup.php:326
 msgid "Disable Registered Trunks"
-msgstr ""
+msgstr "Vô hiệu các trung kế đã đăng ký"
 
 #: bin/restore.php:492
 msgid "Done!"
-msgstr ""
+msgstr "Đã xong!"
 
 #: page.backup_restore.php:21 views/restore/browseserver.php:30
 msgid "Download"
-msgstr ""
+msgstr "Tải về"
 
 #: views/backup/backup.php:436
 msgid ""
 "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
+"Kéo các máy chủ từ danh sách các máy chủ khả dụng  để thêm chúng như các máy "
+"chủ lưu trữ"
 
 #: views/backup/backup.php:112
 msgid ""
 "Drag templates and drop them in the items table to add the templates items "
 "to the table"
-msgstr ""
+msgstr "Kéo và thả các mẫu vào bản mục lục để thêm các thư mục mẫu vào bảng"
 
 #: views/backup/backup.php:121
 msgid "Drop Here"
-msgstr ""
+msgstr "Thả tại đây"
 
 #: backup.i18n.php:18
 msgid "Email "
-msgstr ""
+msgstr "Thư điện tử "
 
 #: views/servers/email.php:64
 msgid "Email Address"
-msgstr ""
+msgstr "Địa chỉ Thư điện tử"
 
 #: views/backup/backups.php:264
 msgid "Email Notifications"
-msgstr ""
+msgstr "Các thông báo Thư điện tử"
 
 #: views/servers/email.php:4
 msgid "Email Server"
-msgstr ""
+msgstr "Máy chủ Thư điện tử"
 
 #: functions.inc/servers.php:265 functions.inc/servers.php:320
 msgid "Email Server "
-msgstr ""
+msgstr "Máy chủ thư điện tử "
 
 #: views/servers/email.php:76
 msgid "Email address where backups should be emailed to"
-msgstr ""
+msgstr "Địa chỉ Thư điện tử nơi các sao lưu nên được gửi qua email tới"
 
 #: assets/js/backup.js:14
 msgid "Email notifications are set to Yes but no email provided"
 msgstr ""
+"Các thông báo Thư điện tử được thiết lập Có nhưng không Thư điện tử nào được "
+"cung cấp"
 
 #: views/backup/backup.php:77
 msgid "Email to send status messages to when this task is run"
-msgstr ""
+msgstr "Gửi email để thông báo trạng thái đến khi tác vụ này được chạy"
 
 #: views/backup/backup.php:423
 msgid ""
 "Equivalence of clicking the red button, will happen automatically after a "
 "restore on a Standby system"
 msgstr ""
+"Sự tương đương của việc nhấp vào nút màu đỏ, sẽ xảy ra tự động sau khi khôi "
+"phục trên một hệ thống dự phòng"
 
 #: functions.inc/class.backup.php:469 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
-msgstr ""
+msgstr "Lỗi khi đang tạo đối tượng FTP"
 
 #: functions.inc/class.backup.php:807
 #, php-format
 msgid "Error deleting %s"
-msgstr ""
+msgstr "Lỗi khi đang xóa  %s"
 
 #: page.backup_restore.php:41
 msgid "Error uploading file!"
-msgstr ""
+msgstr "Lỗi khi đang tải tệp lên!"
 
 #: page.backup_restore.php:50
 msgid "Error verifying uploaded file!"
-msgstr ""
+msgstr "Lỗi khi đang xác nhận tệp đã tải lên!"
 
 #: views/item_table.php:11
 msgid "Exclude"
-msgstr ""
+msgstr "Ngoại trừ"
 
 #: views/backup/backup.php:380
 msgid "Exclude BIND address"
-msgstr ""
+msgstr "Ngoại trừ địa chỉ BIND"
 
 #: install.php:181
 msgid ""
 "Exclude Backup's settings so that they dont get restored, useful for a "
 "remote restore"
 msgstr ""
+"Ngoại trừ các cài đặt của các sao lưu để chúng không bị khôi phục, giúp ích "
+"cho việc khôi phục từ xa"
 
 #: views/backup/backup.php:353
 msgid "Exclude NAT settings"
-msgstr ""
+msgstr "Ngoại trừ các cài đặt NAT"
 
 #: views/backup/backup.php:395
 msgid ""
@@ -650,7 +664,7 @@ msgstr ""
 
 #: bin/restore.php:157
 msgid "File restore complete!"
-msgstr ""
+msgstr "Khôi phục tệp thành công!"
 
 #: bin/backup.php:124
 msgid "File verification failed. "
@@ -762,7 +776,7 @@ msgstr ""
 
 #: bin/restore.php:96
 msgid "Initializing Restore..."
-msgstr ""
+msgstr "Đang khởi tạo khôi phục..."
 
 #: views/backup/backups.php:31
 msgid "Introduction"
@@ -948,7 +962,7 @@ msgstr ""
 
 #: bin/restore.php:92
 msgid "Nothing to restore!"
-msgstr ""
+msgstr "Không có gì để khôi phục!"
 
 #: views/backup/backups.php:67
 msgid "Notifications"

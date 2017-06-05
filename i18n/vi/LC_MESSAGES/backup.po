@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27 15:26-0400\n"
-"PO-Revision-Date: 2017-06-05 15:37+0200\n"
+"PO-Revision-Date: 2017-06-05 16:21+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/backup/vi/>\n"
@@ -607,60 +607,64 @@ msgstr ""
 
 #: views/backup/backups.php:352
 msgid "FTP"
-msgstr ""
+msgstr "Giao thức truyền tập tin- File Transfer Protocol"
 
 #: views/backup/backups.php:482 views/servers/mysql.php:148
 msgid "FTP Password"
-msgstr ""
+msgstr "Mật khẩu của Giao thức truyền tập tin"
 
 #: views/servers/ftp.php:8
 msgid "FTP Server"
-msgstr ""
+msgstr "Máy chủ Giao thức truyền tập tin"
 
 #: functions.inc/servers.php:268 functions.inc/servers.php:323
 msgid "FTP Server "
-msgstr ""
+msgstr "Máy chủ giao thức truyền tập tin "
 
 #: views/backup/backups.php:509
 msgid "FTP Transfer type"
-msgstr ""
+msgstr "Kiểu truyền của Giao thức truyền tập tin"
 
 #: views/servers/mysql.php:124
 msgid "FTP Username"
-msgstr ""
+msgstr "Tên người dùng Giao thức truyền tập tin"
 
 #: functions.inc/restore.php:550
 msgid ""
 "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
 "current state"
 msgstr ""
+"Chuyển đổi asterisk.sql thành định dạng phù hợp không thành công, đổi tên "
+"thành mysql-db.sql trong trạng thái hiện tại"
 
 #: functions.inc/restore.php:577
 msgid ""
 "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
 "sql in current state"
 msgstr ""
+"Chuyển đổi asteriskcdr.sql thành định dạng phù hợp không thành công, đổi tên "
+"thành mysql-cdr.sql trong trạng thái hiện tại"
 
 #: functions.inc/restore.php:384 functions.inc/restore.php:404
 #: functions.inc/restore.php:417
 msgid "Failed to retrieve file from server!"
-msgstr ""
+msgstr "Truy xuất tệp từ máy chủ không thành công!"
 
 #: functions.inc/templates.php:303
 msgid "Family, one per line"
-msgstr ""
+msgstr "Dãy, một trên mỗi dòng"
 
 #: views/cron.php:44
 msgid "February"
-msgstr ""
+msgstr "Tháng hai"
 
 #: functions.inc/templates.php:233
 msgid "File"
-msgstr ""
+msgstr "Tệp"
 
 #: functions.inc/restore.php:424
 msgid "File not found! "
-msgstr ""
+msgstr "Không tìm thấy tệp! "
 
 #: bin/restore.php:157
 msgid "File restore complete!"
@@ -668,27 +672,27 @@ msgstr "Khôi phục tệp thành công!"
 
 #: bin/backup.php:124
 msgid "File verification failed. "
-msgstr ""
+msgstr "Xác nhận tệp không thành công. "
 
 #: functions.inc/class.backup.php:397 views/restore/browseserver.php:19
 msgid "Files"
-msgstr ""
+msgstr "Các tệp"
 
 #: views/servers/ftp.php:108
 msgid "Filesystem Type"
-msgstr ""
+msgstr "Kiểu của Hệ thống tệp tin"
 
 #: page.backup.php:53
 msgid "FreePBX"
-msgstr ""
+msgstr "Giao diện FreePBX"
 
 #: views/cron.php:32 assets/js/backup.js:83
 msgid "Friday"
-msgstr ""
+msgstr "Thứ sáu"
 
 #: bin/restore.php:217
 msgid "Getting CDR size..."
-msgstr ""
+msgstr "Đang nhận kích cỡ CDR"
 
 #: views/backup/backups.php:386
 msgid "Give the server a descriptive name"
@@ -1562,7 +1566,7 @@ msgstr ""
 
 #: bin/backup.php:109
 msgid "Verifying received file..."
-msgstr ""
+msgstr "Đang xác nhận tệp đã nhận..."
 
 #: install.php:163
 msgid "Voice Mail Storage"

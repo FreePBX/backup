@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27 15:26-0400\n"
-"PO-Revision-Date: 2017-06-04 12:15+0200\n"
+"PO-Revision-Date: 2017-06-04 21:59+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/backup/vi/>\n"
@@ -101,163 +101,170 @@ msgid ""
 "to prevent the Primary and Standby systems from \"fighting\" for the "
 "registration, resulting in some calls routed to the Standby system."
 msgstr ""
+"Sau phục hồi, vô hiệu tất cả các trung kế có sử dụng đăng ký. Điều này nhằm "
+"giúp ngăn chặn các hệ thống sơ cấp và dự phòng khỏi \"xung đột\" cho việc "
+"đăng ký, gây nên một số cuộc gọi bị chuyển đến hệ thống dự phòng."
 
 #: views/backup/backups.php:171
 msgid ""
 "All PBX Configuration files and any Custom Sound Prompts are included in the "
 "base backup"
 msgstr ""
+"Tất cả các tệp cấu hình PBX  và các dấu nhắc âm thanh tùy chỉnh được bao gồm "
+"trong sao lưu cơ sở"
 
 #: install.php:172
 msgid ""
 "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
 "VOICEMAIL"
 msgstr ""
+"Tất cả các hệ thống âm thanh- bao gồm các dấu nhắc IVR và Nhạc chờ. KHÔNG "
+"SAO LƯU THƯ THOẠI"
 
 #: functions.inc/servers.php:280
 msgid "Amazon S3 Server "
-msgstr ""
+msgstr "Máy chủ Amazon S3 "
 
 #: views/servers/awss3.php:4
 msgid "Amazon S3&trade; Server"
-msgstr ""
+msgstr "Amazon S3&trade; Máy chủ"
 
 #: views/cron.php:8
 msgid "Annually"
-msgstr ""
+msgstr "Hằng năm"
 
 #: views/backup/backup.php:408
 msgid "Apply Configs"
-msgstr ""
+msgstr "Áp dụng các cấu hình"
 
 #: views/cron.php:46
 msgid "April"
-msgstr ""
+msgstr "Tháng tư"
 
 #: views/restore/browseserver.php:21
 msgid "AstDB's"
-msgstr ""
+msgstr "Các tập tin AstDB's"
 
 #: functions.inc/templates.php:296
 msgid "Asterisk DB"
-msgstr ""
+msgstr "Cơ sở dữ liễu Asterisk ( Asterisk Database)"
 
 #: views/cron.php:50
 msgid "August"
-msgstr ""
+msgstr "Tháng tám"
 
 #: views/servers/ftp.php:113
 msgid "Auto"
-msgstr ""
+msgstr "Tự động"
 
 #: views/backup/backup.php:465
 msgid "Available Servers"
-msgstr ""
+msgstr "Các máy chủ khả dụng"
 
 #: views/servers/email.php:99
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: functions.inc.php:68
 msgid "BACKUP LOG ATTACHED"
-msgstr ""
+msgstr "SAO LƯU LOG ĐÍNH KÈM"
 
 #: functions.inc/class.backup.php:409 functions.inc/class.backup.php:412
 msgid "BACKUP NOT ATTACHED"
-msgstr ""
+msgstr "SAO LƯU KHÔNG ĐƯỢC ĐÍNH KÈM"
 
 #: Backup.class.php:316 functions.inc/backup.php:81
 #: functions.inc/class.backup.php:403 views/backup/backup.php:6
 msgid "Backup"
-msgstr ""
+msgstr "Sao lưu"
 
 #: backup.i18n.php:4 backup.i18n.php:10
 msgid "Backup & Restore"
-msgstr ""
+msgstr "Sao lưu và phục hồi"
 
 #: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
-msgstr ""
+msgstr "Sao lưu và phục hồi- Phục hồi"
 
 #: backup.i18n.php:12
 msgid "Backup & Restore - Servers"
-msgstr ""
+msgstr "Sao lưu & phục hồi- Các máy chủ"
 
 #: backup.i18n.php:14
 msgid "Backup & Restore - Templates"
-msgstr ""
+msgstr "Sao lưu & phục hồi- Các mẫu"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
-msgstr ""
+msgstr "Sao lưu & Phục hồi cho môi trường FreePBX của bạn"
 
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
-msgstr ""
+msgstr "Sao lưu CDR và ghi dữ liệu?"
 
 #: views/backup/backups.php:121
 msgid "Backup Description"
-msgstr ""
+msgstr "Sao lưu Mô tả"
 
 #: functions.inc/class.backup.php:408
 msgid "Backup ERROR (exceeded SMTP limits)"
-msgstr ""
+msgstr "Sao lưu LỖI ( Vượt quá giới hạn SMTP)"
 
 #: functions.inc/class.backup.php:411
 msgid "Backup ERROR (exceeded soft limit)"
-msgstr ""
+msgstr "Sao lưu LỖI ( Vượt quá giới hạn mềm)"
 
 #: views/backup/backups.php:49
 msgid "Backup Frequency"
-msgstr ""
+msgstr "Sao lưu Tần số"
 
 #: views/backup/backups.php:58
 msgid "Backup Items"
-msgstr ""
+msgstr "Sao lưu các mục tin"
 
 #: bin/backup.php:48
 msgid "Backup Lock acquired!"
-msgstr ""
+msgstr "Sao lưu Lock thu được!"
 
 #: functions.inc.php:71
 msgid "Backup Log:"
-msgstr ""
+msgstr "Sao lưu Log:"
 
 #: backup.i18n.php:20
 msgid "Backup Module"
-msgstr ""
+msgstr "Sao lưu Mô đun"
 
 #: views/backup/backup.php:17 views/backup/backups.php:97
 msgid "Backup Name"
-msgstr ""
+msgstr "Sao lưu Tên"
 
 #: views/backup/backup.php:487
 msgid "Backup Schedule"
-msgstr ""
+msgstr "Sao lưu lịch trình"
 
 #: views/backup/backup.php:267
 msgid "Backup Server"
-msgstr ""
+msgstr "Sao lưu máy chủ"
 
 #: functions.inc/restore.php:316
 msgid "Backup Server not found!"
-msgstr ""
+msgstr "Không tìm thấy sao lưu máy chủ!"
 
 #: views/templates/template.php:7
 msgid "Backup Template"
-msgstr ""
+msgstr "Sao lưu Mẫu"
 
 #: views/backup/backups.php:2
 msgid "Backup Wizard"
-msgstr ""
+msgstr "Sao lưu Wizard"
 
 #: page.backup.php:116
 msgid "Backup and Restore"
-msgstr ""
+msgstr "Sao lưu & Phục hồi"
 
 #: bin/backup.php:150 bin/backup.php:205
 msgid "Backup completed with errors!"
-msgstr ""
+msgstr "Sao lưu hoàn thành nhưng bị các lỗi!"
 
 #: functions.inc/class.backup.php:297
 #, php-format
@@ -265,46 +272,48 @@ msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
 "backup from server [%s]."
 msgstr ""
+"Sao lưu không thành công đang phá hủy cơ sở dữ liệu SQL [%s] đến tệp [%s], "
+"bạn đã sao lưu thất bại từ máy chủ  [%s]."
 
 #: bin/restore.php:99
 msgid "Backup file not found! Aborting."
-msgstr ""
+msgstr "Không tìm thấy sao lưu tệp! Hủy bỏ."
 
 #: functions.inc/class.backup.php:496
 msgid "Backup file uploaded to the remote server"
-msgstr ""
+msgstr "Sao lưu tệp đã được tải đến máy chủ từ xa"
 
 #: bin/backup.php:12
 msgid "Backup module not found or is disabled. Aborting!"
-msgstr ""
+msgstr "Sao lưu mô đun không tìm thấy hoặc đã bị vô hiệu. Hủy bỏ!"
 
 #: bin/backup.php:152 bin/backup.php:207
 msgid "Backup successfully completed!"
-msgstr ""
+msgstr "Sao lưu thành công!"
 
 #: views/rnav/main.php:3
 msgid "Backups"
-msgstr ""
+msgstr "Các sao lưu"
 
 #: views/backup/backups.php:88
 msgid "Basic Backup Information"
-msgstr ""
+msgstr "Thông tin sao lưu cơ bản"
 
 #: views/backup/backups.php:40
 msgid "Basic Information"
-msgstr ""
+msgstr "Thông tin cơ bản"
 
 #: views/restore/restore.php:7 views/restore/restore.php:23
 msgid "Browse"
-msgstr ""
+msgstr "Trình duyệt"
 
 #: page.backup_restore.php:184
 msgid "Browser reconnected realtime updates are unavailable."
-msgstr ""
+msgstr "Các cập nhật thời gian thực ngắt kết nối không khả dụng."
 
 #: views/servers/awss3.php:14
 msgid "Bucket Name"
-msgstr ""
+msgstr "Tên bộ chứa"
 
 #: bin/backup.php:56
 msgid "Building manifest..."

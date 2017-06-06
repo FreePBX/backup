@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27 15:26-0400\n"
-"PO-Revision-Date: 2017-06-05 16:21+0200\n"
+"PO-Revision-Date: 2017-06-05 21:59+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/backup/vi/>\n"
@@ -692,64 +692,64 @@ msgstr "Thứ sáu"
 
 #: bin/restore.php:217
 msgid "Getting CDR size..."
-msgstr "Đang nhận kích cỡ CDR"
+msgstr "Đang nhận kích cỡ CDR..."
 
 #: views/backup/backups.php:386
 msgid "Give the server a descriptive name"
-msgstr ""
+msgstr "Đặt cho máy chủ một tên mô tả"
 
 #: views/backup/backups.php:133
 msgid "Give your backup a description"
-msgstr ""
+msgstr "Tạo một mô tả cho sao lưu của bạn"
 
 #: views/backup/backups.php:109
 msgid "Give your backup a friendly name"
-msgstr ""
+msgstr "Đặt cho sao lưu của bạn một cái tên thân thiện"
 
 #: views/restore/browseserver.php:29
 msgid "Go!"
-msgstr ""
+msgstr "Đi!"
 
 #: bin/backup.php:125
 msgid "Here are the first few lines of the file as sent by the remote server:"
-msgstr ""
+msgstr "Đây là vài dòng đầu tiên của tệp tin đã được gửi bởi máy chủ từ xa:"
 
 #: views/backup/backup.php:152
 msgid "Hooks"
-msgstr ""
+msgstr "Các điểm neo"
 
 #: views/servers/ftp.php:46 views/servers/mysql.php:64
 #: views/servers/ssh.php:64
 msgid "Hostname"
-msgstr ""
+msgstr "Tên miền"
 
 #: views/cron.php:4
 msgid "Hourly"
-msgstr ""
+msgstr "Hằng giờ"
 
 #: views/backup/backup.php:521 views/cron.php:194 views/cron.php:198
 msgid "Hours"
-msgstr ""
+msgstr "Giờ"
 
 #: views/backup/backups.php:140
 msgid "How often should we backup?"
-msgstr ""
+msgstr "Chúng ta nên thường xuyên sao lưu bao lâu một lần?"
 
 #: views/backup/backups.php:410
 msgid "IP Address or FQDN of your server"
-msgstr ""
+msgstr "Địa chỉ IP hoặc FQDN của máy chủ của bạn"
 
 #: views/servers/ssh.php:76
 msgid "IP address or FQDN of remote SSH server"
-msgstr ""
+msgstr "Địa chỉ IP của FQDN của máy chủ SSH từ xa"
 
 #: views/servers/ftp.php:56
 msgid "IP address or FQDN of remote ftp host"
-msgstr ""
+msgstr "Địa chỉ IP hoặc FQDN của miền ftp từ xa"
 
 #: views/servers/mysql.php:76
 msgid "IP address or FQDN of remote mysql host"
-msgstr ""
+msgstr "Địa chỉ IP hoặc FQDN của miền mysql từ xa"
 
 #: views/cron.php:155
 msgid ""
@@ -758,6 +758,10 @@ msgid ""
 "possible). Please note: randomized schedules will be rescheduled (randomly) "
 "every time ANY backup is saved"
 msgstr ""
+"Nếu chọn Randomize , một tần số tương tự sẽ được theo sau, chỉ những lần "
+"chính xác sẽ được ngẫu nhiên hóa (tránh những giờ làm việc cao điểm, khi có "
+"thể). Xin lưu ý:Các lịch trình ngẫu nhiên sẽ được sắp xếp lại (một cách ngẫu "
+"nhiên) khi mỗi lần sao lưu bất kỳ được lưu"
 
 #: views/cron.php:105
 msgid ""
@@ -769,83 +773,90 @@ msgid ""
 "set to, say, Monday, the Backup will run ONLY\n"
 "\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
 msgstr ""
+"Nếu một lịch trình tùy chỉnh được chọn, bất kỳ phần nào không được chỉ định "
+"sẽ được coi là \"bất kỳ\" (aka: ký tự đại diện).\n"
+"Ví dụ, nếu ngày của tháng cài đặt là 12 và ngày của tuần không được cài đặt, "
+"Sao lưu sẽ được chạy vào ngày 12 của tháng\n"
+" - không quan tâm đến ngày trong tuần. Nếu Ngày trong tuần được cài đặt là "
+"Thứ Hai, Sao lưu sẽ chỉ chạy vào Thứ hai, và CHỈ nếu đó là ngày mười hai của "
+"tháng."
 
 #: views/restore/restore.php:6
 msgid "Import"
-msgstr ""
+msgstr "Nhập vào"
 
 #: bin/backup.php:39
 msgid "Initializing Backup"
-msgstr ""
+msgstr "Đang khởi tạo sao lưu"
 
 #: bin/restore.php:96
 msgid "Initializing Restore..."
-msgstr "Đang khởi tạo khôi phục..."
+msgstr "Đang khởi tạo Khôi phục..."
 
 #: views/backup/backups.php:31
 msgid "Introduction"
-msgstr ""
+msgstr "Giới thiệu"
 
 #: assets/js/backup.js:8
 msgid "Invalid Backup Name"
-msgstr ""
+msgstr "Tên Sao lưu không khả dụng"
 
 #: page.backup_restore.php:116 page.backup_restore.php:136
 msgid "Invalid backup for or undefined error"
-msgstr ""
+msgstr "Sao lưu không khả dụng cho hoặc lỗi không xác định"
 
 #: views/backup/backups.php:9 views/servers/servers.php:19
 #: views/templates/templates.php:7
 msgid "Item"
-msgstr ""
+msgstr "Thư mục"
 
 #: views/backup/backup.php:118
 msgid "Items"
-msgstr ""
+msgstr "Các thư mục"
 
 #: views/cron.php:43
 msgid "January"
-msgstr ""
+msgstr "Tháng một"
 
 #: views/cron.php:49
 msgid "July"
-msgstr ""
+msgstr "Tháng bảy"
 
 #: views/cron.php:48
 msgid "June"
-msgstr ""
+msgstr "Tháng sáu"
 
 #: views/servers/email.php:101
 msgid "KB"
-msgstr ""
+msgstr "Kilobyte"
 
 #: views/servers/ssh.php:136
 msgid "Key"
-msgstr ""
+msgstr "Khóa"
 
 #: views/servers/local.php:4
 msgid "Local Server"
-msgstr ""
+msgstr "Máy chủ tại chỗ"
 
 #: functions.inc/servers.php:271 functions.inc/servers.php:326
 msgid "Local Server "
-msgstr ""
+msgstr "Máy chủ tại chỗ "
 
 #: views/servers/ssh.php:148
 msgid "Location of ssh private key to be used when connecting to a host"
-msgstr ""
+msgstr "Vị trí của khóa cá nhân ssh được sử dụng khi kết nối với một miền"
 
 #: views/servers/email.php:103
 msgid "MB"
-msgstr ""
+msgstr "Megabyte"
 
 #: views/backup/backup.php:502
 msgid "Maintenance"
-msgstr ""
+msgstr "Bảo dưỡng"
 
 #: views/cron.php:45
 msgid "March"
-msgstr ""
+msgstr "Tháng ba"
 
 #: views/servers/email.php:88
 msgid "Max Email Size"

@@ -488,7 +488,7 @@ class Backup {
 					}catch (\Exception $e){
 						$this->b['error'] = _("Unable to upload file to the remote server");
 						backup_log($this->b['error']);
-						backup_log(sprintf(_("Trying to upload %s to %s"),$path.'/'.$this->b['_file'] . '.tgz',$this->b['_tmpfile']));
+						backup_log(sprintf(_("Trying to upload %s to %s"),$this->b['_tmpfile'],$path.'/'.$this->b['_file'] . '.tgz'));
 						backup_log($e->getMessage());
 						return;
 					}

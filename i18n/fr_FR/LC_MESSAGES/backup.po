@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-27 15:26-0400\n"
+"POT-Creation-Date: 2017-06-06 13:02-0400\n"
 "PO-Revision-Date: 2016-02-05 11:17+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -358,6 +358,11 @@ msgstr "Configurations seulement"
 msgid "Connecting to remote server..."
 msgstr "Connexion au serveur distant..."
 
+#: functions.inc/class.backup.php:805
+#, php-format
+msgid "Could not find %s on the remote system"
+msgstr ""
+
 #: functions.inc/class.backup.php:396 views/restore/browseserver.php:18
 msgid "Created"
 msgstr ""
@@ -543,7 +548,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:807
+#: functions.inc/class.backup.php:812
 #, php-format
 msgid "Error deleting %s"
 msgstr ""

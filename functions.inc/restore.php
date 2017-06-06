@@ -121,20 +121,20 @@ function backup_jstree_list_dir($id, $path = '') {
 			foreach($ftpdirs as $thisdir){
 				$files = $ftp->findFilesystems(new Directory($thisdir->getRealPath()));
 				foreach ($files as $f) {
-					$ls[] = $thisdir->getRealPath().'/'.$f->getRealpath();
+					$ls[] = $f->getRealpath();
 				}
 
 			}
 				foreach ($ls as $file) {
-					$file = basename($file);
+					$filename = basename($file);
 					//determine if we are a directory or not, rather than using rawlist
-						if (substr($file, -7) == '.tar.gz' || substr($file, -4) == '.tgz') {
+						if (substr($file, -7) == '.tar.gz' || substr($filename, -4) == '.tgz') {
 							$ret[] = array(
 										'attr' => array(
-													'data-manifest' => json_encode(backup_get_manifest_db($file)),
-													'data-path' => $path . '/' . $file
+													'data-manifest' => json_encode(backup_get_manifest_db($filename)),
+													'data-path' => $file
 													),
-										'data' => $file
+										'data' =>  $file,
 										);
 						}
 					}
@@ -368,8 +368,8 @@ function backup_restore_locate_file($id, $path) {
 			$ftpdirs = $ftp->findFilesystems(new \Touki\FTP\Model\Directory($s['path']));
 			 $file = null;
 			foreach($ftpdirs as $thisdir){
-				if($ftp->fileExists(new \Touki\FTP\Model\File($thisdir->getRealPath().'/'.$path))){
-					$file = $ftp->findFileByName($thisdir->getRealPath().'/'.$path);
+				if($ftp->fileExists(new \Touki\FTP\Model\File($path))){
+					$file = $ftp->findFileByName($path);
 				}
 			}
 

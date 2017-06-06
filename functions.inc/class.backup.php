@@ -736,7 +736,7 @@ class Backup {
 				$ftplist = $handle->findFilesystems(new Directory($data));
 				$dir = array();
 				foreach($ftplist as $ftpitem){
-					$dir[] = $ftpitem->getRealpath();
+					$dir[] = basename($ftpitem->getRealpath());
 				}
 				break;
 			case 'ssh':
@@ -800,7 +800,12 @@ class Backup {
 					unset($delete[$key]);
 					break;
 				case 'ftp':
-					$f = $handle->findFileByName($file);
+					$f = $handle->findFileByName($this->b['_dirname'].'/'.$file);
+					if(empty($f)){
+						$this->b['error'] = sprintf(_("Could not find %s on the remote system"),$file);
+						backup_log($this->b['error']);
+						continue;
+					}
 					try{
 						$handle->delete($f);
 					}catch(DirectoryException $e){

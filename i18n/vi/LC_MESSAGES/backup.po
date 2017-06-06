@@ -1,0 +1,1746 @@
+# This file is part of FreePBX.
+#
+# For licensing information, please see the file named LICENSE located in the module directory
+#
+# FreePBX language template for backup
+# Copyright (C) 2008-2017 Sangoma Technologies, Inc.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-27 15:26-0400\n"
+"PO-Revision-Date: 2017-06-06 11:54+0200\n"
+"Last-Translator: Peter Trinh <ftek@ymail.com>\n"
+"Language-Team: Vietnamese "
+"<http://weblate.freepbx.org/projects/freepbx/backup/vi/>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.4\n"
+
+#: views/backup/backups.php:23
+#, php-format
+msgid "%s Backup Wizard"
+msgstr "%s Sao lưu Wizard"
+
+#: functions.inc/templates.php:251
+msgid "/path/to/dir"
+msgstr "/path/to/dir"
+
+#: functions.inc/templates.php:238
+msgid "/path/to/file"
+msgstr "/path/to/file"
+
+#: install.php:145
+msgid ""
+"A full backup of core settings and web files, doesn't include system sounds "
+"or recordings."
+msgstr ""
+"Một sao lưu đầy đủ của các cài đặt và các tệp web, không bao gồm hệ thống "
+"các âm thanh và các bản ghi."
+
+#: views/backup/backup.php:197
+msgid "A script to be run AFTER a backup is completed."
+msgstr "Một kịch bản sẽ được chạy sau khi một sao lưu hoàn thành."
+
+#: views/backup/backup.php:245
+msgid "A script to be run AFTER a backup is restored."
+msgstr "Một kịch bản sẽ được chạy sau khi một sao lưu được khôi phục."
+
+#: views/backup/backup.php:221
+msgid "A script to be run BEFORE a backup is restored."
+msgstr "Một kịch bản sẽ được chạy trước khi một sao lưu được khôi phục."
+
+#: views/backup/backup.php:173
+msgid "A script to be run BEFORE a backup is started."
+msgstr "Một kịch bản sẽ được chạy trước khi một sao lưu được khởi động."
+
+#: views/backup/backups.php:154 assets/js/backup.js:93 assets/js/backup.js:105
+msgid "AT"
+msgstr "AT"
+
+#: views/servers/awss3.php:41
+msgid "AWS Access Key"
+msgstr "Khóa truy nhập AWS (  Các dịch vụ Web Amazon)"
+
+#: functions.inc/servers.php:335
+msgid "AWS S3 Server "
+msgstr "Máy chủ AWS S3 "
+
+#: views/servers/awss3.php:58
+msgid "AWS Secret"
+msgstr "Bảo mật AWS ( Các dịch vụ Web Amazon)"
+
+#: views/backup/backups.php:11 views/servers/servers.php:22
+#: views/templates/templates.php:9
+msgid "Actions"
+msgstr "Các thao tác"
+
+#: views/backup/backups.php:501 views/servers/ftp.php:158
+msgid "Active"
+msgstr "Hoạt động"
+
+#: views/servers/servers.php:4
+msgid "Add Server"
+msgstr "Thêm máy chủ"
+
+#: bin/backup.php:53
+msgid "Adding items..."
+msgstr "Đang thêm các hạng mục...."
+
+#: backup.i18n.php:6
+msgid "Admin"
+msgstr "Quản trị viên"
+
+#: views/backup/backup.php:341
+msgid ""
+"After a restore, disable any trunks that use registration. This is helpful "
+"to prevent the Primary and Standby systems from \"fighting\" for the "
+"registration, resulting in some calls routed to the Standby system."
+msgstr ""
+"Sau khi khôi phục, vô hiệu tất cả các trung kế có sử dụng đăng ký. Điều này "
+"nhằm giúp ngăn chặn các hệ thống sơ cấp và dự phòng khỏi \"xung đột\" cho "
+"việc đăng ký, gây nên một số cuộc gọi bị chuyển đến hệ thống dự phòng."
+
+#: views/backup/backups.php:171
+msgid ""
+"All PBX Configuration files and any Custom Sound Prompts are included in the "
+"base backup"
+msgstr ""
+"Tất cả các tệp cấu hình PBX  và các dấu nhắc âm thanh tùy chỉnh được bao gồm "
+"trong sao lưu cơ sở"
+
+#: install.php:172
+msgid ""
+"All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
+"VOICEMAIL"
+msgstr ""
+"Tất cả các hệ thống âm thanh- bao gồm các dấu nhắc IVR và Nhạc chờ. KHÔNG "
+"SAO LƯU THƯ THOẠI"
+
+#: functions.inc/servers.php:280
+msgid "Amazon S3 Server "
+msgstr "Máy chủ Amazon S3 "
+
+#: views/servers/awss3.php:4
+msgid "Amazon S3&trade; Server"
+msgstr "Amazon S3&trade; Máy chủ"
+
+#: views/cron.php:8
+msgid "Annually"
+msgstr "Hằng năm"
+
+#: views/backup/backup.php:408
+msgid "Apply Configs"
+msgstr "Áp dụng các cấu hình"
+
+#: views/cron.php:46
+msgid "April"
+msgstr "Tháng tư"
+
+#: views/restore/browseserver.php:21
+msgid "AstDB's"
+msgstr "Các tập tin AstDB's"
+
+#: functions.inc/templates.php:296
+msgid "Asterisk DB"
+msgstr "Cơ sở dữ liễu Asterisk ( Asterisk Database)"
+
+#: views/cron.php:50
+msgid "August"
+msgstr "Tháng tám"
+
+#: views/servers/ftp.php:113
+msgid "Auto"
+msgstr "Tự động"
+
+#: views/backup/backup.php:465
+msgid "Available Servers"
+msgstr "Các máy chủ khả dụng"
+
+#: views/servers/email.php:99
+msgid "B"
+msgstr "B"
+
+#: functions.inc.php:68
+msgid "BACKUP LOG ATTACHED"
+msgstr "SAO LƯU LOG ĐÍNH KÈM"
+
+#: functions.inc/class.backup.php:409 functions.inc/class.backup.php:412
+msgid "BACKUP NOT ATTACHED"
+msgstr "SAO LƯU KHÔNG ĐƯỢC ĐÍNH KÈM"
+
+#: Backup.class.php:316 functions.inc/backup.php:81
+#: functions.inc/class.backup.php:403 views/backup/backup.php:6
+msgid "Backup"
+msgstr "Sao lưu"
+
+#: backup.i18n.php:4 backup.i18n.php:10
+msgid "Backup & Restore"
+msgstr "Sao lưu và khôi phục"
+
+#: backup.i18n.php:16
+msgid "Backup & Restore - Restore"
+msgstr "Sao lưu và Khôi phục- Khôi phục"
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Servers"
+msgstr "Sao lưu & Khôi phục- Các máy chủ"
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Templates"
+msgstr "Sao lưu & Khôi phục- Các mẫu"
+
+#: backup.i18n.php:8
+msgid "Backup & Restore for your FreePBX environment"
+msgstr "Sao lưu & Khôi phục cho môi trường FreePBX của bạn"
+
+#: views/backup/backups.php:248
+msgid "Backup CDR and call record data?"
+msgstr "Sao lưu CDR và ghi dữ liệu?"
+
+#: views/backup/backups.php:121
+msgid "Backup Description"
+msgstr "Sao lưu Mô tả"
+
+#: functions.inc/class.backup.php:408
+msgid "Backup ERROR (exceeded SMTP limits)"
+msgstr "Sao lưu LỖI ( Vượt quá giới hạn SMTP)"
+
+#: functions.inc/class.backup.php:411
+msgid "Backup ERROR (exceeded soft limit)"
+msgstr "Sao lưu LỖI ( Vượt quá giới hạn mềm)"
+
+#: views/backup/backups.php:49
+msgid "Backup Frequency"
+msgstr "Sao lưu Tần số"
+
+#: views/backup/backups.php:58
+msgid "Backup Items"
+msgstr "Sao lưu các mục tin"
+
+#: bin/backup.php:48
+msgid "Backup Lock acquired!"
+msgstr "Sao lưu Lock thu được!"
+
+#: functions.inc.php:71
+msgid "Backup Log:"
+msgstr "Sao lưu Log:"
+
+#: backup.i18n.php:20
+msgid "Backup Module"
+msgstr "Sao lưu Mô đun"
+
+#: views/backup/backup.php:17 views/backup/backups.php:97
+msgid "Backup Name"
+msgstr "Sao lưu Tên"
+
+#: views/backup/backup.php:487
+msgid "Backup Schedule"
+msgstr "Sao lưu lịch trình"
+
+#: views/backup/backup.php:267
+msgid "Backup Server"
+msgstr "Sao lưu máy chủ"
+
+#: functions.inc/restore.php:316
+msgid "Backup Server not found!"
+msgstr "Không tìm thấy sao lưu máy chủ!"
+
+#: views/templates/template.php:7
+msgid "Backup Template"
+msgstr "Sao lưu Mẫu"
+
+#: views/backup/backups.php:2
+msgid "Backup Wizard"
+msgstr "Sao lưu Wizard"
+
+#: page.backup.php:116
+msgid "Backup and Restore"
+msgstr "Sao lưu & Khôi phục"
+
+#: bin/backup.php:150 bin/backup.php:205
+msgid "Backup completed with errors!"
+msgstr "Sao lưu hoàn thành nhưng bị các lỗi!"
+
+#: functions.inc/class.backup.php:297
+#, php-format
+msgid ""
+"Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
+"backup from server [%s]."
+msgstr ""
+"Sao lưu không thành công đang phá hủy cơ sở dữ liệu SQL [%s] đến tệp [%s], "
+"bạn đã sao lưu thất bại từ máy chủ  [%s]."
+
+#: bin/restore.php:99
+msgid "Backup file not found! Aborting."
+msgstr "Không tìm thấy sao lưu tệp! Hủy bỏ."
+
+#: functions.inc/class.backup.php:496
+msgid "Backup file uploaded to the remote server"
+msgstr "Sao lưu tệp đã được tải đến máy chủ từ xa"
+
+#: bin/backup.php:12
+msgid "Backup module not found or is disabled. Aborting!"
+msgstr "Sao lưu mô đun không tìm thấy hoặc đã bị vô hiệu. Hủy bỏ!"
+
+#: bin/backup.php:152 bin/backup.php:207
+msgid "Backup successfully completed!"
+msgstr "Sao lưu thành công!"
+
+#: views/rnav/main.php:3
+msgid "Backups"
+msgstr "Các sao lưu"
+
+#: views/backup/backups.php:88
+msgid "Basic Backup Information"
+msgstr "Thông tin sao lưu cơ bản"
+
+#: views/backup/backups.php:40
+msgid "Basic Information"
+msgstr "Thông tin cơ bản"
+
+#: views/restore/restore.php:7 views/restore/restore.php:23
+msgid "Browse"
+msgstr "Trình duyệt"
+
+#: page.backup_restore.php:184
+msgid "Browser reconnected realtime updates are unavailable."
+msgstr "Các cập nhật thời gian thực ngắt kết nối không khả dụng."
+
+#: views/servers/awss3.php:14
+msgid "Bucket Name"
+msgstr "Tên bộ chứa"
+
+#: bin/backup.php:56
+msgid "Building manifest..."
+msgstr "Đang xây dựng kê khai..."
+
+#: views/backup/backups.php:233
+msgid "CDR and Call Log Data"
+msgstr "CDR và dữ liệu Log cuộc gọi"
+
+#: install.php:100
+msgid "CDR server, generally a local database server"
+msgstr "Máy chủ CDR, thông thường là một máy chủ cơ sở dữ liệu tại chỗ"
+
+#: views/restore/backup_list.php:26
+msgid "CDR's"
+msgstr "Các tập tin CDR"
+
+#: install.php:154
+msgid "Call Detail Records"
+msgstr "Bản ghi chi tiết cuộc gọi"
+
+#: views/backup/backups.php:206
+msgid "Call Recordings"
+msgstr "Các ghi âm cuộc gọi"
+
+#: install.php:71
+msgid "Can not create backup tables"
+msgstr "Không thể tạo ra các bảng sao lưu"
+
+#: bin/restore.php:446
+msgid "Cleaning up..."
+msgstr "Đang dọn sạch..."
+
+#: views/backup/backups.php:85
+msgid "Click 'Next' to continue."
+msgstr "Kích chọn \"Tiếp theo\" để tiếp tục."
+
+#: install.php:136
+msgid "Configurations only"
+msgstr "Chỉ các cấu hình"
+
+#: bin/backup.php:76
+msgid "Connecting to remote server..."
+msgstr "Đang kết nối tới máy chủ từ xa..."
+
+#: functions.inc/class.backup.php:396 views/restore/browseserver.php:18
+msgid "Created"
+msgstr "Đã tạo"
+
+#: bin/backup.php:61
+msgid "Creating backup..."
+msgstr "Đang tạo sao lưu..."
+
+#: functions.inc/class.backup.php:475
+#, php-format
+msgid "Creating directory '%s'"
+msgstr "Đang tạo chỉ dẫn '%s'"
+
+#: views/cron.php:10
+msgid "Custom"
+msgstr "Tùy chỉnh"
+
+#: views/servers/mysql.php:160
+msgid "DB Name"
+msgstr "Tên cơ sở dữ liệu"
+
+#: views/cron.php:5
+msgid "Daily"
+msgstr "Hằng ngày"
+
+#: assets/js/backup.js:99
+msgid "Day each month"
+msgstr "Ngày mỗi tháng"
+
+#: views/cron.php:224
+msgid "Day of Week"
+msgstr "Ngày trong tuần"
+
+#: views/backup/backup.php:523
+msgid "Days"
+msgstr "Các ngày"
+
+#: views/cron.php:272 views/cron.php:276
+msgid "Days of Month"
+msgstr "Các ngày trong tháng"
+
+#: views/cron.php:286
+msgid "Days of month to run"
+msgstr "Các ngày trong tháng để chạy"
+
+#: views/cron.php:54
+msgid "December"
+msgstr "Tháng 12"
+
+#: views/backup/backups.php:426 views/backup/backups.php:525
+msgid "Default"
+msgstr "Mặc định"
+
+#: install.php:230
+msgid "Default backup; automatically installed"
+msgstr "Mặc định sao lưu; cài đặt tự động"
+
+#: Backup.class.php:38 Backup.class.php:202 page.backup.php:47
+#: page.backup_servers.php:36 page.backup_templates.php:20
+#: views/item_table.php:14 views/restore/restore.php:40
+msgid "Delete"
+msgstr "Xóa"
+
+#: views/backup/backup.php:511 views/backup/backup.php:548
+msgid "Delete After"
+msgstr "Xóa Sau khi"
+
+#: views/backup/backup.php:538
+msgid ""
+"Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
+"Please note that deletes aren't time based and will only happen after a "
+"backup was run. Setting the value to 0 will disable any deleting"
+msgstr ""
+"Xóa sao lưu này sau khi X phút/ giờ/ ngày/ tuần/ tháng/ năm. Vui lòng lưu ý "
+"rằng những gì đã xóa không phải là dựa trên thời gian và sẽ chỉ xảy ra sau "
+"khi một sao lưu được chạy. Cài đặt giá trị trở về 0 sẽ vô hiệu bất kỳ thao "
+"tác xóa nào"
+
+#: views/backup/backup.php:561
+msgid ""
+"Delete this backup after X amount of runs. Setting the value to 0 will "
+"disable any deleting"
+msgstr ""
+"Xóa bản sao lưu này sau khi đã chạy x lần. Cài đặt giá trị về 0 sẽ vô hiệu "
+"thao tác xóa"
+
+#: functions.inc/templates.php:310
+msgid "Delete this entry. Don't forget to click Submit to save changes!"
+msgstr "Xóa mục nhập này. Đừng quên kích Gửi đi để lưu các thay đổi!"
+
+#: views/backup/backup.php:41 views/backup/backups.php:10
+#: views/servers/awss3.php:27 views/servers/email.php:40
+#: views/servers/ftp.php:32 views/servers/local.php:40
+#: views/servers/mysql.php:40 views/servers/servers.php:20
+#: views/servers/ssh.php:40 views/templates/template.php:36
+#: views/templates/templates.php:8
+msgid "Description"
+msgstr "Mô tả"
+
+#: views/backup/backup.php:53
+msgid "Description or notes for this backup"
+msgstr "Mô tả hoặc các lưu ý cho sao lưu này"
+
+#: views/servers/email.php:52 views/servers/local.php:52
+#: views/servers/mysql.php:52 views/servers/ssh.php:52
+msgid "Description or notes for this server"
+msgstr "Mô tả hoặc các lưu ý cho máy chủ này"
+
+#: views/backup/backups.php:76
+msgid "Destination"
+msgstr "Điểm đến"
+
+#: functions.inc/templates.php:246
+msgid "Directory"
+msgstr "Thư mục"
+
+#: functions.inc/class.backup.php:479
+#, php-format
+msgid "Directory '%s' did not exist and we could not create it"
+msgstr "Thư mục '%s' không tồn tại và chúng tôi không thể tạo nó"
+
+#: views/backup/backup.php:326
+msgid "Disable Registered Trunks"
+msgstr "Vô hiệu các trung kế đã đăng ký"
+
+#: bin/restore.php:492
+msgid "Done!"
+msgstr "Đã xong!"
+
+#: page.backup_restore.php:21 views/restore/browseserver.php:30
+msgid "Download"
+msgstr "Tải về"
+
+#: views/backup/backup.php:436
+msgid ""
+"Drag servers from the Available Servers list to add them as Storage Servers"
+msgstr ""
+"Kéo các máy chủ từ danh sách các máy chủ khả dụng  để thêm chúng như các máy "
+"chủ lưu trữ"
+
+#: views/backup/backup.php:112
+msgid ""
+"Drag templates and drop them in the items table to add the templates items "
+"to the table"
+msgstr "Kéo và thả các mẫu vào bản mục lục để thêm các thư mục mẫu vào bảng"
+
+#: views/backup/backup.php:121
+msgid "Drop Here"
+msgstr "Thả tại đây"
+
+#: backup.i18n.php:18
+msgid "Email "
+msgstr "Thư điện tử "
+
+#: views/servers/email.php:64
+msgid "Email Address"
+msgstr "Địa chỉ Thư điện tử"
+
+#: views/backup/backups.php:264
+msgid "Email Notifications"
+msgstr "Các thông báo Thư điện tử"
+
+#: views/servers/email.php:4
+msgid "Email Server"
+msgstr "Máy chủ Thư điện tử"
+
+#: functions.inc/servers.php:265 functions.inc/servers.php:320
+msgid "Email Server "
+msgstr "Máy chủ thư điện tử "
+
+#: views/servers/email.php:76
+msgid "Email address where backups should be emailed to"
+msgstr "Địa chỉ Thư điện tử nơi các sao lưu nên được gửi qua email tới"
+
+#: assets/js/backup.js:14
+msgid "Email notifications are set to Yes but no email provided"
+msgstr ""
+"Các thông báo Thư điện tử được thiết lập Có nhưng không Thư điện tử nào được "
+"cung cấp"
+
+#: views/backup/backup.php:77
+msgid "Email to send status messages to when this task is run"
+msgstr "Gửi email để thông báo trạng thái đến khi tác vụ này được chạy"
+
+#: views/backup/backup.php:423
+msgid ""
+"Equivalence of clicking the red button, will happen automatically after a "
+"restore on a Standby system"
+msgstr ""
+"Sự tương đương của việc nhấp vào nút màu đỏ, sẽ xảy ra tự động sau khi khôi "
+"phục trên một hệ thống dự phòng"
+
+#: functions.inc/class.backup.php:469 functions.inc/restore.php:117
+#: functions.inc/restore.php:366
+msgid "Error creating the FTP object"
+msgstr "Lỗi khi đang tạo đối tượng FTP"
+
+#: functions.inc/class.backup.php:807
+#, php-format
+msgid "Error deleting %s"
+msgstr "Lỗi khi đang xóa  %s"
+
+#: page.backup_restore.php:41
+msgid "Error uploading file!"
+msgstr "Lỗi khi đang tải tệp lên!"
+
+#: page.backup_restore.php:50
+msgid "Error verifying uploaded file!"
+msgstr "Lỗi khi đang xác nhận tệp đã tải lên!"
+
+#: views/item_table.php:11
+msgid "Exclude"
+msgstr "Ngoại trừ"
+
+#: views/backup/backup.php:380
+msgid "Exclude BIND address"
+msgstr "Loại trừ địa chỉ Địa chỉ IP để gán vào"
+
+#: install.php:181
+msgid ""
+"Exclude Backup's settings so that they dont get restored, useful for a "
+"remote restore"
+msgstr ""
+"Ngoại trừ các cài đặt của các sao lưu để chúng không bị khôi phục, giúp ích "
+"cho việc khôi phục từ xa"
+
+#: views/backup/backup.php:353
+msgid "Exclude NAT settings"
+msgstr "Ngoại trừ các cài đặt NAT"
+
+#: views/backup/backup.php:395
+msgid ""
+"Explicitly exclude any machine-specific Bindaddres. This allows you to have "
+"a warm-spare machine with a different IP address."
+msgstr ""
+"Loại trừ dứt khoát bất kỳ Địa chỉ IP để gán theo máy. Điều này cho phép bạn "
+"có một máy dự phòng nóng với một địa chỉ IP khác."
+
+#: views/backup/backup.php:368
+msgid ""
+"Explicitly exclude any machine-specific IP settings. This allows you to have "
+"a warm-spare machine with a different IP address."
+msgstr ""
+"Loại trừ dứt khoát bất cứ các cài đặt IP theo máy. Điều này cho phép bạn có "
+"một máy dự phòng nóng với một địa chỉ IP khác."
+
+#: bin/restore.php:65
+msgid "Explicitly skipping host-specific NAT settings"
+msgstr "Dứt khoát bỏ qua các cài đặt NAT theo host"
+
+#: views/backup/backups.php:352
+msgid "FTP"
+msgstr "Giao thức truyền tập tin- File Transfer Protocol"
+
+#: views/backup/backups.php:482 views/servers/mysql.php:148
+msgid "FTP Password"
+msgstr "Mật khẩu của Giao thức truyền tập tin"
+
+#: views/servers/ftp.php:8
+msgid "FTP Server"
+msgstr "Máy chủ Giao thức truyền tập tin"
+
+#: functions.inc/servers.php:268 functions.inc/servers.php:323
+msgid "FTP Server "
+msgstr "Máy chủ giao thức truyền tập tin "
+
+#: views/backup/backups.php:509
+msgid "FTP Transfer type"
+msgstr "Kiểu truyền của Giao thức truyền tập tin"
+
+#: views/servers/mysql.php:124
+msgid "FTP Username"
+msgstr "Tên người dùng Giao thức truyền tập tin"
+
+#: functions.inc/restore.php:550
+msgid ""
+"Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
+"current state"
+msgstr ""
+"Chuyển đổi asterisk.sql thành định dạng phù hợp không thành công, đổi tên "
+"thành mysql-db.sql trong trạng thái hiện tại"
+
+#: functions.inc/restore.php:577
+msgid ""
+"Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
+"sql in current state"
+msgstr ""
+"Chuyển đổi asteriskcdr.sql thành định dạng phù hợp không thành công, đổi tên "
+"thành mysql-cdr.sql trong trạng thái hiện tại"
+
+#: functions.inc/restore.php:384 functions.inc/restore.php:404
+#: functions.inc/restore.php:417
+msgid "Failed to retrieve file from server!"
+msgstr "Truy xuất tệp từ máy chủ không thành công!"
+
+#: functions.inc/templates.php:303
+msgid "Family, one per line"
+msgstr "Dãy, một trên mỗi dòng"
+
+#: views/cron.php:44
+msgid "February"
+msgstr "Tháng hai"
+
+#: functions.inc/templates.php:233
+msgid "File"
+msgstr "Tệp"
+
+#: functions.inc/restore.php:424
+msgid "File not found! "
+msgstr "Không tìm thấy tệp! "
+
+#: bin/restore.php:157
+msgid "File restore complete!"
+msgstr "Khôi phục tệp thành công!"
+
+#: bin/backup.php:124
+msgid "File verification failed. "
+msgstr "Xác nhận tệp không thành công. "
+
+#: functions.inc/class.backup.php:397 views/restore/browseserver.php:19
+msgid "Files"
+msgstr "Các tệp"
+
+#: views/servers/ftp.php:108
+msgid "Filesystem Type"
+msgstr "Kiểu của Hệ thống tệp tin"
+
+#: page.backup.php:53
+msgid "FreePBX"
+msgstr "Giao diện FreePBX"
+
+#: views/cron.php:32 assets/js/backup.js:83
+msgid "Friday"
+msgstr "Thứ sáu"
+
+#: bin/restore.php:217
+msgid "Getting CDR size..."
+msgstr "Đang nhận kích cỡ CDR..."
+
+#: views/backup/backups.php:386
+msgid "Give the server a descriptive name"
+msgstr "Đặt cho máy chủ một tên mô tả"
+
+#: views/backup/backups.php:133
+msgid "Give your backup a description"
+msgstr "Tạo một mô tả cho sao lưu của bạn"
+
+#: views/backup/backups.php:109
+msgid "Give your backup a friendly name"
+msgstr "Đặt cho sao lưu của bạn một cái tên thân thiện"
+
+#: views/restore/browseserver.php:29
+msgid "Go!"
+msgstr "Đi!"
+
+#: bin/backup.php:125
+msgid "Here are the first few lines of the file as sent by the remote server:"
+msgstr "Đây là vài dòng đầu tiên của tệp tin đã được gửi bởi máy chủ từ xa:"
+
+#: views/backup/backup.php:152
+msgid "Hooks"
+msgstr "Các điểm neo"
+
+#: views/servers/ftp.php:46 views/servers/mysql.php:64
+#: views/servers/ssh.php:64
+msgid "Hostname"
+msgstr "Tên host"
+
+#: views/cron.php:4
+msgid "Hourly"
+msgstr "Hằng giờ"
+
+#: views/backup/backup.php:521 views/cron.php:194 views/cron.php:198
+msgid "Hours"
+msgstr "Giờ"
+
+#: views/backup/backups.php:140
+msgid "How often should we backup?"
+msgstr "Chúng ta nên thường xuyên sao lưu bao lâu một lần?"
+
+#: views/backup/backups.php:410
+msgid "IP Address or FQDN of your server"
+msgstr "Địa chỉ IP hoặc FQDN của máy chủ của bạn"
+
+#: views/servers/ssh.php:76
+msgid "IP address or FQDN of remote SSH server"
+msgstr "Địa chỉ IP của FQDN của máy chủ SSH từ xa"
+
+#: views/servers/ftp.php:56
+msgid "IP address or FQDN of remote ftp host"
+msgstr "Địa chỉ IP hoặc FQDN của host ftp từ xa"
+
+#: views/servers/mysql.php:76
+msgid "IP address or FQDN of remote mysql host"
+msgstr "Địa chỉ IP hoặc FQDN của host mysql từ xa"
+
+#: views/cron.php:155
+msgid ""
+"If Randomize is selected, a similar frequency will be followed, only the "
+"exact times will be randomized (avoiding peak business hours, when "
+"possible). Please note: randomized schedules will be rescheduled (randomly) "
+"every time ANY backup is saved"
+msgstr ""
+"Nếu chọn Randomize , một tần số tương tự sẽ được theo sau, chỉ những lần "
+"chính xác sẽ được ngẫu nhiên hóa (tránh những giờ làm việc cao điểm, khi có "
+"thể). Xin lưu ý:Các lịch trình ngẫu nhiên sẽ được sắp xếp lại (một cách ngẫu "
+"nhiên) khi mỗi lần sao lưu bất kỳ được lưu"
+
+#: views/cron.php:105
+msgid ""
+"If a custom schedule is selected, any section not specified will be "
+"considered to be \"any\" (aka: wildcard).\n"
+"\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, the "
+"Backup will be run on ANY 12th of\n"
+"\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week is "
+"set to, say, Monday, the Backup will run ONLY\n"
+"\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
+msgstr ""
+"Nếu một lịch trình tùy chỉnh được chọn, bất kỳ phần nào không được chỉ định "
+"sẽ được coi là \"bất kỳ\" (aka: ký tự đại diện).\n"
+"Ví dụ, nếu ngày của tháng cài đặt là 12 và ngày của tuần không được cài đặt, "
+"Sao lưu sẽ được chạy vào ngày 12 của tháng\n"
+" - không quan tâm đến ngày trong tuần. Nếu Ngày trong tuần được cài đặt là "
+"Thứ Hai, Sao lưu sẽ chỉ chạy vào Thứ hai, và CHỈ nếu đó là ngày mười hai của "
+"tháng."
+
+#: views/restore/restore.php:6
+msgid "Import"
+msgstr "Nhập vào"
+
+#: bin/backup.php:39
+msgid "Initializing Backup"
+msgstr "Đang khởi tạo sao lưu"
+
+#: bin/restore.php:96
+msgid "Initializing Restore..."
+msgstr "Đang khởi tạo Khôi phục..."
+
+#: views/backup/backups.php:31
+msgid "Introduction"
+msgstr "Giới thiệu"
+
+#: assets/js/backup.js:8
+msgid "Invalid Backup Name"
+msgstr "Tên Sao lưu không khả dụng"
+
+#: page.backup_restore.php:116 page.backup_restore.php:136
+msgid "Invalid backup for or undefined error"
+msgstr "Sao lưu không khả dụng cho hoặc lỗi không xác định"
+
+#: views/backup/backups.php:9 views/servers/servers.php:19
+#: views/templates/templates.php:7
+msgid "Item"
+msgstr "Thư mục"
+
+#: views/backup/backup.php:118
+msgid "Items"
+msgstr "Các thư mục"
+
+#: views/cron.php:43
+msgid "January"
+msgstr "Tháng một"
+
+#: views/cron.php:49
+msgid "July"
+msgstr "Tháng bảy"
+
+#: views/cron.php:48
+msgid "June"
+msgstr "Tháng sáu"
+
+#: views/servers/email.php:101
+msgid "KB"
+msgstr "Kilobyte"
+
+#: views/servers/ssh.php:136
+msgid "Key"
+msgstr "Khóa"
+
+#: views/servers/local.php:4
+msgid "Local Server"
+msgstr "Máy chủ tại chỗ"
+
+#: functions.inc/servers.php:271 functions.inc/servers.php:326
+msgid "Local Server "
+msgstr "Máy chủ tại chỗ "
+
+#: views/servers/ssh.php:148
+msgid "Location of ssh private key to be used when connecting to a host"
+msgstr "Vị trí của khóa cá nhân ssh được sử dụng khi kết nối với một host"
+
+#: views/servers/email.php:103
+msgid "MB"
+msgstr "Megabyte"
+
+#: views/backup/backup.php:502
+msgid "Maintenance"
+msgstr "Bảo dưỡng"
+
+#: views/cron.php:45
+msgid "March"
+msgstr "Tháng ba"
+
+#: views/servers/email.php:88
+msgid "Max Email Size"
+msgstr "Kich cỡ Thư điện tử lớn nhất"
+
+#: views/cron.php:47
+msgid "May"
+msgstr "Tháng năm"
+
+#: views/backup/backup.php:519 views/cron.php:168 views/cron.php:172
+msgid "Minutes"
+msgstr "Phút"
+
+#: views/cron.php:28 assets/js/backup.js:83
+msgid "Monday"
+msgstr "Thứ Hai"
+
+#: views/backup/backups.php:151 views/cron.php:7
+msgid "Monthly"
+msgstr "Hằng tháng"
+
+#: views/backup/backup.php:527 views/cron.php:246 views/cron.php:250
+msgid "Months"
+msgstr "Tháng"
+
+#: views/servers/mysql.php:4
+msgid "MySQL Server"
+msgstr "Máy chủ MySQL"
+
+#: functions.inc/templates.php:267
+msgid "Mysql"
+msgstr "Hệ quản trị dữ liệu Mysql"
+
+#: views/restore/browseserver.php:20
+msgid "Mysql DB's"
+msgstr "Các dữ liệu Mysql"
+
+#: functions.inc/class.backup.php:398
+msgid "Mysql Db's"
+msgstr "Các dữ liệu Mysql"
+
+#: functions.inc/servers.php:274 functions.inc/servers.php:329
+msgid "Mysql Server "
+msgstr "Máy chủ Mysql "
+
+#: functions.inc/class.backup.php:395 views/restore/browseserver.php:17
+msgid "Name"
+msgstr "Tên"
+
+#: views/servers/email.php:28
+msgid "Name this Server"
+msgstr "Tên máy chủ này"
+
+#: views/backup/backup.php:29
+msgid "Name this backup"
+msgstr "Tên sao lưu này"
+
+#: views/cron.php:3
+msgid "Never"
+msgstr "Không bao giờ"
+
+#: views/cron.php:101
+msgid "Never will never run the backup automatically"
+msgstr "Never sẽ không bao giờ cho phép chạy sao lưu tự động"
+
+#: views/servers/servers.php:12
+msgid "New Amazon S3 server"
+msgstr "Máy chủ Amzon S3 mới"
+
+#: views/backup/backups.php:3
+msgid "New Backup"
+msgstr "Sao lưu mới"
+
+#: views/servers/servers.php:9
+msgid "New Email server"
+msgstr "Máy chủ thư điện tử mới"
+
+#: views/servers/servers.php:7
+msgid "New FTP server"
+msgstr "Máy chủ FTP mới"
+
+#: views/servers/servers.php:10
+msgid "New Local server"
+msgstr "Máy chủ tại chỗ mới"
+
+#: views/servers/servers.php:11
+msgid "New MySQL server"
+msgstr "Máy chủ MySQL mới"
+
+#: views/servers/servers.php:8
+msgid "New SSH server"
+msgstr "Máy chủ SSH mới"
+
+#: views/templates/templates.php:2
+msgid "New Template"
+msgstr "Mẫu mới"
+
+#: views/backup/backups.php:147
+msgid "Nightly"
+msgstr "Nightly"
+
+#: views/backup/backup.php:96 views/backup/backup.php:308
+#: views/backup/backup.php:333 views/backup/backup.php:360
+#: views/backup/backup.php:387 views/backup/backup.php:415
+#: views/backup/backups.php:186 views/backup/backups.php:213
+#: views/backup/backups.php:240 views/backup/backups.php:271
+#: views/backup/backups.php:327 views/cron.php:147
+msgid "No"
+msgstr "Không"
+
+#: bin/backup.php:73
+msgid "No items in backup set. Aborting."
+msgstr "Không có thư mục nào trong cài đặt sao lưu. Hủy bỏ."
+
+#: bin/backup.php:34
+msgid "No storage servers found! Aborting."
+msgstr "Không có máy chủ lưu trư nào được tìm thấy. Hủy bỏ."
+
+#: bin/restore.php:92
+msgid "Nothing to restore!"
+msgstr "Không có gì để khôi phục!"
+
+#: views/backup/backups.php:67
+msgid "Notifications"
+msgstr "Các thông báo"
+
+#: views/cron.php:53
+msgid "November"
+msgstr "Tháng mười một"
+
+#: assets/js/backup.js:94
+msgid "ON"
+msgstr "BẬT"
+
+#: views/cron.php:52
+msgid "October"
+msgstr "Tháng mười"
+
+#: views/backup/backup.php:89
+msgid "On Failure Only"
+msgstr "Chỉ khi có sự cố"
+
+#: assets/js/backup.js:101
+msgid "On the"
+msgstr "Trên"
+
+#: views/backup/backup.php:104
+msgid "Only send an email on failure"
+msgstr "Chỉ gửi một Thư điện tử khi sự cố"
+
+#: views/templates/template.php:48
+msgid "Optional description or notes for this backup temnplate."
+msgstr "Mô tả lựa chọn hoắc ghi chú cho mẫu sao lưu này."
+
+#: functions.inc/templates.php:260
+msgid "PATTERNs, one per line"
+msgstr ""
+
+#: views/restore/backup_list.php:19
+msgid "PBX Settings"
+msgstr "Các cài đặt PBX"
+
+#: install.php:88
+msgid "PBX config server, generally a local database server"
+msgstr "Máy chủ cấu hình PBX, thông thường là máy chủ cơ sở dữ liệu tại chỗ"
+
+#: views/backup/backups.php:499 views/servers/ftp.php:160
+msgid "Passive"
+msgstr "Bị động"
+
+#: views/backup/backups.php:470 views/servers/ftp.php:94
+#: views/servers/mysql.php:136
+msgid "Password"
+msgstr "Mật khẩu"
+
+#: views/servers/ftp.php:133 views/servers/local.php:64
+#: views/servers/ssh.php:160
+msgid "Path"
+msgstr "Đường dẫn"
+
+#: views/servers/local.php:76 views/servers/ssh.php:172
+msgid "Path on remote server"
+msgstr "Đường dẫn trên máy chủ từ xa"
+
+#: views/servers/ftp.php:143
+msgid ""
+"Path on remote server. This must be a COMPLETE PATH, starting with a / - for "
+"example, <tt>/home/backups/freepbx</tt>. A path without a leading slash will "
+"not work, and will behave in unexpected ways."
+msgstr ""
+"Đường dẫn trên máy chủ từ xa. Đây phải là một đường dẫn đầy đủ, bắt đầu với "
+"một dấu gạch chéo \"/\"- ví dụ, <tt>/home/backups/freepbx</tt>. Một đường "
+"dẫn không hoạt động mà không bắt đầu bằng dấu gạch chéo, và sẽ không hoạt "
+"động như mong muốn."
+
+#: views/backup/backups.php:557
+msgid "Path to ssh key, example /home/asterisk/.ssh/id_rsa"
+msgstr "Đường dẫn đến khóa ssh, ví dụ /home/asterisk/.ssh/id_rsa"
+
+#: views/item_table.php:8
+msgid "Path/DB"
+msgstr "Đường dẫn/DB"
+
+#: assets/js/backup.js:146
+msgid "Please wait"
+msgstr "Vui lòng đợi"
+
+#: views/restore/backup_list.php:13
+msgid "Please wait, loading..."
+msgstr "Vui lòng đơi, đang tải..."
+
+#: views/servers/ftp.php:66 views/servers/mysql.php:88
+#: views/servers/ssh.php:88
+msgid "Port"
+msgstr "Cổng giao tiếp"
+
+#: views/backup/backup.php:185
+msgid "Post-Backup Hook"
+msgstr "Hook sau sao lưu"
+
+#: views/backup/backup.php:233
+msgid "Post-Restore Hook"
+msgstr "Hook sau khôi phục"
+
+#: views/backup/backup.php:161
+msgid "Pre-Backup Hook"
+msgstr "Hook trước sao lưu"
+
+#: views/backup/backup.php:209
+msgid "Pre-Restore Hook"
+msgstr "Hool trước Khôi phục"
+
+#: bin/restore.php:308
+msgid "Preserving local Bind address"
+msgstr "Bảo lưu Địa chỉ IP để gán tại chỗ"
+
+#: bin/restore.php:300
+msgid "Preserving local NAT settings"
+msgstr "Bảo lưu các cài đặt NAT tại chỗ"
+
+#: bin/restore.php:251
+#, php-format
+msgid "Processed %s%% of CDRs (%s of %s lines)"
+msgstr "Đã xử lý %s%% của CDRs (%s của %s dòng)"
+
+#: bin/restore.php:381
+#, php-format
+msgid "Processed %s%% of Settings (%s of %s lines)"
+msgstr "Đã xử lý %s%% của các cài đặt (%s của %s dòng)"
+
+#: bin/backup.php:137
+msgid "Processing received file..."
+msgstr "Đang xử lý tệp đã nhận..."
+
+#: views/servers/local.php:28 views/servers/ssh.php:28
+msgid "Provide the name for this server"
+msgstr "Cung cấp tên cho máy chủ này"
+
+#: views/cron.php:140
+msgid "Randomize"
+msgstr "Ngẫu nhiên hóa"
+
+#: views/cron.php:9
+msgid "Reboot"
+msgstr "Khởi động lại"
+
+#: bin/restore.php:477
+msgid "Reloading..."
+msgstr "Đang tải lại..."
+
+#: views/servers/mysql.php:172
+msgid "Remote Database Name"
+msgstr "Tên cơ sở dữ liệu từ xa"
+
+#: views/servers/mysql.php:100
+msgid "Remote MySQL Port"
+msgstr "Cổng giao tiếp MySQL từ xa"
+
+#: views/backup/backups.php:521
+msgid "Remote Path"
+msgstr "Đường dẫn từ xa"
+
+#: views/servers/ssh.php:100
+msgid "Remote SSH Port"
+msgstr "Cổng giao tiếp SSH từ xa"
+
+#: views/backup/backups.php:320
+msgid "Remote Save"
+msgstr "Lưu từ xa"
+
+#: views/backup/backups.php:335
+msgid "Remote Server Settings?"
+msgstr "Các cài đặt máy chủ từ xa?"
+
+#: views/backup/backups.php:347
+msgid "Remote Server Type"
+msgstr "Loại máy chủ từ xa"
+
+#: views/backup/backups.php:362
+msgid "Remote Server type"
+msgstr "Kiểu máy chủ từ xa"
+
+#: views/backup/backups.php:310
+msgid "Remote save options"
+msgstr "Các lự chọn lưu từ xa"
+
+#: views/backup/backups.php:533
+msgid "Remote save path, blank for default"
+msgstr "Đường dẫn lưu từ xa, để trống mặc định"
+
+#: Backup.class.php:187
+msgid "Reset"
+msgstr "Cài đặt lại"
+
+#: page.backup_restore.php:201 views/restore/backup_list.php:34
+#: views/restore/browseserver.php:4 views/restore/restore.php:34
+#: views/rnav/main.php:4
+msgid "Restore"
+msgstr "Khôi phục"
+
+#: views/restore/backup_list.php:26
+msgid "Restore CDR records stored in this backup"
+msgstr "Khôi phục các bản ghi CDR đã lưu trong sao lưu này"
+
+#: views/backup/backup.php:292
+msgid "Restore Here"
+msgstr "Khôi phục tại đây"
+
+#: views/restore/backup_list.php:19
+msgid "Restore all setting stored in the database"
+msgstr "Khôi phục tất cả các cài đặt đã lưu trong cơ sở dữ liệu"
+
+#: views/backup/backup.php:314
+msgid "Restore backup to this server after the backup is complete"
+msgstr "Khôi phục sao lưu tới máy chủ sau khi sao lưu hoàn thành"
+
+#: bin/restore.php:476
+msgid "Restore complete!"
+msgstr "Khôi phục hoàn thành!"
+
+#: bin/restore.php:385
+msgid "Restored Database"
+msgstr "Các dữ liệu đã khôi phục"
+
+#: bin/restore.php:401
+msgid "Restoring Bindaddres Settings"
+msgstr "Khôi phục các cài đặt Địa chỉ IP để gán vào"
+
+#: bin/restore.php:258
+msgid "Restoring CDRs complete"
+msgstr "Đang hoàn thành khôi phục CDRs"
+
+#: bin/restore.php:176
+msgid "Restoring CDRs..."
+msgstr "Đang khôi phục CDRs..."
+
+#: bin/restore.php:343
+msgid "Restoring Database..."
+msgstr "Đang khôi phục cơ sở dữ liệu..."
+
+#: bin/restore.php:393
+msgid "Restoring NAT settings"
+msgstr "Đang khôi phục các cài đặt NAT"
+
+#: bin/restore.php:431
+msgid "Restoring Settings complete"
+msgstr "Đang hoàn thành khôi phục các cài đặt"
+
+#: bin/restore.php:121
+msgid "Restoring all files (this may take some time)..."
+msgstr "Đang khôi phục tất cả các tệp ( Điều này có thể tốn chút thời gian)..."
+
+#: bin/restore.php:421
+msgid "Restoring astDB..."
+msgstr "Đang khôi phục astDB ( Dữ liệu Asterisk)..."
+
+#: bin/backup.php:171
+msgid "Restoring backup..."
+msgstr "Đang khôi phục sao lưu..."
+
+#: bin/restore.php:125
+msgid "Restoring files (this may take some time)..."
+msgstr "Đang khôi phục các tệp ( Việc này có thể tốn chút thời gian)..."
+
+#: views/cron.php:120
+msgid "Run Automatically"
+msgstr "Chạy tự đông"
+
+#: views/cron.php:97
+msgid ""
+"Run at startup of the server OR of the cron deamon (i.e. after every "
+"<code>service cron restart</code>)"
+msgstr ""
+"Chạy khi  máy chủ HOẶC cron deamon khởi động ( Ví dụ Sau mỗi <code>khởi động "
+"lại dịch vụ cron</code>)"
+
+#: page.backup.php:49
+msgid "Run now"
+msgstr "Chạy ngay bây giờ"
+
+#: views/cron.php:81
+msgid "Run once a day, at midnight"
+msgstr "Chạy 1 lần 1 ngày, vào nửa đêm"
+
+#: views/cron.php:89
+msgid "Run once a month, midnight, first of month"
+msgstr "Chạy 1 lần 1 tháng, vào nửa đêm, ngày đầu tiên của tháng"
+
+#: views/cron.php:85
+msgid "Run once a week, midnight on Sun"
+msgstr "Chạy một lần 1 tuần/ vào nửa đêm ngày Chủ nhật"
+
+#: views/cron.php:93
+msgid "Run once a year, midnight, Jan. 1"
+msgstr "Chạy 1 lần 1 năm/ vào nửa đêm ngày 1 tháng 1"
+
+#: views/cron.php:77
+msgid "Run once an hour, beginning of hour"
+msgstr "Chạy 1 lần 1 giờ, vào lúc bắt đầu của giờ đó"
+
+#: functions.inc/class.backup.php:497
+msgid "Running maintenance.."
+msgstr "Đang chạy bảo dưỡng..."
+
+#: bin/restore.php:437
+msgid "Running post restore script..."
+msgstr "Đang chạy kịch bản sau khôi phục..."
+
+#: bin/backup.php:145 bin/backup.php:190
+msgid "Running post-backup hooks..."
+msgstr "Đang chạt Hooks sau sao lưu..."
+
+#: bin/restore.php:441
+msgid "Running post-restore hooks, if any..."
+msgstr "Đang chạy hooks sau khôi phục, nếu có..."
+
+#: bin/backup.php:50
+msgid "Running pre-backup hooks..."
+msgstr "Đang chạy hooks trước sao lưu..."
+
+#: bin/restore.php:111
+msgid "Running pre-restore hooks, if any..."
+msgstr "Đang chạy hooks trước khôi phục, nếu có..."
+
+#: bin/restore.php:108
+msgid "Running pre-restore scripts..."
+msgstr "Đang chạy các kịch bản trước khôi phục..."
+
+#: views/backup/backup.php:554
+msgid "Runs"
+msgstr "Chạy"
+
+#: views/backup/backups.php:354
+msgid "SSH"
+msgstr "SSH"
+
+#: views/backup/backups.php:545
+msgid "SSH Key Path"
+msgstr "Đường dẫn khóa SSH"
+
+#: views/servers/ssh.php:4
+msgid "SSH Server"
+msgstr "Máy chủ SSH"
+
+#: functions.inc/servers.php:277 functions.inc/servers.php:332
+msgid "SSH Server "
+msgstr "Máy chủ SSH "
+
+#: views/servers/ssh.php:124
+msgid "SSH Username"
+msgstr "Tên người dùng SSH"
+
+#: views/cron.php:33 assets/js/backup.js:83
+msgid "Saturday"
+msgstr "Thứ Bảy"
+
+#: Backup.class.php:192
+msgid "Save"
+msgstr "Lưu"
+
+#: Backup.class.php:197
+msgid "Save and Run"
+msgstr "Lưu và chạy"
+
+#: functions.inc/class.backup.php:486
+msgid "Saving file to remote ftp"
+msgstr "Đang lưu tệp tới ftp từ xa"
+
+#: views/cron.php:71
+msgid "Schedule Help"
+msgstr "Lịch trình giúp đỡ"
+
+#: views/restore/browseserver.php:12
+msgid "Select a file and click go"
+msgstr "Chọn một tệp và kích chọn Đi"
+
+#: views/cron.php:73
+msgid ""
+"Select how often to run this backup. The following schedule will be followed "
+"for all but custom."
+msgstr ""
+"Chọn Tần suất chạy sao lưu này. Các lịch trình sau sẽ được theo dõi đối với "
+"tất cả trừ  việc tùy chỉnh."
+
+#: views/backup/backup.php:281
+msgid ""
+"Select the server to be backed up (this server, or any other SSH server)"
+msgstr ""
+"Chọn máy chủ đã được sao lưu ( máy chủ này , hoặc bất kỳ máy chủ SSH khác)"
+
+#: views/cron.php:51
+msgid "September"
+msgstr "Tháng chín"
+
+#: views/restore/restore.php:58
+msgid "Server"
+msgstr "Máy chủ"
+
+#: views/backup/backups.php:398
+msgid "Server Address"
+msgstr "Địa chỉ máy chủ"
+
+#: views/backup/backups.php:374 views/servers/email.php:16
+#: views/servers/ftp.php:18 views/servers/local.php:16
+#: views/servers/mysql.php:16 views/servers/ssh.php:16
+msgid "Server Name"
+msgstr "Tên máy chủ"
+
+#: assets/js/backup.js:24
+msgid "Server Name can not be blank"
+msgstr "Tê máy chủ không được để trống"
+
+#: views/backup/backups.php:422
+msgid "Server Port"
+msgstr "Cổng giao tiếp máy chủ"
+
+#: views/backup/backups.php:434
+msgid "Server Port, leave blank for default"
+msgstr "Công giao tiếp máy chủ, để trống mặc định"
+
+#: views/backup/backups.php:458
+msgid "Server Username"
+msgstr "Tên người dùng máy chủ"
+
+#: assets/js/backup.js:28
+msgid "Server address can not be blank"
+msgstr "Địa chỉ máy chủ không được để trống"
+
+#: page.backup_servers.php:80 views/rnav/main.php:5
+msgid "Servers"
+msgstr "Các máy chủ"
+
+#: bin/backup.php:179
+msgid "Skip Bindaddrss is Enabled... "
+msgstr "Bỏ qua Địa chỉ IP để gán đã kích hoạt "
+
+#: bin/restore.php:73
+msgid "Skipping host-specific Bind address"
+msgstr "Bỏ qua Địa chỉ IP để gán theo host"
+
+#: bin/backup.php:104
+msgid "Something went wrong when connecting to remote server. Aborting!"
+msgstr "Xuất hiện lỗi khi kết nối với máy chủ từ xa. Hủy bỏ!"
+
+#: views/backup/backup.php:65 views/backup/backups.php:291
+msgid "Status Email"
+msgstr "Trạng thái Thư điện tử"
+
+#: views/backup/backups.php:39
+msgid "Step 1"
+msgstr "Bước 1"
+
+#: views/backup/backups.php:48
+msgid "Step 2"
+msgstr "Bước 2"
+
+#: views/backup/backups.php:57
+msgid "Step 3"
+msgstr "Bước 3"
+
+#: views/backup/backups.php:66
+msgid "Step 4"
+msgstr "Bước 4"
+
+#: views/backup/backups.php:75
+msgid "Step 5"
+msgstr "Bước 5"
+
+#: views/backup/backup.php:442
+msgid "Storage Servers"
+msgstr "Các máy chủ lưu trữ"
+
+#: install.php:80
+msgid "Storage location for backups"
+msgstr "Vị trí lưu trữ cho các sao lưu"
+
+#: bin/backup.php:142
+msgid "Storing backup..."
+msgstr "Đang lưu trữ sao lưu..."
+
+#: views/cron.php:27 assets/js/backup.js:83
+msgid "Sunday"
+msgstr "Chủ nhật"
+
+#: views/servers/mysql.php:28
+msgid "Supply a server name"
+msgstr "Cung cấp một tên máy chủ"
+
+#: views/templates/template.php:18
+msgid "Template Name"
+msgstr "Tên mẫu"
+
+#: page.backup_templates.php:52 views/backup/backup.php:129
+#: views/rnav/main.php:6
+msgid "Templates"
+msgstr "Các mẫu"
+
+#: views/servers/ftp.php:123
+msgid "The FTP Server's file system type. If you are unsure set this to Auto"
+msgstr ""
+"Kiểu hệ thống tệp của máy chủ FTP. Nếu bạn không chắc chắn hãy cài đặt về Tự "
+"động"
+
+#: backup.i18n.php:22
+msgid "The From: field for emails when using the backup email feature."
+msgstr ""
+"The From: Trường cho các thư điện tử khi sử dụng đặc tính sao lưu Thư điện "
+"tử."
+
+#: page.backup_restore.php:191
+msgid "The Restore script Finished You can close this window"
+msgstr "Việc khôi phục kịch bản đã hoàn thành, bạn có thể đóng cửa sổ này"
+
+#: page.backup_restore.php:188
+msgid "The Restore script is still running"
+msgstr "Việc khôi phục kịch bản vẫn đang chạy"
+
+#: functions.inc/class.backup.php:409
+msgid ""
+"The backup file exceeded the maximum SMTP limits of 25MB. It was not "
+"attempted to be sent. Please shrink your backup, or use a different method "
+"of transferring your backup."
+msgstr ""
+"Tệp sao lưu vượt quá giới hạn SMTP cho phép là 25MB. Nó đã không thể gửi "
+"được. Vui lòng nén sao lưu của bạn, hoặc sử dụng phương pháp khác để truyền "
+"sao lưu."
+
+#: functions.inc/class.backup.php:412
+#, php-format
+msgid ""
+"The backup file exceeded the soft limit set in SMTP configuration (%s "
+"bytes). It was not attempted to be sent. Please shrink your backup, or use a "
+"different method of transferring your backup."
+msgstr ""
+
+#: views/servers/email.php:113
+msgid ""
+"The maximum size a backup can be and still be emailed. Some email servers "
+"limit the size of email attachments, this will make sure that files larger "
+"than the max size are not sent."
+msgstr ""
+
+#: views/servers/ftp.php:166
+msgid ""
+"This defaults to 'Passive'. If your FTP server is behind a seperate NAT or "
+"Firewall to this VoIP server, you should select 'Active'. In 'Active' mode, "
+"the FTP server establishes a connection back to the VoIP server to receive "
+"the data. In 'Passive' mode, the VoIP server connects to the FTP Server to "
+"send data."
+msgstr ""
+
+#: views/servers/email.php:118
+msgid "This has a maximum size of 25MB."
+msgstr ""
+
+#: views/backup/backup.php:252
+msgid "This server"
+msgstr ""
+
+#: views/backup/backups.php:84
+#, php-format
+msgid "This wizard can be used to add a basic backup task for your %s system"
+msgstr ""
+
+#: views/cron.php:31 assets/js/backup.js:83
+msgid "Thursday"
+msgstr ""
+
+#: views/servers/ftp.php:153
+msgid "Transfer Mode"
+msgstr ""
+
+#: views/backup/backups.php:494
+msgid "Transfer Type"
+msgstr ""
+
+#: views/cron.php:29 assets/js/backup.js:83
+msgid "Tuesday"
+msgstr ""
+
+#: views/item_table.php:5 views/servers/servers.php:21
+msgid "Type"
+msgstr ""
+
+#: functions.inc/class.backup.php:489
+msgid "Unable to upload file to the remote server"
+msgstr ""
+
+#: views/servers/ftp.php:115
+msgid "Unix/Linux"
+msgstr ""
+
+#: install.php:290
+#, php-format
+msgid "Updated Job %s with new custom sounds directory"
+msgstr ""
+
+#: install.php:278
+msgid "Updated System Recordings template"
+msgstr ""
+
+#: views/restore/restore.php:19
+msgid "Upload File"
+msgstr ""
+
+#: views/servers/mysql.php:112
+msgid "User Name"
+msgstr ""
+
+#: views/backup/backups.php:446 views/servers/ftp.php:80
+#: views/servers/ssh.php:112
+msgid "Username"
+msgstr ""
+
+#: bin/backup.php:109
+msgid "Verifying received file..."
+msgstr "Đang xác nhận tệp đã nhận..."
+
+#: install.php:163
+msgid "Voice Mail Storage"
+msgstr ""
+
+#: views/backup/backups.php:179
+msgid "Voicemails"
+msgstr ""
+
+#: bin/restore.php:264
+msgid "WARNING!"
+msgstr ""
+
+#: bin/restore.php:265
+msgid "Web Root restore not detected, not restoring module table"
+msgstr ""
+
+#: views/cron.php:30 assets/js/backup.js:83
+msgid "Wednesday"
+msgstr ""
+
+#: views/cron.php:220
+msgid "Week Days"
+msgstr ""
+
+#: views/backup/backups.php:149 views/cron.php:6
+msgid "Weekly"
+msgstr ""
+
+#: views/backup/backup.php:525
+msgid "Weeks"
+msgstr ""
+
+#: views/backup/backups.php:82
+msgid "Welcome to the Backup Wizard"
+msgstr ""
+
+#: views/backup/backups.php:169
+msgid "What should we backup?"
+msgstr ""
+
+#: views/servers/awss3.php:46 views/servers/awss3.php:63
+msgid "What's this?"
+msgstr ""
+
+#: views/backup/backups.php:303
+msgid "Where should status emails for this job be sent?"
+msgstr ""
+
+#: views/cron.php:234
+msgid "Which Days of the week to run"
+msgstr ""
+
+#: views/cron.php:208
+msgid "Which Hours to run."
+msgstr ""
+
+#: views/cron.php:260
+msgid "Which Months to run"
+msgstr ""
+
+#: views/cron.php:182
+msgid "Which minutes to run"
+msgstr ""
+
+#: views/servers/ftp.php:117
+msgid "Windows"
+msgstr ""
+
+#: Backup.class.php:67
+msgid "Wizard"
+msgstr ""
+
+#: views/backup/backups.php:279
+msgid "Would you like an email when this job runs?"
+msgstr ""
+
+#: views/backup/backups.php:255
+msgid "Would you like notifications?"
+msgstr ""
+
+#: views/backup/backups.php:221
+msgid "Would you like to backup recordings?"
+msgstr ""
+
+#: views/backup/backups.php:194
+msgid "Would you like voicemails backded up."
+msgstr ""
+
+#: views/backup/backup.php:529
+msgid "Years"
+msgstr ""
+
+#: views/backup/backup.php:94 views/backup/backup.php:306
+#: views/backup/backup.php:331 views/backup/backup.php:358
+#: views/backup/backup.php:385 views/backup/backup.php:413
+#: views/backup/backups.php:184 views/backup/backups.php:211
+#: views/backup/backups.php:238 views/backup/backups.php:269
+#: views/backup/backups.php:325 views/cron.php:145
+msgid "Yes"
+msgstr ""
+
+#: bin/restore.php:266
+#, php-format
+msgid "You should run \"%s\" to ensure system integrity"
+msgstr ""
+
+#: views/backup/backups.php:312
+msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
+msgstr ""
+
+#: install.php:126
+msgid "added default backup servers"
+msgstr ""
+
+#: install.php:215
+msgid "added default backup templates"
+msgstr ""
+
+#: functions.inc/class.backup.php:399
+msgid "astDb's"
+msgstr ""
+
+#: views/item_table.php:48
+msgid "chose"
+msgstr ""
+
+#: functions.inc/restore.php:32
+msgid "error/not found!"
+msgstr ""
+
+#: functions.inc/restore.php:226
+msgid "manifest not found"
+msgstr ""
+
+#: functions.inc/templates.php:289
+msgid "table names, one per line"
+msgstr ""
+
+#: bin/backup.php:45
+msgid "waiting for lock..."
+msgstr ""
+
+#: functions.inc/templates.php:281
+msgid "{no servers available}"
+msgstr ""

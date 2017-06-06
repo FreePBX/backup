@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-27 15:26-0400\n"
+"POT-Creation-Date: 2017-06-06 13:02-0400\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -376,6 +376,11 @@ msgstr "Только конфигурация"
 msgid "Connecting to remote server..."
 msgstr "Соединение с удаленным сервером..."
 
+#: functions.inc/class.backup.php:805
+#, php-format
+msgid "Could not find %s on the remote system"
+msgstr ""
+
 #: functions.inc/class.backup.php:396 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Создано"
@@ -575,7 +580,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:807
+#: functions.inc/class.backup.php:812
 #, php-format
 msgid "Error deleting %s"
 msgstr ""

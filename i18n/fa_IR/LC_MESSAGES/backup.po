@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-27 15:26-0400\n"
+"POT-Creation-Date: 2017-06-06 13:02-0400\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -358,6 +358,11 @@ msgstr "فقط پیکربندی ها"
 msgid "Connecting to remote server..."
 msgstr "اتصال به سرور دور دست..."
 
+#: functions.inc/class.backup.php:805
+#, php-format
+msgid "Could not find %s on the remote system"
+msgstr ""
+
 #: functions.inc/class.backup.php:396 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "ساخته شد"
@@ -553,7 +558,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr "خطا در ایجاد شی در FTP"
 
-#: functions.inc/class.backup.php:807
+#: functions.inc/class.backup.php:812
 #, php-format
 msgid "Error deleting %s"
 msgstr "خطا در حذف کردن %s"

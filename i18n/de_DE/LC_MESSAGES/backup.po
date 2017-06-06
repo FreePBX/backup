@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-06 13:02-0400\n"
+"POT-Creation-Date: 2017-06-06 15:22-0400\n"
 "PO-Revision-Date: 2017-03-06 03:04+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -281,7 +281,7 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr "Sicherungsdatei nicht gefunden! Abbrechen."
 
-#: functions.inc/class.backup.php:496
+#: functions.inc/class.backup.php:497
 msgid "Backup file uploaded to the remote server"
 msgstr ""
 
@@ -361,7 +361,7 @@ msgstr "Nur Konfigurationen"
 msgid "Connecting to remote server..."
 msgstr "Verbindung zum Remote-Server ..."
 
-#: functions.inc/class.backup.php:805
+#: functions.inc/class.backup.php:806
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -568,7 +568,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr "Fehler beim Erstellen des FTP-Objekts"
 
-#: functions.inc/class.backup.php:812
+#: functions.inc/class.backup.php:813
 #, php-format
 msgid "Error deleting %s"
 msgstr "Fehler %s löschen"
@@ -1290,7 +1290,7 @@ msgstr "Startet einmal jährlich, am 1.Januar, um Mitternacht"
 msgid "Run once an hour, beginning of hour"
 msgstr "Startet einmal stündlich, am Stundenanfang"
 
-#: functions.inc/class.backup.php:497
+#: functions.inc/class.backup.php:498
 msgid "Running maintenance.."
 msgstr ""
 
@@ -1577,6 +1577,11 @@ msgstr "Übertragungsmodus"
 #: views/backup/backups.php:494
 msgid "Transfer Type"
 msgstr "Übertragungstyp"
+
+#: functions.inc/class.backup.php:491
+#, php-format
+msgid "Trying to upload %s to %s"
+msgstr ""
 
 #: views/cron.php:29 assets/js/backup.js:83
 msgid "Tuesday"

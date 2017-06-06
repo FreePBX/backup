@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-06 13:02-0400\n"
+"POT-Creation-Date: 2017-06-06 15:22-0400\n"
 "PO-Revision-Date: 2015-11-17 12:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -268,7 +268,7 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr ""
 
-#: functions.inc/class.backup.php:496
+#: functions.inc/class.backup.php:497
 msgid "Backup file uploaded to the remote server"
 msgstr ""
 
@@ -348,7 +348,7 @@ msgstr "仅配置"
 msgid "Connecting to remote server..."
 msgstr "连接到远端服务器。。。"
 
-#: functions.inc/class.backup.php:805
+#: functions.inc/class.backup.php:806
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -538,7 +538,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:812
+#: functions.inc/class.backup.php:813
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -1236,7 +1236,7 @@ msgstr ""
 msgid "Run once an hour, beginning of hour"
 msgstr ""
 
-#: functions.inc/class.backup.php:497
+#: functions.inc/class.backup.php:498
 msgid "Running maintenance.."
 msgstr ""
 
@@ -1501,6 +1501,11 @@ msgstr "传输模式"
 #: views/backup/backups.php:494
 msgid "Transfer Type"
 msgstr "测试类型"
+
+#: functions.inc/class.backup.php:491
+#, php-format
+msgid "Trying to upload %s to %s"
+msgstr ""
 
 #: views/cron.php:29 assets/js/backup.js:83
 msgid "Tuesday"

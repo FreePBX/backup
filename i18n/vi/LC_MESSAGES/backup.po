@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-06 15:22-0400\n"
-"PO-Revision-Date: 2017-06-06 11:54+0200\n"
+"PO-Revision-Date: 2017-06-07 09:16+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
-"Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
-"backup/vi/>\n"
+"Language-Team: Vietnamese "
+"<http://weblate.freepbx.org/projects/freepbx/backup/vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -362,7 +362,7 @@ msgstr "Đang kết nối tới máy chủ từ xa..."
 #: functions.inc/class.backup.php:806
 #, php-format
 msgid "Could not find %s on the remote system"
-msgstr ""
+msgstr "Không thể tìm thấy  %s trên hệ thống từ xa"
 
 #: functions.inc/class.backup.php:396 views/restore/browseserver.php:18
 msgid "Created"
@@ -1022,7 +1022,7 @@ msgstr "Mô tả lựa chọn hoắc ghi chú cho mẫu sao lưu này."
 
 #: functions.inc/templates.php:260
 msgid "PATTERNs, one per line"
-msgstr ""
+msgstr "Chuỗi mẫu, 1 chuỗi trên 1 dòng"
 
 #: views/restore/backup_list.php:19
 msgid "PBX Settings"
@@ -1509,9 +1509,8 @@ msgid ""
 "attempted to be sent. Please shrink your backup, or use a different method "
 "of transferring your backup."
 msgstr ""
-"Tệp sao lưu vượt quá giới hạn SMTP cho phép là 25MB. Nó đã không thể gửi "
-"được. Vui lòng nén sao lưu của bạn, hoặc sử dụng phương pháp khác để truyền "
-"sao lưu."
+"Tệp sao lưu vượt quá giới hạn SMTP cho phép là 25MB.  Nó đã không thể được "
+"gửi đi . Vui lòng nén sao lưu của bạn, hoặc sử dụng cách để truyền sao lưu."
 
 #: functions.inc/class.backup.php:412
 #, php-format
@@ -1520,6 +1519,9 @@ msgid ""
 "bytes). It was not attempted to be sent. Please shrink your backup, or use a "
 "different method of transferring your backup."
 msgstr ""
+"Tệp sao lưu vượt quá giới hạn mềm được cài đặt trong cấu hình SMTP (%s bytes)"
+". Nó đã không thể được gửi đi . Vui lòng nén sao lưu của bạn, hoặc sử dụng "
+"cách để truyền sao lưu."
 
 #: views/servers/email.php:113
 msgid ""
@@ -1527,6 +1529,9 @@ msgid ""
 "limit the size of email attachments, this will make sure that files larger "
 "than the max size are not sent."
 msgstr ""
+"Kích cỡ tối đã của một sao lưu có thể vẫn được gửi qua thư điện tử. Một số "
+"máy chủ thư điện tử giới hạn kích cỡ của các tệp đính kèm, điều này nhằm đảm "
+"bảo các tệp có kích cỡ lớn hơn kích cỡ tối đa sẽ không được gửi đi."
 
 #: views/servers/ftp.php:166
 msgid ""
@@ -1536,74 +1541,81 @@ msgid ""
 "the data. In 'Passive' mode, the VoIP server connects to the FTP Server to "
 "send data."
 msgstr ""
+"Điều này mặc địch là \"Bị động\". Nếu máy chủ FTP đứng sau một NAT riêng "
+"biệt hoặc Tường lửa đến máy chủ VoIp, bạn nên chọn \" Chủ động\". Trong chế "
+"độ \" Chủ động\" máy chủ FTP sẽ thiết lập một kết nối trở lại máy chủ VoLP "
+"để nhận dữ liệu. Ở chế độ \" Bị động\", máy chủ VoIP kết nối với máy chủ FTP "
+"để gửi dữ liệu."
 
 #: views/servers/email.php:118
 msgid "This has a maximum size of 25MB."
-msgstr ""
+msgstr "Cái này có kích cỡ tối đa là 25MB."
 
 #: views/backup/backup.php:252
 msgid "This server"
-msgstr ""
+msgstr "Máy chủ này"
 
 #: views/backup/backups.php:84
 #, php-format
 msgid "This wizard can be used to add a basic backup task for your %s system"
 msgstr ""
+"Wizard này có thể được sử dụng để thêm vào một tác vụ sao lưu cho hệ thống  %"
+"s của bạn"
 
 #: views/cron.php:31 assets/js/backup.js:83
 msgid "Thursday"
-msgstr ""
+msgstr "Thứ Năm"
 
 #: views/servers/ftp.php:153
 msgid "Transfer Mode"
-msgstr ""
+msgstr "Chế độ truyền"
 
 #: views/backup/backups.php:494
 msgid "Transfer Type"
-msgstr ""
+msgstr "Kiểu truyền"
 
 #: functions.inc/class.backup.php:491
 #, php-format
 msgid "Trying to upload %s to %s"
-msgstr ""
+msgstr "Đang cố gắng tải lên %s đến %s"
 
 #: views/cron.php:29 assets/js/backup.js:83
 msgid "Tuesday"
-msgstr ""
+msgstr "Thứ Ba"
 
 #: views/item_table.php:5 views/servers/servers.php:21
 msgid "Type"
-msgstr ""
+msgstr "Kiểu"
 
 #: functions.inc/class.backup.php:489
 msgid "Unable to upload file to the remote server"
-msgstr ""
+msgstr "Không thể tải tệp đến máy chủ từ xa"
 
 #: views/servers/ftp.php:115
 msgid "Unix/Linux"
-msgstr ""
+msgstr "Hệ điều hành Unix/Linux"
 
 #: install.php:290
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
-msgstr ""
+msgstr "Cập nhật công việc  %s với thư mục âm thanh tùy chỉnh mới"
 
 #: install.php:278
 msgid "Updated System Recordings template"
-msgstr ""
+msgstr "Cập nhật hệ thống các mẫu ghi âm"
 
 #: views/restore/restore.php:19
 msgid "Upload File"
-msgstr ""
+msgstr "Tải tệp lên"
 
 #: views/servers/mysql.php:112
 msgid "User Name"
-msgstr ""
+msgstr "Tên người dùng"
 
 #: views/backup/backups.php:446 views/servers/ftp.php:80
 #: views/servers/ssh.php:112
 msgid "Username"
-msgstr ""
+msgstr "Tên người dùng"
 
 #: bin/backup.php:109
 msgid "Verifying received file..."
@@ -1611,95 +1623,96 @@ msgstr "Đang xác nhận tệp đã nhận..."
 
 #: install.php:163
 msgid "Voice Mail Storage"
-msgstr ""
+msgstr "Lưu trữ thư thoại"
 
 #: views/backup/backups.php:179
 msgid "Voicemails"
-msgstr ""
+msgstr "Các thư thoại"
 
 #: bin/restore.php:264
 msgid "WARNING!"
-msgstr ""
+msgstr "CẢNH BÁO!"
 
 #: bin/restore.php:265
 msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
+"Việc khôi phục Web Root không được phát hiện, không khôi phục bảng mô đun"
 
 #: views/cron.php:30 assets/js/backup.js:83
 msgid "Wednesday"
-msgstr ""
+msgstr "Thứ Tư"
 
 #: views/cron.php:220
 msgid "Week Days"
-msgstr ""
+msgstr "Các ngày trong tuần"
 
 #: views/backup/backups.php:149 views/cron.php:6
 msgid "Weekly"
-msgstr ""
+msgstr "Hằng tuần"
 
 #: views/backup/backup.php:525
 msgid "Weeks"
-msgstr ""
+msgstr "Tuần"
 
 #: views/backup/backups.php:82
 msgid "Welcome to the Backup Wizard"
-msgstr ""
+msgstr "Chào mừng đến với Backup Wizard"
 
 #: views/backup/backups.php:169
 msgid "What should we backup?"
-msgstr ""
+msgstr "Chúng ta nên sao lưu những gì?"
 
 #: views/servers/awss3.php:46 views/servers/awss3.php:63
 msgid "What's this?"
-msgstr ""
+msgstr "Đây là cái gì?"
 
 #: views/backup/backups.php:303
 msgid "Where should status emails for this job be sent?"
-msgstr ""
+msgstr "Các trạng thái thư điện tử cho công việc này nên được gửi đến đâu?"
 
 #: views/cron.php:234
 msgid "Which Days of the week to run"
-msgstr ""
+msgstr "Chạy vào những ngày nào trong tuần"
 
 #: views/cron.php:208
 msgid "Which Hours to run."
-msgstr ""
+msgstr "Chạy vào những giờ nào."
 
 #: views/cron.php:260
 msgid "Which Months to run"
-msgstr ""
+msgstr "Chạy vào các tháng nào."
 
 #: views/cron.php:182
 msgid "Which minutes to run"
-msgstr ""
+msgstr "Chạy vào những phút nào"
 
 #: views/servers/ftp.php:117
 msgid "Windows"
-msgstr ""
+msgstr "Các cửa sổ"
 
 #: Backup.class.php:67
 msgid "Wizard"
-msgstr ""
+msgstr "Thuật sĩ Wizard"
 
 #: views/backup/backups.php:279
 msgid "Would you like an email when this job runs?"
-msgstr ""
+msgstr "Bạn có muốn nhận một email khi công việc này khởi chạy?"
 
 #: views/backup/backups.php:255
 msgid "Would you like notifications?"
-msgstr ""
+msgstr "Bạn có muốn thông bao?"
 
 #: views/backup/backups.php:221
 msgid "Would you like to backup recordings?"
-msgstr ""
+msgstr "Bạn có muôn sao lưu các ghi âm?"
 
 #: views/backup/backups.php:194
 msgid "Would you like voicemails backded up."
-msgstr ""
+msgstr "Bạn có muốn các thư thoại được sao lưu."
 
 #: views/backup/backup.php:529
 msgid "Years"
-msgstr ""
+msgstr "Năm"
 
 #: views/backup/backup.php:94 views/backup/backup.php:306
 #: views/backup/backup.php:331 views/backup/backup.php:358
@@ -1708,49 +1721,49 @@ msgstr ""
 #: views/backup/backups.php:238 views/backup/backups.php:269
 #: views/backup/backups.php:325 views/cron.php:145
 msgid "Yes"
-msgstr ""
+msgstr "Có"
 
 #: bin/restore.php:266
 #, php-format
 msgid "You should run \"%s\" to ensure system integrity"
-msgstr ""
+msgstr "Bạn nên chạy \"%s\"để đảm bảo tính toàn vẹn của hệ thống"
 
 #: views/backup/backups.php:312
 msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
-msgstr ""
+msgstr "Sao lưu của bạn sẽ được lưu tại chỗ đến /var/spool/asterisk/backup"
 
 #: install.php:126
 msgid "added default backup servers"
-msgstr ""
+msgstr "Các máy chủ sao lưu mặc định đã thêm"
 
 #: install.php:215
 msgid "added default backup templates"
-msgstr ""
+msgstr "Các mẫu sao lưu mặc định đã thêm"
 
 #: functions.inc/class.backup.php:399
 msgid "astDb's"
-msgstr ""
+msgstr "Các dữ liệu Asterisk (astDb's)"
 
 #: views/item_table.php:48
 msgid "chose"
-msgstr ""
+msgstr "chọn"
 
 #: functions.inc/restore.php:32
 msgid "error/not found!"
-msgstr ""
+msgstr "Lỗi/ Không tìm thấy!"
 
 #: functions.inc/restore.php:226
 msgid "manifest not found"
-msgstr ""
+msgstr "Không tìm thấy kê khai"
 
 #: functions.inc/templates.php:289
 msgid "table names, one per line"
-msgstr ""
+msgstr "Tên bảng, một trên một dòng"
 
 #: bin/backup.php:45
 msgid "waiting for lock..."
-msgstr ""
+msgstr "Đang đợi để khóa..."
 
 #: functions.inc/templates.php:281
 msgid "{no servers available}"
-msgstr ""
+msgstr "{không có máy chủ nào khả dụng}"

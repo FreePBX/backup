@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-06 15:22-0400\n"
-"PO-Revision-Date: 2017-06-07 09:16+0200\n"
+"PO-Revision-Date: 2017-06-07 09:33+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/backup/vi/>\n"
@@ -167,7 +167,7 @@ msgstr "B"
 
 #: functions.inc.php:68
 msgid "BACKUP LOG ATTACHED"
-msgstr "SAO LƯU LOG ĐÍNH KÈM"
+msgstr "SAO LƯU NHẬT KÝ ĐÍNH KÈM"
 
 #: functions.inc/class.backup.php:409 functions.inc/class.backup.php:412
 msgid "BACKUP NOT ATTACHED"
@@ -228,7 +228,7 @@ msgstr "Sao lưu Lock thu được!"
 
 #: functions.inc.php:71
 msgid "Backup Log:"
-msgstr "Sao lưu Log:"
+msgstr "Sao lưu Nhật ký:"
 
 #: backup.i18n.php:20
 msgid "Backup Module"
@@ -321,7 +321,7 @@ msgstr "Đang xây dựng kê khai..."
 
 #: views/backup/backups.php:233
 msgid "CDR and Call Log Data"
-msgstr "CDR và dữ liệu Log cuộc gọi"
+msgstr "CDR và dữ liệu nhật ký cuộc gọi"
 
 #: install.php:100
 msgid "CDR server, generally a local database server"
@@ -1680,7 +1680,7 @@ msgstr "Chạy vào những giờ nào."
 
 #: views/cron.php:260
 msgid "Which Months to run"
-msgstr "Chạy vào các tháng nào."
+msgstr "Chạy vào các tháng nào"
 
 #: views/cron.php:182
 msgid "Which minutes to run"

@@ -36,9 +36,6 @@ $dataurl = "ajax.php?module=backup&command=getJSON&jdata=serverGrid";
   </div>
   <div id="browse" class="tab-pane fade">
     <div id="toolbar-all">
-        <button id="remove-all" class="btn btn-danger btn-remove" data-type="extensions" disabled data-section="all">
-            <i class="glyphicon glyphicon-remove"></i> <span><?php echo _('Delete')?></span>
-        </button>
     </div>
      <table id="servers"
             data-url="<?php echo $dataurl?>"

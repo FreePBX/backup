@@ -43,7 +43,7 @@ class Backup implements \BMO {
 					$current_servers = backup_get_server('all_detailed');
 					$server = array();
 					$backup = array();
-					$create_server = false;
+					$create_server = true;
 					$backup['bu_server'] = '0';
 					extract($_REQUEST, EXTR_SKIP);
 					foreach ($current_servers as $key => $value) {

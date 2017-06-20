@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-06 15:22-0400\n"
-"PO-Revision-Date: 2017-06-07 09:33+0200\n"
-"Last-Translator: Peter Trinh <ftek@ymail.com>\n"
+"PO-Revision-Date: 2017-06-20 13:27+0200\n"
+"Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/backup/vi/>\n"
 "Language: vi\n"
@@ -965,7 +965,7 @@ msgstr "Mẫu mới"
 
 #: views/backup/backups.php:147
 msgid "Nightly"
-msgstr "Nightly"
+msgstr "Hằng đêm"
 
 #: views/backup/backup.php:96 views/backup/backup.php:308
 #: views/backup/backup.php:333 views/backup/backup.php:360

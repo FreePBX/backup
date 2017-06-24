@@ -430,7 +430,7 @@ class Backup {
 					$connection = new Connection($s['host'], $s['user'], $s['password'], $s['port'], 90, ($s['transfer'] == 'passive'));
 					try{
 						$connection->open();
-					}catch (ConnectionEstablishedException $e){
+					}catch (\Exception $e){
 						$this->b['error'] = $e->getMessage();
 						backup_log($this->b['error']);
 						return;
@@ -475,7 +475,7 @@ class Backup {
 						backup_log(sprintf(_("Creating directory '%s'"),$path));
 						try{
 							$ftp->create(new Directory($path),array(FTP::RECURSIVE => true));
-						}catch (DirectoryException $e){
+						}catch (\Exception $e){
 							$this->b['error'] = sprintf(_("Directory '%s' did not exist and we could not create it"),$path);
 							backup_log($this->b['error']);
 							backup_log($e->getMessage());
@@ -485,9 +485,10 @@ class Backup {
 					try{
 						backup_log(_("Saving file to remote ftp"));
 						$ftp->upload(new File($path.'/'.$this->b['_file'] . '.tgz'),$this->b['_tmpfile']);
-					}catch (InvalidArgumentException $e){
+					}catch (\Exception $e){
 						$this->b['error'] = _("Unable to upload file to the remote server");
 						backup_log($this->b['error']);
+						backup_log(sprintf(_("Trying to upload %s to %s"),$this->b['_tmpfile'],$path.'/'.$this->b['_file'] . '.tgz'));
 						backup_log($e->getMessage());
 						return;
 					}
@@ -808,9 +809,10 @@ class Backup {
 					}
 					try{
 						$handle->delete($f);
-					}catch(DirectoryException $e){
+					}catch(\Exception $e){
 						$this->b['error'] = sprintf(_("Error deleting %s"),$file);
 						backup_log($this->b['error']);
+						backup_log($e->getMessage());
 					}
 					unset($delete[$key]);
 					break;

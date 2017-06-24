@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-06 15:22-0400\n"
+"POT-Creation-Date: 2017-06-23 20:09-0400\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -420,7 +420,7 @@ msgstr ""
 
 #: Backup.class.php:38 Backup.class.php:202 page.backup.php:47
 #: page.backup_servers.php:36 page.backup_templates.php:20
-#: views/item_table.php:14 views/restore/restore.php:40
+#: views/item_table.php:14
 #, fuzzy
 msgid "Delete"
 msgstr "נבחר"
@@ -1336,7 +1336,7 @@ msgstr ""
 msgid "September"
 msgstr "ספטמבר"
 
-#: views/restore/restore.php:58
+#: views/restore/restore.php:55
 msgid "Server"
 msgstr ""
 

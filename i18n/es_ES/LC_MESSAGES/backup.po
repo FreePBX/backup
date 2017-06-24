@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-06 15:22-0400\n"
+"POT-Creation-Date: 2017-06-23 20:09-0400\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -437,7 +437,7 @@ msgstr "Respaldo por defecto, automáticamente instalado"
 
 #: Backup.class.php:38 Backup.class.php:202 page.backup.php:47
 #: page.backup_servers.php:36 page.backup_templates.php:20
-#: views/item_table.php:14 views/restore/restore.php:40
+#: views/item_table.php:14
 msgid "Delete"
 msgstr "Eliminar"
 
@@ -1402,7 +1402,7 @@ msgstr ""
 msgid "September"
 msgstr "Septiembre"
 
-#: views/restore/restore.php:58
+#: views/restore/restore.php:55
 msgid "Server"
 msgstr "Servidor"
 

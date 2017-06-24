@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-06 15:22-0400\n"
+"POT-Creation-Date: 2017-06-23 20:09-0400\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -440,7 +440,7 @@ msgstr "Резервное копирование по умолчанию: ус�
 
 #: Backup.class.php:38 Backup.class.php:202 page.backup.php:47
 #: page.backup_servers.php:36 page.backup_templates.php:20
-#: views/item_table.php:14 views/restore/restore.php:40
+#: views/item_table.php:14
 msgid "Delete"
 msgstr "Удалить "
 
@@ -1398,7 +1398,7 @@ msgstr ""
 msgid "September"
 msgstr "Сентябрь"
 
-#: views/restore/restore.php:58
+#: views/restore/restore.php:55
 msgid "Server"
 msgstr ""
 

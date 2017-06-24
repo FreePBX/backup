@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-06 10:03-0700\n"
+"POT-Creation-Date: 2017-06-23 17:15-0700\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -293,7 +293,7 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr "Archivo de Respaldo no encontrado!. Abortando."
 
-#: functions.inc/class.backup.php:496
+#: functions.inc/class.backup.php:497
 msgid "Backup file uploaded to the remote server"
 msgstr ""
 
@@ -373,7 +373,7 @@ msgstr "Solo Configuraciones"
 msgid "Connecting to remote server..."
 msgstr "Conectando a Servidor remoto..."
 
-#: functions.inc/class.backup.php:805
+#: functions.inc/class.backup.php:806
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -437,7 +437,7 @@ msgstr "Respaldo por defecto, automáticamente instalado"
 
 #: Backup.class.php:38 Backup.class.php:202 page.backup.php:47
 #: page.backup_servers.php:36 page.backup_templates.php:20
-#: views/item_table.php:14 views/restore/restore.php:40
+#: views/item_table.php:14
 msgid "Delete"
 msgstr "Eliminar"
 
@@ -578,7 +578,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr "Error creando el objeto FTP"
 
-#: functions.inc/class.backup.php:812
+#: functions.inc/class.backup.php:813
 #, php-format
 msgid "Error deleting %s"
 msgstr "Error borrando %s"
@@ -1307,7 +1307,7 @@ msgstr "Ejecutar una vez al año, medianoche, 01 de enero"
 msgid "Run once an hour, beginning of hour"
 msgstr "Ejecutar una vez cada hora, a inicio de la hora"
 
-#: functions.inc/class.backup.php:497
+#: functions.inc/class.backup.php:498
 msgid "Running maintenance.."
 msgstr ""
 
@@ -1402,7 +1402,7 @@ msgstr ""
 msgid "September"
 msgstr "Septiembre"
 
-#: views/restore/restore.php:58
+#: views/restore/restore.php:55
 msgid "Server"
 msgstr "Servidor"
 
@@ -1596,6 +1596,11 @@ msgstr "Modo Transferencia"
 #: views/backup/backups.php:494
 msgid "Transfer Type"
 msgstr "Tipo de Transferencia"
+
+#: functions.inc/class.backup.php:491
+#, php-format
+msgid "Trying to upload %s to %s"
+msgstr ""
 
 #: views/cron.php:29 assets/js/backup.js:83
 msgid "Tuesday"

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-06 10:03-0700\n"
+"POT-Creation-Date: 2017-06-23 17:15-0700\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -277,7 +277,7 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr ""
 
-#: functions.inc/class.backup.php:496
+#: functions.inc/class.backup.php:497
 msgid "Backup file uploaded to the remote server"
 msgstr ""
 
@@ -357,7 +357,7 @@ msgstr ""
 msgid "Connecting to remote server..."
 msgstr ""
 
-#: functions.inc/class.backup.php:805
+#: functions.inc/class.backup.php:806
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -421,7 +421,7 @@ msgstr ""
 
 #: Backup.class.php:38 Backup.class.php:202 page.backup.php:47
 #: page.backup_servers.php:36 page.backup_templates.php:20
-#: views/item_table.php:14 views/restore/restore.php:40
+#: views/item_table.php:14
 msgid "Delete"
 msgstr ""
 
@@ -547,7 +547,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:812
+#: functions.inc/class.backup.php:813
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -1247,7 +1247,7 @@ msgstr ""
 msgid "Run once an hour, beginning of hour"
 msgstr ""
 
-#: functions.inc/class.backup.php:497
+#: functions.inc/class.backup.php:498
 msgid "Running maintenance.."
 msgstr ""
 
@@ -1338,7 +1338,7 @@ msgstr ""
 msgid "September"
 msgstr "September"
 
-#: views/restore/restore.php:58
+#: views/restore/restore.php:55
 msgid "Server"
 msgstr ""
 
@@ -1511,6 +1511,11 @@ msgstr ""
 
 #: views/backup/backups.php:494
 msgid "Transfer Type"
+msgstr ""
+
+#: functions.inc/class.backup.php:491
+#, php-format
+msgid "Trying to upload %s to %s"
 msgstr ""
 
 #: views/cron.php:29 assets/js/backup.js:83

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-23 17:15-0700\n"
+"POT-Creation-Date: 2017-06-26 10:53-0700\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -167,12 +167,12 @@ msgstr "B"
 msgid "BACKUP LOG ATTACHED"
 msgstr "لاگ پشتیبان ضمیمه شده"
 
-#: functions.inc/class.backup.php:409 functions.inc/class.backup.php:412
+#: functions.inc/class.backup.php:410 functions.inc/class.backup.php:413
 msgid "BACKUP NOT ATTACHED"
 msgstr "پشتیبان ضمیمه نشد"
 
 #: Backup.class.php:316 functions.inc/backup.php:81
-#: functions.inc/class.backup.php:403 views/backup/backup.php:6
+#: functions.inc/class.backup.php:404 views/backup/backup.php:6
 msgid "Backup"
 msgstr "پشتیبان گیری"
 
@@ -205,11 +205,11 @@ msgstr ""
 msgid "Backup Description"
 msgstr "توضیحات پشتیبان"
 
-#: functions.inc/class.backup.php:408
+#: functions.inc/class.backup.php:409
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr "خطای پشتیبان گیری (exceeded SMTP limits)"
 
-#: functions.inc/class.backup.php:411
+#: functions.inc/class.backup.php:412
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr "خطای پشتیبان گیری (exceeded soft limit)"
 
@@ -265,7 +265,7 @@ msgstr "پشتیبان گیری و بازیابی"
 msgid "Backup completed with errors!"
 msgstr "پشتیبان گیری با خطا پایان یافت!"
 
-#: functions.inc/class.backup.php:297
+#: functions.inc/class.backup.php:298
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -278,7 +278,7 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr "فایل پشتیبان یافت نشد! بی نتیجه."
 
-#: functions.inc/class.backup.php:497
+#: functions.inc/class.backup.php:498
 msgid "Backup file uploaded to the remote server"
 msgstr ""
 
@@ -342,7 +342,7 @@ msgstr "تماس های ضبط شده"
 msgid "Can not create backup tables"
 msgstr "امکان ایجاد جداول پشتیبان وجود ندارد"
 
-#: bin/restore.php:446
+#: bin/restore.php:454
 msgid "Cleaning up..."
 msgstr "پاک کردن..."
 
@@ -358,12 +358,12 @@ msgstr "فقط پیکربندی ها"
 msgid "Connecting to remote server..."
 msgstr "اتصال به سرور دور دست..."
 
-#: functions.inc/class.backup.php:806
+#: functions.inc/class.backup.php:807
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
 
-#: functions.inc/class.backup.php:396 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:397 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "ساخته شد"
 
@@ -371,7 +371,7 @@ msgstr "ساخته شد"
 msgid "Creating backup..."
 msgstr "در حال پشتیبان گیری..."
 
-#: functions.inc/class.backup.php:475
+#: functions.inc/class.backup.php:476
 #, php-format
 msgid "Creating directory '%s'"
 msgstr "در حال ایجاد دایرکتوری '%s'"
@@ -479,7 +479,7 @@ msgstr "مقصد"
 msgid "Directory"
 msgstr "دایرکتوری"
 
-#: functions.inc/class.backup.php:479
+#: functions.inc/class.backup.php:480
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr "دایرکتوری '%s' وجود ندارد و نمی توان آن را ایجاد کرد"
@@ -488,7 +488,7 @@ msgstr "دایرکتوری '%s' وجود ندارد و نمی توان آن را
 msgid "Disable Registered Trunks"
 msgstr "غیرفعال کردن ترانک های رجیستر شده"
 
-#: bin/restore.php:492
+#: bin/restore.php:500
 msgid "Done!"
 msgstr "انجام شد!"
 
@@ -553,12 +553,12 @@ msgstr ""
 "پس از کلیک بر روی دکمه قرمز رنگ، هم ارزی به صورت خودکار پس از بازیابی بر روی "
 "سیستم فرعی انجام خواهد شد"
 
-#: functions.inc/class.backup.php:469 functions.inc/restore.php:117
+#: functions.inc/class.backup.php:470 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
 msgstr "خطا در ایجاد شی در FTP"
 
-#: functions.inc/class.backup.php:813
+#: functions.inc/class.backup.php:814
 #, php-format
 msgid "Error deleting %s"
 msgstr "خطا در حذف کردن %s"
@@ -678,7 +678,7 @@ msgstr "بازیابی فایل پایان یافت!"
 msgid "File verification failed. "
 msgstr "بازبینی فایل شکست خورد. "
 
-#: functions.inc/class.backup.php:397 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:398 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "فایل ها"
 
@@ -694,7 +694,7 @@ msgstr "مرکزتماس رایگان"
 msgid "Friday"
 msgstr "جمعه"
 
-#: bin/restore.php:217
+#: bin/restore.php:221
 msgid "Getting CDR size..."
 msgstr "دریافت اندازه جزئیات تماس..."
 
@@ -894,7 +894,7 @@ msgstr "MySQL"
 msgid "Mysql DB's"
 msgstr "دیتابیس های MySQL"
 
-#: functions.inc/class.backup.php:398
+#: functions.inc/class.backup.php:399
 msgid "Mysql Db's"
 msgstr "دیتابیس های MySQL"
 
@@ -902,7 +902,7 @@ msgstr "دیتابیس های MySQL"
 msgid "Mysql Server "
 msgstr "سرور MySQL "
 
-#: functions.inc/class.backup.php:395 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:396 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "نام"
 
@@ -1085,20 +1085,20 @@ msgstr "تله پیش از اجرای پشتیبان"
 msgid "Pre-Restore Hook"
 msgstr "تله پیش از اجرای بازیابی"
 
-#: bin/restore.php:308
+#: bin/restore.php:316
 msgid "Preserving local Bind address"
 msgstr ""
 
-#: bin/restore.php:300
+#: bin/restore.php:308
 msgid "Preserving local NAT settings"
 msgstr "حفظ تنظیمات NAT محلی"
 
-#: bin/restore.php:251
+#: bin/restore.php:255
 #, php-format
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr "پردازش %s%% از CDR ها (%s از %s خط)"
 
-#: bin/restore.php:381
+#: bin/restore.php:389
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "پردازش %s%% از تنظیمات (%s از %s خط)"
@@ -1119,7 +1119,7 @@ msgstr "تصادفی"
 msgid "Reboot"
 msgstr "راه اندازی مجدد"
 
-#: bin/restore.php:477
+#: bin/restore.php:485
 msgid "Reloading..."
 msgstr "بارگذاری..."
 
@@ -1190,19 +1190,19 @@ msgstr "بازیابی تمامی تنظیمات ذخیره شده در دیتا
 msgid "Restore backup to this server after the backup is complete"
 msgstr "بازیابی پشتیبان بر روی این سرور بعد از اتمام پشتیبان گیری"
 
-#: bin/restore.php:476
+#: bin/restore.php:484
 msgid "Restore complete!"
 msgstr "بازیابی کامل شد!"
 
-#: bin/restore.php:385
+#: bin/restore.php:393
 msgid "Restored Database"
 msgstr "دیتابیس بازیابی شد"
 
-#: bin/restore.php:401
+#: bin/restore.php:409
 msgid "Restoring Bindaddres Settings"
 msgstr ""
 
-#: bin/restore.php:258
+#: bin/restore.php:262
 msgid "Restoring CDRs complete"
 msgstr "تکمیل بازیابی CDR ها"
 
@@ -1210,15 +1210,15 @@ msgstr "تکمیل بازیابی CDR ها"
 msgid "Restoring CDRs..."
 msgstr "بازیابی CDR ها…"
 
-#: bin/restore.php:343
+#: bin/restore.php:351
 msgid "Restoring Database..."
 msgstr "بازیابی دیتابیس..."
 
-#: bin/restore.php:393
+#: bin/restore.php:401
 msgid "Restoring NAT settings"
 msgstr "بازیابی تنظیمات NAT"
 
-#: bin/restore.php:431
+#: bin/restore.php:439
 msgid "Restoring Settings complete"
 msgstr "تکمیل بازیابی تنظیمات"
 
@@ -1226,7 +1226,7 @@ msgstr "تکمیل بازیابی تنظیمات"
 msgid "Restoring all files (this may take some time)..."
 msgstr "بازیابی تمامی فایل ها (ممکن است طول بکشد)..."
 
-#: bin/restore.php:421
+#: bin/restore.php:429
 msgid "Restoring astDB..."
 msgstr "بازیابی دیتابیس استریسک..."
 
@@ -1274,11 +1274,11 @@ msgstr "یک مرتبه در سال اجرا شود، در نیمه شب یکم 
 msgid "Run once an hour, beginning of hour"
 msgstr "یک مرتبه در هر ساعت اجرا شود، در ابتدای هر ساعت"
 
-#: functions.inc/class.backup.php:498
+#: functions.inc/class.backup.php:499
 msgid "Running maintenance.."
 msgstr ""
 
-#: bin/restore.php:437
+#: bin/restore.php:445
 msgid "Running post restore script..."
 msgstr "اجرای اسکریپت پس از بازیابی..."
 
@@ -1286,7 +1286,7 @@ msgstr "اجرای اسکریپت پس از بازیابی..."
 msgid "Running post-backup hooks..."
 msgstr "اجرای تله های بعد از پشتیبان گیری…"
 
-#: bin/restore.php:441
+#: bin/restore.php:449
 msgid "Running post-restore hooks, if any..."
 msgstr "اجرای تله های پس از بازیابی…"
 
@@ -1338,7 +1338,7 @@ msgstr "ذخیره"
 msgid "Save and Run"
 msgstr "ذخیره و اجرا"
 
-#: functions.inc/class.backup.php:486
+#: functions.inc/class.backup.php:487
 msgid "Saving file to remote ftp"
 msgstr "ذخیره فایل در FTP راه دور"
 
@@ -1488,7 +1488,7 @@ msgstr ""
 msgid "The Restore script is still running"
 msgstr ""
 
-#: functions.inc/class.backup.php:409
+#: functions.inc/class.backup.php:410
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
@@ -1498,7 +1498,7 @@ msgstr ""
 "امکان ارسال این فایل وجود ندارد لذا باید فایل مورد نظر را کوچک تر کرده و یا "
 "از روش های دیگر برای انتقال آن استفاده نمایید."
 
-#: functions.inc/class.backup.php:412
+#: functions.inc/class.backup.php:413
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1558,7 +1558,7 @@ msgstr "حالت انتقال"
 msgid "Transfer Type"
 msgstr "نوع انتقال"
 
-#: functions.inc/class.backup.php:491
+#: functions.inc/class.backup.php:492
 #, php-format
 msgid "Trying to upload %s to %s"
 msgstr ""
@@ -1571,7 +1571,7 @@ msgstr "سه شنبه"
 msgid "Type"
 msgstr "نوع"
 
-#: functions.inc/class.backup.php:489
+#: functions.inc/class.backup.php:490
 msgid "Unable to upload file to the remote server"
 msgstr "عدم امکان بارگذاری فایل در سرور راه دور"
 
@@ -1613,11 +1613,11 @@ msgstr "محل ذخیره سازی صندوق صوتی"
 msgid "Voicemails"
 msgstr "صندوق های صوتی"
 
-#: bin/restore.php:264
+#: bin/restore.php:268
 msgid "WARNING!"
 msgstr "هشدار!"
 
-#: bin/restore.php:265
+#: bin/restore.php:269
 msgid "Web Root restore not detected, not restoring module table"
 msgstr "بازیابی شاخه اصلی وب شناسایی نگردید، عدم وجود جدول ماژول بازیابی"
 
@@ -1706,7 +1706,7 @@ msgstr "سال"
 msgid "Yes"
 msgstr "بله"
 
-#: bin/restore.php:266
+#: bin/restore.php:270
 #, php-format
 msgid "You should run \"%s\" to ensure system integrity"
 msgstr "برای اطمینان از یکپارچگی اطلاعات باید \"%s\" را اجرا کنید"
@@ -1724,7 +1724,7 @@ msgstr "سرورهای پشتیبان پیش فرض اضافه شد"
 msgid "added default backup templates"
 msgstr "قالب های پشتیبان پیش فرض اضافه شد"
 
-#: functions.inc/class.backup.php:399
+#: functions.inc/class.backup.php:400
 msgid "astDb's"
 msgstr "دیتابیس های استریسک"
 

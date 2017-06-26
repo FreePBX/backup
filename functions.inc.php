@@ -81,3 +81,17 @@ function backup_clear_log() {
 	$fh = fopen($tmp.'/backup.log', 'w');
 	fclose($fh);
 }
+
+if (!function_exists('getallheaders')) {
+	function getallheaders() {
+		$retval = array();
+		foreach ($_SERVER as $k=>$v) {
+			$a = explode('_', $k);
+			if (array_shift($a) === 'HTTP') {
+				array_walk($a, function(&$v){$v = ucfirst(strtolower($v));});
+				$retval[join('-', $a)] = $v;
+			}
+		}
+		return $retval;
+	}
+}

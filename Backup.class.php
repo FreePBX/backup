@@ -14,6 +14,61 @@ class Backup implements \BMO {
 			$this->db = $freepbx->Database;
 			//include __DIR__.'/functions.inc/class.backup.php';
 			//$this->Backup = new \FreePBX\modules\Backup();
+
+
+		if(!class_exists('FreePBX\modules\Backup\BackupObject.class.php')) {
+			include(__DIR__."/functions.inc/BackupObject.class.php");
+		}
+		if(!class_exists('FreePBX\modules\Backup\RestoreObject.class.php')) {
+			include(__DIR__."/functions.inc/RestoreObject.class.php");
+		}
+	}
+
+	// TODO rename function
+	public function backupMagic() {
+		$backupFiles = array();
+
+		$mods = \FreePBX::Modules()->getModulesByMethod("backupModule");
+		foreach($mods as $mod) {
+			$backup = new \FreePBX\modules\Backup\BackupObject($this->FreePBX);
+
+			\modgettext::push_textdomain(strtolower($mod));
+			$this->FreePBX->$mod->backupModule($backup);
+			\modgettext::pop_textdomain();
+
+			$backupFiles = array_merge($backupFiles, $backup->getBackupFiles());
+		}
+	}
+
+	// TODO rename function
+	// TODO Use processHooks?
+	public function backupSettingsMagic() {
+		$settings = '';
+
+		$mods = \FreePBX::Modules()->getModulesByMethod("backupSettings");
+		foreach($mods as $mod) {
+			\modgettext::push_textdomain(strtolower($mod));
+			$settings .= $this->FreePBX->$mod->backupSettings();
+			\modgettext::pop_textdomain();
+		}
+
+		return $settings;
+	}
+
+	// TODO rename function
+	public function restoreMagic() {
+		$restoreFiles = array();
+
+		$mods = \FreePBX::Modules()->getModulesByMethod("restoreModule");
+		foreach($mods as $mod) {
+			$restore = new Backup\RestoreObject($this->FreePBX);
+
+			\modgettext::push_textdomain(strtolower($mod));
+			$this->FreePBX->$mod->restoreModule($restore);
+			\modgettext::pop_textdomain();
+
+			$restoreFiles = array_merge($restoreFiles, $restore->getRestoreFiles());
+		}
 	}
 
 	public function install(){

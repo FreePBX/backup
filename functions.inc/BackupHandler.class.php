@@ -4,7 +4,7 @@
  */
 namespace FreePBX\modules\Backup;
 
-class BackupObject {
+class BackupHandler {
 	private $data = array();
 
 	public function __construct($freepbx = null) {
@@ -43,7 +43,7 @@ class BackupObject {
 					// '', '__ASTETCDIR__', '__ASTSPOOLDIR__/voicemail/'
 	);
 	*/
-	public function addBackupFiles($list) {
+	public function addFiles($list) {
 		if (empty($list)) {
 			return;
 		}
@@ -53,18 +53,15 @@ class BackupObject {
 				continue;
 			}
 
-			$fullpath = \FreePBX\modules\Backup\BackupObject::getFilePath($file);
-			if (empty($fullpath)) {
-				/* We couldn't create a valid path.  Skip it. */
-				// TODO Fail?  Display warning?
-				continue;
-			}
-
-			$this->data['files'][$fullpath] = $file;
+			$this->data['files'][] = $file;
 		}
 	}
 
-	public function getBackupFiles() {
+	public function getFiles() {
 		return $this->data['files'];
+	}
+
+	public function getExtraData() {
+		return $this->data['extradata'];
 	}
 }

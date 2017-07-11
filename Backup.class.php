@@ -7,37 +7,63 @@ namespace FreePBX\modules;
 $setting = array('authenticate' => true, 'allowremote' => false);
 class Backup implements \BMO {
 	public function __construct($freepbx = null) {
-			if ($freepbx == null) {
-					throw new Exception('Not given a FreePBX Object');
-			}
-			$this->FreePBX = $freepbx;
-			$this->db = $freepbx->Database;
-			//include __DIR__.'/functions.inc/class.backup.php';
-			//$this->Backup = new \FreePBX\modules\Backup();
-
-
-		if(!class_exists('FreePBX\modules\Backup\BackupObject.class.php')) {
-			include(__DIR__."/functions.inc/BackupObject.class.php");
+		if ($freepbx == null) {
+				throw new Exception('Not given a FreePBX Object');
 		}
-		if(!class_exists('FreePBX\modules\Backup\RestoreObject.class.php')) {
-			include(__DIR__."/functions.inc/RestoreObject.class.php");
+		$this->FreePBX = $freepbx;
+		$this->db = $freepbx->Database;
+		//include __DIR__.'/functions.inc/class.backup.php';
+		//$this->Backup = new \FreePBX\modules\Backup();
+
+		if(!class_exists('FreePBX\modules\Backup\BackupHandler.class.php')) {
+			include(__DIR__."/functions.inc/BackupHandler.class.php");
+		}
+		if(!class_exists('FreePBX\modules\Backup\RestoreHandler.class.php')) {
+			include(__DIR__."/functions.inc/RestoreHandler.class.php");
 		}
 	}
 
 	// TODO rename function
 	public function backupMagic() {
+		$backupdir = \FreePBX::Config()->get("ASTSPOOLDIR") . '/backup/';
+
+		$data = array();
 		$backupFiles = array();
 
 		$mods = \FreePBX::Modules()->getModulesByMethod("backupModule");
 		foreach($mods as $mod) {
-			$backup = new \FreePBX\modules\Backup\BackupObject($this->FreePBX);
+			$moddata = array();
+
+			$backup = new \FreePBX\modules\Backup\BackupHandler($this->FreePBX);
 
 			\modgettext::push_textdomain(strtolower($mod));
 			$this->FreePBX->$mod->backupModule($backup);
 			\modgettext::pop_textdomain();
 
-			$backupFiles = array_merge($backupFiles, $backup->getBackupFiles());
+			$moddata['files'] = $backup->getFiles();
+
+			if (!is_dir($backupdir . 'modulejson/')) {
+				mkdir($backupdir . 'modulejson/', 0777, true);
+			}
+			file_put_contents($backupdir . 'modulejson/' . $mod . '.json', json_encode($moddata, JSON_PRETTY_PRINT));
+
+			foreach ($moddata['files'] as $file) {
+				$fullpath = \FreePBX\modules\Backup\BackupHandler::getFilePath($file);
+				if (empty($fullpath)) {
+					/* We couldn't create a valid path.  Skip it. */
+					// TODO Fail?  Display warning?
+					continue;
+				}
+
+				$backupFiles[$fullpath] = $file;
+			}
+
+			$data[$mod] = $moddata;
 		}
+
+		$this->backupFiles($backupFiles);
+		
+return $data;
 	}
 
 	// TODO rename function
@@ -57,17 +83,66 @@ class Backup implements \BMO {
 
 	// TODO rename function
 	public function restoreMagic() {
+		$backupdir = \FreePBX::Config()->get("ASTSPOOLDIR") . '/backup/';
+
+		$data = array();
 		$restoreFiles = array();
 
 		$mods = \FreePBX::Modules()->getModulesByMethod("restoreModule");
 		foreach($mods as $mod) {
-			$restore = new Backup\RestoreObject($this->FreePBX);
+			$moddata = json_decode(file_get_contents($backupdir . 'modulejson/' . $mod . '.json'), true);
+
+			$restore = new Backup\RestoreHandler($this->FreePBX, $moddata);
 
 			\modgettext::push_textdomain(strtolower($mod));
 			$this->FreePBX->$mod->restoreModule($restore);
 			\modgettext::pop_textdomain();
 
-			$restoreFiles = array_merge($restoreFiles, $restore->getRestoreFiles());
+			$moddata['files'] = $restore->getFiles();
+			foreach ($moddata['files'] as $file) {
+				$fullpath = \FreePBX\modules\Backup\BackupHandler::getFilePath($file);
+				if (empty($fullpath)) {
+					/* We couldn't create a valid path.  Skip it. */
+					// TODO Fail?  Display warning?
+					continue;
+				}
+
+				$restoreFiles[$fullpath] = $file;
+			}
+
+			$data[$mod] = $moddata;
+		}
+
+		$this->restoreFiles($restoreFiles);
+return $data;
+	}
+
+	private function backupFiles($files) {
+		$backupdir = \FreePBX::Config()->get("ASTSPOOLDIR") . '/backup/';
+
+		foreach ($files as $src => $file) {
+$src = backup__($src);
+			$dest = $backupdir . $file['path'] . '/' . $file['filename'];
+			$dir = dirname($dest);
+			if (!is_dir($dir)) {
+				mkdir($dir, 0777, true);
+			}
+			copy($src, $dest);
+		}
+	}
+
+	private function restoreFiles($files) {
+		$backupdir = \FreePBX::Config()->get("ASTSPOOLDIR") . '/backup/';
+
+		foreach ($files as $dest => $file) {
+$dest = backup__($dest);
+$dest = \FreePBX::Config()->get("ASTSPOOLDIR") . '/restore/' . $dest;
+			$src = $backupdir . $file['path'] . '/' . $file['filename'];
+			$dir = dirname($dest);
+			if (!is_dir($dir)) {
+				mkdir($dir, 0777, true);
+			}
+			copy($src, $dest);
 		}
 	}
 
@@ -84,6 +159,8 @@ class Backup implements \BMO {
 	}
 
 	public function doConfigPageInit($page) {
+\FreePBX::Backup()->backupMagic();
+\FreePBX::Backup()->restoreMagic();
 		$_REQUEST['submit'] = isset($_REQUEST['submit'])?$_REQUEST['submit']:'';
 		$_REQUEST['action'] = isset($_REQUEST['action'])?$_REQUEST['action']:'';
 		$_REQUEST['id'] = isset($_REQUEST['id'])?$_REQUEST['id']:'';

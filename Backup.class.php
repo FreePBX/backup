@@ -4,6 +4,8 @@
  */
 namespace FreePBX\modules;
 
+use Symfony\Component\Filesystem\Filesystem;
+
 $setting = array('authenticate' => true, 'allowremote' => false);
 class Backup implements \BMO {
 	public function __construct($freepbx = null) {
@@ -49,27 +51,25 @@ class Backup implements \BMO {
 			file_put_contents($backupdir . 'modulejson/' . $mod . '.json', json_encode($moddata, JSON_PRETTY_PRINT));
 
 			foreach ($moddata['dirs'] as $dir) {
-				$path = \FreePBX\modules\Backup\BackupHandler::getPath($dir);
-				if (empty($path)) {
-					/* We couldn't create a valid path.  Skip it. */
-					// TODO Fail?  Display warning?
-					continue;
-				}
-
-				$backupDirs[$path] = $dir;
+				$backupDirs[] = backup__($backupdir . $dir['path']);
 			}
 
 			foreach ($moddata['files'] as $file) {
-				$path = \FreePBX\modules\Backup\BackupHandler::getPath($file);
-				if (empty($path)) {
+				$srcpath = \FreePBX\modules\Backup\BackupHandler::getPath($file);
+				if (empty($srcpath)) {
 					/* We couldn't create a valid path.  Skip it. */
 					// TODO Fail?  Display warning?
 					continue;
 				}
 
-				$fullpath = $path . '/' . $file['filename'];
+				$srcpath = backup__($srcpath);
+				$srcfile = $srcpath . '/' . $file['filename'];
 
-				$backupFiles[$fullpath] = $file;
+				$destpath = backup__($backupdir . $file['path']);
+				$destfile = $destpath . '/' . $file['filename'];
+
+				$backupDirs[] = $destpath;
+				$backupFiles[$srcfile] = $destfile;
 			}
 
 			$data[$mod] = $moddata;
@@ -78,7 +78,7 @@ class Backup implements \BMO {
 		$this->backupDirs($backupDirs);
 		$this->backupFiles($backupFiles);
 		
-return $data;
+		return $data;
 	}
 
 	// TODO rename function
@@ -99,6 +99,7 @@ return $data;
 	// TODO rename function
 	public function restoreMagic() {
 		$backupdir = \FreePBX::Config()->get("ASTSPOOLDIR") . '/backup/';
+		$restoredir = \FreePBX::Config()->get("ASTSPOOLDIR") . '/restore/';
 
 		$data = array();
 		$restoreDirs = array();
@@ -116,28 +117,35 @@ return $data;
 
 			$moddata['dirs'] = $restore->getDirs();
 			foreach ($moddata['dirs'] as $dir) {
-				$path = \FreePBX\modules\Backup\BackupHandler::getPath($dir);
-				if (empty($path)) {
+				$destpath = \FreePBX\modules\Backup\BackupHandler::getPath($dir);
+				if (empty($destpath)) {
 					/* We couldn't create a valid path.  Skip it. */
 					// TODO Fail?  Display warning?
 					continue;
 				}
 
-				$restoreDirs[$path] = $dir;
+				$destpath = backup__($restoredir . $destpath);
+
+				$restoreDirs[] = $destpath;
 			}
 
 			$moddata['files'] = $restore->getFiles();
 			foreach ($moddata['files'] as $file) {
-				$path = \FreePBX\modules\Backup\BackupHandler::getPath($file);
-				if (empty($path)) {
+				$destpath = \FreePBX\modules\Backup\BackupHandler::getPath($file);
+				if (empty($destpath)) {
 					/* We couldn't create a valid path.  Skip it. */
 					// TODO Fail?  Display warning?
 					continue;
 				}
 
-				$fullpath = $path . '/' . $file['filename'];
+				$srcpath = backup__($backupdir . $file['path']);
+				$srcfile = $srcpath . $file['filename'];
 
-				$restoreFiles[$fullpath] = $file;
+				$destpath = backup__($restoredir . $destpath);
+				$destfile = $destpath . '/' . $file['filename'];
+
+				$restoreDirs[] = $destpath;
+				$restoreFiles[$srcfile] = $destfile;
 			}
 
 			$data[$mod] = $moddata;
@@ -145,60 +153,43 @@ return $data;
 
 		$this->restoreDirs($restoreDirs);
 		$this->restoreFiles($restoreFiles);
-return $data;
+
+		return $data;
 	}
 
 	private function backupDirs($dirs) {
-		$backupdir = \FreePBX::Config()->get("ASTSPOOLDIR") . '/backup/';
+		$fs = new Filesystem();
 
-		foreach ($dirs as $src => $dir) {
-$src = backup__($src);
-			$dest = $backupdir . $dir['path'];
-			if (!is_dir($dest)) {
-				mkdir($dest, 0777, true);
-			}
+		if (!$fs->exists($dirs)) {
+			$fs->mkdir($dirs);
 		}
+
+		return;
 	}
 
 	private function backupFiles($files) {
-		$backupdir = \FreePBX::Config()->get("ASTSPOOLDIR") . '/backup/';
+		$fs = new Filesystem();
 
-		foreach ($files as $src => $file) {
-$src = backup__($src);
-			$dest = $backupdir . $file['path'] . '/' . $file['filename'];
-			$dir = dirname($dest);
-			if (!is_dir($dir)) {
-				mkdir($dir, 0777, true);
-			}
-			copy($src, $dest);
+		foreach ($files as $src => $dest) {
+			$fs->copy($src, $dest, true);
 		}
 	}
 
 	private function restoreDirs($dirs) {
-		$backupdir = \FreePBX::Config()->get("ASTSPOOLDIR") . '/backup/';
+		$fs = new Filesystem();
 
-		foreach ($dirs as $dest => $dir) {
-$dest = backup__($dest);
-$dest = \FreePBX::Config()->get("ASTSPOOLDIR") . '/restore/' . $dest;
-			$src = $backupdir . $dir['path'];
-			if (!is_dir($dest)) {
-				mkdir($dest, 0777, true);
-			}
+		if (!$fs->exists($dirs)) {
+			$fs->mkdir($dirs);
 		}
+
+		return;
 	}
 
 	private function restoreFiles($files) {
-		$backupdir = \FreePBX::Config()->get("ASTSPOOLDIR") . '/backup/';
+		$fs = new Filesystem();
 
-		foreach ($files as $dest => $file) {
-$dest = backup__($dest);
-$dest = \FreePBX::Config()->get("ASTSPOOLDIR") . '/restore/' . $dest;
-			$src = $backupdir . $file['path'] . '/' . $file['filename'];
-			$dir = dirname($dest);
-			if (!is_dir($dir)) {
-				mkdir($dir, 0777, true);
-			}
-			copy($src, $dest);
+		foreach ($files as $src => $dest) {
+			$fs->copy($src, $dest, true);
 		}
 	}
 

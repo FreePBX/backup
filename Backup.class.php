@@ -14,6 +14,8 @@ class Backup implements \BMO {
 		}
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
+		$this->fs = new Filesystem;
+
 		//include __DIR__.'/functions.inc/class.backup.php';
 		//$this->Backup = new \FreePBX\modules\Backup();
 
@@ -45,13 +47,13 @@ class Backup implements \BMO {
 			$moddata['dirs'] = $backup->getDirs();
 			$moddata['files'] = $backup->getFiles();
 
-			if (!is_dir($backupdir . 'modulejson/')) {
-				mkdir($backupdir . 'modulejson/', 0777, true);
+			if (!$this->fs->exists($backupdur . 'modulejson')) {
+				$this->fs->mkdir($backupdir . 'modulejson');
 			}
 			file_put_contents($backupdir . 'modulejson/' . $mod . '.json', json_encode($moddata, JSON_PRETTY_PRINT));
 
 			foreach ($moddata['dirs'] as $dir) {
-				$backupDirs[] = backup__($backupdir . $dir['path']);
+				$backupDirs[] = backup__($backupdir . 'files/' . $dir['path']);
 			}
 
 			foreach ($moddata['files'] as $file) {
@@ -65,7 +67,7 @@ class Backup implements \BMO {
 				$srcpath = backup__($srcpath);
 				$srcfile = $srcpath . '/' . $file['filename'];
 
-				$destpath = backup__($backupdir . $file['path']);
+				$destpath = backup__($backupdir . 'files/' . $file['path']);
 				$destfile = $destpath . '/' . $file['filename'];
 
 				$backupDirs[] = $destpath;
@@ -138,7 +140,7 @@ class Backup implements \BMO {
 					continue;
 				}
 
-				$srcpath = backup__($backupdir . $file['path']);
+				$srcpath = backup__($backupdir . 'files/' . $file['path']);
 				$srcfile = $srcpath . $file['filename'];
 
 				$destpath = backup__($restoredir . $destpath);
@@ -158,38 +160,30 @@ class Backup implements \BMO {
 	}
 
 	private function backupDirs($dirs) {
-		$fs = new Filesystem();
-
-		if (!$fs->exists($dirs)) {
-			$fs->mkdir($dirs);
+		if (!$this->fs->exists($dirs)) {
+			$this->fs->mkdir($dirs);
 		}
 
 		return;
 	}
 
 	private function backupFiles($files) {
-		$fs = new Filesystem();
-
 		foreach ($files as $src => $dest) {
-			$fs->copy($src, $dest, true);
+			$this->fs->copy($src, $dest, true);
 		}
 	}
 
 	private function restoreDirs($dirs) {
-		$fs = new Filesystem();
-
-		if (!$fs->exists($dirs)) {
-			$fs->mkdir($dirs);
+		if (!$this->fs->exists($dirs)) {
+			$this->fs->mkdir($dirs);
 		}
 
 		return;
 	}
 
 	private function restoreFiles($files) {
-		$fs = new Filesystem();
-
 		foreach ($files as $src => $dest) {
-			$fs->copy($src, $dest, true);
+			$this->fs->copy($src, $dest, true);
 		}
 	}
 

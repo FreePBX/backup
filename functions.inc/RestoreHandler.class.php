@@ -5,6 +5,8 @@
 namespace FreePBX\modules\Backup;
 
 class RestoreHandler {
+	/* List of dirs added by the module to be restored. */
+	private $dirs = array();
 	/* List of files added by the module to be restored. */
 	private $files = array();
 
@@ -16,9 +18,23 @@ class RestoreHandler {
 		$this->data = $data;
 	}
 
-	/* Called by a module to get the list of files that have been backed up. */
+	public function getBackupDirs() {
+		return $this->data['dirs'];
+	}
+
 	public function getBackupFiles() {
 		return $this->data['files'];
+	}
+
+	public function addDirs($list) {
+		foreach ($list as $dir) {
+			$this->dirs[] = $dir;
+		}
+	}
+
+	/* Called by the Backup class to get the list of dirs to create. */
+	public function getDirs() {
+		return $this->dirs;
 	}
 
 	public function addFiles($list) {

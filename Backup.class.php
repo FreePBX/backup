@@ -29,10 +29,16 @@ class Backup implements \BMO {
 
 	// TODO rename function
 	public function backupMagic() {
+		// TODO Use a real backup path.
 		$backupdir = \FreePBX::Config()->get("ASTSPOOLDIR") . '/backup/';
 
+		$this->fs->mkdir($backupdir);
+		$pharname = \FreePBX::Config()->get("ASTSPOOLDIR") . '/backup-' . time() . '.tar';
+		$phar = new \PharData($pharname);
+
 		$data = array();
-		$backupFiles = array();
+		$dirs = array();
+		$files = array();
 
 		$mods = \FreePBX::Modules()->getModulesByMethod("backupModule");
 		foreach($mods as $mod) {
@@ -47,13 +53,8 @@ class Backup implements \BMO {
 			$moddata['dirs'] = $backup->getDirs();
 			$moddata['files'] = $backup->getFiles();
 
-			if (!$this->fs->exists($backupdur . 'modulejson')) {
-				$this->fs->mkdir($backupdir . 'modulejson');
-			}
-			file_put_contents($backupdir . 'modulejson/' . $mod . '.json', json_encode($moddata, JSON_PRETTY_PRINT));
-
 			foreach ($moddata['dirs'] as $dir) {
-				$backupDirs[] = backup__($backupdir . 'files/' . $dir['path']);
+				$dirs[] = backup__('files/' . $dir['path']);
 			}
 
 			foreach ($moddata['files'] as $file) {
@@ -67,19 +68,36 @@ class Backup implements \BMO {
 				$srcpath = backup__($srcpath);
 				$srcfile = $srcpath . '/' . $file['filename'];
 
-				$destpath = backup__($backupdir . 'files/' . $file['path']);
+				$destpath = backup__('files/' . $file['path']);
 				$destfile = $destpath . '/' . $file['filename'];
 
-				$backupDirs[] = $destpath;
-				$backupFiles[$srcfile] = $destfile;
+				$dirs[] = $destpath;
+				$files[$srcfile] = $destfile;
+
 			}
+
+			$modjson = $backupdir . 'modulejson/' . $mod . '.json';
+			if (!$this->fs->exists(dirname($modjson))) {
+				$this->fs->mkdir(dirname($modjson));
+			}
+			file_put_contents($modjson, json_encode($moddata, JSON_PRETTY_PRINT));
+			$files[$modjson] = 'modulejson/' . $mod . '.json';
 
 			$data[$mod] = $moddata;
 		}
 
-		$this->backupDirs($backupDirs);
-		$this->backupFiles($backupFiles);
-		
+		foreach ($dirs as $dir) {
+			$phar->addEmptyDir($dir);
+		}
+
+		foreach ($files as $srcfile => $destfile) {
+			$phar->addFile($srcfile, $destfile);
+		}
+
+		$phar->compress(\Phar::GZ);
+		$this->fs->remove($pharname);
+		$this->fs->remove($backupdir);
+
 		return $data;
 	}
 
@@ -100,16 +118,27 @@ class Backup implements \BMO {
 
 	// TODO rename function
 	public function restoreMagic() {
+		// TODO Use a real backup path.
 		$backupdir = \FreePBX::Config()->get("ASTSPOOLDIR") . '/backup/';
+		// TODO Remove this.  We should restore directly to /.
 		$restoredir = \FreePBX::Config()->get("ASTSPOOLDIR") . '/restore/';
 
+		// TODO Get an archive via filestore selection.
+		foreach (glob(\FreePBX::Config()->get("ASTSPOOLDIR") . '/backup-*.tar.gz') as $restorefile) {
+			$pharname = $restorefile;
+		}
+		$phar = new \PharData($pharname);
+		$phar->extractTo($backupdir);
+
 		$data = array();
-		$restoreDirs = array();
-		$restoreFiles = array();
+		$dirs = array();
+		$files = array();
 
 		$mods = \FreePBX::Modules()->getModulesByMethod("restoreModule");
 		foreach($mods as $mod) {
-			$moddata = json_decode(file_get_contents($backupdir . 'modulejson/' . $mod . '.json'), true);
+			$modjson = $backupdir . 'modulejson/' . $mod . '.json';
+
+			$moddata = json_decode(file_get_contents($modjson), true);
 
 			$restore = new Backup\RestoreHandler($this->FreePBX, $moddata);
 
@@ -128,7 +157,7 @@ class Backup implements \BMO {
 
 				$destpath = backup__($restoredir . $destpath);
 
-				$restoreDirs[] = $destpath;
+				$dirs[] = $destpath;
 			}
 
 			$moddata['files'] = $restore->getFiles();
@@ -141,36 +170,24 @@ class Backup implements \BMO {
 				}
 
 				$srcpath = backup__($backupdir . 'files/' . $file['path']);
-				$srcfile = $srcpath . $file['filename'];
+				$srcfile = $srcpath . '/' . $file['filename'];
 
 				$destpath = backup__($restoredir . $destpath);
 				$destfile = $destpath . '/' . $file['filename'];
 
-				$restoreDirs[] = $destpath;
-				$restoreFiles[$srcfile] = $destfile;
+				$dirs[] = $destpath;
+				$files[$srcfile] = $destfile;
 			}
 
 			$data[$mod] = $moddata;
 		}
 
-		$this->restoreDirs($restoreDirs);
-		$this->restoreFiles($restoreFiles);
+		$this->restoreDirs($dirs);
+		$this->restoreFiles($files);
+
+		$this->fs->remove($backupdir);
 
 		return $data;
-	}
-
-	private function backupDirs($dirs) {
-		if (!$this->fs->exists($dirs)) {
-			$this->fs->mkdir($dirs);
-		}
-
-		return;
-	}
-
-	private function backupFiles($files) {
-		foreach ($files as $src => $dest) {
-			$this->fs->copy($src, $dest, true);
-		}
 	}
 
 	private function restoreDirs($dirs) {

@@ -29,10 +29,9 @@ class Backup implements \BMO {
 
 	// TODO rename function
 	public function backupMagic() {
-		// TODO Use a real backup path.
-		$backupdir = sys_get_temp_dir() . '/backup/';
+		$tmpdir = sys_get_temp_dir() . '/backup/';
 
-		$this->fs->mkdir($backupdir);
+		$this->fs->mkdir($tmpdir);
 		$pharname = \FreePBX::Config()->get("ASTSPOOLDIR") . '/backup-' . time() . '.tar';
 		$phar = new \PharData($pharname);
 
@@ -76,7 +75,7 @@ class Backup implements \BMO {
 
 			}
 
-			$modjson = $backupdir . 'modulejson/' . $mod . '.json';
+			$modjson = $tmpdir . 'modulejson/' . $mod . '.json';
 			if (!$this->fs->exists(dirname($modjson))) {
 				$this->fs->mkdir(dirname($modjson));
 			}
@@ -90,13 +89,12 @@ class Backup implements \BMO {
 			$phar->addEmptyDir($dir);
 		}
 
-		foreach ($files as $srcfile => $destfile) {
-			$phar->addFile($srcfile, $destfile);
-		}
+		/* We already have a list of files, so we'll let Phar add the files in bulk. */
+		$phar->buildFromIterator(new \ArrayIterator(array_flip($files)));
 
 		$phar->compress(\Phar::GZ);
 		$this->fs->remove($pharname);
-		$this->fs->remove($backupdir);
+		$this->fs->remove($tmpdir);
 
 		return $data;
 	}
@@ -118,14 +116,15 @@ class Backup implements \BMO {
 
 	// TODO rename function
 	public function restoreMagic() {
-		$backupdir = sys_get_temp_dir() . '/backup/';
+		$tmpdir = sys_get_temp_dir() . '/backup/';
+		$this->fs->Remove($tmpdir);
 
 		// TODO Get an archive via filestore selection.
 		foreach (glob(\FreePBX::Config()->get("ASTSPOOLDIR") . '/backup-*.tar.gz') as $restorefile) {
 			$pharname = $restorefile;
 		}
 		$phar = new \PharData($pharname);
-		$phar->extractTo($backupdir);
+		$phar->extractTo($tmpdir);
 
 		$data = array();
 		$dirs = array();
@@ -133,7 +132,7 @@ class Backup implements \BMO {
 
 		$mods = \FreePBX::Modules()->getModulesByMethod("restoreModule");
 		foreach($mods as $mod) {
-			$modjson = $backupdir . 'modulejson/' . $mod . '.json';
+			$modjson = $tmpdir . 'modulejson/' . $mod . '.json';
 
 			$moddata = json_decode(file_get_contents($modjson), true);
 
@@ -166,7 +165,7 @@ class Backup implements \BMO {
 					continue;
 				}
 
-				$srcpath = backup__($backupdir . 'files/' . $file['path']);
+				$srcpath = backup__($tmpdir . 'files/' . $file['path']);
 				$srcfile = $srcpath . '/' . $file['filename'];
 
 				$destpath = backup__($destpath);
@@ -182,7 +181,7 @@ class Backup implements \BMO {
 		$this->restoreDirs($dirs);
 		$this->restoreFiles($files);
 
-		$this->fs->remove($backupdir);
+		$this->fs->remove($tmpdir);
 
 		return $data;
 	}

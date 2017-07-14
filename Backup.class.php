@@ -30,7 +30,7 @@ class Backup implements \BMO {
 	// TODO rename function
 	public function backupMagic() {
 		// TODO Use a real backup path.
-		$backupdir = \FreePBX::Config()->get("ASTSPOOLDIR") . '/backup/';
+		$backupdir = sys_get_temp_dir() . '/backup/';
 
 		$this->fs->mkdir($backupdir);
 		$pharname = \FreePBX::Config()->get("ASTSPOOLDIR") . '/backup-' . time() . '.tar';
@@ -118,10 +118,7 @@ class Backup implements \BMO {
 
 	// TODO rename function
 	public function restoreMagic() {
-		// TODO Use a real backup path.
-		$backupdir = \FreePBX::Config()->get("ASTSPOOLDIR") . '/backup/';
-		// TODO Remove this.  We should restore directly to /.
-		$restoredir = \FreePBX::Config()->get("ASTSPOOLDIR") . '/restore/';
+		$backupdir = sys_get_temp_dir() . '/backup/';
 
 		// TODO Get an archive via filestore selection.
 		foreach (glob(\FreePBX::Config()->get("ASTSPOOLDIR") . '/backup-*.tar.gz') as $restorefile) {
@@ -155,7 +152,7 @@ class Backup implements \BMO {
 					continue;
 				}
 
-				$destpath = backup__($restoredir . $destpath);
+				$destpath = backup__($destpath);
 
 				$dirs[] = $destpath;
 			}
@@ -172,7 +169,7 @@ class Backup implements \BMO {
 				$srcpath = backup__($backupdir . 'files/' . $file['path']);
 				$srcfile = $srcpath . '/' . $file['filename'];
 
-				$destpath = backup__($restoredir . $destpath);
+				$destpath = backup__($destpath);
 				$destfile = $destpath . '/' . $file['filename'];
 
 				$dirs[] = $destpath;

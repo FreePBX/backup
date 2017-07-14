@@ -54,6 +54,12 @@ $var['brand'] = $amp_conf['DASHBOARD_FREEPBX_BRAND']?$amp_conf['DASHBOARD_FREEPB
 
 //action actions
 switch ($var['action']) {
+	case 'backuptest':
+		\FreePBX::Backup()->backupMagic();
+		break;
+	case 'restoretest':
+		\FreePBX::Backup()->restoreMagic();
+		break;
 	case 'ajax_save':
 		//clear all buffers, we dont want to return any html
 		while (ob_get_level()) {

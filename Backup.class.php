@@ -217,8 +217,6 @@ class Backup implements \BMO {
 	}
 
 	public function doConfigPageInit($page) {
-\FreePBX::Backup()->backupMagic();
-\FreePBX::Backup()->restoreMagic();
 		$_REQUEST['submit'] = isset($_REQUEST['submit'])?$_REQUEST['submit']:'';
 		$_REQUEST['action'] = isset($_REQUEST['action'])?$_REQUEST['action']:'';
 		$_REQUEST['id'] = isset($_REQUEST['id'])?$_REQUEST['id']:'';

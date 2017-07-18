@@ -802,7 +802,15 @@ class Backup {
 					unset($delete[$key]);
 					break;
 				case 'ftp':
-					$f = $handle->findFileByName($this->b['_dirname'].'/'.$file);
+					$f = null;
+					try {
+						$f = $handle->findFileByName($this->b['_dirname'].'/'.$file);
+					} catch (\Exception $e) {
+						$this->b['error'] = $e->getMessage();
+						backup_log($e->getMessage());
+						$this->b['error'] = sprintf(_("Path: %s"),$this->b['_dirname'].'/'.$file);
+						backup_log(sprintf(_("Path: %s"),$this->b['_dirname'].'/'.$file));
+					}
 					if(empty($f)){
 						$this->b['error'] = sprintf(_("Could not find %s on the remote system"),$file);
 						backup_log($this->b['error']);

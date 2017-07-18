@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-26 13:49-0400\n"
+"POT-Creation-Date: 2017-07-18 17:27-0400\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -384,7 +384,7 @@ msgstr "設定のみ"
 msgid "Connecting to remote server..."
 msgstr "リモートサーバーに接続中..."
 
-#: functions.inc/class.backup.php:807
+#: functions.inc/class.backup.php:815
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -583,7 +583,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:814
+#: functions.inc/class.backup.php:822
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -1069,6 +1069,11 @@ msgstr ""
 #: views/item_table.php:8
 msgid "Path/DB"
 msgstr "パス/データベース"
+
+#: functions.inc/class.backup.php:811 functions.inc/class.backup.php:812
+#, php-format
+msgid "Path: %s"
+msgstr ""
 
 #: assets/js/backup.js:146
 msgid "Please wait"

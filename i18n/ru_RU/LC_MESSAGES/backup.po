@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-26 10:53-0700\n"
+"POT-Creation-Date: 2017-08-14 14:51-0700\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -376,7 +376,7 @@ msgstr "Только конфигурация"
 msgid "Connecting to remote server..."
 msgstr "Соединение с удаленным сервером..."
 
-#: functions.inc/class.backup.php:807
+#: functions.inc/class.backup.php:816
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -580,7 +580,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:814
+#: functions.inc/class.backup.php:823
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -1083,7 +1083,12 @@ msgstr "Путь к ключу ssh, например  /home/asterisk/.ssh/id_rsa
 msgid "Path/DB"
 msgstr "Путь/DB"
 
-#: assets/js/backup.js:146
+#: functions.inc/class.backup.php:812 functions.inc/class.backup.php:813
+#, php-format
+msgid "Path: %s"
+msgstr ""
+
+#: assets/js/backup.js:150
 msgid "Please wait"
 msgstr "Пожалуйста подождите"
 

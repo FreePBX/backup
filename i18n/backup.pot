@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-18 17:27-0400\n"
+"POT-Creation-Date: 2017-08-14 17:48-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -356,7 +356,7 @@ msgstr ""
 msgid "Connecting to remote server..."
 msgstr ""
 
-#: functions.inc/class.backup.php:815
+#: functions.inc/class.backup.php:816
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -563,7 +563,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:822
+#: functions.inc/class.backup.php:823
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -1075,13 +1075,13 @@ msgstr ""
 msgid "Path/DB"
 msgstr ""
 
-#: functions.inc/class.backup.php:811
 #: functions.inc/class.backup.php:812
+#: functions.inc/class.backup.php:813
 #, php-format
 msgid "Path: %s"
 msgstr ""
 
-#: assets/js/backup.js:146
+#: assets/js/backup.js:150
 msgid "Please wait"
 msgstr ""
 

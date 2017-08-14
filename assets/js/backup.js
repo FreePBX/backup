@@ -114,6 +114,10 @@ $(document).ready(function() {
 		$('#submit').attr('disabled',true);
 		$('#reset').attr('disabled',true);
 	}
+	$('form').unbind( "reset");
+	$('form').on('reset', function() {
+		location.reload();
+	});
 });
 
 function linkFormatter(foo,value){

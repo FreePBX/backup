@@ -44,7 +44,8 @@ function backup__($var) {
 
 
 function backup_log($msg) {
-	$log_dir = '/var/log/asterisk';
+	$log_dir = \FreePBX::Config()->get('ASTLOGDIR');
+	error_log(basename(__FILE__).'('.__LINE__.") :=log_dir" . var_export($log_dir,true));
 	$cli = php_sapi_name() == 'cli' ? true : false;
 	$str = '';
 	$str .= $cli ? '' : "id: bb2ac0b8da1f64a3498af147ba43fc10\n";
@@ -62,7 +63,7 @@ function backup_log($msg) {
 }
 
 function backup_email_log($to, $from, $subject) {
-	$log_dir = '/var/log/asterisk';
+	$log_dir = \FreePBX::Config()->get('ASTLOGDIR');
 	$email_options = array('useragent' => 'freepbx', 'protocol' => 'mail');
 	$email = new CI_Email();
 	$msg[] = _('BACKUP LOG ATTACHED');
@@ -77,7 +78,7 @@ function backup_email_log($to, $from, $subject) {
 }
 
 function backup_clear_log() {
-	$log_dir = '/var/log/asterisk';
+	$log_dir = \FreePBX::Config()->get('ASTLOGDIR');
 	$fh = fopen($log_dir.'/backup.log', 'w');
 	fclose($fh);
 }

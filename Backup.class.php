@@ -3,11 +3,12 @@
  * Copyright Sangoma Technologies, Inc 2015
  */
 namespace FreePBX\modules;
-
+use FreePBX\modules\Backup\Handlers as Handler;
 use Symfony\Component\Filesystem\Filesystem;
-
 $setting = array('authenticate' => true, 'allowremote' => false);
 class Backup implements \BMO {
+	static backupFields = ['backup_name','backup_description','backup_items','backup_storage','backup_schedule','backup_maintinance'];
+	static templateFields = ['backup_name','backup_description','backup_items','backup_storage','backup_schedule','backup_maintinance'];
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
 				throw new Exception('Not given a FreePBX Object');
@@ -15,18 +16,22 @@ class Backup implements \BMO {
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
 		$this->fs = new Filesystem;
-
-		//include __DIR__.'/functions.inc/class.backup.php';
-		//$this->Backup = new \FreePBX\modules\Backup();
-
-		if(!class_exists('FreePBX\modules\Backup\BackupHandler.class.php')) {
-			include(__DIR__."/functions.inc/BackupHandler.class.php");
-		}
-		if(!class_exists('FreePBX\modules\Backup\RestoreHandler.class.php')) {
-			include(__DIR__."/functions.inc/RestoreHandler.class.php");
+	}
+	public function showPage($page){
+		switch ($page) {
+			case 'backup':
+				if(isset($_GET['view'])){
+					return show_view(__DIR__.'/views/backup/form.php');
+				}else{
+					return show_view(__DIR__.'/views/backup/grid.php');
+				}
+			break;
+			case 'restore':
+			case 'templates':
+				return '<h1>PLACEHOLDER</h1>';
+			break;
 		}
 	}
-
 	// TODO rename function
 	public function backupMagic() {
 		$tmpdir = sys_get_temp_dir() . '/backup/';
@@ -39,11 +44,11 @@ class Backup implements \BMO {
 		$dirs = array();
 		$files = array();
 
-		$mods = \FreePBX::Modules()->getModulesByMethod("backupModule");
+		$mods = \FreePBX::Modules()->getModulesByMethod("backup");
 		foreach($mods as $mod) {
 			$moddata = array();
 
-			$backup = new \FreePBX\modules\Backup\BackupHandler($this->FreePBX);
+			$backup = new Handler\Backup($this->FreePBX);
 
 			\modgettext::push_textdomain(strtolower($mod));
 			$this->FreePBX->$mod->backupModule($backup);
@@ -57,7 +62,7 @@ class Backup implements \BMO {
 			}
 
 			foreach ($moddata['files'] as $file) {
-				$srcpath = \FreePBX\modules\Backup\BackupHandler::getPath($file);
+				$srcpath = Handler\Backup::getPath($file);
 				if (empty($srcpath)) {
 					/* We couldn't create a valid path.  Skip it. */
 					// TODO Fail?  Display warning?
@@ -99,6 +104,8 @@ class Backup implements \BMO {
 		return $data;
 	}
 
+
+
 	// TODO rename function
 	// TODO Use processHooks?
 	public function backupSettingsMagic() {
@@ -130,13 +137,13 @@ class Backup implements \BMO {
 		$dirs = array();
 		$files = array();
 
-		$mods = \FreePBX::Modules()->getModulesByMethod("restoreModule");
+		$mods = \FreePBX::Modules()->getModulesByMethod("restore");
 		foreach($mods as $mod) {
 			$modjson = $tmpdir . 'modulejson/' . $mod . '.json';
 
 			$moddata = json_decode(file_get_contents($modjson), true);
 
-			$restore = new Backup\RestoreHandler($this->FreePBX, $moddata);
+			$restore = new Handler\Restore($this->FreePBX, $moddata);
 
 			\modgettext::push_textdomain(strtolower($mod));
 			$this->FreePBX->$mod->restoreModule($restore);
@@ -144,7 +151,7 @@ class Backup implements \BMO {
 
 			$moddata['dirs'] = $restore->getDirs();
 			foreach ($moddata['dirs'] as $dir) {
-				$destpath = \FreePBX\modules\Backup\BackupHandler::getPath($dir);
+				$destpath = Handler\Backup::getPath($dir);
 				if (empty($destpath)) {
 					/* We couldn't create a valid path.  Skip it. */
 					// TODO Fail?  Display warning?
@@ -158,7 +165,7 @@ class Backup implements \BMO {
 
 			$moddata['files'] = $restore->getFiles();
 			foreach ($moddata['files'] as $file) {
-				$destpath = \FreePBX\modules\Backup\BackupHandler::getPath($file);
+				$destpath = Handler\Backup::getPath($file);
 				if (empty($destpath)) {
 					/* We couldn't create a valid path.  Skip it. */
 					// TODO Fail?  Display warning?
@@ -213,150 +220,7 @@ class Backup implements \BMO {
 	}
 
 	public function doConfigPageInit($page) {
-		$_REQUEST['submit'] = isset($_REQUEST['submit'])?$_REQUEST['submit']:'';
-		$_REQUEST['action'] = isset($_REQUEST['action'])?$_REQUEST['action']:'';
-		$_REQUEST['id'] = isset($_REQUEST['id'])?$_REQUEST['id']:'';
 
-		switch ($page) {
-			case 'backup':
-			if ($_REQUEST['submit'] == _('Delete') && $_REQUEST['action'] == 'save') {
-				$_REQUEST['action'] = 'delete';
-			}
-			switch ($_REQUEST['action']) {
-				case 'wizard':
-					$current_servers = backup_get_server('all_detailed');
-					$server = array();
-					$backup = array();
-					$create_server = true;
-					$backup['bu_server'] = '0';
-					extract($_REQUEST, EXTR_SKIP);
-					foreach ($current_servers as $key => $value) {
-						if ($value['name'] == 'Local Storage' && $value['type'] == 'local' && $value['immortal'] == 'true') {
-							$backup['storage_servers'][] = $value['id'];
-						}
-						if ($value['name'] == 'Config server' && $value['type'] == 'mysql' && $value['immortal'] == 'true') {
-							$mysqlserver = $value['id'];
-						}
-						if ($value['name'] == 'CDR server' && $value['type'] == 'local' && $value['immortal'] == 'true') {
-							$cdrserver = $value['id'];
-						}
-						if ($value['type'] == $wizremtype) {
-							//If a server has the same host AND user we assume it already exists
-							$create_server = !($wizserveraddr == $value['host'] && $wizserveruser == $value['user']);
-						}
-					}
-
-					if ($create_server && $wizremote == 'yes') {
-						$server['name'] = $wizname;
-						$server['desc'] = $wizdesc ? $wizdesc : _('Wizard').":&nbsp;".$wizname;
-						$server['type'] = $wizremtype;
-						$server['host'] = $wizserveraddr;
-						$server['user'] = $wizserveruser;
-						$server['path'] = $wizremotepath ? $wizremotepath : '';
-						switch ($wizremtype) {
-							case 'ftp':
-							$server['port'] = $wizserverport ? $wizserverport : '21';
-							$server['password'] = $wizftppass ? $wizftppass : '';
-							$server['transfer'] = $wiztrans;
-							break;
-							case 'ssh':
-							$server['port'] = $wizserverport ? $wizserverport : '22';
-							$server['key'] = $wizsshkeypath;
-							break;
-						}
-						$backup['storage_servers'][] = backup_put_server($server);
-					}
-
-					//Create Backup Job
-					$backup['name'] = $wizname;
-					$backup['desc'] = $wizdesc;
-					if ($wiznotif == 'yes' && !empty($wizemail)) {
-						$backup['email'] = $wizemail;
-					} else {
-						$backup['email'] = '';
-					}
-					//cron
-					$backup['cron_minute'] = array('*');
-					$backup['cron_dom'] = array('*');
-					$backup['cron_dow'] = array('*');
-					$backup['cron_hour'] = array('*');
-					$backup['cron_month'] = array('*');
-					$backup['cron_schedule'] = $wizfreq;
-					switch ($wizfreq) {
-						case 'daily':
-							$backup['cron_hour'] = array($wizat);
-						break;
-						case 'weekly':
-							$backup['cron_dow'] = array($wizat[0]);
-							$backup['cron_hour'] = array($wizat[1]);
-						break;
-						case 'monthly':
-							$backup['cron_dom'] = array($wizat[0]);
-							$backup['cron_hour'] = array('23');
-							$backup['cron_minute'] = array('59');
-						break;
-					}
-					$backup['delete_amount'] = '3'; //3 runs
-					$backup['delete_time'] = '30'; //clear backups older than 30...
-					$backup['delete_time_type'] = 'days'; //...days
-					//Backup Configs
-					$backup['type'][] = 'astdb';
-					$backup['path'][] = '';
-					$backup['exclude'][] = '';
-					$backup['type'][] = 'dir';
-					$backup['path'][] = '__AMPWEBROOT__/admin';
-					$backup['exclude'][] = '';
-					$backup['type'][] = 'dir';
-					$backup['path'][] = '__ASTETCDIR__';
-					$backup['exclude'][] = '';
-					$backup['type'][] = 'dir';
-					$backup['path'][] = '__AMPBIN__';
-					$backup['exclude'][] = '';
-					if (PHP_OS == "FreeBSD") {
-						$backup['type'][] = 'dir';
-						$backup['path'][] = '/usr/local/etc/dahdi';
-						$backup['exclude'][] = '';
-						$backup['type'][] = 'dir';
-						$backup['path'][] = '/usr/local/lib/dahdi';
-						$backup['exclude'][] = '';
-					} else {
-						$backup['type'][] = 'dir';
-						$backup['path'][] = '/etc/dahdi';
-						$backup['exclude'][] = '';
-					}
-					$backup['type'][] = 'file';
-					$backup['path'][] = '/etc/freepbx.conf';
-					$backup['exclude'][] = '';
-
-					//Backup CDR
-					if ($wizcdr == 'yes' && isset($cdrserver)) {
-						$backup['type'][] = 'mysql';
-						$backup['path'][] = 'server-'.$cdrserver;
-						$backup['exclude'][] = '';
-					}
-					//Backup Voicemail
-					if ($wizvm == 'yes') {
-						$backup['type'][] = 'dir';
-						$backup['path'][] = '__ASTSPOOLDIR__/voicemail';
-						$backup['exclude'][] = '';
-					}
-					//Backup Voicemail
-					if ($wizbu == 'yes') {
-						$backup['type'][] = 'dir';
-						$backup['path'][] = '__ASTSPOOLDIR__/monitor';
-						$backup['exclude'][] = '';
-					}
-					backup_put_backup($backup);
-				break;
-				case 'delete':
-					backup_del_backup($_REQUEST['id']);
-					//TODO: Not allowed in 5.5
-					unset($_REQUEST['action']);
-					unset($_REQUEST['id']);
-				break;
-			}
-			break;
-		}
 	}
 
 	/**
@@ -388,32 +252,21 @@ class Backup implements \BMO {
 		);
 		switch ($request['display']) {
 			case 'backup':
-			case 'backup_servers':
-				if (empty($request['id'])) {
-					unset($buttons['delete']);
-					unset($buttons['run']);
-				}
-				if (empty($request['action']) || (strtolower($request['action']) == 'delete')) {
-					$buttons = array();
-				}
-				if($request['display'] != 'backup' && isset($buttons['run'])){
-					unset($buttons['run']);
-				}
 			break;
+			case 'backup_restore':
 			case 'backup_templates':
-				if (isset($request['action']) && $request['action'] == "edit" || $request['action'] == "save") {
-					unset($buttons['run']);
-					unset($buttons['reset']);
-					if (!$request['id']) {
-						unset($buttons['delete']);
-					}
-				} else {
-					$buttons = array();
-				}
+				unset($buttons['run']);
 			break;
 			default:
-				$buttons = array();
-
+				$buttons = [];
+			break;
+		}
+		if(!isset($request['id']) || empty($request['id'])){
+			unset($buttons['delete']);
+			unset($buttons['run']);
+		}
+		if(!isset($request['view']) || empty($request['view'])){
+			$buttons = [];
 		}
 		return $buttons;
 	}
@@ -442,13 +295,62 @@ class Backup implements \BMO {
 			case 'getJSON':
 				switch ($_REQUEST['jdata']) {
 					case 'backupGrid':
-						return array_values($this->listBackups());
-					break;
-					case 'serverGrid':
-						return array_values($this->listServers());
+						return [
+							[
+								'id' => '023f1e4a-4511-4bcd-a365-ca9ee118a5d5',
+								'name' => 'Foo Backup',
+								'description' => 'test data',
+							]
+						];
+						//return array_values($this->listBackups());
 					break;
 					case 'templateGrid':
-						return array_values($this->listTemplates());
+						return [];
+						//return array_values($this->listTemplates());
+					break;
+					case 'backupStorage':
+						$storage_ids = [];
+						if(isset($_GET['id']) && !empty($_GET['id'])){
+							$storage_ids = $this->getStorageByID($_GET['id']);
+						}
+						try {
+							$items = $this->FreePBX->Filestore->listLocations('backup');
+							$return = [];
+							foreach ($items['locations'] as $driver => $locations ) {
+								$optgroup = [
+									'label' => $driver,
+									'children' => []
+								];
+								foreach ($locations as $location) {
+									$select = in_array($location['id'], $storage_ids);
+									$optgroup['children'][] = [
+										'label' => $location['name'],
+										'title' => $location['description'],
+										'value' => $driver.'_'.$location['id'],
+										'selected' => $select
+									];
+								}
+								$return[] = $optgroup;
+							}
+							return $return;
+						} catch (\Exception $e) {
+							return $e;
+						}
+					break;
+					case 'backupItems':
+					return [
+						[
+							'label' => 'test label',
+							'title' => 'test title',
+							'value' => 'value',
+							'selected' => true,
+						],
+						[
+							'label' => 'test label2',
+							'title' => 'test title2',
+							'value' => 'value2',
+						],
+					];
 					break;
 					default:
 						return false;
@@ -461,76 +363,104 @@ class Backup implements \BMO {
 		}
 	}
 
+	public function getStorageById($id){
+		return [];
+	}
+
 	/**
 	 * List all Servers
 	 */
 	public function listServers() {
-		$sql = 'SELECT * FROM backup_servers ORDER BY name';
-		$stmt = $this->db->prepare($sql);
-		$stmt->execute();
-		$ret = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-		return $ret;
+
 	}
 
 	/**
 	 * List all templates
 	 */
 	public function listTemplates() {
-		$sql = 'SELECT * FROM backup_templates ORDER BY name';
-		$stmt = $this->db->prepare($sql);
-		$stmt->execute();
-		$ret = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-		return $ret;
+
+	}
+
+	public function generateId(){
+		return \Ramsey\Uuid\Uuid::uuid4()->toString();
 	}
 
 	/**
 	 * List all backups
 	 */
 	public function listBackups() {
-		$sql = 'SELECT * FROM backup ORDER BY name';
-		$ret = $this->db->query($sql, \PDO::FETCH_ASSOC);
-		$backups = array();
-		//set index to server id for easy retrieval
-		foreach ($ret as $s) {
-			//set index to  id for easy retrieval
-			$backups[$s['id']] = $s;
-
-			//default name in one is missing
-			if (!$backups[$s['id']]['name']) {
-				$backups[$s['id']]['name'] = _('Backup').' '.$s['id'];
-			}
-
-		}
-		return $backups;
+		return $this->getConfig('backupList');
 	}
+
+	public function getBackup($id){
+		$data = $this->getAll($id);
+		$return = array();
+		foreach ($this->backupFields as $key => $value) {
+			switch ($key) {
+				default:
+					$return[$key] = isset($data[$key])?$data[$key]:'';
+				break;
+			}
+		}
+		return $return;
+	}
+
+	public function updateBackup($data){
+		$data['id'] = (isset($data['id']) && !empty($data[id]))?$data['id']:$this->generateID();
+		foreach ($this->backupFields as $col) {
+			$value = isset($data[$col])?$data[$col]:'';
+			$this->setConfig($col,$value,$data['id']);
+		}
+		$description = isset($data['backup_description'])?$data['backup_description']:sprintf('Backup %s',$data['backup_name']);
+		$this->setConfig($data['id'],array('id' => $data['id'], 'name' => $data['backup_name'], 'description' => $description),'backupList');
+	}
+	public function deleteBackup($id){
+		$this->setConfig($id,false,'backupList');
+		$this->delById($id);
+	}
+
+	public function listTemplates(){
+		return $this->getConfig('templateList');
+	}
+
+	public function getTemplate($id){
+		$data = $this->getAll($id);
+		$return = array();
+		foreach ($this->templateFields as $key => $value) {
+			switch ($key) {
+				default:
+					$return[$key] = isset($data[$key])?$data[$key]:'';
+				break;
+			}
+		}
+		return $return;
+	}
+
+	public function updateTemplate($data){
+		$data['id'] = (isset($data['id']) && !empty($data[id]))?$data['id']:$this->generateID();
+		foreach ($this->templateFields as $col) {
+			$value = isset($data[$col])?$data[$col]:'';
+			$this->setConfig($col,$value,$data['id']);
+		}
+		$description = isset($data['template_description'])?$data['template_description']:sprintf('Template %s',$data['template_name']);
+		$this->setConfig($data['id'],array('id' => $data['id'], 'name' => $data['template_name'], 'description' => $description),'templateList');
+	}
+
+	public function deleteTemplate($id){
+		$this->setConfig($id,false,'templateList');
+		$this->delById($id);
+	}
+
 	public function getRightNav($request) {
-		$var = array(
-			'id' => isset($request['id']) ? $request['id'] : '',
-			'display' => isset($request['display']) ? $request['display'] : '',
-		);
-		switch ($request['display']) {
-			case 'backup':
-				if(isset($request['action']) && $request['action'] == 'edit'){
-					$var['backup'] = backup_get_backup('all');
-				}
-				return load_view(dirname(__FILE__) . '/views/rnav/backup.php', $var);
-			break;
-			case 'backup_restore':
-				$var['servers'] = backup_get_server('all');
-				return load_view(dirname(__FILE__) . '/views/rnav/restore.php', $var);
-			break;
-			case 'backup_servers':
-				if(isset($request['action']) && $request['action'] == 'edit'){
-					$var['servers'] = backup_get_server('all');
-				}
-				return load_view(dirname(__FILE__) . '/views/rnav/servers.php', $var);
-			break;
-			case 'backup_templates':
-				if(isset($request['action']) && $request['action'] == 'edit'){
-					$var['templates'] = backup_get_template('all');
-				}
-				return load_view(dirname(__FILE__) . '/views/rnav/templates.php', $var);
-			break;
+		//We don't need an rnav if the view is not set
+		if(isset($_GET['display']) && isset($_GET['view'])){
+			switch ($_GET['display']) {
+				case 'backup':
+				case 'backup_templates':
+				case 'backup_restore':
+					return "Placeholder";
+				break;
+			}
 		}
 	}
 }

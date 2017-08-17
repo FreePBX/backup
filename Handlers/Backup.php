@@ -2,9 +2,9 @@
 /**
  * Copyright Sangoma Technologies, Inc 2017
  */
-namespace FreePBX\modules\Backup;
+namespace FreePBX\modules\Backup\Handlers;
 
-class BackupHandler {
+class Backup {
 	private $data = array(
 		'dirs' => array(),
 		'files' => array(),
@@ -45,20 +45,13 @@ class BackupHandler {
 		return $this->data['dirs'];
 	}
 
-	/**
-	array(
-		'type' => '',		// The type of the file.  Something that the module can understand as something useful and do something with.
-					// 'voicemail', 'greeting', 'libs'
-
-		'filename' => '',	// It's a filename.  You know what a filename is.
-					// 'data.dat', 'msg0001.wav', 'libtaco.so'
-
-		'path' => '',		// Unless a full path is given, this is a relative path. It is left to the module to figure out where the file should go.
-					// '', 'default/5000/INBOX', '/usr/lib/'
-
-		'root' => '',		//
-					// '', '__ASTETCDIR__', '__ASTSPOOLDIR__/voicemail/'
-	);
+	/*
+	[
+		type => 'descriptor module dependent',
+		filename => 'file.ext',
+		path => '/path/to/',
+		root => 'base __ASTETCDIR__ etc'.
+	]
 	*/
 	public function addFiles($list) {
 		if (empty($list)) {

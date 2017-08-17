@@ -2,9 +2,9 @@
 /**
  * Copyright Sangoma Technologies, Inc 2017
  */
-namespace FreePBX\modules\Backup;
+namespace FreePBX\modules\Backup\Handlers;
 
-class RestoreHandler {
+class Restore {
 	/* List of dirs added by the module to be restored. */
 	private $dirs = array();
 	/* List of files added by the module to be restored. */

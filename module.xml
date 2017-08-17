@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>14.0.3</version>
+	<version>15.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -10,46 +10,20 @@
 	<description>Backup &amp; Restore for your FreePBX environment</description>
 	<menuitems>
 		<backup needsenginedb="yes">Backup &amp; Restore</backup>
-		<backup_servers hidden="true" needsenginedb="yes">Backup &amp; Restore - Servers</backup_servers>
 		<backup_templates hidden="true" needsenginedb="yes">Backup &amp; Restore - Templates</backup_templates>
 		<backup_restore hidden="true" needsenginedb="yes">Backup &amp; Restore - Restore</backup_restore>
 	</menuitems>
 	<depends>
+		<version>13.0.5</version>
 		<module>core</module>
+		<module>filestore</module>
 	</depends>
 	<changelog>
-		*14.0.3* Merge from 13
-		*14.0.2* Merge from 13
-		*14.0.1* Merge from 13
-		*13.0.26.5* FREEPBX-14413 Cant set Path with Date Variable for (SSH) backups
-		*13.0.26.4* FREEPBX-14463 Exclude SIP Settings Bind Address (bindaddr) from Warm Spare Backup
-		*13.0.26.3* FREEPBX-14414 FREEPBX-14466
-		*13.0.26.2* FREEPBX-13787 Amazon S3 backup module default file permission is public
-		*13.0.26.1* FREEPBX-13601 Cant shoose the days options
-		*13.0.26* Fix FTP Backups - FREEPBX-13395, FREEPBX-13534, FREEPBX-13684
-		*13.0.25.6* FREEPBX-9156 Restore Loops when warmspare backup is set to apply conf
-		*13.0.25.1* Remove deprecated 'andSelf' jquery call.
-		*13.0.25* Better backup errors
-		*13.0.24* FREEPBX-12494 add breaks to page so that action bar is lower than form
-		*13.0.23* FREEPBX-12344 FREEPBX-12363
-		*13.0.22* FREEPBX-12272 fixes window server issues
-		*13.0.21.9* FREEPBX-12028 switch to a better ftp class
-		*13.0.21.8* FREEPBX-11822 More ftp error handling
-		*13.0.21.7* FREEPBX-9705 FREEPBX-11704
-		*13.0.21.6* FREEPBX-11410 remove unneeded chatter from log file.
-		*13.0.21.5* FREEPBX-11364 Fix warm spare GUI options FREEPBX-11321 Check for sysadmin from address id advanced setting is not set.
-		*13.0.21.4* FREEPBX-11293
-		*13.0.21.3* Fix spelling errors in messages
-		*13.0.21.2* #10606 - Fix local server creation, and Minor fixes #8791, #10670
-		*13.0.20* #10885 - Fix email size limits
-		*13.0.19.1* #11130 - Ensure backup path is correct when saving to S3
+		*15.0.1* Backup Refactor
 	</changelog>
 	<supported>
-		<version>14.0</version>
+		<version>15.0</version>
 	</supported>
-	<depends>
-		<version>13.0.5</version>
-	</depends>
 	<location>release/2.11/backup-2.11.0.5.tgz</location>
 	<md5sum>ac5c29013681c99d4b4f224624dc0d34</md5sum>
 </module>

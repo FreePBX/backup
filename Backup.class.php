@@ -6,9 +6,7 @@ namespace FreePBX\modules;
 use FreePBX\modules\Backup\Handlers as Handler;
 use Symfony\Component\Filesystem\Filesystem;
 $setting = array('authenticate' => true, 'allowremote' => false);
-class Backup implements \BMO {
-	static backupFields = ['backup_name','backup_description','backup_items','backup_storage','backup_schedule','backup_maintinance'];
-	static templateFields = ['backup_name','backup_description','backup_items','backup_storage','backup_schedule','backup_maintinance'];
+class Backup extends \DB_Helper implements \BMO {
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
 				throw new Exception('Not given a FreePBX Object');
@@ -16,12 +14,20 @@ class Backup implements \BMO {
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
 		$this->fs = new Filesystem;
+		$this->backupFields = ['backup_name','backup_description','backup_items','backup_storage','backup_schedule','backup_maintinance'];
+		$this->templateFields = [];
 	}
 	public function showPage($page){
 		switch ($page) {
 			case 'backup':
 				if(isset($_GET['view'])){
-					return show_view(__DIR__.'/views/backup/form.php');
+					$vars = ['id' => ''];
+					if(isset($_GET['id']) && !empty($_GET['id'])){
+						$vars = $this->getBackup($_GET['id']);
+						$vars['id'] = $_GET['id'];
+					}
+
+					return show_view(__DIR__.'/views/backup/form.php',$vars);
 				}else{
 					return show_view(__DIR__.'/views/backup/grid.php');
 				}
@@ -220,7 +226,18 @@ class Backup implements \BMO {
 	}
 
 	public function doConfigPageInit($page) {
-
+		switch ($page) {
+			case 'backup':
+				if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'delete'){
+					return $this->deleteBackup($_REQUEST['id']);
+				}
+				if(isset($_POST['backup_name'])){
+					return $this->updateBackup($_POST);
+				}
+			break;
+			default:
+			break;
+		}
 	}
 
 	/**
@@ -295,14 +312,7 @@ class Backup implements \BMO {
 			case 'getJSON':
 				switch ($_REQUEST['jdata']) {
 					case 'backupGrid':
-						return [
-							[
-								'id' => '023f1e4a-4511-4bcd-a365-ca9ee118a5d5',
-								'name' => 'Foo Backup',
-								'description' => 'test data',
-							]
-						];
-						//return array_values($this->listBackups());
+						return array_values($this->listBackups());
 					break;
 					case 'templateGrid':
 						return [];
@@ -312,6 +322,7 @@ class Backup implements \BMO {
 						$storage_ids = [];
 						if(isset($_GET['id']) && !empty($_GET['id'])){
 							$storage_ids = $this->getStorageByID($_GET['id']);
+							dbug('storage_ids');
 						}
 						try {
 							$items = $this->FreePBX->Filestore->listLocations('backup');
@@ -322,7 +333,7 @@ class Backup implements \BMO {
 									'children' => []
 								];
 								foreach ($locations as $location) {
-									$select = in_array($location['id'], $storage_ids);
+									$select = in_array($driver.'_'.$location['id'], $storage_ids);
 									$optgroup['children'][] = [
 										'label' => $location['name'],
 										'title' => $location['description'],
@@ -364,22 +375,9 @@ class Backup implements \BMO {
 	}
 
 	public function getStorageById($id){
-		return [];
+		return $this->getConfig('backup_storage',$id);
 	}
 
-	/**
-	 * List all Servers
-	 */
-	public function listServers() {
-
-	}
-
-	/**
-	 * List all templates
-	 */
-	public function listTemplates() {
-
-	}
 
 	public function generateId(){
 		return \Ramsey\Uuid\Uuid::uuid4()->toString();
@@ -389,13 +387,14 @@ class Backup implements \BMO {
 	 * List all backups
 	 */
 	public function listBackups() {
-		return $this->getConfig('backupList');
+		$return =  $this->getAll('backupList');
+		return is_array($return)?$return:[];
 	}
 
 	public function getBackup($id){
 		$data = $this->getAll($id);
-		$return = array();
-		foreach ($this->backupFields as $key => $value) {
+		$return = [];
+		foreach ($this->backupFields as $key) {
 			switch ($key) {
 				default:
 					$return[$key] = isset($data[$key])?$data[$key]:'';

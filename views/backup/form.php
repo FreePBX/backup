@@ -1,11 +1,11 @@
 <form
   class="fpbx-submit"
   name="frm_extensions"
-  action=""
+  action="?display=backup"
   method="post"
-  data-fpbx-delete="config.php?display=backup&type=backup&amp;extdisplay=<?echo $id?>&amp;action=del" role="form"
+  data-fpbx-delete="config.php?display=backup&type=backup&amp;id=<?php echo $id?>&amp;action=del" role="form"
 >
-  <input type="hidden" id="id" name="id" value="<?php echo $id?>">
+  <input type="hidden" id="id" name="id" value="<?php echo $id ?>">
   <div class="section-title" data-for="backup-basic"><h3><i class="fa fa-minus"></i> <?php echo _("Basic Information") ?></h3></div>
   <div class="section" data-id="backup-basic">
     <!--Backup Name-->

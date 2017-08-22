@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-14 17:48-0400\n"
+"POT-Creation-Date: 2017-08-22 18:53-0400\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -179,7 +179,7 @@ msgstr "Servidores Disponibles"
 msgid "B"
 msgstr "B"
 
-#: functions.inc.php:68
+#: functions.inc.php:69
 msgid "BACKUP LOG ATTACHED"
 msgstr "BITACORA DE RESPALDOS ANEXADA"
 
@@ -240,7 +240,7 @@ msgstr "Respaldar Elementos"
 msgid "Backup Lock acquired!"
 msgstr "Bloqueo de copia de seguridad adquirida!"
 
-#: functions.inc.php:71
+#: functions.inc.php:72
 msgid "Backup Log:"
 msgstr "Bitacora del respaldo:"
 

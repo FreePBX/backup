@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-14 17:48-0400\n"
+"POT-Creation-Date: 2017-08-22 18:53-0400\n"
 "PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/backup/pl/"
@@ -158,7 +158,7 @@ msgstr "Dostępne serwery"
 msgid "B"
 msgstr "B"
 
-#: functions.inc.php:68
+#: functions.inc.php:69
 msgid "BACKUP LOG ATTACHED"
 msgstr "LOG KOPII ZAPASOWEJ DOŁĄCZONY"
 
@@ -219,7 +219,7 @@ msgstr "Obiekty kopii zapasowej"
 msgid "Backup Lock acquired!"
 msgstr "Backup Lock wymagany!"
 
-#: functions.inc.php:71
+#: functions.inc.php:72
 #, fuzzy
 msgid "Backup Log:"
 msgstr "Backup Log:"

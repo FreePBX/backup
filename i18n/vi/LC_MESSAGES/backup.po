@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-14 14:51-0700\n"
+"POT-Creation-Date: 2017-08-22 15:54-0700\n"
 "PO-Revision-Date: 2017-06-06 11:54+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -165,7 +165,7 @@ msgstr "Các máy chủ khả dụng"
 msgid "B"
 msgstr "B"
 
-#: functions.inc.php:68
+#: functions.inc.php:69
 msgid "BACKUP LOG ATTACHED"
 msgstr "SAO LƯU LOG ĐÍNH KÈM"
 
@@ -226,7 +226,7 @@ msgstr "Sao lưu các mục tin"
 msgid "Backup Lock acquired!"
 msgstr "Sao lưu Lock thu được!"
 
-#: functions.inc.php:71
+#: functions.inc.php:72
 msgid "Backup Log:"
 msgstr "Sao lưu Log:"
 

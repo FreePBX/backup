@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-14 14:51-0700\n"
+"POT-Creation-Date: 2017-08-22 15:54-0700\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -181,7 +181,7 @@ msgstr "Доступные серверы"
 msgid "B"
 msgstr "B"
 
-#: functions.inc.php:68
+#: functions.inc.php:69
 msgid "BACKUP LOG ATTACHED"
 msgstr "Журнал копирования приложен"
 
@@ -243,7 +243,7 @@ msgstr "Пункты бекапа"
 msgid "Backup Lock acquired!"
 msgstr "Блокировка бекапа установлена!"
 
-#: functions.inc.php:71
+#: functions.inc.php:72
 msgid "Backup Log:"
 msgstr "Лог бекапа:"
 

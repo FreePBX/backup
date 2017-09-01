@@ -5,10 +5,12 @@
 namespace FreePBX\modules\Backup\Handlers;
 
 class Backup {
-	private $data = array(
-		'dirs' => array(),
-		'files' => array(),
-	);
+	private $data = []
+		'dirs' => [],
+		'files' => [],
+		'settings' => [],
+		'dependencies' => [],
+	];
 
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
@@ -69,6 +71,25 @@ class Backup {
 
 	public function getFiles() {
 		return $this->data['files'];
+	}
+
+	public function addSettings($settings){
+		if (empty($settings)) {
+			return;
+		}
+		$this->data['settings'][] = $settings;
+	}
+
+	public function getSettings(){
+		return $this->data['settings'];
+	}
+
+	public function addDependency($dependency){
+		$this->data['depencencies'][] = $dependency;
+	}
+
+	public function getDependencies(){
+		return $this->data['dependencies'];
 	}
 
 	public function getExtraData() {

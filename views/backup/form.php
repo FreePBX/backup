@@ -71,6 +71,57 @@
 		</div>
 		<!--END Backup Items-->
 	</div>
+	<div class="section-title" data-for="backup-notify"><h3><i class="fa fa-minus"></i> <?php echo _("Notifications") ?></h3></div>
+	<div class="section" data-id="backup-notify">
+		<!--Notification Email-->
+		<div class="element-container">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="backup_email"><?php echo _("Notification Email") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="backup_email"></i>
+					</div>
+					<div class="col-md-9">
+						<input type=text class="form-control" id="backup_email" name="backup_email" value="<?php echo isset($backup_email)?$backup_email:''?>">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="backup_email-help" class="help-block fpbx-help-block"><?php echo _("Email address to send notifications to.")?></span>
+				</div>
+			</div>
+		</div>
+		<!--END Notification Email-->
+		<!--Notification Email-->
+		<div class="element-container">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="backup_emailtype"><?php echo _("Email Type") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="backup_emailtype"></i>
+					</div>
+					<div class="col-md-9">
+						<span class="radioset">
+							<?php $backup_emailtype = isset($backup_emailtype)?$backup_emailtype:both;?>
+							<input type="radio" name="backup_emailtype" id="backup_emailtype_success" value="success" <?php echo ($backup_emailtype == "success"?"CHECKED":"") ?>>
+							<label for="backup_emailtype_success"><?php echo _("Success");?></label>
+							<input type="radio" name="backup_emailtype" id="backup_emailtype_failure" value="failure" <?php echo ($backup_emailtype == "failure"?"CHECKED":"") ?>>
+							<label for="backup_emailtype_failure"><?php echo _("Failure");?></label>
+							<input type="radio" name="backup_emailtype" id="backup_emailtype_both" value="both" <?php echo ($backup_emailtype == "both"?"CHECKED":"") ?>>
+							<label for="backup_emailtype_both"><?php echo _("Both");?></label>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="backup_emailtype-help" class="help-block fpbx-help-block"><?php echo _("When to email")?></span>
+				</div>
+			</div>
+		</div>
+		<!--END Notification Email-->
+	</div>
 	<div class="section-title" data-for="backup-storage"><h3><i class="fa fa-minus"></i> <?php echo _("Storage") ?></h3></div>
 	<div class="section" data-id="backup-storage">
 		<!--Storage Location-->
@@ -118,26 +169,60 @@
 			</div>
 		</div>
 		<!--END Scheduleing-->
-		<!--Maintinance-->
+	</div>
+	<div class="section-title" data-for="backup-maint"><h3><i class="fa fa-minus"></i> <?php echo _("Maintinence") ?></h3></div>
+	<div class="section" data-id="backup-schedule">
+		<!--Delete After Runs-->
 		<div class="element-container">
 			<div class="row">
 				<div class="form-group">
 					<div class="col-md-3">
-						<label class="control-label" for="backup_maintinance"><?php echo _("Maintinance") ?></label>
-						<i class="fa fa-question-circle fpbx-help-icon" data-for="backup_maintinance"></i>
+						<label class="control-label" for="maintruns"><?php echo _("Delete After Runs") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="maintruns"></i>
 					</div>
 					<div class="col-md-9">
-						<input type="text" class="form-control" id="backup_maintinance" name="backup_maintinance" value="<?php echo isset($backup_maintinance)?$backup_maintinance:''?>">
+						<input type="number" min="0" class="form-control" id="maintruns" name="maintruns" value="<?php echo isset($maintruns)?$maintruns:0?>">
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<span id="backup_maintinance-help" class="help-block fpbx-help-block"><?php echo _("HowMany/How often")?></span>
+					<span id="maintruns-help" class="help-block fpbx-help-block"><?php echo _("How many updates to keep. If this number is 3, the last 3 will be kept. 0 is unlimited")?></span>
 				</div>
 			</div>
 		</div>
-		<!--END Maintinance-->
+		<!--END Delete After Runs-->
+		<!--Delete After Days-->
+		<div class="element-container">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="maintage"><?php echo _("Delete After Days") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="maintage"></i>
+					</div>
+					<div class="col-md-9">
+						<select class="form-control" id="maintage" name="maintage">
+							<option ><?php echo _("Unlimited")?></option>
+							<option value="7" <?php echo ($maintage == 7)?'SELECTED':''?>><?php echo sprintf(_("%s Days"),'7')?></option>
+							<option value="14" <?php echo ($maintage == 14)?'SELECTED':''?>><?php echo sprintf(_("%s Days"),'14')?></option>
+							<option value="21" <?php echo ($maintage == 21)?'SELECTED':''?>><?php echo sprintf(_("%s Days"),'21')?></option>
+							<option value="30" <?php echo ($maintage == 30)?'SELECTED':''?>><?php echo sprintf(_("%s Days"),'30')?></option>
+							<option value="60" <?php echo ($maintage == 60)?'SELECTED':''?>><?php echo sprintf(_("%s Days (%s Months)"),'60','2')?></option>
+							<option value="90" <?php echo ($maintage == 90)?'SELECTED':''?>><?php echo sprintf(_("%s Days (%s Months)"),'90','3')?></option>
+							<option value="120" <?php echo ($maintage == 120)?'SELECTED':''?>><?php echo sprintf(_("%s Days (%s Months)"),'120','4')?></option>
+							<option value="250" <?php echo ($maintage == 250)?'SELECTED':''?>><?php echo sprintf(_("%s Days (%s Months)"),'240','8')?></option>
+							<option value="365" <?php echo ($maintage == 365)?'SELECTED':''?>><?php echo sprintf(_("%s Days (%s Months)"),'365','12')?></option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="maintage-help" class="help-block fpbx-help-block"><?php echo _("How long to maintain backups. Example 30 will delete anything older than 30 days.")?></span>
+				</div>
+			</div>
+		</div>
+		<!--END Delete After Days-->
 	</div>
 </form>
 

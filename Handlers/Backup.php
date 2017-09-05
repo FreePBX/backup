@@ -4,11 +4,11 @@
  */
 namespace FreePBX\modules\Backup\Handlers;
 
-class Backup {
-	private $data = []
+class Backup{
+	private $data = [
 		'dirs' => [],
 		'files' => [],
-		'settings' => [],
+		'configs' => [],
 		'dependencies' => [],
 	];
 
@@ -17,6 +17,7 @@ class Backup {
 			throw new \Exception('Not given a FreePBX Object');
 		}
 		$this->FreePBX = $freepbx;
+		$this->modified = false;
 	}
 
 	public static function getPath($file) {
@@ -37,7 +38,7 @@ class Backup {
 		if (empty($list)) {
 			return;
 		}
-
+		$this->modified = true;
 		foreach ($list as $dir) {
 			$this->data['dirs'][] = $dir;
 		}
@@ -59,7 +60,7 @@ class Backup {
 		if (empty($list)) {
 			return;
 		}
-
+		$this->modified = true;
 		foreach ($list as $file) {
 			if (empty($file['type']) || empty($file['filename'])) {
 				continue;
@@ -73,18 +74,20 @@ class Backup {
 		return $this->data['files'];
 	}
 
-	public function addSettings($settings){
+	public function addConfigs($settings){
 		if (empty($settings)) {
 			return;
 		}
-		$this->data['settings'][] = $settings;
+		$this->modified = true;
+		$this->data['configs'][] = $settings;
 	}
 
-	public function getSettings(){
-		return $this->data['settings'];
+	public function getConfigs(){
+		return $this->data['configs'];
 	}
 
 	public function addDependency($dependency){
+		$this->modified = true;
 		$this->data['depencencies'][] = $dependency;
 	}
 
@@ -94,5 +97,8 @@ class Backup {
 
 	public function getExtraData() {
 		return $this->data['extradata'];
+	}
+	public function getData(){
+		return $this->data;
 	}
 }

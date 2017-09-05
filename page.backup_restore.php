@@ -10,6 +10,12 @@ $backupClass = FreePBX::Backup();
 			<div class="col-sm-12">
 				<div class="fpbx-container">
 					<div class="display full-border">
+						<ul class="nav nav-tabs">
+							<li role="presentation"><a href="?display=backup"><?php echo _("Backup")?></a></li>
+							<li role="presentation" class='active'><a href="?display=backup_restore"><?php echo _("Restore")?></a></li>
+							<li role="presentation"><a href="?display=backup&view=download"><?php echo _("Download")?></a></li>
+						</ul>
+						<br/>
 						<?php echo $backupClass->showPage('restore'); ?>
 					</div>
 				</div>

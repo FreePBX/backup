@@ -69,10 +69,10 @@ if (isset($vars['skipnat'])) {
 
 // Checking  skip Bind address
 if (isset($vars['skipbind'])) {
-        $skipbind = true;
-        backup_log(_('Skipping host-specific Bind address'));
+	$skipbind = true;
+	backup_log(_('Skipping host-specific Bind address'));
 } else {
-        $skipbind = false;
+	$skipbind = false;
 }
 
 
@@ -181,24 +181,24 @@ if (!isset($vars['restore'])) {
 
 		 //create cdrdb handler
 		$dsn = array(
-				'phptype'  => $amp_conf['CDRDBTYPE']
-							? $amp_conf['CDRDBTYPE']
-							: $amp_conf['AMPDBENGINE'],
-				'hostspec' => $amp_conf['CDRDBHOST']
-							? $amp_conf['CDRDBHOST']
-							: $amp_conf['AMPDBHOST'],
-				'username' => $amp_conf['CDRDBUSER']
-							? $amp_conf['CDRDBUSER']
-							: $amp_conf['AMPDBUSER'],
-				'password' => $amp_conf['CDRDBPASS']
-							? $amp_conf['CDRDBPASS']
-							: $amp_conf['AMPDBPASS'],
-				'port'     => $amp_conf['CDRDBPORT']
-							? $amp_conf['CDRDBPORT']
-							: '3306',
-				'database' => $amp_conf['CDRDBNAME']
-							? $amp_conf['CDRDBNAME']
-							: 'asteriskcdrdb',
+			'phptype'	=> $amp_conf['CDRDBTYPE']
+						? $amp_conf['CDRDBTYPE']
+						: $amp_conf['AMPDBENGINE'],
+			'hostspec'	=> $amp_conf['CDRDBHOST']
+						? $amp_conf['CDRDBHOST']
+						: $amp_conf['AMPDBHOST'],
+			'username'	=> $amp_conf['CDRDBUSER']
+						? $amp_conf['CDRDBUSER']
+						: $amp_conf['AMPDBUSER'],
+			'password'	=> $amp_conf['CDRDBPASS']
+						? $amp_conf['CDRDBPASS']
+						: $amp_conf['AMPDBPASS'],
+			'port'		=> $amp_conf['CDRDBPORT']
+						? $amp_conf['CDRDBPORT']
+						: '3306',
+			'database'	=> $amp_conf['CDRDBNAME']
+						? $amp_conf['CDRDBNAME']
+						: 'asteriskcdrdb',
 		);
 		$cdrdb = DB::connect($dsn);
 		$path = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . time() . '.sql';
@@ -321,32 +321,31 @@ if (!isset($vars['restore'])) {
 				$backup['bindaddr'] = $siparray['bindaddr'];
 				backup_log('backup server bindaddress='.$backup['bindaddr']);
 				// This is something tricky ahhh  PJSIP!!!!!!!!
-					$allBindsprese = $ss->getConfig("binds");
-					$protocolsprese = $ss->getConfig("protocols");
+				$allBindsprese = $ss->getConfig("binds");
+				$protocolsprese = $ss->getConfig("protocols");
 
-					foreach($protocolsprese as $p) {
-						$binds = !empty($allBindsprese[$p]) && is_array($allBindsprese[$p]) ? $allBindsprese[$p] : array();
+				foreach($protocolsprese as $p) {
+					$binds = !empty($allBindsprese[$p]) && is_array($allBindsprese[$p]) ? $allBindsprese[$p] : array();
 
-						foreach ($binds as $ip => $stat){
-							if ($stat != "on") {
-								continue;
-							}
-
-						// ws and wss are not configurable
-						if (strpos($p, "ws") === 0) {
+					foreach ($binds as $ip => $stat){
+						if ($stat != "on") {
 							continue;
 						}
 
-							$presvars[] = array(
-							$p."port-$ip" => $ss->getConfig($p."port-$ip"),
-							$p."domain-$ip" => $ss->getConfig($p."domain-$ip"),
-							$p."extip-$ip" => $ss->getConfig($p."extip-$ip"),
-							$p."localnet-$ip" =>$ss->getConfig($p."localnet-$ip"),
-							);
-						}
-						}
+					// ws and wss are not configurable
+					if (strpos($p, "ws") === 0) {
+						continue;
+					}
 
-               }
+						$presvars[] = array(
+						$p."port-$ip" => $ss->getConfig($p."port-$ip"),
+						$p."domain-$ip" => $ss->getConfig($p."domain-$ip"),
+						$p."extip-$ip" => $ss->getConfig($p."extip-$ip"),
+						$p."localnet-$ip" =>$ss->getConfig($p."localnet-$ip"),
+						);
+					}
+				}
+			}
 
 			backup_log(_('Restoring Database...'));
 
@@ -402,13 +401,13 @@ if (!isset($vars['restore'])) {
 				$ss = FreePBX::create()->Sipsettings;
 				$ss->setConfig('localnets', $backup['localnets']);
 				$ss->setConfig('externip',  $backup['externip']);
-                         }
+			}
 
 			// Restore the same bindaddess preserved earlier
 			if ($skipbind) {
 				backup_log(_('Restoring Bindaddres Settings'));
 				$ss = FreePBX::Sipsettings();
-		                $ss->updateChanSipSettings('bindaddr',$backup['bindaddr']);
+				$ss->updateChanSipSettings('bindaddr',$backup['bindaddr']);
 				// lets restore pjsip bindaddress
 				$ss->setConfig('binds',$allBindsprese);
 				foreach ($presvars as $v ) 	{
@@ -416,10 +415,7 @@ if (!isset($vars['restore'])) {
 						$ss->setConfig($proto,$val);
 					}
 				}
-
-
 			}
-
 		}
 	}
 
@@ -524,7 +520,7 @@ function show_opts() {
 	$e[] = "\t\tThis explicitly skips any per-machine NAT settings (eg, externip)";
 	$e[] = "\t--skipbind";
 	$e[] = "\t\tSkips any per-machine Bind address settings";
-        $e[] = '';
+	$e[] = '';
 	$e[] = '';
 	echo implode("\n", $e);
 }

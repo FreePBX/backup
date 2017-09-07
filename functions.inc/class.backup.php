@@ -641,7 +641,6 @@ class Backup {
 						|| $ret['mysql'][$s]['host'] == $this->amp_conf['AMPDBHOST']
 					) {
 						$ret['fpbx_db'] = 'mysql-' . $s;
-						unset($ret['file_list'][$key]);
 					}
 
 					//if this server is freepbx's primary cdr server datastore, record that
@@ -652,9 +651,10 @@ class Backup {
 						|| $ret['mysql'][$s]['host'] == $this->amp_conf['CDRDBHOST']
 					) {
 						$ret['fpbx_cdrdb'] = 'mysql-' . $s;
-						unset($ret['file_list'][$key]);
 					}
 				}
+				// don't store any database dumps in the file section, as they can't be restored
+				unset($ret['file_list'][$key]);
 				continue;
 			}
 

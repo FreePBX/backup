@@ -652,6 +652,10 @@ class Backup {
 					) {
 						$ret['fpbx_cdrdb'] = 'mysql-' . $s;
 					}
+				} else {
+					// save credentials for external databases
+					$ret['mysql'][$s]['user'] = backup__($this->s[$s]['user']);
+					$ret['mysql'][$s]['password'] = backup__($this->s[$s]['password']);
 				}
 				// don't store any database dumps in the file section, as they can't be restored
 				unset($ret['file_list'][$key]);

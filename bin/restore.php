@@ -314,7 +314,7 @@ if (!isset($vars['restore'])) {
 				$siparray = $ss->getChanSipSettings();
 				$backup['nat_mode'] = $siparray['nat_mode'];
 				$backup['externip_val'] = $siparray['externip_val'];
-                                $backup['externhost_val'] = $siparray['externhost_val'];
+				$backup['externhost_val'] = $siparray['externhost_val'];
 				unset($siparray);
 
 			}
@@ -413,7 +413,7 @@ if (!isset($vars['restore'])) {
 					$backup['externip_val'] = false;
 				}
 				if($backup['externhost_val'] == null){
-				        $backup['externhost_val'] = false;
+					$backup['externhost_val'] = false;
 				}
 				$ss->updateChanSipSettings('externip_val',$backup['externip_val']);
 				$ss->updateChanSipSettings('externhost_val',$backup['externhost_val']);

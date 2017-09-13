@@ -493,6 +493,8 @@ if (!isset($vars['restore'])) {
 						backup_log($log);
 					}
 				}
+				unlink($path);
+				backup_log(_('Restored Database'));
 			}
 		}
 	}

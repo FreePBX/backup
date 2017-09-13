@@ -277,13 +277,6 @@ class Backup {
 						}
 					}
 					$cmd[] = ' --opt --skip-comments --skip-extended-insert --lock-tables=false --skip-add-locks --compatible=no_table_options --default-character-set=utf8';
-
-					// Need to grep out leading /* comments and SET commands as they create problems
-					// restoring using the PEAR $db class
-					//
-					$cmd[] = ' | ';
-					$cmd[] = fpbx_which('grep');
-					$cmd[] = "-v '^\/\*\|^SET'";
 					$cmd[] = ' | ' . fpbx_which('gzip');
 					$cmd[] = ' > ' . $sql_file;
 

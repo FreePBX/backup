@@ -398,6 +398,36 @@ if ($restore == "true" || $restore == "on") {
 </div>
 <!--END Exclude Bindaddre settings-->
 
+<!-- Exclude DNS -->
+
+<div class="element-container remote restore">
+        <div class="row">
+                <div class="col-md-12">
+                        <div class="row">
+                                <div class="form-group">
+                                        <div class="col-md-3">
+                                                <label class="control-label" for="skipdns"><?php echo _("Exclude DNS") ?></label>
+                                                <i class="fa fa-question-circle fpbx-help-icon" data-for="skipdns"></i>
+                                        </div>
+                                        <div class="col-md-9 radioset">
+            <input type="radio" name="skipdns" id="skipdnsyes" value="true" <?php echo ($skipdns == "true"?"CHECKED":"") ?>>
+            <label for="skipdnsyes"><?php echo _("Yes");?></label>
+            <input type="radio" name="skipdns" id="skipdnsno" value = "" <?php echo ($skipdns == "true"?"":"CHECKED") ?>>
+            <label for="skipdnsno"><?php echo _("No");?></label>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12">
+                        <span id="skipdns-help" class="help-block fpbx-help-block"><?php echo _("Explicitly exclude any machine-specific DNS. This allows you to have a warm-spare machine with a different DNS.")?></span>
+                </div>
+        </div>
+</div>
+
+<!-- END exclude DNS -->
+
 <!--Apply Configs-->
 <div class="element-container remote restore">
 	<div class="row">

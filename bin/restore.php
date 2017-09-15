@@ -22,7 +22,7 @@ if (!function_exists('backup_log')) {
  */
 
 $getopt = (function_exists('_getopt') ? '_' : '') . 'getopt';
-$vars = $getopt($short = '', $long = array('restore::', 'items::', 'manifest::', 'skipnat::', 'skipbind::'));
+$vars = $getopt($short = '', $long = array('restore::', 'items::', 'manifest::', 'skipnat::', 'skipbind::', 'skipdns::'));
 // Let items be descriptive - it may NOT be an encoded array.
 if (isset($vars['items'])) {
 	// Is it an encoded array though?
@@ -74,7 +74,12 @@ if (isset($vars['skipbind'])) {
 } else {
 	$skipbind = false;
 }
-
+if (isset($vars['skipdns'])) {
+	$skipdns = true;
+	backup_log(_('Skipping host-specific DNS'));
+} else {
+	$skipdns = false;
+}
 
 // Have we been asked to show a manifest?
 if(isset($vars['manifest'])) {
@@ -318,6 +323,12 @@ if (!isset($vars['restore'])) {
 				unset($siparray);
 
 			}
+			if ($skipdns) {
+		                backup_log(_('Preserving local DNS settings'));
+			      // Back up the DNS settings, to restore later.
+				$sy = FreePBX::create()-> Sysadmin;
+				$backup['dns'] = $sy-> getVars('dns');
+			}
 
 			if ($skipbind) {
 				backup_log(_('Preserving local Bind address'));
@@ -418,7 +429,11 @@ if (!isset($vars['restore'])) {
 				$ss->updateChanSipSettings('externip_val',$backup['externip_val']);
 				$ss->updateChanSipSettings('externhost_val',$backup['externhost_val']);
 			}
-
+			if ($skipdns) {
+				backup_log(_('Restoring DNS settings'));
+				$sy = FreePBX::create()-> Sysadmin;
+				$sy-> setVar('dns',$backup['dns']);
+			}
 			// Restore the same bindaddess preserved earlier
 			if ($skipbind) {
 				backup_log(_('Restoring Bindaddres Settings'));

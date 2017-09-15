@@ -180,8 +180,13 @@ if (isset($vars['id']) && $vars['id']) {
                                 } else {
                                         $skipbind = "";
                                 }
-
-				$cmd = $amp_conf['AMPBIN'] . "/restore.php  $skipnat $skipbind"
+				if (!empty($b->b['skipdns'])) {
+				        $skipdns = "--skipdns";
+				        backup_log(_('Skip DNS is Enabled... '));
+				} else {
+				        $skipdns = "";
+				}
+				$cmd = $amp_conf['AMPBIN'] . "/restore.php  $skipnat $skipdns $skipbind"
 						. '--restore=' . $b->b['_tmpfile']
 						. ' --items=' . base64_encode(json_encode($restore));
 				system($cmd);

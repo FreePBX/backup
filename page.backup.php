@@ -19,6 +19,7 @@ $get_vars = array(
 				'disabletrunks'		=> '',
 				'skipnat'		=> '',
 				'skipbind'		=> '',
+				'skipdns'		=> '',
 				'display'			=> '',
 				'exclude'			=> '',
 				'host'				=> '',

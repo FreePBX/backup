@@ -315,6 +315,12 @@ if (!isset($vars['restore'])) {
 				$ss = FreePBX::create()->Sipsettings;
 				$backup['localnets'] = $ss->getConfig('localnets');
 				$backup['externip'] = $ss->getConfig('externip');
+				//FREEPBX-12339 Backup and Restore sync from primary to backup restores SIP IP settings from primary
+				$siparray = $ss->getChanSipSettings();
+				$backup['externip_val'] = $siparray['externip_val'];
+                                $backup['externhost_val'] = $siparray['externhost_val'];
+				unset($siparray);
+
 			}
 			if ($skipdns) {
 		                backup_log(_('Preserving local DNS settings'));
@@ -327,7 +333,7 @@ if (!isset($vars['restore'])) {
 				backup_log(_('Preserving local Bind address'));
 				// Back up the bindaddress, to restore later.
 				$ss = FreePBX::Sipsettings();
-				$siparray=$ss->getChanSipSettings();
+				$siparray = $ss->getChanSipSettings();
 				unset($presvars);
 				$backup['bindaddr'] = $siparray['bindaddr'];
 				backup_log('backup server bindaddress='.$backup['bindaddr']);
@@ -413,6 +419,8 @@ if (!isset($vars['restore'])) {
 				$ss = FreePBX::create()->Sipsettings;
 				$ss->setConfig('localnets', $backup['localnets']);
 				$ss->setConfig('externip',  $backup['externip']);
+				$ss->updateChanSipSettings('externip_val',$backup['externip_val']);
+				$ss->updateChanSipSettings('externhost_val',$backup['externhost_val']);
                          }
 			if ($skipdns) {
 	                        backup_log(_('Restoring DNS settings'));

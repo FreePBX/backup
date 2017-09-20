@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>13.0.27.3</version>
+	<version>15.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -49,7 +49,7 @@
 		*13.0.19.1* #11130 - Ensure backup path is correct when saving to S3
 	</changelog>
 	<supported>
-		<version>13.0</version>
+		<version>15.0</version>
 	</supported>
 	<depends>
 		<version>13.0.5</version>

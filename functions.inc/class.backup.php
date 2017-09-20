@@ -276,7 +276,7 @@ class Backup {
 									. '.' . backup__($x);
 						}
 					}
-					$cmd[] = '--opt --compact --add-drop-table --default-character-set=utf8';
+					$cmd[] = '--opt --compact --skip-lock-tables --add-drop-table --default-character-set=utf8';
 					$cmd[] = ' | ' . fpbx_which('gzip');
 					$cmd[] = ' > ' . $sql_file;
 

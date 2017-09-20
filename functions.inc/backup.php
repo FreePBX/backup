@@ -50,6 +50,7 @@ function backup_get_backup($id = '') {
 				'delete_time'		=> 0,
 				'disabletrunks'		=> '',
 				'skipbind'		=> '',
+				'skipdns'		=> '',
 				'exclude'			=> '',
 				'host'				=> '',
 				'id'				=> '',
@@ -138,6 +139,7 @@ function backup_get_backup($id = '') {
 			$ret['disabletrunks']	= isset($ret['disabletrunks'])	? $ret['disabletrunks'] : false;
 			$ret['skipnat']		= isset($ret['skipnat'])	? $ret['skipnat'] : false;
 			$ret['skipbind']		= isset($ret['skipbind'])	? $ret['skipbind'] : false;
+			$ret['skipdns']		= isset($ret['skipdns'])	? $ret['skipdns'] : false;
 			$ret['emailfailonly']		= isset($ret['emailfailonly'])	? $ret['emailfailonly'] : false;
 
 			//get items
@@ -266,7 +268,13 @@ function backup_put_backup($var) {
                                 if ($value == 'true' && $var['bu_server'] > 0 && $var['restore'] == 'true') {
                                         $data[] = array($var['id'],  $key, '', $value);
                                 }
-                                break;
+				break;
+			case 'skipdns':
+                               //only save if we have a value, we didnt select the local server, and were doing a restore
+				if ($value == 'true' && $var['bu_server'] > 0 && $var['restore'] == 'true') {
+				       $data[] = array($var['id'],  $key, '', $value);
+				}
+			     break;
 			case 'storage_servers':
 				$index = 0;
 				foreach ($value as $v) {

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-22 15:54-0700\n"
+"POT-Creation-Date: 2017-09-19 17:44-0700\n"
 "PO-Revision-Date: 2016-02-05 11:17+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -134,7 +134,7 @@ msgstr "Serveur Amazon S3&trade;"
 msgid "Annually"
 msgstr "Annuellement"
 
-#: views/backup/backup.php:408
+#: views/backup/backup.php:438
 msgid "Apply Configs"
 msgstr "Appliquer la configuration"
 
@@ -158,7 +158,7 @@ msgstr "Août"
 msgid "Auto"
 msgstr ""
 
-#: views/backup/backup.php:465
+#: views/backup/backup.php:495
 msgid "Available Servers"
 msgstr "Serveurs disponibles"
 
@@ -174,7 +174,7 @@ msgstr ""
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
-#: Backup.class.php:316 functions.inc/backup.php:81
+#: Backup.class.php:316 functions.inc/backup.php:82
 #: functions.inc/class.backup.php:404 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Copie de sauvegarde"
@@ -239,7 +239,7 @@ msgstr "Modele de copie de sauvegarde"
 msgid "Backup Name"
 msgstr "Nom de la copie de sauvegarde"
 
-#: views/backup/backup.php:487
+#: views/backup/backup.php:517
 msgid "Backup Schedule"
 msgstr ""
 
@@ -259,11 +259,11 @@ msgstr "Modèle de copie de sauvegarde"
 msgid "Backup Wizard"
 msgstr ""
 
-#: page.backup.php:116
+#: page.backup.php:117
 msgid "Backup and Restore"
 msgstr "Sauvegarder et restaurer"
 
-#: bin/backup.php:150 bin/backup.php:205
+#: bin/backup.php:150 bin/backup.php:210
 msgid "Backup completed with errors!"
 msgstr "La copie de sauvegarde a complété avec des erreurs !"
 
@@ -274,7 +274,7 @@ msgid ""
 "backup from server [%s]."
 msgstr ""
 
-#: bin/restore.php:99
+#: bin/restore.php:104
 msgid "Backup file not found! Aborting."
 msgstr ""
 
@@ -286,7 +286,7 @@ msgstr ""
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr ""
 
-#: bin/backup.php:152 bin/backup.php:207
+#: bin/backup.php:152 bin/backup.php:212
 msgid "Backup successfully completed!"
 msgstr "La copie de sauvegarde a complété avec succès !"
 
@@ -342,7 +342,7 @@ msgstr ""
 msgid "Can not create backup tables"
 msgstr ""
 
-#: bin/restore.php:454
+#: bin/restore.php:477
 msgid "Cleaning up..."
 msgstr ""
 
@@ -396,7 +396,7 @@ msgstr "Jour à chaque mois"
 msgid "Day of Week"
 msgstr "Jour de la semaine"
 
-#: views/backup/backup.php:523
+#: views/backup/backup.php:553
 msgid "Days"
 msgstr "Jours"
 
@@ -420,24 +420,24 @@ msgstr "Par défaut"
 msgid "Default backup; automatically installed"
 msgstr ""
 
-#: Backup.class.php:38 Backup.class.php:202 page.backup.php:47
+#: Backup.class.php:38 Backup.class.php:202 page.backup.php:48
 #: page.backup_servers.php:36 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
 msgstr "Supprimer"
 
-#: views/backup/backup.php:511 views/backup/backup.php:548
+#: views/backup/backup.php:541 views/backup/backup.php:578
 msgid "Delete After"
 msgstr "Supprimer après"
 
-#: views/backup/backup.php:538
+#: views/backup/backup.php:568
 msgid ""
 "Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
 "Please note that deletes aren't time based and will only happen after a "
 "backup was run. Setting the value to 0 will disable any deleting"
 msgstr ""
 
-#: views/backup/backup.php:561
+#: views/backup/backup.php:591
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -482,7 +482,7 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr ""
 
-#: bin/restore.php:500
+#: bin/restore.php:523
 msgid "Done!"
 msgstr ""
 
@@ -490,7 +490,7 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-#: views/backup/backup.php:436
+#: views/backup/backup.php:466
 msgid ""
 "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
@@ -537,7 +537,7 @@ msgstr ""
 msgid "Email to send status messages to when this task is run"
 msgstr ""
 
-#: views/backup/backup.php:423
+#: views/backup/backup.php:453
 msgid ""
 "Equivalence of clicking the red button, will happen automatically after a "
 "restore on a Standby system"
@@ -575,6 +575,10 @@ msgid ""
 "remote restore"
 msgstr ""
 
+#: views/backup/backup.php:409
+msgid "Exclude DNS"
+msgstr ""
+
 #: views/backup/backup.php:353
 msgid "Exclude NAT settings"
 msgstr ""
@@ -583,6 +587,12 @@ msgstr ""
 msgid ""
 "Explicitly exclude any machine-specific Bindaddres. This allows you to have "
 "a warm-spare machine with a different IP address."
+msgstr ""
+
+#: views/backup/backup.php:424
+msgid ""
+"Explicitly exclude any machine-specific DNS. This allows you to have a warm-"
+"spare machine with a different DNS."
 msgstr ""
 
 #: views/backup/backup.php:368
@@ -652,7 +662,7 @@ msgstr ""
 msgid "File not found! "
 msgstr ""
 
-#: bin/restore.php:157
+#: bin/restore.php:162
 msgid "File restore complete!"
 msgstr ""
 
@@ -668,7 +678,7 @@ msgstr ""
 msgid "Filesystem Type"
 msgstr ""
 
-#: page.backup.php:53
+#: page.backup.php:54
 msgid "FreePBX"
 msgstr ""
 
@@ -676,7 +686,7 @@ msgstr ""
 msgid "Friday"
 msgstr "Vendredi"
 
-#: bin/restore.php:221
+#: bin/restore.php:226
 msgid "Getting CDR size..."
 msgstr ""
 
@@ -713,7 +723,7 @@ msgstr ""
 msgid "Hourly"
 msgstr ""
 
-#: views/backup/backup.php:521 views/cron.php:194 views/cron.php:198
+#: views/backup/backup.php:551 views/cron.php:194 views/cron.php:198
 msgid "Hours"
 msgstr "Heures"
 
@@ -764,7 +774,7 @@ msgstr ""
 msgid "Initializing Backup"
 msgstr ""
 
-#: bin/restore.php:96
+#: bin/restore.php:101
 msgid "Initializing Restore..."
 msgstr ""
 
@@ -825,7 +835,7 @@ msgstr ""
 msgid "MB"
 msgstr ""
 
-#: views/backup/backup.php:502
+#: views/backup/backup.php:532
 msgid "Maintenance"
 msgstr ""
 
@@ -841,7 +851,7 @@ msgstr ""
 msgid "May"
 msgstr "Mai"
 
-#: views/backup/backup.php:519 views/cron.php:168 views/cron.php:172
+#: views/backup/backup.php:549 views/cron.php:168 views/cron.php:172
 msgid "Minutes"
 msgstr "Minutes"
 
@@ -853,7 +863,7 @@ msgstr "Lundi"
 msgid "Monthly"
 msgstr ""
 
-#: views/backup/backup.php:527 views/cron.php:246 views/cron.php:250
+#: views/backup/backup.php:557 views/cron.php:246 views/cron.php:250
 msgid "Months"
 msgstr "Mois"
 
@@ -935,10 +945,11 @@ msgstr ""
 
 #: views/backup/backup.php:96 views/backup/backup.php:308
 #: views/backup/backup.php:333 views/backup/backup.php:360
-#: views/backup/backup.php:387 views/backup/backup.php:415
-#: views/backup/backups.php:186 views/backup/backups.php:213
-#: views/backup/backups.php:240 views/backup/backups.php:271
-#: views/backup/backups.php:327 views/cron.php:147
+#: views/backup/backup.php:387 views/backup/backup.php:416
+#: views/backup/backup.php:445 views/backup/backups.php:186
+#: views/backup/backups.php:213 views/backup/backups.php:240
+#: views/backup/backups.php:271 views/backup/backups.php:327
+#: views/cron.php:147
 msgid "No"
 msgstr ""
 
@@ -950,7 +961,7 @@ msgstr ""
 msgid "No storage servers found! Aborting."
 msgstr ""
 
-#: bin/restore.php:92
+#: bin/restore.php:97
 msgid "Nothing to restore!"
 msgstr ""
 
@@ -1065,20 +1076,24 @@ msgstr ""
 msgid "Pre-Restore Hook"
 msgstr ""
 
-#: bin/restore.php:316
+#: bin/restore.php:333
 msgid "Preserving local Bind address"
 msgstr ""
 
-#: bin/restore.php:308
+#: bin/restore.php:326
+msgid "Preserving local DNS settings"
+msgstr ""
+
+#: bin/restore.php:313
 msgid "Preserving local NAT settings"
 msgstr ""
 
-#: bin/restore.php:255
+#: bin/restore.php:260
 #, php-format
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr ""
 
-#: bin/restore.php:389
+#: bin/restore.php:406
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr ""
@@ -1099,7 +1114,7 @@ msgstr ""
 msgid "Reboot"
 msgstr ""
 
-#: bin/restore.php:485
+#: bin/restore.php:508
 msgid "Reloading..."
 msgstr ""
 
@@ -1169,43 +1184,47 @@ msgstr ""
 msgid "Restore backup to this server after the backup is complete"
 msgstr ""
 
-#: bin/restore.php:484
+#: bin/restore.php:507
 msgid "Restore complete!"
 msgstr ""
 
-#: bin/restore.php:393
+#: bin/restore.php:410
 msgid "Restored Database"
 msgstr ""
 
-#: bin/restore.php:409
+#: bin/restore.php:432
 msgid "Restoring Bindaddres Settings"
 msgstr ""
 
-#: bin/restore.php:262
+#: bin/restore.php:267
 msgid "Restoring CDRs complete"
 msgstr ""
 
-#: bin/restore.php:176
+#: bin/restore.php:181
 msgid "Restoring CDRs..."
 msgstr ""
 
-#: bin/restore.php:351
+#: bin/restore.php:426
+msgid "Restoring DNS settings"
+msgstr ""
+
+#: bin/restore.php:368
 msgid "Restoring Database..."
 msgstr ""
 
-#: bin/restore.php:401
+#: bin/restore.php:418
 msgid "Restoring NAT settings"
 msgstr ""
 
-#: bin/restore.php:439
+#: bin/restore.php:462
 msgid "Restoring Settings complete"
 msgstr ""
 
-#: bin/restore.php:121
+#: bin/restore.php:126
 msgid "Restoring all files (this may take some time)..."
 msgstr ""
 
-#: bin/restore.php:429
+#: bin/restore.php:452
 msgid "Restoring astDB..."
 msgstr ""
 
@@ -1213,7 +1232,7 @@ msgstr ""
 msgid "Restoring backup..."
 msgstr ""
 
-#: bin/restore.php:125
+#: bin/restore.php:130
 msgid "Restoring files (this may take some time)..."
 msgstr ""
 
@@ -1227,7 +1246,7 @@ msgid ""
 "<code>service cron restart</code>)"
 msgstr ""
 
-#: page.backup.php:49
+#: page.backup.php:50
 msgid "Run now"
 msgstr ""
 
@@ -1255,15 +1274,15 @@ msgstr ""
 msgid "Running maintenance.."
 msgstr ""
 
-#: bin/restore.php:445
+#: bin/restore.php:468
 msgid "Running post restore script..."
 msgstr ""
 
-#: bin/backup.php:145 bin/backup.php:190
+#: bin/backup.php:145 bin/backup.php:195
 msgid "Running post-backup hooks..."
 msgstr ""
 
-#: bin/restore.php:449
+#: bin/restore.php:472
 msgid "Running post-restore hooks, if any..."
 msgstr ""
 
@@ -1271,15 +1290,15 @@ msgstr ""
 msgid "Running pre-backup hooks..."
 msgstr ""
 
-#: bin/restore.php:111
+#: bin/restore.php:116
 msgid "Running pre-restore hooks, if any..."
 msgstr ""
 
-#: bin/restore.php:108
+#: bin/restore.php:113
 msgid "Running pre-restore scripts..."
 msgstr ""
 
-#: views/backup/backup.php:554
+#: views/backup/backup.php:584
 msgid "Runs"
 msgstr ""
 
@@ -1384,8 +1403,16 @@ msgstr ""
 msgid "Skip Bindaddrss is Enabled... "
 msgstr ""
 
+#: bin/backup.php:185
+msgid "Skip DNS is Enabled... "
+msgstr ""
+
 #: bin/restore.php:73
 msgid "Skipping host-specific Bind address"
+msgstr ""
+
+#: bin/restore.php:79
+msgid "Skipping host-specific DNS"
 msgstr ""
 
 #: bin/backup.php:104
@@ -1416,7 +1443,7 @@ msgstr ""
 msgid "Step 5"
 msgstr ""
 
-#: views/backup/backup.php:442
+#: views/backup/backup.php:472
 msgid "Storage Servers"
 msgstr ""
 
@@ -1572,11 +1599,11 @@ msgstr ""
 msgid "Voicemails"
 msgstr ""
 
-#: bin/restore.php:268
+#: bin/restore.php:273
 msgid "WARNING!"
 msgstr ""
 
-#: bin/restore.php:269
+#: bin/restore.php:274
 msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
 
@@ -1592,7 +1619,7 @@ msgstr ""
 msgid "Weekly"
 msgstr ""
 
-#: views/backup/backup.php:525
+#: views/backup/backup.php:555
 msgid "Weeks"
 msgstr ""
 
@@ -1652,20 +1679,21 @@ msgstr ""
 msgid "Would you like voicemails backded up."
 msgstr ""
 
-#: views/backup/backup.php:529
+#: views/backup/backup.php:559
 msgid "Years"
 msgstr ""
 
 #: views/backup/backup.php:94 views/backup/backup.php:306
 #: views/backup/backup.php:331 views/backup/backup.php:358
-#: views/backup/backup.php:385 views/backup/backup.php:413
-#: views/backup/backups.php:184 views/backup/backups.php:211
-#: views/backup/backups.php:238 views/backup/backups.php:269
-#: views/backup/backups.php:325 views/cron.php:145
+#: views/backup/backup.php:385 views/backup/backup.php:414
+#: views/backup/backup.php:443 views/backup/backups.php:184
+#: views/backup/backups.php:211 views/backup/backups.php:238
+#: views/backup/backups.php:269 views/backup/backups.php:325
+#: views/cron.php:145
 msgid "Yes"
 msgstr ""
 
-#: bin/restore.php:270
+#: bin/restore.php:275
 #, php-format
 msgid "You should run \"%s\" to ensure system integrity"
 msgstr ""

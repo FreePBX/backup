@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-22 18:53-0400\n"
+"POT-Creation-Date: 2017-09-19 20:44-0400\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -342,7 +342,7 @@ msgstr "تماس های ضبط شده"
 msgid "Can not create backup tables"
 msgstr "امکان ایجاد جداول پشتیبان وجود ندارد"
 
-#: bin/restore.php:454
+#: bin/restore.php:462
 msgid "Cleaning up..."
 msgstr "پاک کردن..."
 
@@ -488,7 +488,7 @@ msgstr "دایرکتوری '%s' وجود ندارد و نمی توان آن را
 msgid "Disable Registered Trunks"
 msgstr "غیرفعال کردن ترانک های رجیستر شده"
 
-#: bin/restore.php:500
+#: bin/restore.php:508
 msgid "Done!"
 msgstr "انجام شد!"
 
@@ -1090,7 +1090,7 @@ msgstr "تله پیش از اجرای پشتیبان"
 msgid "Pre-Restore Hook"
 msgstr "تله پیش از اجرای بازیابی"
 
-#: bin/restore.php:316
+#: bin/restore.php:322
 msgid "Preserving local Bind address"
 msgstr ""
 
@@ -1103,7 +1103,7 @@ msgstr "حفظ تنظیمات NAT محلی"
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr "پردازش %s%% از CDR ها (%s از %s خط)"
 
-#: bin/restore.php:389
+#: bin/restore.php:395
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "پردازش %s%% از تنظیمات (%s از %s خط)"
@@ -1124,7 +1124,7 @@ msgstr "تصادفی"
 msgid "Reboot"
 msgstr "راه اندازی مجدد"
 
-#: bin/restore.php:485
+#: bin/restore.php:493
 msgid "Reloading..."
 msgstr "بارگذاری..."
 
@@ -1195,15 +1195,15 @@ msgstr "بازیابی تمامی تنظیمات ذخیره شده در دیتا
 msgid "Restore backup to this server after the backup is complete"
 msgstr "بازیابی پشتیبان بر روی این سرور بعد از اتمام پشتیبان گیری"
 
-#: bin/restore.php:484
+#: bin/restore.php:492
 msgid "Restore complete!"
 msgstr "بازیابی کامل شد!"
 
-#: bin/restore.php:393
+#: bin/restore.php:399
 msgid "Restored Database"
 msgstr "دیتابیس بازیابی شد"
 
-#: bin/restore.php:409
+#: bin/restore.php:417
 msgid "Restoring Bindaddres Settings"
 msgstr ""
 
@@ -1215,15 +1215,15 @@ msgstr "تکمیل بازیابی CDR ها"
 msgid "Restoring CDRs..."
 msgstr "بازیابی CDR ها…"
 
-#: bin/restore.php:351
+#: bin/restore.php:357
 msgid "Restoring Database..."
 msgstr "بازیابی دیتابیس..."
 
-#: bin/restore.php:401
+#: bin/restore.php:407
 msgid "Restoring NAT settings"
 msgstr "بازیابی تنظیمات NAT"
 
-#: bin/restore.php:439
+#: bin/restore.php:447
 msgid "Restoring Settings complete"
 msgstr "تکمیل بازیابی تنظیمات"
 
@@ -1231,7 +1231,7 @@ msgstr "تکمیل بازیابی تنظیمات"
 msgid "Restoring all files (this may take some time)..."
 msgstr "بازیابی تمامی فایل ها (ممکن است طول بکشد)..."
 
-#: bin/restore.php:429
+#: bin/restore.php:437
 msgid "Restoring astDB..."
 msgstr "بازیابی دیتابیس استریسک..."
 
@@ -1283,7 +1283,7 @@ msgstr "یک مرتبه در هر ساعت اجرا شود، در ابتدای �
 msgid "Running maintenance.."
 msgstr ""
 
-#: bin/restore.php:445
+#: bin/restore.php:453
 msgid "Running post restore script..."
 msgstr "اجرای اسکریپت پس از بازیابی..."
 
@@ -1291,7 +1291,7 @@ msgstr "اجرای اسکریپت پس از بازیابی..."
 msgid "Running post-backup hooks..."
 msgstr "اجرای تله های بعد از پشتیبان گیری…"
 
-#: bin/restore.php:449
+#: bin/restore.php:457
 msgid "Running post-restore hooks, if any..."
 msgstr "اجرای تله های پس از بازیابی…"
 

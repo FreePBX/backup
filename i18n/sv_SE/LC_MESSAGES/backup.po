@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-22 18:53-0400\n"
+"POT-Creation-Date: 2017-09-19 20:44-0400\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -341,7 +341,7 @@ msgstr ""
 msgid "Can not create backup tables"
 msgstr ""
 
-#: bin/restore.php:454
+#: bin/restore.php:462
 msgid "Cleaning up..."
 msgstr ""
 
@@ -481,7 +481,7 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr ""
 
-#: bin/restore.php:500
+#: bin/restore.php:508
 msgid "Done!"
 msgstr ""
 
@@ -1066,7 +1066,7 @@ msgstr ""
 msgid "Pre-Restore Hook"
 msgstr ""
 
-#: bin/restore.php:316
+#: bin/restore.php:322
 msgid "Preserving local Bind address"
 msgstr ""
 
@@ -1079,7 +1079,7 @@ msgstr ""
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr ""
 
-#: bin/restore.php:389
+#: bin/restore.php:395
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr ""
@@ -1100,7 +1100,7 @@ msgstr ""
 msgid "Reboot"
 msgstr ""
 
-#: bin/restore.php:485
+#: bin/restore.php:493
 msgid "Reloading..."
 msgstr ""
 
@@ -1170,15 +1170,15 @@ msgstr ""
 msgid "Restore backup to this server after the backup is complete"
 msgstr ""
 
-#: bin/restore.php:484
+#: bin/restore.php:492
 msgid "Restore complete!"
 msgstr ""
 
-#: bin/restore.php:393
+#: bin/restore.php:399
 msgid "Restored Database"
 msgstr ""
 
-#: bin/restore.php:409
+#: bin/restore.php:417
 msgid "Restoring Bindaddres Settings"
 msgstr ""
 
@@ -1190,15 +1190,15 @@ msgstr ""
 msgid "Restoring CDRs..."
 msgstr ""
 
-#: bin/restore.php:351
+#: bin/restore.php:357
 msgid "Restoring Database..."
 msgstr ""
 
-#: bin/restore.php:401
+#: bin/restore.php:407
 msgid "Restoring NAT settings"
 msgstr ""
 
-#: bin/restore.php:439
+#: bin/restore.php:447
 msgid "Restoring Settings complete"
 msgstr ""
 
@@ -1206,7 +1206,7 @@ msgstr ""
 msgid "Restoring all files (this may take some time)..."
 msgstr ""
 
-#: bin/restore.php:429
+#: bin/restore.php:437
 msgid "Restoring astDB..."
 msgstr ""
 
@@ -1256,7 +1256,7 @@ msgstr ""
 msgid "Running maintenance.."
 msgstr ""
 
-#: bin/restore.php:445
+#: bin/restore.php:453
 msgid "Running post restore script..."
 msgstr ""
 
@@ -1264,7 +1264,7 @@ msgstr ""
 msgid "Running post-backup hooks..."
 msgstr ""
 
-#: bin/restore.php:449
+#: bin/restore.php:457
 msgid "Running post-restore hooks, if any..."
 msgstr ""
 

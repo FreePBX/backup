@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-22 18:53-0400\n"
+"POT-Creation-Date: 2017-09-19 20:44-0400\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -341,7 +341,7 @@ msgstr ""
 msgid "Can not create backup tables"
 msgstr "Kan de reservekopietabellen niet aanmaken"
 
-#: bin/restore.php:454
+#: bin/restore.php:462
 msgid "Cleaning up..."
 msgstr "Opruimen..."
 
@@ -490,7 +490,7 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr "Schakel geregistreerde Trunks uit"
 
-#: bin/restore.php:500
+#: bin/restore.php:508
 msgid "Done!"
 msgstr "Klaar!"
 
@@ -1087,7 +1087,7 @@ msgstr ""
 msgid "Pre-Restore Hook"
 msgstr ""
 
-#: bin/restore.php:316
+#: bin/restore.php:322
 msgid "Preserving local Bind address"
 msgstr ""
 
@@ -1100,7 +1100,7 @@ msgstr "Lokale NAT instellingen bewaren"
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr ""
 
-#: bin/restore.php:389
+#: bin/restore.php:395
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr ""
@@ -1121,7 +1121,7 @@ msgstr "Willekeurig"
 msgid "Reboot"
 msgstr "Herstart"
 
-#: bin/restore.php:485
+#: bin/restore.php:493
 msgid "Reloading..."
 msgstr "Herladen..."
 
@@ -1191,15 +1191,15 @@ msgstr "Zet alle instellingen terug opgeslagen in de database"
 msgid "Restore backup to this server after the backup is complete"
 msgstr ""
 
-#: bin/restore.php:484
+#: bin/restore.php:492
 msgid "Restore complete!"
 msgstr "Terugzetten voltooid!"
 
-#: bin/restore.php:393
+#: bin/restore.php:399
 msgid "Restored Database"
 msgstr "Database teruggezet"
 
-#: bin/restore.php:409
+#: bin/restore.php:417
 msgid "Restoring Bindaddres Settings"
 msgstr ""
 
@@ -1211,15 +1211,15 @@ msgstr "Terugzetten CDR's voltooid"
 msgid "Restoring CDRs..."
 msgstr "Terugzetten CDR's..."
 
-#: bin/restore.php:351
+#: bin/restore.php:357
 msgid "Restoring Database..."
 msgstr "Terugzetten database..."
 
-#: bin/restore.php:401
+#: bin/restore.php:407
 msgid "Restoring NAT settings"
 msgstr "Terugzetten NAT instellingen"
 
-#: bin/restore.php:439
+#: bin/restore.php:447
 msgid "Restoring Settings complete"
 msgstr "Terugzetten instellingen voltooid"
 
@@ -1227,7 +1227,7 @@ msgstr "Terugzetten instellingen voltooid"
 msgid "Restoring all files (this may take some time)..."
 msgstr "Terugzetten alle bestanden (dit kan enige tijd duren)..."
 
-#: bin/restore.php:429
+#: bin/restore.php:437
 msgid "Restoring astDB..."
 msgstr "Terugzetten astDB..."
 
@@ -1277,7 +1277,7 @@ msgstr ""
 msgid "Running maintenance.."
 msgstr ""
 
-#: bin/restore.php:445
+#: bin/restore.php:453
 msgid "Running post restore script..."
 msgstr "Uitvoeren Na-terugzetten script..."
 
@@ -1285,7 +1285,7 @@ msgstr "Uitvoeren Na-terugzetten script..."
 msgid "Running post-backup hooks..."
 msgstr "Uitvoeren Voor-reservekopie taken..."
 
-#: bin/restore.php:449
+#: bin/restore.php:457
 msgid "Running post-restore hooks, if any..."
 msgstr "Uitvoeren Voor-terugzetten taken, als bestaan..."
 

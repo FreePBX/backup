@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-22 18:53-0400\n"
+"POT-Creation-Date: 2017-09-19 20:44-0400\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -338,7 +338,7 @@ msgstr ""
 msgid "Can not create backup tables"
 msgstr "Não é possível criar as tabelas da Cópia de Segurança"
 
-#: bin/restore.php:454
+#: bin/restore.php:462
 msgid "Cleaning up..."
 msgstr "Limpando..."
 
@@ -485,7 +485,7 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr "Desativar Trunks Registados"
 
-#: bin/restore.php:500
+#: bin/restore.php:508
 msgid "Done!"
 msgstr "Terminado!"
 
@@ -1078,7 +1078,7 @@ msgstr ""
 msgid "Pre-Restore Hook"
 msgstr ""
 
-#: bin/restore.php:316
+#: bin/restore.php:322
 msgid "Preserving local Bind address"
 msgstr ""
 
@@ -1091,7 +1091,7 @@ msgstr "Mantendo configurações NAT locais"
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr "%s%% de CDRs processados (%s de %s linhas)"
 
-#: bin/restore.php:389
+#: bin/restore.php:395
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "%s%% configurações processadas (%s de %s linhas)"
@@ -1112,7 +1112,7 @@ msgstr "Aleatório"
 msgid "Reboot"
 msgstr "Reiniciar"
 
-#: bin/restore.php:485
+#: bin/restore.php:493
 msgid "Reloading..."
 msgstr "Recarregando..."
 
@@ -1182,15 +1182,15 @@ msgstr "Restaurar todas as configurações na base de dados"
 msgid "Restore backup to this server after the backup is complete"
 msgstr ""
 
-#: bin/restore.php:484
+#: bin/restore.php:492
 msgid "Restore complete!"
 msgstr "Restauro terminado!"
 
-#: bin/restore.php:393
+#: bin/restore.php:399
 msgid "Restored Database"
 msgstr "Base de Dados Restaurada"
 
-#: bin/restore.php:409
+#: bin/restore.php:417
 msgid "Restoring Bindaddres Settings"
 msgstr ""
 
@@ -1202,15 +1202,15 @@ msgstr "Restauro de CDRs terminado"
 msgid "Restoring CDRs..."
 msgstr "Restaurando CDRs..."
 
-#: bin/restore.php:351
+#: bin/restore.php:357
 msgid "Restoring Database..."
 msgstr "Restaurando Base de Dados..."
 
-#: bin/restore.php:401
+#: bin/restore.php:407
 msgid "Restoring NAT settings"
 msgstr "Restaurando configurações NAT"
 
-#: bin/restore.php:439
+#: bin/restore.php:447
 msgid "Restoring Settings complete"
 msgstr "Restauro de Configurações terminado"
 
@@ -1218,7 +1218,7 @@ msgstr "Restauro de Configurações terminado"
 msgid "Restoring all files (this may take some time)..."
 msgstr "Restaurando todos os ficheiros (poderá demorar algum tempo)..."
 
-#: bin/restore.php:429
+#: bin/restore.php:437
 msgid "Restoring astDB..."
 msgstr "Restaurando astDB..."
 
@@ -1268,7 +1268,7 @@ msgstr ""
 msgid "Running maintenance.."
 msgstr ""
 
-#: bin/restore.php:445
+#: bin/restore.php:453
 msgid "Running post restore script..."
 msgstr "Executando script pós restauro..."
 
@@ -1276,7 +1276,7 @@ msgstr "Executando script pós restauro..."
 msgid "Running post-backup hooks..."
 msgstr "Executando ganchos pós cópia de segurança..."
 
-#: bin/restore.php:449
+#: bin/restore.php:457
 msgid "Running post-restore hooks, if any..."
 msgstr "Excutando ganchos pós restauro, caso existam..."
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-22 18:53-0400\n"
+"POT-Creation-Date: 2017-09-19 20:44-0400\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -343,7 +343,7 @@ msgstr "Các ghi âm cuộc gọi"
 msgid "Can not create backup tables"
 msgstr "Không thể tạo ra các bảng sao lưu"
 
-#: bin/restore.php:454
+#: bin/restore.php:462
 msgid "Cleaning up..."
 msgstr "Đang dọn sạch..."
 
@@ -489,7 +489,7 @@ msgstr "Thư mục '%s' không tồn tại và chúng tôi không thể tạo n�
 msgid "Disable Registered Trunks"
 msgstr "Vô hiệu các trung kế đã đăng ký"
 
-#: bin/restore.php:500
+#: bin/restore.php:508
 msgid "Done!"
 msgstr "Đã xong!"
 
@@ -1103,7 +1103,7 @@ msgstr "Hook trước sao lưu"
 msgid "Pre-Restore Hook"
 msgstr "Hool trước Khôi phục"
 
-#: bin/restore.php:316
+#: bin/restore.php:322
 msgid "Preserving local Bind address"
 msgstr "Bảo lưu Địa chỉ IP để gán tại chỗ"
 
@@ -1116,7 +1116,7 @@ msgstr "Bảo lưu các cài đặt NAT tại chỗ"
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr "Đã xử lý %s%% của CDRs (%s của %s dòng)"
 
-#: bin/restore.php:389
+#: bin/restore.php:395
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "Đã xử lý %s%% của các cài đặt (%s của %s dòng)"
@@ -1137,7 +1137,7 @@ msgstr "Ngẫu nhiên hóa"
 msgid "Reboot"
 msgstr "Khởi động lại"
 
-#: bin/restore.php:485
+#: bin/restore.php:493
 msgid "Reloading..."
 msgstr "Đang tải lại..."
 
@@ -1207,15 +1207,15 @@ msgstr "Khôi phục tất cả các cài đặt đã lưu trong cơ sở dữ l
 msgid "Restore backup to this server after the backup is complete"
 msgstr "Khôi phục sao lưu tới máy chủ sau khi sao lưu hoàn thành"
 
-#: bin/restore.php:484
+#: bin/restore.php:492
 msgid "Restore complete!"
 msgstr "Khôi phục hoàn thành!"
 
-#: bin/restore.php:393
+#: bin/restore.php:399
 msgid "Restored Database"
 msgstr "Các dữ liệu đã khôi phục"
 
-#: bin/restore.php:409
+#: bin/restore.php:417
 msgid "Restoring Bindaddres Settings"
 msgstr "Khôi phục các cài đặt Địa chỉ IP để gán vào"
 
@@ -1227,15 +1227,15 @@ msgstr "Đang hoàn thành khôi phục CDRs"
 msgid "Restoring CDRs..."
 msgstr "Đang khôi phục CDRs..."
 
-#: bin/restore.php:351
+#: bin/restore.php:357
 msgid "Restoring Database..."
 msgstr "Đang khôi phục cơ sở dữ liệu..."
 
-#: bin/restore.php:401
+#: bin/restore.php:407
 msgid "Restoring NAT settings"
 msgstr "Đang khôi phục các cài đặt NAT"
 
-#: bin/restore.php:439
+#: bin/restore.php:447
 msgid "Restoring Settings complete"
 msgstr "Đang hoàn thành khôi phục các cài đặt"
 
@@ -1243,7 +1243,7 @@ msgstr "Đang hoàn thành khôi phục các cài đặt"
 msgid "Restoring all files (this may take some time)..."
 msgstr "Đang khôi phục tất cả các tệp ( Điều này có thể tốn chút thời gian)..."
 
-#: bin/restore.php:429
+#: bin/restore.php:437
 msgid "Restoring astDB..."
 msgstr "Đang khôi phục astDB ( Dữ liệu Asterisk)..."
 
@@ -1295,7 +1295,7 @@ msgstr "Chạy 1 lần 1 giờ, vào lúc bắt đầu của giờ đó"
 msgid "Running maintenance.."
 msgstr "Đang chạy bảo dưỡng..."
 
-#: bin/restore.php:445
+#: bin/restore.php:453
 msgid "Running post restore script..."
 msgstr "Đang chạy kịch bản sau khôi phục..."
 
@@ -1303,7 +1303,7 @@ msgstr "Đang chạy kịch bản sau khôi phục..."
 msgid "Running post-backup hooks..."
 msgstr "Đang chạt Hooks sau sao lưu..."
 
-#: bin/restore.php:449
+#: bin/restore.php:457
 msgid "Running post-restore hooks, if any..."
 msgstr "Đang chạy hooks sau khôi phục, nếu có..."
 

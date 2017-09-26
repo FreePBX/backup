@@ -13,7 +13,6 @@ $(document).ready(function(){
 		$.getJSON(`ajax.php?module=backup&command=getJSON&jdata=backupStorage&id=${$("#id").val()}`)
 		.done(
 			function(data){
-				console.log(data);
 				$('#backup_storage').multiselect('dataprovider',data);
 			}
 		)
@@ -24,6 +23,7 @@ $(document).ready(function(){
 			}
 		);
 	}
+	modulesettings = {};
 	$('#itemsSave').on('click', function(e){
 		e.preventDefault();
 		$('#backup_items').val(JSON.stringify(processItems()));
@@ -33,6 +33,13 @@ $(document).ready(function(){
 		e.preventDefault();
 		$('#backupmodules').bootstrapTable('refresh');
 	})
+	$('#backupmodules').on('expand-row.bs.table',function(i,r){
+		$('.hooksetting :input').on('change',function(e){
+			var obj = $(this).serializeArray()[0];
+			modulesettings[obj.name] = obj.value;
+			$('#backup_items_settings').val(JSON.stringify(modulesettings));
+		});
+	});
 });
 //end ready
 
@@ -56,7 +63,7 @@ function linkFormatter(value, row, index){
 
 function moduleSettingFormatter(i,r,e){
 	if(r.settingdisplay){
-		return '<div class = "settingdisplay">${r.settingdisplay}</div>';
+		return `<div class = "settingdisplay">${r.settingdisplay}</div>`;
 	}else{
 		return _("This module has no settings");
 	}

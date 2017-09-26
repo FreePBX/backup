@@ -221,7 +221,6 @@ class Backup extends \DB_Helper implements \BMO {
 		if(empty($hooks)){
 			return false;
 		}
-		dbug($hooks);
 		$ret = '<div class="hooksetting">';
 		foreach ($hooks as $key => $value) {
 			$ret .= $value;
@@ -443,10 +442,13 @@ class Backup extends \DB_Helper implements \BMO {
 		}
 		$description = isset($data['backup_description'])?$data['backup_description']:sprintf('Backup %s',$data['backup_name']);
 		$this->setConfig($data['id'],array('id' => $data['id'], 'name' => $data['backup_name'], 'description' => $description),'backupList');
-		if(isset($data['backup_items'])){
+		if(isset($data['backup_items']) && $data['backup_items'] !== 'unchanged'){
 			$backup_items = json_decode($data['backup_items'],true);
 			$backup_items = is_array($backup_items)?$backup_items:[];
 			$this->setModulesById($data['id'], $backup_items);
+		}
+		if(isset($data['backup_items_settings']) && $data['backup_items_settings'] !== 'unchanged' ){
+			$this->processBackupSettings($data['id'], json_decode($data['backup_items_settings'],true));
 		}
 		return $id;
 	}

@@ -10,7 +10,9 @@ class Backup{
 		'files' => [],
 		'configs' => [],
 		'dependencies' => [],
+		'garbage' => []
 	];
+	private $id = null;
 
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
@@ -20,18 +22,26 @@ class Backup{
 		$this->modified = false;
 	}
 
-	public static function getPath($file) {
-		$fullpath = '';
-		if (empty($file['root'])) {
-			if (!empty($file['path']) && !strncmp($file['path'], '/', 1)) {
-				/* We have a full path, rather than a relative path. */
-				$fullpath = $file['path'];
-			}
-		} else {
-			$fullpath = $file['root'] . '/' . $file['path'];
-		}
+	public function setBackupId($id){
+		$this->id = $id;
+	}
 
-		return $fullpath;
+	public function getBackupId(){
+		return $this->id;
+	}
+
+	public static function getPath($file) {
+		if(isset($file['root']) && !empty($file['root'])){
+			return  $file['root'] . '/' . $file['path'];
+		}
+		if (!empty($file['path']) && !strncmp($file['path'], '/', 1)) {
+			return $file['path'];
+		}
+		return '';
+	}
+
+	public function addGarbage($data){
+		$this->data['garbage'][] = $data;
 	}
 
 	public function addDirs($list) {
@@ -65,7 +75,6 @@ class Backup{
 			if (empty($file['type']) || empty($file['filename'])) {
 				continue;
 			}
-
 			$this->data['files'][] = $file;
 		}
 	}
@@ -100,5 +109,8 @@ class Backup{
 	}
 	public function getData(){
 		return $this->data;
+	}
+	public function getModified(){
+		return $this->modified;
 	}
 }

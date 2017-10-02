@@ -45,7 +45,6 @@ function backup__($var) {
 
 function backup_log($msg) {
 	$log_dir = \FreePBX::Config()->get('ASTLOGDIR');
-	error_log(basename(__FILE__).'('.__LINE__.") :=log_dir" . var_export($log_dir,true));
 	$cli = php_sapi_name() == 'cli' ? true : false;
 	$str = '';
 	$str .= $cli ? '' : "id: bb2ac0b8da1f64a3498af147ba43fc10\n";

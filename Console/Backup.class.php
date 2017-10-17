@@ -6,6 +6,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
+use Symfony\Component\Filesystem\LockHandler;
 
 class Backup extends Command {
 	protected function configure(){
@@ -43,9 +44,16 @@ class Backup extends Command {
 				$this->listBackups();
 			break;
 			case $backup:
+				$buid = $input->getOption('backup');
 				$job = $transaction?$transaction:$this->freepbx->Backup->generateID();
 				$output->writeln(sprintf('Starting backup job with ID: %s',$job));
-				$this->freepbx->Backup->doBackup($input->getOption('backup'),$job);
+				$lockHandler = new LockHandler($job.'.'.$buid);
+				if (!$lockHandler->lock()) {
+					$this->log($job, _("A backup job for this id is already running"));
+    			return false;
+				}
+				$this->freepbx->Backup->doBackup($buid,$job);
+				$lockHandler->release();
 			break;
 			case $restore:
 			break;

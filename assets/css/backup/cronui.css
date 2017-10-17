@@ -1,0 +1,23 @@
+/*! CronUI CSS 1.0.0 by Imants Cernovs */
+
+.cron-box .btn.btn-flat {
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-width: 1px;
+}
+
+.cron-box .btn-light {
+    background-color: #fff;
+    border-color: #d2d6de;
+}
+
+.cron-box.bootstrap-select .dropdown-toggle:focus {
+    outline: 0 !important;
+    outline-offset: 0 !important;
+}
+
+.cron-box.bootstrap-select.btn-group.disabled {
+    background-color: #cbc9c9;
+}

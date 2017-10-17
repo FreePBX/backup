@@ -8,6 +8,7 @@
 	<input type="hidden" id="id" name="id" value="<?php echo $id ?>">
 	<input type="hidden" id="backup_items" name="backup_items" value ='unchanged'>
 	<input type="hidden" id="backup_items_settings" name="backup_items_settings" value ='unchanged'>
+	<input type="hidden" id="backup_schedule" name="backup_schedule" value="<?php echo $backup_schedule ?>">
 	<div class="section-title" data-for="backup-basic"><h3><i class="fa fa-minus"></i> <?php echo _("Basic Information") ?></h3></div>
 	<div class="section" data-id="backup-basic">
 		<!--Backup Name-->
@@ -149,16 +150,39 @@
 	</div>
 	<div class="section-title" data-for="backup-schedule"><h3><i class="fa fa-minus"></i> <?php echo _("Schedule and Maintinence") ?></h3></div>
 	<div class="section" data-id="backup-schedule">
+		<!--Enabled-->
+		<div class="element-container">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="schedule_enabled"><?php echo _("Enabled") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="schedule_enabled"></i>
+					</div>
+					<div class="col-md-9 radioset">
+						<input type="radio" name="schedule_enabled" id="schedule_enabledyes" value="yes" <?php echo ($schedule_enabled == "yes"?"CHECKED":"") ?>>
+						<label for="schedule_enabledyes"><?php echo _("Yes");?></label>
+						<input type="radio" name="schedule_enabled" id="schedule_enabledno" <?php echo ($schedule_enabled == "yes"?"":"CHECKED") ?>>
+						<label for="schedule_enabledno"><?php echo _("No");?></label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="schedule_enabled-help" class="help-block fpbx-help-block"><?php echo _("Enable scheduled backups")?></span>
+				</div>
+			</div>
+		</div>
+		<!--END Enabled-->
 		<!--Scheduleing-->
 		<div class="element-container">
 			<div class="row">
 				<div class="form-group">
 					<div class="col-md-3">
-						<label class="control-label" for="backup_schedule"><?php echo _("Scheduleing") ?></label>
+						<label class="control-label" for="backup_schedule"><?php echo _("Scheduling") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="backup_schedule"></i>
 					</div>
 					<div class="col-md-9">
-						<input type="text" class="form-control" id="backup_schedule" name="backup_schedule" value="<?php echo isset($backup_schedule)?$backup_schedule:''?>">
+						<div class="cron-ui"></div>
 					</div>
 				</div>
 			</div>
@@ -222,8 +246,9 @@
 				</div>
 			</div>
 		</div>
-		<!--END Delete After Days-->
 	</div>
+		<!--END Delete After Days-->
+		<?php echo $warmspare ?>
 </form>
 
 <div class="modal fade" tabindex="-1" id="itemsModal" role="dialog">
@@ -262,3 +287,15 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+		$(document).ready(function (){
+				var schedule = $('.cron-ui').cronui({
+						dropDownMultiple: true,
+						resultOutputId: 'backup_schedule',
+						dropDownSizeClass: 'col-md-2',
+						initial: '<?php echo $backup_schedule?>'
+				});
+				//We don't want every minute... like ever
+				$('option[value="minute"]').hide();
+		});
+</script>

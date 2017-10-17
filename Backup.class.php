@@ -4,8 +4,13 @@
  */
 namespace FreePBX\modules;
 use FreePBX\modules\Backup\Handlers as Handler;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Filesystem\Filesystem;
-$setting = array('authenticate' => true, 'allowremote' => false);
+use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
+use Symfony\Component\Filesystem\LockHandler;
+
+
 class Backup extends \DB_Helper implements \BMO {
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
@@ -14,7 +19,7 @@ class Backup extends \DB_Helper implements \BMO {
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
 		$this->fs = new Filesystem;
-		$this->backupFields = ['backup_name','backup_description','backup_items','backup_storage','backup_schedule','maintage','maintruns','backup_email','backup_emailtype','immortal'];
+		$this->backupFields = ['backup_name','backup_description','backup_items','backup_storage','backup_schedule','schedule_enabled','maintage','maintruns','backup_email','backup_emailtype','immortal'];
 		$this->templateFields = [];
 		$this->serverName = $this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT');
 		$this->sessionlog = [];
@@ -29,6 +34,7 @@ class Backup extends \DB_Helper implements \BMO {
 		$this->migrateBackupJobs();
 		//If anyone is listening they can attempt a data migration.
 		$this->FreePBX->Hooks->processHooks($this);
+		$this->setConfig('warmspare', true);
 	}
 
 	public function uninstall(){
@@ -111,6 +117,11 @@ class Backup extends \DB_Helper implements \BMO {
 	public function ajaxRequest($req, &$setting) {
 		switch ($req) {
 			case 'getJSON':
+			case 'run':
+			case 'runstatus':
+			case 'getlog':
+			case 'restoreFiles':
+			case 'uploadrestore':
 				return true;
 			break;
 			default:
@@ -124,6 +135,68 @@ class Backup extends \DB_Helper implements \BMO {
 	 */
 	public function ajaxHandler() {
 		switch ($_REQUEST['command']) {
+			case 'uploadrestore':
+			$id = $this->generateId();
+			if(!isset($_FILES['filetorestore'])){
+				return ['status' => false, 'error' => _("No file provided")];
+			}
+			if($_FILES['filetorestore']['error'] !== 0){
+				return ['status' => false, 'err' => $_FILES['filetorestore']['error'], 'message' => _("File reached the server but could not be processed")];
+			}
+			if($_FILES['filetorestore']['type'] != 'application/x-gzip'){
+				return ['status' => false, 'mime' => $_FILES['filetorestore']['type'], 'message' => _("The uploaded file type is incorrect and couldn't be processed")];
+			}
+			$spooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
+			$path = sprintf('%s/backup/uploads/',$spooldir);
+			//This will ignore if exists
+			$this->fs->mkdir($path);
+			$file = $path.basename($_FILES['filetorestore']['name']);
+			if (!move_uploaded_file($_FILES['filetorestore']['tmp_name'],$file)){
+				return ['status' => false, 'message' => _("Failed to copy the uploaded file")];
+			}
+			$this->setConfig('file', $file, $id);
+			$backupphar = new \PharData($file);
+			$meta = $backupphar->getMetadata();
+			$this->setConfig('meta', $meta, $id);
+			return ['status' => true, 'id' => $id, 'meta' => $meta];
+			case 'restoreFiles':
+				return [];
+			case 'run':
+				if(!isset($_GET['id'])){
+					return ['status' => false, 'message' => _("No backup id provided")];
+				}
+				$buid = escapeshellarg($_GET['id']);
+				$jobid = $this->generateId();
+				$process = new Process('fwconsole backup --backup='.$buid.' --transaction='.$jobid);
+				//$process->disableOutput();
+				try {
+					$process->mustRun();
+				} catch (\Exception $e) {
+					dbug($process->getOutput());
+					dbug($process->getErrorOutput());
+					return ['status' => false, 'message' => _("Couldn't run process.")];
+				}
+
+				$pid = $process->getPid();
+				return ['status' => true, 'message' => _("Backup running"), 'process' => $pid, 'transaction' => $jobid, 'backupid' => $buid];
+			case 'runstatus':
+				if(!isset($_GET['id']) || !isset($_GET['transaction'])){
+					return ['status' => 'stopped', 'error' => _("Missing id or transaction")];
+				}
+				$job = $_GET['transaction'];
+				$buid = $_GET['id'];
+				$lockHandler = new LockHandler($job.'.'.$buid);
+				if (!$lockHandler->lock()) {
+					$lockHandler->release();
+					return ['status' => 'running'];
+				}
+				return ['status' => 'stopped'];
+			case 'getLog':
+				if(!isset($_GET['transaction'])){
+					return[];
+				}
+				$ret = $this->getAll($_GET['transaction']);
+				return $ret?$ret:[];
 			case 'getJSON':
 				switch ($_REQUEST['jdata']) {
 					case 'backupGrid':
@@ -196,22 +269,52 @@ class Backup extends \DB_Helper implements \BMO {
 		switch ($page) {
 			case 'backup':
 				if(isset($_GET['view']) && $_GET['view'] == 'form'){
+					$randcron = sprintf('59 23 * * %s',rand(0,6));
 					$vars = ['id' => ''];
+					$vars['backup_schedule'] = $randcron;
 					if(isset($_GET['id']) && !empty($_GET['id'])){
 						$vars = $this->getBackup($_GET['id']);
+						$vars['backup_schedule'] = !empty($vars['backup_schedule'])?$vars['backup_schedule']:$randcron;
 						$vars['id'] = $_GET['id'];
 					}
-					return show_view(__DIR__.'/views/backup/form.php',$vars);
+					$vars['warmspare'] = '';
+					if($this->getConfig('warmspare')){
+						$vars['warmspare'] = load_view(__DIR__.'/views/backup/warmspare.php',$vars);
+					}
+					return load_view(__DIR__.'/views/backup/form.php',$vars);
 				}
 				if(isset($_GET['view']) && $_GET['view'] == 'download'){
-					return show_view(__DIR__.'/views/backup/download.php');
+					return load_view(__DIR__.'/views/backup/download.php');
 				}
-				return show_view(__DIR__.'/views/backup/grid.php');
-
+				return load_view(__DIR__.'/views/backup/grid.php');
 			break;
 			case 'restore':
-			case 'templates':
-				return '<h1>PLACEHOLDER</h1>';
+				$view = isset($_GET['view'])?$_GET['view']:'default';
+				switch ($view) {
+					case 'processrestore':
+						if(!isset($_GET['id']) || empty($_GET['id'])){
+							return load_view(__DIR__.'/views/restore/landing.php',['error' => _("No id was specified to process. Please try submitting your file again.")]);
+						}
+						$backupjson = [];
+						$vars = $this->getAll($_GET['id']);
+						$vars['missing'] = "yes";
+						$vars['reset'] = "no";
+						$vars['enabletrunks'] = "yes";
+						foreach ($vars['meta']['modules'] as $module) {
+							$mod = strtolower($module);
+							$status = $this->FreePBX->Modules->checkStatus($mod);
+							$backupjson[] = [
+								'modulename' => $module,
+								'installed' => $status
+							];
+						}
+						$vars['jsondata'] = json_encode($backupjson);
+						return load_view(__DIR__.'/views/restore/processRestore.php',$vars);
+					break;
+					default:
+						return load_view(__DIR__.'/views/restore/landing.php');
+					break;
+				}
 			break;
 		}
 	}
@@ -424,7 +527,37 @@ class Backup extends \DB_Helper implements \BMO {
 
 
 	//Setters
-
+	public function scheduleJobs($id = 'all'){
+		if($id !== 'all'){
+			$enabled = $this->getBackupSetting($id, 'schedule_enabled');
+			if($enabled === 'yes'){
+				$schedule = $this->getBackupSetting($id, 'backup_schedule');
+				$command = sprintf('/usr/sbin/fwconsole backup backup=%s > /dev/null 2>&1',$id);
+				$this->FreePBX->Cron->removeAll($command);
+				$this->FreePBX->Cron->add($schedule.' '.$command);
+				return true;
+			}
+		}
+		//Clean slate
+		$allcrons = $this->FreePBX->Cron->getAll();
+		$allcrons = is_array($allcrons)?$allcrons:[];
+		foreach ($allcrons as $string => $cmd) {
+			if (strpos($cmd, 'fwconsole backup') !== false) {
+				$this->FreePBX->Cron->remove($cmd);
+			}
+		}
+		$backups = $this->listBackups();
+		foreach ($backups as $key => $value) {
+			$enabled = $this->getBackupSetting($key, 'schedule_enabled');
+			if($enabled === 'yes'){
+				$schedule = $this->getBackupSetting($key, 'backup_schedule');
+				$command = sprintf('/usr/sbin/fwconsole backup backup=%s > /dev/null 2>&1',$key);
+				$this->FreePBX->Cron->removeAll($command);
+				$this->FreePBX->Cron->add($schedule.' '.$command);
+			}
+		}
+		return true;
+	}
 	/**
 	 * Update/Add a backup item. Note the only difference is weather we generate an ID
 	 * @param  array $data an array of the items needed. typically just send the $_POST array
@@ -450,14 +583,18 @@ class Backup extends \DB_Helper implements \BMO {
 		if(isset($data['backup_items_settings']) && $data['backup_items_settings'] !== 'unchanged' ){
 			$this->processBackupSettings($data['id'], json_decode($data['backup_items_settings'],true));
 		}
+		$this->scheduleJobs($id);
 		return $id;
 	}
 
 	public function updateBackupSetting($id, $setting, $value=false){
-		$this->setConfig($setting,$value,$id);
+		$ret = $this->setConfig($setting,$value,$id);
+		if($setting == 'backup_schedule'){
+			$this->scheduleJobs($id);
+		}
 	}
 	public function getBackupSetting($id,$setting){
-		$this->getConfig($setting, $id);
+		return $this->getConfig($setting, $id);
 	}
 	/**
 	 * delete backup by ID
@@ -468,6 +605,7 @@ class Backup extends \DB_Helper implements \BMO {
 		$this->setConfig($id,false,'backupList');
 		$this->delById($id);
 		//This should return an empty array if successful.
+		$this->scheduleJobs('all');
 		return empty($this->getBackup($id));
 	}
 
@@ -513,7 +651,9 @@ class Backup extends \DB_Helper implements \BMO {
 		$remotePath =  sprintf('/%s/%s',$serverName,$underscoreName);
 		$tmpdir = sprintf('%s/backup/%s',sys_get_temp_dir(),$underscoreName);
 		$this->fs->mkdir($tmpdir);
-		$pharname = sprintf('%s/backup-%s.tar',$localPath,time());
+		//$pharname = sprintf('%s/backup-%s.tar',$localPath,time());
+		//Legacy backup naming
+		$pharname = sprintf('%s/%s%s-%s-%s.tar',$localPath,date("Ymd-His-"),time(),get_framework_version(),rand());
 		$phargzname = sprintf('%s.gz',$pharname);
 		$this->log($transactionId,sprintf(_("This backup will be stored locally at %s and is subject to maintinance settings"),$pharname));
 		$phar = new \PharData($pharname);
@@ -644,10 +784,13 @@ class Backup extends \DB_Helper implements \BMO {
 		if(!empty($errors)){
 			$this->log($transactionId,_("Backup finished with but with errors"));
 			$this->processNotifications($id, $transactionId, $errors);
+			$this->setConfig('errors',$errors,$transactionId);
+			$this->setConfig('log',$this->sessionlog[$transactionId],$transactionId);
 			return $errors;
 		}
 		$this->log($transactionId,_("Backup completed successfully"));
 		$this->processNotifications($id, $transactionId, []);
+		$this->setConfig('log',$this->sessionlog[$transactionId],$transactionId);
 		return $signatures;
 	}
 
@@ -728,7 +871,7 @@ class Backup extends \DB_Helper implements \BMO {
 	 * @return mixed              true or array of errors
 	 */
 	public function doMaintinance($backupId,$transactionId){
-		return;
+
 		$backupInfo = $this->getBackup($backupId);
 		$underscoreName = str_replace(' ', '_', $backupInfo['backup_name']);
 		$spooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
@@ -886,40 +1029,5 @@ class Backup extends \DB_Helper implements \BMO {
 		$email->setTo($backupInfo['backup_email']);
 		$email->setBody(implode(PHP_EOL, $emailbody));
 		return $email->send();
-	}
-
-	//TEMPLATE STUFF. THIS MAY ALL GO AWAY
-
-	//TODO: Do we need templates any more?
-	public function listTemplates(){
-		return $this->getConfig('templateList');
-	}
-
-	public function getTemplate($id){
-		$data = $this->getAll($id);
-		$return = [];
-		foreach ($this->templateFields as $key => $value) {
-			switch ($key) {
-				default:
-					$return[$key] = isset($data[$key])?$data[$key]:'';
-				break;
-			}
-		}
-		return $return;
-	}
-
-	public function updateTemplate($data){
-		$data['id'] = (isset($data['id']) && !empty($data[id]))?$data['id']:$this->generateID();
-		foreach ($this->templateFields as $col) {
-			$value = isset($data[$col])?$data[$col]:'';
-			$this->setConfig($col,$value,$data['id']);
-		}
-		$description = isset($data['template_description'])?$data['template_description']:sprintf('Template %s',$data['template_name']);
-		$this->setConfig($data['id'],array('id' => $data['id'], 'name' => $data['template_name'], 'description' => $description),'templateList');
-	}
-
-	public function deleteTemplate($id){
-		$this->setConfig($id,false,'templateList');
-		$this->delById($id);
 	}
 }

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-19 17:44-0700\n"
+"POT-Creation-Date: 2017-10-24 14:02-0400\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -357,7 +357,7 @@ msgstr "Grabaciones de Llamadas"
 msgid "Can not create backup tables"
 msgstr "No se pueden crear tablas de Respandos"
 
-#: bin/restore.php:477
+#: bin/restore.php:485
 msgid "Cleaning up..."
 msgstr "Limpiando ..."
 
@@ -504,7 +504,7 @@ msgstr "Directorio '%s' no existe y no pudo ser creado"
 msgid "Disable Registered Trunks"
 msgstr "Deshabilitar Troncales Registrados"
 
-#: bin/restore.php:523
+#: bin/restore.php:531
 msgid "Done!"
 msgstr "Hecho!"
 
@@ -755,8 +755,7 @@ msgstr ""
 msgid "Hooks"
 msgstr "Ganchos"
 
-#: views/servers/ftp.php:46 views/servers/mysql.php:64
-#: views/servers/ssh.php:64
+#: views/servers/ftp.php:46 views/servers/mysql.php:64 views/servers/ssh.php:64
 msgid "Hostname"
 msgstr "Nombre de Host"
 
@@ -1002,8 +1001,7 @@ msgstr "Nocturno"
 #: views/backup/backup.php:387 views/backup/backup.php:416
 #: views/backup/backup.php:445 views/backup/backups.php:186
 #: views/backup/backups.php:213 views/backup/backups.php:240
-#: views/backup/backups.php:271 views/backup/backups.php:327
-#: views/cron.php:147
+#: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:147
 msgid "No"
 msgstr "No"
 
@@ -1114,8 +1112,7 @@ msgstr "Por favor espere"
 msgid "Please wait, loading..."
 msgstr "Por favor espere, cargando..."
 
-#: views/servers/ftp.php:66 views/servers/mysql.php:88
-#: views/servers/ssh.php:88
+#: views/servers/ftp.php:66 views/servers/mysql.php:88 views/servers/ssh.php:88
 msgid "Port"
 msgstr "Puerto"
 
@@ -1135,11 +1132,11 @@ msgstr "Gancho Pre-Respaldo"
 msgid "Pre-Restore Hook"
 msgstr "Gancho Pre-Restaurar"
 
-#: bin/restore.php:333
+#: bin/restore.php:334
 msgid "Preserving local Bind address"
 msgstr ""
 
-#: bin/restore.php:326
+#: bin/restore.php:327
 msgid "Preserving local DNS settings"
 msgstr ""
 
@@ -1152,7 +1149,7 @@ msgstr "Preservando configuración local NAT"
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr "Procesado %s%% de CDR (%s de %s líneas)"
 
-#: bin/restore.php:406
+#: bin/restore.php:407
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "Procesado %s%% de Ajustes (%s de  %s líneas)"
@@ -1173,7 +1170,7 @@ msgstr "Randomizar"
 msgid "Reboot"
 msgstr "Reiniciar"
 
-#: bin/restore.php:508
+#: bin/restore.php:516
 msgid "Reloading..."
 msgstr "Recargando..."
 
@@ -1243,15 +1240,15 @@ msgstr "Restaurar toda la configuración almacenada en la base de datos"
 msgid "Restore backup to this server after the backup is complete"
 msgstr "Restaurar respaldo en este server luego que el respaldo sea completado"
 
-#: bin/restore.php:507
+#: bin/restore.php:515
 msgid "Restore complete!"
 msgstr "Restauración completada!"
 
-#: bin/restore.php:410
+#: bin/restore.php:411
 msgid "Restored Database"
 msgstr "Base de Datos restaurada"
 
-#: bin/restore.php:432
+#: bin/restore.php:440
 msgid "Restoring Bindaddres Settings"
 msgstr ""
 
@@ -1263,19 +1260,19 @@ msgstr "Restauración de CDRs completada"
 msgid "Restoring CDRs..."
 msgstr "restaurando CDRs..."
 
-#: bin/restore.php:426
+#: bin/restore.php:434
 msgid "Restoring DNS settings"
 msgstr ""
 
-#: bin/restore.php:368
+#: bin/restore.php:369
 msgid "Restoring Database..."
 msgstr "Restaurando Base de Datos..."
 
-#: bin/restore.php:418
+#: bin/restore.php:419
 msgid "Restoring NAT settings"
 msgstr "Restaurando configuración NAT"
 
-#: bin/restore.php:462
+#: bin/restore.php:470
 msgid "Restoring Settings complete"
 msgstr "Restauración de configuración completada"
 
@@ -1283,7 +1280,7 @@ msgstr "Restauración de configuración completada"
 msgid "Restoring all files (this may take some time)..."
 msgstr "Restaurando todos los archivos (esto puede tomar un tiempo)..."
 
-#: bin/restore.php:452
+#: bin/restore.php:460
 msgid "Restoring astDB..."
 msgstr "restaurando astDB..."
 
@@ -1335,7 +1332,7 @@ msgstr "Ejecutar una vez cada hora, a inicio de la hora"
 msgid "Running maintenance.."
 msgstr ""
 
-#: bin/restore.php:468
+#: bin/restore.php:476
 msgid "Running post restore script..."
 msgstr "Corriendo Script post-restauración..."
 
@@ -1343,7 +1340,7 @@ msgstr "Corriendo Script post-restauración..."
 msgid "Running post-backup hooks..."
 msgstr "Corriendo enganches post-respaldo..."
 
-#: bin/restore.php:472
+#: bin/restore.php:480
 msgid "Running post-restore hooks, if any..."
 msgstr "Corriendo enganches post-restauración, si hay alguno..."
 
@@ -1777,8 +1774,7 @@ msgstr "Años"
 #: views/backup/backup.php:385 views/backup/backup.php:414
 #: views/backup/backup.php:443 views/backup/backups.php:184
 #: views/backup/backups.php:211 views/backup/backups.php:238
-#: views/backup/backups.php:269 views/backup/backups.php:325
-#: views/cron.php:145
+#: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:145
 msgid "Yes"
 msgstr "Si"
 

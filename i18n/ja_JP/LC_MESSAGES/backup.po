@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-19 17:44-0700\n"
+"POT-Creation-Date: 2017-10-24 14:02-0400\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -368,7 +368,7 @@ msgstr ""
 msgid "Can not create backup tables"
 msgstr "バックアップのテーブルを作成できません。"
 
-#: bin/restore.php:477
+#: bin/restore.php:485
 msgid "Cleaning up..."
 msgstr "クリーンアップしています..."
 
@@ -513,7 +513,7 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr "登録されたトランクを無効にする"
 
-#: bin/restore.php:523
+#: bin/restore.php:531
 msgid "Done!"
 msgstr "完了"
 
@@ -753,8 +753,7 @@ msgstr "リモートサーバーが送ったファイルの最初の数行は以
 msgid "Hooks"
 msgstr "フック"
 
-#: views/servers/ftp.php:46 views/servers/mysql.php:64
-#: views/servers/ssh.php:64
+#: views/servers/ftp.php:46 views/servers/mysql.php:64 views/servers/ssh.php:64
 msgid "Hostname"
 msgstr "ホスト名"
 
@@ -987,8 +986,7 @@ msgstr ""
 #: views/backup/backup.php:387 views/backup/backup.php:416
 #: views/backup/backup.php:445 views/backup/backups.php:186
 #: views/backup/backups.php:213 views/backup/backups.php:240
-#: views/backup/backups.php:271 views/backup/backups.php:327
-#: views/cron.php:147
+#: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:147
 msgid "No"
 msgstr ""
 
@@ -1094,8 +1092,7 @@ msgstr ""
 msgid "Please wait, loading..."
 msgstr ""
 
-#: views/servers/ftp.php:66 views/servers/mysql.php:88
-#: views/servers/ssh.php:88
+#: views/servers/ftp.php:66 views/servers/mysql.php:88 views/servers/ssh.php:88
 msgid "Port"
 msgstr "ポート"
 
@@ -1115,11 +1112,11 @@ msgstr ""
 msgid "Pre-Restore Hook"
 msgstr ""
 
-#: bin/restore.php:333
+#: bin/restore.php:334
 msgid "Preserving local Bind address"
 msgstr ""
 
-#: bin/restore.php:326
+#: bin/restore.php:327
 msgid "Preserving local DNS settings"
 msgstr ""
 
@@ -1132,7 +1129,7 @@ msgstr "ローカルNAT設定は維持します"
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr ""
 
-#: bin/restore.php:406
+#: bin/restore.php:407
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr ""
@@ -1153,7 +1150,7 @@ msgstr "ランダムにする"
 msgid "Reboot"
 msgstr "再起動"
 
-#: bin/restore.php:508
+#: bin/restore.php:516
 msgid "Reloading..."
 msgstr "再読み込み中..."
 
@@ -1223,15 +1220,15 @@ msgstr "データベースに保存されている全ての設定を復元する
 msgid "Restore backup to this server after the backup is complete"
 msgstr ""
 
-#: bin/restore.php:507
+#: bin/restore.php:515
 msgid "Restore complete!"
 msgstr "復元が完了しました！"
 
-#: bin/restore.php:410
+#: bin/restore.php:411
 msgid "Restored Database"
 msgstr "データベースを復元しました"
 
-#: bin/restore.php:432
+#: bin/restore.php:440
 msgid "Restoring Bindaddres Settings"
 msgstr ""
 
@@ -1243,19 +1240,19 @@ msgstr "CDRの復元が完了しました"
 msgid "Restoring CDRs..."
 msgstr "CDRを復元中…"
 
-#: bin/restore.php:426
+#: bin/restore.php:434
 msgid "Restoring DNS settings"
 msgstr ""
 
-#: bin/restore.php:368
+#: bin/restore.php:369
 msgid "Restoring Database..."
 msgstr "データベースを復元中…"
 
-#: bin/restore.php:418
+#: bin/restore.php:419
 msgid "Restoring NAT settings"
 msgstr "NAT設定を復元中"
 
-#: bin/restore.php:462
+#: bin/restore.php:470
 msgid "Restoring Settings complete"
 msgstr "設定の復元が完了しました"
 
@@ -1263,7 +1260,7 @@ msgstr "設定の復元が完了しました"
 msgid "Restoring all files (this may take some time)..."
 msgstr "全てのファイルを復元しています（時間がかかる場合があります）…"
 
-#: bin/restore.php:452
+#: bin/restore.php:460
 msgid "Restoring astDB..."
 msgstr "astDBを復元中..."
 
@@ -1313,7 +1310,7 @@ msgstr ""
 msgid "Running maintenance.."
 msgstr ""
 
-#: bin/restore.php:468
+#: bin/restore.php:476
 msgid "Running post restore script..."
 msgstr "復元後のスクリプトを実行中..."
 
@@ -1321,7 +1318,7 @@ msgstr "復元後のスクリプトを実行中..."
 msgid "Running post-backup hooks..."
 msgstr "バックアップ後フック実行中..."
 
-#: bin/restore.php:472
+#: bin/restore.php:480
 msgid "Running post-restore hooks, if any..."
 msgstr "復元後のフックがある場合は実行します。"
 
@@ -1733,8 +1730,7 @@ msgstr "年"
 #: views/backup/backup.php:385 views/backup/backup.php:414
 #: views/backup/backup.php:443 views/backup/backups.php:184
 #: views/backup/backups.php:211 views/backup/backups.php:238
-#: views/backup/backups.php:269 views/backup/backups.php:325
-#: views/cron.php:145
+#: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:145
 msgid "Yes"
 msgstr ""
 

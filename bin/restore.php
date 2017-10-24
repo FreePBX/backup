@@ -312,6 +312,7 @@ if (!isset($vars['restore'])) {
 				$backup['externip'] = $ss->getConfig('externip');
 				//FREEPBX-12339 Backup and Restore sync from primary to backup restores SIP IP settings from primary
 				$siparray = $ss->getChanSipSettings();
+				$backup['nat_mode'] = $siparray['nat_mode'];
 				$backup['externip_val'] = $siparray['externip_val'];
                                 $backup['externhost_val'] = $siparray['externhost_val'];
 				unset($siparray);
@@ -408,6 +409,13 @@ if (!isset($vars['restore'])) {
 				$ss = FreePBX::create()->Sipsettings;
 				$ss->setConfig('localnets', $backup['localnets']);
 				$ss->setConfig('externip',  $backup['externip']);
+				$ss->updateChanSipSettings('nat_mode',$backup['nat_mode']);
+				if($backup['externip_val'] == null){
+					$backup['externip_val'] = false;
+				}
+				if($backup['externhost_val'] == null){
+				        $backup['externhost_val'] = false;
+				}
 				$ss->updateChanSipSettings('externip_val',$backup['externip_val']);
 				$ss->updateChanSipSettings('externhost_val',$backup['externhost_val']);
                          }

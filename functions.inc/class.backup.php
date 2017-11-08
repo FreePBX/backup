@@ -349,7 +349,6 @@ class Backup {
 	function store_backup() {
 		foreach ($this->b['storage_servers'] as $s) {
 			$s = $this->s[$s];
-			dbug($s);
 			switch ($s['type']) {
 				case 'local':
 					$path = backup__($s['path']) . '/' . $this->b['_dirname'];

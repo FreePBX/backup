@@ -1,6 +1,5 @@
 <?php
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
-
 global $db, $amp_conf;
 
 $autoincrement = ($amp_conf["AMPDBENGINE"] == "sqlite3") ? "AUTOINCREMENT" : "AUTO_INCREMENT";
@@ -188,6 +187,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_servers') < 1) {
 			),
 		);
 		if (PHP_OS == "FreeBSD") {
+			//DAHDI
 			$template['full']['type'][] = 'dir';
 			$template['full']['path'][] = '/usr/local/etc/dahdi';
 			$template['full']['exclude'][] = '';
@@ -195,6 +195,7 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_servers') < 1) {
 			$template['full']['path'][] = '/usr/local/lib/dahdi';
 			$template['full']['exclude'][] = '';
 		} else {
+			//DAHDI
 			$template['full']['type'][] = 'dir';
 			$template['full']['path'][] = '/etc/dahdi';
 			$template['full']['exclude'][] = '';
@@ -214,13 +215,52 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_servers') < 1) {
 		sql('UPDATE backup_templates SET data = "' . addslashes($createdby) . '"');
 		out(_('added default backup templates'));
 	}
+
 } else {
 	// Load serverids. This is fixed. If you ever need to change these,
 	// be smarter.
 	$serverids = array ('local' => 1, 'mysql' => 2, 'cdr');
 }
-
-
+$templates = backup_get_template('all');
+$path = '/etc/wanpipe';
+if (PHP_OS == "FreeBSD") {
+	$path ='/usr/local/etc/wanpipe';
+}
+foreach ($templates as $key => $value) {
+	$id = false;
+	if($value['name'] == "Full Backup"){
+		$id = $key;
+		$template = backup_get_template($value['id']);
+	}
+	if($value['name'] == "Config Backup"){
+		$id = $key;
+		$template = backup_get_template($value['id']);
+	}
+	if(!$id){
+		continue;
+	}
+	$items = isset($template['items'])?$template['items']:false;
+	if(!$items){
+		continue;
+	}
+	$insert = array(
+		'type' => array(),
+		'path' => array(),
+		'exclude' => array(),
+		'id' => $id,
+		'name' => $value['name'],
+		'desc'=> $value['desc']
+	);
+	foreach ($items as $item) {
+		$insert['type'][] = $item['type'];
+		$insert['path'][] = $item['path'];
+		$insert['exclude'][] = $item['exclude'];
+	}
+	$insert['type'][] = 'dir';
+	$insert['path'][] = $path;
+	$insert['exclude'][] = array();
+	backup_put_template($insert,true);
+}
 // Do we need a default backup job?
 if ($db->getOne('SELECT COUNT(*) FROM backup') < 1) {
 	// Yes. Add a default backup
@@ -290,4 +330,3 @@ foreach ($jobs as $tmparr) {
 		out(sprintf(_("Updated Job %s with new custom sounds directory"), $jobid));
 	}
 }
-

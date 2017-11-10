@@ -214,6 +214,28 @@ function backup_put_backup($var) {
 	}
 	foreach ($var as $key => $value) {
 		switch ($key) {
+			case 'jsonpath':
+			case 'jsontype':
+			case 'jsonexclude':
+				$json = json_decode($value,true);
+				$var[$key] = array();
+				$json = is_array($json)?$json:array();
+				foreach ($json as $item) {
+					$name = isset($item['name'])?$item['name']:'';
+					$val = isset($item['value'])?$item['value']:'';
+					if(empty($name) || empty($value)){
+						continue;
+					}
+					if(in_array($name, array('jsontype','jsonpath','jsonexclude'))){
+						continue;
+					}
+					preg_match("/(path|type|exclude)\[(\d+)\]/", $name, $out);
+					if(count($out) > 3){
+						continue;
+					}
+					$var[$out[1]][$out[2]] = $val;
+				}
+			break;
 			case 'cron_minute':
 			case 'cron_dom':
 			case 'cron_dow':
@@ -281,7 +303,6 @@ function backup_put_backup($var) {
 	if ($db->IsError($ret)){
 		die_freepbx($ret->getDebugInfo());
 	}
-
 
 	//save server items
 	//first delete stale

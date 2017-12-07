@@ -20,16 +20,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-19 20:44-0400\n"
-"PO-Revision-Date: 2016-02-05 11:17+0200\n"
-"Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
-"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
-"fr_FR/>\n"
+"PO-Revision-Date: 2017-12-01 20:49+0200\n"
+"Last-Translator: CATTAN Jérémie <jeremie@famillecattan.com>\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/backup/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.4\n"
 
 #: views/backup/backups.php:23
 #, php-format
@@ -38,17 +38,19 @@ msgstr "Assistant de sauvegarde de %s"
 
 #: functions.inc/templates.php:251
 msgid "/path/to/dir"
-msgstr ""
+msgstr "/chemin/du/dossier"
 
 #: functions.inc/templates.php:238
 msgid "/path/to/file"
-msgstr ""
+msgstr "/chemin/du/fichier"
 
 #: install.php:145
 msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
 msgstr ""
+"Une sauvegarde complète des paramètres de base et des fichiers Web n'inclut "
+"pas les sons ou les enregistrements du système."
 
 #: views/backup/backup.php:197
 msgid "A script to be run AFTER a backup is completed."
@@ -60,7 +62,7 @@ msgstr "Un script à exécuter APRÈS que la copie de sauvegarde soit récupér�
 
 #: views/backup/backup.php:221
 msgid "A script to be run BEFORE a backup is restored."
-msgstr ""
+msgstr "Script à exécuter AVANT qu'une sauvegarde ne soit restaurée."
 
 #: views/backup/backup.php:173
 msgid "A script to be run BEFORE a backup is started."
@@ -68,7 +70,7 @@ msgstr "Un script à exécuter AVANT que la copie de sauvegarde soit débutée."
 
 #: views/backup/backups.php:154 assets/js/backup.js:93 assets/js/backup.js:105
 msgid "AT"
-msgstr ""
+msgstr "A"
 
 #: views/servers/awss3.php:41
 msgid "AWS Access Key"
@@ -97,7 +99,7 @@ msgstr "Ajouter un serveur"
 
 #: bin/backup.php:53
 msgid "Adding items..."
-msgstr ""
+msgstr "Ajouter Objets..."
 
 #: backup.i18n.php:6
 msgid "Admin"
@@ -109,18 +111,26 @@ msgid ""
 "to prevent the Primary and Standby systems from \"fighting\" for the "
 "registration, resulting in some calls routed to the Standby system."
 msgstr ""
+"Après une restauration, désactivez les trunks qui utilisent "
+"l'enregistrement. Ceci est utile pour empêcher les systèmes principal et de "
+"secours de \"se battre\" pour l'enregistrement, entraînant certains appels "
+"routés vers le système de secours."
 
 #: views/backup/backups.php:171
 msgid ""
 "All PBX Configuration files and any Custom Sound Prompts are included in the "
 "base backup"
 msgstr ""
+"Tous les fichiers de configuration PBX et tous les fichiers audio "
+"personnalisés sont inclus dans la sauvegarde de base"
 
 #: install.php:172
 msgid ""
 "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
 "VOICEMAIL"
 msgstr ""
+"Tout l'audio du système - y compris les fichiers SVI et Musique d'attente. "
+"NE SAUVEGARDE PAS LA MESSAGERIE VOCALE"
 
 #: functions.inc/servers.php:280
 msgid "Amazon S3 Server "
@@ -156,7 +166,7 @@ msgstr "Août"
 
 #: views/servers/ftp.php:113
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 #: views/backup/backup.php:465
 msgid "Available Servers"
@@ -168,11 +178,11 @@ msgstr "o"
 
 #: functions.inc.php:69
 msgid "BACKUP LOG ATTACHED"
-msgstr ""
+msgstr "LOG DE SAUVEGARDE ATTACHÉ"
 
 #: functions.inc/class.backup.php:410 functions.inc/class.backup.php:413
 msgid "BACKUP NOT ATTACHED"
-msgstr ""
+msgstr "LOG DE SAUVEGARDE NON ATTACHÉ"
 
 #: Backup.class.php:316 functions.inc/backup.php:81
 #: functions.inc/class.backup.php:404 views/backup/backup.php:6
@@ -201,7 +211,7 @@ msgstr "Sauvegarder et restaurer pour votre environnement FreePBX"
 
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
-msgstr ""
+msgstr "Sauvegarde CDR et enregistrement d'appel ?"
 
 #: views/backup/backups.php:121
 msgid "Backup Description"
@@ -213,7 +223,7 @@ msgstr "ERREUR de copie de sauvegarde (dépassement des limites SMTP)"
 
 #: functions.inc/class.backup.php:412
 msgid "Backup ERROR (exceeded soft limit)"
-msgstr ""
+msgstr "ERREUR de sauvegarde (limite dépassée)"
 
 #: views/backup/backups.php:49
 msgid "Backup Frequency"

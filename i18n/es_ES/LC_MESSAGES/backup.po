@@ -19,15 +19,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-19 20:44-0400\n"
+"POT-Creation-Date: 2017-12-07 17:28-0500\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
 "es_ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 "X-Poedit-Language: Spanish\n"
@@ -187,7 +187,7 @@ msgstr "BITACORA DE RESPALDOS ANEXADA"
 msgid "BACKUP NOT ATTACHED"
 msgstr "RESPALDO NO ANEXO"
 
-#: Backup.class.php:316 functions.inc/backup.php:81
+#: Backup.class.php:321 functions.inc/backup.php:81
 #: functions.inc/class.backup.php:404 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Respaldo"
@@ -435,7 +435,7 @@ msgstr "Defecto"
 msgid "Default backup; automatically installed"
 msgstr "Respaldo por defecto, automáticamente instalado"
 
-#: Backup.class.php:38 Backup.class.php:202 page.backup.php:47
+#: Backup.class.php:38 Backup.class.php:207 page.backup.php:47
 #: page.backup_servers.php:36 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
@@ -745,8 +745,7 @@ msgstr ""
 msgid "Hooks"
 msgstr "Ganchos"
 
-#: views/servers/ftp.php:46 views/servers/mysql.php:64
-#: views/servers/ssh.php:64
+#: views/servers/ftp.php:46 views/servers/mysql.php:64 views/servers/ssh.php:64
 msgid "Hostname"
 msgstr "Nombre de Host"
 
@@ -1103,8 +1102,7 @@ msgstr "Por favor espere"
 msgid "Please wait, loading..."
 msgstr "Por favor espere, cargando..."
 
-#: views/servers/ftp.php:66 views/servers/mysql.php:88
-#: views/servers/ssh.php:88
+#: views/servers/ftp.php:66 views/servers/mysql.php:88 views/servers/ssh.php:88
 msgid "Port"
 msgstr "Puerto"
 
@@ -1202,7 +1200,7 @@ msgstr "Opciones guardar remoto"
 msgid "Remote save path, blank for default"
 msgstr "Camino salvar remoto, dejar en blanco para valor por defecto"
 
-#: Backup.class.php:187
+#: Backup.class.php:192
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -1368,11 +1366,11 @@ msgstr "Usuario SSH"
 msgid "Saturday"
 msgstr "Sábado"
 
-#: Backup.class.php:192
+#: Backup.class.php:197
 msgid "Save"
 msgstr "Salvar"
 
-#: Backup.class.php:197
+#: Backup.class.php:202
 msgid "Save and Run"
 msgstr "Guardar y Ejecutar"
 

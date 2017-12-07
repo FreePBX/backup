@@ -9,10 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-19 20:44-0400\n"
+"POT-Creation-Date: 2017-12-07 17:28-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -165,7 +166,7 @@ msgstr ""
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
-#: Backup.class.php:316
+#: Backup.class.php:321
 #: functions.inc/backup.php:81
 #: functions.inc/class.backup.php:404
 #: views/backup/backup.php:6
@@ -422,7 +423,7 @@ msgid "Default backup; automatically installed"
 msgstr ""
 
 #: Backup.class.php:38
-#: Backup.class.php:202
+#: Backup.class.php:207
 #: page.backup.php:47
 #: page.backup_servers.php:36
 #: page.backup_templates.php:20
@@ -1190,7 +1191,7 @@ msgstr ""
 msgid "Remote save path, blank for default"
 msgstr ""
 
-#: Backup.class.php:187
+#: Backup.class.php:192
 msgid "Reset"
 msgstr ""
 
@@ -1359,11 +1360,11 @@ msgstr ""
 msgid "Saturday"
 msgstr ""
 
-#: Backup.class.php:192
+#: Backup.class.php:197
 msgid "Save"
 msgstr ""
 
-#: Backup.class.php:197
+#: Backup.class.php:202
 msgid "Save and Run"
 msgstr ""
 

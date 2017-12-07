@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-19 20:44-0400\n"
+"POT-Creation-Date: 2017-12-07 17:28-0500\n"
 "PO-Revision-Date: 2015-11-17 12:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
 "freepbx/backup/zh_CN/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -164,7 +164,7 @@ msgstr ""
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
-#: Backup.class.php:316 functions.inc/backup.php:81
+#: Backup.class.php:321 functions.inc/backup.php:81
 #: functions.inc/class.backup.php:404 views/backup/backup.php:6
 msgid "Backup"
 msgstr ""
@@ -410,7 +410,7 @@ msgstr "默认"
 msgid "Default backup; automatically installed"
 msgstr "默认备份；已自动安装"
 
-#: Backup.class.php:38 Backup.class.php:202 page.backup.php:47
+#: Backup.class.php:38 Backup.class.php:207 page.backup.php:47
 #: page.backup_servers.php:36 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
@@ -694,8 +694,7 @@ msgstr ""
 msgid "Hooks"
 msgstr ""
 
-#: views/servers/ftp.php:46 views/servers/mysql.php:64
-#: views/servers/ssh.php:64
+#: views/servers/ftp.php:46 views/servers/mysql.php:64 views/servers/ssh.php:64
 msgid "Hostname"
 msgstr "主机名"
 
@@ -1034,8 +1033,7 @@ msgstr ""
 msgid "Please wait, loading..."
 msgstr ""
 
-#: views/servers/ftp.php:66 views/servers/mysql.php:88
-#: views/servers/ssh.php:88
+#: views/servers/ftp.php:66 views/servers/mysql.php:88 views/servers/ssh.php:88
 msgid "Port"
 msgstr "端口"
 
@@ -1133,7 +1131,7 @@ msgstr ""
 msgid "Remote save path, blank for default"
 msgstr ""
 
-#: Backup.class.php:187
+#: Backup.class.php:192
 msgid "Reset"
 msgstr ""
 
@@ -1297,11 +1295,11 @@ msgstr "SSH用户名"
 msgid "Saturday"
 msgstr "星期六"
 
-#: Backup.class.php:192
+#: Backup.class.php:197
 msgid "Save"
 msgstr "保存"
 
-#: Backup.class.php:197
+#: Backup.class.php:202
 msgid "Save and Run"
 msgstr "保存运行"
 

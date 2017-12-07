@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-19 20:44-0400\n"
+"POT-Creation-Date: 2017-12-07 17:28-0500\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
 "backup/fa_IR/>\n"
+"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa_IR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -171,7 +171,7 @@ msgstr "لاگ پشتیبان ضمیمه شده"
 msgid "BACKUP NOT ATTACHED"
 msgstr "پشتیبان ضمیمه نشد"
 
-#: Backup.class.php:316 functions.inc/backup.php:81
+#: Backup.class.php:321 functions.inc/backup.php:81
 #: functions.inc/class.backup.php:404 views/backup/backup.php:6
 msgid "Backup"
 msgstr "پشتیبان گیری"
@@ -420,7 +420,7 @@ msgstr "پیش فرض"
 msgid "Default backup; automatically installed"
 msgstr "پشتیبان پیش فرض، که به صورت خودکار نصب شده است"
 
-#: Backup.class.php:38 Backup.class.php:202 page.backup.php:47
+#: Backup.class.php:38 Backup.class.php:207 page.backup.php:47
 #: page.backup_servers.php:36 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
@@ -722,8 +722,7 @@ msgstr "چند خط ابتدایی فایلی که برای سرور راه دو
 msgid "Hooks"
 msgstr "تله ها"
 
-#: views/servers/ftp.php:46 views/servers/mysql.php:64
-#: views/servers/ssh.php:64
+#: views/servers/ftp.php:46 views/servers/mysql.php:64 views/servers/ssh.php:64
 msgid "Hostname"
 msgstr "نام میزبان"
 
@@ -1069,8 +1068,7 @@ msgstr "لطفا منتظر بمانید"
 msgid "Please wait, loading..."
 msgstr "لطفا منتظر بمانید، در حال بارگذاری..."
 
-#: views/servers/ftp.php:66 views/servers/mysql.php:88
-#: views/servers/ssh.php:88
+#: views/servers/ftp.php:66 views/servers/mysql.php:88 views/servers/ssh.php:88
 msgid "Port"
 msgstr "پورت"
 
@@ -1169,7 +1167,7 @@ msgid "Remote save path, blank for default"
 msgstr ""
 "مسیر ذخیره سازی راه دور، در صورت خالی بودن مقدار پیش فرض در نظر گرفته می شود"
 
-#: Backup.class.php:187
+#: Backup.class.php:192
 msgid "Reset"
 msgstr "بازنشانی"
 
@@ -1335,11 +1333,11 @@ msgstr "نام کاربری SSH"
 msgid "Saturday"
 msgstr "شنبه"
 
-#: Backup.class.php:192
+#: Backup.class.php:197
 msgid "Save"
 msgstr "ذخیره"
 
-#: Backup.class.php:197
+#: Backup.class.php:202
 msgid "Save and Run"
 msgstr "ذخیره و اجرا"
 

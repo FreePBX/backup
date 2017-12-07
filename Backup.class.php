@@ -116,6 +116,11 @@ class Backup implements \BMO {
 					$backup['delete_time'] = '30'; //clear backups older than 30...
 					$backup['delete_time_type'] = 'days'; //...days
 					//Backup Configs
+					if(isset($mysqlserver)){
+						$backup['type'][] = 'mysql';
+						$backup['path'][] = 'server-'.$mysqlserver;
+						$backup['exclude'][] = '';
+					}
 					$backup['type'][] = 'astdb';
 					$backup['path'][] = '';
 					$backup['exclude'][] = '';

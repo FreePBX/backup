@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-24 14:02-0400\n"
+"POT-Creation-Date: 2017-12-07 17:29-0500\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -177,7 +177,7 @@ msgstr "ЛОГА НА АРХИВА Е ПРИКАЧЕН"
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
-#: Backup.class.php:316 functions.inc/backup.php:82
+#: Backup.class.php:321 functions.inc/backup.php:82
 #: functions.inc/class.backup.php:404 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Архивиране"
@@ -423,7 +423,7 @@ msgstr "По-Подразбиране"
 msgid "Default backup; automatically installed"
 msgstr "Архив по-подразбиране; автоматично инсталиран"
 
-#: Backup.class.php:38 Backup.class.php:202 page.backup.php:48
+#: Backup.class.php:38 Backup.class.php:207 page.backup.php:48
 #: page.backup_servers.php:36 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
@@ -1161,7 +1161,7 @@ msgstr ""
 msgid "Remote save path, blank for default"
 msgstr ""
 
-#: Backup.class.php:187
+#: Backup.class.php:192
 msgid "Reset"
 msgstr "Изчисти"
 
@@ -1329,11 +1329,11 @@ msgstr "SSH Потребителско Име"
 msgid "Saturday"
 msgstr "Събота"
 
-#: Backup.class.php:192
+#: Backup.class.php:197
 msgid "Save"
 msgstr "Запиши"
 
-#: Backup.class.php:197
+#: Backup.class.php:202
 msgid "Save and Run"
 msgstr "Запиши и Стартирай"
 

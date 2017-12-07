@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-24 14:02-0400\n"
+"POT-Creation-Date: 2017-12-07 17:29-0500\n"
 "PO-Revision-Date: 2017-06-06 11:54+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -173,7 +173,7 @@ msgstr "SAO LƯU LOG ĐÍNH KÈM"
 msgid "BACKUP NOT ATTACHED"
 msgstr "SAO LƯU KHÔNG ĐƯỢC ĐÍNH KÈM"
 
-#: Backup.class.php:316 functions.inc/backup.php:82
+#: Backup.class.php:321 functions.inc/backup.php:82
 #: functions.inc/class.backup.php:404 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Sao lưu"
@@ -421,7 +421,7 @@ msgstr "Mặc định"
 msgid "Default backup; automatically installed"
 msgstr "Mặc định sao lưu; cài đặt tự động"
 
-#: Backup.class.php:38 Backup.class.php:202 page.backup.php:48
+#: Backup.class.php:38 Backup.class.php:207 page.backup.php:48
 #: page.backup_servers.php:36 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
@@ -1193,7 +1193,7 @@ msgstr "Các lự chọn lưu từ xa"
 msgid "Remote save path, blank for default"
 msgstr "Đường dẫn lưu từ xa, để trống mặc định"
 
-#: Backup.class.php:187
+#: Backup.class.php:192
 msgid "Reset"
 msgstr "Cài đặt lại"
 
@@ -1363,11 +1363,11 @@ msgstr "Tên người dùng SSH"
 msgid "Saturday"
 msgstr "Thứ Bảy"
 
-#: Backup.class.php:192
+#: Backup.class.php:197
 msgid "Save"
 msgstr "Lưu"
 
-#: Backup.class.php:197
+#: Backup.class.php:202
 msgid "Save and Run"
 msgstr "Lưu và chạy"
 

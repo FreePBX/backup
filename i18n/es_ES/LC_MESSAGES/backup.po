@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-24 14:02-0400\n"
+"POT-Creation-Date: 2017-12-07 17:29-0500\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -187,7 +187,7 @@ msgstr "BITACORA DE RESPALDOS ANEXADA"
 msgid "BACKUP NOT ATTACHED"
 msgstr "RESPALDO NO ANEXO"
 
-#: Backup.class.php:316 functions.inc/backup.php:82
+#: Backup.class.php:321 functions.inc/backup.php:82
 #: functions.inc/class.backup.php:404 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Respaldo"
@@ -435,7 +435,7 @@ msgstr "Defecto"
 msgid "Default backup; automatically installed"
 msgstr "Respaldo por defecto, automáticamente instalado"
 
-#: Backup.class.php:38 Backup.class.php:202 page.backup.php:48
+#: Backup.class.php:38 Backup.class.php:207 page.backup.php:48
 #: page.backup_servers.php:36 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
@@ -1214,7 +1214,7 @@ msgstr "Opciones guardar remoto"
 msgid "Remote save path, blank for default"
 msgstr "Camino salvar remoto, dejar en blanco para valor por defecto"
 
-#: Backup.class.php:187
+#: Backup.class.php:192
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -1384,11 +1384,11 @@ msgstr "Usuario SSH"
 msgid "Saturday"
 msgstr "Sábado"
 
-#: Backup.class.php:192
+#: Backup.class.php:197
 msgid "Save"
 msgstr "Salvar"
 
-#: Backup.class.php:197
+#: Backup.class.php:202
 msgid "Save and Run"
 msgstr "Guardar y Ejecutar"
 

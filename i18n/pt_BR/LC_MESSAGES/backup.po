@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-24 14:02-0400\n"
+"POT-Creation-Date: 2017-12-07 17:29-0500\n"
 "PO-Revision-Date: 2017-03-08 21:01+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -174,7 +174,7 @@ msgstr "LOG DE BACKUP ANEXADO"
 msgid "BACKUP NOT ATTACHED"
 msgstr "BACKUP NÃO ANEXADO"
 
-#: Backup.class.php:316 functions.inc/backup.php:82
+#: Backup.class.php:321 functions.inc/backup.php:82
 #: functions.inc/class.backup.php:404 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Backup"
@@ -423,7 +423,7 @@ msgstr "Padrão"
 msgid "Default backup; automatically installed"
 msgstr "Backup padrão; instalado automaticamente"
 
-#: Backup.class.php:38 Backup.class.php:202 page.backup.php:48
+#: Backup.class.php:38 Backup.class.php:207 page.backup.php:48
 #: page.backup_servers.php:36 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
@@ -1200,7 +1200,7 @@ msgstr "Opções de salvamento remoto"
 msgid "Remote save path, blank for default"
 msgstr "Caminho de salvamento remoto, deixar em branco para caminho padrão"
 
-#: Backup.class.php:187
+#: Backup.class.php:192
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -1370,11 +1370,11 @@ msgstr "Nome de Usuário SSH"
 msgid "Saturday"
 msgstr "Sábado"
 
-#: Backup.class.php:192
+#: Backup.class.php:197
 msgid "Save"
 msgstr "Salvar"
 
-#: Backup.class.php:197
+#: Backup.class.php:202
 msgid "Save and Run"
 msgstr "Salvar e Executar"
 

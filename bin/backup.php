@@ -71,6 +71,8 @@ if (isset($vars['id']) && $vars['id']) {
 			// do not run if there are no items to backup
 			if (!$opts['bu']['items']) {
 				backup_log(_('No items in backup set. Aborting.'));
+				//on exit the destructor may not be called. tmp stuff cleaned up on destruction
+				unset($b);
 				exit();
 			}
 			backup_log(_('Connecting to remote server...'));
@@ -102,6 +104,8 @@ if (isset($vars['id']) && $vars['id']) {
 			exec(implode(' ', $cmd), $ret, $status);
 			if ($status !== 0) {
 				backup_log(_('Something went wrong when connecting to remote server. Aborting!'));
+				//on exit the destructor may not be called. tmp stuff cleaned up on destruction
+				$unset($b);
 				exit($status);
 			}
 			unset($cmd);
@@ -130,7 +134,8 @@ if (isset($vars['id']) && $vars['id']) {
 					backup_log(' > ' . $line);
 					$linecount++;
 				}
-
+				//on exit the destructor may not be called. tmp stuff cleaned up on destruction
+				unset($b);
 				exit(1);
 			}
 
@@ -223,6 +228,8 @@ if (isset($vars['id']) && $vars['id']) {
 	//r = remote options
 	if(!$r = unserialize(base64_decode($vars['opts']))) {
 		echo 'invalid opts';
+		//on exit the destructor may not be called. tmp stuff cleaned up on destruction
+		unset($b);
 		exit(1);
 	}
 	$b = new FreePBX\modules\Backup\Backup($r['bu'], $r['s']);
@@ -236,6 +243,8 @@ if (isset($vars['id']) && $vars['id']) {
 	$b->build_manifest();
 	$b->save_manifest('local');
 	$b->create_backup_file(true);
+	//on exit the destructor may not be called. tmp stuff cleaned up on destruction
+	unset($b);
 	exit();
 } elseif(isset($vars['astdb']) && $vars['astdb']) {
 	switch ($vars['astdb']) {
@@ -252,7 +261,8 @@ if (isset($vars['id']) && $vars['id']) {
 } else {
 	show_opts();
 }
-
+//on exit the destructor may not be called. tmp stuff cleaned up on destruction
+unset($b);
 exit();
 
 function show_opts() {

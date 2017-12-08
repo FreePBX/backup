@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-07 17:29-0500\n"
+"POT-Creation-Date: 2017-12-08 18:40-0500\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -42,19 +42,19 @@ msgstr ""
 "نسخه پشتیبان کامل از تنظیمات هسته و فایل های وب، ولی شامل صداهای سیستمی یا "
 "پیام های ضبط شده نمی باشد."
 
-#: views/backup/backup.php:197
+#: views/backup/backup.php:201
 msgid "A script to be run AFTER a backup is completed."
 msgstr "اسکریپتی که پس از پشتیبان گیری باید اجرا شود."
 
-#: views/backup/backup.php:245
+#: views/backup/backup.php:249
 msgid "A script to be run AFTER a backup is restored."
 msgstr "اسکریپتی که پس از بازنشانی پشتیبان باید اجرا شود."
 
-#: views/backup/backup.php:221
+#: views/backup/backup.php:225
 msgid "A script to be run BEFORE a backup is restored."
 msgstr "اسکریپتی که قبل از بازنشانی پشتیبان باید اجرا شود."
 
-#: views/backup/backup.php:173
+#: views/backup/backup.php:177
 msgid "A script to be run BEFORE a backup is started."
 msgstr "اسکریپتی که قبل از پشتیبان گیری باید اجرا شود."
 
@@ -95,7 +95,7 @@ msgstr "افزودن آیتم ها..."
 msgid "Admin"
 msgstr "مدیر"
 
-#: views/backup/backup.php:341
+#: views/backup/backup.php:345
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
 "to prevent the Primary and Standby systems from \"fighting\" for the "
@@ -131,7 +131,7 @@ msgstr "Amazon S3&trade; سرور"
 msgid "Annually"
 msgstr "سالیانه"
 
-#: views/backup/backup.php:438
+#: views/backup/backup.php:442
 msgid "Apply Configs"
 msgstr "اعمال تنظیمات"
 
@@ -155,7 +155,7 @@ msgstr "آگوست"
 msgid "Auto"
 msgstr "خودکار"
 
-#: views/backup/backup.php:495
+#: views/backup/backup.php:499
 msgid "Available Servers"
 msgstr "سرور های در دسترس"
 
@@ -233,15 +233,15 @@ msgstr "لاگ پشتیبان گیری:"
 msgid "Backup Module"
 msgstr "ماژول پشتیبان گیری"
 
-#: views/backup/backup.php:17 views/backup/backups.php:97
+#: views/backup/backup.php:21 views/backup/backups.php:97
 msgid "Backup Name"
 msgstr "نام پشتیبان"
 
-#: views/backup/backup.php:517
+#: views/backup/backup.php:521
 msgid "Backup Schedule"
 msgstr "زمان بندی پشتیبان"
 
-#: views/backup/backup.php:267
+#: views/backup/backup.php:271
 msgid "Backup Server"
 msgstr "سرور پشتیبان"
 
@@ -396,7 +396,7 @@ msgstr "روز هر ماه"
 msgid "Day of Week"
 msgstr "روز هفته"
 
-#: views/backup/backup.php:553
+#: views/backup/backup.php:557
 msgid "Days"
 msgstr "روز"
 
@@ -426,11 +426,11 @@ msgstr "پشتیبان پیش فرض، که به صورت خودکار نصب ش
 msgid "Delete"
 msgstr "حذف"
 
-#: views/backup/backup.php:541 views/backup/backup.php:578
+#: views/backup/backup.php:545 views/backup/backup.php:582
 msgid "Delete After"
 msgstr "حذف بعد از"
 
-#: views/backup/backup.php:568
+#: views/backup/backup.php:572
 msgid ""
 "Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
 "Please note that deletes aren't time based and will only happen after a "
@@ -440,7 +440,7 @@ msgstr ""
 "که عمل حذف مبتنی بر زمان نیست و تنها پس از اجرای پشتیبان صورت می پذیرد ."
 "مقدار صفر هرگونه حذف را غیرفعال می نماید"
 
-#: views/backup/backup.php:591
+#: views/backup/backup.php:595
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -453,7 +453,7 @@ msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr ""
 "حذف این مقدار ورودی. برای ذخیره ی تنظیمات باید بر روی گزینه ثبت کلیک نمایید!"
 
-#: views/backup/backup.php:41 views/backup/backups.php:10
+#: views/backup/backup.php:45 views/backup/backups.php:10
 #: views/servers/awss3.php:27 views/servers/email.php:40
 #: views/servers/ftp.php:32 views/servers/local.php:40
 #: views/servers/mysql.php:40 views/servers/servers.php:20
@@ -462,7 +462,7 @@ msgstr ""
 msgid "Description"
 msgstr "توضیحات"
 
-#: views/backup/backup.php:53
+#: views/backup/backup.php:57
 msgid "Description or notes for this backup"
 msgstr "توضیحات یا یادداشت برای این پشتیبان"
 
@@ -484,7 +484,7 @@ msgstr "دایرکتوری"
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr "دایرکتوری '%s' وجود ندارد و نمی توان آن را ایجاد کرد"
 
-#: views/backup/backup.php:326
+#: views/backup/backup.php:330
 msgid "Disable Registered Trunks"
 msgstr "غیرفعال کردن ترانک های رجیستر شده"
 
@@ -496,20 +496,20 @@ msgstr "انجام شد!"
 msgid "Download"
 msgstr "دانلود"
 
-#: views/backup/backup.php:466
+#: views/backup/backup.php:470
 msgid ""
 "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
 "سرور های مورد نظر را از لیست سرور های در دسترس انتخاب نموده و به بخش سرور "
 "های ذخیره سازی اضافه کنید"
 
-#: views/backup/backup.php:112
+#: views/backup/backup.php:116
 msgid ""
 "Drag templates and drop them in the items table to add the templates items "
 "to the table"
 msgstr "برای اضافه کردن قالب ها به جدول، آن ها را بکشید و بر روی جدول رها کنید"
 
-#: views/backup/backup.php:121
+#: views/backup/backup.php:125
 msgid "Drop Here"
 msgstr "اینجا بیندازید"
 
@@ -541,11 +541,11 @@ msgstr "آدرس ایمیلی که پشتیبان ها به آن ارسال خو
 msgid "Email notifications are set to Yes but no email provided"
 msgstr "اطلاع رسانی از طریق ایمیل روی بله تنظیم شده ولی آدرس ایمیل وارد نشده"
 
-#: views/backup/backup.php:77
+#: views/backup/backup.php:81
 msgid "Email to send status messages to when this task is run"
 msgstr "آدرس ایمیلی که وضعیت اجرای این پشتیبان گیری به آن ارسال می گردد"
 
-#: views/backup/backup.php:453
+#: views/backup/backup.php:457
 msgid ""
 "Equivalence of clicking the red button, will happen automatically after a "
 "restore on a Standby system"
@@ -575,7 +575,7 @@ msgstr "خطا در بازبینی فایل بارگذاری شده!"
 msgid "Exclude"
 msgstr "به جز"
 
-#: views/backup/backup.php:380
+#: views/backup/backup.php:384
 msgid "Exclude BIND address"
 msgstr ""
 
@@ -587,27 +587,27 @@ msgstr ""
 "به استثنای تنظیمات پشتیبان گیری. در نتیجه این تنظمیات بازیابی نمی شوند که "
 "برای بازیابی به صورت راه دور مناسب خواهد بود"
 
-#: views/backup/backup.php:409
+#: views/backup/backup.php:413
 msgid "Exclude DNS"
 msgstr ""
 
-#: views/backup/backup.php:353
+#: views/backup/backup.php:357
 msgid "Exclude NAT settings"
 msgstr "به استثناء تنظیمات NAT"
 
-#: views/backup/backup.php:395
+#: views/backup/backup.php:399
 msgid ""
 "Explicitly exclude any machine-specific Bindaddres. This allows you to have "
 "a warm-spare machine with a different IP address."
 msgstr ""
 
-#: views/backup/backup.php:424
+#: views/backup/backup.php:428
 msgid ""
 "Explicitly exclude any machine-specific DNS. This allows you to have a warm-"
 "spare machine with a different DNS."
 msgstr ""
 
-#: views/backup/backup.php:368
+#: views/backup/backup.php:372
 msgid ""
 "Explicitly exclude any machine-specific IP settings. This allows you to have "
 "a warm-spare machine with a different IP address."
@@ -728,7 +728,7 @@ msgstr "برو!"
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr "چند خط ابتدایی فایلی که برای سرور راه دور ارسال شده است عبارتند از:"
 
-#: views/backup/backup.php:152
+#: views/backup/backup.php:156
 msgid "Hooks"
 msgstr "تله ها"
 
@@ -740,7 +740,7 @@ msgstr "نام میزبان"
 msgid "Hourly"
 msgstr "ساعتی"
 
-#: views/backup/backup.php:551 views/cron.php:194 views/cron.php:198
+#: views/backup/backup.php:555 views/cron.php:194 views/cron.php:198
 msgid "Hours"
 msgstr "ساعت"
 
@@ -819,7 +819,7 @@ msgstr "پشتیبان گیری نامعتبر و یا خطای نامتعارف
 msgid "Item"
 msgstr "عنوان"
 
-#: views/backup/backup.php:118
+#: views/backup/backup.php:122
 msgid "Items"
 msgstr "موارد"
 
@@ -859,7 +859,7 @@ msgstr "محل کلید خصوصی SSH که برای اتصال به میزبا�
 msgid "MB"
 msgstr "مگابایت"
 
-#: views/backup/backup.php:532
+#: views/backup/backup.php:536
 msgid "Maintenance"
 msgstr "نگهداری"
 
@@ -875,7 +875,7 @@ msgstr "حداکثراندازه ایمیل"
 msgid "May"
 msgstr "می"
 
-#: views/backup/backup.php:549 views/cron.php:168 views/cron.php:172
+#: views/backup/backup.php:553 views/cron.php:168 views/cron.php:172
 msgid "Minutes"
 msgstr "دقیقه"
 
@@ -887,7 +887,7 @@ msgstr "دوشنبه"
 msgid "Monthly"
 msgstr "ماهانه"
 
-#: views/backup/backup.php:557 views/cron.php:246 views/cron.php:250
+#: views/backup/backup.php:561 views/cron.php:246 views/cron.php:250
 msgid "Months"
 msgstr "ماه"
 
@@ -919,7 +919,7 @@ msgstr "نام"
 msgid "Name this Server"
 msgstr "نام این سرور"
 
-#: views/backup/backup.php:29
+#: views/backup/backup.php:33
 msgid "Name this backup"
 msgstr "نام این پشتیبان"
 
@@ -967,10 +967,10 @@ msgstr "قالب جدید"
 msgid "Nightly"
 msgstr "شبانه"
 
-#: views/backup/backup.php:96 views/backup/backup.php:308
-#: views/backup/backup.php:333 views/backup/backup.php:360
-#: views/backup/backup.php:387 views/backup/backup.php:416
-#: views/backup/backup.php:445 views/backup/backups.php:186
+#: views/backup/backup.php:100 views/backup/backup.php:312
+#: views/backup/backup.php:337 views/backup/backup.php:364
+#: views/backup/backup.php:391 views/backup/backup.php:420
+#: views/backup/backup.php:449 views/backup/backups.php:186
 #: views/backup/backups.php:213 views/backup/backups.php:240
 #: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:147
 msgid "No"
@@ -1004,7 +1004,7 @@ msgstr "روشن"
 msgid "October"
 msgstr "اکتبر"
 
-#: views/backup/backup.php:89
+#: views/backup/backup.php:93
 msgid "On Failure Only"
 msgstr "فقط در صورت شکست"
 
@@ -1012,7 +1012,7 @@ msgstr "فقط در صورت شکست"
 msgid "On the"
 msgstr "در"
 
-#: views/backup/backup.php:104
+#: views/backup/backup.php:108
 msgid "Only send an email on failure"
 msgstr "فقط در صورت شکست ایمیل ارسال شود"
 
@@ -1082,19 +1082,19 @@ msgstr "لطفا منتظر بمانید، در حال بارگذاری..."
 msgid "Port"
 msgstr "پورت"
 
-#: views/backup/backup.php:185
+#: views/backup/backup.php:189
 msgid "Post-Backup Hook"
 msgstr "تله بعد از اجرای پشتیبان"
 
-#: views/backup/backup.php:233
+#: views/backup/backup.php:237
 msgid "Post-Restore Hook"
 msgstr "تله بعد از اجرای بازیابی"
 
-#: views/backup/backup.php:161
+#: views/backup/backup.php:165
 msgid "Pre-Backup Hook"
 msgstr "تله پیش از اجرای پشتیبان"
 
-#: views/backup/backup.php:209
+#: views/backup/backup.php:213
 msgid "Pre-Restore Hook"
 msgstr "تله پیش از اجرای بازیابی"
 
@@ -1195,7 +1195,7 @@ msgstr "بازیابی"
 msgid "Restore CDR records stored in this backup"
 msgstr "بازگردانی رکوردهای CDR ذخیره شده در این پشتیبان"
 
-#: views/backup/backup.php:292
+#: views/backup/backup.php:296
 msgid "Restore Here"
 msgstr "بازیابی در اینجا"
 
@@ -1203,7 +1203,7 @@ msgstr "بازیابی در اینجا"
 msgid "Restore all setting stored in the database"
 msgstr "بازیابی تمامی تنظیمات ذخیره شده در دیتابیس"
 
-#: views/backup/backup.php:314
+#: views/backup/backup.php:318
 msgid "Restore backup to this server after the backup is complete"
 msgstr "بازیابی پشتیبان بر روی این سرور بعد از اتمام پشتیبان گیری"
 
@@ -1323,7 +1323,7 @@ msgstr "اجرای تله های پیش از بازیابی…"
 msgid "Running pre-restore scripts..."
 msgstr "اجرای اسکریپت های پیش از بازیابی…"
 
-#: views/backup/backup.php:584
+#: views/backup/backup.php:588
 msgid "Runs"
 msgstr "اجرا"
 
@@ -1377,7 +1377,7 @@ msgid ""
 "for all but custom."
 msgstr "روش زمانبندی تهیه این پشتیبان را انتخاب نمایید."
 
-#: views/backup/backup.php:281
+#: views/backup/backup.php:285
 msgid ""
 "Select the server to be backed up (this server, or any other SSH server)"
 msgstr ""
@@ -1447,7 +1447,7 @@ msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr ""
 "ممکن است برخی تنظیمات برای ارتباط با سرور راه دور اشتباه باشد. بی نتیجه!"
 
-#: views/backup/backup.php:65 views/backup/backups.php:291
+#: views/backup/backup.php:69 views/backup/backups.php:291
 msgid "Status Email"
 msgstr "ایمیل وضعیت"
 
@@ -1471,7 +1471,7 @@ msgstr "گام چهارم"
 msgid "Step 5"
 msgstr "گام پنجم"
 
-#: views/backup/backup.php:472
+#: views/backup/backup.php:476
 msgid "Storage Servers"
 msgstr "سرورهای ذخیره سازی"
 
@@ -1495,7 +1495,7 @@ msgstr "یک نام برای سرور انتخاب نمایید"
 msgid "Template Name"
 msgstr "نام قالب"
 
-#: page.backup_templates.php:52 views/backup/backup.php:129
+#: page.backup_templates.php:52 views/backup/backup.php:133
 #: views/rnav/main.php:6
 msgid "Templates"
 msgstr "قالب ها"
@@ -1565,7 +1565,7 @@ msgstr ""
 msgid "This has a maximum size of 25MB."
 msgstr "حداکثر اندازه 25 مگابایت می باشد."
 
-#: views/backup/backup.php:252
+#: views/backup/backup.php:256
 msgid "This server"
 msgstr "این سرور"
 
@@ -1662,7 +1662,7 @@ msgstr "روزهای هفته"
 msgid "Weekly"
 msgstr "هفتگی"
 
-#: views/backup/backup.php:555
+#: views/backup/backup.php:559
 msgid "Weeks"
 msgstr "هفته"
 
@@ -1722,14 +1722,14 @@ msgstr "آیا تمایل به تهیه پشتیبان از مکالمات ضب�
 msgid "Would you like voicemails backded up."
 msgstr "آیا تمایل به تهیه پشتیبان از صندوق های صوتی دارید."
 
-#: views/backup/backup.php:559
+#: views/backup/backup.php:563
 msgid "Years"
 msgstr "سال"
 
-#: views/backup/backup.php:94 views/backup/backup.php:306
-#: views/backup/backup.php:331 views/backup/backup.php:358
-#: views/backup/backup.php:385 views/backup/backup.php:414
-#: views/backup/backup.php:443 views/backup/backups.php:184
+#: views/backup/backup.php:98 views/backup/backup.php:310
+#: views/backup/backup.php:335 views/backup/backup.php:362
+#: views/backup/backup.php:389 views/backup/backup.php:418
+#: views/backup/backup.php:447 views/backup/backups.php:184
 #: views/backup/backups.php:211 views/backup/backups.php:238
 #: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:145
 msgid "Yes"

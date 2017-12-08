@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-07 17:29-0500\n"
+"POT-Creation-Date: 2017-12-08 18:40-0500\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -70,19 +70,19 @@ msgstr ""
 "コア設定とウェブファイルの完全バックアップ。音声ファイルや録音したファイルは"
 "含まれません。"
 
-#: views/backup/backup.php:197
+#: views/backup/backup.php:201
 msgid "A script to be run AFTER a backup is completed."
 msgstr "バックアップ完了後に実行するスクリプト。"
 
-#: views/backup/backup.php:245
+#: views/backup/backup.php:249
 msgid "A script to be run AFTER a backup is restored."
 msgstr "バックアップから復元した後に実行されるスクリプト。"
 
-#: views/backup/backup.php:221
+#: views/backup/backup.php:225
 msgid "A script to be run BEFORE a backup is restored."
 msgstr "バックアップから復元する前に実行されるスクリプト。"
 
-#: views/backup/backup.php:173
+#: views/backup/backup.php:177
 msgid "A script to be run BEFORE a backup is started."
 msgstr "バックアップを開始する前に実行するスクリプト。"
 
@@ -123,7 +123,7 @@ msgstr "アイテムを追加中…"
 msgid "Admin"
 msgstr "アドミン"
 
-#: views/backup/backup.php:341
+#: views/backup/backup.php:345
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
 "to prevent the Primary and Standby systems from \"fighting\" for the "
@@ -156,7 +156,7 @@ msgstr ""
 msgid "Annually"
 msgstr "毎年"
 
-#: views/backup/backup.php:438
+#: views/backup/backup.php:442
 msgid "Apply Configs"
 msgstr "変更を適用"
 
@@ -180,7 +180,7 @@ msgstr "8月"
 msgid "Auto"
 msgstr ""
 
-#: views/backup/backup.php:495
+#: views/backup/backup.php:499
 msgid "Available Servers"
 msgstr "利用可能なサーバー"
 
@@ -257,15 +257,15 @@ msgstr "バックアップログ："
 msgid "Backup Module"
 msgstr "バックアップモジュール"
 
-#: views/backup/backup.php:17 views/backup/backups.php:97
+#: views/backup/backup.php:21 views/backup/backups.php:97
 msgid "Backup Name"
 msgstr "バックアップ名"
 
-#: views/backup/backup.php:517
+#: views/backup/backup.php:521
 msgid "Backup Schedule"
 msgstr "バックアップスケジュール"
 
-#: views/backup/backup.php:267
+#: views/backup/backup.php:271
 msgid "Backup Server"
 msgstr "バックアップサーバー"
 
@@ -422,7 +422,7 @@ msgstr ""
 msgid "Day of Week"
 msgstr "曜日"
 
-#: views/backup/backup.php:553
+#: views/backup/backup.php:557
 msgid "Days"
 msgstr "日"
 
@@ -452,11 +452,11 @@ msgstr "デフォルトバックアップ。自動的にインストールされ
 msgid "Delete"
 msgstr "削除"
 
-#: views/backup/backup.php:541 views/backup/backup.php:578
+#: views/backup/backup.php:545 views/backup/backup.php:582
 msgid "Delete After"
 msgstr ""
 
-#: views/backup/backup.php:568
+#: views/backup/backup.php:572
 msgid ""
 "Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
 "Please note that deletes aren't time based and will only happen after a "
@@ -466,7 +466,7 @@ msgstr ""
 "単に時間が経過した場合ではなく、新しいバックアップが行われたときに限って削除"
 "されるので、ご注意ください。この数値を0に設定すると、削除を一切しません。"
 
-#: views/backup/backup.php:591
+#: views/backup/backup.php:595
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -478,7 +478,7 @@ msgstr ""
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr "このエントリーを削除。変更適用を押し忘れずに！"
 
-#: views/backup/backup.php:41 views/backup/backups.php:10
+#: views/backup/backup.php:45 views/backup/backups.php:10
 #: views/servers/awss3.php:27 views/servers/email.php:40
 #: views/servers/ftp.php:32 views/servers/local.php:40
 #: views/servers/mysql.php:40 views/servers/servers.php:20
@@ -487,7 +487,7 @@ msgstr "このエントリーを削除。変更適用を押し忘れずに！"
 msgid "Description"
 msgstr "説明"
 
-#: views/backup/backup.php:53
+#: views/backup/backup.php:57
 msgid "Description or notes for this backup"
 msgstr "このバックアップの説明・メモなど"
 
@@ -509,7 +509,7 @@ msgstr "ディレクトリ"
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr ""
 
-#: views/backup/backup.php:326
+#: views/backup/backup.php:330
 msgid "Disable Registered Trunks"
 msgstr "登録されたトランクを無効にする"
 
@@ -521,12 +521,12 @@ msgstr "完了"
 msgid "Download"
 msgstr "ダウンロード"
 
-#: views/backup/backup.php:466
+#: views/backup/backup.php:470
 msgid ""
 "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
 
-#: views/backup/backup.php:112
+#: views/backup/backup.php:116
 msgid ""
 "Drag templates and drop them in the items table to add the templates items "
 "to the table"
@@ -534,7 +534,7 @@ msgstr ""
 "テンプレートアイテムをテーブルに追加するには、テンプレートをドラッグして、ア"
 "イテムのテーブルにドロップしてください。"
 
-#: views/backup/backup.php:121
+#: views/backup/backup.php:125
 msgid "Drop Here"
 msgstr ""
 
@@ -566,13 +566,13 @@ msgstr "バックアップを送信するEメールアドレス。"
 msgid "Email notifications are set to Yes but no email provided"
 msgstr ""
 
-#: views/backup/backup.php:77
+#: views/backup/backup.php:81
 msgid "Email to send status messages to when this task is run"
 msgstr ""
 "このタスクを実行した時に、指定されたメールアドレスにステータスメッセージを送"
 "ります"
 
-#: views/backup/backup.php:453
+#: views/backup/backup.php:457
 msgid ""
 "Equivalence of clicking the red button, will happen automatically after a "
 "restore on a Standby system"
@@ -600,7 +600,7 @@ msgstr "アップロードされたファイルを確認中にエラーが発生
 msgid "Exclude"
 msgstr "除外する"
 
-#: views/backup/backup.php:380
+#: views/backup/backup.php:384
 msgid "Exclude BIND address"
 msgstr ""
 
@@ -610,27 +610,27 @@ msgid ""
 "remote restore"
 msgstr ""
 
-#: views/backup/backup.php:409
+#: views/backup/backup.php:413
 msgid "Exclude DNS"
 msgstr ""
 
-#: views/backup/backup.php:353
+#: views/backup/backup.php:357
 msgid "Exclude NAT settings"
 msgstr "NAT設定を除外する"
 
-#: views/backup/backup.php:395
+#: views/backup/backup.php:399
 msgid ""
 "Explicitly exclude any machine-specific Bindaddres. This allows you to have "
 "a warm-spare machine with a different IP address."
 msgstr ""
 
-#: views/backup/backup.php:424
+#: views/backup/backup.php:428
 msgid ""
 "Explicitly exclude any machine-specific DNS. This allows you to have a warm-"
 "spare machine with a different DNS."
 msgstr ""
 
-#: views/backup/backup.php:368
+#: views/backup/backup.php:372
 msgid ""
 "Explicitly exclude any machine-specific IP settings. This allows you to have "
 "a warm-spare machine with a different IP address."
@@ -749,7 +749,7 @@ msgstr "実行"
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr "リモートサーバーが送ったファイルの最初の数行は以下のとおり："
 
-#: views/backup/backup.php:152
+#: views/backup/backup.php:156
 msgid "Hooks"
 msgstr "フック"
 
@@ -761,7 +761,7 @@ msgstr "ホスト名"
 msgid "Hourly"
 msgstr "毎時"
 
-#: views/backup/backup.php:551 views/cron.php:194 views/cron.php:198
+#: views/backup/backup.php:555 views/cron.php:194 views/cron.php:198
 msgid "Hours"
 msgstr "時間"
 
@@ -833,7 +833,7 @@ msgstr "不正なバックアップまたは不明なエラー"
 msgid "Item"
 msgstr ""
 
-#: views/backup/backup.php:118
+#: views/backup/backup.php:122
 msgid "Items"
 msgstr "アイテム"
 
@@ -873,7 +873,7 @@ msgstr "ホストに接続する際に使用するSSHプライベートキーの
 msgid "MB"
 msgstr ""
 
-#: views/backup/backup.php:532
+#: views/backup/backup.php:536
 msgid "Maintenance"
 msgstr "メンテナンス"
 
@@ -889,7 +889,7 @@ msgstr "最大Eメールサイズ"
 msgid "May"
 msgstr "5月"
 
-#: views/backup/backup.php:549 views/cron.php:168 views/cron.php:172
+#: views/backup/backup.php:553 views/cron.php:168 views/cron.php:172
 msgid "Minutes"
 msgstr "分"
 
@@ -901,7 +901,7 @@ msgstr "月曜日"
 msgid "Monthly"
 msgstr "毎月"
 
-#: views/backup/backup.php:557 views/cron.php:246 views/cron.php:250
+#: views/backup/backup.php:561 views/cron.php:246 views/cron.php:250
 msgid "Months"
 msgstr "月"
 
@@ -933,7 +933,7 @@ msgstr "名前"
 msgid "Name this Server"
 msgstr ""
 
-#: views/backup/backup.php:29
+#: views/backup/backup.php:33
 msgid "Name this backup"
 msgstr ""
 
@@ -981,10 +981,10 @@ msgstr "新規テンプレート"
 msgid "Nightly"
 msgstr ""
 
-#: views/backup/backup.php:96 views/backup/backup.php:308
-#: views/backup/backup.php:333 views/backup/backup.php:360
-#: views/backup/backup.php:387 views/backup/backup.php:416
-#: views/backup/backup.php:445 views/backup/backups.php:186
+#: views/backup/backup.php:100 views/backup/backup.php:312
+#: views/backup/backup.php:337 views/backup/backup.php:364
+#: views/backup/backup.php:391 views/backup/backup.php:420
+#: views/backup/backup.php:449 views/backup/backups.php:186
 #: views/backup/backups.php:213 views/backup/backups.php:240
 #: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:147
 msgid "No"
@@ -1018,7 +1018,7 @@ msgstr ""
 msgid "October"
 msgstr "10月"
 
-#: views/backup/backup.php:89
+#: views/backup/backup.php:93
 msgid "On Failure Only"
 msgstr ""
 
@@ -1026,7 +1026,7 @@ msgstr ""
 msgid "On the"
 msgstr ""
 
-#: views/backup/backup.php:104
+#: views/backup/backup.php:108
 msgid "Only send an email on failure"
 msgstr ""
 
@@ -1096,19 +1096,19 @@ msgstr ""
 msgid "Port"
 msgstr "ポート"
 
-#: views/backup/backup.php:185
+#: views/backup/backup.php:189
 msgid "Post-Backup Hook"
 msgstr ""
 
-#: views/backup/backup.php:233
+#: views/backup/backup.php:237
 msgid "Post-Restore Hook"
 msgstr ""
 
-#: views/backup/backup.php:161
+#: views/backup/backup.php:165
 msgid "Pre-Backup Hook"
 msgstr ""
 
-#: views/backup/backup.php:209
+#: views/backup/backup.php:213
 msgid "Pre-Restore Hook"
 msgstr ""
 
@@ -1208,7 +1208,7 @@ msgstr "復元"
 msgid "Restore CDR records stored in this backup"
 msgstr "このバックアップに入っているCDRレコードを復元します。"
 
-#: views/backup/backup.php:292
+#: views/backup/backup.php:296
 msgid "Restore Here"
 msgstr "ここに復元する"
 
@@ -1216,7 +1216,7 @@ msgstr "ここに復元する"
 msgid "Restore all setting stored in the database"
 msgstr "データベースに保存されている全ての設定を復元する"
 
-#: views/backup/backup.php:314
+#: views/backup/backup.php:318
 msgid "Restore backup to this server after the backup is complete"
 msgstr ""
 
@@ -1334,7 +1334,7 @@ msgstr "復元前フックがある場合は実行します..."
 msgid "Running pre-restore scripts..."
 msgstr "復元前スクリプトを実行中..."
 
-#: views/backup/backup.php:584
+#: views/backup/backup.php:588
 msgid "Runs"
 msgstr ""
 
@@ -1388,7 +1388,7 @@ msgid ""
 "for all but custom."
 msgstr ""
 
-#: views/backup/backup.php:281
+#: views/backup/backup.php:285
 msgid ""
 "Select the server to be backed up (this server, or any other SSH server)"
 msgstr ""
@@ -1457,7 +1457,7 @@ msgstr ""
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr "リモートサーバー接続中にエラーが発生しました。中断します。"
 
-#: views/backup/backup.php:65 views/backup/backups.php:291
+#: views/backup/backup.php:69 views/backup/backups.php:291
 msgid "Status Email"
 msgstr "管理者メールアドレス"
 
@@ -1481,7 +1481,7 @@ msgstr ""
 msgid "Step 5"
 msgstr ""
 
-#: views/backup/backup.php:472
+#: views/backup/backup.php:476
 msgid "Storage Servers"
 msgstr "ストレージサーバー"
 
@@ -1505,7 +1505,7 @@ msgstr ""
 msgid "Template Name"
 msgstr "テンプレート名"
 
-#: page.backup_templates.php:52 views/backup/backup.php:129
+#: page.backup_templates.php:52 views/backup/backup.php:133
 #: views/rnav/main.php:6
 msgid "Templates"
 msgstr "テンプレート"
@@ -1564,7 +1564,7 @@ msgstr ""
 msgid "This has a maximum size of 25MB."
 msgstr ""
 
-#: views/backup/backup.php:252
+#: views/backup/backup.php:256
 msgid "This server"
 msgstr "このサーバー"
 
@@ -1661,7 +1661,7 @@ msgstr ""
 msgid "Weekly"
 msgstr "毎週"
 
-#: views/backup/backup.php:555
+#: views/backup/backup.php:559
 msgid "Weeks"
 msgstr "週"
 
@@ -1721,14 +1721,14 @@ msgstr ""
 msgid "Would you like voicemails backded up."
 msgstr ""
 
-#: views/backup/backup.php:559
+#: views/backup/backup.php:563
 msgid "Years"
 msgstr "年"
 
-#: views/backup/backup.php:94 views/backup/backup.php:306
-#: views/backup/backup.php:331 views/backup/backup.php:358
-#: views/backup/backup.php:385 views/backup/backup.php:414
-#: views/backup/backup.php:443 views/backup/backups.php:184
+#: views/backup/backup.php:98 views/backup/backup.php:310
+#: views/backup/backup.php:335 views/backup/backup.php:362
+#: views/backup/backup.php:389 views/backup/backup.php:418
+#: views/backup/backup.php:447 views/backup/backups.php:184
 #: views/backup/backups.php:211 views/backup/backups.php:238
 #: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:145
 msgid "Yes"

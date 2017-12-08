@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-07 17:28-0500\n"
+"POT-Creation-Date: 2017-12-08 18:39-0500\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -42,19 +42,19 @@ msgstr ""
 "Một sao lưu đầy đủ của các cài đặt và các tệp web, không bao gồm hệ thống "
 "các âm thanh và các bản ghi."
 
-#: views/backup/backup.php:197
+#: views/backup/backup.php:201
 msgid "A script to be run AFTER a backup is completed."
 msgstr "Một kịch bản sẽ được chạy sau khi một sao lưu hoàn thành."
 
-#: views/backup/backup.php:245
+#: views/backup/backup.php:249
 msgid "A script to be run AFTER a backup is restored."
 msgstr "Một kịch bản sẽ được chạy sau khi một sao lưu được khôi phục."
 
-#: views/backup/backup.php:221
+#: views/backup/backup.php:225
 msgid "A script to be run BEFORE a backup is restored."
 msgstr "Một kịch bản sẽ được chạy trước khi một sao lưu được khôi phục."
 
-#: views/backup/backup.php:173
+#: views/backup/backup.php:177
 msgid "A script to be run BEFORE a backup is started."
 msgstr "Một kịch bản sẽ được chạy trước khi một sao lưu được khởi động."
 
@@ -95,7 +95,7 @@ msgstr "Đang thêm các hạng mục...."
 msgid "Admin"
 msgstr "Quản trị viên"
 
-#: views/backup/backup.php:341
+#: views/backup/backup.php:345
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
 "to prevent the Primary and Standby systems from \"fighting\" for the "
@@ -133,7 +133,7 @@ msgstr "Amazon S3&trade; Máy chủ"
 msgid "Annually"
 msgstr "Hằng năm"
 
-#: views/backup/backup.php:408
+#: views/backup/backup.php:412
 msgid "Apply Configs"
 msgstr "Áp dụng các cấu hình"
 
@@ -157,7 +157,7 @@ msgstr "Tháng tám"
 msgid "Auto"
 msgstr "Tự động"
 
-#: views/backup/backup.php:465
+#: views/backup/backup.php:469
 msgid "Available Servers"
 msgstr "Các máy chủ khả dụng"
 
@@ -234,15 +234,15 @@ msgstr "Sao lưu Nhật ký:"
 msgid "Backup Module"
 msgstr "Sao lưu Mô đun"
 
-#: views/backup/backup.php:17 views/backup/backups.php:97
+#: views/backup/backup.php:21 views/backup/backups.php:97
 msgid "Backup Name"
 msgstr "Sao lưu Tên"
 
-#: views/backup/backup.php:487
+#: views/backup/backup.php:491
 msgid "Backup Schedule"
 msgstr "Sao lưu lịch trình"
 
-#: views/backup/backup.php:267
+#: views/backup/backup.php:271
 msgid "Backup Server"
 msgstr "Sao lưu máy chủ"
 
@@ -397,7 +397,7 @@ msgstr "Ngày mỗi tháng"
 msgid "Day of Week"
 msgstr "Ngày trong tuần"
 
-#: views/backup/backup.php:523
+#: views/backup/backup.php:527
 msgid "Days"
 msgstr "Các ngày"
 
@@ -427,11 +427,11 @@ msgstr "Mặc định sao lưu; cài đặt tự động"
 msgid "Delete"
 msgstr "Xóa"
 
-#: views/backup/backup.php:511 views/backup/backup.php:548
+#: views/backup/backup.php:515 views/backup/backup.php:552
 msgid "Delete After"
 msgstr "Xóa Sau khi"
 
-#: views/backup/backup.php:538
+#: views/backup/backup.php:542
 msgid ""
 "Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
 "Please note that deletes aren't time based and will only happen after a "
@@ -442,7 +442,7 @@ msgstr ""
 "khi một sao lưu được chạy. Cài đặt giá trị trở về 0 sẽ vô hiệu bất kỳ thao "
 "tác xóa nào"
 
-#: views/backup/backup.php:561
+#: views/backup/backup.php:565
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -454,7 +454,7 @@ msgstr ""
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr "Xóa mục nhập này. Đừng quên kích Gửi đi để lưu các thay đổi!"
 
-#: views/backup/backup.php:41 views/backup/backups.php:10
+#: views/backup/backup.php:45 views/backup/backups.php:10
 #: views/servers/awss3.php:27 views/servers/email.php:40
 #: views/servers/ftp.php:32 views/servers/local.php:40
 #: views/servers/mysql.php:40 views/servers/servers.php:20
@@ -463,7 +463,7 @@ msgstr "Xóa mục nhập này. Đừng quên kích Gửi đi để lưu các th
 msgid "Description"
 msgstr "Mô tả"
 
-#: views/backup/backup.php:53
+#: views/backup/backup.php:57
 msgid "Description or notes for this backup"
 msgstr "Mô tả hoặc các lưu ý cho sao lưu này"
 
@@ -485,7 +485,7 @@ msgstr "Thư mục"
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr "Thư mục '%s' không tồn tại và chúng tôi không thể tạo nó"
 
-#: views/backup/backup.php:326
+#: views/backup/backup.php:330
 msgid "Disable Registered Trunks"
 msgstr "Vô hiệu các trung kế đã đăng ký"
 
@@ -497,20 +497,20 @@ msgstr "Đã xong!"
 msgid "Download"
 msgstr "Tải về"
 
-#: views/backup/backup.php:436
+#: views/backup/backup.php:440
 msgid ""
 "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
 "Kéo các máy chủ từ danh sách các máy chủ khả dụng  để thêm chúng như các máy "
 "chủ lưu trữ"
 
-#: views/backup/backup.php:112
+#: views/backup/backup.php:116
 msgid ""
 "Drag templates and drop them in the items table to add the templates items "
 "to the table"
 msgstr "Kéo và thả các mẫu vào bản mục lục để thêm các thư mục mẫu vào bảng"
 
-#: views/backup/backup.php:121
+#: views/backup/backup.php:125
 msgid "Drop Here"
 msgstr "Thả tại đây"
 
@@ -544,11 +544,11 @@ msgstr ""
 "Các thông báo Thư điện tử được thiết lập Có nhưng không Thư điện tử nào được "
 "cung cấp"
 
-#: views/backup/backup.php:77
+#: views/backup/backup.php:81
 msgid "Email to send status messages to when this task is run"
 msgstr "Gửi email để thông báo trạng thái đến khi tác vụ này được chạy"
 
-#: views/backup/backup.php:423
+#: views/backup/backup.php:427
 msgid ""
 "Equivalence of clicking the red button, will happen automatically after a "
 "restore on a Standby system"
@@ -578,7 +578,7 @@ msgstr "Lỗi khi đang xác nhận tệp đã tải lên!"
 msgid "Exclude"
 msgstr "Ngoại trừ"
 
-#: views/backup/backup.php:380
+#: views/backup/backup.php:384
 msgid "Exclude BIND address"
 msgstr "Loại trừ địa chỉ Địa chỉ IP để gán vào"
 
@@ -590,11 +590,11 @@ msgstr ""
 "Ngoại trừ các cài đặt của các sao lưu để chúng không bị khôi phục, giúp ích "
 "cho việc khôi phục từ xa"
 
-#: views/backup/backup.php:353
+#: views/backup/backup.php:357
 msgid "Exclude NAT settings"
 msgstr "Ngoại trừ các cài đặt NAT"
 
-#: views/backup/backup.php:395
+#: views/backup/backup.php:399
 msgid ""
 "Explicitly exclude any machine-specific Bindaddres. This allows you to have "
 "a warm-spare machine with a different IP address."
@@ -602,7 +602,7 @@ msgstr ""
 "Loại trừ dứt khoát bất kỳ Địa chỉ IP để gán theo máy. Điều này cho phép bạn "
 "có một máy dự phòng nóng với một địa chỉ IP khác."
 
-#: views/backup/backup.php:368
+#: views/backup/backup.php:372
 msgid ""
 "Explicitly exclude any machine-specific IP settings. This allows you to have "
 "a warm-spare machine with a different IP address."
@@ -723,7 +723,7 @@ msgstr "Đi!"
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr "Đây là vài dòng đầu tiên của tệp tin đã được gửi bởi máy chủ từ xa:"
 
-#: views/backup/backup.php:152
+#: views/backup/backup.php:156
 msgid "Hooks"
 msgstr "Các điểm neo"
 
@@ -735,7 +735,7 @@ msgstr "Tên host"
 msgid "Hourly"
 msgstr "Hằng giờ"
 
-#: views/backup/backup.php:521 views/cron.php:194 views/cron.php:198
+#: views/backup/backup.php:525 views/cron.php:194 views/cron.php:198
 msgid "Hours"
 msgstr "Giờ"
 
@@ -818,7 +818,7 @@ msgstr "Sao lưu không khả dụng cho hoặc lỗi không xác định"
 msgid "Item"
 msgstr "Thư mục"
 
-#: views/backup/backup.php:118
+#: views/backup/backup.php:122
 msgid "Items"
 msgstr "Các thư mục"
 
@@ -858,7 +858,7 @@ msgstr "Vị trí của khóa cá nhân ssh được sử dụng khi kết nối
 msgid "MB"
 msgstr "Megabyte"
 
-#: views/backup/backup.php:502
+#: views/backup/backup.php:506
 msgid "Maintenance"
 msgstr "Bảo dưỡng"
 
@@ -874,7 +874,7 @@ msgstr "Kich cỡ Thư điện tử lớn nhất"
 msgid "May"
 msgstr "Tháng năm"
 
-#: views/backup/backup.php:519 views/cron.php:168 views/cron.php:172
+#: views/backup/backup.php:523 views/cron.php:168 views/cron.php:172
 msgid "Minutes"
 msgstr "Phút"
 
@@ -886,7 +886,7 @@ msgstr "Thứ Hai"
 msgid "Monthly"
 msgstr "Hằng tháng"
 
-#: views/backup/backup.php:527 views/cron.php:246 views/cron.php:250
+#: views/backup/backup.php:531 views/cron.php:246 views/cron.php:250
 msgid "Months"
 msgstr "Tháng"
 
@@ -918,7 +918,7 @@ msgstr "Tên"
 msgid "Name this Server"
 msgstr "Tên máy chủ này"
 
-#: views/backup/backup.php:29
+#: views/backup/backup.php:33
 msgid "Name this backup"
 msgstr "Tên sao lưu này"
 
@@ -966,9 +966,9 @@ msgstr "Mẫu mới"
 msgid "Nightly"
 msgstr "Hằng đêm"
 
-#: views/backup/backup.php:96 views/backup/backup.php:308
-#: views/backup/backup.php:333 views/backup/backup.php:360
-#: views/backup/backup.php:387 views/backup/backup.php:415
+#: views/backup/backup.php:100 views/backup/backup.php:312
+#: views/backup/backup.php:337 views/backup/backup.php:364
+#: views/backup/backup.php:391 views/backup/backup.php:419
 #: views/backup/backups.php:186 views/backup/backups.php:213
 #: views/backup/backups.php:240 views/backup/backups.php:271
 #: views/backup/backups.php:327 views/cron.php:147
@@ -1003,7 +1003,7 @@ msgstr "BẬT"
 msgid "October"
 msgstr "Tháng mười"
 
-#: views/backup/backup.php:89
+#: views/backup/backup.php:93
 msgid "On Failure Only"
 msgstr "Chỉ khi có sự cố"
 
@@ -1011,7 +1011,7 @@ msgstr "Chỉ khi có sự cố"
 msgid "On the"
 msgstr "Trên"
 
-#: views/backup/backup.php:104
+#: views/backup/backup.php:108
 msgid "Only send an email on failure"
 msgstr "Chỉ gửi một Thư điện tử khi sự cố"
 
@@ -1085,19 +1085,19 @@ msgstr "Vui lòng đơi, đang tải..."
 msgid "Port"
 msgstr "Cổng giao tiếp"
 
-#: views/backup/backup.php:185
+#: views/backup/backup.php:189
 msgid "Post-Backup Hook"
 msgstr "Hook sau sao lưu"
 
-#: views/backup/backup.php:233
+#: views/backup/backup.php:237
 msgid "Post-Restore Hook"
 msgstr "Hook sau khôi phục"
 
-#: views/backup/backup.php:161
+#: views/backup/backup.php:165
 msgid "Pre-Backup Hook"
 msgstr "Hook trước sao lưu"
 
-#: views/backup/backup.php:209
+#: views/backup/backup.php:213
 msgid "Pre-Restore Hook"
 msgstr "Hool trước Khôi phục"
 
@@ -1193,7 +1193,7 @@ msgstr "Khôi phục"
 msgid "Restore CDR records stored in this backup"
 msgstr "Khôi phục các bản ghi CDR đã lưu trong sao lưu này"
 
-#: views/backup/backup.php:292
+#: views/backup/backup.php:296
 msgid "Restore Here"
 msgstr "Khôi phục tại đây"
 
@@ -1201,7 +1201,7 @@ msgstr "Khôi phục tại đây"
 msgid "Restore all setting stored in the database"
 msgstr "Khôi phục tất cả các cài đặt đã lưu trong cơ sở dữ liệu"
 
-#: views/backup/backup.php:314
+#: views/backup/backup.php:318
 msgid "Restore backup to this server after the backup is complete"
 msgstr "Khôi phục sao lưu tới máy chủ sau khi sao lưu hoàn thành"
 
@@ -1317,7 +1317,7 @@ msgstr "Đang chạy hooks trước khôi phục, nếu có..."
 msgid "Running pre-restore scripts..."
 msgstr "Đang chạy các kịch bản trước khôi phục..."
 
-#: views/backup/backup.php:554
+#: views/backup/backup.php:558
 msgid "Runs"
 msgstr "Chạy"
 
@@ -1373,7 +1373,7 @@ msgstr ""
 "Chọn Tần suất chạy sao lưu này. Các lịch trình sau sẽ được theo dõi đối với "
 "tất cả trừ  việc tùy chỉnh."
 
-#: views/backup/backup.php:281
+#: views/backup/backup.php:285
 msgid ""
 "Select the server to be backed up (this server, or any other SSH server)"
 msgstr ""
@@ -1433,7 +1433,7 @@ msgstr "Bỏ qua Địa chỉ IP để gán theo host"
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr "Xuất hiện lỗi khi kết nối với máy chủ từ xa. Hủy bỏ!"
 
-#: views/backup/backup.php:65 views/backup/backups.php:291
+#: views/backup/backup.php:69 views/backup/backups.php:291
 msgid "Status Email"
 msgstr "Trạng thái Thư điện tử"
 
@@ -1457,7 +1457,7 @@ msgstr "Bước 4"
 msgid "Step 5"
 msgstr "Bước 5"
 
-#: views/backup/backup.php:442
+#: views/backup/backup.php:446
 msgid "Storage Servers"
 msgstr "Các máy chủ lưu trữ"
 
@@ -1481,7 +1481,7 @@ msgstr "Cung cấp một tên máy chủ"
 msgid "Template Name"
 msgstr "Tên mẫu"
 
-#: page.backup_templates.php:52 views/backup/backup.php:129
+#: page.backup_templates.php:52 views/backup/backup.php:133
 #: views/rnav/main.php:6
 msgid "Templates"
 msgstr "Các mẫu"
@@ -1554,7 +1554,7 @@ msgstr ""
 msgid "This has a maximum size of 25MB."
 msgstr "Cái này có kích cỡ tối đa là 25MB."
 
-#: views/backup/backup.php:252
+#: views/backup/backup.php:256
 msgid "This server"
 msgstr "Máy chủ này"
 
@@ -1653,7 +1653,7 @@ msgstr "Các ngày trong tuần"
 msgid "Weekly"
 msgstr "Hằng tuần"
 
-#: views/backup/backup.php:525
+#: views/backup/backup.php:529
 msgid "Weeks"
 msgstr "Tuần"
 
@@ -1713,13 +1713,13 @@ msgstr "Bạn có muôn sao lưu các ghi âm?"
 msgid "Would you like voicemails backded up."
 msgstr "Bạn có muốn các thư thoại được sao lưu."
 
-#: views/backup/backup.php:529
+#: views/backup/backup.php:533
 msgid "Years"
 msgstr "Năm"
 
-#: views/backup/backup.php:94 views/backup/backup.php:306
-#: views/backup/backup.php:331 views/backup/backup.php:358
-#: views/backup/backup.php:385 views/backup/backup.php:413
+#: views/backup/backup.php:98 views/backup/backup.php:310
+#: views/backup/backup.php:335 views/backup/backup.php:362
+#: views/backup/backup.php:389 views/backup/backup.php:417
 #: views/backup/backups.php:184 views/backup/backups.php:211
 #: views/backup/backups.php:238 views/backup/backups.php:269
 #: views/backup/backups.php:325 views/cron.php:145

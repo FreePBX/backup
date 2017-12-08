@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-08 18:40-0500\n"
+"POT-Creation-Date: 2017-12-08 18:59-0500\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -167,12 +167,12 @@ msgstr "B"
 msgid "BACKUP LOG ATTACHED"
 msgstr "لاگ پشتیبان ضمیمه شده"
 
-#: functions.inc/class.backup.php:410 functions.inc/class.backup.php:413
+#: functions.inc/class.backup.php:414 functions.inc/class.backup.php:417
 msgid "BACKUP NOT ATTACHED"
 msgstr "پشتیبان ضمیمه نشد"
 
 #: Backup.class.php:321 functions.inc/backup.php:82
-#: functions.inc/class.backup.php:404 views/backup/backup.php:6
+#: functions.inc/class.backup.php:408 views/backup/backup.php:6
 msgid "Backup"
 msgstr "پشتیبان گیری"
 
@@ -205,11 +205,11 @@ msgstr ""
 msgid "Backup Description"
 msgstr "توضیحات پشتیبان"
 
-#: functions.inc/class.backup.php:409
+#: functions.inc/class.backup.php:413
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr "خطای پشتیبان گیری (exceeded SMTP limits)"
 
-#: functions.inc/class.backup.php:412
+#: functions.inc/class.backup.php:416
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr "خطای پشتیبان گیری (exceeded soft limit)"
 
@@ -261,11 +261,11 @@ msgstr "ویزارد پشتیبان گیری"
 msgid "Backup and Restore"
 msgstr "پشتیبان گیری و بازیابی"
 
-#: bin/backup.php:150 bin/backup.php:210
+#: bin/backup.php:155 bin/backup.php:215
 msgid "Backup completed with errors!"
 msgstr "پشتیبان گیری با خطا پایان یافت!"
 
-#: functions.inc/class.backup.php:298
+#: functions.inc/class.backup.php:299
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -278,7 +278,7 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr "فایل پشتیبان یافت نشد! بی نتیجه."
 
-#: functions.inc/class.backup.php:498
+#: functions.inc/class.backup.php:502
 msgid "Backup file uploaded to the remote server"
 msgstr ""
 
@@ -286,7 +286,7 @@ msgstr ""
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "ماژول پشتیبان گیری یافت نشد و یا غیرفعال است. بی نتیجه!"
 
-#: bin/backup.php:152 bin/backup.php:212
+#: bin/backup.php:157 bin/backup.php:217
 msgid "Backup successfully completed!"
 msgstr "پشتیبان گیری با موفقیت پایان یافت!"
 
@@ -354,16 +354,16 @@ msgstr "برای ادامه 'بعدی' را کلیک کنید."
 msgid "Configurations only"
 msgstr "فقط پیکربندی ها"
 
-#: bin/backup.php:76
+#: bin/backup.php:78
 msgid "Connecting to remote server..."
 msgstr "اتصال به سرور دور دست..."
 
-#: functions.inc/class.backup.php:816
+#: functions.inc/class.backup.php:822
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
 
-#: functions.inc/class.backup.php:397 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:401 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "ساخته شد"
 
@@ -371,7 +371,7 @@ msgstr "ساخته شد"
 msgid "Creating backup..."
 msgstr "در حال پشتیبان گیری..."
 
-#: functions.inc/class.backup.php:476
+#: functions.inc/class.backup.php:480
 #, php-format
 msgid "Creating directory '%s'"
 msgstr "در حال ایجاد دایرکتوری '%s'"
@@ -479,7 +479,7 @@ msgstr "مقصد"
 msgid "Directory"
 msgstr "دایرکتوری"
 
-#: functions.inc/class.backup.php:480
+#: functions.inc/class.backup.php:484
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr "دایرکتوری '%s' وجود ندارد و نمی توان آن را ایجاد کرد"
@@ -553,12 +553,12 @@ msgstr ""
 "پس از کلیک بر روی دکمه قرمز رنگ، هم ارزی به صورت خودکار پس از بازیابی بر روی "
 "سیستم فرعی انجام خواهد شد"
 
-#: functions.inc/class.backup.php:470 functions.inc/restore.php:117
+#: functions.inc/class.backup.php:474 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
 msgstr "خطا در ایجاد شی در FTP"
 
-#: functions.inc/class.backup.php:823
+#: functions.inc/class.backup.php:829
 #, php-format
 msgid "Error deleting %s"
 msgstr "خطا در حذف کردن %s"
@@ -684,11 +684,11 @@ msgstr "فایل یافت نشد! "
 msgid "File restore complete!"
 msgstr "بازیابی فایل پایان یافت!"
 
-#: bin/backup.php:124
+#: bin/backup.php:128
 msgid "File verification failed. "
 msgstr "بازبینی فایل شکست خورد. "
 
-#: functions.inc/class.backup.php:398 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:402 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "فایل ها"
 
@@ -724,7 +724,7 @@ msgstr "یک نام مناسب برای این پشتیبان انتخاب نم�
 msgid "Go!"
 msgstr "برو!"
 
-#: bin/backup.php:125
+#: bin/backup.php:129
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr "چند خط ابتدایی فایلی که برای سرور راه دور ارسال شده است عبارتند از:"
 
@@ -903,7 +903,7 @@ msgstr "MySQL"
 msgid "Mysql DB's"
 msgstr "دیتابیس های MySQL"
 
-#: functions.inc/class.backup.php:399
+#: functions.inc/class.backup.php:403
 msgid "Mysql Db's"
 msgstr "دیتابیس های MySQL"
 
@@ -911,7 +911,7 @@ msgstr "دیتابیس های MySQL"
 msgid "Mysql Server "
 msgstr "سرور MySQL "
 
-#: functions.inc/class.backup.php:396 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:400 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "نام"
 
@@ -1065,7 +1065,7 @@ msgstr "مسیر کلید SSH، به عنوان مثال home/asterisk/.ssh/id_r
 msgid "Path/DB"
 msgstr "مسیر/دیتابیس"
 
-#: functions.inc/class.backup.php:812 functions.inc/class.backup.php:813
+#: functions.inc/class.backup.php:818 functions.inc/class.backup.php:819
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1120,7 +1120,7 @@ msgstr "پردازش %s%% از CDR ها (%s از %s خط)"
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "پردازش %s%% از تنظیمات (%s از %s خط)"
 
-#: bin/backup.php:137
+#: bin/backup.php:142
 msgid "Processing received file..."
 msgstr "پردازش فایل دریافتی..."
 
@@ -1251,7 +1251,7 @@ msgstr "بازیابی تمامی فایل ها (ممکن است طول بکشد
 msgid "Restoring astDB..."
 msgstr "بازیابی دیتابیس استریسک..."
 
-#: bin/backup.php:171
+#: bin/backup.php:176
 msgid "Restoring backup..."
 msgstr "بازیابی پشتیبان..."
 
@@ -1295,7 +1295,7 @@ msgstr "یک مرتبه در سال اجرا شود، در نیمه شب یکم 
 msgid "Run once an hour, beginning of hour"
 msgstr "یک مرتبه در هر ساعت اجرا شود، در ابتدای هر ساعت"
 
-#: functions.inc/class.backup.php:499
+#: functions.inc/class.backup.php:503
 msgid "Running maintenance.."
 msgstr ""
 
@@ -1303,7 +1303,7 @@ msgstr ""
 msgid "Running post restore script..."
 msgstr "اجرای اسکریپت پس از بازیابی..."
 
-#: bin/backup.php:145 bin/backup.php:195
+#: bin/backup.php:150 bin/backup.php:200
 msgid "Running post-backup hooks..."
 msgstr "اجرای تله های بعد از پشتیبان گیری…"
 
@@ -1359,7 +1359,7 @@ msgstr "ذخیره"
 msgid "Save and Run"
 msgstr "ذخیره و اجرا"
 
-#: functions.inc/class.backup.php:487
+#: functions.inc/class.backup.php:491
 msgid "Saving file to remote ftp"
 msgstr "ذخیره فایل در FTP راه دور"
 
@@ -1426,11 +1426,11 @@ msgstr "آدرس سرور نمی تواند خالی باشد"
 msgid "Servers"
 msgstr "سرورها"
 
-#: bin/backup.php:179
+#: bin/backup.php:184
 msgid "Skip Bindaddrss is Enabled... "
 msgstr ""
 
-#: bin/backup.php:185
+#: bin/backup.php:190
 msgid "Skip DNS is Enabled... "
 msgstr ""
 
@@ -1442,7 +1442,7 @@ msgstr ""
 msgid "Skipping host-specific DNS"
 msgstr ""
 
-#: bin/backup.php:104
+#: bin/backup.php:106
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr ""
 "ممکن است برخی تنظیمات برای ارتباط با سرور راه دور اشتباه باشد. بی نتیجه!"
@@ -1479,7 +1479,7 @@ msgstr "سرورهای ذخیره سازی"
 msgid "Storage location for backups"
 msgstr "محل ذخیره سازی پشتیبان ها"
 
-#: bin/backup.php:142
+#: bin/backup.php:147
 msgid "Storing backup..."
 msgstr "ذخیره سازی پشتیبان..."
 
@@ -1517,7 +1517,7 @@ msgstr ""
 msgid "The Restore script is still running"
 msgstr ""
 
-#: functions.inc/class.backup.php:410
+#: functions.inc/class.backup.php:414
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
@@ -1527,7 +1527,7 @@ msgstr ""
 "امکان ارسال این فایل وجود ندارد لذا باید فایل مورد نظر را کوچک تر کرده و یا "
 "از روش های دیگر برای انتقال آن استفاده نمایید."
 
-#: functions.inc/class.backup.php:413
+#: functions.inc/class.backup.php:417
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1587,7 +1587,7 @@ msgstr "حالت انتقال"
 msgid "Transfer Type"
 msgstr "نوع انتقال"
 
-#: functions.inc/class.backup.php:492
+#: functions.inc/class.backup.php:496
 #, php-format
 msgid "Trying to upload %s to %s"
 msgstr ""
@@ -1600,7 +1600,7 @@ msgstr "سه شنبه"
 msgid "Type"
 msgstr "نوع"
 
-#: functions.inc/class.backup.php:490
+#: functions.inc/class.backup.php:494
 msgid "Unable to upload file to the remote server"
 msgstr "عدم امکان بارگذاری فایل در سرور راه دور"
 
@@ -1630,7 +1630,7 @@ msgstr "نام کاربری"
 msgid "Username"
 msgstr "نام کاربری"
 
-#: bin/backup.php:109
+#: bin/backup.php:113
 msgid "Verifying received file..."
 msgstr "بازبینی فایل دریافتی..."
 
@@ -1753,7 +1753,7 @@ msgstr "سرورهای پشتیبان پیش فرض اضافه شد"
 msgid "added default backup templates"
 msgstr "قالب های پشتیبان پیش فرض اضافه شد"
 
-#: functions.inc/class.backup.php:400
+#: functions.inc/class.backup.php:404
 msgid "astDb's"
 msgstr "دیتابیس های استریسک"
 

@@ -434,7 +434,7 @@ class Backup {
 					}catch (\Exception $e){
 						$this->b['error'] = $e->getMessage();
 						backup_log($this->b['error']);
-						return;
+						break;
 					}
 
 					$wrapper = new FTPWrapper($connection);
@@ -480,7 +480,7 @@ class Backup {
 							$this->b['error'] = sprintf(_("Directory '%s' did not exist and we could not create it"),$path);
 							backup_log($this->b['error']);
 							backup_log($e->getMessage());
-							return;
+							break;
 						}
 					}
 					try{
@@ -491,7 +491,7 @@ class Backup {
 						backup_log($this->b['error']);
 						backup_log(sprintf(_("Trying to upload %s to %s"),$this->b['_tmpfile'],$path.'/'.$this->b['_file'] . '.tgz'));
 						backup_log($e->getMessage());
-						return;
+						break;
 					}
 					//Adding a backup upload confirmation to the backup_log (FREEPBX-14466 ->Whoops error when ftp backup can't delete old backups)
 					// hope it will not reach here, if backup encounters an Exception

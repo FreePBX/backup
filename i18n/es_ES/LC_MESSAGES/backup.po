@@ -19,15 +19,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-22 18:53-0400\n"
+"POT-Creation-Date: 2017-12-08 18:58-0500\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
 "es_ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 "X-Poedit-Language: Spanish\n"
@@ -55,19 +55,19 @@ msgstr ""
 "Respaldo completo del core y archivos web, no incluye sonidos del sistema ni "
 "grabaciones."
 
-#: views/backup/backup.php:197
+#: views/backup/backup.php:201
 msgid "A script to be run AFTER a backup is completed."
 msgstr "Un script a ser ejecutado DESPUES que el respaldo sea completado."
 
-#: views/backup/backup.php:245
+#: views/backup/backup.php:249
 msgid "A script to be run AFTER a backup is restored."
 msgstr "Un Script a ser ejecutado DESPUES que el respaldo sea restaurado."
 
-#: views/backup/backup.php:221
+#: views/backup/backup.php:225
 msgid "A script to be run BEFORE a backup is restored."
 msgstr "Un Script a ser ejecutado ANTES que el respaldo sea restaurado."
 
-#: views/backup/backup.php:173
+#: views/backup/backup.php:177
 msgid "A script to be run BEFORE a backup is started."
 msgstr "Un Script a ser ejecutado ANTES que el respaldo de inicio."
 
@@ -108,7 +108,7 @@ msgstr "Agregando elementos..."
 msgid "Admin"
 msgstr "Administrador"
 
-#: views/backup/backup.php:341
+#: views/backup/backup.php:345
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
 "to prevent the Primary and Standby systems from \"fighting\" for the "
@@ -147,7 +147,7 @@ msgstr "Servidor S3&trade; Amazon"
 msgid "Annually"
 msgstr "Anualmente"
 
-#: views/backup/backup.php:408
+#: views/backup/backup.php:412
 msgid "Apply Configs"
 msgstr "Aplicar configuraciones"
 
@@ -171,7 +171,7 @@ msgstr "Agosto"
 msgid "Auto"
 msgstr "Auto"
 
-#: views/backup/backup.php:465
+#: views/backup/backup.php:469
 msgid "Available Servers"
 msgstr "Servidores Disponibles"
 
@@ -183,12 +183,12 @@ msgstr "B"
 msgid "BACKUP LOG ATTACHED"
 msgstr "BITACORA DE RESPALDOS ANEXADA"
 
-#: functions.inc/class.backup.php:410 functions.inc/class.backup.php:413
+#: functions.inc/class.backup.php:414 functions.inc/class.backup.php:417
 msgid "BACKUP NOT ATTACHED"
 msgstr "RESPALDO NO ANEXO"
 
-#: Backup.class.php:316 functions.inc/backup.php:81
-#: functions.inc/class.backup.php:404 views/backup/backup.php:6
+#: Backup.class.php:321 functions.inc/backup.php:81
+#: functions.inc/class.backup.php:408 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Respaldo"
 
@@ -220,11 +220,11 @@ msgstr "Respaldar CDR y datos de grabación de llamadas?"
 msgid "Backup Description"
 msgstr "Descripción de Respaldo"
 
-#: functions.inc/class.backup.php:409
+#: functions.inc/class.backup.php:413
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr "ERROR respaldo (excedio los limites SMTP)"
 
-#: functions.inc/class.backup.php:412
+#: functions.inc/class.backup.php:416
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr "ERROR respaldo (excede limites blandos)"
 
@@ -248,15 +248,15 @@ msgstr "Bitacora del respaldo:"
 msgid "Backup Module"
 msgstr "Modulo de Respaldo"
 
-#: views/backup/backup.php:17 views/backup/backups.php:97
+#: views/backup/backup.php:21 views/backup/backups.php:97
 msgid "Backup Name"
 msgstr "Nombre del Respaldo"
 
-#: views/backup/backup.php:487
+#: views/backup/backup.php:491
 msgid "Backup Schedule"
 msgstr "Crongrama de Respaldos"
 
-#: views/backup/backup.php:267
+#: views/backup/backup.php:271
 msgid "Backup Server"
 msgstr "Servidor de Respaldo"
 
@@ -276,11 +276,11 @@ msgstr "Asistente de Respaldo"
 msgid "Backup and Restore"
 msgstr "Respaldo y Restauración"
 
-#: bin/backup.php:150 bin/backup.php:205
+#: bin/backup.php:155 bin/backup.php:210
 msgid "Backup completed with errors!"
 msgstr "Respaldo completado con errores!"
 
-#: functions.inc/class.backup.php:298
+#: functions.inc/class.backup.php:299
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -293,7 +293,7 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr "Archivo de Respaldo no encontrado!. Abortando."
 
-#: functions.inc/class.backup.php:498
+#: functions.inc/class.backup.php:502
 msgid "Backup file uploaded to the remote server"
 msgstr ""
 
@@ -301,7 +301,7 @@ msgstr ""
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "Modulo de Respaldo  no encontrado o esta deshabilitado. Abortando!"
 
-#: bin/backup.php:152 bin/backup.php:207
+#: bin/backup.php:157 bin/backup.php:212
 msgid "Backup successfully completed!"
 msgstr "Respaldo satisfactoriamente completado!"
 
@@ -357,7 +357,7 @@ msgstr "Grabaciones de Llamadas"
 msgid "Can not create backup tables"
 msgstr "No se pueden crear tablas de Respandos"
 
-#: bin/restore.php:454
+#: bin/restore.php:462
 msgid "Cleaning up..."
 msgstr "Limpiando ..."
 
@@ -369,16 +369,16 @@ msgstr "Oprima \"Próximo\" para Continuar."
 msgid "Configurations only"
 msgstr "Solo Configuraciones"
 
-#: bin/backup.php:76
+#: bin/backup.php:78
 msgid "Connecting to remote server..."
 msgstr "Conectando a Servidor remoto..."
 
-#: functions.inc/class.backup.php:816
+#: functions.inc/class.backup.php:822
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
 
-#: functions.inc/class.backup.php:397 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:401 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Creado"
 
@@ -386,7 +386,7 @@ msgstr "Creado"
 msgid "Creating backup..."
 msgstr "Creando respaldo ..."
 
-#: functions.inc/class.backup.php:476
+#: functions.inc/class.backup.php:480
 #, php-format
 msgid "Creating directory '%s'"
 msgstr "Creando Directorio '%s'"
@@ -411,7 +411,7 @@ msgstr "Día cada mes"
 msgid "Day of Week"
 msgstr "Día de la semana"
 
-#: views/backup/backup.php:523
+#: views/backup/backup.php:527
 msgid "Days"
 msgstr "Días"
 
@@ -435,17 +435,17 @@ msgstr "Defecto"
 msgid "Default backup; automatically installed"
 msgstr "Respaldo por defecto, automáticamente instalado"
 
-#: Backup.class.php:38 Backup.class.php:202 page.backup.php:47
+#: Backup.class.php:38 Backup.class.php:207 page.backup.php:47
 #: page.backup_servers.php:36 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
 msgstr "Eliminar"
 
-#: views/backup/backup.php:511 views/backup/backup.php:548
+#: views/backup/backup.php:515 views/backup/backup.php:552
 msgid "Delete After"
 msgstr "Borrar despues"
 
-#: views/backup/backup.php:538
+#: views/backup/backup.php:542
 msgid ""
 "Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
 "Please note that deletes aren't time based and will only happen after a "
@@ -456,7 +456,7 @@ msgstr ""
 "basadas en tiempo y sólo va a pasar después de que se ejecute una copia de "
 "seguridad. Establecer el valor a 0 desactivará cualquier borrado"
 
-#: views/backup/backup.php:561
+#: views/backup/backup.php:565
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -469,7 +469,7 @@ msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr ""
 "Borrar esta entrada. No olvide oprimir \"Enviar\" para guardar los cambios!"
 
-#: views/backup/backup.php:41 views/backup/backups.php:10
+#: views/backup/backup.php:45 views/backup/backups.php:10
 #: views/servers/awss3.php:27 views/servers/email.php:40
 #: views/servers/ftp.php:32 views/servers/local.php:40
 #: views/servers/mysql.php:40 views/servers/servers.php:20
@@ -478,7 +478,7 @@ msgstr ""
 msgid "Description"
 msgstr "Descripción"
 
-#: views/backup/backup.php:53
+#: views/backup/backup.php:57
 msgid "Description or notes for this backup"
 msgstr "Descripción o comentarios para este Respaldo"
 
@@ -495,16 +495,16 @@ msgstr "Destino"
 msgid "Directory"
 msgstr "Directorio"
 
-#: functions.inc/class.backup.php:480
+#: functions.inc/class.backup.php:484
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr "Directorio '%s' no existe y no pudo ser creado"
 
-#: views/backup/backup.php:326
+#: views/backup/backup.php:330
 msgid "Disable Registered Trunks"
 msgstr "Deshabilitar Troncales Registrados"
 
-#: bin/restore.php:500
+#: bin/restore.php:508
 msgid "Done!"
 msgstr "Hecho!"
 
@@ -512,14 +512,14 @@ msgstr "Hecho!"
 msgid "Download"
 msgstr "Bajar"
 
-#: views/backup/backup.php:436
+#: views/backup/backup.php:440
 msgid ""
 "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
 "Arrastre servidores desde la lista Servidores Disponibles para agregar a "
 "Servideres de Almacenamiento"
 
-#: views/backup/backup.php:112
+#: views/backup/backup.php:116
 msgid ""
 "Drag templates and drop them in the items table to add the templates items "
 "to the table"
@@ -527,7 +527,7 @@ msgstr ""
 "Arrastre la plantillas y póngalas la tabla de elementos para agregar "
 "plantillas a la misma"
 
-#: views/backup/backup.php:121
+#: views/backup/backup.php:125
 msgid "Drop Here"
 msgstr "Sueltelos aqui"
 
@@ -561,11 +561,11 @@ msgstr ""
 "Notificaciones por Email esta configurado \"Si\" pero no se ha provisto un "
 "correo"
 
-#: views/backup/backup.php:77
+#: views/backup/backup.php:81
 msgid "Email to send status messages to when this task is run"
 msgstr "Correo para enviar mensajes de estado cuando esta tarea sea ejecutada"
 
-#: views/backup/backup.php:423
+#: views/backup/backup.php:427
 msgid ""
 "Equivalence of clicking the red button, will happen automatically after a "
 "restore on a Standby system"
@@ -573,12 +573,12 @@ msgstr ""
 "Equivalente de hacer clic en el botón rojo, se producirá automáticamente "
 "después de una restauración en un sistema de espera"
 
-#: functions.inc/class.backup.php:470 functions.inc/restore.php:117
+#: functions.inc/class.backup.php:474 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
 msgstr "Error creando el objeto FTP"
 
-#: functions.inc/class.backup.php:823
+#: functions.inc/class.backup.php:829
 #, php-format
 msgid "Error deleting %s"
 msgstr "Error borrando %s"
@@ -595,7 +595,7 @@ msgstr "Error verificando archivo bajado!"
 msgid "Exclude"
 msgstr "Excluir"
 
-#: views/backup/backup.php:380
+#: views/backup/backup.php:384
 msgid "Exclude BIND address"
 msgstr ""
 
@@ -607,17 +607,17 @@ msgstr ""
 "Excluir la configuración de copia de seguridad para que no pueda ser  "
 "restaurado, útil para una restauración remota"
 
-#: views/backup/backup.php:353
+#: views/backup/backup.php:357
 msgid "Exclude NAT settings"
 msgstr "Excluir configuración de NAT"
 
-#: views/backup/backup.php:395
+#: views/backup/backup.php:399
 msgid ""
 "Explicitly exclude any machine-specific Bindaddres. This allows you to have "
 "a warm-spare machine with a different IP address."
 msgstr ""
 
-#: views/backup/backup.php:368
+#: views/backup/backup.php:372
 msgid ""
 "Explicitly exclude any machine-specific IP settings. This allows you to have "
 "a warm-spare machine with a different IP address."
@@ -695,11 +695,11 @@ msgstr "Archivo no encontrado! "
 msgid "File restore complete!"
 msgstr "Restauración de Archivo Completada!"
 
-#: bin/backup.php:124
+#: bin/backup.php:128
 msgid "File verification failed. "
 msgstr "Verificación de Archivo Fallida. "
 
-#: functions.inc/class.backup.php:398 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:402 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Archivos"
 
@@ -735,18 +735,17 @@ msgstr "Asigne a su respaldo un nombre amigable"
 msgid "Go!"
 msgstr "Ir!"
 
-#: bin/backup.php:125
+#: bin/backup.php:129
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr ""
 "Estas son las primeras líneas del archivo como fue enviado por el servidor "
 "remoto:"
 
-#: views/backup/backup.php:152
+#: views/backup/backup.php:156
 msgid "Hooks"
 msgstr "Ganchos"
 
-#: views/servers/ftp.php:46 views/servers/mysql.php:64
-#: views/servers/ssh.php:64
+#: views/servers/ftp.php:46 views/servers/mysql.php:64 views/servers/ssh.php:64
 msgid "Hostname"
 msgstr "Nombre de Host"
 
@@ -754,7 +753,7 @@ msgstr "Nombre de Host"
 msgid "Hourly"
 msgstr "Cada Hora"
 
-#: views/backup/backup.php:521 views/cron.php:194 views/cron.php:198
+#: views/backup/backup.php:525 views/cron.php:194 views/cron.php:198
 msgid "Hours"
 msgstr "Horas"
 
@@ -838,7 +837,7 @@ msgstr "Respaldo Invalido o error no definido"
 msgid "Item"
 msgstr "Elemento"
 
-#: views/backup/backup.php:118
+#: views/backup/backup.php:122
 msgid "Items"
 msgstr "Elementos"
 
@@ -879,7 +878,7 @@ msgstr ""
 msgid "MB"
 msgstr "MB"
 
-#: views/backup/backup.php:502
+#: views/backup/backup.php:506
 msgid "Maintenance"
 msgstr "Mantenimiento"
 
@@ -895,7 +894,7 @@ msgstr "Tamaño máximo de correo"
 msgid "May"
 msgstr "Mayo"
 
-#: views/backup/backup.php:519 views/cron.php:168 views/cron.php:172
+#: views/backup/backup.php:523 views/cron.php:168 views/cron.php:172
 msgid "Minutes"
 msgstr "Minutos"
 
@@ -907,7 +906,7 @@ msgstr "Lunes"
 msgid "Monthly"
 msgstr "mensual"
 
-#: views/backup/backup.php:527 views/cron.php:246 views/cron.php:250
+#: views/backup/backup.php:531 views/cron.php:246 views/cron.php:250
 msgid "Months"
 msgstr "Meses"
 
@@ -923,7 +922,7 @@ msgstr "\"Mysql\""
 msgid "Mysql DB's"
 msgstr "BD's Mysql"
 
-#: functions.inc/class.backup.php:399
+#: functions.inc/class.backup.php:403
 msgid "Mysql Db's"
 msgstr "Bd's Mysql"
 
@@ -931,7 +930,7 @@ msgstr "Bd's Mysql"
 msgid "Mysql Server "
 msgstr "Servidor Mysql "
 
-#: functions.inc/class.backup.php:396 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:400 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Nombre"
 
@@ -939,7 +938,7 @@ msgstr "Nombre"
 msgid "Name this Server"
 msgstr "Nombre de este Servidor"
 
-#: views/backup/backup.php:29
+#: views/backup/backup.php:33
 msgid "Name this backup"
 msgstr "Nombre de este Respaldo"
 
@@ -987,9 +986,9 @@ msgstr "Nueva plantilla"
 msgid "Nightly"
 msgstr "Nocturno"
 
-#: views/backup/backup.php:96 views/backup/backup.php:308
-#: views/backup/backup.php:333 views/backup/backup.php:360
-#: views/backup/backup.php:387 views/backup/backup.php:415
+#: views/backup/backup.php:100 views/backup/backup.php:312
+#: views/backup/backup.php:337 views/backup/backup.php:364
+#: views/backup/backup.php:391 views/backup/backup.php:419
 #: views/backup/backups.php:186 views/backup/backups.php:213
 #: views/backup/backups.php:240 views/backup/backups.php:271
 #: views/backup/backups.php:327 views/cron.php:147
@@ -1024,7 +1023,7 @@ msgstr "ON"
 msgid "October"
 msgstr "Octubre"
 
-#: views/backup/backup.php:89
+#: views/backup/backup.php:93
 msgid "On Failure Only"
 msgstr "Solo en Falla"
 
@@ -1032,7 +1031,7 @@ msgstr "Solo en Falla"
 msgid "On the"
 msgstr "En el"
 
-#: views/backup/backup.php:104
+#: views/backup/backup.php:108
 msgid "Only send an email on failure"
 msgstr "Solo enviar email en falla"
 
@@ -1090,7 +1089,7 @@ msgstr "camino a llave ssh, ejemplo /home/asterisk/.ssh/id_rsa"
 msgid "Path/DB"
 msgstr "Camino/BD"
 
-#: functions.inc/class.backup.php:812 functions.inc/class.backup.php:813
+#: functions.inc/class.backup.php:818 functions.inc/class.backup.php:819
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1103,28 +1102,27 @@ msgstr "Por favor espere"
 msgid "Please wait, loading..."
 msgstr "Por favor espere, cargando..."
 
-#: views/servers/ftp.php:66 views/servers/mysql.php:88
-#: views/servers/ssh.php:88
+#: views/servers/ftp.php:66 views/servers/mysql.php:88 views/servers/ssh.php:88
 msgid "Port"
 msgstr "Puerto"
 
-#: views/backup/backup.php:185
+#: views/backup/backup.php:189
 msgid "Post-Backup Hook"
 msgstr "Gancho Post-Respaldo"
 
-#: views/backup/backup.php:233
+#: views/backup/backup.php:237
 msgid "Post-Restore Hook"
 msgstr "Gancho Post-Respaldo"
 
-#: views/backup/backup.php:161
+#: views/backup/backup.php:165
 msgid "Pre-Backup Hook"
 msgstr "Gancho Pre-Respaldo"
 
-#: views/backup/backup.php:209
+#: views/backup/backup.php:213
 msgid "Pre-Restore Hook"
 msgstr "Gancho Pre-Restaurar"
 
-#: bin/restore.php:316
+#: bin/restore.php:322
 msgid "Preserving local Bind address"
 msgstr ""
 
@@ -1137,12 +1135,12 @@ msgstr "Preservando configuración local NAT"
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr "Procesado %s%% de CDR (%s de %s líneas)"
 
-#: bin/restore.php:389
+#: bin/restore.php:395
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "Procesado %s%% de Ajustes (%s de  %s líneas)"
 
-#: bin/backup.php:137
+#: bin/backup.php:142
 msgid "Processing received file..."
 msgstr "Procesando archivo recibido..."
 
@@ -1158,7 +1156,7 @@ msgstr "Randomizar"
 msgid "Reboot"
 msgstr "Reiniciar"
 
-#: bin/restore.php:485
+#: bin/restore.php:493
 msgid "Reloading..."
 msgstr "Recargando..."
 
@@ -1202,7 +1200,7 @@ msgstr "Opciones guardar remoto"
 msgid "Remote save path, blank for default"
 msgstr "Camino salvar remoto, dejar en blanco para valor por defecto"
 
-#: Backup.class.php:187
+#: Backup.class.php:192
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -1216,7 +1214,7 @@ msgstr "Restaurar"
 msgid "Restore CDR records stored in this backup"
 msgstr "Restaurar registros CDR almacenados en este respaldo"
 
-#: views/backup/backup.php:292
+#: views/backup/backup.php:296
 msgid "Restore Here"
 msgstr "Restaurar aqui"
 
@@ -1224,19 +1222,19 @@ msgstr "Restaurar aqui"
 msgid "Restore all setting stored in the database"
 msgstr "Restaurar toda la configuración almacenada en la base de datos"
 
-#: views/backup/backup.php:314
+#: views/backup/backup.php:318
 msgid "Restore backup to this server after the backup is complete"
 msgstr "Restaurar respaldo en este server luego que el respaldo sea completado"
 
-#: bin/restore.php:484
+#: bin/restore.php:492
 msgid "Restore complete!"
 msgstr "Restauración completada!"
 
-#: bin/restore.php:393
+#: bin/restore.php:399
 msgid "Restored Database"
 msgstr "Base de Datos restaurada"
 
-#: bin/restore.php:409
+#: bin/restore.php:417
 msgid "Restoring Bindaddres Settings"
 msgstr ""
 
@@ -1248,15 +1246,15 @@ msgstr "Restauración de CDRs completada"
 msgid "Restoring CDRs..."
 msgstr "restaurando CDRs..."
 
-#: bin/restore.php:351
+#: bin/restore.php:357
 msgid "Restoring Database..."
 msgstr "Restaurando Base de Datos..."
 
-#: bin/restore.php:401
+#: bin/restore.php:407
 msgid "Restoring NAT settings"
 msgstr "Restaurando configuración NAT"
 
-#: bin/restore.php:439
+#: bin/restore.php:447
 msgid "Restoring Settings complete"
 msgstr "Restauración de configuración completada"
 
@@ -1264,11 +1262,11 @@ msgstr "Restauración de configuración completada"
 msgid "Restoring all files (this may take some time)..."
 msgstr "Restaurando todos los archivos (esto puede tomar un tiempo)..."
 
-#: bin/restore.php:429
+#: bin/restore.php:437
 msgid "Restoring astDB..."
 msgstr "restaurando astDB..."
 
-#: bin/backup.php:171
+#: bin/backup.php:176
 msgid "Restoring backup..."
 msgstr "Restaurando respaldo..."
 
@@ -1312,19 +1310,19 @@ msgstr "Ejecutar una vez al año, medianoche, 01 de enero"
 msgid "Run once an hour, beginning of hour"
 msgstr "Ejecutar una vez cada hora, a inicio de la hora"
 
-#: functions.inc/class.backup.php:499
+#: functions.inc/class.backup.php:503
 msgid "Running maintenance.."
 msgstr ""
 
-#: bin/restore.php:445
+#: bin/restore.php:453
 msgid "Running post restore script..."
 msgstr "Corriendo Script post-restauración..."
 
-#: bin/backup.php:145 bin/backup.php:190
+#: bin/backup.php:150 bin/backup.php:195
 msgid "Running post-backup hooks..."
 msgstr "Corriendo enganches post-respaldo..."
 
-#: bin/restore.php:449
+#: bin/restore.php:457
 msgid "Running post-restore hooks, if any..."
 msgstr "Corriendo enganches post-restauración, si hay alguno..."
 
@@ -1340,7 +1338,7 @@ msgstr "Corriendo enganches pre-restauración, si hay alguno..."
 msgid "Running pre-restore scripts..."
 msgstr "Corriendo scripts pre-restauración..."
 
-#: views/backup/backup.php:554
+#: views/backup/backup.php:558
 msgid "Runs"
 msgstr "Ejecuta"
 
@@ -1368,15 +1366,15 @@ msgstr "Usuario SSH"
 msgid "Saturday"
 msgstr "Sábado"
 
-#: Backup.class.php:192
+#: Backup.class.php:197
 msgid "Save"
 msgstr "Salvar"
 
-#: Backup.class.php:197
+#: Backup.class.php:202
 msgid "Save and Run"
 msgstr "Guardar y Ejecutar"
 
-#: functions.inc/class.backup.php:487
+#: functions.inc/class.backup.php:491
 msgid "Saving file to remote ftp"
 msgstr "Guardando archivo en ftp remoto"
 
@@ -1396,7 +1394,7 @@ msgstr ""
 "Seleccione la frecuencia para ejecutar esta copia de seguridad. El siguiente "
 "programa será seguido por todos, excepto lo personalizado."
 
-#: views/backup/backup.php:281
+#: views/backup/backup.php:285
 msgid ""
 "Select the server to be backed up (this server, or any other SSH server)"
 msgstr ""
@@ -1445,7 +1443,7 @@ msgstr "Direccion de servidor no puede estar en blanco"
 msgid "Servers"
 msgstr "Servidores"
 
-#: bin/backup.php:179
+#: bin/backup.php:184
 msgid "Skip Bindaddrss is Enabled... "
 msgstr ""
 
@@ -1453,11 +1451,11 @@ msgstr ""
 msgid "Skipping host-specific Bind address"
 msgstr ""
 
-#: bin/backup.php:104
+#: bin/backup.php:106
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr "Algo salio mal conectándose al servidor remoto. Abortando!"
 
-#: views/backup/backup.php:65 views/backup/backups.php:291
+#: views/backup/backup.php:69 views/backup/backups.php:291
 msgid "Status Email"
 msgstr "Correo de estado"
 
@@ -1481,7 +1479,7 @@ msgstr "Paso 4"
 msgid "Step 5"
 msgstr "Paso 5"
 
-#: views/backup/backup.php:442
+#: views/backup/backup.php:446
 msgid "Storage Servers"
 msgstr "Servidores de Almacenaje"
 
@@ -1489,7 +1487,7 @@ msgstr "Servidores de Almacenaje"
 msgid "Storage location for backups"
 msgstr "Localidad de almacenamiento para respaldos"
 
-#: bin/backup.php:142
+#: bin/backup.php:147
 msgid "Storing backup..."
 msgstr "Almacenando Respaldo..."
 
@@ -1505,7 +1503,7 @@ msgstr "Provea un nombre de servidor"
 msgid "Template Name"
 msgstr "Nombre Plantilla"
 
-#: page.backup_templates.php:52 views/backup/backup.php:129
+#: page.backup_templates.php:52 views/backup/backup.php:133
 #: views/rnav/main.php:6
 msgid "Templates"
 msgstr "Plantillas"
@@ -1529,7 +1527,7 @@ msgstr "El script de restauración Finalizado Puede cerrar esta ventana"
 msgid "The Restore script is still running"
 msgstr "El script de Restauración aun esta corriendo"
 
-#: functions.inc/class.backup.php:410
+#: functions.inc/class.backup.php:414
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
@@ -1539,7 +1537,7 @@ msgstr ""
 "se intentó ser enviados. Por favor, encoger la copia de seguridad, o "
 "utilizar un método diferente de transferencia de la copia de seguridad."
 
-#: functions.inc/class.backup.php:413
+#: functions.inc/class.backup.php:417
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1579,7 +1577,7 @@ msgstr ""
 msgid "This has a maximum size of 25MB."
 msgstr "Esto tiene un tamaño máximo de 25 MB."
 
-#: views/backup/backup.php:252
+#: views/backup/backup.php:256
 msgid "This server"
 msgstr "Este Servidor"
 
@@ -1602,7 +1600,7 @@ msgstr "Modo Transferencia"
 msgid "Transfer Type"
 msgstr "Tipo de Transferencia"
 
-#: functions.inc/class.backup.php:492
+#: functions.inc/class.backup.php:496
 #, php-format
 msgid "Trying to upload %s to %s"
 msgstr ""
@@ -1615,7 +1613,7 @@ msgstr "Martes"
 msgid "Type"
 msgstr "Tipo"
 
-#: functions.inc/class.backup.php:490
+#: functions.inc/class.backup.php:494
 msgid "Unable to upload file to the remote server"
 msgstr "No se puede subir el archivo al servidor remoto"
 
@@ -1646,7 +1644,7 @@ msgstr "Nombre de usuario"
 msgid "Username"
 msgstr "Usuario"
 
-#: bin/backup.php:109
+#: bin/backup.php:113
 msgid "Verifying received file..."
 msgstr "Verificando archivo recibido..."
 
@@ -1678,7 +1676,7 @@ msgstr "Dias de la semana"
 msgid "Weekly"
 msgstr "Semanal"
 
-#: views/backup/backup.php:525
+#: views/backup/backup.php:529
 msgid "Weeks"
 msgstr "Semanas"
 
@@ -1741,13 +1739,13 @@ msgstr "¿Quieres grabaciones de copia de seguridad?"
 msgid "Would you like voicemails backded up."
 msgstr "Te gustaria mensajes de voz respaldados."
 
-#: views/backup/backup.php:529
+#: views/backup/backup.php:533
 msgid "Years"
 msgstr "Años"
 
-#: views/backup/backup.php:94 views/backup/backup.php:306
-#: views/backup/backup.php:331 views/backup/backup.php:358
-#: views/backup/backup.php:385 views/backup/backup.php:413
+#: views/backup/backup.php:98 views/backup/backup.php:310
+#: views/backup/backup.php:335 views/backup/backup.php:362
+#: views/backup/backup.php:389 views/backup/backup.php:417
 #: views/backup/backups.php:184 views/backup/backups.php:211
 #: views/backup/backups.php:238 views/backup/backups.php:269
 #: views/backup/backups.php:325 views/cron.php:145
@@ -1772,7 +1770,7 @@ msgstr "Añadidos servidores de respaldo por defecto"
 msgid "added default backup templates"
 msgstr "Añadidas plantillas de respaldo por defecto"
 
-#: functions.inc/class.backup.php:400
+#: functions.inc/class.backup.php:404
 msgid "astDb's"
 msgstr "\"astDb's\""
 

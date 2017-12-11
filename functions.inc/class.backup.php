@@ -260,6 +260,7 @@ class Backup {
 					}
 					break;
 				case 'mysql':
+					$cmd = array();
 					//build command
 					$s = str_replace('server-', '', $i['path']);
 					$sql_file = $this->b['_tmpdir'] . '/' . 'mysql-' . $s . '.sql.gz';
@@ -331,6 +332,7 @@ class Backup {
 	}
 
 	function create_backup_file($to_stdout = false) {
+		$cmd = array();
 		$cmd[] = fpbx_which('tar');
 		$cmd[] = 'zcf';
 		$cmd[] = $to_stdout ? '-' : $this->b['_tmpfile'];
@@ -361,9 +363,11 @@ class Backup {
 					//php doesnt support files > 2GB
 					//see here for a posible solution:
 					//http://ca3.php.net/manual/en/function.fopen.php#37791
-					$cmd[] = fpbx_which('cp');
-					$cmd[] = $this->b['_tmpfile'];
-					$cmd[] = $path . '/' . $this->b['_file'] . '.tgz';
+					$cmd = array(
+						fpbx_which('cp'),
+						$this->b['_tmpfile'],
+						$path . '/' . $this->b['_file'] . '.tgz'
+					);
 
 					exec(implode(' ', $cmd), $error, $status);
 					unset($cmd, $error);
@@ -434,7 +438,7 @@ class Backup {
 					}catch (\Exception $e){
 						$this->b['error'] = $e->getMessage();
 						backup_log($this->b['error']);
-						return;
+						break;
 					}
 
 					$wrapper = new FTPWrapper($connection);
@@ -480,7 +484,7 @@ class Backup {
 							$this->b['error'] = sprintf(_("Directory '%s' did not exist and we could not create it"),$path);
 							backup_log($this->b['error']);
 							backup_log($e->getMessage());
-							return;
+							break;
 						}
 					}
 					try{
@@ -491,7 +495,7 @@ class Backup {
 						backup_log($this->b['error']);
 						backup_log(sprintf(_("Trying to upload %s to %s"),$this->b['_tmpfile'],$path.'/'.$this->b['_file'] . '.tgz'));
 						backup_log($e->getMessage());
-						return;
+						break;
 					}
 					//Adding a backup upload confirmation to the backup_log (FREEPBX-14466 ->Whoops error when ftp backup can't delete old backups)
 					// hope it will not reach here, if backup encounters an Exception
@@ -746,12 +750,14 @@ class Backup {
 				}
 				break;
 			case 'ssh':
-				$cmd[] = fpbx_which('ssh');
-				$cmd[] = '-o StrictHostKeyChecking=no -i';
-				$cmd[] = $data['key'];
-				$cmd[] = $data['user'] . '\@' . $data['host'];
-				$cmd[] = '-p ' . $data['port'];
-				$cmd[] = 'ls -1 ' . $data['path'] . '/' . $this->b['_dirname'];
+				$cmd = array(
+					fpbx_which('ssh'),
+					'-o StrictHostKeyChecking=no -i',
+					$data['key'],
+					$data['user'] . '\@' . $data['host'],
+					'-p ' . $data['port'],
+					'ls -1 ' . $data['path'] . '/' . $this->b['_dirname']
+				);
 				exec(implode(' ', $cmd), $dir);
 				unset($cmd);
 				break;
@@ -834,12 +840,14 @@ class Backup {
 					$handle->deleteObject($data['bucket'],baseName($file));
 					break;
 				case 'ssh':
-					$cmd[] = fpbx_which('ssh');
-					$cmd[] = '-o StrictHostKeyChecking=no -i';
-					$cmd[] = $data['key'];
-					$cmd[] = $data['user'] . '\@' . $data['host'];
-					$cmd[] = '-p ' . $data['port'];
-					$cmd[] = 'rm ' . $data['path'] . '/' . '/' . $this->b['_dirname'] . '/' . $file;
+					$cmd = array(
+					fpbx_which('ssh'),
+					'-o StrictHostKeyChecking=no -i',
+					$data['key'],
+					$data['user'] . '\@' . $data['host'],
+					'-p ' . $data['port'],
+					'rm ' . $data['path'] . '/' . '/' . $this->b['_dirname'] . '/' . $file,
+					);
 					exec(implode(' ', $cmd));
 					unset($delete[$key]);
 					unset($cmd);

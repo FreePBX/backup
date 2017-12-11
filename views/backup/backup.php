@@ -7,6 +7,10 @@ if (!isset($id)) {
 <form class="fpbx-submit" name="backup_form" action="" method="post" id="backup_form" data-fpbx-delete="?display=backup&action=delete&id=<?php echo $id; ?>">
 	<input type="hidden" name="action" value="save">
 	<input type="hidden" name="id" value="<?php echo $id; ?>">
+	<input type="hidden" name="jsonpath" value='' id="jsonpath">
+	<input type="hidden" name="jsontype" value='' id="jsontype">
+	<input type="hidden" name="jsonexclude" value='' id="jsonexclude">
+
 	<!--Backup Name-->
 	<div class="element-container">
 		<div class="row">

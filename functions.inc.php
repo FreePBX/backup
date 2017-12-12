@@ -45,8 +45,6 @@ function backup__($var) {
 
 function backup_log($msg) {
 	$log_dir = \FreePBX::Config()->get('ASTLOGDIR');
-	//I don't get why we do this?
-	error_log(sprintf("%s/%s(%s):",$log_dir,basename(__FILE__),__LINE__));
 	$cli = php_sapi_name() == 'cli' ? true : false;
 	$str = '';
 	$str .= $cli ? '' : "id: bb2ac0b8da1f64a3498af147ba43fc10\n";

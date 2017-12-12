@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-08 18:58-0500\n"
+"POT-Creation-Date: 2017-12-11 22:26-0300\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Lónyai Gergely <alephlg@gmail.com>\n"
 "Language-Team: Magyar <support@freepbx.hu>\n"
@@ -166,7 +166,7 @@ msgstr ""
 msgid "B"
 msgstr ""
 
-#: functions.inc.php:69
+#: functions.inc.php:67
 msgid "BACKUP LOG ATTACHED"
 msgstr ""
 
@@ -227,7 +227,7 @@ msgstr ""
 msgid "Backup Lock acquired!"
 msgstr ""
 
-#: functions.inc.php:72
+#: functions.inc.php:70
 msgid "Backup Log:"
 msgstr ""
 

@@ -19,11 +19,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-08 18:58-0500\n"
+"POT-Creation-Date: 2017-12-11 22:26-0300\n"
 "PO-Revision-Date: 2017-12-11 23:32+0200\n"
 "Last-Translator: JCattan <jeremie@famillecattan.com>\n"
-"Language-Team: French "
-"<http://weblate.freepbx.org/projects/freepbx/backup/fr_FR/>\n"
+"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
+"fr_FR/>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -176,7 +176,7 @@ msgstr "Serveurs disponibles"
 msgid "B"
 msgstr "o"
 
-#: functions.inc.php:69
+#: functions.inc.php:67
 msgid "BACKUP LOG ATTACHED"
 msgstr "LOG DE SAUVEGARDE ATTACHÉ"
 
@@ -237,7 +237,7 @@ msgstr "Objets de sauvegarde"
 msgid "Backup Lock acquired!"
 msgstr "Verrouillage Sauvegarde acquis!"
 
-#: functions.inc.php:72
+#: functions.inc.php:70
 msgid "Backup Log:"
 msgstr "Journal de la copie de sauvegarde :"
 

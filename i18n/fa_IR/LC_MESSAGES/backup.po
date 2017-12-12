@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-08 18:58-0500\n"
+"POT-Creation-Date: 2017-12-11 22:26-0300\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -163,7 +163,7 @@ msgstr "سرور های در دسترس"
 msgid "B"
 msgstr "B"
 
-#: functions.inc.php:69
+#: functions.inc.php:67
 msgid "BACKUP LOG ATTACHED"
 msgstr "لاگ پشتیبان ضمیمه شده"
 
@@ -225,7 +225,7 @@ msgstr "انتخاب موارد جهت تهیه پشتیبان"
 msgid "Backup Lock acquired!"
 msgstr "به وجود آمدن قفل پشتیبان گیری!"
 
-#: functions.inc.php:72
+#: functions.inc.php:70
 msgid "Backup Log:"
 msgstr "لاگ پشتیبان گیری:"
 

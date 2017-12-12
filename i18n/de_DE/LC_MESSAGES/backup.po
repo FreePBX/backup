@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-08 18:58-0500\n"
+"POT-Creation-Date: 2017-12-11 22:26-0300\n"
 "PO-Revision-Date: 2017-10-15 22:17+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -167,7 +167,7 @@ msgstr "Verfügbare Server"
 msgid "B"
 msgstr "B"
 
-#: functions.inc.php:69
+#: functions.inc.php:67
 msgid "BACKUP LOG ATTACHED"
 msgstr "Sicherungsprotokoll angehängt"
 
@@ -228,7 +228,7 @@ msgstr "Sicherungselemente"
 msgid "Backup Lock acquired!"
 msgstr "Sicherungssperre erworben!"
 
-#: functions.inc.php:72
+#: functions.inc.php:70
 msgid "Backup Log:"
 msgstr "Sicherungsprotokoll:"
 

@@ -20,10 +20,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-08 18:58-0500\n"
-"PO-Revision-Date: 2017-12-01 20:49+0200\n"
-"Last-Translator: CATTAN Jérémie <jeremie@famillecattan.com>\n"
-"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
-"fr_FR/>\n"
+"PO-Revision-Date: 2017-12-11 23:32+0200\n"
+"Last-Translator: JCattan <jeremie@famillecattan.com>\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/backup/fr_FR/>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -231,11 +231,11 @@ msgstr "Fréquence de la copie de sauvegarde"
 
 #: views/backup/backups.php:58
 msgid "Backup Items"
-msgstr ""
+msgstr "Objets de sauvegarde"
 
 #: bin/backup.php:48
 msgid "Backup Lock acquired!"
-msgstr ""
+msgstr "Verrouillage Sauvegarde acquis!"
 
 #: functions.inc.php:72
 msgid "Backup Log:"
@@ -251,7 +251,7 @@ msgstr "Nom de la copie de sauvegarde"
 
 #: views/backup/backup.php:491
 msgid "Backup Schedule"
-msgstr ""
+msgstr "Planification Sauvegarde"
 
 #: views/backup/backup.php:271
 msgid "Backup Server"
@@ -267,7 +267,7 @@ msgstr "Modèle de copie de sauvegarde"
 
 #: views/backup/backups.php:2
 msgid "Backup Wizard"
-msgstr ""
+msgstr "Assistant sauvegarde"
 
 #: page.backup.php:116
 msgid "Backup and Restore"
@@ -283,6 +283,8 @@ msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
 "backup from server [%s]."
 msgstr ""
+"La sauvegarde a échoué à sauvegarder la base de données SQL [%s] dans le "
+"fichier [%s], vous avez une sauvegarde corrompue du serveur [%s]."
 
 #: bin/restore.php:99
 msgid "Backup file not found! Aborting."

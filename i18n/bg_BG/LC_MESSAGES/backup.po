@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-08 18:59-0500\n"
+"POT-Creation-Date: 2017-12-11 22:24-0300\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -169,7 +169,7 @@ msgstr "Налични Сървъри"
 msgid "B"
 msgstr "B"
 
-#: functions.inc.php:69
+#: functions.inc.php:67
 msgid "BACKUP LOG ATTACHED"
 msgstr "ЛОГА НА АРХИВА Е ПРИКАЧЕН"
 
@@ -230,7 +230,7 @@ msgstr "Елементи на Архива"
 msgid "Backup Lock acquired!"
 msgstr "Архива е Заключен!"
 
-#: functions.inc.php:72
+#: functions.inc.php:70
 msgid "Backup Log:"
 msgstr "Лог на Архива:"
 

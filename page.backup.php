@@ -20,6 +20,7 @@ $get_vars = array(
 				'skipnat'		=> '',
 				'skipbind'		=> '',
 				'display'			=> '',
+				'exclude'			=> '',
 				'host'				=> '',
 				'id'				=> '',
 				'items'				=> array(),
@@ -27,6 +28,7 @@ $get_vars = array(
 				'name'				=> '',
 				'email'				=> '',
 				'emailfailonly' => false,
+				'path'				=> '',
 				'postbu_hook'		=> '',
 				'postre_hook'		=> '',
 				'prebu_hook'		=> '',
@@ -34,9 +36,7 @@ $get_vars = array(
 				'restore'			=> '',
 				'storage_servers'	=> array(),
 				'submit'			=> '',
-				'jsontype'    => '',
-				'jsonpath'		=> '',
-				'jsonexclude'		=> '',
+				'type'				=> ''
 				);
 
 foreach ($get_vars as $k => $v) {

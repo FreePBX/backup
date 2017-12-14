@@ -15,14 +15,7 @@ function restore() {
 		}
 }
 $(document).ready(function(){
-	$("#backup_form").submit(function(){
-		$("#jsonpath").val(JSON.stringify($("[name^=path],[name^=path]:selected").serializeArray()));
-		$("#jsontype").val(JSON.stringify($("input[name^=type]").serializeArray()));
-		$("#jsonexclude").val(JSON.stringify($("[name^=exclude]").serializeArray()));
-		$("[name^=exclude] [name^=type] [name^=path]").each(function(){
-			$(this).prop('disabled',true);
-		});
-	});
+
 	//have to insert a delay otherwise it runs too soon.
 	setTimeout(remote,1000);
 	//setTimeout(restore,1000);
@@ -152,6 +145,7 @@ function current_items_over_helper(action) {
 }
 function add_template(template) {
 
+
 	//clone the object so that we dont destroy the origional when we delete from it
 	var template = $.extend({}, template);
 	for (var item in template) {
@@ -187,12 +181,13 @@ function add_template(template) {
 					//add excludes to row
 					$(this).find('td').eq(2).find('textarea')
 							.attr('rows',row.exclude.length)
-
 							.val(row.exclude.join("\n"));
 				}
+
 				delete template[item];
 				return false;
 			}
+
 		});
 	}
 
@@ -209,7 +204,7 @@ function add_template(template) {
 			} else if (new_row.find('td').eq(1).find('input').length > 0) {
 				new_row.find('td').eq(1).find('input').val(template[item].path);
 			}
-			new_row.find('td').eq(2).find('textarea').val(template[item].exclude.join("\n"));
+			new_row.find('td').eq(2).find('textarea').val(template[item].exclude.join("\n"))
 		}
 	}
 

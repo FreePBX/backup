@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>13.0.27.10</version>
+	<version>13.0.27.11</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,6 +18,7 @@
 		<module>core</module>
 	</depends>
 	<changelog>
+		*13.0.27.11* Revert FREEPBX-16094
 		*13.0.27.10* FREEPBX-16147 Fix log format 
 		*13.0.27.8* FREEPBX-15630 Fix commands causing whoops errors 
 		*13.0.27.7* FREEPBX-16085 On FTP error break loop iteration rather than exit 

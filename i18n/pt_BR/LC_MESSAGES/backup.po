@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-11 22:24-0300\n"
+"POT-Creation-Date: 2017-12-13 19:59-0500\n"
 "PO-Revision-Date: 2017-03-08 21:01+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -42,19 +42,19 @@ msgstr ""
 "Um backup completo das configurações principais e arquivos da web, não "
 "inclui sons ou gravações do sistema."
 
-#: views/backup/backup.php:201
+#: views/backup/backup.php:197
 msgid "A script to be run AFTER a backup is completed."
 msgstr "Script a ser executado APÓS um backup concluído."
 
-#: views/backup/backup.php:249
+#: views/backup/backup.php:245
 msgid "A script to be run AFTER a backup is restored."
 msgstr "Script a ser executado APÓS um backup restaurado."
 
-#: views/backup/backup.php:225
+#: views/backup/backup.php:221
 msgid "A script to be run BEFORE a backup is restored."
 msgstr "Script a ser executado ANTES de um backup ser restaurado."
 
-#: views/backup/backup.php:177
+#: views/backup/backup.php:173
 msgid "A script to be run BEFORE a backup is started."
 msgstr "Script a ser executado ANTES de um backup ser iniciado."
 
@@ -95,7 +95,7 @@ msgstr "Adicionando itens..."
 msgid "Admin"
 msgstr "Admin"
 
-#: views/backup/backup.php:345
+#: views/backup/backup.php:341
 msgid ""
 "After a restore, disable any trunks that use registration. This is helpful "
 "to prevent the Primary and Standby systems from \"fighting\" for the "
@@ -134,7 +134,7 @@ msgstr "Servidor S3&trade; Amazon"
 msgid "Annually"
 msgstr "Anualmente"
 
-#: views/backup/backup.php:442
+#: views/backup/backup.php:438
 msgid "Apply Configs"
 msgstr "Aplicar Configurações"
 
@@ -158,7 +158,7 @@ msgstr "Agosto"
 msgid "Auto"
 msgstr "Automático"
 
-#: views/backup/backup.php:499
+#: views/backup/backup.php:495
 msgid "Available Servers"
 msgstr "Servidores Disponíveis"
 
@@ -235,15 +235,15 @@ msgstr "Log do Backup:"
 msgid "Backup Module"
 msgstr "Módulo de Backup"
 
-#: views/backup/backup.php:21 views/backup/backups.php:97
+#: views/backup/backup.php:17 views/backup/backups.php:97
 msgid "Backup Name"
 msgstr "Nome do Backup"
 
-#: views/backup/backup.php:521
+#: views/backup/backup.php:517
 msgid "Backup Schedule"
 msgstr "Programação do Backup"
 
-#: views/backup/backup.php:271
+#: views/backup/backup.php:267
 msgid "Backup Server"
 msgstr "Servidor do Backup"
 
@@ -399,7 +399,7 @@ msgstr "Dia de cada mês"
 msgid "Day of Week"
 msgstr "Dia da Semana"
 
-#: views/backup/backup.php:557
+#: views/backup/backup.php:553
 msgid "Days"
 msgstr "Dias"
 
@@ -429,11 +429,11 @@ msgstr "Backup padrão; instalado automaticamente"
 msgid "Delete"
 msgstr "Apagar"
 
-#: views/backup/backup.php:545 views/backup/backup.php:582
+#: views/backup/backup.php:541 views/backup/backup.php:578
 msgid "Delete After"
 msgstr "Apagar Após"
 
-#: views/backup/backup.php:572
+#: views/backup/backup.php:568
 msgid ""
 "Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
 "Please note that deletes aren't time based and will only happen after a "
@@ -444,7 +444,7 @@ msgstr ""
 "acontecerá depois que um backup for executado. Definir o valor para 0 irá "
 "desativar qualquer exclusão"
 
-#: views/backup/backup.php:595
+#: views/backup/backup.php:591
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -458,7 +458,7 @@ msgstr ""
 "Excluir esta entrada. Não esqueça de clicar em Enviar para salvar as "
 "alterações!"
 
-#: views/backup/backup.php:45 views/backup/backups.php:10
+#: views/backup/backup.php:41 views/backup/backups.php:10
 #: views/servers/awss3.php:27 views/servers/email.php:40
 #: views/servers/ftp.php:32 views/servers/local.php:40
 #: views/servers/mysql.php:40 views/servers/servers.php:20
@@ -467,7 +467,7 @@ msgstr ""
 msgid "Description"
 msgstr "Descrição"
 
-#: views/backup/backup.php:57
+#: views/backup/backup.php:53
 msgid "Description or notes for this backup"
 msgstr "Descrição ou comentários para este backup"
 
@@ -489,7 +489,7 @@ msgstr "Diretório"
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr "O diretório '%s' não existe e não foi possível criá-lo"
 
-#: views/backup/backup.php:330
+#: views/backup/backup.php:326
 msgid "Disable Registered Trunks"
 msgstr "Desativar Troncos Registrados"
 
@@ -501,14 +501,14 @@ msgstr "Feito!"
 msgid "Download"
 msgstr "Baixar"
 
-#: views/backup/backup.php:470
+#: views/backup/backup.php:466
 msgid ""
 "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
 "Arraste servidores da lista Servidores Disponíveis para adicioná-los como "
 "Servidores de Armazenamento"
 
-#: views/backup/backup.php:116
+#: views/backup/backup.php:112
 msgid ""
 "Drag templates and drop them in the items table to add the templates items "
 "to the table"
@@ -516,7 +516,7 @@ msgstr ""
 "Arraste os modelos e solte-os na tabela de itens para adicionar os itens de "
 "modelos à tabela"
 
-#: views/backup/backup.php:125
+#: views/backup/backup.php:121
 msgid "Drop Here"
 msgstr "Solte Aqui"
 
@@ -550,11 +550,11 @@ msgstr ""
 "As notificações por e-mail estão definidas como \"Sim\", mas nenhum e-mail "
 "foi fornecido"
 
-#: views/backup/backup.php:81
+#: views/backup/backup.php:77
 msgid "Email to send status messages to when this task is run"
 msgstr "Email para enviar mensagens de status quando esta tarefa for executada"
 
-#: views/backup/backup.php:457
+#: views/backup/backup.php:453
 msgid ""
 "Equivalence of clicking the red button, will happen automatically after a "
 "restore on a Standby system"
@@ -584,7 +584,7 @@ msgstr "Erro ao verificar arquivo carregado!"
 msgid "Exclude"
 msgstr "Excluir"
 
-#: views/backup/backup.php:384
+#: views/backup/backup.php:380
 msgid "Exclude BIND address"
 msgstr ""
 
@@ -596,27 +596,27 @@ msgstr ""
 "Excluir as configurações do Backup para que elas não sejam restauradas, útil "
 "para uma restauração remota"
 
-#: views/backup/backup.php:413
+#: views/backup/backup.php:409
 msgid "Exclude DNS"
 msgstr ""
 
-#: views/backup/backup.php:357
+#: views/backup/backup.php:353
 msgid "Exclude NAT settings"
 msgstr "Excluir configurações NAT"
 
-#: views/backup/backup.php:399
+#: views/backup/backup.php:395
 msgid ""
 "Explicitly exclude any machine-specific Bindaddres. This allows you to have "
 "a warm-spare machine with a different IP address."
 msgstr ""
 
-#: views/backup/backup.php:428
+#: views/backup/backup.php:424
 msgid ""
 "Explicitly exclude any machine-specific DNS. This allows you to have a warm-"
 "spare machine with a different DNS."
 msgstr ""
 
-#: views/backup/backup.php:372
+#: views/backup/backup.php:368
 msgid ""
 "Explicitly exclude any machine-specific IP settings. This allows you to have "
 "a warm-spare machine with a different IP address."
@@ -739,7 +739,7 @@ msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr ""
 "Aqui estão as primeiras linhas do arquivo enviadas pelo servidor remoto:"
 
-#: views/backup/backup.php:156
+#: views/backup/backup.php:152
 msgid "Hooks"
 msgstr "Ganchos"
 
@@ -751,7 +751,7 @@ msgstr "Nome do Host"
 msgid "Hourly"
 msgstr "A cada hora"
 
-#: views/backup/backup.php:555 views/cron.php:194 views/cron.php:198
+#: views/backup/backup.php:551 views/cron.php:194 views/cron.php:198
 msgid "Hours"
 msgstr "Horas"
 
@@ -835,7 +835,7 @@ msgstr "Backup inválido ou erro indefinido"
 msgid "Item"
 msgstr "Item"
 
-#: views/backup/backup.php:122
+#: views/backup/backup.php:118
 msgid "Items"
 msgstr "Itens"
 
@@ -875,7 +875,7 @@ msgstr "Localização da chave privada ssh a ser usada ao se conectar a um host"
 msgid "MB"
 msgstr "MB"
 
-#: views/backup/backup.php:536
+#: views/backup/backup.php:532
 msgid "Maintenance"
 msgstr "Manutenção"
 
@@ -891,7 +891,7 @@ msgstr "Tamanho Máximo do Email"
 msgid "May"
 msgstr "Maio"
 
-#: views/backup/backup.php:553 views/cron.php:168 views/cron.php:172
+#: views/backup/backup.php:549 views/cron.php:168 views/cron.php:172
 msgid "Minutes"
 msgstr "Minutos"
 
@@ -903,7 +903,7 @@ msgstr "Segunda"
 msgid "Monthly"
 msgstr "Mensalmente"
 
-#: views/backup/backup.php:561 views/cron.php:246 views/cron.php:250
+#: views/backup/backup.php:557 views/cron.php:246 views/cron.php:250
 msgid "Months"
 msgstr "Meses"
 
@@ -935,7 +935,7 @@ msgstr "Nome"
 msgid "Name this Server"
 msgstr "Nome deste Servidor"
 
-#: views/backup/backup.php:33
+#: views/backup/backup.php:29
 msgid "Name this backup"
 msgstr "Nome deste backup"
 
@@ -983,10 +983,10 @@ msgstr "Novo Modelo"
 msgid "Nightly"
 msgstr "Noturno"
 
-#: views/backup/backup.php:100 views/backup/backup.php:312
-#: views/backup/backup.php:337 views/backup/backup.php:364
-#: views/backup/backup.php:391 views/backup/backup.php:420
-#: views/backup/backup.php:449 views/backup/backups.php:186
+#: views/backup/backup.php:96 views/backup/backup.php:308
+#: views/backup/backup.php:333 views/backup/backup.php:360
+#: views/backup/backup.php:387 views/backup/backup.php:416
+#: views/backup/backup.php:445 views/backup/backups.php:186
 #: views/backup/backups.php:213 views/backup/backups.php:240
 #: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:147
 msgid "No"
@@ -1020,7 +1020,7 @@ msgstr "EM"
 msgid "October"
 msgstr "Outubro"
 
-#: views/backup/backup.php:93
+#: views/backup/backup.php:89
 msgid "On Failure Only"
 msgstr "Somente em Falha"
 
@@ -1028,7 +1028,7 @@ msgstr "Somente em Falha"
 msgid "On the"
 msgstr "No(a)"
 
-#: views/backup/backup.php:108
+#: views/backup/backup.php:104
 msgid "Only send an email on failure"
 msgstr "Enviar e-mail somente em caso de falha"
 
@@ -1102,19 +1102,19 @@ msgstr "Por favor espere, carregando..."
 msgid "Port"
 msgstr "Porta"
 
-#: views/backup/backup.php:189
+#: views/backup/backup.php:185
 msgid "Post-Backup Hook"
 msgstr "Gancho Pós-Backup"
 
-#: views/backup/backup.php:237
+#: views/backup/backup.php:233
 msgid "Post-Restore Hook"
 msgstr "Gancho Pós-Restauração"
 
-#: views/backup/backup.php:165
+#: views/backup/backup.php:161
 msgid "Pre-Backup Hook"
 msgstr "Gancho Pré-Backup"
 
-#: views/backup/backup.php:213
+#: views/backup/backup.php:209
 msgid "Pre-Restore Hook"
 msgstr "Gancho Pré-Restauração"
 
@@ -1214,7 +1214,7 @@ msgstr "Restaurar"
 msgid "Restore CDR records stored in this backup"
 msgstr "Restaurar registros de CDR armazenados neste backup"
 
-#: views/backup/backup.php:296
+#: views/backup/backup.php:292
 msgid "Restore Here"
 msgstr "Restaurar Aqui"
 
@@ -1222,7 +1222,7 @@ msgstr "Restaurar Aqui"
 msgid "Restore all setting stored in the database"
 msgstr "Restaurar todas as configurações armazenadas no banco de dados"
 
-#: views/backup/backup.php:318
+#: views/backup/backup.php:314
 msgid "Restore backup to this server after the backup is complete"
 msgstr "Restaurar backup neste servidor logo após o backup estiver completado"
 
@@ -1342,7 +1342,7 @@ msgstr "Executando ganchos pré-restauração, se houver..."
 msgid "Running pre-restore scripts..."
 msgstr "Executando scripts pré-restauração..."
 
-#: views/backup/backup.php:588
+#: views/backup/backup.php:584
 msgid "Runs"
 msgstr "Executar"
 
@@ -1398,7 +1398,7 @@ msgstr ""
 "Selecione com que freqüência executar esse backup. O seguinte cronograma "
 "será seguido para todos, exceto os personalizados."
 
-#: views/backup/backup.php:285
+#: views/backup/backup.php:281
 msgid ""
 "Select the server to be backed up (this server, or any other SSH server)"
 msgstr ""
@@ -1467,7 +1467,7 @@ msgstr ""
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr "Ocorreu um erro ao conectar-se ao servidor remoto. Abortando!"
 
-#: views/backup/backup.php:69 views/backup/backups.php:291
+#: views/backup/backup.php:65 views/backup/backups.php:291
 msgid "Status Email"
 msgstr "E-mail de Status"
 
@@ -1491,7 +1491,7 @@ msgstr "Passo 4"
 msgid "Step 5"
 msgstr "Passo 5"
 
-#: views/backup/backup.php:476
+#: views/backup/backup.php:472
 msgid "Storage Servers"
 msgstr "Servidores de Armazenamento"
 
@@ -1515,7 +1515,7 @@ msgstr "Fornecer um nome de servidor"
 msgid "Template Name"
 msgstr "Nome do Modelo"
 
-#: page.backup_templates.php:52 views/backup/backup.php:133
+#: page.backup_templates.php:52 views/backup/backup.php:129
 #: views/rnav/main.php:6
 msgid "Templates"
 msgstr "Modelos"
@@ -1587,7 +1587,7 @@ msgstr ""
 msgid "This has a maximum size of 25MB."
 msgstr "Este tem um tamanho máximo de 25MB."
 
-#: views/backup/backup.php:256
+#: views/backup/backup.php:252
 msgid "This server"
 msgstr "Este servidor"
 
@@ -1686,7 +1686,7 @@ msgstr "Dias da Semana"
 msgid "Weekly"
 msgstr "Semanalmente"
 
-#: views/backup/backup.php:559
+#: views/backup/backup.php:555
 msgid "Weeks"
 msgstr "Semanas"
 
@@ -1746,14 +1746,14 @@ msgstr "Gostaria de fazer backup de gravações?"
 msgid "Would you like voicemails backded up."
 msgstr "Gostaria de fazer backup de correios de voz."
 
-#: views/backup/backup.php:563
+#: views/backup/backup.php:559
 msgid "Years"
 msgstr "Anos"
 
-#: views/backup/backup.php:98 views/backup/backup.php:310
-#: views/backup/backup.php:335 views/backup/backup.php:362
-#: views/backup/backup.php:389 views/backup/backup.php:418
-#: views/backup/backup.php:447 views/backup/backups.php:184
+#: views/backup/backup.php:94 views/backup/backup.php:306
+#: views/backup/backup.php:331 views/backup/backup.php:358
+#: views/backup/backup.php:385 views/backup/backup.php:414
+#: views/backup/backup.php:443 views/backup/backups.php:184
 #: views/backup/backups.php:211 views/backup/backups.php:238
 #: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:145
 msgid "Yes"

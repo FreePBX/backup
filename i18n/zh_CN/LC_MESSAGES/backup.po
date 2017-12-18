@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-13 19:57-0500\n"
+"POT-Creation-Date: 2017-12-18 17:33-0500\n"
 "PO-Revision-Date: 2015-11-17 12:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -26,15 +26,15 @@ msgstr ""
 msgid "%s Backup Wizard"
 msgstr "%s 备份向导"
 
-#: functions.inc/templates.php:251
+#: functions.inc/templates.php:250
 msgid "/path/to/dir"
 msgstr ""
 
-#: functions.inc/templates.php:238
+#: functions.inc/templates.php:237
 msgid "/path/to/file"
 msgstr ""
 
-#: install.php:145
+#: install.php:144
 msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
@@ -106,7 +106,7 @@ msgid ""
 "base backup"
 msgstr ""
 
-#: install.php:172
+#: install.php:171
 msgid ""
 "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
 "VOICEMAIL"
@@ -136,7 +136,7 @@ msgstr "四月"
 msgid "AstDB's"
 msgstr ""
 
-#: functions.inc/templates.php:296
+#: functions.inc/templates.php:295
 msgid "Asterisk DB"
 msgstr ""
 
@@ -312,7 +312,7 @@ msgstr ""
 msgid "CDR and Call Log Data"
 msgstr ""
 
-#: install.php:100
+#: install.php:99
 msgid "CDR server, generally a local database server"
 msgstr ""
 
@@ -320,7 +320,7 @@ msgstr ""
 msgid "CDR's"
 msgstr ""
 
-#: install.php:154
+#: install.php:153
 msgid "Call Detail Records"
 msgstr "呼叫记录"
 
@@ -328,7 +328,7 @@ msgstr "呼叫记录"
 msgid "Call Recordings"
 msgstr "呼叫录音"
 
-#: install.php:71
+#: install.php:70
 msgid "Can not create backup tables"
 msgstr ""
 
@@ -340,7 +340,7 @@ msgstr "清理。。。"
 msgid "Click 'Next' to continue."
 msgstr "点击下一步继续。"
 
-#: install.php:136
+#: install.php:135
 msgid "Configurations only"
 msgstr "仅配置"
 
@@ -406,7 +406,7 @@ msgstr "十二月"
 msgid "Default"
 msgstr "默认"
 
-#: install.php:230
+#: install.php:270
 msgid "Default backup; automatically installed"
 msgstr "默认备份；已自动安装"
 
@@ -433,7 +433,7 @@ msgid ""
 "disable any deleting"
 msgstr ""
 
-#: functions.inc/templates.php:310
+#: functions.inc/templates.php:309
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr ""
 
@@ -459,7 +459,7 @@ msgstr ""
 msgid "Destination"
 msgstr ""
 
-#: functions.inc/templates.php:246
+#: functions.inc/templates.php:245
 msgid "Directory"
 msgstr ""
 
@@ -559,7 +559,7 @@ msgstr ""
 msgid "Exclude BIND address"
 msgstr ""
 
-#: install.php:181
+#: install.php:180
 msgid ""
 "Exclude Backup's settings so that they dont get restored, useful for a "
 "remote restore"
@@ -626,7 +626,7 @@ msgstr ""
 msgid "Failed to retrieve file from server!"
 msgstr ""
 
-#: functions.inc/templates.php:303
+#: functions.inc/templates.php:302
 msgid "Family, one per line"
 msgstr ""
 
@@ -634,7 +634,7 @@ msgstr ""
 msgid "February"
 msgstr "二月"
 
-#: functions.inc/templates.php:233
+#: functions.inc/templates.php:232
 msgid "File"
 msgstr "文件"
 
@@ -850,7 +850,7 @@ msgstr "月"
 msgid "MySQL Server"
 msgstr ""
 
-#: functions.inc/templates.php:267
+#: functions.inc/templates.php:266
 msgid "Mysql"
 msgstr ""
 
@@ -975,7 +975,7 @@ msgstr ""
 msgid "Optional description or notes for this backup temnplate."
 msgstr ""
 
-#: functions.inc/templates.php:260
+#: functions.inc/templates.php:259
 msgid "PATTERNs, one per line"
 msgstr ""
 
@@ -983,7 +983,7 @@ msgstr ""
 msgid "PBX Settings"
 msgstr "PBX设置"
 
-#: install.php:88
+#: install.php:87
 msgid "PBX config server, generally a local database server"
 msgstr ""
 
@@ -1408,7 +1408,7 @@ msgstr "第五步"
 msgid "Storage Servers"
 msgstr "存储服务器"
 
-#: install.php:80
+#: install.php:79
 msgid "Storage location for backups"
 msgstr ""
 
@@ -1526,12 +1526,12 @@ msgstr ""
 msgid "Unix/Linux"
 msgstr ""
 
-#: install.php:290
+#: install.php:330
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
 msgstr ""
 
-#: install.php:278
+#: install.php:318
 msgid "Updated System Recordings template"
 msgstr ""
 
@@ -1552,7 +1552,7 @@ msgstr ""
 msgid "Verifying received file..."
 msgstr ""
 
-#: install.php:163
+#: install.php:162
 msgid "Voice Mail Storage"
 msgstr ""
 
@@ -1662,11 +1662,11 @@ msgstr ""
 msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
 msgstr ""
 
-#: install.php:126
+#: install.php:125
 msgid "added default backup servers"
 msgstr ""
 
-#: install.php:215
+#: install.php:216
 msgid "added default backup templates"
 msgstr ""
 
@@ -1686,7 +1686,7 @@ msgstr ""
 msgid "manifest not found"
 msgstr ""
 
-#: functions.inc/templates.php:289
+#: functions.inc/templates.php:288
 msgid "table names, one per line"
 msgstr ""
 
@@ -1694,7 +1694,7 @@ msgstr ""
 msgid "waiting for lock..."
 msgstr ""
 
-#: functions.inc/templates.php:281
+#: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr ""
 

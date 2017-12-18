@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-13 19:57-0500\n"
+"POT-Creation-Date: 2017-12-18 17:33-0500\n"
 "PO-Revision-Date: 2017-03-08 21:01+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -26,15 +26,15 @@ msgstr ""
 msgid "%s Backup Wizard"
 msgstr "%s Assistente de Backup"
 
-#: functions.inc/templates.php:251
+#: functions.inc/templates.php:250
 msgid "/path/to/dir"
 msgstr "/caminho/do/diretório"
 
-#: functions.inc/templates.php:238
+#: functions.inc/templates.php:237
 msgid "/path/to/file"
 msgstr "/caminho/do/arquivo"
 
-#: install.php:145
+#: install.php:144
 msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
@@ -114,7 +114,7 @@ msgstr ""
 "Todos os arquivos de Configuração do PBX e quaisquer Avisos de Som "
 "Personalizados estão incluídos na base de backup"
 
-#: install.php:172
+#: install.php:171
 msgid ""
 "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
 "VOICEMAIL"
@@ -146,7 +146,7 @@ msgstr "Abril"
 msgid "AstDB's"
 msgstr "\"AstDB's\""
 
-#: functions.inc/templates.php:296
+#: functions.inc/templates.php:295
 msgid "Asterisk DB"
 msgstr "DB Asterisk"
 
@@ -325,7 +325,7 @@ msgstr "Construindo manifesto..."
 msgid "CDR and Call Log Data"
 msgstr "CDR e Dados do Registro de Chamadas"
 
-#: install.php:100
+#: install.php:99
 msgid "CDR server, generally a local database server"
 msgstr "Servidor CDR, geralmente um servidor de banco de dados local"
 
@@ -333,7 +333,7 @@ msgstr "Servidor CDR, geralmente um servidor de banco de dados local"
 msgid "CDR's"
 msgstr "CDR's"
 
-#: install.php:154
+#: install.php:153
 msgid "Call Detail Records"
 msgstr "Registro de Detalhes de Chamadas"
 
@@ -341,7 +341,7 @@ msgstr "Registro de Detalhes de Chamadas"
 msgid "Call Recordings"
 msgstr "Gravação de Chamadas"
 
-#: install.php:71
+#: install.php:70
 msgid "Can not create backup tables"
 msgstr "Não é possível criar tabelas de backup"
 
@@ -353,7 +353,7 @@ msgstr "Limpando..."
 msgid "Click 'Next' to continue."
 msgstr "Clique em 'Próximo' para continuar."
 
-#: install.php:136
+#: install.php:135
 msgid "Configurations only"
 msgstr "Somente configurações"
 
@@ -419,7 +419,7 @@ msgstr "Dezembro"
 msgid "Default"
 msgstr "Padrão"
 
-#: install.php:230
+#: install.php:270
 msgid "Default backup; automatically installed"
 msgstr "Backup padrão; instalado automaticamente"
 
@@ -452,7 +452,7 @@ msgstr ""
 "Remover este backup após X quantidade de execuções. Definir o valor para 0 "
 "irá desativar qualquer exclusão"
 
-#: functions.inc/templates.php:310
+#: functions.inc/templates.php:309
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr ""
 "Excluir esta entrada. Não esqueça de clicar em Enviar para salvar as "
@@ -480,7 +480,7 @@ msgstr "Descrição ou comentários para este servidor"
 msgid "Destination"
 msgstr "Destino"
 
-#: functions.inc/templates.php:246
+#: functions.inc/templates.php:245
 msgid "Directory"
 msgstr "Diretório"
 
@@ -588,7 +588,7 @@ msgstr "Excluir"
 msgid "Exclude BIND address"
 msgstr ""
 
-#: install.php:181
+#: install.php:180
 msgid ""
 "Exclude Backup's settings so that they dont get restored, useful for a "
 "remote restore"
@@ -664,7 +664,7 @@ msgstr ""
 msgid "Failed to retrieve file from server!"
 msgstr "Falha ao recuperar o arquivo do servidor!"
 
-#: functions.inc/templates.php:303
+#: functions.inc/templates.php:302
 msgid "Family, one per line"
 msgstr "Família, uma por linha"
 
@@ -672,7 +672,7 @@ msgstr "Família, uma por linha"
 msgid "February"
 msgstr "Fevereiro"
 
-#: functions.inc/templates.php:233
+#: functions.inc/templates.php:232
 msgid "File"
 msgstr "Arquivo"
 
@@ -901,7 +901,7 @@ msgstr "Meses"
 msgid "MySQL Server"
 msgstr "Servidor MySQL"
 
-#: functions.inc/templates.php:267
+#: functions.inc/templates.php:266
 msgid "Mysql"
 msgstr "Mysql"
 
@@ -1026,7 +1026,7 @@ msgstr "Enviar e-mail somente em caso de falha"
 msgid "Optional description or notes for this backup temnplate."
 msgstr "Descrição ou comentários opcionais para este modelo de backup."
 
-#: functions.inc/templates.php:260
+#: functions.inc/templates.php:259
 msgid "PATTERNs, one per line"
 msgstr "PADRÕES, um por linha"
 
@@ -1034,7 +1034,7 @@ msgstr "PADRÕES, um por linha"
 msgid "PBX Settings"
 msgstr "Configurações PBX"
 
-#: install.php:88
+#: install.php:87
 msgid "PBX config server, generally a local database server"
 msgstr ""
 "Servidor de configuração PBX, geralmente um servidor de banco de dados local"
@@ -1469,7 +1469,7 @@ msgstr "Passo 5"
 msgid "Storage Servers"
 msgstr "Servidores de Armazenamento"
 
-#: install.php:80
+#: install.php:79
 msgid "Storage location for backups"
 msgstr "Local de armazenamento para backups"
 
@@ -1605,12 +1605,12 @@ msgstr "Não é possível carregar o arquivo no servidor remoto"
 msgid "Unix/Linux"
 msgstr "Unix/Linux"
 
-#: install.php:290
+#: install.php:330
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
 msgstr "Tarefa %s atualizada com novo diretório de sons personalizados"
 
-#: install.php:278
+#: install.php:318
 msgid "Updated System Recordings template"
 msgstr "Modelo de Gravações do Sistema atualizado"
 
@@ -1631,7 +1631,7 @@ msgstr "Nome de Usuário"
 msgid "Verifying received file..."
 msgstr "Verificando arquivo recebido..."
 
-#: install.php:163
+#: install.php:162
 msgid "Voice Mail Storage"
 msgstr "Armazenamento de Correio de Voz"
 
@@ -1742,11 +1742,11 @@ msgstr "Você deve executar \"%s\" para garantir a integridade do sistema"
 msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
 msgstr "O backup será salvo localmente em /var/spool/asterisk/backup"
 
-#: install.php:126
+#: install.php:125
 msgid "added default backup servers"
 msgstr "servidores de backup padrão adicionados"
 
-#: install.php:215
+#: install.php:216
 msgid "added default backup templates"
 msgstr "modelos de backup padrão adicionados"
 
@@ -1766,7 +1766,7 @@ msgstr "erro/não encontrado!"
 msgid "manifest not found"
 msgstr "manifesto não encontrado"
 
-#: functions.inc/templates.php:289
+#: functions.inc/templates.php:288
 msgid "table names, one per line"
 msgstr "nome das tabelas, uma por linha"
 
@@ -1774,6 +1774,6 @@ msgstr "nome das tabelas, uma por linha"
 msgid "waiting for lock..."
 msgstr "esperando por bloqueio..."
 
-#: functions.inc/templates.php:281
+#: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{sem servidores disponíveis}"

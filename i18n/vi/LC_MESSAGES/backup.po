@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-13 19:57-0500\n"
+"POT-Creation-Date: 2017-12-18 17:33-0500\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -26,15 +26,15 @@ msgstr ""
 msgid "%s Backup Wizard"
 msgstr "%s Sao lưu Wizard"
 
-#: functions.inc/templates.php:251
+#: functions.inc/templates.php:250
 msgid "/path/to/dir"
 msgstr "/path/to/dir"
 
-#: functions.inc/templates.php:238
+#: functions.inc/templates.php:237
 msgid "/path/to/file"
 msgstr "/path/to/file"
 
-#: install.php:145
+#: install.php:144
 msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
@@ -113,7 +113,7 @@ msgstr ""
 "Tất cả các tệp cấu hình PBX  và các dấu nhắc âm thanh tùy chỉnh được bao gồm "
 "trong sao lưu cơ sở"
 
-#: install.php:172
+#: install.php:171
 msgid ""
 "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
 "VOICEMAIL"
@@ -145,7 +145,7 @@ msgstr "Tháng tư"
 msgid "AstDB's"
 msgstr "Các tập tin AstDB's"
 
-#: functions.inc/templates.php:296
+#: functions.inc/templates.php:295
 msgid "Asterisk DB"
 msgstr "Cơ sở dữ liễu Asterisk ( Asterisk Database)"
 
@@ -323,7 +323,7 @@ msgstr "Đang xây dựng kê khai..."
 msgid "CDR and Call Log Data"
 msgstr "CDR và dữ liệu nhật ký cuộc gọi"
 
-#: install.php:100
+#: install.php:99
 msgid "CDR server, generally a local database server"
 msgstr "Máy chủ CDR, thông thường là một máy chủ cơ sở dữ liệu tại chỗ"
 
@@ -331,7 +331,7 @@ msgstr "Máy chủ CDR, thông thường là một máy chủ cơ sở dữ li�
 msgid "CDR's"
 msgstr "Các tập tin CDR"
 
-#: install.php:154
+#: install.php:153
 msgid "Call Detail Records"
 msgstr "Bản ghi chi tiết cuộc gọi"
 
@@ -339,7 +339,7 @@ msgstr "Bản ghi chi tiết cuộc gọi"
 msgid "Call Recordings"
 msgstr "Các ghi âm cuộc gọi"
 
-#: install.php:71
+#: install.php:70
 msgid "Can not create backup tables"
 msgstr "Không thể tạo ra các bảng sao lưu"
 
@@ -351,7 +351,7 @@ msgstr "Đang dọn sạch..."
 msgid "Click 'Next' to continue."
 msgstr "Kích chọn \"Tiếp theo\" để tiếp tục."
 
-#: install.php:136
+#: install.php:135
 msgid "Configurations only"
 msgstr "Chỉ các cấu hình"
 
@@ -417,7 +417,7 @@ msgstr "Tháng 12"
 msgid "Default"
 msgstr "Mặc định"
 
-#: install.php:230
+#: install.php:270
 msgid "Default backup; automatically installed"
 msgstr "Mặc định sao lưu; cài đặt tự động"
 
@@ -450,7 +450,7 @@ msgstr ""
 "Xóa bản sao lưu này sau khi đã chạy x lần. Cài đặt giá trị về 0 sẽ vô hiệu "
 "thao tác xóa"
 
-#: functions.inc/templates.php:310
+#: functions.inc/templates.php:309
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr "Xóa mục nhập này. Đừng quên kích Gửi đi để lưu các thay đổi!"
 
@@ -476,7 +476,7 @@ msgstr "Mô tả hoặc các lưu ý cho máy chủ này"
 msgid "Destination"
 msgstr "Điểm đến"
 
-#: functions.inc/templates.php:246
+#: functions.inc/templates.php:245
 msgid "Directory"
 msgstr "Thư mục"
 
@@ -582,7 +582,7 @@ msgstr "Ngoại trừ"
 msgid "Exclude BIND address"
 msgstr "Loại trừ địa chỉ Địa chỉ IP để gán vào"
 
-#: install.php:181
+#: install.php:180
 msgid ""
 "Exclude Backup's settings so that they dont get restored, useful for a "
 "remote restore"
@@ -659,7 +659,7 @@ msgstr ""
 msgid "Failed to retrieve file from server!"
 msgstr "Truy xuất tệp từ máy chủ không thành công!"
 
-#: functions.inc/templates.php:303
+#: functions.inc/templates.php:302
 msgid "Family, one per line"
 msgstr "Dãy, một trên mỗi dòng"
 
@@ -667,7 +667,7 @@ msgstr "Dãy, một trên mỗi dòng"
 msgid "February"
 msgstr "Tháng hai"
 
-#: functions.inc/templates.php:233
+#: functions.inc/templates.php:232
 msgid "File"
 msgstr "Tệp"
 
@@ -894,7 +894,7 @@ msgstr "Tháng"
 msgid "MySQL Server"
 msgstr "Máy chủ MySQL"
 
-#: functions.inc/templates.php:267
+#: functions.inc/templates.php:266
 msgid "Mysql"
 msgstr "Hệ quản trị dữ liệu Mysql"
 
@@ -1019,7 +1019,7 @@ msgstr "Chỉ gửi một Thư điện tử khi sự cố"
 msgid "Optional description or notes for this backup temnplate."
 msgstr "Mô tả lựa chọn hoắc ghi chú cho mẫu sao lưu này."
 
-#: functions.inc/templates.php:260
+#: functions.inc/templates.php:259
 msgid "PATTERNs, one per line"
 msgstr "Chuỗi mẫu, 1 chuỗi trên 1 dòng"
 
@@ -1027,7 +1027,7 @@ msgstr "Chuỗi mẫu, 1 chuỗi trên 1 dòng"
 msgid "PBX Settings"
 msgstr "Các cài đặt PBX"
 
-#: install.php:88
+#: install.php:87
 msgid "PBX config server, generally a local database server"
 msgstr "Máy chủ cấu hình PBX, thông thường là máy chủ cơ sở dữ liệu tại chỗ"
 
@@ -1461,7 +1461,7 @@ msgstr "Bước 5"
 msgid "Storage Servers"
 msgstr "Các máy chủ lưu trữ"
 
-#: install.php:80
+#: install.php:79
 msgid "Storage location for backups"
 msgstr "Vị trí lưu trữ cho các sao lưu"
 
@@ -1598,12 +1598,12 @@ msgstr "Không thể tải tệp đến máy chủ từ xa"
 msgid "Unix/Linux"
 msgstr "Hệ điều hành Unix/Linux"
 
-#: install.php:290
+#: install.php:330
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
 msgstr "Cập nhật công việc  %s với thư mục âm thanh tùy chỉnh mới"
 
-#: install.php:278
+#: install.php:318
 msgid "Updated System Recordings template"
 msgstr "Cập nhật hệ thống các mẫu ghi âm"
 
@@ -1624,7 +1624,7 @@ msgstr "Tên người dùng"
 msgid "Verifying received file..."
 msgstr "Đang xác nhận tệp đã nhận..."
 
-#: install.php:163
+#: install.php:162
 msgid "Voice Mail Storage"
 msgstr "Lưu trữ thư thoại"
 
@@ -1735,11 +1735,11 @@ msgstr "Bạn nên chạy \"%s\"để đảm bảo tính toàn vẹn của hệ 
 msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
 msgstr "Sao lưu của bạn sẽ được lưu tại chỗ đến /var/spool/asterisk/backup"
 
-#: install.php:126
+#: install.php:125
 msgid "added default backup servers"
 msgstr "Các máy chủ sao lưu mặc định đã thêm"
 
-#: install.php:215
+#: install.php:216
 msgid "added default backup templates"
 msgstr "Các mẫu sao lưu mặc định đã thêm"
 
@@ -1759,7 +1759,7 @@ msgstr "Lỗi/ Không tìm thấy!"
 msgid "manifest not found"
 msgstr "Không tìm thấy kê khai"
 
-#: functions.inc/templates.php:289
+#: functions.inc/templates.php:288
 msgid "table names, one per line"
 msgstr "Tên bảng, một trên một dòng"
 
@@ -1767,6 +1767,6 @@ msgstr "Tên bảng, một trên một dòng"
 msgid "waiting for lock..."
 msgstr "Đang đợi để khóa..."
 
-#: functions.inc/templates.php:281
+#: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{không có máy chủ nào khả dụng}"

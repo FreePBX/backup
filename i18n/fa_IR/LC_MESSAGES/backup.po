@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-13 19:59-0500\n"
+"POT-Creation-Date: 2017-12-18 17:34-0500\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -26,15 +26,15 @@ msgstr ""
 msgid "%s Backup Wizard"
 msgstr "%s ویزارد پشتیبان گیری"
 
-#: functions.inc/templates.php:251
+#: functions.inc/templates.php:250
 msgid "/path/to/dir"
 msgstr "مسیر/به/فولدر"
 
-#: functions.inc/templates.php:238
+#: functions.inc/templates.php:237
 msgid "/path/to/file"
 msgstr "مسیر/به/فولدر"
 
-#: install.php:145
+#: install.php:144
 msgid ""
 "A full backup of core settings and web files, doesn't include system sounds "
 "or recordings."
@@ -111,7 +111,7 @@ msgid ""
 msgstr ""
 "همه ی فایل های تنظیمات و فایل های صوتی سفارشی مشمول پشتیبان گیری پایه هستند"
 
-#: install.php:172
+#: install.php:171
 msgid ""
 "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
 "VOICEMAIL"
@@ -143,7 +143,7 @@ msgstr "آوریل"
 msgid "AstDB's"
 msgstr "دیتابیس های استریسک"
 
-#: functions.inc/templates.php:296
+#: functions.inc/templates.php:295
 msgid "Asterisk DB"
 msgstr "دیتابیس استریسک"
 
@@ -322,7 +322,7 @@ msgstr "ساختن ظاهر..."
 msgid "CDR and Call Log Data"
 msgstr "جزئیات تماس و اطلاعات تماس"
 
-#: install.php:100
+#: install.php:99
 msgid "CDR server, generally a local database server"
 msgstr "سرور جزئیات تماس، عموما دیتابیس سرور محلی است"
 
@@ -330,7 +330,7 @@ msgstr "سرور جزئیات تماس، عموما دیتابیس سرور مح
 msgid "CDR's"
 msgstr "جزئیات مکالمات (CDR)"
 
-#: install.php:154
+#: install.php:153
 msgid "Call Detail Records"
 msgstr "جزئیات تماس"
 
@@ -338,7 +338,7 @@ msgstr "جزئیات تماس"
 msgid "Call Recordings"
 msgstr "تماس های ضبط شده"
 
-#: install.php:71
+#: install.php:70
 msgid "Can not create backup tables"
 msgstr "امکان ایجاد جداول پشتیبان وجود ندارد"
 
@@ -350,7 +350,7 @@ msgstr "پاک کردن..."
 msgid "Click 'Next' to continue."
 msgstr "برای ادامه 'بعدی' را کلیک کنید."
 
-#: install.php:136
+#: install.php:135
 msgid "Configurations only"
 msgstr "فقط پیکربندی ها"
 
@@ -416,7 +416,7 @@ msgstr "دسامبر"
 msgid "Default"
 msgstr "پیش فرض"
 
-#: install.php:230
+#: install.php:270
 msgid "Default backup; automatically installed"
 msgstr "پشتیبان پیش فرض، که به صورت خودکار نصب شده است"
 
@@ -448,7 +448,7 @@ msgstr ""
 "حذف این پشتیبان پس از X بار اجرا شدن. مقدار صفر هرگونه حذف را غیرفعال می "
 "نماید"
 
-#: functions.inc/templates.php:310
+#: functions.inc/templates.php:309
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr ""
 "حذف این مقدار ورودی. برای ذخیره ی تنظیمات باید بر روی گزینه ثبت کلیک نمایید!"
@@ -475,7 +475,7 @@ msgstr "توضیحات یا یادداشت برای این سرور"
 msgid "Destination"
 msgstr "مقصد"
 
-#: functions.inc/templates.php:246
+#: functions.inc/templates.php:245
 msgid "Directory"
 msgstr "دایرکتوری"
 
@@ -579,7 +579,7 @@ msgstr "به جز"
 msgid "Exclude BIND address"
 msgstr ""
 
-#: install.php:181
+#: install.php:180
 msgid ""
 "Exclude Backup's settings so that they dont get restored, useful for a "
 "remote restore"
@@ -664,7 +664,7 @@ msgstr ""
 msgid "Failed to retrieve file from server!"
 msgstr "شکست در بازیابی فایل از سرور!"
 
-#: functions.inc/templates.php:303
+#: functions.inc/templates.php:302
 msgid "Family, one per line"
 msgstr "خانواده، یکی در هر خط"
 
@@ -672,7 +672,7 @@ msgstr "خانواده، یکی در هر خط"
 msgid "February"
 msgstr "فوریه"
 
-#: functions.inc/templates.php:233
+#: functions.inc/templates.php:232
 msgid "File"
 msgstr "فایل"
 
@@ -895,7 +895,7 @@ msgstr "ماه"
 msgid "MySQL Server"
 msgstr "سرور MySQL"
 
-#: functions.inc/templates.php:267
+#: functions.inc/templates.php:266
 msgid "Mysql"
 msgstr "MySQL"
 
@@ -1020,7 +1020,7 @@ msgstr "فقط در صورت شکست ایمیل ارسال شود"
 msgid "Optional description or notes for this backup temnplate."
 msgstr "توضیحات در خصوص این قالب پشتیبان."
 
-#: functions.inc/templates.php:260
+#: functions.inc/templates.php:259
 msgid "PATTERNs, one per line"
 msgstr "الگوها، یکی در هر خط"
 
@@ -1028,7 +1028,7 @@ msgstr "الگوها، یکی در هر خط"
 msgid "PBX Settings"
 msgstr "تنظیمات PBX"
 
-#: install.php:88
+#: install.php:87
 msgid "PBX config server, generally a local database server"
 msgstr "پیکربندی سرور PBX، عموما سرور دیتابیس محلی"
 
@@ -1475,7 +1475,7 @@ msgstr "گام پنجم"
 msgid "Storage Servers"
 msgstr "سرورهای ذخیره سازی"
 
-#: install.php:80
+#: install.php:79
 msgid "Storage location for backups"
 msgstr "محل ذخیره سازی پشتیبان ها"
 
@@ -1608,12 +1608,12 @@ msgstr "عدم امکان بارگذاری فایل در سرور راه دور"
 msgid "Unix/Linux"
 msgstr "یونیکس/لینوکس"
 
-#: install.php:290
+#: install.php:330
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
 msgstr "بروز رسانی Job به میزان %s با دایرکتوری صداهای سفارشی"
 
-#: install.php:278
+#: install.php:318
 msgid "Updated System Recordings template"
 msgstr "قالب صداهای ضبط شده سیستمی بروز رسانی شده"
 
@@ -1634,7 +1634,7 @@ msgstr "نام کاربری"
 msgid "Verifying received file..."
 msgstr "بازبینی فایل دریافتی..."
 
-#: install.php:163
+#: install.php:162
 msgid "Voice Mail Storage"
 msgstr "محل ذخیره سازی صندوق صوتی"
 
@@ -1745,11 +1745,11 @@ msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
 msgstr ""
 "فایل پشتیبان به صورت محلی در مسیر var/spool/asterisk/backup/ ذخیر می شود"
 
-#: install.php:126
+#: install.php:125
 msgid "added default backup servers"
 msgstr "سرورهای پشتیبان پیش فرض اضافه شد"
 
-#: install.php:215
+#: install.php:216
 msgid "added default backup templates"
 msgstr "قالب های پشتیبان پیش فرض اضافه شد"
 
@@ -1769,7 +1769,7 @@ msgstr "خطا/ یافت نشد!"
 msgid "manifest not found"
 msgstr "ظاهر یافت نشد"
 
-#: functions.inc/templates.php:289
+#: functions.inc/templates.php:288
 msgid "table names, one per line"
 msgstr "نام جدول ها، یکی در هر خط"
 
@@ -1777,7 +1777,7 @@ msgstr "نام جدول ها، یکی در هر خط"
 msgid "waiting for lock..."
 msgstr "انتظار برای قفل..."
 
-#: functions.inc/templates.php:281
+#: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{سروری در دسترس نیست}"
 

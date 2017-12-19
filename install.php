@@ -221,7 +221,10 @@ if ($db->getOne('SELECT COUNT(*) FROM backup_servers') < 1) {
 	// be smarter.
 	$serverids = array ('local' => 1, 'mysql' => 2, 'cdr');
 }
-$templates = backup_get_template('all');
+$templates = array();
+if(function_exists("backup_get_template")){
+	$templates = backup_get_template('all');
+}
 $path = '/etc/wanpipe';
 if (PHP_OS == "FreeBSD") {
 	$path ='/usr/local/etc/wanpipe';

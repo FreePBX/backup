@@ -64,7 +64,7 @@ $(document).ready(function(){
 	});
 	//run backup
 	$('#run_backup').click(function(){
-		id = $('#backup_form').find('[name=id]').val();
+		let id = $('#backup_form').find('[name=id]').val();
 		if (typeof id == 'undefined' || !id) {
 			return false;
 		}
@@ -111,12 +111,14 @@ function cron_random() {
 
 function save_storage_servers(){
 	$('#backup_form > input[name^=storage_servers]').remove();
+	let i = 0;
 	$('#storage_used_servers > li').each(function(){
-		field		= document.createElement('input');
-		field.name	= 'storage_servers[]';
+		let field		= document.createElement('input');
+		field.name	= 'storage_servers['+i+']';
 		field.type	= 'hidden';
 		field.value	= $(this).data('server-id');
 		$('#backup_form').append(field);
+		i++
 	})
 }
 
@@ -129,9 +131,9 @@ function current_items_over_helper(action) {
 			$('#add_entry').show();
 			break;
 		case 'hide':
-			width = $('#template_table').width();
-			height = $('#template_table').height();
-			height2 = $('#templates').height();
+			let width = $('#template_table').width();
+			let height = $('#template_table').height();
+			let height2 = $('#templates').height();
 
 			$('#items_over').width(width - 10);
 			$('#items_over').height(height > height2 ? height : height2);
@@ -153,7 +155,7 @@ function add_template(template) {
 			continue;
 		}
 		$('#template_table > tbody > tr:not(:first)').each(function(){
-			row = {};
+			let row = {};
 			row.type 	= $(this).find('td').eq(0).find('input').val();
 			if ($(this).find('td').eq(1).find('select').length > 0) {
 				row.path = $(this).find('td').eq(1).find('select').val();
@@ -198,7 +200,7 @@ function add_template(template) {
 				continue;
 			}
 			add_template_row(template[item].type);
-			new_row = $('#template_table > tbody:last').find('tr:last');
+			let new_row = $('#template_table > tbody:last').find('tr:last');
 			if (new_row.find('td').eq(1).find('select').length > 0) {
 				new_row.find('td').eq(1).find('select').val(template[item].path);
 			} else if (new_row.find('td').eq(1).find('input').length > 0) {

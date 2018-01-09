@@ -1,7 +1,9 @@
+'use strict';
+
 function remote() {
 	if ($('#bu_server').val() == 0) {
 		$('#restore').removeAttr("checked");
-		$('.remote').hide()
+		$('.remote').hide();
 	} else {
 		$('.remote').show();
 		restore();
@@ -9,17 +11,17 @@ function remote() {
 };
 function restore() {
 	if ($('#restoreyes').is(':checked')) {
-			$('.restore').show();
-		} else {
-			$('.restore').hide();
-		}
+		$('.restore').show();
+	} else {
+		$('.restore').hide();
+	}
 }
-$(document).ready(function(){
+$(document).ready(function () {
 
 	//have to insert a delay otherwise it runs too soon.
-	setTimeout(remote,1000);
+	setTimeout(remote, 1000);
 	//setTimeout(restore,1000);
-	$('#bu_server').on('change',function(){
+	$('#bu_server').on('change', function () {
 		remote();
 	});
 
@@ -36,7 +38,7 @@ $(document).ready(function(){
 	//storage servers
 	$('#storage_used_servers').sortable({
 		connectWith: '.storage_servers',
-		update: save_storage_servers,
+		update: save_storage_servers
 	}).disableSelection();
 
 	$('#storage_avail_servers').sortable({
@@ -50,21 +52,21 @@ $(document).ready(function(){
 	}).disableSelection();
 
 	$('#template_table, #items_over').droppable({
-		drop: function(event, ui) {
+		drop: function drop(event, ui) {
 			current_items_over_helper('show');
 			var data = JSON.parse(decodeURIComponent(ui.draggable.data('template')));
 			add_template(data);
 		},
-		over: function(event, ui) {
+		over: function over(event, ui) {
 			current_items_over_helper('hide');
 		},
-		out: function(event, ui) {
+		out: function out(event, ui) {
 			current_items_over_helper('show');
 		}
 	});
 	//run backup
-	$('#run_backup').click(function(){
-		let id = $('#backup_form').find('[name=id]').val();
+	$('#run_backup').click(function () {
+		var id = $('#backup_form').find('[name=id]').val();
 		if (typeof id == 'undefined' || !id) {
 			return false;
 		}
@@ -75,16 +77,12 @@ $(document).ready(function(){
 	$('#crondiv').find('input[type=checkbox]').button();
 
 	//highlight save when run is hovered
-	$('#run_backup').hover(
-		function(){
-			$('#save_backup').addClass('ui-state-hover');
-		},
-		function(){
-			$('#save_backup').removeClass('ui-state-hover');
-		}
-	);
+	$('#run_backup').hover(function () {
+		$('#save_backup').addClass('ui-state-hover');
+	}, function () {
+		$('#save_backup').removeClass('ui-state-hover');
+	});
 });
-
 
 function cron_custom() {
 	if ($('select[name=cron_schedule]').val() == 'custom') {
@@ -95,68 +93,66 @@ function cron_custom() {
 }
 
 function cron_random() {
-	switch($('select[name=cron_schedule]').val()) {
+	switch ($('select[name=cron_schedule]').val()) {
 		case 'never':
 		case 'custom':
 		case 'reboot':
-			$('#randominput').hide();
-			$('#cron_random').removeAttr("checked").hide();
-			break;
+		$('#randominput').hide();
+		$('#cron_random').removeAttr("checked").hide();
+		break;
 		default:
-			$('#randominput').show();
-			$('#cron_random').show();
-			break;
+		$('#randominput').show();
+		$('#cron_random').show();
+		break;
 	}
 }
 
-function save_storage_servers(){
+function save_storage_servers() {
 	$('#backup_form > input[name^=storage_servers]').remove();
-	let i = 0;
-	$('#storage_used_servers > li').each(function(){
-		let field		= document.createElement('input');
-		field.name	= 'storage_servers['+i+']';
-		field.type	= 'hidden';
-		field.value	= $(this).data('server-id');
+	var i = 0;
+	$('#storage_used_servers > li').each(function () {
+		var field = document.createElement('input');
+		field.name = 'storage_servers[' + i + ']';
+		field.type = 'hidden';
+		field.value = $(this).data('server-id');
 		$('#backup_form').append(field);
-		i++
-	})
+		i++;
+	});
 }
-
 
 function current_items_over_helper(action) {
 	switch (action) {
 		case 'show':
-			$('#items_over').hide();
-			$('#template_table').show();
-			$('#add_entry').show();
-			break;
+		$('#items_over').hide();
+		$('#template_table').show();
+		$('#add_entry').show();
+		break;
 		case 'hide':
-			let width = $('#template_table').width();
-			let height = $('#template_table').height();
-			let height2 = $('#templates').height();
+		var width = $('#template_table').width();
+		var height = $('#template_table').height();
+		var height2 = $('#templates').height();
 
-			$('#items_over').width(width - 10);
-			$('#items_over').height(height > height2 ? height : height2);
+		$('#items_over').width(width - 10);
+		$('#items_over').height(height > height2 ? height : height2);
 
-
-			$('#template_table').hide();
-			$('#add_entry').hide();
-			$('#items_over').show();
-			break;
+		$('#template_table').hide();
+		$('#add_entry').hide();
+		$('#items_over').show();
+		break;
 	}
 }
 function add_template(template) {
 
-
 	//clone the object so that we dont destroy the origional when we delete from it
 	var template = $.extend({}, template);
 	for (var item in template) {
-		if (!template.hasOwnProperty(item)) { //skip non properties, such as __proto__
+		if (!template.hasOwnProperty(item)) {
+			//skip non properties, such as __proto__
 			continue;
 		}
-		$('#template_table > tbody > tr:not(:first)').each(function(){
-			let row = {};
-			row.type 	= $(this).find('td').eq(0).find('input').val();
+		$('#template_table > tbody > tr:not(:first)').each(function () {
+			var row = {};
+			row.type = $(this).find('td').eq(0).find('input').val();
 			if ($(this).find('td').eq(1).find('select').length > 0) {
 				row.path = $(this).find('td').eq(1).find('select').val();
 			} else if ($(this).find('td').eq(1).find('input').length > 0) {
@@ -165,31 +161,30 @@ function add_template(template) {
 				row.path = '';
 			}
 
-			row.exclude	= $(this).find('td').eq(2).find('textarea').val() || '';
+			row.exclude = $(this).find('td').eq(2).find('textarea').val() || '';
 			if (row.type == template[item].type && row.path == template[item].path) {
 				//merge excludes if we have any
 				if (template[item].exclude) {
 					//merge current and template's exclude
 					row.exclude = row.exclude.split("\n") //split string by line breaks
-									.concat(template[item].exclude) //merge template and row
-									.filter(function(element){return element}) //remove blanks
-									.sort()
-									.filter(function(element, index, array){ //remove duplicates
-										if ($.trim(element) != $.trim(array[index + 1])) {
-											return $.trim(element);
-										}
-									});
+					.concat(template[item].exclude) //merge template and row
+					.filter(function (element) {
+						return element;
+					}) //remove blanks
+					.sort().filter(function (element, index, array) {
+						//remove duplicates
+						if ($.trim(element) != $.trim(array[index + 1])) {
+							return $.trim(element);
+						}
+					});
 
 					//add excludes to row
-					$(this).find('td').eq(2).find('textarea')
-							.attr('rows',row.exclude.length)
-							.val(row.exclude.join("\n"));
+					$(this).find('td').eq(2).find('textarea').attr('rows', row.exclude.length).val(row.exclude.join("\n"));
 				}
 
 				delete template[item];
 				return false;
 			}
-
 		});
 	}
 
@@ -200,14 +195,13 @@ function add_template(template) {
 				continue;
 			}
 			add_template_row(template[item].type);
-			let new_row = $('#template_table > tbody:last').find('tr:last');
+			var new_row = $('#template_table > tbody:last').find('tr:last');
 			if (new_row.find('td').eq(1).find('select').length > 0) {
 				new_row.find('td').eq(1).find('select').val(template[item].path);
 			} else if (new_row.find('td').eq(1).find('input').length > 0) {
 				new_row.find('td').eq(1).find('input').val(template[item].path);
 			}
-			new_row.find('td').eq(2).find('textarea').val(template[item].exclude.join("\n"))
+			new_row.find('td').eq(2).find('textarea').val(template[item].exclude.join("\n"));
 		}
 	}
-
 }

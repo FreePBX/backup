@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-18 17:33-0500\n"
+"POT-Creation-Date: 2018-01-18 18:50-0500\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -185,12 +185,12 @@ msgstr "B"
 msgid "BACKUP LOG ATTACHED"
 msgstr "Журнал копирования приложен"
 
-#: functions.inc/class.backup.php:414 functions.inc/class.backup.php:417
+#: functions.inc/class.backup.php:407 functions.inc/class.backup.php:410
 msgid "BACKUP NOT ATTACHED"
 msgstr "АРХИВ НЕ ПРИСОЕДИНЁН"
 
 #: Backup.class.php:321 functions.inc/backup.php:81
-#: functions.inc/class.backup.php:408 views/backup/backup.php:6
+#: functions.inc/class.backup.php:401 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Бекап"
 
@@ -223,11 +223,11 @@ msgstr ""
 msgid "Backup Description"
 msgstr "Описание резервной копии"
 
-#: functions.inc/class.backup.php:413
+#: functions.inc/class.backup.php:406
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr "ОШИБКА при отсылке резервной копии (превышен лимит SMTP)"
 
-#: functions.inc/class.backup.php:416
+#: functions.inc/class.backup.php:409
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr "ОШИБКА при создании резервной копии (превышен софт лимит)"
 
@@ -283,7 +283,7 @@ msgstr "Резервное копирование и  восстановлени
 msgid "Backup completed with errors!"
 msgstr "Резервное копирование завершилось с ошибками!"
 
-#: functions.inc/class.backup.php:299
+#: functions.inc/class.backup.php:292
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -296,7 +296,7 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr "Файл бекапа не найден! Прерывание."
 
-#: functions.inc/class.backup.php:502
+#: functions.inc/class.backup.php:495
 msgid "Backup file uploaded to the remote server"
 msgstr ""
 
@@ -344,7 +344,7 @@ msgstr "CDR и логи звонков"
 msgid "CDR server, generally a local database server"
 msgstr "CDR сервер, обычно локальная БД"
 
-#: views/restore/backup_list.php:26
+#: views/restore/backup_list.php:30
 msgid "CDR's"
 msgstr "Дтл. звонков"
 
@@ -360,7 +360,7 @@ msgstr "Записи разговоров"
 msgid "Can not create backup tables"
 msgstr "Невозможно создать таблицу резервного копирования"
 
-#: bin/restore.php:462
+#: bin/restore.php:546
 msgid "Cleaning up..."
 msgstr "Прибираемся..."
 
@@ -376,12 +376,12 @@ msgstr "Только конфигурация"
 msgid "Connecting to remote server..."
 msgstr "Соединение с удаленным сервером..."
 
-#: functions.inc/class.backup.php:822
+#: functions.inc/class.backup.php:819
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
 
-#: functions.inc/class.backup.php:401 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:394 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Создано"
 
@@ -389,7 +389,7 @@ msgstr "Создано"
 msgid "Creating backup..."
 msgstr "Создание бекапа..."
 
-#: functions.inc/class.backup.php:480
+#: functions.inc/class.backup.php:473
 #, php-format
 msgid "Creating directory '%s'"
 msgstr ""
@@ -434,7 +434,7 @@ msgstr "Декабрь"
 msgid "Default"
 msgstr "По-умолчанию"
 
-#: install.php:270
+#: install.php:273
 msgid "Default backup; automatically installed"
 msgstr "Резервное копирование по умолчанию: устанавливается автоматически"
 
@@ -497,7 +497,7 @@ msgstr "Назначение"
 msgid "Directory"
 msgstr "Каталог"
 
-#: functions.inc/class.backup.php:484
+#: functions.inc/class.backup.php:477
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr ""
@@ -506,7 +506,7 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr "Отключить зарегистрированные транки"
 
-#: bin/restore.php:508
+#: bin/restore.php:592
 msgid "Done!"
 msgstr "Готово!"
 
@@ -575,12 +575,12 @@ msgstr ""
 "Эквивалентно нажатию на красную кнопку, происходит автоматически после "
 "восстановления на резервной системе"
 
-#: functions.inc/class.backup.php:474 functions.inc/restore.php:117
+#: functions.inc/class.backup.php:467 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:829
+#: functions.inc/class.backup.php:826
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -700,7 +700,7 @@ msgstr "Восстановление файла завершено!"
 msgid "File verification failed. "
 msgstr "Проверка файла не удалась. "
 
-#: functions.inc/class.backup.php:402 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:395 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Файлы"
 
@@ -920,7 +920,7 @@ msgstr "MySQL"
 msgid "Mysql DB's"
 msgstr "База данных  MySQL"
 
-#: functions.inc/class.backup.php:403
+#: functions.inc/class.backup.php:396
 msgid "Mysql Db's"
 msgstr "База данных  MySQL"
 
@@ -928,7 +928,7 @@ msgstr "База данных  MySQL"
 msgid "Mysql Server "
 msgstr "MySQL Server "
 
-#: functions.inc/class.backup.php:400 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:393 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Имя"
 
@@ -1037,11 +1037,15 @@ msgstr ""
 msgid "Optional description or notes for this backup temnplate."
 msgstr "Опциональное описание или заметки для этого образца резервной копии."
 
+#: views/restore/backup_list.php:37
+msgid "Other MySQL databases"
+msgstr ""
+
 #: functions.inc/templates.php:259
 msgid "PATTERNs, one per line"
 msgstr "Шаблоны, один на линию"
 
-#: views/restore/backup_list.php:19
+#: views/restore/backup_list.php:22
 msgid "PBX Settings"
 msgstr "Настройки PBX"
 
@@ -1082,7 +1086,7 @@ msgstr "Путь к ключу ssh, например  /home/asterisk/.ssh/id_rsa
 msgid "Path/DB"
 msgstr "Путь/DB"
 
-#: functions.inc/class.backup.php:818 functions.inc/class.backup.php:819
+#: functions.inc/class.backup.php:815 functions.inc/class.backup.php:816
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1115,7 +1119,7 @@ msgstr "Обработчик перед началом резервного ко
 msgid "Pre-Restore Hook"
 msgstr "Обработчик перед началом восстановления"
 
-#: bin/restore.php:322
+#: bin/restore.php:323
 msgid "Preserving local Bind address"
 msgstr ""
 
@@ -1133,6 +1137,11 @@ msgstr "Обработано  %s%%  CDR-ов (%s of %s строк)"
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "Обработано  %s%% настроек (%s  %s строк)"
 
+#: bin/restore.php:503
+#, php-format
+msgid "Processed %s%% of external database %s (%s of %s lines)"
+msgstr ""
+
 #: bin/backup.php:142
 msgid "Processing received file..."
 msgstr "Обработка принятого файла..."
@@ -1149,7 +1158,7 @@ msgstr "Случайный"
 msgid "Reboot"
 msgstr "Перегрузка"
 
-#: bin/restore.php:493
+#: bin/restore.php:577
 msgid "Reloading..."
 msgstr "Перезагрузка..."
 
@@ -1197,13 +1206,13 @@ msgstr "Путь удалённого сохранения , пусто по у�
 msgid "Reset"
 msgstr "Сброс"
 
-#: page.backup_restore.php:201 views/restore/backup_list.php:34
+#: page.backup_restore.php:201 views/restore/backup_list.php:46
 #: views/restore/browseserver.php:4 views/restore/restore.php:34
 #: views/rnav/main.php:4
 msgid "Restore"
 msgstr "Восстановить"
 
-#: views/restore/backup_list.php:26
+#: views/restore/backup_list.php:30
 msgid "Restore CDR records stored in this backup"
 msgstr "Восстановить  CDR-записи, сохранённые в этой резервной копии"
 
@@ -1211,7 +1220,11 @@ msgstr "Восстановить  CDR-записи, сохранённые в э
 msgid "Restore Here"
 msgstr "Восстановить здесь"
 
-#: views/restore/backup_list.php:19
+#: views/restore/backup_list.php:37
+msgid "Restore MySQL databases stored in the backup"
+msgstr ""
+
+#: views/restore/backup_list.php:22
 msgid "Restore all setting stored in the database"
 msgstr "Восстановить все  настройки,сохранённые в базе данных"
 
@@ -1221,15 +1234,15 @@ msgstr ""
 "Восстановить резервную  копию для этого сервера после завершения резервного "
 "копирования"
 
-#: bin/restore.php:492
+#: bin/restore.php:576
 msgid "Restore complete!"
 msgstr "Восстановление  завершено!"
 
-#: bin/restore.php:399
+#: bin/restore.php:399 bin/restore.php:513
 msgid "Restored Database"
 msgstr "Восстановленная база данных"
 
-#: bin/restore.php:417
+#: bin/restore.php:424
 msgid "Restoring Bindaddres Settings"
 msgstr ""
 
@@ -1241,6 +1254,11 @@ msgstr "Восстановление CDR-файлов завершено"
 msgid "Restoring CDRs..."
 msgstr "Восстановление CDR-файлов..."
 
+#: bin/restore.php:482
+#, php-format
+msgid "Restoring Database %s..."
+msgstr ""
+
 #: bin/restore.php:357
 msgid "Restoring Database..."
 msgstr "Восстановленние базы данных..."
@@ -1249,7 +1267,7 @@ msgstr "Восстановленние базы данных..."
 msgid "Restoring NAT settings"
 msgstr "Восстановление NAT-установок"
 
-#: bin/restore.php:447
+#: bin/restore.php:531
 msgid "Restoring Settings complete"
 msgstr "Восстановление установок завершено"
 
@@ -1257,7 +1275,7 @@ msgstr "Восстановление установок завершено"
 msgid "Restoring all files (this may take some time)..."
 msgstr "Восстановление всех файлов (это может занять некоторое время)..."
 
-#: bin/restore.php:437
+#: bin/restore.php:521
 msgid "Restoring astDB..."
 msgstr "Восстановление  astDB..."
 
@@ -1305,11 +1323,11 @@ msgstr "Запустить единожды в один из годов , в п�
 msgid "Run once an hour, beginning of hour"
 msgstr "Запустить единожды в один из часов , начиная с часа"
 
-#: functions.inc/class.backup.php:503
+#: functions.inc/class.backup.php:496
 msgid "Running maintenance.."
 msgstr ""
 
-#: bin/restore.php:453
+#: bin/restore.php:537
 msgid "Running post restore script..."
 msgstr "Запускается  скрипт после окончания процедуры восстановления..."
 
@@ -1317,7 +1335,7 @@ msgstr "Запускается  скрипт после окончания пр�
 msgid "Running post-backup hooks..."
 msgstr "Запускаются   обработчики после создания резервной копии..."
 
-#: bin/restore.php:457
+#: bin/restore.php:541
 msgid "Running post-restore hooks, if any..."
 msgstr ""
 "Запускаются   обработчики после окончания процедуры восстановления, если "
@@ -1372,7 +1390,7 @@ msgstr "Сохранить"
 msgid "Save and Run"
 msgstr "Сохранить и запустить"
 
-#: functions.inc/class.backup.php:491
+#: functions.inc/class.backup.php:484
 msgid "Saving file to remote ftp"
 msgstr ""
 
@@ -1389,6 +1407,10 @@ msgid ""
 "Select how often to run this backup. The following schedule will be followed "
 "for all but custom."
 msgstr "Выбрать как часто запускать эту процедуру создания резервной копии."
+
+#: views/restore/backup_list.php:7
+msgid "Select items to restore"
+msgstr ""
 
 #: views/backup/backup.php:281
 msgid ""
@@ -1520,7 +1542,7 @@ msgstr ""
 msgid "The Restore script is still running"
 msgstr ""
 
-#: functions.inc/class.backup.php:414
+#: functions.inc/class.backup.php:407
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
@@ -1530,7 +1552,7 @@ msgstr ""
 "отправить не будет возобновлены.Пожалуйста уменьшите размер вашей резервной "
 "копии, или используйте другой метод передачи вашей резервной копии."
 
-#: functions.inc/class.backup.php:417
+#: functions.inc/class.backup.php:410
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1591,7 +1613,7 @@ msgstr "Метод передачи"
 msgid "Transfer Type"
 msgstr "Тип передачи"
 
-#: functions.inc/class.backup.php:496
+#: functions.inc/class.backup.php:489
 #, php-format
 msgid "Trying to upload %s to %s"
 msgstr ""
@@ -1604,7 +1626,7 @@ msgstr "Вторник"
 msgid "Type"
 msgstr "Тип"
 
-#: functions.inc/class.backup.php:494
+#: functions.inc/class.backup.php:487
 msgid "Unable to upload file to the remote server"
 msgstr ""
 
@@ -1612,12 +1634,12 @@ msgstr ""
 msgid "Unix/Linux"
 msgstr ""
 
-#: install.php:330
+#: install.php:333
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
 msgstr "Задание %s обновлено установкой новой директории для звуковых файлов"
 
-#: install.php:318
+#: install.php:321
 msgid "Updated System Recordings template"
 msgstr "Обновлённый шаблон системных записей"
 
@@ -1759,7 +1781,7 @@ msgstr "добавлены сервера резервного копирова�
 msgid "added default backup templates"
 msgstr "добавлены шаблоны резервного копирования по умолчанию"
 
-#: functions.inc/class.backup.php:404
+#: functions.inc/class.backup.php:397
 msgid "astDb's"
 msgstr "astDb'-ы"
 

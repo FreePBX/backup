@@ -277,14 +277,7 @@ class Backup {
 									. '.' . backup__($x);
 						}
 					}
-					$cmd[] = ' --opt --skip-comments --skip-extended-insert --lock-tables=false --skip-add-locks --compatible=no_table_options --default-character-set=utf8';
-
-					// Need to grep out leading /* comments and SET commands as they create problems
-					// restoring using the PEAR $db class
-					//
-					$cmd[] = ' | ';
-					$cmd[] = fpbx_which('grep');
-					$cmd[] = "-v '^\/\*\|^SET'";
+					$cmd[] = '--opt --compact --skip-lock-tables --add-drop-table --default-character-set=utf8';
 					$cmd[] = ' | ' . fpbx_which('gzip');
 					$cmd[] = ' > ' . $sql_file;
 
@@ -645,7 +638,6 @@ class Backup {
 						|| $ret['mysql'][$s]['host'] == $this->amp_conf['AMPDBHOST']
 					) {
 						$ret['fpbx_db'] = 'mysql-' . $s;
-						unset($ret['file_list'][$key]);
 					}
 
 					//if this server is freepbx's primary cdr server datastore, record that
@@ -656,9 +648,14 @@ class Backup {
 						|| $ret['mysql'][$s]['host'] == $this->amp_conf['CDRDBHOST']
 					) {
 						$ret['fpbx_cdrdb'] = 'mysql-' . $s;
-						unset($ret['file_list'][$key]);
 					}
+				} else {
+					// save credentials for external databases
+					$ret['mysql'][$s]['user'] = backup__($this->s[$s]['user']);
+					$ret['mysql'][$s]['password'] = backup__($this->s[$s]['password']);
 				}
+				// don't store any database dumps in the file section, as they can't be restored
+				unset($ret['file_list'][$key]);
 				continue;
 			}
 

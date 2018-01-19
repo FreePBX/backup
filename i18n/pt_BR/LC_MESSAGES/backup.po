@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-18 17:34-0500\n"
+"POT-Creation-Date: 2018-01-19 17:51-0500\n"
 "PO-Revision-Date: 2017-03-08 21:01+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -170,12 +170,12 @@ msgstr "B"
 msgid "BACKUP LOG ATTACHED"
 msgstr "LOG DE BACKUP ANEXADO"
 
-#: functions.inc/class.backup.php:414 functions.inc/class.backup.php:417
+#: functions.inc/class.backup.php:407 functions.inc/class.backup.php:410
 msgid "BACKUP NOT ATTACHED"
 msgstr "BACKUP NÃO ANEXADO"
 
 #: Backup.class.php:321 functions.inc/backup.php:82
-#: functions.inc/class.backup.php:408 views/backup/backup.php:6
+#: functions.inc/class.backup.php:401 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Backup"
 
@@ -207,11 +207,11 @@ msgstr "Backup do CDR e dados de gravação de chamadas?"
 msgid "Backup Description"
 msgstr "Descrição do Backup"
 
-#: functions.inc/class.backup.php:413
+#: functions.inc/class.backup.php:406
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr "ERRO de Backup (limite de SMTP excedido)"
 
-#: functions.inc/class.backup.php:416
+#: functions.inc/class.backup.php:409
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr "ERRO de Backup (limite suave excedido)"
 
@@ -267,7 +267,7 @@ msgstr "Backup e Restauração"
 msgid "Backup completed with errors!"
 msgstr "Backup completado com erros!"
 
-#: functions.inc/class.backup.php:299
+#: functions.inc/class.backup.php:292
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -280,7 +280,7 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr "Arquivo de Backup não encontrado! Abortando."
 
-#: functions.inc/class.backup.php:502
+#: functions.inc/class.backup.php:495
 msgid "Backup file uploaded to the remote server"
 msgstr ""
 
@@ -329,7 +329,7 @@ msgstr "CDR e Dados do Registro de Chamadas"
 msgid "CDR server, generally a local database server"
 msgstr "Servidor CDR, geralmente um servidor de banco de dados local"
 
-#: views/restore/backup_list.php:26
+#: views/restore/backup_list.php:30
 msgid "CDR's"
 msgstr "CDR's"
 
@@ -361,12 +361,12 @@ msgstr "Somente configurações"
 msgid "Connecting to remote server..."
 msgstr "Conectando ao servidor remoto..."
 
-#: functions.inc/class.backup.php:822
+#: functions.inc/class.backup.php:821
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
 
-#: functions.inc/class.backup.php:401 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:394 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Criado"
 
@@ -374,7 +374,7 @@ msgstr "Criado"
 msgid "Creating backup..."
 msgstr "Criando backup..."
 
-#: functions.inc/class.backup.php:480
+#: functions.inc/class.backup.php:473
 #, php-format
 msgid "Creating directory '%s'"
 msgstr "Criando diretório '%s'"
@@ -419,7 +419,7 @@ msgstr "Dezembro"
 msgid "Default"
 msgstr "Padrão"
 
-#: install.php:270
+#: install.php:273
 msgid "Default backup; automatically installed"
 msgstr "Backup padrão; instalado automaticamente"
 
@@ -484,7 +484,7 @@ msgstr "Destino"
 msgid "Directory"
 msgstr "Diretório"
 
-#: functions.inc/class.backup.php:484
+#: functions.inc/class.backup.php:477
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr "O diretório '%s' não existe e não foi possível criá-lo"
@@ -562,12 +562,12 @@ msgstr ""
 "Equivalente à clicar no \"botão vermelho\", ocorrerá automaticamente após "
 "uma restauração de um Sistema em Espera"
 
-#: functions.inc/class.backup.php:474 functions.inc/restore.php:117
+#: functions.inc/class.backup.php:467 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
 msgstr "Erro ao criar o objeto FTP"
 
-#: functions.inc/class.backup.php:829
+#: functions.inc/class.backup.php:828
 #, php-format
 msgid "Error deleting %s"
 msgstr "Erro ao apagar %s"
@@ -698,7 +698,7 @@ msgstr "Restauração do arquivo completada!"
 msgid "File verification failed. "
 msgstr "Verificação do arquivo falhou. "
 
-#: functions.inc/class.backup.php:402 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:395 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Arquivos"
 
@@ -919,7 +919,7 @@ msgstr "Mysql"
 msgid "Mysql DB's"
 msgstr "DB's Mysql"
 
-#: functions.inc/class.backup.php:403
+#: functions.inc/class.backup.php:396
 msgid "Mysql Db's"
 msgstr "Db's Mysql"
 
@@ -927,7 +927,7 @@ msgstr "Db's Mysql"
 msgid "Mysql Server "
 msgstr "Servidor Mysql "
 
-#: functions.inc/class.backup.php:400 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:393 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Nome"
 
@@ -1036,11 +1036,15 @@ msgstr "Enviar e-mail somente em caso de falha"
 msgid "Optional description or notes for this backup temnplate."
 msgstr "Descrição ou comentários opcionais para este modelo de backup."
 
+#: views/restore/backup_list.php:37
+msgid "Other MySQL databases"
+msgstr ""
+
 #: functions.inc/templates.php:259
 msgid "PATTERNs, one per line"
 msgstr "PADRÕES, um por linha"
 
-#: views/restore/backup_list.php:19
+#: views/restore/backup_list.php:22
 msgid "PBX Settings"
 msgstr "Configurações PBX"
 
@@ -1085,7 +1089,7 @@ msgstr "Caminho para a chave ssh, exemplo: /home/asterisk/.ssh/id_rsa"
 msgid "Path/DB"
 msgstr "Caminho/DB"
 
-#: functions.inc/class.backup.php:818 functions.inc/class.backup.php:819
+#: functions.inc/class.backup.php:817 functions.inc/class.backup.php:818
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1204,13 +1208,13 @@ msgstr "Caminho de salvamento remoto, deixar em branco para caminho padrão"
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: page.backup_restore.php:201 views/restore/backup_list.php:34
+#: page.backup_restore.php:201 views/restore/backup_list.php:46
 #: views/restore/browseserver.php:4 views/restore/restore.php:34
 #: views/rnav/main.php:4
 msgid "Restore"
 msgstr "Restaurar"
 
-#: views/restore/backup_list.php:26
+#: views/restore/backup_list.php:30
 msgid "Restore CDR records stored in this backup"
 msgstr "Restaurar registros de CDR armazenados neste backup"
 
@@ -1218,7 +1222,11 @@ msgstr "Restaurar registros de CDR armazenados neste backup"
 msgid "Restore Here"
 msgstr "Restaurar Aqui"
 
-#: views/restore/backup_list.php:19
+#: views/restore/backup_list.php:37
+msgid "Restore MySQL databases stored in the backup"
+msgstr ""
+
+#: views/restore/backup_list.php:22
 msgid "Restore all setting stored in the database"
 msgstr "Restaurar todas as configurações armazenadas no banco de dados"
 
@@ -1314,7 +1322,7 @@ msgstr "Executar uma ver por ano às 00:00 de 1° de Janeiro"
 msgid "Run once an hour, beginning of hour"
 msgstr "Executar uma vez a cada hora, no início da hora"
 
-#: functions.inc/class.backup.php:503
+#: functions.inc/class.backup.php:496
 msgid "Running maintenance.."
 msgstr ""
 
@@ -1378,7 +1386,7 @@ msgstr "Salvar"
 msgid "Save and Run"
 msgstr "Salvar e Executar"
 
-#: functions.inc/class.backup.php:491
+#: functions.inc/class.backup.php:484
 msgid "Saving file to remote ftp"
 msgstr "Salvando arquivo no ftp remoto"
 
@@ -1397,6 +1405,10 @@ msgid ""
 msgstr ""
 "Selecione com que freqüência executar esse backup. O seguinte cronograma "
 "será seguido para todos, exceto os personalizados."
+
+#: views/restore/backup_list.php:7
+msgid "Select items to restore"
+msgstr ""
 
 #: views/backup/backup.php:281
 msgid ""
@@ -1538,7 +1550,7 @@ msgstr "O script de Restauração Finalizou. Você pode fechar esta janela"
 msgid "The Restore script is still running"
 msgstr "O script de restauração ainda está em execução"
 
-#: functions.inc/class.backup.php:414
+#: functions.inc/class.backup.php:407
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
@@ -1548,7 +1560,7 @@ msgstr ""
 "enviado. Reduza o backup, ou use um método diferente para transferir o "
 "backup."
 
-#: functions.inc/class.backup.php:417
+#: functions.inc/class.backup.php:410
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1610,7 +1622,7 @@ msgstr "Modo de Transferência"
 msgid "Transfer Type"
 msgstr "Tipo de Transferência"
 
-#: functions.inc/class.backup.php:496
+#: functions.inc/class.backup.php:489
 #, php-format
 msgid "Trying to upload %s to %s"
 msgstr ""
@@ -1623,7 +1635,7 @@ msgstr "Terça"
 msgid "Type"
 msgstr "Tipo"
 
-#: functions.inc/class.backup.php:494
+#: functions.inc/class.backup.php:487
 msgid "Unable to upload file to the remote server"
 msgstr "Não é possível carregar o arquivo no servidor remoto"
 
@@ -1631,12 +1643,12 @@ msgstr "Não é possível carregar o arquivo no servidor remoto"
 msgid "Unix/Linux"
 msgstr "Unix/Linux"
 
-#: install.php:330
+#: install.php:333
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
 msgstr "Tarefa %s atualizada com novo diretório de sons personalizados"
 
-#: install.php:318
+#: install.php:321
 msgid "Updated System Recordings template"
 msgstr "Modelo de Gravações do Sistema atualizado"
 
@@ -1776,7 +1788,7 @@ msgstr "servidores de backup padrão adicionados"
 msgid "added default backup templates"
 msgstr "modelos de backup padrão adicionados"
 
-#: functions.inc/class.backup.php:404
+#: functions.inc/class.backup.php:397
 msgid "astDb's"
 msgstr "astDb's"
 

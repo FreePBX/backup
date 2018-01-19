@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-18 17:34-0500\n"
+"POT-Creation-Date: 2018-01-19 17:51-0500\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -164,12 +164,12 @@ msgstr ""
 msgid "BACKUP LOG ATTACHED"
 msgstr "REGISTO DE BACKUP ANEXO"
 
-#: functions.inc/class.backup.php:414 functions.inc/class.backup.php:417
+#: functions.inc/class.backup.php:407 functions.inc/class.backup.php:410
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
 #: Backup.class.php:321 functions.inc/backup.php:82
-#: functions.inc/class.backup.php:408 views/backup/backup.php:6
+#: functions.inc/class.backup.php:401 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Cópia de Segurança"
 
@@ -201,11 +201,11 @@ msgstr ""
 msgid "Backup Description"
 msgstr ""
 
-#: functions.inc/class.backup.php:413
+#: functions.inc/class.backup.php:406
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr ""
 
-#: functions.inc/class.backup.php:416
+#: functions.inc/class.backup.php:409
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr ""
 
@@ -261,7 +261,7 @@ msgstr ""
 msgid "Backup completed with errors!"
 msgstr "Cópia de Segurança terminada com erros!"
 
-#: functions.inc/class.backup.php:299
+#: functions.inc/class.backup.php:292
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -274,7 +274,7 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr "Ficheiro de Cópia de Segurança não encontrado! Abortando."
 
-#: functions.inc/class.backup.php:502
+#: functions.inc/class.backup.php:495
 msgid "Backup file uploaded to the remote server"
 msgstr ""
 
@@ -322,7 +322,7 @@ msgstr ""
 msgid "CDR server, generally a local database server"
 msgstr "Servidor CDR, geralmente um servidor de base de dados local"
 
-#: views/restore/backup_list.php:26
+#: views/restore/backup_list.php:30
 msgid "CDR's"
 msgstr "CDR's"
 
@@ -354,12 +354,12 @@ msgstr "Somente configurações"
 msgid "Connecting to remote server..."
 msgstr "Conectando ao servidor remoto..."
 
-#: functions.inc/class.backup.php:822
+#: functions.inc/class.backup.php:821
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
 
-#: functions.inc/class.backup.php:401 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:394 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Criado"
 
@@ -367,7 +367,7 @@ msgstr "Criado"
 msgid "Creating backup..."
 msgstr "Criando Cópia de Segurança..."
 
-#: functions.inc/class.backup.php:480
+#: functions.inc/class.backup.php:473
 #, php-format
 msgid "Creating directory '%s'"
 msgstr ""
@@ -412,7 +412,7 @@ msgstr "Dezembro"
 msgid "Default"
 msgstr ""
 
-#: install.php:270
+#: install.php:273
 msgid "Default backup; automatically installed"
 msgstr "Cópia de segurança por defeito; instalado automaticamente"
 
@@ -476,7 +476,7 @@ msgstr ""
 msgid "Directory"
 msgstr "Diretório"
 
-#: functions.inc/class.backup.php:484
+#: functions.inc/class.backup.php:477
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr ""
@@ -549,12 +549,12 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:474 functions.inc/restore.php:117
+#: functions.inc/class.backup.php:467 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:829
+#: functions.inc/class.backup.php:828
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -680,7 +680,7 @@ msgstr "Restauro de ficheiro terminado!"
 msgid "File verification failed. "
 msgstr "Verificação de ficheiro falhou. "
 
-#: functions.inc/class.backup.php:402 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:395 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Ficheiros"
 
@@ -890,7 +890,7 @@ msgstr "Mysql"
 msgid "Mysql DB's"
 msgstr "BDs Mysql"
 
-#: functions.inc/class.backup.php:403
+#: functions.inc/class.backup.php:396
 msgid "Mysql Db's"
 msgstr "Bds Mysql"
 
@@ -898,7 +898,7 @@ msgstr "Bds Mysql"
 msgid "Mysql Server "
 msgstr "Servidor Mysql "
 
-#: functions.inc/class.backup.php:400 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:393 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Nome"
 
@@ -1007,11 +1007,15 @@ msgstr ""
 msgid "Optional description or notes for this backup temnplate."
 msgstr ""
 
+#: views/restore/backup_list.php:37
+msgid "Other MySQL databases"
+msgstr ""
+
 #: functions.inc/templates.php:259
 msgid "PATTERNs, one per line"
 msgstr "PADRÕES, um por linha"
 
-#: views/restore/backup_list.php:19
+#: views/restore/backup_list.php:22
 msgid "PBX Settings"
 msgstr "Configurações do PBX"
 
@@ -1053,7 +1057,7 @@ msgstr ""
 msgid "Path/DB"
 msgstr "Caminho/BD"
 
-#: functions.inc/class.backup.php:818 functions.inc/class.backup.php:819
+#: functions.inc/class.backup.php:817 functions.inc/class.backup.php:818
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1172,13 +1176,13 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: page.backup_restore.php:201 views/restore/backup_list.php:34
+#: page.backup_restore.php:201 views/restore/backup_list.php:46
 #: views/restore/browseserver.php:4 views/restore/restore.php:34
 #: views/rnav/main.php:4
 msgid "Restore"
 msgstr "Restaurar"
 
-#: views/restore/backup_list.php:26
+#: views/restore/backup_list.php:30
 msgid "Restore CDR records stored in this backup"
 msgstr "Restaurar registos CDR armazenados nesta cópia de segurança"
 
@@ -1186,7 +1190,11 @@ msgstr "Restaurar registos CDR armazenados nesta cópia de segurança"
 msgid "Restore Here"
 msgstr "Restaurar Aqui"
 
-#: views/restore/backup_list.php:19
+#: views/restore/backup_list.php:37
+msgid "Restore MySQL databases stored in the backup"
+msgstr ""
+
+#: views/restore/backup_list.php:22
 msgid "Restore all setting stored in the database"
 msgstr "Restaurar todas as configurações na base de dados"
 
@@ -1280,7 +1288,7 @@ msgstr ""
 msgid "Run once an hour, beginning of hour"
 msgstr ""
 
-#: functions.inc/class.backup.php:503
+#: functions.inc/class.backup.php:496
 msgid "Running maintenance.."
 msgstr ""
 
@@ -1344,7 +1352,7 @@ msgstr "Guardar"
 msgid "Save and Run"
 msgstr ""
 
-#: functions.inc/class.backup.php:491
+#: functions.inc/class.backup.php:484
 msgid "Saving file to remote ftp"
 msgstr ""
 
@@ -1360,6 +1368,10 @@ msgstr "Selecione um ficheiro e clique executar"
 msgid ""
 "Select how often to run this backup. The following schedule will be followed "
 "for all but custom."
+msgstr ""
+
+#: views/restore/backup_list.php:7
+msgid "Select items to restore"
 msgstr ""
 
 #: views/backup/backup.php:281
@@ -1502,14 +1514,14 @@ msgstr ""
 msgid "The Restore script is still running"
 msgstr ""
 
-#: functions.inc/class.backup.php:414
+#: functions.inc/class.backup.php:407
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
 "of transferring your backup."
 msgstr ""
 
-#: functions.inc/class.backup.php:417
+#: functions.inc/class.backup.php:410
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1558,7 +1570,7 @@ msgstr "Modo de Transferencia"
 msgid "Transfer Type"
 msgstr ""
 
-#: functions.inc/class.backup.php:496
+#: functions.inc/class.backup.php:489
 #, php-format
 msgid "Trying to upload %s to %s"
 msgstr ""
@@ -1571,7 +1583,7 @@ msgstr "Terça-feira"
 msgid "Type"
 msgstr "Tipo"
 
-#: functions.inc/class.backup.php:494
+#: functions.inc/class.backup.php:487
 msgid "Unable to upload file to the remote server"
 msgstr ""
 
@@ -1579,12 +1591,12 @@ msgstr ""
 msgid "Unix/Linux"
 msgstr ""
 
-#: install.php:330
+#: install.php:333
 #, php-format
 msgid "Updated Job %s with new custom sounds directory"
 msgstr ""
 
-#: install.php:318
+#: install.php:321
 msgid "Updated System Recordings template"
 msgstr ""
 
@@ -1723,7 +1735,7 @@ msgstr "adicionados os servidores por defeito"
 msgid "added default backup templates"
 msgstr "adicionados modelos por defeito"
 
-#: functions.inc/class.backup.php:404
+#: functions.inc/class.backup.php:397
 msgid "astDb's"
 msgstr "astDb's"
 

@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-18 18:50-0500\n"
+"POT-Creation-Date: 2018-01-18 19:13-0500\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -149,7 +149,7 @@ msgstr "Amazon S3&trade; Сервер"
 msgid "Annually"
 msgstr "Ежегодно"
 
-#: views/backup/backup.php:408
+#: views/backup/backup.php:438
 msgid "Apply Configs"
 msgstr "Применить конфигурации"
 
@@ -173,7 +173,7 @@ msgstr "Август"
 msgid "Auto"
 msgstr ""
 
-#: views/backup/backup.php:465
+#: views/backup/backup.php:495
 msgid "Available Servers"
 msgstr "Доступные серверы"
 
@@ -189,7 +189,7 @@ msgstr "Журнал копирования приложен"
 msgid "BACKUP NOT ATTACHED"
 msgstr "АРХИВ НЕ ПРИСОЕДИНЁН"
 
-#: Backup.class.php:321 functions.inc/backup.php:81
+#: Backup.class.php:321 functions.inc/backup.php:82
 #: functions.inc/class.backup.php:401 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Бекап"
@@ -255,7 +255,7 @@ msgstr "Модуль резервного копирования"
 msgid "Backup Name"
 msgstr "Имя бекапа"
 
-#: views/backup/backup.php:487
+#: views/backup/backup.php:517
 msgid "Backup Schedule"
 msgstr "Расписание бекапа"
 
@@ -275,11 +275,11 @@ msgstr "Образец резервной копии"
 msgid "Backup Wizard"
 msgstr "Мастер создания  резервной копии"
 
-#: page.backup.php:116
+#: page.backup.php:117
 msgid "Backup and Restore"
 msgstr "Резервное копирование и  восстановление"
 
-#: bin/backup.php:155 bin/backup.php:210
+#: bin/backup.php:155 bin/backup.php:215
 msgid "Backup completed with errors!"
 msgstr "Резервное копирование завершилось с ошибками!"
 
@@ -292,7 +292,7 @@ msgstr ""
 "Не удалось резервное копирование дампа SQL базы [%s] в файл [%s]. У вас есть "
 "поврежденная резервная копия с сервера [%s]."
 
-#: bin/restore.php:99
+#: bin/restore.php:104
 msgid "Backup file not found! Aborting."
 msgstr "Файл бекапа не найден! Прерывание."
 
@@ -304,7 +304,7 @@ msgstr ""
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "Модуль резервного копирования не найден или отключен. Прерывание!"
 
-#: bin/backup.php:157 bin/backup.php:212
+#: bin/backup.php:157 bin/backup.php:217
 msgid "Backup successfully completed!"
 msgstr "Резервное копирование выполнено успешно!"
 
@@ -360,7 +360,7 @@ msgstr "Записи разговоров"
 msgid "Can not create backup tables"
 msgstr "Невозможно создать таблицу резервного копирования"
 
-#: bin/restore.php:546
+#: bin/restore.php:561
 msgid "Cleaning up..."
 msgstr "Прибираемся..."
 
@@ -414,7 +414,7 @@ msgstr "День каждого месяца"
 msgid "Day of Week"
 msgstr "День недели"
 
-#: views/backup/backup.php:523
+#: views/backup/backup.php:553
 msgid "Days"
 msgstr "Дни"
 
@@ -438,17 +438,17 @@ msgstr "По-умолчанию"
 msgid "Default backup; automatically installed"
 msgstr "Резервное копирование по умолчанию: устанавливается автоматически"
 
-#: Backup.class.php:38 Backup.class.php:207 page.backup.php:47
+#: Backup.class.php:38 Backup.class.php:207 page.backup.php:48
 #: page.backup_servers.php:36 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
 msgstr "Удалить "
 
-#: views/backup/backup.php:511 views/backup/backup.php:548
+#: views/backup/backup.php:541 views/backup/backup.php:578
 msgid "Delete After"
 msgstr "Удалить После"
 
-#: views/backup/backup.php:538
+#: views/backup/backup.php:568
 msgid ""
 "Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
 "Please note that deletes aren't time based and will only happen after a "
@@ -459,7 +459,7 @@ msgstr ""
 "произойдут только после того, как резервное копирование будет запущено. "
 "Установка значения в 0 отключит любое удаление"
 
-#: views/backup/backup.php:561
+#: views/backup/backup.php:591
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -506,7 +506,7 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr "Отключить зарегистрированные транки"
 
-#: bin/restore.php:592
+#: bin/restore.php:607
 msgid "Done!"
 msgstr "Готово!"
 
@@ -514,7 +514,7 @@ msgstr "Готово!"
 msgid "Download"
 msgstr "Загрузить "
 
-#: views/backup/backup.php:436
+#: views/backup/backup.php:466
 msgid ""
 "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
@@ -567,7 +567,7 @@ msgid "Email to send status messages to when this task is run"
 msgstr ""
 "E-mail для отправки сообщений о состоянии, когда эта задача выполняется"
 
-#: views/backup/backup.php:423
+#: views/backup/backup.php:453
 msgid ""
 "Equivalence of clicking the red button, will happen automatically after a "
 "restore on a Standby system"
@@ -609,6 +609,10 @@ msgstr ""
 "Исключить настройки резервной копии так, чтобы они не восстанавливались, это "
 "полезно для удаленного восстановления"
 
+#: views/backup/backup.php:409
+msgid "Exclude DNS"
+msgstr ""
+
 #: views/backup/backup.php:353
 msgid "Exclude NAT settings"
 msgstr "Исключить настройки NAT"
@@ -617,6 +621,12 @@ msgstr "Исключить настройки NAT"
 msgid ""
 "Explicitly exclude any machine-specific Bindaddres. This allows you to have "
 "a warm-spare machine with a different IP address."
+msgstr ""
+
+#: views/backup/backup.php:424
+msgid ""
+"Explicitly exclude any machine-specific DNS. This allows you to have a warm-"
+"spare machine with a different DNS."
 msgstr ""
 
 #: views/backup/backup.php:368
@@ -692,7 +702,7 @@ msgstr "Файл"
 msgid "File not found! "
 msgstr "Файл не найден! "
 
-#: bin/restore.php:157
+#: bin/restore.php:162
 msgid "File restore complete!"
 msgstr "Восстановление файла завершено!"
 
@@ -708,7 +718,7 @@ msgstr "Файлы"
 msgid "Filesystem Type"
 msgstr ""
 
-#: page.backup.php:53
+#: page.backup.php:54
 msgid "FreePBX"
 msgstr "Система FreePBX"
 
@@ -716,7 +726,7 @@ msgstr "Система FreePBX"
 msgid "Friday"
 msgstr "Пятница"
 
-#: bin/restore.php:221
+#: bin/restore.php:226
 msgid "Getting CDR size..."
 msgstr "Получение размера CDR ..."
 
@@ -752,7 +762,7 @@ msgstr "Имя хоста"
 msgid "Hourly"
 msgstr "Ежечасно"
 
-#: views/backup/backup.php:521 views/cron.php:194 views/cron.php:198
+#: views/backup/backup.php:551 views/cron.php:194 views/cron.php:198
 msgid "Hours"
 msgstr "Часы"
 
@@ -814,7 +824,7 @@ msgstr ""
 msgid "Initializing Backup"
 msgstr "Инициализация резервного копирования"
 
-#: bin/restore.php:96
+#: bin/restore.php:101
 msgid "Initializing Restore..."
 msgstr "Инициализация восстановления..."
 
@@ -876,7 +886,7 @@ msgstr ""
 msgid "MB"
 msgstr "Мб"
 
-#: views/backup/backup.php:502
+#: views/backup/backup.php:532
 msgid "Maintenance"
 msgstr "Сопровождение"
 
@@ -892,7 +902,7 @@ msgstr "Максимальный размер Email"
 msgid "May"
 msgstr "Май"
 
-#: views/backup/backup.php:519 views/cron.php:168 views/cron.php:172
+#: views/backup/backup.php:549 views/cron.php:168 views/cron.php:172
 msgid "Minutes"
 msgstr "Минуты"
 
@@ -904,7 +914,7 @@ msgstr "Понедельник"
 msgid "Monthly"
 msgstr "Ежемесячный"
 
-#: views/backup/backup.php:527 views/cron.php:246 views/cron.php:250
+#: views/backup/backup.php:557 views/cron.php:246 views/cron.php:250
 msgid "Months"
 msgstr "Месяцы"
 
@@ -986,10 +996,10 @@ msgstr "Каждую ночь"
 
 #: views/backup/backup.php:96 views/backup/backup.php:308
 #: views/backup/backup.php:333 views/backup/backup.php:360
-#: views/backup/backup.php:387 views/backup/backup.php:415
-#: views/backup/backups.php:186 views/backup/backups.php:213
-#: views/backup/backups.php:240 views/backup/backups.php:271
-#: views/backup/backups.php:327 views/cron.php:147
+#: views/backup/backup.php:387 views/backup/backup.php:416
+#: views/backup/backup.php:445 views/backup/backups.php:186
+#: views/backup/backups.php:213 views/backup/backups.php:240
+#: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:147
 msgid "No"
 msgstr "Нет"
 
@@ -1001,7 +1011,7 @@ msgstr "Нет элементов в резервной копии . Завер�
 msgid "No storage servers found! Aborting."
 msgstr "Не найден сервер хранения! Завершение."
 
-#: bin/restore.php:92
+#: bin/restore.php:97
 msgid "Nothing to restore!"
 msgstr "Нет ничего для восстановления!"
 
@@ -1119,25 +1129,29 @@ msgstr "Обработчик перед началом резервного ко
 msgid "Pre-Restore Hook"
 msgstr "Обработчик перед началом восстановления"
 
-#: bin/restore.php:323
+#: bin/restore.php:334
 msgid "Preserving local Bind address"
 msgstr ""
 
-#: bin/restore.php:308
+#: bin/restore.php:327
+msgid "Preserving local DNS settings"
+msgstr ""
+
+#: bin/restore.php:313
 msgid "Preserving local NAT settings"
 msgstr "Сохранения локальных NAT-установок"
 
-#: bin/restore.php:255
+#: bin/restore.php:260
 #, php-format
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr "Обработано  %s%%  CDR-ов (%s of %s строк)"
 
-#: bin/restore.php:395
+#: bin/restore.php:406
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "Обработано  %s%% настроек (%s  %s строк)"
 
-#: bin/restore.php:503
+#: bin/restore.php:518
 #, php-format
 msgid "Processed %s%% of external database %s (%s of %s lines)"
 msgstr ""
@@ -1158,7 +1172,7 @@ msgstr "Случайный"
 msgid "Reboot"
 msgstr "Перегрузка"
 
-#: bin/restore.php:577
+#: bin/restore.php:592
 msgid "Reloading..."
 msgstr "Перезагрузка..."
 
@@ -1234,48 +1248,52 @@ msgstr ""
 "Восстановить резервную  копию для этого сервера после завершения резервного "
 "копирования"
 
-#: bin/restore.php:576
+#: bin/restore.php:591
 msgid "Restore complete!"
 msgstr "Восстановление  завершено!"
 
-#: bin/restore.php:399 bin/restore.php:513
+#: bin/restore.php:410 bin/restore.php:528
 msgid "Restored Database"
 msgstr "Восстановленная база данных"
 
-#: bin/restore.php:424
+#: bin/restore.php:439
 msgid "Restoring Bindaddres Settings"
 msgstr ""
 
-#: bin/restore.php:262
+#: bin/restore.php:267
 msgid "Restoring CDRs complete"
 msgstr "Восстановление CDR-файлов завершено"
 
-#: bin/restore.php:176
+#: bin/restore.php:181
 msgid "Restoring CDRs..."
 msgstr "Восстановление CDR-файлов..."
 
-#: bin/restore.php:482
+#: bin/restore.php:433
+msgid "Restoring DNS settings"
+msgstr ""
+
+#: bin/restore.php:497
 #, php-format
 msgid "Restoring Database %s..."
 msgstr ""
 
-#: bin/restore.php:357
+#: bin/restore.php:368
 msgid "Restoring Database..."
 msgstr "Восстановленние базы данных..."
 
-#: bin/restore.php:407
+#: bin/restore.php:418
 msgid "Restoring NAT settings"
 msgstr "Восстановление NAT-установок"
 
-#: bin/restore.php:531
+#: bin/restore.php:546
 msgid "Restoring Settings complete"
 msgstr "Восстановление установок завершено"
 
-#: bin/restore.php:121
+#: bin/restore.php:126
 msgid "Restoring all files (this may take some time)..."
 msgstr "Восстановление всех файлов (это может занять некоторое время)..."
 
-#: bin/restore.php:521
+#: bin/restore.php:536
 msgid "Restoring astDB..."
 msgstr "Восстановление  astDB..."
 
@@ -1283,7 +1301,7 @@ msgstr "Восстановление  astDB..."
 msgid "Restoring backup..."
 msgstr "Восстановление резервной копии ..."
 
-#: bin/restore.php:125
+#: bin/restore.php:130
 msgid "Restoring files (this may take some time)..."
 msgstr "Восстановление файлов (это может занять некоторое время)..."
 
@@ -1299,7 +1317,7 @@ msgstr ""
 "Запускать при загрузке сервера ИЛИ в cron-демоне (т.е после каждого  "
 "<code>перезапуска сервиса cron-а</code>)"
 
-#: page.backup.php:49
+#: page.backup.php:50
 msgid "Run now"
 msgstr "Запустить немедленно"
 
@@ -1327,15 +1345,15 @@ msgstr "Запустить единожды в один из часов , нач
 msgid "Running maintenance.."
 msgstr ""
 
-#: bin/restore.php:537
+#: bin/restore.php:552
 msgid "Running post restore script..."
 msgstr "Запускается  скрипт после окончания процедуры восстановления..."
 
-#: bin/backup.php:150 bin/backup.php:195
+#: bin/backup.php:150 bin/backup.php:200
 msgid "Running post-backup hooks..."
 msgstr "Запускаются   обработчики после создания резервной копии..."
 
-#: bin/restore.php:541
+#: bin/restore.php:556
 msgid "Running post-restore hooks, if any..."
 msgstr ""
 "Запускаются   обработчики после окончания процедуры восстановления, если "
@@ -1345,16 +1363,16 @@ msgstr ""
 msgid "Running pre-backup hooks..."
 msgstr "Запускаются  обработчики перед процедурой создания резервной копии ..."
 
-#: bin/restore.php:111
+#: bin/restore.php:116
 msgid "Running pre-restore hooks, if any..."
 msgstr ""
 "Запускаются  обработчики перед процедурой  восстановления, если что ..."
 
-#: bin/restore.php:108
+#: bin/restore.php:113
 msgid "Running pre-restore scripts..."
 msgstr "Запускаются  скрипты  перед процедурой  восстановления ...."
 
-#: views/backup/backup.php:554
+#: views/backup/backup.php:584
 msgid "Runs"
 msgstr "Запущены"
 
@@ -1465,8 +1483,16 @@ msgstr "Сервера"
 msgid "Skip Bindaddrss is Enabled... "
 msgstr ""
 
+#: bin/backup.php:190
+msgid "Skip DNS is Enabled... "
+msgstr ""
+
 #: bin/restore.php:73
 msgid "Skipping host-specific Bind address"
+msgstr ""
+
+#: bin/restore.php:79
+msgid "Skipping host-specific DNS"
 msgstr ""
 
 #: bin/backup.php:106
@@ -1497,7 +1523,7 @@ msgstr "Шаг4"
 msgid "Step 5"
 msgstr "Шаг5"
 
-#: views/backup/backup.php:442
+#: views/backup/backup.php:472
 msgid "Storage Servers"
 msgstr "Сервер хранения"
 
@@ -1668,11 +1694,11 @@ msgstr "Хранилище голосовой почты"
 msgid "Voicemails"
 msgstr "Голосовые сообщения"
 
-#: bin/restore.php:268
+#: bin/restore.php:273
 msgid "WARNING!"
 msgstr "ПРЕДУПРЕЖДЕНИЕ!"
 
-#: bin/restore.php:269
+#: bin/restore.php:274
 msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
 "Не обнаружено восстановление Web Root, нет восстанавливающей таблицы модуля"
@@ -1689,7 +1715,7 @@ msgstr "Дни недели"
 msgid "Weekly"
 msgstr "Еженедельно"
 
-#: views/backup/backup.php:525
+#: views/backup/backup.php:555
 msgid "Weeks"
 msgstr "Недели"
 
@@ -1750,20 +1776,20 @@ msgstr "Вы желаете бэкапировать записи?"
 msgid "Would you like voicemails backded up."
 msgstr "Вы желаете  создать резервную копию  сообщений голосовой почты."
 
-#: views/backup/backup.php:529
+#: views/backup/backup.php:559
 msgid "Years"
 msgstr "Года"
 
 #: views/backup/backup.php:94 views/backup/backup.php:306
 #: views/backup/backup.php:331 views/backup/backup.php:358
-#: views/backup/backup.php:385 views/backup/backup.php:413
-#: views/backup/backups.php:184 views/backup/backups.php:211
-#: views/backup/backups.php:238 views/backup/backups.php:269
-#: views/backup/backups.php:325 views/cron.php:145
+#: views/backup/backup.php:385 views/backup/backup.php:414
+#: views/backup/backup.php:443 views/backup/backups.php:184
+#: views/backup/backups.php:211 views/backup/backups.php:238
+#: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:145
 msgid "Yes"
 msgstr "Да"
 
-#: bin/restore.php:270
+#: bin/restore.php:275
 #, php-format
 msgid "You should run \"%s\" to ensure system integrity"
 msgstr "Вы должны запустить \"%s\" для проверки целостности системы"

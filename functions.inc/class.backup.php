@@ -538,6 +538,7 @@ class Backup {
 					exec($cmd, $output, $ret);
 					if ($ret !== 0) {
 						backup_log("SSH Error ($ret) - Received ".json_encode($output)." from $cmd");
+						$this->b['error'] = "SSH Error ($ret) - Received ".json_encode($output)." from $cmd";
 					}
 
 					$output = null;
@@ -555,6 +556,7 @@ class Backup {
 					exec($cmd, $output, $ret);
 					if ($ret !== 0) {
 						backup_log("SCP Error ($ret) - Received ".json_encode($output)." from $cmd");
+						$this->b['error'] = "SCP Error ($ret) - Received ".json_encode($output)." from $cmd";
 					}
 
 					//run maintenance on the directory

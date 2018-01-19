@@ -326,7 +326,7 @@ if (!isset($vars['restore'])) {
 			if ($skipdns) {
 		                backup_log(_('Preserving local DNS settings'));
 			      // Back up the DNS settings, to restore later.
-				$sy = FreePBX::create()->Sysadmin;
+				$sy = FreePBX::create()-> Sysadmin;
 				$backup['dns'] = $sy-> getVars('dns');
 			}
 
@@ -429,12 +429,12 @@ if (!isset($vars['restore'])) {
 				}
 				$ss->updateChanSipSettings('externip_val',$backup['externip_val']);
 				$ss->updateChanSipSettings('externhost_val',$backup['externhost_val']);
-                         }
+			}
 			if ($skipdns) {
-	                        backup_log(_('Restoring DNS settings'));
-				$sy = FreePBX::create()->Sysadmin;
+				backup_log(_('Restoring DNS settings'));
+				$sy = FreePBX::create()-> Sysadmin;
 				$sy-> setVar('dns',$backup['dns']);
-		        }
+			}
 			// Restore the same bindaddess preserved earlier
 			if ($skipbind) {
 				backup_log(_('Restoring Bindaddres Settings'));

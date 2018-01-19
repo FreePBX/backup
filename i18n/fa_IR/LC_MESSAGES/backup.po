@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-18 19:13-0500\n"
+"POT-Creation-Date: 2018-01-19 17:48-0500\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -358,7 +358,7 @@ msgstr "فقط پیکربندی ها"
 msgid "Connecting to remote server..."
 msgstr "اتصال به سرور دور دست..."
 
-#: functions.inc/class.backup.php:819
+#: functions.inc/class.backup.php:821
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -558,7 +558,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr "خطا در ایجاد شی در FTP"
 
-#: functions.inc/class.backup.php:826
+#: functions.inc/class.backup.php:828
 #, php-format
 msgid "Error deleting %s"
 msgstr "خطا در حذف کردن %s"
@@ -1069,7 +1069,7 @@ msgstr "مسیر کلید SSH، به عنوان مثال home/asterisk/.ssh/id_r
 msgid "Path/DB"
 msgstr "مسیر/دیتابیس"
 
-#: functions.inc/class.backup.php:815 functions.inc/class.backup.php:816
+#: functions.inc/class.backup.php:817 functions.inc/class.backup.php:818
 #, php-format
 msgid "Path: %s"
 msgstr ""

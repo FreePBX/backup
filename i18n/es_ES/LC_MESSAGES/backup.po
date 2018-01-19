@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-18 19:13-0500\n"
+"POT-Creation-Date: 2018-01-19 17:48-0500\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -373,7 +373,7 @@ msgstr "Solo Configuraciones"
 msgid "Connecting to remote server..."
 msgstr "Conectando a Servidor remoto..."
 
-#: functions.inc/class.backup.php:819
+#: functions.inc/class.backup.php:821
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -578,7 +578,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr "Error creando el objeto FTP"
 
-#: functions.inc/class.backup.php:826
+#: functions.inc/class.backup.php:828
 #, php-format
 msgid "Error deleting %s"
 msgstr "Error borrando %s"
@@ -1103,7 +1103,7 @@ msgstr "camino a llave ssh, ejemplo /home/asterisk/.ssh/id_rsa"
 msgid "Path/DB"
 msgstr "Camino/BD"
 
-#: functions.inc/class.backup.php:815 functions.inc/class.backup.php:816
+#: functions.inc/class.backup.php:817 functions.inc/class.backup.php:818
 #, php-format
 msgid "Path: %s"
 msgstr ""

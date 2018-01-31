@@ -147,21 +147,21 @@ function current_items_over_helper(action) {
 }
 
 function removeDuplicateRows($table){
-	
+
 	// Removing duplicate crazy row containing "asterisk db"
     function getVisibleRowText($row){
         return $row.find('td:visible').text().toLowerCase().trim();
     }
-    
+
     $table.find('tr').each(function(index, row){
         var $row = $(row);
-    
+
         $row.nextAll('tr').each(function(index, next){
             var $next = $(next);
 			var truc = getVisibleRowText($next);
 			console.log(truc);
             if((getVisibleRowText($next).trim == getVisibleRowText($row).trim) && getVisibleRowText($next) == "asterisk db")
-				
+
 				// We remove this duplicated line.
                 $next.remove();
         })
@@ -188,8 +188,8 @@ function add_template(template) {
 				row.path = '';
 			}
 
-			row.exclude	= $(this).find('td').eq(2).find('textarea').val() || '';
-			
+			row.exclude = $(this).find('td').eq(2).find('textarea').val() || '';
+
 			if(template[item].type == "astdb"){
 				removeDuplicateRows($('#template_table'));						// Removing duplicate crazy row containing "asterisk db"
 			}

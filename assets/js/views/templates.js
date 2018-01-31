@@ -79,9 +79,10 @@ $(document).ready(function(){
 	$('#backup_template').submit(validate);
 })
 
+var row_index = 1000; //on purpose dont change!
 function add_template_row(type) {
 	//add row
-	id = new Date().getTime();//must be cached, as we have many replaces to do and the time can shift
-	tr = template_tr[type].replace(/TR_UID/g, id);
+	tr = template_tr[type].replace(/TR_UID/g, row_index);
 	$('#template_table > tbody:last').find('tr:last').after(tr);
+	row_index++;
 }

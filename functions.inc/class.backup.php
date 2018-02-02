@@ -225,6 +225,10 @@ class Backup {
 						//   2 - *tgz and *gpg - previously downloaded files, and can be redownloaded.
 						//       Note this ALSO excludes backups so we don't put a backup inside a backup.
 						$excludes .= "--exclude='*tgz' --exclude='*gpg' ";
+						//   3 - .git - You can re-checkout the git if you want, but this is backing up
+						//       the entire history of the repo. Not needed. It would be nice to use the
+						//       --exclude-vcs flag, but that's only on GNU tar.
+						$excludes .= "--exclude='.git' ";
 						if ($i['exclude']) {
 							if (!is_array($i['exclude'])) {
 								$xArr = explode("\n", $i['exclude']);

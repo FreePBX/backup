@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-30 22:57-0500\n"
+"POT-Creation-Date: 2018-02-28 03:32-0500\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
 "backup/vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -737,8 +737,7 @@ msgstr "Đây là vài dòng đầu tiên của tệp tin đã được gửi b�
 msgid "Hooks"
 msgstr "Các điểm neo"
 
-#: views/servers/ftp.php:46 views/servers/mysql.php:64
-#: views/servers/ssh.php:64
+#: views/servers/ftp.php:46 views/servers/mysql.php:64 views/servers/ssh.php:64
 msgid "Hostname"
 msgstr "Tên host"
 
@@ -982,8 +981,7 @@ msgstr "Hằng đêm"
 #: views/backup/backup.php:387 views/backup/backup.php:416
 #: views/backup/backup.php:445 views/backup/backups.php:186
 #: views/backup/backups.php:213 views/backup/backups.php:240
-#: views/backup/backups.php:271 views/backup/backups.php:327
-#: views/cron.php:147
+#: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:147
 msgid "No"
 msgstr "Không"
 
@@ -1097,8 +1095,7 @@ msgstr "Vui lòng đợi"
 msgid "Please wait, loading..."
 msgstr "Vui lòng đơi, đang tải..."
 
-#: views/servers/ftp.php:66 views/servers/mysql.php:88
-#: views/servers/ssh.php:88
+#: views/servers/ftp.php:66 views/servers/mysql.php:88 views/servers/ssh.php:88
 msgid "Port"
 msgstr "Cổng giao tiếp"
 
@@ -1613,8 +1610,8 @@ msgstr "Máy chủ này"
 #, php-format
 msgid "This wizard can be used to add a basic backup task for your %s system"
 msgstr ""
-"Wizard này có thể được sử dụng để thêm vào một tác vụ sao lưu cho hệ thống  %"
-"s của bạn"
+"Wizard này có thể được sử dụng để thêm vào một tác vụ sao lưu cho hệ thống  "
+"%s của bạn"
 
 #: views/cron.php:31 assets/js/backup.js:83
 msgid "Thursday"
@@ -1773,8 +1770,7 @@ msgstr "Năm"
 #: views/backup/backup.php:385 views/backup/backup.php:414
 #: views/backup/backup.php:443 views/backup/backups.php:184
 #: views/backup/backups.php:211 views/backup/backups.php:238
-#: views/backup/backups.php:269 views/backup/backups.php:325
-#: views/cron.php:145
+#: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:145
 msgid "Yes"
 msgstr "Có"
 

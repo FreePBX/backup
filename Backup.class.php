@@ -53,7 +53,7 @@ class Backup implements \BMO {
 						if ($value['name'] == 'Config server' && $value['type'] == 'mysql' && $value['immortal'] == 'true') {
 							$mysqlserver = $value['id'];
 						}
-						if ($value['name'] == 'CDR server' && $value['type'] == 'local' && $value['immortal'] == 'true') {
+						if ($value['name'] == 'CDR server' && $value['type'] == 'mysql' && $value['immortal'] == 'true') {
 							$cdrserver = $value['id'];
 						}
 						if ($value['type'] == $wizremtype) {
@@ -63,7 +63,7 @@ class Backup implements \BMO {
 					}
 
 					if ($create_server && $wizremote == 'yes') {
-						$server['name'] = $wizname;
+						$server['name'] = $wizsevername;
 						$server['desc'] = $wizdesc ? $wizdesc : _('Wizard').":&nbsp;".$wizname;
 						$server['type'] = $wizremtype;
 						$server['host'] = $wizserveraddr;

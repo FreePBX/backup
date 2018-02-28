@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-30 22:57-0500\n"
-"PO-Revision-Date: 2017-10-15 22:17+0200\n"
-"Last-Translator: hammer125 <auswertung@aon.at>\n"
-"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/backup/"
-"de_DE/>\n"
+"PO-Revision-Date: 2018-02-16 19:51+0200\n"
+"Last-Translator: Nils <Nils@heckenkamp.info>\n"
+"Language-Team: German "
+"<http://weblate.freepbx.org/projects/freepbx/backup/de_DE/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -61,7 +61,7 @@ msgstr "Ein Script, dass VOR der Durchführung einer Sicherung startet."
 
 #: views/backup/backups.php:154 assets/js/backup.js:93 assets/js/backup.js:105
 msgid "AT"
-msgstr ""
+msgstr "AT"
 
 #: views/servers/awss3.php:41
 msgid "AWS Access Key"
@@ -319,7 +319,7 @@ msgstr "Bucket-Name"
 
 #: bin/backup.php:56
 msgid "Building manifest..."
-msgstr ""
+msgstr "erstelle Manifest..."
 
 #: views/backup/backups.php:233
 msgid "CDR and Call Log Data"
@@ -599,32 +599,37 @@ msgstr ""
 
 #: views/backup/backup.php:409
 msgid "Exclude DNS"
-msgstr ""
+msgstr "DNS ausschließen"
 
 #: views/backup/backup.php:353
 msgid "Exclude NAT settings"
 msgstr "NAT Einstellungen ausschließen"
 
 #: views/backup/backup.php:395
-#, fuzzy
 msgid ""
 "Explicitly exclude any machine-specific Bindaddres. This allows you to have "
 "a warm-spare machine with a different IP address."
 msgstr ""
-"Explizit jede maschinenspezifische BIND-Adresse ausschließen. Das erlaubt, "
-"eine warm-spare-Maschine mit einer anderen IP-Adresse zu haben."
+"Schließen Sie explizit alle maschinenspezifischen Bindaddres aus. Auf diese "
+"Weise können Sie ein Warm-Spare-machine mit einer anderen IP-Adresse "
+"verwenden."
 
 #: views/backup/backup.php:424
 msgid ""
 "Explicitly exclude any machine-specific DNS. This allows you to have a warm-"
 "spare machine with a different DNS."
 msgstr ""
+"Schließen Sie explizit alle maschinenspezifischen DNS aus. Auf diese Weise "
+"können Sie einen Warm-Spare-machine mit einem anderen DNS verwenden."
 
 #: views/backup/backup.php:368
 msgid ""
 "Explicitly exclude any machine-specific IP settings. This allows you to have "
 "a warm-spare machine with a different IP address."
 msgstr ""
+"Schließen Sie explizit alle maschinenspezifischen IP-Einstellungen aus. Auf "
+"diese Weise können Sie ein Warm-Spare-machine mit einer anderen IP-Adresse "
+"verwenden."
 
 #: bin/restore.php:65
 msgid "Explicitly skipping host-specific NAT settings"
@@ -659,6 +664,8 @@ msgid ""
 "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
 "current state"
 msgstr ""
+"Fehler beim Konvertieren von asterisk.sql in das richtige Format, umbenennen "
+"in mysql-db.sql im aktuellen Zustand"
 
 #: functions.inc/restore.php:577
 msgid ""
@@ -782,6 +789,10 @@ msgid ""
 "possible). Please note: randomized schedules will be rescheduled (randomly) "
 "every time ANY backup is saved"
 msgstr ""
+"Wenn Randomize ausgewählt ist, wird eine ähnliche Häufigkeit eingehalten, "
+"nur die genauen Zeiten werden randomisiert (Vermeidung von "
+"Hauptgeschäftszeiten, wenn möglich). Bitte beachten Sie: Randomisierte "
+"Zeitpläne werden jedes Mal neu geplant, wenn ein Backup gespeichert wird"
 
 #: views/cron.php:105
 msgid ""
@@ -1036,7 +1047,7 @@ msgstr ""
 
 #: views/restore/backup_list.php:37
 msgid "Other MySQL databases"
-msgstr ""
+msgstr "Andere MySQL-Datenbanken"
 
 #: functions.inc/templates.php:259
 msgid "PATTERNs, one per line"
@@ -1123,11 +1134,11 @@ msgstr "Wiederherstellung-Vor-Skript"
 
 #: bin/restore.php:334
 msgid "Preserving local Bind address"
-msgstr ""
+msgstr "Lokale Bind-Adresse beibehalten"
 
 #: bin/restore.php:327
 msgid "Preserving local DNS settings"
-msgstr ""
+msgstr "Lokale DNS-Einstellungen beibehalten"
 
 #: bin/restore.php:313
 msgid "Preserving local NAT settings"
@@ -1146,7 +1157,7 @@ msgstr "durchgeführt %s%% der Einstellungen (%s von %s Zeilen)"
 #: bin/restore.php:518
 #, php-format
 msgid "Processed %s%% of external database %s (%s of %s lines)"
-msgstr ""
+msgstr "Verarbeitet %s%% der externen Datenbank %s (%s von %s Zeilen)"
 
 #: bin/backup.php:142
 msgid "Processing received file..."
@@ -1230,7 +1241,7 @@ msgstr "Hier wiederherstellen"
 
 #: views/restore/backup_list.php:37
 msgid "Restore MySQL databases stored in the backup"
-msgstr ""
+msgstr "Stellen Sie die im Backup gespeicherten MySQL-Datenbanken wieder her"
 
 #: views/restore/backup_list.php:22
 msgid "Restore all setting stored in the database"
@@ -1252,7 +1263,7 @@ msgstr "Wiederhergestellte Datenbank"
 
 #: bin/restore.php:439
 msgid "Restoring Bindaddres Settings"
-msgstr ""
+msgstr "Bindaddres Einstellungen wiederherstellen"
 
 #: bin/restore.php:267
 msgid "Restoring CDRs complete"
@@ -1264,12 +1275,12 @@ msgstr "Wiederherstellen von CDRs ..."
 
 #: bin/restore.php:433
 msgid "Restoring DNS settings"
-msgstr ""
+msgstr "Wiederherstellen der DNS-Einstellungen"
 
 #: bin/restore.php:497
 #, php-format
 msgid "Restoring Database %s..."
-msgstr ""
+msgstr "Wiederherstellen der Datenbank %s..."
 
 #: bin/restore.php:368
 msgid "Restoring Database..."
@@ -1421,7 +1432,7 @@ msgstr ""
 
 #: views/restore/backup_list.php:7
 msgid "Select items to restore"
-msgstr ""
+msgstr "Wählen Sie die wiederherzustellenden Elemente aus"
 
 #: views/backup/backup.php:281
 msgid ""
@@ -1474,19 +1485,19 @@ msgstr "Server"
 
 #: bin/backup.php:184
 msgid "Skip Bindaddrss is Enabled... "
-msgstr ""
+msgstr "Bindaddrss überspringen ist aktiviert ... "
 
 #: bin/backup.php:190
 msgid "Skip DNS is Enabled... "
-msgstr ""
+msgstr "DNS überspringen ist aktiviert ... "
 
 #: bin/restore.php:73
 msgid "Skipping host-specific Bind address"
-msgstr ""
+msgstr "Hostspezifische Bind-Adresse überspringen"
 
 #: bin/restore.php:79
 msgid "Skipping host-specific DNS"
-msgstr ""
+msgstr "Host-spezifische DNS überspringen"
 
 #: bin/backup.php:106
 msgid "Something went wrong when connecting to remote server. Aborting!"
@@ -1607,6 +1618,11 @@ msgid ""
 "the data. In 'Passive' mode, the VoIP server connects to the FTP Server to "
 "send data."
 msgstr ""
+"Dies ist standardmäßig \"Passiv\". Wenn sich Ihr FTP-Server hinter einem "
+"separaten NAT oder Firewall zu diesem VoIP-Server befindet, sollten Sie \""
+"Aktiv\" wählen. Im aktiven Modus baut der FTP-Server eine Verbindung zum "
+"VoIP-Server auf, um die Daten zu empfangen. Im passiven Modus verbindet sich "
+"der VoIP-Server mit dem FTP-Server, um Daten zu senden."
 
 #: views/servers/email.php:118
 msgid "This has a maximum size of 25MB."
@@ -1697,6 +1713,8 @@ msgstr "Achtung!"
 #: bin/restore.php:274
 msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
+"Web-Root-Wiederherstellung nicht erkannt, Modul-Tabelle wird nicht "
+"wiederhergestellt"
 
 #: views/cron.php:30 assets/js/backup.js:83
 msgid "Wednesday"

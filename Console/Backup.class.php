@@ -52,22 +52,14 @@ class Backup extends Command {
 			break;
 			case $backup:
 				$buid = $input->getOption('backup');
-<<<<<<< HEAD
-				$job = $transaction?$transaction:$this->freepbx->Backup->generateID();
-=======
->>>>>>> development/15.0
 				$output->writeln(sprintf('Starting backup job with ID: %s',$job));
 				$lockHandler = new LockHandler($job.'.'.$buid);
 				if (!$lockHandler->lock()) {
 					$this->log($job, _("A backup job for this id is already running"));
     			return false;
 				}
-<<<<<<< HEAD
-				$this->freepbx->Backup->doBackup($buid,$job);
-=======
 				$pid = posix_getpid();
 				$this->freepbx->Backup->doBackup($buid,$job,null,$pid);
->>>>>>> development/15.0
 				$lockHandler->release();
 			break;
 			case $restore:

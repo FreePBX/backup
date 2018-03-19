@@ -123,11 +123,7 @@ class Backup extends \DB_Helper implements \BMO {
 			case 'getlog':
 			case 'restoreFiles':
 			case 'uploadrestore':
-<<<<<<< HEAD
-				return true;
-=======
 				$return = true;
->>>>>>> development/15.0
 			break;
 			default:
 				$return = false;

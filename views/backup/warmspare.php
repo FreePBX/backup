@@ -24,7 +24,11 @@
   </div>
   <!--END Enable-->
   <!--Server Type-->
+<<<<<<< HEAD
   <div class="element-container">
+=======
+  <div class="element-container warmspare">
+>>>>>>> development/15.0
     <div class="row">
       <div class="form-group">
         <div class="col-md-3">
@@ -47,7 +51,11 @@
   </div>
   <!--END Server Type-->
   <!--Enable Remote Trunks-->
+<<<<<<< HEAD
   <div class="element-container">
+=======
+  <div class="element-container warmspare">
+>>>>>>> development/15.0
     <div class="row">
       <div class="form-group">
         <div class="col-md-3">
@@ -70,7 +78,11 @@
   </div>
   <!--END Enable Remote Trunks-->
   <!--Remote IP-->
+<<<<<<< HEAD
   <div class="element-container">
+=======
+  <div class="element-container warmspare">
+>>>>>>> development/15.0
     <div class="row">
       <div class="form-group">
         <div class="col-md-3">

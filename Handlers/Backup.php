@@ -97,7 +97,7 @@ class Backup{
 
 	public function addDependency($dependency){
 		$this->modified = true;
-		$this->data['depencencies'][] = $dependency;
+		$this->data['dependencies'][] = $dependency;
 	}
 
 	public function getDependencies(){

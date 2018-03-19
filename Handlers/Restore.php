@@ -4,47 +4,119 @@
  */
 namespace FreePBX\modules\Backup\Handlers;
 
-class Restore {
-	/* List of dirs added by the module to be restored. */
-	private $dirs = array();
-	/* List of files added by the module to be restored. */
-	private $files = array();
+class Restore{
+	private $data = [
+		'dirs' => [],
+		'files' => [],
+		'configs' => [],
+		'dependencies' => [],
+		'garbage' => []
+	];
+	private $id = null;
 
-	public function __construct($freepbx = null, $data = null) {
+	public function __construct($freepbx = null, $moddata) {
 		if ($freepbx == null) {
 			throw new \Exception('Not given a FreePBX Object');
 		}
 		$this->FreePBX = $freepbx;
-		$this->data = $data;
+		$this->modified = false;
+		$this->data = $moddata;
+		//TODO remove after new backup from bugfixed ver
+		if(isset($this->data['depencencies'])){
+			$this->data['dependencies'] = $this->data['depencencies'];
+		}
 	}
 
-	public function getBackupDirs() {
-		return $this->data['dirs'];
+
+	public function setBackupId($id){
+		$this->id = $id;
 	}
 
-	public function getBackupFiles() {
-		return $this->data['files'];
+	public function getBackupId(){
+		return $this->id;
+	}
+
+	public static function getPath($file) {
+		if(isset($file['root']) && !empty($file['root'])){
+			return  $file['root'] . '/' . $file['path'];
+		}
+		if (!empty($file['path']) && !strncmp($file['path'], '/', 1)) {
+			return $file['path'];
+		}
+		return '';
+	}
+
+	public function addGarbage($data){
+		$this->data['garbage'][] = $data;
 	}
 
 	public function addDirs($list) {
+		if (empty($list)) {
+			return;
+		}
+		$this->modified = true;
 		foreach ($list as $dir) {
-			$this->dirs[] = $dir;
+			$this->data['dirs'][] = $dir;
 		}
 	}
 
-	/* Called by the Backup class to get the list of dirs to create. */
 	public function getDirs() {
-		return $this->dirs;
+		return $this->data['dirs'];
 	}
 
+	/*
+	[
+		type => 'descriptor module dependent',
+		filename => 'file.ext',
+		path => '/path/to/',
+		root => 'base __ASTETCDIR__ etc'.
+	]
+	*/
 	public function addFiles($list) {
+		if (empty($list)) {
+			return;
+		}
+		$this->modified = true;
 		foreach ($list as $file) {
-			$this->files[] = $file;
+			if (empty($file['type']) || empty($file['filename'])) {
+				continue;
+			}
+			$this->data['files'][] = $file;
 		}
 	}
 
-	/* Called by the Backup class to get the list of files to move into place. */
 	public function getFiles() {
-		return $this->files;
+		return $this->data['files'];
+	}
+
+	public function addConfigs($settings){
+		if (empty($settings)) {
+			return;
+		}
+		$this->modified = true;
+		$this->data['configs'][] = $settings;
+	}
+
+	public function getConfigs(){
+		return $this->data['configs'];
+	}
+
+	public function addDependency($dependency){
+		$this->modified = true;
+		$this->data['dependencies'][] = $dependency;
+	}
+
+	public function getDependencies(){
+		return $this->data['dependencies'];
+	}
+
+	public function getExtraData() {
+		return $this->data['extradata'];
+	}
+	public function getData(){
+		return $this->data;
+	}
+	public function getModified(){
+		return $this->modified;
 	}
 }

@@ -1,5 +1,12 @@
 //put all document ready stuff here... One listener to rule them all
 $(document).ready(function(){
+	//warmspare
+
+	if($('input[name="warmspareenables"]:checked').val() == 'yes'){
+		$(".warmspare").slideDown();
+	}	else{
+		$(".warmspare").slideUp();
+	}
 	//init storage multiselect
 	if ($("#backup_storage").length){
 		$('#backup_storage').multiselect({
@@ -113,10 +120,17 @@ function lockButtons(id,transaction){
 				notie.confirm({
 				  text: _('Your backup has finished, would you like to see the logs'),
 				  cancelCallback: function () {
+<<<<<<< HEAD
 				    alert('no');
 				  },
 				  submitCallback: function () {
 				    alert('yes');
+=======
+				    fpbxToast('no');
+				  },
+				  submitCallback: function () {
+				    fpbxToast('yes');
+>>>>>>> development/15.0
 				  }
 				});
 			}

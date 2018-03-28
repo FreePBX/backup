@@ -129,7 +129,19 @@ function backup_get_backup($id = '') {
 			$ret['cron_dow']	= isset($ret['cron_dow'])		? explode(',', $ret['cron_dow'])	: array();
 			$ret['cron_hour']	= isset($ret['cron_hour'])		? explode(',', $ret['cron_hour'])	: array();
 			$ret['cron_month']	= isset($ret['cron_month'])		? explode(',', $ret['cron_month'])	: array();
-
+			//if all is selected remove others date/day/month 
+			if (in_array('*',$ret['cron_month'])) { //Months
+				unset($ret['cron_month']);
+				$ret['cron_month'] = array('*');
+			}
+			if (in_array('*',$ret['cron_dow'])) {//Week Days
+				unset($ret['cron_dow']);
+				$ret['cron_dow'] = array('*');
+			}
+			if (in_array('*',$ret['cron_dom'])) {//Days of Month
+				unset($ret['cron_dom']);
+				$ret['cron_dom'] = array('*');
+			}
 			//default a name
 			$ret['name'] = $ret['name'] ? $ret['name'] : 'Backup ' . $ret['id'];
 

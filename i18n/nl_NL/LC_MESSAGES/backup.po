@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-28 03:32-0500\n"
+"POT-Creation-Date: 2018-03-28 21:11-0400\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -105,6 +105,10 @@ msgid ""
 "registration, resulting in some calls routed to the Standby system."
 msgstr ""
 
+#: views/cron.php:27 views/cron.php:43 views/cron.php:65
+msgid "All"
+msgstr ""
+
 #: views/backup/backups.php:171
 msgid ""
 "All PBX Configuration files and any Custom Sound Prompts are included in the "
@@ -135,7 +139,7 @@ msgstr "Jaarlijks"
 msgid "Apply Configs"
 msgstr "Configuraties toepassen"
 
-#: views/cron.php:46
+#: views/cron.php:47
 msgid "April"
 msgstr "April"
 
@@ -147,7 +151,7 @@ msgstr "AstDB's"
 msgid "Asterisk DB"
 msgstr "Asterisk DB"
 
-#: views/cron.php:50
+#: views/cron.php:51
 msgid "August"
 msgstr "Augustus"
 
@@ -392,7 +396,7 @@ msgstr "Dagelijks"
 msgid "Day each month"
 msgstr ""
 
-#: views/cron.php:224
+#: views/cron.php:227
 msgid "Day of Week"
 msgstr "Dag van de week"
 
@@ -400,15 +404,15 @@ msgstr "Dag van de week"
 msgid "Days"
 msgstr "Dagen"
 
-#: views/cron.php:272 views/cron.php:276
+#: views/cron.php:275 views/cron.php:279
 msgid "Days of Month"
 msgstr ""
 
-#: views/cron.php:286
+#: views/cron.php:289
 msgid "Days of month to run"
 msgstr ""
 
-#: views/cron.php:54
+#: views/cron.php:55
 msgid "December"
 msgstr "December"
 
@@ -667,7 +671,7 @@ msgstr "Bestand ontvangen van server mislukt!"
 msgid "Family, one per line"
 msgstr "Families, één per regel"
 
-#: views/cron.php:44
+#: views/cron.php:45
 msgid "February"
 msgstr "Februari"
 
@@ -699,7 +703,7 @@ msgstr ""
 msgid "FreePBX"
 msgstr ""
 
-#: views/cron.php:32 assets/js/backup.js:83
+#: views/cron.php:33 assets/js/backup.js:83
 msgid "Friday"
 msgstr "Vrijdag"
 
@@ -742,7 +746,7 @@ msgstr "Servernaam"
 msgid "Hourly"
 msgstr "Elk uur"
 
-#: views/backup/backup.php:551 views/cron.php:194 views/cron.php:198
+#: views/backup/backup.php:551 views/cron.php:197 views/cron.php:201
 msgid "Hours"
 msgstr "Uren"
 
@@ -766,7 +770,7 @@ msgstr "IP-adres of volledige naam (FQDN) van andere FTP server"
 msgid "IP address or FQDN of remote mysql host"
 msgstr "IP-adres of volledige naam (FQDN) van andere MySQL server"
 
-#: views/cron.php:155
+#: views/cron.php:158
 msgid ""
 "If Randomize is selected, a similar frequency will be followed, only the "
 "exact times will be randomized (avoiding peak business hours, when "
@@ -774,7 +778,7 @@ msgid ""
 "every time ANY backup is saved"
 msgstr ""
 
-#: views/cron.php:105
+#: views/cron.php:108
 msgid ""
 "If a custom schedule is selected, any section not specified will be "
 "considered to be \"any\" (aka: wildcard).\n"
@@ -818,15 +822,15 @@ msgstr ""
 msgid "Items"
 msgstr "Onderdelen"
 
-#: views/cron.php:43
+#: views/cron.php:44
 msgid "January"
 msgstr "Januari"
 
-#: views/cron.php:49
+#: views/cron.php:50
 msgid "July"
 msgstr "Juli"
 
-#: views/cron.php:48
+#: views/cron.php:49
 msgid "June"
 msgstr "Juni"
 
@@ -860,7 +864,7 @@ msgstr ""
 msgid "Maintenance"
 msgstr "Onderhoud"
 
-#: views/cron.php:45
+#: views/cron.php:46
 msgid "March"
 msgstr "Maart"
 
@@ -868,15 +872,15 @@ msgstr "Maart"
 msgid "Max Email Size"
 msgstr "Max. e-mail grootte"
 
-#: views/cron.php:47
+#: views/cron.php:48
 msgid "May"
 msgstr "Mei"
 
-#: views/backup/backup.php:549 views/cron.php:168 views/cron.php:172
+#: views/backup/backup.php:549 views/cron.php:171 views/cron.php:175
 msgid "Minutes"
 msgstr "Minuten"
 
-#: views/cron.php:28 assets/js/backup.js:83
+#: views/cron.php:29 assets/js/backup.js:83
 msgid "Monday"
 msgstr "Maandag"
 
@@ -884,7 +888,7 @@ msgstr "Maandag"
 msgid "Monthly"
 msgstr "Maandelijks"
 
-#: views/backup/backup.php:557 views/cron.php:246 views/cron.php:250
+#: views/backup/backup.php:557 views/cron.php:249 views/cron.php:253
 msgid "Months"
 msgstr "Maanden"
 
@@ -924,7 +928,7 @@ msgstr ""
 msgid "Never"
 msgstr "Nooit"
 
-#: views/cron.php:101
+#: views/cron.php:104
 msgid "Never will never run the backup automatically"
 msgstr ""
 
@@ -969,7 +973,7 @@ msgstr ""
 #: views/backup/backup.php:387 views/backup/backup.php:416
 #: views/backup/backup.php:445 views/backup/backups.php:186
 #: views/backup/backups.php:213 views/backup/backups.php:240
-#: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:147
+#: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:150
 msgid "No"
 msgstr ""
 
@@ -989,7 +993,7 @@ msgstr "Niets terug te zetten!"
 msgid "Notifications"
 msgstr ""
 
-#: views/cron.php:53
+#: views/cron.php:54
 msgid "November"
 msgstr "November"
 
@@ -997,7 +1001,7 @@ msgstr "November"
 msgid "ON"
 msgstr ""
 
-#: views/cron.php:52
+#: views/cron.php:53
 msgid "October"
 msgstr "Oktober"
 
@@ -1134,7 +1138,7 @@ msgstr "Ontvangen bestand verwerken..."
 msgid "Provide the name for this server"
 msgstr ""
 
-#: views/cron.php:140
+#: views/cron.php:143
 msgid "Randomize"
 msgstr "Willekeurig"
 
@@ -1273,11 +1277,11 @@ msgstr "Terugzetten reservekopie..."
 msgid "Restoring files (this may take some time)..."
 msgstr "Terugzetten bestanden (dit kan enige tijd duren)..."
 
-#: views/cron.php:120
+#: views/cron.php:123
 msgid "Run Automatically"
 msgstr "Automatisch uitvoeren"
 
-#: views/cron.php:97
+#: views/cron.php:100
 msgid ""
 "Run at startup of the server OR of the cron deamon (i.e. after every "
 "<code>service cron restart</code>)"
@@ -1287,23 +1291,23 @@ msgstr ""
 msgid "Run now"
 msgstr "Nu uitvoeren"
 
-#: views/cron.php:81
+#: views/cron.php:84
 msgid "Run once a day, at midnight"
 msgstr ""
 
-#: views/cron.php:89
+#: views/cron.php:92
 msgid "Run once a month, midnight, first of month"
 msgstr ""
 
-#: views/cron.php:85
+#: views/cron.php:88
 msgid "Run once a week, midnight on Sun"
 msgstr ""
 
-#: views/cron.php:93
+#: views/cron.php:96
 msgid "Run once a year, midnight, Jan. 1"
 msgstr ""
 
-#: views/cron.php:77
+#: views/cron.php:80
 msgid "Run once an hour, beginning of hour"
 msgstr ""
 
@@ -1359,7 +1363,7 @@ msgstr "SSH server "
 msgid "SSH Username"
 msgstr ""
 
-#: views/cron.php:33 assets/js/backup.js:83
+#: views/cron.php:34 assets/js/backup.js:83
 msgid "Saturday"
 msgstr "Zaterdag"
 
@@ -1375,7 +1379,7 @@ msgstr ""
 msgid "Saving file to remote ftp"
 msgstr ""
 
-#: views/cron.php:71
+#: views/cron.php:74
 msgid "Schedule Help"
 msgstr ""
 
@@ -1383,7 +1387,7 @@ msgstr ""
 msgid "Select a file and click go"
 msgstr "Kies en bestand en klik Uitvoeren"
 
-#: views/cron.php:73
+#: views/cron.php:76
 msgid ""
 "Select how often to run this backup. The following schedule will be followed "
 "for all but custom."
@@ -1400,7 +1404,7 @@ msgstr ""
 "Selecteer een server om een reservekopie van te maken (deze server, of elke "
 "andere SSH server)"
 
-#: views/cron.php:51
+#: views/cron.php:52
 msgid "September"
 msgstr "September"
 
@@ -1500,7 +1504,7 @@ msgstr "Opslaglocatie voor reservekopieën"
 msgid "Storing backup..."
 msgstr "Reservekopie opslaan..."
 
-#: views/cron.php:27 assets/js/backup.js:83
+#: views/cron.php:28 assets/js/backup.js:83
 msgid "Sunday"
 msgstr "Zondag"
 
@@ -1582,7 +1586,7 @@ msgstr "Deze server"
 msgid "This wizard can be used to add a basic backup task for your %s system"
 msgstr ""
 
-#: views/cron.php:31 assets/js/backup.js:83
+#: views/cron.php:32 assets/js/backup.js:83
 msgid "Thursday"
 msgstr "Donderdag"
 
@@ -1599,7 +1603,7 @@ msgstr ""
 msgid "Trying to upload %s to %s"
 msgstr ""
 
-#: views/cron.php:29 assets/js/backup.js:83
+#: views/cron.php:30 assets/js/backup.js:83
 msgid "Tuesday"
 msgstr "Dinsdag"
 
@@ -1660,11 +1664,11 @@ msgstr ""
 "Internet hoofdmap terugzetten niet gevonden, moduletabel wordt niet "
 "teruggezet"
 
-#: views/cron.php:30 assets/js/backup.js:83
+#: views/cron.php:31 assets/js/backup.js:83
 msgid "Wednesday"
 msgstr "Woensdag"
 
-#: views/cron.php:220
+#: views/cron.php:223
 msgid "Week Days"
 msgstr ""
 
@@ -1692,19 +1696,19 @@ msgstr ""
 msgid "Where should status emails for this job be sent?"
 msgstr ""
 
-#: views/cron.php:234
+#: views/cron.php:237
 msgid "Which Days of the week to run"
 msgstr ""
 
-#: views/cron.php:208
+#: views/cron.php:211
 msgid "Which Hours to run."
 msgstr ""
 
-#: views/cron.php:260
+#: views/cron.php:263
 msgid "Which Months to run"
 msgstr ""
 
-#: views/cron.php:182
+#: views/cron.php:185
 msgid "Which minutes to run"
 msgstr ""
 
@@ -1741,7 +1745,7 @@ msgstr "Jaren"
 #: views/backup/backup.php:385 views/backup/backup.php:414
 #: views/backup/backup.php:443 views/backup/backups.php:184
 #: views/backup/backups.php:211 views/backup/backups.php:238
-#: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:145
+#: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:148
 msgid "Yes"
 msgstr ""
 

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-28 03:32-0500\n"
+"POT-Creation-Date: 2018-03-28 21:11-0400\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -113,6 +113,10 @@ msgid ""
 "registration, resulting in some calls routed to the Standby system."
 msgstr ""
 
+#: views/cron.php:27 views/cron.php:43 views/cron.php:65
+msgid "All"
+msgstr "Всички"
+
 #: views/backup/backups.php:171
 msgid ""
 "All PBX Configuration files and any Custom Sound Prompts are included in the "
@@ -141,7 +145,7 @@ msgstr "Всяка Година"
 msgid "Apply Configs"
 msgstr "Приложи Настройки"
 
-#: views/cron.php:46
+#: views/cron.php:47
 msgid "April"
 msgstr "Април"
 
@@ -153,7 +157,7 @@ msgstr "AstDB-и"
 msgid "Asterisk DB"
 msgstr "Астериск БД"
 
-#: views/cron.php:50
+#: views/cron.php:51
 msgid "August"
 msgstr "Август"
 
@@ -395,7 +399,7 @@ msgstr "Ежедневно"
 msgid "Day each month"
 msgstr "Ден на всеки месец"
 
-#: views/cron.php:224
+#: views/cron.php:227
 msgid "Day of Week"
 msgstr "Ден от Седмицата"
 
@@ -403,15 +407,15 @@ msgstr "Ден от Седмицата"
 msgid "Days"
 msgstr "Дни"
 
-#: views/cron.php:272 views/cron.php:276
+#: views/cron.php:275 views/cron.php:279
 msgid "Days of Month"
 msgstr "Дни от Месец"
 
-#: views/cron.php:286
+#: views/cron.php:289
 msgid "Days of month to run"
 msgstr "Дни от месец за стартиране"
 
-#: views/cron.php:54
+#: views/cron.php:55
 msgid "December"
 msgstr "Декември"
 
@@ -655,7 +659,7 @@ msgstr ""
 msgid "Family, one per line"
 msgstr ""
 
-#: views/cron.php:44
+#: views/cron.php:45
 msgid "February"
 msgstr "Февруари"
 
@@ -687,7 +691,7 @@ msgstr ""
 msgid "FreePBX"
 msgstr "FrееPBX"
 
-#: views/cron.php:32 assets/js/backup.js:83
+#: views/cron.php:33 assets/js/backup.js:83
 msgid "Friday"
 msgstr "Петък"
 
@@ -727,7 +731,7 @@ msgstr "Име на хост"
 msgid "Hourly"
 msgstr "Всеки Час"
 
-#: views/backup/backup.php:551 views/cron.php:194 views/cron.php:198
+#: views/backup/backup.php:551 views/cron.php:197 views/cron.php:201
 msgid "Hours"
 msgstr "Часа"
 
@@ -751,7 +755,7 @@ msgstr "IP адрес или FQDN на отдалечения ftp хост"
 msgid "IP address or FQDN of remote mysql host"
 msgstr "IP адрес или FQDN на отдалечения mysql хост"
 
-#: views/cron.php:155
+#: views/cron.php:158
 msgid ""
 "If Randomize is selected, a similar frequency will be followed, only the "
 "exact times will be randomized (avoiding peak business hours, when "
@@ -759,7 +763,7 @@ msgid ""
 "every time ANY backup is saved"
 msgstr ""
 
-#: views/cron.php:105
+#: views/cron.php:108
 msgid ""
 "If a custom schedule is selected, any section not specified will be "
 "considered to be \"any\" (aka: wildcard).\n"
@@ -803,15 +807,15 @@ msgstr "Елемент"
 msgid "Items"
 msgstr "Елементи"
 
-#: views/cron.php:43
+#: views/cron.php:44
 msgid "January"
 msgstr "Януари"
 
-#: views/cron.php:49
+#: views/cron.php:50
 msgid "July"
 msgstr "Юли"
 
-#: views/cron.php:48
+#: views/cron.php:49
 msgid "June"
 msgstr "Юни"
 
@@ -844,7 +848,7 @@ msgstr "MB"
 msgid "Maintenance"
 msgstr "Поддръжка"
 
-#: views/cron.php:45
+#: views/cron.php:46
 msgid "March"
 msgstr "Март"
 
@@ -852,15 +856,15 @@ msgstr "Март"
 msgid "Max Email Size"
 msgstr "Макс. Размер на Email"
 
-#: views/cron.php:47
+#: views/cron.php:48
 msgid "May"
 msgstr "Май"
 
-#: views/backup/backup.php:549 views/cron.php:168 views/cron.php:172
+#: views/backup/backup.php:549 views/cron.php:171 views/cron.php:175
 msgid "Minutes"
 msgstr "Минути"
 
-#: views/cron.php:28 assets/js/backup.js:83
+#: views/cron.php:29 assets/js/backup.js:83
 msgid "Monday"
 msgstr "Понеделник"
 
@@ -868,7 +872,7 @@ msgstr "Понеделник"
 msgid "Monthly"
 msgstr "Всеки Месец"
 
-#: views/backup/backup.php:557 views/cron.php:246 views/cron.php:250
+#: views/backup/backup.php:557 views/cron.php:249 views/cron.php:253
 msgid "Months"
 msgstr "Месеца"
 
@@ -908,7 +912,7 @@ msgstr "Име на този архив"
 msgid "Never"
 msgstr "Никога"
 
-#: views/cron.php:101
+#: views/cron.php:104
 msgid "Never will never run the backup automatically"
 msgstr ""
 
@@ -953,7 +957,7 @@ msgstr "Всяка Вечер"
 #: views/backup/backup.php:387 views/backup/backup.php:416
 #: views/backup/backup.php:445 views/backup/backups.php:186
 #: views/backup/backups.php:213 views/backup/backups.php:240
-#: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:147
+#: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:150
 msgid "No"
 msgstr "Не"
 
@@ -973,7 +977,7 @@ msgstr "Няма какво да се възстанови!"
 msgid "Notifications"
 msgstr "Известия"
 
-#: views/cron.php:53
+#: views/cron.php:54
 msgid "November"
 msgstr "Ноември"
 
@@ -981,7 +985,7 @@ msgstr "Ноември"
 msgid "ON"
 msgstr "ВКЛЮЧЕН"
 
-#: views/cron.php:52
+#: views/cron.php:53
 msgid "October"
 msgstr "Октомври"
 
@@ -1118,7 +1122,7 @@ msgstr ""
 msgid "Provide the name for this server"
 msgstr ""
 
-#: views/cron.php:140
+#: views/cron.php:143
 msgid "Randomize"
 msgstr ""
 
@@ -1257,11 +1261,11 @@ msgstr ""
 msgid "Restoring files (this may take some time)..."
 msgstr ""
 
-#: views/cron.php:120
+#: views/cron.php:123
 msgid "Run Automatically"
 msgstr "Автоматичен Старт"
 
-#: views/cron.php:97
+#: views/cron.php:100
 msgid ""
 "Run at startup of the server OR of the cron deamon (i.e. after every "
 "<code>service cron restart</code>)"
@@ -1271,23 +1275,23 @@ msgstr ""
 msgid "Run now"
 msgstr "Стартирай сега"
 
-#: views/cron.php:81
+#: views/cron.php:84
 msgid "Run once a day, at midnight"
 msgstr ""
 
-#: views/cron.php:89
+#: views/cron.php:92
 msgid "Run once a month, midnight, first of month"
 msgstr ""
 
-#: views/cron.php:85
+#: views/cron.php:88
 msgid "Run once a week, midnight on Sun"
 msgstr ""
 
-#: views/cron.php:93
+#: views/cron.php:96
 msgid "Run once a year, midnight, Jan. 1"
 msgstr ""
 
-#: views/cron.php:77
+#: views/cron.php:80
 msgid "Run once an hour, beginning of hour"
 msgstr ""
 
@@ -1343,7 +1347,7 @@ msgstr "SSH Сървър "
 msgid "SSH Username"
 msgstr "SSH Потребителско Име"
 
-#: views/cron.php:33 assets/js/backup.js:83
+#: views/cron.php:34 assets/js/backup.js:83
 msgid "Saturday"
 msgstr "Събота"
 
@@ -1359,7 +1363,7 @@ msgstr "Запиши и Стартирай"
 msgid "Saving file to remote ftp"
 msgstr ""
 
-#: views/cron.php:71
+#: views/cron.php:74
 msgid "Schedule Help"
 msgstr "Помощ за План за Архивиране"
 
@@ -1367,7 +1371,7 @@ msgstr "Помощ за План за Архивиране"
 msgid "Select a file and click go"
 msgstr "Изберете файл и кликнете Напред"
 
-#: views/cron.php:73
+#: views/cron.php:76
 msgid ""
 "Select how often to run this backup. The following schedule will be followed "
 "for all but custom."
@@ -1382,7 +1386,7 @@ msgid ""
 "Select the server to be backed up (this server, or any other SSH server)"
 msgstr ""
 
-#: views/cron.php:51
+#: views/cron.php:52
 msgid "September"
 msgstr "Септември"
 
@@ -1480,7 +1484,7 @@ msgstr "Местоположение за съхраняване на архив
 msgid "Storing backup..."
 msgstr "Съхраняване на архив..."
 
-#: views/cron.php:27 assets/js/backup.js:83
+#: views/cron.php:28 assets/js/backup.js:83
 msgid "Sunday"
 msgstr "Неделя"
 
@@ -1557,7 +1561,7 @@ msgstr "Този сървър"
 msgid "This wizard can be used to add a basic backup task for your %s system"
 msgstr ""
 
-#: views/cron.php:31 assets/js/backup.js:83
+#: views/cron.php:32 assets/js/backup.js:83
 msgid "Thursday"
 msgstr "Четвъртък"
 
@@ -1574,7 +1578,7 @@ msgstr "Вид на Трансфер"
 msgid "Trying to upload %s to %s"
 msgstr ""
 
-#: views/cron.php:29 assets/js/backup.js:83
+#: views/cron.php:30 assets/js/backup.js:83
 msgid "Tuesday"
 msgstr "Вторник"
 
@@ -1632,11 +1636,11 @@ msgstr "ВНИМАНИЕ!"
 msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
 
-#: views/cron.php:30 assets/js/backup.js:83
+#: views/cron.php:31 assets/js/backup.js:83
 msgid "Wednesday"
 msgstr "Сряда"
 
-#: views/cron.php:220
+#: views/cron.php:223
 msgid "Week Days"
 msgstr "Дни от Седмица"
 
@@ -1664,19 +1668,19 @@ msgstr "Какво е това?"
 msgid "Where should status emails for this job be sent?"
 msgstr ""
 
-#: views/cron.php:234
+#: views/cron.php:237
 msgid "Which Days of the week to run"
 msgstr ""
 
-#: views/cron.php:208
+#: views/cron.php:211
 msgid "Which Hours to run."
 msgstr ""
 
-#: views/cron.php:260
+#: views/cron.php:263
 msgid "Which Months to run"
 msgstr ""
 
-#: views/cron.php:182
+#: views/cron.php:185
 msgid "Which minutes to run"
 msgstr ""
 
@@ -1713,7 +1717,7 @@ msgstr "Години"
 #: views/backup/backup.php:385 views/backup/backup.php:414
 #: views/backup/backup.php:443 views/backup/backups.php:184
 #: views/backup/backups.php:211 views/backup/backups.php:238
-#: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:145
+#: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:148
 msgid "Yes"
 msgstr "Да"
 
@@ -1927,9 +1931,6 @@ msgstr ""
 
 #~ msgid "Add Backup Schedule"
 #~ msgstr "Добави План за Архивиране"
-
-#~ msgid "All"
-#~ msgstr "Всички"
 
 #~ msgid "All system audio - including IVR prompts and Music On Hold."
 #~ msgstr ""

@@ -14,6 +14,7 @@
   </div>
   <div class="col-md-7">
     <div class="panel panel-default">
+<<<<<<< HEAD
       <div class="panel-heading"><h3><?php echo _("Restore Settings")?></h3></div>
       <div class="panel-body">
       <!--Install Missing-->
@@ -63,6 +64,16 @@
       </div>
       <!--END Reset Modules-->
 
+=======
+      <div class="panel-heading"><h3><?php echo _("Restore Information")?></h3></div>
+      <div class="panel-body">
+      <ul class="list-group">
+        <li class = "list-group-item list-group-item-danger"><?php echo _("Running a restore will overwrite current data. This cannot be undone!")?></li>
+        <li class = "list-group-item list-group-item-warning"><?php echo _("This restore will attempt to install and enable the module version in the backup.")?></li>
+        <li class = "list-group-item list-group-item-info"><?php echo _("This restore will only affect the modules listed below")?></li>
+        <li class = "list-group-item list-group-item-info"><?php echo _("After the restore you should reload with the apply config button")?></li>
+      </ul>
+>>>>>>> development/15.0
     </div>
   </div> <!--End column-->
 </div><!--End Row-->
@@ -79,15 +90,27 @@
   class="table table-striped">
   <thead>
     <tr>
+<<<<<<< HEAD
       <th data-field="modulename" class="col-md-10"><?php echo _("Module")?></th>
       <th data-field="installed" data-formatter="installedFormatter" class="col-md-2"><?php echo _("Installed")?></th>
+=======
+      <th data-field="modulename" class="col-md-4"><?php echo _("Module")?></th>
+      <th data-field="version" class="col-md-4"><?php echo _("Version in Backup")?></th>
+      <th data-field="installed" class="col-md-4"><?php echo _("Status")?></th>
+>>>>>>> development/15.0
     </tr>
   </thead>
 </table>
 <script>
   $(document).ready(() => {
     $('#restoremodules').bootstrapTable({data: <?php echo $jsondata?>});
+<<<<<<< HEAD
   });
+=======
+    window.fileid = "<?php echo $fileid?>";
+  });//end ready
+  
+>>>>>>> development/15.0
   function installedFormatter(v){
     if(v){
       return `<i class="fa fa-check text-success"></i>`;

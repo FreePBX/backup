@@ -1,5 +1,6 @@
 <?php
 namespace FreePBX\Console\Command;
+use FreePBX\modules\Backup\Handlers as Handler;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -21,6 +22,7 @@ class Backup extends Command {
 				new InputOption('list', 'ls', InputOption::VALUE_NONE, 'List backups'),
 				new InputOption('implemented', '', InputOption::VALUE_NONE, ''),
 				new InputOption('restore', 're', InputOption::VALUE_REQUIRED, 'Restore File'),
+				new InputOption('manifest', 'man', InputOption::VALUE_REQUIRED, 'File Manifest'),
 		))
 		->setHelp('Run a backup: fwconsole backup --id=[backup-id]'.PHP_EOL
 		.'Run a restore: fwconsole backup --restore=[/path/to/restore-xxxxxx.tar.gz]'.PHP_EOL
@@ -34,14 +36,20 @@ class Backup extends Command {
 		$this->output = $output;
 		$this->input = $input;
 		$this->freepbx = \FreePBX::Create();
+		$backupHandler = new Handler\Backup($this->freepbx);
+		$restoreHandler = new Handler\Restore($this->freepbx);
 		$list = $input->getOption('list');
 		$backup = $input->getOption('backup');
 		$restore = $input->getOption('restore');
 		$remote = $input->getOption('externbackup');
 		$dumpextern = $input->getOption('dumpextern');
 		$transaction = $input->getOption('transaction');
+		$manifest = $input->getOption('manifest');
+		if($manifest){
+			return 	$output->writeln(json_encode($this->freepbx->Backup->getMetaData($manifest),\JSON_PRETTY_PRINT));
+		}
 		if($input->getOption('implemented')){
-			$output->writeln(json_encode($this->freepbx->Backup->getBackupModules()));
+			$output->writeln(json_encode($backupHandler->getModules()));
 			return;
 		}
 		$job = $transaction?$transaction:$this->freepbx->Backup->generateID();
@@ -59,8 +67,9 @@ class Backup extends Command {
     			return false;
 				}
 				$pid = posix_getpid();
-				$this->freepbx->Backup->doBackup($buid,$job,null,$pid);
+				$backupHandler->process($buid,$job,null,$pid);
 				$lockHandler->release();
+
 			break;
 			case $restore:
 				$output->writeln(sprintf('Starting restore job with file: %s',$restore));
@@ -70,13 +79,13 @@ class Backup extends Command {
 					$this->log($job, _("A restore task is already running"));
     				return false;
 				}
-				$this->freepbx->Backup->doRestore($restore,$job);
+				$restoreHandler->process($restore,$job);
 				$lockHandler->release();
 			break;
 			case $dumpextern:
 				$backupdata = $this->freepbx->Backup->getBackup($input->getOption('dumpextern'));
 				if(!$backupdata){
-					$output->writeln("Could not find the backuo specified please check the id.");
+					$output->writeln("Could not find the backup specified please check the id.");
 					return false;
 				}
 				$backupdata['backup_items'] = $this->freepbx->Backup->getAll('modules_'.$input->getOption('dumpextern'));

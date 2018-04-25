@@ -25,7 +25,11 @@
   <!--END Enable-->
   <!--Server Type-->
 <<<<<<< HEAD
+<<<<<<< HEAD
   <div class="element-container">
+=======
+  <div class="element-container warmspare">
+>>>>>>> development/15.0
 =======
   <div class="element-container warmspare">
 >>>>>>> development/15.0
@@ -52,7 +56,11 @@
   <!--END Server Type-->
   <!--Enable Remote Trunks-->
 <<<<<<< HEAD
+<<<<<<< HEAD
   <div class="element-container">
+=======
+  <div class="element-container warmspare">
+>>>>>>> development/15.0
 =======
   <div class="element-container warmspare">
 >>>>>>> development/15.0
@@ -79,7 +87,11 @@
   <!--END Enable Remote Trunks-->
   <!--Remote IP-->
 <<<<<<< HEAD
+<<<<<<< HEAD
   <div class="element-container">
+=======
+  <div class="element-container warmspare">
+>>>>>>> development/15.0
 =======
   <div class="element-container warmspare">
 >>>>>>> development/15.0
@@ -101,4 +113,52 @@
     </div>
   </div>
   <!--END Remote IP-->
+<<<<<<< HEAD
+=======
+  <!--Remote User-->
+  <div class="element-container">
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-3">
+          <label class="control-label" for="warmspare_user"><?php echo _("Remote User") ?></label>
+            <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_user"></i>
+          </div>
+          <div class="col-md-9">
+            <input type="text" class="form-control" id="warmspare_user" name="warmspare_user" value="warmspare_user">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <span id="warmspare_user-help" class="help-block fpbx-help-block"><?php echo _("User on remote system with proper permissions, usually root.")?></span>
+        </div>
+      </div>
+  </div>
+  <!--Remote User-->
+  <!--Server Public Key-->
+  <div class="element-container warmspare">
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-3">
+          <label class="control-label" for="publickey"><?php echo _("Server Public Key") ?></label>
+            <i class="fa fa-question-circle fpbx-help-icon" data-for="publickey"></i>
+          </div>
+          <div class="col-md-9">
+            <textarea class="form-control" id="publickey" rows="8" name="publickey" <?php echo ($warmspare_type == 'primary')?'readonly':''?>><?php echo $publickey?></textarea>
+            <?php 
+              if(empty($publickey && $warmspare_type == 'primary')){
+                echo "<a href='?display=backup&view=newRSA' class='btn btn-default' id='generateRSA'>"._("Generate SSH keys")."</a>";
+              }
+            ?>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <span id="publickey-help" class="help-block fpbx-help-block"><?php echo _("This is the servers public key.")?></span>
+        </div>
+      </div>
+  </div>
+  <!--Server Public Key-->
+>>>>>>> development/15.0
 </div>

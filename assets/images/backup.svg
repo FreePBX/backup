@@ -1,0 +1,94 @@
+<svg class="ldt-blank" width="485px"  height="100px"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;"><style type="text/css">path,ellipse,circle,rect,polygon,polyline,line { stroke-width: 0; }
+@keyframes ld-vortex-in {
+  0% {
+    -webkit-transform: rotate(1800deg) scale(3);
+    transform: rotate(1800deg) scale(3);
+    opacity: 0;
+  }
+  60% {
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes ld-vortex-in {
+  0% {
+    -webkit-transform: rotate(1800deg) scale(3);
+    transform: rotate(1800deg) scale(3);
+    opacity: 0;
+  }
+  60% {
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.ld.ld-vortex-in {
+  -webkit-animation: ld-vortex-in 2s infinite;
+  animation: ld-vortex-in 2s infinite;
+  animation-timing-function: cubic-bezier(0.3, 0, 1, 0.7);
+}
+
+text { font-family: Helvetica Neue }</style><g transform="translate(49.975004768371576 67.1)" style="opacity: 1;">
+  <g style="animation-delay: -0.928571s; animation-duration: 3.5s; font-size: 48px; animation-direction: normal; transform-origin: 17.4333px 0px 0px;" class="ld ld-vortex-in">
+    <text fill="#005ca5" style="font-family:Helvetica Neue">B</text>
+  </g>
+</g><g transform="translate(84.84166965484619 67.1)" style="opacity: 1;">
+  <g style="animation-delay: -0.857143s; animation-duration: 3.5s; font-size: 48px; animation-direction: normal; transform-origin: 13.8833px 0px 0px;" class="ld ld-vortex-in">
+    <text fill="#005ca5" style="font-family:Helvetica Neue">a</text>
+  </g>
+</g><g transform="translate(112.6083360671997 67.1)" style="opacity: 1;">
+  <g style="animation-delay: -0.785714s; animation-duration: 3.5s; font-size: 48px; animation-direction: normal; transform-origin: 13.8833px 0px 0px;" class="ld ld-vortex-in">
+    <text fill="#005ca5" style="font-family:Helvetica Neue">c</text>
+  </g>
+</g><g transform="translate(140.37500247955322 67.1)" style="opacity: 1;">
+  <g style="animation-delay: -0.714286s; animation-duration: 3.5s; font-size: 48px; animation-direction: normal; transform-origin: 13.4583px 0px 0px;" class="ld ld-vortex-in">
+    <text fill="#005ca5" style="font-family:Helvetica Neue">k</text>
+  </g>
+</g><g transform="translate(167.291668510437 67.1)" style="opacity: 1;">
+  <g style="animation-delay: -0.642857s; animation-duration: 3.5s; font-size: 48px; animation-direction: normal; transform-origin: 14.3417px 0px 0px;" class="ld ld-vortex-in">
+    <text fill="#005ca5" style="font-family:Helvetica Neue">u</text>
+  </g>
+</g><g transform="translate(195.9750009536743 67.1)" style="opacity: 1;">
+  <g style="animation-delay: -0.571429s; animation-duration: 3.5s; font-size: 48px; animation-direction: normal; transform-origin: 15.225px 0px 0px;" class="ld ld-vortex-in">
+    <text fill="#005ca5" style="font-family:Helvetica Neue">p</text>
+  </g>
+</g><g transform="translate(226.42500171661376 67.1)" style="opacity: 1;">
+  <g style="animation-delay: -0.5s; animation-duration: 3.5s; font-size: 48px; animation-direction: normal; transform-origin: 8.4px 0px 0px;" class="ld ld-vortex-in">
+    <text fill="#005ca5" style="font-family:Helvetica Neue"> </text>
+  </g>
+</g><g transform="translate(243.22500171661378 67.1)" style="opacity: 1;">
+  <g style="animation-delay: -0.428571s; animation-duration: 3.5s; font-size: 48px; animation-direction: normal; transform-origin: 17.4333px 0px 0px;" class="ld ld-vortex-in">
+    <text fill="#005ca5" style="font-family:Helvetica Neue">R</text>
+  </g>
+</g><g transform="translate(278.09166660308836 67.1)" style="opacity: 1;">
+  <g style="animation-delay: -0.357143s; animation-duration: 3.5s; font-size: 48px; animation-direction: normal; transform-origin: 14.3417px 0px 0px;" class="ld ld-vortex-in">
+    <text fill="#005ca5" style="font-family:Helvetica Neue">u</text>
+  </g>
+</g><g transform="translate(306.77499904632566 67.1)" style="opacity: 1;">
+  <g style="animation-delay: -0.285714s; animation-duration: 3.5s; font-size: 48px; animation-direction: normal; transform-origin: 14.3417px 0px 0px;" class="ld ld-vortex-in">
+    <text fill="#005ca5" style="font-family:Helvetica Neue">n</text>
+  </g>
+</g><g transform="translate(335.45833148956297 67.1)" style="opacity: 1;">
+  <g style="animation-delay: -0.214286s; animation-duration: 3.5s; font-size: 48px; animation-direction: normal; transform-origin: 14.3417px 0px 0px;" class="ld ld-vortex-in">
+    <text fill="#005ca5" style="font-family:Helvetica Neue">n</text>
+  </g>
+</g><g transform="translate(364.14166393280027 67.1)" style="opacity: 1;">
+  <g style="animation-delay: -0.142857s; animation-duration: 3.5s; font-size: 48px; animation-direction: normal; transform-origin: 6.325px 0px 0px;" class="ld ld-vortex-in">
+    <text fill="#005ca5" style="font-family:Helvetica Neue">i</text>
+  </g>
+</g><g transform="translate(376.79166355133054 67.1)" style="opacity: 1;">
+  <g style="animation-delay: -0.0714286s; animation-duration: 3.5s; font-size: 48px; animation-direction: normal; transform-origin: 14.3417px 0px 0px;" class="ld ld-vortex-in">
+    <text fill="#005ca5" style="font-family:Helvetica Neue">n</text>
+  </g>
+</g><g transform="translate(405.47499599456785 67.1)" style="opacity: 1;">
+  <g style="animation-delay: 0s; animation-duration: 3.5s; font-size: 48px; animation-direction: normal; transform-origin: 14.775px 0px 0px;" class="ld ld-vortex-in">
+    <text fill="#005ca5" style="font-family:Helvetica Neue">g</text>
+  </g>
+</g></svg>

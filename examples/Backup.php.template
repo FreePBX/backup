@@ -1,0 +1,14 @@
+<?php
+namespace FreePBX\modules\__MODULENAME__;
+use FreePBX\modules\Backup as Base;
+class Backup Extends Base\BackupBase{
+  public function runBackup($id,$transaction){
+    $files = [];
+    $dirs = [];
+    $configs = [];
+    $this->addFile(basename($recordingfile),$path,'ASTVARLIBDIR',"recording");
+    $this->addDirectories($dirs);
+    $this->addDependency('');
+    $this->addConfigs($config);
+  }
+}

@@ -1,6 +1,7 @@
 <?php
 /**
- * Copyright Sangoma Technologies, Inc 2018
+ * Copyright Sangoma T
+ * chnologies, Inc 2018
  */
 namespace FreePBX\modules\Backup\Handlers;
 use FreePBX\modules\Backup\Handlers as Handlers;
@@ -34,6 +35,8 @@ class Backup{
 		$external = !empty($base64Backup);
 		$transactionId = !empty($transactionId)?$transactionId:$this->Backup->generateId();
 		$this->Backup->setConfig($transactionId,$pid,'running');
+		$this->Backup->log($transactionId,sprintf(_("Running Backup ID: %s"),$id));
+		$this->Backup->log($transactionId,sprintf(_("Transaction: %s"),$transactionId));
 		$this->Backup->log($transactionId,_("Running pre backup hooks"));
 		$this->preHooks($id, $transactionId);
 		$base64Backup = !empty($base64Backup)?json_decode(base64_decode($base64Backup),true):false;
@@ -46,18 +49,23 @@ class Backup{
 		$localPath = sprintf('%s/backup/%s',$spooldir,$underscoreName);
 		$remotePath =  sprintf('/%s/%s',$serverName,$underscoreName);
 		$tmpdir = sprintf('%s/backup/%s','/var/spool/asterisk/tmp',$underscoreName);
+		@unlink($tmpdir);
 		$this->Backup->fs->mkdir($tmpdir);
 		//Use Legacy backup naming
-		$pharbase = 
 		$pharfilename = sprintf('%s%s-%s-%s',date("Ymd-His-"),time(),get_framework_version(),rand());
 		$pharnamebase = sprintf('%s/%s',$localPath,$pharfilename);
 		$phargzname = sprintf('%s.tar.gz',$pharnamebase);
-		$pharname= sprintf('%s.tar',$pharnamebase);
-		$this->Backup->log($transactionId,sprintf(_("This backup will be stored locally at %s and is subject to maintinance settings"),$phargzname));
+		$pharname = sprintf('%s.tar',$pharnamebase);
+		$this->Backup->log($transactionId,_("This backup will be stored locally is subject to maintinance settings"));
+		$this->Backup->log($transactionId,sprintf(_("Storage Location: %s"),$phargzname));
 		$phar = new \PharData($pharname);
 		$phar->addEmptyDir('/modulejson');
+		$phar->addEmptyDir('/files');
 		$phar->setSignatureAlgorithm(\Phar::SHA256);
 		$storage_ids = $this->Backup->getStorageById($id);
+		$this->dependencies = [];
+		$processQueue = new \SplQueue();
+		$processQueue->setIteratorMode(\SplQueue::IT_MODE_DELETE);
 		$data = [];
 		$dirs = [];
 		$files = [];
@@ -74,11 +82,6 @@ class Backup{
 			$backupItems = $backupInfo['backup_items'];
 		}
 		$selectedmods = is_array($backupItems)?array_keys($backupItems):[];
-		$errors = [];
-		$warnings = [];
-		if(!$external){
-			$maint = new Module\Maintinance($this->FreePBX,$id);
-		}
 		foreach($selectedmods as $mod) {
 			if(!in_array($mod, $validmods)){
 				$err = sprintf(_("Could not backup module %s, it may not be installed or enabled"),$mod);
@@ -86,21 +89,52 @@ class Backup{
 				$this->Backup->log($transactionId,$err,'DEBUG');
 				continue;
 			}
+			$raw = \strtolower($mod);
+			$mod = $this->FreePBX->Modules->getInfo($raw);
+			$this->sortDepends($mod[$raw]['rawname'],$mod[$raw]['version']);
+			$processQueue->enqueue(['name' => $mod[$raw]['rawname']]);
+		}
+		$errors = [];
+		$warnings = [];
+		if(!$external){
+			$maint = new Module\Maintinance($this->FreePBX,$id);
+		}
+		foreach($processQueue as $mod) {
 			$backup = new Models\Backup($this->FreePBX);
 			$backup->setBackupId($id);
-			\modgettext::push_textdomain(strtolower($mod));
-
-			$class = sprintf('\\FreePBX\\modules\\%s\\Backup',$mod);
+			\modgettext::push_textdomain(strtolower($mod['name']));
+			$class = sprintf('\\FreePBX\\modules\\%s\\Backup',$mod['name']);
+			if(!class_exists($class)){
+				$err = sprintf(_("Couldn't find class %s"),$class);
+				$this->Backup->log($transactionId,$err,'ERROR');
+				continue;
+			}
 			$class = new $class($backup,$this->FreePBX);
 			$class->runBackup($id,$transactionId);
 			\modgettext::pop_textdomain();
 			//Skip empty.
 			if($backup->getModified() === false){
-				$this->Backup->log($transactionId,sprintf(_("%s returned no data. This module may not impliment the new backup yet. Skipping"), $mod));
-				$this->Backup->manifest['skipped'][] = $mod;
+				$this->Backup->log($transactionId,sprintf(_("%s returned no data. This module may not impliment the new backup yet. Skipping"), $mod['name']));
+				$this->Backup->manifest['skipped'][] = $mod['name'];
 				continue;
 			}
-			$rawname = strtolower($mod);
+			$dependencies = $backup->getDependencies();
+			foreach($dependencies as $depend){
+				/** If we are already backing up the module we don't need to put it in the queue
+				 * If we haven't implimented backup it won't be there anyway
+				 */
+				if(in_array($depend, $selectedmods) || !in_array($depend, $validmods)){
+					continue;
+				}
+				/** Add the dependency to the top of the lineup */
+				if(in_array($depend, $validmods)){
+					$raw = \strtolower($depend);
+					$mod = $this->FreePBX->Modules->getInfo($raw);
+					$this->sortDepends($mod[$raw]['rawname'],$mod[$raw]['version']);
+					$this->processQueue->enqueue($depend);
+				}
+			}
+			$rawname = strtolower($mod['name']);
 			$moduleinfo = $this->FreePBX->Modules->getInfo($rawname);
 			$manifest['modules'][] = ['module' => $mod, 'version' => $moduleinfo[$rawname]['version']];
 			$moddata = $backup->getData();
@@ -113,10 +147,8 @@ class Backup{
 					continue;
 				}
 				$srcfile = $srcpath .'/'. $file['filename'];
-
 				$destpath = $this->Backup->getPath('files/' . ltrim($file['pathto'],'/'));
 				$destfile = $destpath . $file['filename'];
-
 				$dirs[] = $destpath;
 				$files[$srcfile] = $destfile;
 				$phar->addFile($srcfile,$destfile);
@@ -128,14 +160,14 @@ class Backup{
 			}
 			file_put_contents($modjson, json_encode($moddata, JSON_PRETTY_PRINT));
 			$phar->addFile($modjson,'modulejson/'.$mod.'.json');
-
-			$data[$mod] = $moddata;
-			$cleanup[$mod] = $moddata['garbage'];
+			$data[$mod['name']] = $moddata;
+			$cleanup[$mod['name']] = $moddata['garbage'];
 		}
 
 		foreach ($dirs as $dir) {
 			$phar->addEmptyDir($dir);
 		}
+		$manifest['processorder'] = $this->dependencies;
 		$phar->setMetadata($manifest);
 		$phar->compress(\Phar::GZ);
 		$signatures = $phar->getSignature();
@@ -149,6 +181,8 @@ class Backup{
 			$hash = false;
 			if(isset($signatures['hash'])){
 				$hash = $signatures['hash'];
+					$msg = sprintf(_("SHA256: %s"),$hash);
+					$this->Backup->log($transactionId,$msg,'DEBUG');
 			}
 			foreach ($storage_ids as $location) {
 				try {
@@ -157,6 +191,8 @@ class Backup{
 					if($hash){
 						$this->Backup->FreePBX->Filestore->put($location[0],$location[1],$hash,$remote.'.sha256sum');
 					}
+					$msg = sprintf(_("Saving to: %s instance"),$location[0]);
+					$this->Backup->log($transactionId,$msg,'DEBUG');
 				} catch (\Exception $e) {
 					$err = $e->getMessage();
 					$this->Backup->log($transactionId,$err,'ERROR');
@@ -186,7 +222,7 @@ class Backup{
 		$this->Backup->log($transactionId,_("Running post backup hooks"));
 		$this->postHooks($id, $signatures, $errors, $transactionId);
 		if(!empty($errors)){
-			$this->Backup->log($transactionId,_("Backup finished with but with errors",'WARNING'));
+			$this->Backup->log($transactionId,_("Backup finished with but with errors"),'WARNING');
 			$this->Backup->processNotifications($id, $transactionId, $errors,true);
 			//TODO: Don't think I need this because monolog
 			return $errors;
@@ -228,7 +264,6 @@ class Backup{
 				$errors[] = sprintf(_("%s finished with a non-zero status"),$cmd);
 			}
 		}
-		sleep(5);
 		unset($this->Backup->preBackup);
 		return !empty($errors)?$errors:true;
 	}
@@ -293,5 +328,10 @@ class Backup{
 			}
 		}
 		return $validmods;
+	}
+	public function sortDepends($dependency,$version){
+		$value = ['module' => $dependency,'version' => $version];
+		array_unshift($this->dependencies,$version);
+		$this->dependencies = array_unique($this->dependencies,\SORT_REGULAR);
 	}
 }

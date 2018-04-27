@@ -13,6 +13,8 @@ use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Symfony\Component\Filesystem\LockHandler;
 use Monolog\Handler\SwiftMailerHandler;
 use Monolog\Handler\BufferHandler;
+use Monolog\Handler\StreamHandler;
+use Monolog\Formatter as Formatter;
 class Backup extends \FreePBX_Helpers implements \BMO {
 	public function __construct($freepbx = null) {
 		include __DIR__.'/vendor/autoload.php';
@@ -33,6 +35,13 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 		$this->logpath        = $this->getConfig('logpath');
 		$this->logpath        = !empty($this->logpath)?$this->logpath:'/var/log/asterisk/backup.log';
 		$this->logger->createCustomLog('Backup', $this->logpath,true);
+		$this->formatter = new Formatter\LineFormatter(null, null, false, true);
+
+		if(php_sapi_name() == 'cli' || php_sapi_name() == 'phpdbg'){
+			$handler = new StreamHandler("php://stdout",\Monolog\Logger::INFO);
+			$handler->setFormatter($this->formatter);
+			$this->logger->customLog->pushHandler($handler);
+		}
 		$this->loggingHooks = null;
 	}
 
@@ -234,7 +243,6 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 				return $this->getAllRemote();
 			case 'runRestore':
 				$file = $this->pathFromId($_GET['fileid']);
-				dbug($file);
 				if(!$file){
 					return ['status' => false, 'message' => _("Could not find a file for the id supplied")];
 				}
@@ -654,6 +662,8 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 		$this->swiftmsg->setContentType("text/html");
 		$swift         = \Swift_Mailer::newInstance($transport);
 		$this->handler = new BufferHandler(new SwiftMailerHandler($swift,$this->swiftmsg,\Monolog\Logger::INFO),0,\Monolog\Logger::INFO);
+		$formatter = new Formatter\HtmlFormatter();
+		$this->handler->SetFormatter($formatter);
 		$this->logger->customLog->pushHandler($this->handler);
 
 		$serverName   = $this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT');
@@ -710,7 +720,6 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 	 */
 	public function getBackup($id){
 		$data   = $this->getAll($id);
-		dbug($id);
 		$return = [];
 		foreach ($this->backupFields as $key) {
 			$return[$key] = isset($data[$key])?$data[$key]:'';
@@ -870,7 +879,6 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 		$description = $this->getReq('backup_description',sprintf(_('Backup %s'),$this->getReq('backup_name')));
 		$this->setConfig($data['id'],array('id' => $data['id'], 'name' => $this->getReq('backup_name',''), 'description' => $description),'backupList');
 		if($this->getReq('backup_items','unchanged') !== 'unchanged'){
-			dbug($this->getReq('backup_items'));
 			$backup_items = json_decode(html_entity_decode($this->getReq('backup_items',[])),true);
 			$this->setModulesById($data['id'], $backup_items);
 		}
@@ -971,11 +979,9 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 	 * @return void
 	 */
 	public function log($transactionId = '', $message = ''){
-		$entry = sprintf('[%s] - %s', $transactionId, $message);
-		echo $entry.PHP_EOL;
-		$this->sessionlog[] = $entry;
+		$this->sessionlog[$transactionId] = $message;
 		$this->setConfig('sessionlog',$this->sessionlog);
-		$this->logger->logWrite('backup',$entry,true);
+		$this->logger->logWrite($transactionId,$message,true);
 	}
 
 	/**

@@ -14,7 +14,8 @@ class FreePBXModule{
         $this->mf = \module_functions::create();
     }
     public function reset($module,$version){
-        $xml = $this->mf->getModuleDownloadByModuleNameAndVersion($modulename, $version);
+        $module = \strtolower($module);
+        $xml = $this->mf->getModuleDownloadByModuleNameAndVersion($module, $version);
         if(!empty($xml)){
             $this->processRemote($xml);
         }

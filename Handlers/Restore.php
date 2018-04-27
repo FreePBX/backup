@@ -24,37 +24,46 @@ class Restore{
 		$this->Backup->fs->Remove(BACKUPTMPDIR);
 		$phar = new \PharData($backupFile);
 		$restoreData = $phar->getMetadata();
-		$this->restoreModules = [];
-		foreach($restoreData['modules'] as $restoreModule){
-			$this->restoreModules[$restoreModule['module']] = $restoreModule['version'];
+		$this->restoreModules = new \SplPriorityQueue();
+		//$this->restoreModules->setIteratorMode(\SplQueue::IT_MODE_DELETE);
+		if(isset($restoreData['processorder'])){
+			//Reverse gives the highest index (higher priority) to the first item
+			$reverse = \array_reverse($restoreData['processorder']);
 		}
+		if(!isset($restoreData['processorder'])){
+			//Reverse gives the highest index (higher priority) to the first item
+			$reverse = \array_reverse($restoreData['modules']);
+		}
+		foreach ($reverse as $key => $value) {
+			$this->restoreModules->insert($value,$key);
+		}
+
 		$phar->extractTo(BACKUPTMPDIR);
 		$errors = [];
 		$warnings = [];
-		$mods = $this->getModules();
 		$this->Backup->log($jobid,_("Running pre restore hooks"));
 		$this->preHooks($jobid,$restoreData);
-		foreach($mods as $mod) {
-			$modjson = BACKUPTMPDIR . '/modulejson/' . ucfirst($mod['rawname']) . '.json';
+		foreach($this->restoreModules as $key => $value) {
+			$modjson = BACKUPTMPDIR . '/modulejson/' . ucfirst($key) . '.json';
 			if(!file_exists($modjson)){
-				$errors[] = sprintf(_("Could not find a manifest for %s, skipping"),$mod['name']);
+				$errors[] = sprintf(_("Could not find a manifest for %s, skipping"),$key);
 				continue;
 			}
 			$moddata = json_decode(file_get_contents($modjson), true);
 			$restore = new Models\Restore($this->Backup->FreePBX, $moddata);
 			$depsOk = $this->Backup->processDependencies($restore->getDependencies());
 			if(!$depsOk){
-				$errors[] = printf(_("Dependencies not resolved for %s Skipped"),$mod['name']);
+				$errors[] = printf(_("Dependencies not resolved for %s Skipped"),$key);
 				continue;
 			}
 			$modulehandler = new Handlers\FreePBXModule($this->FreePBX);
-			\modgettext::push_textdomain($mod['rawname']);
-			$this->Backup->log($jobid,sprintf(_("Running restore process for %s"),$mod['name']));
-			$this->Backup->log($jobid,sprintf(_("Resetting the data for %s, this may take a moment"),$mod['name']));
-			$backedupVer = isset($this->restoreModules[$mod['name']])?$this->restoreModules[$mod['name']]:$mod['version'];
-			$modulehandler->reset($mod['rawname'],$backedupVer);
-			$this->Backup->log($jobid,sprintf(_("Restoring the data for %s, this may take a moment"),$mod['name']));
-			$class = sprintf('\\FreePBX\\modules\\%s\\Restore',ucfirst($mod['rawname']));
+			\modgettext::push_textdomain($key);
+			$this->Backup->log($jobid,sprintf(_("Running restore process for %s"),$key));
+			$this->Backup->log($jobid,sprintf(_("Resetting the data for %s, this may take a moment"),$key));
+			$backedupVer = $value;
+			$modulehandler->reset($mod['name'],$backedupVer);
+			$this->Backup->log($jobid,sprintf(_("Restoring the data for %s, this may take a moment"),$key));
+			$class = sprintf('\\FreePBX\\modules\\%s\\Restore',ucfirst($key));
 			$class = new $class($restore,$this->FreePBX,BACKUPTMPDIR);
 			$class->runRestore($jobid);
 			\modgettext::pop_textdomain();
@@ -75,7 +84,7 @@ class Restore{
 			return $this->restoreMods;
 		}
 		//All modules impliment the "backup" method so it is a horrible way to know
-		//which modules are valid. With the autploader we can do this magic :)
+		//which modules are valid. With the autoloader we can do this magic :)
 		$amodules = $this->FreePBX->Modules->getActiveModules();
 		$validmods = [];
 		foreach ($amodules as $module) {
@@ -88,7 +97,7 @@ class Restore{
 	}
 	public function preHooks($transactionId = '',$restoreData = []){
 		$err = [];
-		$restoreData = base64_encode(json_encode($restorData,\JSON_PRETTY_PRINT));
+		$restoreData = base64_encode(json_encode($restoreData,\JSON_PRETTY_PRINT));
 		$args = escapeshellarg($transactionId).' '.$restoreData;
 		$this->FreePBX->Hooks->processHooks($transactionId,$restoreData);
 		$this->Backup->getHooks('restore');
@@ -104,7 +113,7 @@ class Restore{
 	}
 	public function postHooks($transactionId='',$restoreData=[]){
 		$err = [];
-		$restoreData = base64_encode(json_encode($restorData,\JSON_PRETTY_PRINT));
+		$restoreData = base64_encode(json_encode($restoreData,\JSON_PRETTY_PRINT));
 		$args = escapeshellarg($transactionId).' '.$restoreData;
 		$this->FreePBX->Hooks->processHooks($transactionId);
 		$this->Backup->getHooks('restore');

@@ -19,25 +19,17 @@ class Restore{
 		define('BACKUPTMPDIR','/var/spool/asterisk/tmp');
 	}
 	public function process($backupFile, $jobid) {
-		$this->Backup->logger->customLog->popHandler();
-		$this->Backup->attachLoggers('restore');
-		$this->Backup->fs->Remove(BACKUPTMPDIR);
+		$this->Backup->fs->remove(BACKUPTMPDIR);
+		$this->Backup->fs->mkdir(BACKUPTMPDIR);
 		$phar = new \PharData($backupFile);
 		$restoreData = $phar->getMetadata();
-		$this->restoreModules = new \SplPriorityQueue();
-		//$this->restoreModules->setIteratorMode(\SplQueue::IT_MODE_DELETE);
 		if(isset($restoreData['processorder'])){
-			//Reverse gives the highest index (higher priority) to the first item
-			$reverse = \array_reverse($restoreData['processorder']);
+			$this->restoreModules = $restoreData['processorder'];
 		}
 		if(!isset($restoreData['processorder'])){
-			//Reverse gives the highest index (higher priority) to the first item
-			$reverse = \array_reverse($restoreData['modules']);
+			$this->restoreModules = $restoreData['modules'];
 		}
-		foreach ($reverse as $key => $value) {
-			$this->restoreModules->insert($value,$key);
-		}
-
+		$this->Backup->log($jobid,_("Extracting Backup"));
 		$phar->extractTo(BACKUPTMPDIR);
 		$errors = [];
 		$warnings = [];
@@ -46,7 +38,10 @@ class Restore{
 		foreach($this->restoreModules as $key => $value) {
 			$modjson = BACKUPTMPDIR . '/modulejson/' . ucfirst($key) . '.json';
 			if(!file_exists($modjson)){
-				$errors[] = sprintf(_("Could not find a manifest for %s, skipping"),$key);
+				$msg = sprintf(_("Could not find a manifest for %s, skipping"),ucfirst($key));
+				$this->Backup->log($jobid,$msg,'WARNING');
+
+				$errors[] = $msg;
 				continue;
 			}
 			$moddata = json_decode(file_get_contents($modjson), true);

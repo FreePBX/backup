@@ -83,15 +83,16 @@ class Backup{
 		}
 		$selectedmods = is_array($backupItems)?array_keys($backupItems):[];
 		foreach($selectedmods as $mod) {
+			$raw = \strtolower($mod);
+			$this->sortDepends($raw,false,true);
 			if(!in_array($mod, $validmods)){
 				$err = sprintf(_("Could not backup module %s, it may not be installed or enabled"),$mod);
 				$warnings[] = $err;
+				$this->Backup->manifest['skipped'][] = $mod;
 				$this->Backup->log($transactionId,$err,'DEBUG');
 				continue;
 			}
-			$raw = \strtolower($mod);
 			$mod = $this->FreePBX->Modules->getInfo($raw);
-			$this->sortDepends($mod[$raw]['rawname'],$mod[$raw]['version']);
 			$processQueue->enqueue(['name' => $mod[$raw]['rawname']]);
 		}
 		$errors = [];
@@ -103,10 +104,10 @@ class Backup{
 			$backup = new Models\Backup($this->FreePBX);
 			$backup->setBackupId($id);
 			\modgettext::push_textdomain(strtolower($mod['name']));
-			$class = sprintf('\\FreePBX\\modules\\%s\\Backup',$mod['name']);
+			$class = sprintf('\\FreePBX\\modules\\%s\\Backup', ucfirst($mod['name']));
 			if(!class_exists($class)){
 				$err = sprintf(_("Couldn't find class %s"),$class);
-				$this->Backup->log($transactionId,$err,'ERROR');
+				$this->Backup->log($transactionId,$err,'WARNING');
 				continue;
 			}
 			$class = new $class($backup,$this->FreePBX);
@@ -136,7 +137,7 @@ class Backup{
 			}
 			$rawname = strtolower($mod['name']);
 			$moduleinfo = $this->FreePBX->Modules->getInfo($rawname);
-			$manifest['modules'][] = ['module' => $mod, 'version' => $moduleinfo[$rawname]['version']];
+			$manifest['modules'][] = ['module' => $mod['name'], 'version' => $moduleinfo[$rawname]['version']];
 			$moddata = $backup->getData();
 			foreach ($moddata['dirs'] as $dir) {
 				$dirs[] = $this->Backup->getPath('files/' . ltrim($dir['pathto'],'/'));
@@ -153,13 +154,13 @@ class Backup{
 				$files[$srcfile] = $destfile;
 				$phar->addFile($srcfile,$destfile);
 			}
-
-			$modjson = $tmpdir . '/modulejson/' . $mod . '.json';
+			$mod['name'] = ucfirst($mod['name']);
+			$modjson = $tmpdir . '/modulejson/' . $mod['name'] . '.json';
 			if (!$this->Backup->fs->exists(dirname($modjson))) {
 				$this->Backup->fs->mkdir(dirname($modjson));
 			}
 			file_put_contents($modjson, json_encode($moddata, JSON_PRETTY_PRINT));
-			$phar->addFile($modjson,'modulejson/'.$mod.'.json');
+			$phar->addFile($modjson,'modulejson/'.$mod['name'].'.json');
 			$data[$mod['name']] = $moddata;
 			$cleanup[$mod['name']] = $moddata['garbage'];
 		}
@@ -329,9 +330,18 @@ class Backup{
 		}
 		return $validmods;
 	}
-	public function sortDepends($dependency,$version){
-		$value = ['module' => $dependency,'version' => $version];
-		array_unshift($this->dependencies,$version);
-		$this->dependencies = array_unique($this->dependencies,\SORT_REGULAR);
+	public function sortDepends($dependency,$version = false,$skipsort = false){
+		if(!$version){
+			$moduleinfo = $this->FreePBX->Modules->getInfo($dependency);
+			$version = $moduleinfo[$dependency]['version'];
+		}
+		$tmp[$dependency] = $version;
+		foreach ($this->dependencies as $key => $value) {
+			$tmp[$key] = $value;
+		}
+		$this->dependencies = $tmp;
+		if(!$skipsort){
+			$this->dependencies = array_unique($this->dependencies);
+		}
 	}
 }

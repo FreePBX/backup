@@ -978,10 +978,10 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 	 * @param string $message message to log
 	 * @return void
 	 */
-	public function log($transactionId = '', $message = ''){
+	public function log($transactionId = '', $message = '',$level = 'INFO'){
 		$this->sessionlog[$transactionId] = $message;
 		$this->setConfig('sessionlog',$this->sessionlog);
-		$this->logger->logWrite($transactionId,$message,true);
+		$this->logger->logWrite($transactionId,$message,true,$level);
 	}
 
 	/**

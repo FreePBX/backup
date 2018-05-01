@@ -159,12 +159,8 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 			case 'uploadrestore'    : 
 			case 'generateRSA'      : 
 			case 'deleteLocal'      : 
+			case 'runstatus'		: 
 				$return = true;
-			break;
-			case 'runstatus': 
-				$return         		 = true;
-				//$setting['authenticate'] = false;
-				//$setting['allowremote']  = true;
 			break;
 			default: 
 				$return = false;
@@ -238,7 +234,6 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 			return ['status' => true, 'id' => md5($file)];
 			case 'localRestoreFiles': 
 				return $this->getLocalFiles();
-			return [];
 			case 'restoreFiles': 
 				return $this->getAllRemote();
 			case 'runRestore':
@@ -272,10 +267,10 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 				$pid = $process->getPid();
 				return ['status' => true, 'message' => _("Backup running"), 'process' => $pid, 'transaction' => $jobid, 'backupid' => $buid];
 			case 'getJSON': 
+				dbug("HERE");
 				switch ($_REQUEST['jdata']) {
 					case 'backupGrid': 
 						return array_values($this->listBackups());
-					break;
 					case 'backupStorage': 
 						$storage_ids = [];
 						if(isset($_GET['id']) && !empty($_GET['id'])){
@@ -309,15 +304,12 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 					case 'backupItems'                   : 
 					$id  = isset($_GET['id'])?$_GET['id']: '';
 					return $this->HandlerById($id);
-					break;
 					default: 
 						return false;
-					break;
 				}
 			break;
 			default: 
 				return false;
-			break;
 		}
 	}	
 	public function ajaxCustomHandler() {
@@ -338,7 +330,7 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 				header("Content-disposition: attachment; filename=".basename($filepath));
 				header("Content-type: application/octet-stream");
 				readfile($filepath);
-			exit; 
+				exit;
 		}
 	}
 
@@ -348,10 +340,8 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 		if(isset($_GET['display']) && isset($_GET['view'])){
 			switch ($_GET['display']) {
 				case 'backup'          : 
-				case 'backup_templates': 
 				case 'backup_restore'  : 
 					return "Placeholder";
-				break;
 				default: 
 				break;
 			}
@@ -424,7 +414,6 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 					return load_view(__DIR__.'/views/backup/transfer.php');
 				}
 				return load_view(__DIR__.'/views/backup/grid.php');
-			break;
 			case  'restore'                           : 
 			$view = isset($_GET['view'])?$_GET['view']: 'default';
 				switch ($view) {
@@ -451,12 +440,9 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 						$vars['jsondata'] = $this->moduleJSONFromManifest($manifest);
 						$vars['id']       = $_GET['id'];
 						$vars['fileid']   = $fileid;
-
 						return load_view(__DIR__.'/views/restore/processRestore.php',$vars);
-					break;
 					default: 
 						return load_view(__DIR__.'/views/restore/landing.php');
-					break;
 				}
 			break;
 			default: 
@@ -578,7 +564,6 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 		$hookpath      = getenv('BACKUPHOOKDIR');
 		$hookpath      = $hookpath?$hookpath:'/home/asterisk/Backup';
 		$filehooks     = ['BACKUPPREHOOKS' => 'preBackup','RESTOREPREHOOKS' => 'preRestore','BACKUPPOSTHOOKS' => 'postBackup','RESTOREPOSTHOOKS' => 'postRestore'];
-		$filehookarray = [];
 		foreach($filehooks as $hook => $objName){
 			$env = getenv($hook);
 			if(empty($env)){
@@ -668,19 +653,19 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 
 		$serverName   = $this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT');
 		$emailSubject = sprintf(_('Backup %s success for %s'),$backupInfo['backup_name'], $serverName);
-		if(!empty($errors)){
+		if(!empty($this->errors)){
 			$emailSubject = sprintf(_('Backup %s failed for %s'),$backupInfo['backup_name'], $serverName);
 		}
 
 		if(isset($backupInfo['backup_emailtype']) && $backupInfo['backup_emailtype'] == 'success'){
-			if(!empty($errors)){
+			if(!empty($this->errors)){
 				return false;
 			}
 		}
 		$from    = $this->getConfig('fromemail');
 		$envfrom = getenv('BACKUPEMAILFROM');
 		if(!empty($envfrom)){
-			$from = $fromenv;
+			$from = $envfrom;
 		}
 		if(empty($from)){
 			return;
@@ -1001,7 +986,6 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 			$path = $this->getConfig('logpath');
 		}
 		$this->swiftmsg->attach(\Swift_Attachment::fromPath($path)->setFilename($filename));
-		sleep(1);
 		try{
 			$this->handler->close();
 		}catch(\Exception $e){

@@ -27,9 +27,9 @@
         <i class="fa fa-question-circle fpbx-help-icon" data-for="serverMode"></i>
       </div>
       <div class="col-md-9 radioset">
-        <input type="radio" name="serverMode" id="serverModeyes" value="donor" <?php echo ($serverMode == "donor"?"CHECKED":"") ?>>
+        <input type="radio" name="serverMode" id="serverModeyes" value="donor" <?php echo ($serverMode == "donor")?"CHECKED":"" ?>>
         <label for="serverModeyes"><?php echo _("Donor");?></label>
-        <input type="radio" name="serverMode" id="serverModeno" value="recipient" <?php echo ($serverMode == "donor"?"":"CHECKED") ?>>
+        <input type="radio" name="serverMode" id="serverModeno" value="recipient" <?php echo ($serverMode == "donor")?"":"CHECKED" ?>>
         <label for="serverModeno"><?php echo _("Recipient");?></label>
       </div>
     </div>

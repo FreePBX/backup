@@ -9,6 +9,6 @@ class Backup Extends Base\BackupBase{
     $this->addFile(basename($recordingfile),$path,'ASTVARLIBDIR',"recording");
     $this->addDirectories($dirs);
     $this->addDependency('');
-    $this->addConfigs($config);
+    $this->addConfigs($configs);
   }
 }

@@ -113,7 +113,7 @@ if (!isset($vars['restore'])) {
 	*/
 	$from = explode(".",$manifest["pbx_version"]);
 	$to = explode(".",getversion());
-	if($from[0] != $to[0]  || $from[1] != $to[1]){
+	if($from[0] !== $to[0]  || $from[1] !== $to[1]){
 		// The version are differents, so we stop.
 		backup_log(_('This archive cannot be used, because the version is not correct!!!'));
 		backup_log(sprintf( _('Freepbx version %s, Archive version %s'),getversion(),$manifest["pbx_version"]));

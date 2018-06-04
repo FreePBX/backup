@@ -284,29 +284,7 @@ class Backup{
 		return !empty($errors)?$errors:true;
 	}
 	
-	static function parseFile($filename){
-		//20171012-130011-1507838411-15.0.1alpha1-42886857.tar.gz
-		preg_match("/(\d{7})-(\d{6})-(\d{10,11})-(.*)-\d*\.tar\.gz(.sha256sum)?/", $filename, $output_array);
-		$valid = false;
-		$arraySize = sizeof($output_array);
-		if($arraySize == 5){
-			$valid = true;
-		}
-		if($arraySize == 6){
-			$valid = true;
-		}
-		if(!$valid){
-			return false;
-		}
-		return [
-			'filename' => $output_array[0],
-			'datestring' => $output_array[1],
-			'timestring' => $output_array[2],
-			'timestamp' => $output_array[3],
-			'framework' => $output_array[4],
-			'isCheckSum' => ($arraySize == 6)
-		];
-	}
+
 	/**
 	 * Get a list of modules that implement the backup method
 	 * @return array list of modules

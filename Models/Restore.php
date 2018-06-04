@@ -3,7 +3,7 @@
  * Copyright Sangoma Technologies, Inc 2017
  */
 namespace FreePBX\modules\Backup\Models;
-
+use Exception;
 class Restore{
 	private $data = [
 		'dirs' => [],
@@ -16,7 +16,7 @@ class Restore{
 
 	public function __construct($freepbx = null, $moddata) {
 		if ($freepbx == null) {
-			throw new \Exception('Not given a FreePBX Object');
+			throw new Exception('Not given a FreePBX Object');
 		}
 		$this->FreePBX = $freepbx;
 		$this->modified = false;

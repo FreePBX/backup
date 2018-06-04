@@ -6,6 +6,7 @@ namespace FreePBX\modules;
 use FreePBX\modules\Backup\Modules as Module;
 use FreePBX\modules\Backup\Handlers as Handler;
 use FreePBX\modules\Filestore\Modules as Filestore;
+use FreePBX\modules\Backup\Models\BackupFile;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Filesystem\Filesystem;
@@ -51,12 +52,6 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 	public function uninstall(){
 	}
 
-	public function backup(){
-	}
-
-	public function restore($backup){
-	}
-
 	public function doConfigPageInit($page) {
 		if($page == 'backup'){
 			/** Delete Backup */
@@ -100,39 +95,32 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 			];
 		}
 		/**	Generic button set*/
-		$buttons = array(
-			'reset' => array(
+		$buttons = [
+			'reset' => [
 				'name'  => 'reset',
 				'id'    => 'reset',
 				'value' => _('Reset'),
-			),
-			'submit' => array(
+			],
+			'submit' => [
 				'name'  => 'submit',
 				'id'    => 'submit',
 				'value' => _('Save'),
-			),
-			'run' => array(
+			],
+			'run' => [
 				'name'  => 'run',
 				'id'    => 'run_backup',
 				'value' => _('Save and Run'),
-			),
-			'delete' => array(
+			],
+			'delete' => [
 				'name'  => 'delete',
 				'id'    => 'delete',
 				'value' => _('Delete'),
-			),
-		);
-		/** Remove buttons as appropriate */
-		switch ($request['display']) {
-			case 'backup': 
-			break;
-			case 'backup_restore'  : 
-				unset($buttons['run']);
-			break;
-			default: 
-				$buttons = [];
-			break;
+			],
+		];
+		if('bacup_restore' == $request['display']){
+			unset($buttons['run']);
 		}
+
 		/** If we are not in an edit screen kill the run and delete */
 		if(!isset($request['id']) || empty($request['id'])){
 			unset($buttons['delete']);
@@ -146,8 +134,8 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 	 * @param string $req     [description]
 	 * @param [type] $setting [description]
 	 */
-	public function ajaxRequest($req, &$setting) {
-		switch ($req) {
+	public function ajaxRequest($command, &$setting) {
+		switch ($command) {
 			case 'getJSON'          : 
 			case 'run'              :
 			case 'runRestore'       :
@@ -160,13 +148,10 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 			case 'generateRSA'      : 
 			case 'deleteLocal'      : 
 			case 'runstatus'		: 
-				$return = true;
-			break;
+				return true;
 			default: 
-				$return = false;
-			break;
+				return false;
 		}
-		return $return;
 	}
 
 	/**
@@ -228,8 +213,8 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 				return ['status' => false, 'message' => _("Failed to copy the uploaded file")];
 			}
 			$this->setConfig(md5($file), $file, 'localfilepaths');
-			$backupphar = new \PharData($file);
-			$meta       = $backupphar->getMetadata();
+			$backupFile = new BackupFile($file);
+			$meta       = $backupFile->getMetadata();
 			$this->setConfig('meta', $meta, md5($file));
 			return ['status' => true, 'id' => md5($file)];
 			case 'localRestoreFiles': 
@@ -313,6 +298,7 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 		}
 	}	
 	public function ajaxCustomHandler() {
+
 		switch($_REQUEST['command']){
 			case 'remotedownload':
 				$filepath = $this->remoteToLocal($_REQUEST['id'],$_REQUEST['filepath']);
@@ -433,7 +419,8 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 							return load_view(__DIR__.'/views/restore/landing.php',['error' => _("Couldn't find your file, please try submitting your file again.")]);
 						}
 						if($path){
-							$manifest = $this->getMetaData($path);
+							$file = new BackupFile($path);
+							$manifest = $file->getMetaData($path);
 						}
 						$vars['meta']     = $manifest;
 						$vars['date']     = $this->FreePBX->View->getDateTime($manifest['date']);
@@ -605,19 +592,6 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 		}
 	}
 
-	/**
-	 * Get PHAR metadata
-	 *
-	 * @param string $phar path to PHAR
-	 * @return void
-	 */
-	public function getMetaData($phar){
-		$p         		   = new \PharData($phar);
-		$meta	           = $p->getMetadata();
-		$meta['signature'] = $p->getSignature();
-		unset($p);
-		return $meta;
-	}
 	public function pathFromId($id){
 		return $this->getConfig($id,'localfilepaths');
 	}
@@ -728,7 +702,8 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 			$path       = $v->getPathInfo()->getRealPath();
 			$buname     = $v->getPathInfo()->getBasename();
 			$buname     = str_replace('_',' ',$buname);
-			$backupinfo = $this->parseFile(basename($k));
+			$backupFile = new BackupFile($k);
+			$backupinfo = $backupFile->backupData();
 			if(empty($backupinfo)){
 				continue;
 			}
@@ -740,36 +715,6 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 			$files     []       = $backupinfo;
 		}
 		return $files;
-	}
-
-	/**
-	 * Parse filename to array
-	 *
-	 * @param string $filename
-	 * @return array description of file
-	 */
-	static function parseFile($filename){
-		//20171012-130011-1507838411-15.0.1alpha1-42886857.tar.gz
-		preg_match("/(\d{7})-(\d{6})-(\d{10,11})-(.*)-\d*\.tar\.gz(.sha256sum)?/", $filename, $output_array);
-		$valid     = false;
-		$arraySize = sizeof($output_array);
-		if($arraySize == 5){
-			$valid = true;
-		}
-		if($arraySize == 6){
-			$valid = true;
-		}
-		if(!$valid){
-			return false;
-		}
-		return [
-			'filename'   => $output_array[0],
-			'datestring' => $output_array[1],
-			'timestring' => $output_array[2],
-			'timestamp'  => $output_array[3],
-			'framework'  => $output_array[4],
-			'isCheckSum' => ($arraySize == 6)
-		];
 	}
 
 	/**
@@ -1069,7 +1014,8 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 					if($file['type'] == 'dir'){
 						continue;
 					}
-					$info = $this->parseFile($file['basename']);
+					$backupFile = new BackupFile($file);
+					$info = $backupFile->backupData();
 					if($info['isCheckSum']){
 						continue;
 					}

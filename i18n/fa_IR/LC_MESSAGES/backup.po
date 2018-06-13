@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 21:12-0400\n"
+"POT-Creation-Date: 2018-06-13 16:47-0400\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -87,7 +87,7 @@ msgstr "فعال"
 msgid "Add Server"
 msgstr "افزودن سرور"
 
-#: bin/backup.php:53
+#: bin/backup.php:54
 msgid "Adding items..."
 msgstr "افزودن آیتم ها..."
 
@@ -225,7 +225,7 @@ msgstr "زمانبندی پشتیبان"
 msgid "Backup Items"
 msgstr "انتخاب موارد جهت تهیه پشتیبان"
 
-#: bin/backup.php:48
+#: bin/backup.php:49
 msgid "Backup Lock acquired!"
 msgstr "به وجود آمدن قفل پشتیبان گیری!"
 
@@ -265,7 +265,7 @@ msgstr "ویزارد پشتیبان گیری"
 msgid "Backup and Restore"
 msgstr "پشتیبان گیری و بازیابی"
 
-#: bin/backup.php:155 bin/backup.php:215
+#: bin/backup.php:156 bin/backup.php:216
 msgid "Backup completed with errors!"
 msgstr "پشتیبان گیری با خطا پایان یافت!"
 
@@ -290,7 +290,7 @@ msgstr ""
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "ماژول پشتیبان گیری یافت نشد و یا غیرفعال است. بی نتیجه!"
 
-#: bin/backup.php:157 bin/backup.php:217
+#: bin/backup.php:158 bin/backup.php:218
 msgid "Backup successfully completed!"
 msgstr "پشتیبان گیری با موفقیت پایان یافت!"
 
@@ -318,7 +318,7 @@ msgstr ""
 msgid "Bucket Name"
 msgstr "نام Bucket"
 
-#: bin/backup.php:56
+#: bin/backup.php:57
 msgid "Building manifest..."
 msgstr "ساختن ظاهر..."
 
@@ -358,11 +358,11 @@ msgstr "برای ادامه 'بعدی' را کلیک کنید."
 msgid "Configurations only"
 msgstr "فقط پیکربندی ها"
 
-#: bin/backup.php:78
+#: bin/backup.php:79
 msgid "Connecting to remote server..."
 msgstr "اتصال به سرور دور دست..."
 
-#: functions.inc/class.backup.php:825
+#: functions.inc/class.backup.php:841
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -371,7 +371,7 @@ msgstr ""
 msgid "Created"
 msgstr "ساخته شد"
 
-#: bin/backup.php:61
+#: bin/backup.php:62
 msgid "Creating backup..."
 msgstr "در حال پشتیبان گیری..."
 
@@ -492,7 +492,11 @@ msgstr "دایرکتوری '%s' وجود ندارد و نمی توان آن را
 msgid "Disable Registered Trunks"
 msgstr "غیرفعال کردن ترانک های رجیستر شده"
 
-#: bin/restore.php:531
+#: bin/backup.php:191
+msgid "Disabling registered trunks... "
+msgstr ""
+
+#: bin/restore.php:533
 msgid "Done!"
 msgstr "انجام شد!"
 
@@ -562,7 +566,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr "خطا در ایجاد شی در FTP"
 
-#: functions.inc/class.backup.php:832
+#: functions.inc/class.backup.php:848
 #, php-format
 msgid "Error deleting %s"
 msgstr "خطا در حذف کردن %s"
@@ -688,7 +692,7 @@ msgstr "فایل یافت نشد! "
 msgid "File restore complete!"
 msgstr "بازیابی فایل پایان یافت!"
 
-#: bin/backup.php:128
+#: bin/backup.php:129
 msgid "File verification failed. "
 msgstr "بازبینی فایل شکست خورد. "
 
@@ -728,7 +732,7 @@ msgstr "یک نام مناسب برای این پشتیبان انتخاب نم�
 msgid "Go!"
 msgstr "برو!"
 
-#: bin/backup.php:129
+#: bin/backup.php:130
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr "چند خط ابتدایی فایلی که برای سرور راه دور ارسال شده است عبارتند از:"
 
@@ -798,7 +802,7 @@ msgstr ""
 msgid "Import"
 msgstr "ورود"
 
-#: bin/backup.php:39
+#: bin/backup.php:40
 msgid "Initializing Backup"
 msgstr "مقداردهی اولیه پشتیبان گیری"
 
@@ -980,11 +984,11 @@ msgstr "شبانه"
 msgid "No"
 msgstr "خیر"
 
-#: bin/backup.php:73
+#: bin/backup.php:74
 msgid "No items in backup set. Aborting."
 msgstr "مواردی برای پشتیبان تعیین نشده. بی نتیجه."
 
-#: bin/backup.php:34
+#: bin/backup.php:35
 msgid "No storage servers found! Aborting."
 msgstr "سروری برای ذخیره سازی یافت نشد! بی نتیجه."
 
@@ -1073,7 +1077,7 @@ msgstr "مسیر کلید SSH، به عنوان مثال home/asterisk/.ssh/id_r
 msgid "Path/DB"
 msgstr "مسیر/دیتابیس"
 
-#: functions.inc/class.backup.php:821 functions.inc/class.backup.php:822
+#: functions.inc/class.backup.php:837 functions.inc/class.backup.php:838
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1128,7 +1132,7 @@ msgstr "پردازش %s%% از CDR ها (%s از %s خط)"
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "پردازش %s%% از تنظیمات (%s از %s خط)"
 
-#: bin/backup.php:142
+#: bin/backup.php:143
 msgid "Processing received file..."
 msgstr "پردازش فایل دریافتی..."
 
@@ -1144,7 +1148,7 @@ msgstr "تصادفی"
 msgid "Reboot"
 msgstr "راه اندازی مجدد"
 
-#: bin/restore.php:516
+#: bin/restore.php:518
 msgid "Reloading..."
 msgstr "بارگذاری..."
 
@@ -1219,7 +1223,7 @@ msgstr "بازیابی تمامی تنظیمات ذخیره شده در دیتا
 msgid "Restore backup to this server after the backup is complete"
 msgstr "بازیابی پشتیبان بر روی این سرور بعد از اتمام پشتیبان گیری"
 
-#: bin/restore.php:515
+#: bin/restore.php:517
 msgid "Restore complete!"
 msgstr "بازیابی کامل شد!"
 
@@ -1263,7 +1267,7 @@ msgstr "بازیابی تمامی فایل ها (ممکن است طول بکشد
 msgid "Restoring astDB..."
 msgstr "بازیابی دیتابیس استریسک..."
 
-#: bin/backup.php:176
+#: bin/backup.php:177
 msgid "Restoring backup..."
 msgstr "بازیابی پشتیبان..."
 
@@ -1315,7 +1319,7 @@ msgstr ""
 msgid "Running post restore script..."
 msgstr "اجرای اسکریپت پس از بازیابی..."
 
-#: bin/backup.php:150 bin/backup.php:200
+#: bin/backup.php:151 bin/backup.php:207
 msgid "Running post-backup hooks..."
 msgstr "اجرای تله های بعد از پشتیبان گیری…"
 
@@ -1323,7 +1327,7 @@ msgstr "اجرای تله های بعد از پشتیبان گیری…"
 msgid "Running post-restore hooks, if any..."
 msgstr "اجرای تله های پس از بازیابی…"
 
-#: bin/backup.php:50
+#: bin/backup.php:51
 msgid "Running pre-backup hooks..."
 msgstr "اجرای تله های پیش از پشتیبان گیری…"
 
@@ -1442,11 +1446,11 @@ msgstr "آدرس سرور نمی تواند خالی باشد"
 msgid "Servers"
 msgstr "سرورها"
 
-#: bin/backup.php:184
+#: bin/backup.php:185
 msgid "Skip Bindaddrss is Enabled... "
 msgstr ""
 
-#: bin/backup.php:190
+#: bin/backup.php:197
 msgid "Skip DNS is Enabled... "
 msgstr ""
 
@@ -1458,7 +1462,7 @@ msgstr ""
 msgid "Skipping host-specific DNS"
 msgstr ""
 
-#: bin/backup.php:106
+#: bin/backup.php:107
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr ""
 "ممکن است برخی تنظیمات برای ارتباط با سرور راه دور اشتباه باشد. بی نتیجه!"
@@ -1495,7 +1499,7 @@ msgstr "سرورهای ذخیره سازی"
 msgid "Storage location for backups"
 msgstr "محل ذخیره سازی پشتیبان ها"
 
-#: bin/backup.php:147
+#: bin/backup.php:148
 msgid "Storing backup..."
 msgstr "ذخیره سازی پشتیبان..."
 
@@ -1646,7 +1650,7 @@ msgstr "نام کاربری"
 msgid "Username"
 msgstr "نام کاربری"
 
-#: bin/backup.php:113
+#: bin/backup.php:114
 msgid "Verifying received file..."
 msgstr "بازبینی فایل دریافتی..."
 
@@ -1789,7 +1793,7 @@ msgstr "ظاهر یافت نشد"
 msgid "table names, one per line"
 msgstr "نام جدول ها، یکی در هر خط"
 
-#: bin/backup.php:45
+#: bin/backup.php:46
 msgid "waiting for lock..."
 msgstr "انتظار برای قفل..."
 

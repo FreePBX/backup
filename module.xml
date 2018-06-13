@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>14.0.6</version>
+	<version>14.0.7</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -19,6 +19,7 @@
 		<version>13.0.5</version>
 	</depends>
 	<changelog>
+		*14.0.7* FREEPBX-16782 Move trunk disable to the restore section of the warm spare 
 		*14.0.6* FREEPBX-17063 Backup module do not permit to reset entries settings in custom backup schedules 
 		*14.0.5* FREEPBX-15251 FREEPBX-15321 CDR and Call Log Data field under Backup Wizard is broken 
 		*14.0.4* Ensure that .git folders are not accidentally backed up, causing massive bloat

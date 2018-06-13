@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 21:12-0400\n"
+"POT-Creation-Date: 2018-06-13 16:47-0400\n"
 "PO-Revision-Date: 2016-02-05 11:17+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -95,7 +95,7 @@ msgstr "Actif"
 msgid "Add Server"
 msgstr "Ajouter un serveur"
 
-#: bin/backup.php:53
+#: bin/backup.php:54
 msgid "Adding items..."
 msgstr ""
 
@@ -227,7 +227,7 @@ msgstr "Fréquence de la copie de sauvegarde"
 msgid "Backup Items"
 msgstr ""
 
-#: bin/backup.php:48
+#: bin/backup.php:49
 msgid "Backup Lock acquired!"
 msgstr ""
 
@@ -267,7 +267,7 @@ msgstr ""
 msgid "Backup and Restore"
 msgstr "Sauvegarder et restaurer"
 
-#: bin/backup.php:155 bin/backup.php:215
+#: bin/backup.php:156 bin/backup.php:216
 msgid "Backup completed with errors!"
 msgstr "La copie de sauvegarde a complété avec des erreurs !"
 
@@ -290,7 +290,7 @@ msgstr ""
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr ""
 
-#: bin/backup.php:157 bin/backup.php:217
+#: bin/backup.php:158 bin/backup.php:218
 msgid "Backup successfully completed!"
 msgstr "La copie de sauvegarde a complété avec succès !"
 
@@ -318,7 +318,7 @@ msgstr ""
 msgid "Bucket Name"
 msgstr ""
 
-#: bin/backup.php:56
+#: bin/backup.php:57
 msgid "Building manifest..."
 msgstr ""
 
@@ -358,11 +358,11 @@ msgstr ""
 msgid "Configurations only"
 msgstr "Configurations seulement"
 
-#: bin/backup.php:78
+#: bin/backup.php:79
 msgid "Connecting to remote server..."
 msgstr "Connexion au serveur distant..."
 
-#: functions.inc/class.backup.php:825
+#: functions.inc/class.backup.php:841
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -371,7 +371,7 @@ msgstr ""
 msgid "Created"
 msgstr ""
 
-#: bin/backup.php:61
+#: bin/backup.php:62
 msgid "Creating backup..."
 msgstr "Création de la copie de sauvegarde..."
 
@@ -486,7 +486,11 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr ""
 
-#: bin/restore.php:531
+#: bin/backup.php:191
+msgid "Disabling registered trunks... "
+msgstr ""
+
+#: bin/restore.php:533
 msgid "Done!"
 msgstr ""
 
@@ -552,7 +556,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:832
+#: functions.inc/class.backup.php:848
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -670,7 +674,7 @@ msgstr ""
 msgid "File restore complete!"
 msgstr ""
 
-#: bin/backup.php:128
+#: bin/backup.php:129
 msgid "File verification failed. "
 msgstr ""
 
@@ -710,7 +714,7 @@ msgstr ""
 msgid "Go!"
 msgstr ""
 
-#: bin/backup.php:129
+#: bin/backup.php:130
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr ""
 
@@ -773,7 +777,7 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
-#: bin/backup.php:39
+#: bin/backup.php:40
 msgid "Initializing Backup"
 msgstr ""
 
@@ -955,11 +959,11 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: bin/backup.php:73
+#: bin/backup.php:74
 msgid "No items in backup set. Aborting."
 msgstr ""
 
-#: bin/backup.php:34
+#: bin/backup.php:35
 msgid "No storage servers found! Aborting."
 msgstr ""
 
@@ -1048,7 +1052,7 @@ msgstr ""
 msgid "Path/DB"
 msgstr ""
 
-#: functions.inc/class.backup.php:821 functions.inc/class.backup.php:822
+#: functions.inc/class.backup.php:837 functions.inc/class.backup.php:838
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1103,7 +1107,7 @@ msgstr ""
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr ""
 
-#: bin/backup.php:142
+#: bin/backup.php:143
 msgid "Processing received file..."
 msgstr ""
 
@@ -1119,7 +1123,7 @@ msgstr ""
 msgid "Reboot"
 msgstr ""
 
-#: bin/restore.php:516
+#: bin/restore.php:518
 msgid "Reloading..."
 msgstr ""
 
@@ -1193,7 +1197,7 @@ msgstr ""
 msgid "Restore backup to this server after the backup is complete"
 msgstr ""
 
-#: bin/restore.php:515
+#: bin/restore.php:517
 msgid "Restore complete!"
 msgstr ""
 
@@ -1237,7 +1241,7 @@ msgstr ""
 msgid "Restoring astDB..."
 msgstr ""
 
-#: bin/backup.php:176
+#: bin/backup.php:177
 msgid "Restoring backup..."
 msgstr ""
 
@@ -1287,7 +1291,7 @@ msgstr ""
 msgid "Running post restore script..."
 msgstr ""
 
-#: bin/backup.php:150 bin/backup.php:200
+#: bin/backup.php:151 bin/backup.php:207
 msgid "Running post-backup hooks..."
 msgstr ""
 
@@ -1295,7 +1299,7 @@ msgstr ""
 msgid "Running post-restore hooks, if any..."
 msgstr ""
 
-#: bin/backup.php:50
+#: bin/backup.php:51
 msgid "Running pre-backup hooks..."
 msgstr ""
 
@@ -1412,11 +1416,11 @@ msgstr ""
 msgid "Servers"
 msgstr ""
 
-#: bin/backup.php:184
+#: bin/backup.php:185
 msgid "Skip Bindaddrss is Enabled... "
 msgstr ""
 
-#: bin/backup.php:190
+#: bin/backup.php:197
 msgid "Skip DNS is Enabled... "
 msgstr ""
 
@@ -1428,7 +1432,7 @@ msgstr ""
 msgid "Skipping host-specific DNS"
 msgstr ""
 
-#: bin/backup.php:106
+#: bin/backup.php:107
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr ""
 
@@ -1464,7 +1468,7 @@ msgstr ""
 msgid "Storage location for backups"
 msgstr ""
 
-#: bin/backup.php:147
+#: bin/backup.php:148
 msgid "Storing backup..."
 msgstr ""
 
@@ -1600,7 +1604,7 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: bin/backup.php:113
+#: bin/backup.php:114
 msgid "Verifying received file..."
 msgstr ""
 
@@ -1742,7 +1746,7 @@ msgstr ""
 msgid "table names, one per line"
 msgstr ""
 
-#: bin/backup.php:45
+#: bin/backup.php:46
 msgid "waiting for lock..."
 msgstr ""
 

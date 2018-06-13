@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 21:12-0400\n"
+"POT-Creation-Date: 2018-06-13 16:47-0400\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -98,7 +98,7 @@ msgstr "Активен"
 msgid "Add Server"
 msgstr "Добави Сървър"
 
-#: bin/backup.php:53
+#: bin/backup.php:54
 msgid "Adding items..."
 msgstr "Добавяне на елементи..."
 
@@ -230,7 +230,7 @@ msgstr "Периодичност на Архивиране"
 msgid "Backup Items"
 msgstr "Елементи на Архива"
 
-#: bin/backup.php:48
+#: bin/backup.php:49
 msgid "Backup Lock acquired!"
 msgstr "Архива е Заключен!"
 
@@ -270,7 +270,7 @@ msgstr "Помощник за Архивиране"
 msgid "Backup and Restore"
 msgstr "Архивиране и Възстановяване"
 
-#: bin/backup.php:155 bin/backup.php:215
+#: bin/backup.php:156 bin/backup.php:216
 msgid "Backup completed with errors!"
 msgstr "Архивирането приключи с грешки!"
 
@@ -293,7 +293,7 @@ msgstr ""
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr ""
 
-#: bin/backup.php:157 bin/backup.php:217
+#: bin/backup.php:158 bin/backup.php:218
 msgid "Backup successfully completed!"
 msgstr "Архивирането приключи успешно!"
 
@@ -321,7 +321,7 @@ msgstr ""
 msgid "Bucket Name"
 msgstr "Име"
 
-#: bin/backup.php:56
+#: bin/backup.php:57
 msgid "Building manifest..."
 msgstr ""
 
@@ -361,11 +361,11 @@ msgstr "Кликнете 'Next' за да продължите."
 msgid "Configurations only"
 msgstr "Само настройки"
 
-#: bin/backup.php:78
+#: bin/backup.php:79
 msgid "Connecting to remote server..."
 msgstr "Свързване към отдалечен сървър..."
 
-#: functions.inc/class.backup.php:825
+#: functions.inc/class.backup.php:841
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -374,7 +374,7 @@ msgstr ""
 msgid "Created"
 msgstr "Създадени"
 
-#: bin/backup.php:61
+#: bin/backup.php:62
 msgid "Creating backup..."
 msgstr "Създаване на архив..."
 
@@ -491,7 +491,11 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr "Забрани Регистрираните Външни Линии"
 
-#: bin/restore.php:531
+#: bin/backup.php:191
+msgid "Disabling registered trunks... "
+msgstr ""
+
+#: bin/restore.php:533
 msgid "Done!"
 msgstr "Изпълнено!"
 
@@ -557,7 +561,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:832
+#: functions.inc/class.backup.php:848
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -675,7 +679,7 @@ msgstr "Файлът не е намерен! "
 msgid "File restore complete!"
 msgstr "Възстановяването на файла приключи!"
 
-#: bin/backup.php:128
+#: bin/backup.php:129
 msgid "File verification failed. "
 msgstr "Проверката на файла е неуспешна. "
 
@@ -715,7 +719,7 @@ msgstr "Въведете име на архива"
 msgid "Go!"
 msgstr "Напред!"
 
-#: bin/backup.php:129
+#: bin/backup.php:130
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr ""
 
@@ -778,7 +782,7 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
-#: bin/backup.php:39
+#: bin/backup.php:40
 msgid "Initializing Backup"
 msgstr "Инициализиране на Архив"
 
@@ -961,11 +965,11 @@ msgstr "Всяка Вечер"
 msgid "No"
 msgstr "Не"
 
-#: bin/backup.php:73
+#: bin/backup.php:74
 msgid "No items in backup set. Aborting."
 msgstr "Няма елементи в настройките за архивиране. Прекъсване."
 
-#: bin/backup.php:34
+#: bin/backup.php:35
 msgid "No storage servers found! Aborting."
 msgstr "Не е намерен сървър! Прекъсване."
 
@@ -1054,7 +1058,7 @@ msgstr ""
 msgid "Path/DB"
 msgstr "Път/БД"
 
-#: functions.inc/class.backup.php:821 functions.inc/class.backup.php:822
+#: functions.inc/class.backup.php:837 functions.inc/class.backup.php:838
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1109,7 +1113,7 @@ msgstr ""
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr ""
 
-#: bin/backup.php:142
+#: bin/backup.php:143
 msgid "Processing received file..."
 msgstr ""
 
@@ -1125,7 +1129,7 @@ msgstr ""
 msgid "Reboot"
 msgstr "След Рестарт"
 
-#: bin/restore.php:516
+#: bin/restore.php:518
 msgid "Reloading..."
 msgstr "Презареждам..."
 
@@ -1199,7 +1203,7 @@ msgstr ""
 msgid "Restore backup to this server after the backup is complete"
 msgstr ""
 
-#: bin/restore.php:515
+#: bin/restore.php:517
 msgid "Restore complete!"
 msgstr ""
 
@@ -1243,7 +1247,7 @@ msgstr ""
 msgid "Restoring astDB..."
 msgstr ""
 
-#: bin/backup.php:176
+#: bin/backup.php:177
 msgid "Restoring backup..."
 msgstr ""
 
@@ -1293,7 +1297,7 @@ msgstr ""
 msgid "Running post restore script..."
 msgstr ""
 
-#: bin/backup.php:150 bin/backup.php:200
+#: bin/backup.php:151 bin/backup.php:207
 msgid "Running post-backup hooks..."
 msgstr ""
 
@@ -1301,7 +1305,7 @@ msgstr ""
 msgid "Running post-restore hooks, if any..."
 msgstr ""
 
-#: bin/backup.php:50
+#: bin/backup.php:51
 msgid "Running pre-backup hooks..."
 msgstr ""
 
@@ -1418,11 +1422,11 @@ msgstr "Адрес на сървър не може да е празно"
 msgid "Servers"
 msgstr "Сървъри"
 
-#: bin/backup.php:184
+#: bin/backup.php:185
 msgid "Skip Bindaddrss is Enabled... "
 msgstr ""
 
-#: bin/backup.php:190
+#: bin/backup.php:197
 msgid "Skip DNS is Enabled... "
 msgstr ""
 
@@ -1434,7 +1438,7 @@ msgstr ""
 msgid "Skipping host-specific DNS"
 msgstr ""
 
-#: bin/backup.php:106
+#: bin/backup.php:107
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr ""
 
@@ -1470,7 +1474,7 @@ msgstr "Сървъри за Съхранение"
 msgid "Storage location for backups"
 msgstr "Местоположение за съхраняване на архиви"
 
-#: bin/backup.php:147
+#: bin/backup.php:148
 msgid "Storing backup..."
 msgstr "Съхраняване на архив..."
 
@@ -1606,7 +1610,7 @@ msgstr "Потребителско Име"
 msgid "Username"
 msgstr "Потребителско Име"
 
-#: bin/backup.php:113
+#: bin/backup.php:114
 msgid "Verifying received file..."
 msgstr ""
 
@@ -1748,7 +1752,7 @@ msgstr "не е намерен манифест"
 msgid "table names, one per line"
 msgstr ""
 
-#: bin/backup.php:45
+#: bin/backup.php:46
 msgid "waiting for lock..."
 msgstr ""
 

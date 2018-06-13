@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 21:12-0400\n"
+"POT-Creation-Date: 2018-06-13 16:47-0400\n"
 "PO-Revision-Date: 2017-06-06 11:54+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -87,7 +87,7 @@ msgstr "Hoạt động"
 msgid "Add Server"
 msgstr "Thêm máy chủ"
 
-#: bin/backup.php:53
+#: bin/backup.php:54
 msgid "Adding items..."
 msgstr "Đang thêm các hạng mục...."
 
@@ -226,7 +226,7 @@ msgstr "Sao lưu Tần số"
 msgid "Backup Items"
 msgstr "Sao lưu các mục tin"
 
-#: bin/backup.php:48
+#: bin/backup.php:49
 msgid "Backup Lock acquired!"
 msgstr "Sao lưu Lock thu được!"
 
@@ -266,7 +266,7 @@ msgstr "Sao lưu Wizard"
 msgid "Backup and Restore"
 msgstr "Sao lưu & Khôi phục"
 
-#: bin/backup.php:155 bin/backup.php:215
+#: bin/backup.php:156 bin/backup.php:216
 msgid "Backup completed with errors!"
 msgstr "Sao lưu hoàn thành nhưng bị các lỗi!"
 
@@ -291,7 +291,7 @@ msgstr "Sao lưu tệp đã được tải đến máy chủ từ xa"
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "Sao lưu mô đun không tìm thấy hoặc đã bị vô hiệu. Hủy bỏ!"
 
-#: bin/backup.php:157 bin/backup.php:217
+#: bin/backup.php:158 bin/backup.php:218
 msgid "Backup successfully completed!"
 msgstr "Sao lưu thành công!"
 
@@ -319,7 +319,7 @@ msgstr "Các cập nhật thời gian thực ngắt kết nối không khả d�
 msgid "Bucket Name"
 msgstr "Tên bộ chứa"
 
-#: bin/backup.php:56
+#: bin/backup.php:57
 msgid "Building manifest..."
 msgstr "Đang xây dựng kê khai..."
 
@@ -359,11 +359,11 @@ msgstr "Kích chọn \"Tiếp theo\" để tiếp tục."
 msgid "Configurations only"
 msgstr "Chỉ các cấu hình"
 
-#: bin/backup.php:78
+#: bin/backup.php:79
 msgid "Connecting to remote server..."
 msgstr "Đang kết nối tới máy chủ từ xa..."
 
-#: functions.inc/class.backup.php:825
+#: functions.inc/class.backup.php:841
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -372,7 +372,7 @@ msgstr ""
 msgid "Created"
 msgstr "Đã tạo"
 
-#: bin/backup.php:61
+#: bin/backup.php:62
 msgid "Creating backup..."
 msgstr "Đang tạo sao lưu..."
 
@@ -493,7 +493,11 @@ msgstr "Thư mục '%s' không tồn tại và chúng tôi không thể tạo n�
 msgid "Disable Registered Trunks"
 msgstr "Vô hiệu các trung kế đã đăng ký"
 
-#: bin/restore.php:531
+#: bin/backup.php:191
+msgid "Disabling registered trunks... "
+msgstr ""
+
+#: bin/restore.php:533
 msgid "Done!"
 msgstr "Đã xong!"
 
@@ -565,7 +569,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr "Lỗi khi đang tạo đối tượng FTP"
 
-#: functions.inc/class.backup.php:832
+#: functions.inc/class.backup.php:848
 #, php-format
 msgid "Error deleting %s"
 msgstr "Lỗi khi đang xóa  %s"
@@ -693,7 +697,7 @@ msgstr "Không tìm thấy tệp! "
 msgid "File restore complete!"
 msgstr "Khôi phục tệp thành công!"
 
-#: bin/backup.php:128
+#: bin/backup.php:129
 msgid "File verification failed. "
 msgstr "Xác nhận tệp không thành công. "
 
@@ -733,7 +737,7 @@ msgstr "Đặt cho sao lưu của bạn một cái tên thân thiện"
 msgid "Go!"
 msgstr "Đi!"
 
-#: bin/backup.php:129
+#: bin/backup.php:130
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr "Đây là vài dòng đầu tiên của tệp tin đã được gửi bởi máy chủ từ xa:"
 
@@ -807,7 +811,7 @@ msgstr ""
 msgid "Import"
 msgstr "Nhập vào"
 
-#: bin/backup.php:39
+#: bin/backup.php:40
 msgid "Initializing Backup"
 msgstr "Đang khởi tạo sao lưu"
 
@@ -989,11 +993,11 @@ msgstr "Nightly"
 msgid "No"
 msgstr "Không"
 
-#: bin/backup.php:73
+#: bin/backup.php:74
 msgid "No items in backup set. Aborting."
 msgstr "Không có thư mục nào trong cài đặt sao lưu. Hủy bỏ."
 
-#: bin/backup.php:34
+#: bin/backup.php:35
 msgid "No storage servers found! Aborting."
 msgstr "Không có máy chủ lưu trư nào được tìm thấy. Hủy bỏ."
 
@@ -1086,7 +1090,7 @@ msgstr "Đường dẫn đến khóa ssh, ví dụ /home/asterisk/.ssh/id_rsa"
 msgid "Path/DB"
 msgstr "Đường dẫn/DB"
 
-#: functions.inc/class.backup.php:821 functions.inc/class.backup.php:822
+#: functions.inc/class.backup.php:837 functions.inc/class.backup.php:838
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1141,7 +1145,7 @@ msgstr "Đã xử lý %s%% của CDRs (%s của %s dòng)"
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "Đã xử lý %s%% của các cài đặt (%s của %s dòng)"
 
-#: bin/backup.php:142
+#: bin/backup.php:143
 msgid "Processing received file..."
 msgstr "Đang xử lý tệp đã nhận..."
 
@@ -1157,7 +1161,7 @@ msgstr "Ngẫu nhiên hóa"
 msgid "Reboot"
 msgstr "Khởi động lại"
 
-#: bin/restore.php:516
+#: bin/restore.php:518
 msgid "Reloading..."
 msgstr "Đang tải lại..."
 
@@ -1231,7 +1235,7 @@ msgstr "Khôi phục tất cả các cài đặt đã lưu trong cơ sở dữ l
 msgid "Restore backup to this server after the backup is complete"
 msgstr "Khôi phục sao lưu tới máy chủ sau khi sao lưu hoàn thành"
 
-#: bin/restore.php:515
+#: bin/restore.php:517
 msgid "Restore complete!"
 msgstr "Khôi phục hoàn thành!"
 
@@ -1275,7 +1279,7 @@ msgstr "Đang khôi phục tất cả các tệp ( Điều này có thể tốn 
 msgid "Restoring astDB..."
 msgstr "Đang khôi phục astDB ( Dữ liệu Asterisk)..."
 
-#: bin/backup.php:176
+#: bin/backup.php:177
 msgid "Restoring backup..."
 msgstr "Đang khôi phục sao lưu..."
 
@@ -1327,7 +1331,7 @@ msgstr "Đang chạy bảo dưỡng..."
 msgid "Running post restore script..."
 msgstr "Đang chạy kịch bản sau khôi phục..."
 
-#: bin/backup.php:150 bin/backup.php:200
+#: bin/backup.php:151 bin/backup.php:207
 msgid "Running post-backup hooks..."
 msgstr "Đang chạt Hooks sau sao lưu..."
 
@@ -1335,7 +1339,7 @@ msgstr "Đang chạt Hooks sau sao lưu..."
 msgid "Running post-restore hooks, if any..."
 msgstr "Đang chạy hooks sau khôi phục, nếu có..."
 
-#: bin/backup.php:50
+#: bin/backup.php:51
 msgid "Running pre-backup hooks..."
 msgstr "Đang chạy hooks trước sao lưu..."
 
@@ -1455,11 +1459,11 @@ msgstr "Địa chỉ máy chủ không được để trống"
 msgid "Servers"
 msgstr "Các máy chủ"
 
-#: bin/backup.php:184
+#: bin/backup.php:185
 msgid "Skip Bindaddrss is Enabled... "
 msgstr "Bỏ qua Địa chỉ IP để gán đã kích hoạt "
 
-#: bin/backup.php:190
+#: bin/backup.php:197
 msgid "Skip DNS is Enabled... "
 msgstr ""
 
@@ -1471,7 +1475,7 @@ msgstr "Bỏ qua Địa chỉ IP để gán theo host"
 msgid "Skipping host-specific DNS"
 msgstr ""
 
-#: bin/backup.php:106
+#: bin/backup.php:107
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr "Xuất hiện lỗi khi kết nối với máy chủ từ xa. Hủy bỏ!"
 
@@ -1507,7 +1511,7 @@ msgstr "Các máy chủ lưu trữ"
 msgid "Storage location for backups"
 msgstr "Vị trí lưu trữ cho các sao lưu"
 
-#: bin/backup.php:147
+#: bin/backup.php:148
 msgid "Storing backup..."
 msgstr "Đang lưu trữ sao lưu..."
 
@@ -1650,7 +1654,7 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: bin/backup.php:113
+#: bin/backup.php:114
 msgid "Verifying received file..."
 msgstr "Đang xác nhận tệp đã nhận..."
 
@@ -1792,7 +1796,7 @@ msgstr ""
 msgid "table names, one per line"
 msgstr ""
 
-#: bin/backup.php:45
+#: bin/backup.php:46
 msgid "waiting for lock..."
 msgstr ""
 

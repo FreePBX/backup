@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 21:11-0400\n"
+"POT-Creation-Date: 2018-06-13 16:46-0400\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -90,7 +90,7 @@ msgstr ""
 msgid "Add Server"
 msgstr ""
 
-#: bin/backup.php:53
+#: bin/backup.php:54
 msgid "Adding items..."
 msgstr "Onderdelen toevoegen..."
 
@@ -224,7 +224,7 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Reservekopie onderdelen"
 
-#: bin/backup.php:48
+#: bin/backup.php:49
 msgid "Backup Lock acquired!"
 msgstr "Reservekopie vergrendeling verkregen!"
 
@@ -264,7 +264,7 @@ msgstr ""
 msgid "Backup and Restore"
 msgstr ""
 
-#: bin/backup.php:155 bin/backup.php:215
+#: bin/backup.php:156 bin/backup.php:216
 msgid "Backup completed with errors!"
 msgstr "Reservekopie voltooid met fouten!"
 
@@ -289,7 +289,7 @@ msgstr ""
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "Reservekopie module niet gevonden of uitgeschakeld. Afgebroken!"
 
-#: bin/backup.php:157 bin/backup.php:217
+#: bin/backup.php:158 bin/backup.php:218
 msgid "Backup successfully completed!"
 msgstr "Reservekopie geslaagd!"
 
@@ -317,7 +317,7 @@ msgstr ""
 msgid "Bucket Name"
 msgstr ""
 
-#: bin/backup.php:56
+#: bin/backup.php:57
 msgid "Building manifest..."
 msgstr ""
 
@@ -357,12 +357,12 @@ msgstr ""
 msgid "Configurations only"
 msgstr "Alleen configuraties"
 
-#: bin/backup.php:78
+#: bin/backup.php:79
 #, fuzzy
 msgid "Connecting to remote server..."
 msgstr "Verbinden met andere server..."
 
-#: functions.inc/class.backup.php:821
+#: functions.inc/class.backup.php:837
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -371,7 +371,7 @@ msgstr ""
 msgid "Created"
 msgstr "Gemaakt"
 
-#: bin/backup.php:61
+#: bin/backup.php:62
 msgid "Creating backup..."
 msgstr "Aanmaken reservekopie..."
 
@@ -494,7 +494,11 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr "Schakel geregistreerde Trunks uit"
 
-#: bin/restore.php:607
+#: bin/backup.php:191
+msgid "Disabling registered trunks... "
+msgstr ""
+
+#: bin/restore.php:609
 msgid "Done!"
 msgstr "Klaar!"
 
@@ -564,7 +568,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:828
+#: functions.inc/class.backup.php:844
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -687,7 +691,7 @@ msgstr "Bestand niet gevonden! "
 msgid "File restore complete!"
 msgstr "Bestand terugzetten uitgevoerd!"
 
-#: bin/backup.php:128
+#: bin/backup.php:129
 msgid "File verification failed. "
 msgstr "Bestandsverificatie mislukt. "
 
@@ -727,7 +731,7 @@ msgstr ""
 msgid "Go!"
 msgstr "Uitvoeren!"
 
-#: bin/backup.php:129
+#: bin/backup.php:130
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr ""
 "Dit zijn de eerste paar regels van het bestand zoals verzonden vanaf de "
@@ -793,7 +797,7 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
-#: bin/backup.php:39
+#: bin/backup.php:40
 msgid "Initializing Backup"
 msgstr ""
 
@@ -977,11 +981,11 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: bin/backup.php:73
+#: bin/backup.php:74
 msgid "No items in backup set. Aborting."
 msgstr "Geen onderdelen in reservekopie-set. Afgebroken."
 
-#: bin/backup.php:34
+#: bin/backup.php:35
 msgid "No storage servers found! Aborting."
 msgstr "Geen opslagservers gevonden! Afgebroken."
 
@@ -1070,7 +1074,7 @@ msgstr ""
 msgid "Path/DB"
 msgstr "Pad/DB"
 
-#: functions.inc/class.backup.php:817 functions.inc/class.backup.php:818
+#: functions.inc/class.backup.php:833 functions.inc/class.backup.php:834
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1130,7 +1134,7 @@ msgstr ""
 msgid "Processed %s%% of external database %s (%s of %s lines)"
 msgstr ""
 
-#: bin/backup.php:142
+#: bin/backup.php:143
 msgid "Processing received file..."
 msgstr "Ontvangen bestand verwerken..."
 
@@ -1146,7 +1150,7 @@ msgstr "Willekeurig"
 msgid "Reboot"
 msgstr "Herstart"
 
-#: bin/restore.php:592
+#: bin/restore.php:594
 msgid "Reloading..."
 msgstr "Herladen..."
 
@@ -1220,7 +1224,7 @@ msgstr "Zet alle instellingen terug opgeslagen in de database"
 msgid "Restore backup to this server after the backup is complete"
 msgstr ""
 
-#: bin/restore.php:591
+#: bin/restore.php:593
 msgid "Restore complete!"
 msgstr "Terugzetten voltooid!"
 
@@ -1269,7 +1273,7 @@ msgstr "Terugzetten alle bestanden (dit kan enige tijd duren)..."
 msgid "Restoring astDB..."
 msgstr "Terugzetten astDB..."
 
-#: bin/backup.php:176
+#: bin/backup.php:177
 msgid "Restoring backup..."
 msgstr "Terugzetten reservekopie..."
 
@@ -1319,7 +1323,7 @@ msgstr ""
 msgid "Running post restore script..."
 msgstr "Uitvoeren Na-terugzetten script..."
 
-#: bin/backup.php:150 bin/backup.php:200
+#: bin/backup.php:151 bin/backup.php:207
 msgid "Running post-backup hooks..."
 msgstr "Uitvoeren Voor-reservekopie taken..."
 
@@ -1327,7 +1331,7 @@ msgstr "Uitvoeren Voor-reservekopie taken..."
 msgid "Running post-restore hooks, if any..."
 msgstr "Uitvoeren Voor-terugzetten taken, als bestaan..."
 
-#: bin/backup.php:50
+#: bin/backup.php:51
 msgid "Running pre-backup hooks..."
 msgstr "Uitvoeren Voor-reservekopie taken..."
 
@@ -1446,11 +1450,11 @@ msgstr ""
 msgid "Servers"
 msgstr "Servers"
 
-#: bin/backup.php:184
+#: bin/backup.php:185
 msgid "Skip Bindaddrss is Enabled... "
 msgstr ""
 
-#: bin/backup.php:190
+#: bin/backup.php:197
 msgid "Skip DNS is Enabled... "
 msgstr ""
 
@@ -1462,7 +1466,7 @@ msgstr ""
 msgid "Skipping host-specific DNS"
 msgstr ""
 
-#: bin/backup.php:106
+#: bin/backup.php:107
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr ""
 "Iets ging er niet goed tijdens de verbinding met de andere server. "
@@ -1500,7 +1504,7 @@ msgstr "Opslagservers"
 msgid "Storage location for backups"
 msgstr "Opslaglocatie voor reservekopieën"
 
-#: bin/backup.php:147
+#: bin/backup.php:148
 msgid "Storing backup..."
 msgstr "Reservekopie opslaan..."
 
@@ -1641,7 +1645,7 @@ msgstr "Gebruikersnaam"
 msgid "Username"
 msgstr ""
 
-#: bin/backup.php:113
+#: bin/backup.php:114
 msgid "Verifying received file..."
 msgstr "Controleren ontvangen bestand..."
 
@@ -1786,7 +1790,7 @@ msgstr ""
 msgid "table names, one per line"
 msgstr "tabel namen, één per regel"
 
-#: bin/backup.php:45
+#: bin/backup.php:46
 msgid "waiting for lock..."
 msgstr "wachten op vergrendeling..."
 

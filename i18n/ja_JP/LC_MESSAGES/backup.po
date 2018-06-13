@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 21:11-0400\n"
+"POT-Creation-Date: 2018-06-13 16:46-0400\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -115,7 +115,7 @@ msgstr ""
 msgid "Add Server"
 msgstr ""
 
-#: bin/backup.php:53
+#: bin/backup.php:54
 msgid "Adding items..."
 msgstr "アイテムを追加中…"
 
@@ -249,7 +249,7 @@ msgstr ""
 msgid "Backup Items"
 msgstr "バックアップ アイテム"
 
-#: bin/backup.php:48
+#: bin/backup.php:49
 msgid "Backup Lock acquired!"
 msgstr "バックアップロックを取得しました。"
 
@@ -289,7 +289,7 @@ msgstr ""
 msgid "Backup and Restore"
 msgstr "バックアップと復元"
 
-#: bin/backup.php:155 bin/backup.php:215
+#: bin/backup.php:156 bin/backup.php:216
 msgid "Backup completed with errors!"
 msgstr "バックアップは完了しましたが一部エラーが発生しました。"
 
@@ -316,7 +316,7 @@ msgstr ""
 "バックアップモジュールはインストールされていないか、無効になっています。中断"
 "します。"
 
-#: bin/backup.php:157 bin/backup.php:217
+#: bin/backup.php:158 bin/backup.php:218
 msgid "Backup successfully completed!"
 msgstr "バックアップが正常に完了しました。"
 
@@ -344,7 +344,7 @@ msgstr ""
 msgid "Bucket Name"
 msgstr ""
 
-#: bin/backup.php:56
+#: bin/backup.php:57
 msgid "Building manifest..."
 msgstr ""
 
@@ -384,11 +384,11 @@ msgstr ""
 msgid "Configurations only"
 msgstr "設定のみ"
 
-#: bin/backup.php:78
+#: bin/backup.php:79
 msgid "Connecting to remote server..."
 msgstr "リモートサーバーに接続中..."
 
-#: functions.inc/class.backup.php:821
+#: functions.inc/class.backup.php:837
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -397,7 +397,7 @@ msgstr ""
 msgid "Created"
 msgstr "作成日時"
 
-#: bin/backup.php:61
+#: bin/backup.php:62
 msgid "Creating backup..."
 msgstr "バックアップを作成中…"
 
@@ -517,7 +517,11 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr "登録されたトランクを無効にする"
 
-#: bin/restore.php:607
+#: bin/backup.php:191
+msgid "Disabling registered trunks... "
+msgstr ""
+
+#: bin/restore.php:609
 msgid "Done!"
 msgstr "完了"
 
@@ -587,7 +591,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:828
+#: functions.inc/class.backup.php:844
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -709,7 +713,7 @@ msgstr "ファイルが見つかりません！ "
 msgid "File restore complete!"
 msgstr "ファイルの復元が完了しました！"
 
-#: bin/backup.php:128
+#: bin/backup.php:129
 msgid "File verification failed. "
 msgstr "ファイル検証は失敗しました。 "
 
@@ -749,7 +753,7 @@ msgstr ""
 msgid "Go!"
 msgstr "実行"
 
-#: bin/backup.php:129
+#: bin/backup.php:130
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr "リモートサーバーが送ったファイルの最初の数行は以下のとおり："
 
@@ -812,7 +816,7 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
-#: bin/backup.php:39
+#: bin/backup.php:40
 msgid "Initializing Backup"
 msgstr ""
 
@@ -994,11 +998,11 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: bin/backup.php:73
+#: bin/backup.php:74
 msgid "No items in backup set. Aborting."
 msgstr "バックアップセットは空です。中断します。"
 
-#: bin/backup.php:34
+#: bin/backup.php:35
 msgid "No storage servers found! Aborting."
 msgstr "ストレージサーバーが見つからないため中断します。"
 
@@ -1087,7 +1091,7 @@ msgstr ""
 msgid "Path/DB"
 msgstr "パス/データベース"
 
-#: functions.inc/class.backup.php:817 functions.inc/class.backup.php:818
+#: functions.inc/class.backup.php:833 functions.inc/class.backup.php:834
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1147,7 +1151,7 @@ msgstr ""
 msgid "Processed %s%% of external database %s (%s of %s lines)"
 msgstr ""
 
-#: bin/backup.php:142
+#: bin/backup.php:143
 msgid "Processing received file..."
 msgstr "受信したファイルを処理中…"
 
@@ -1163,7 +1167,7 @@ msgstr "ランダムにする"
 msgid "Reboot"
 msgstr "再起動"
 
-#: bin/restore.php:592
+#: bin/restore.php:594
 msgid "Reloading..."
 msgstr "再読み込み中..."
 
@@ -1237,7 +1241,7 @@ msgstr "データベースに保存されている全ての設定を復元する
 msgid "Restore backup to this server after the backup is complete"
 msgstr ""
 
-#: bin/restore.php:591
+#: bin/restore.php:593
 msgid "Restore complete!"
 msgstr "復元が完了しました！"
 
@@ -1286,7 +1290,7 @@ msgstr "全てのファイルを復元しています（時間がかかる場合
 msgid "Restoring astDB..."
 msgstr "astDBを復元中..."
 
-#: bin/backup.php:176
+#: bin/backup.php:177
 msgid "Restoring backup..."
 msgstr "バックアップを復元中…"
 
@@ -1336,7 +1340,7 @@ msgstr ""
 msgid "Running post restore script..."
 msgstr "復元後のスクリプトを実行中..."
 
-#: bin/backup.php:150 bin/backup.php:200
+#: bin/backup.php:151 bin/backup.php:207
 msgid "Running post-backup hooks..."
 msgstr "バックアップ後フック実行中..."
 
@@ -1344,7 +1348,7 @@ msgstr "バックアップ後フック実行中..."
 msgid "Running post-restore hooks, if any..."
 msgstr "復元後のフックがある場合は実行します。"
 
-#: bin/backup.php:50
+#: bin/backup.php:51
 msgid "Running pre-backup hooks..."
 msgstr "バックアップ前フックを実行中..."
 
@@ -1463,11 +1467,11 @@ msgstr ""
 msgid "Servers"
 msgstr "サーバー"
 
-#: bin/backup.php:184
+#: bin/backup.php:185
 msgid "Skip Bindaddrss is Enabled... "
 msgstr ""
 
-#: bin/backup.php:190
+#: bin/backup.php:197
 msgid "Skip DNS is Enabled... "
 msgstr ""
 
@@ -1479,7 +1483,7 @@ msgstr ""
 msgid "Skipping host-specific DNS"
 msgstr ""
 
-#: bin/backup.php:106
+#: bin/backup.php:107
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr "リモートサーバー接続中にエラーが発生しました。中断します。"
 
@@ -1515,7 +1519,7 @@ msgstr "ストレージサーバー"
 msgid "Storage location for backups"
 msgstr "バックアップストレージの場所"
 
-#: bin/backup.php:147
+#: bin/backup.php:148
 msgid "Storing backup..."
 msgstr "バックアップを保存中…"
 
@@ -1654,7 +1658,7 @@ msgstr "ユーザー名"
 msgid "Username"
 msgstr ""
 
-#: bin/backup.php:113
+#: bin/backup.php:114
 msgid "Verifying received file..."
 msgstr "受信したファイルを検証中…"
 
@@ -1797,7 +1801,7 @@ msgstr "manifestが見つかりません"
 msgid "table names, one per line"
 msgstr "テーブル名、各行に1つ"
 
-#: bin/backup.php:45
+#: bin/backup.php:46
 msgid "waiting for lock..."
 msgstr "ロックを待機中…"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 21:11-0400\n"
+"POT-Creation-Date: 2018-06-13 16:46-0400\n"
 "PO-Revision-Date: 2015-11-17 12:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -85,7 +85,7 @@ msgstr "活动"
 msgid "Add Server"
 msgstr "添加服务器"
 
-#: bin/backup.php:53
+#: bin/backup.php:54
 msgid "Adding items..."
 msgstr "添加项。。。"
 
@@ -217,7 +217,7 @@ msgstr ""
 msgid "Backup Items"
 msgstr ""
 
-#: bin/backup.php:48
+#: bin/backup.php:49
 msgid "Backup Lock acquired!"
 msgstr ""
 
@@ -257,7 +257,7 @@ msgstr "备份向导"
 msgid "Backup and Restore"
 msgstr "备份还原"
 
-#: bin/backup.php:155 bin/backup.php:215
+#: bin/backup.php:156 bin/backup.php:216
 msgid "Backup completed with errors!"
 msgstr "备份错误！"
 
@@ -280,7 +280,7 @@ msgstr ""
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr ""
 
-#: bin/backup.php:157 bin/backup.php:217
+#: bin/backup.php:158 bin/backup.php:218
 msgid "Backup successfully completed!"
 msgstr ""
 
@@ -308,7 +308,7 @@ msgstr ""
 msgid "Bucket Name"
 msgstr ""
 
-#: bin/backup.php:56
+#: bin/backup.php:57
 msgid "Building manifest..."
 msgstr ""
 
@@ -348,11 +348,11 @@ msgstr "点击下一步继续。"
 msgid "Configurations only"
 msgstr "仅配置"
 
-#: bin/backup.php:78
+#: bin/backup.php:79
 msgid "Connecting to remote server..."
 msgstr "连接到远端服务器。。。"
 
-#: functions.inc/class.backup.php:821
+#: functions.inc/class.backup.php:837
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -361,7 +361,7 @@ msgstr ""
 msgid "Created"
 msgstr "已创建"
 
-#: bin/backup.php:61
+#: bin/backup.php:62
 msgid "Creating backup..."
 msgstr "创建清理。。。"
 
@@ -476,7 +476,11 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr "关闭已注册中继"
 
-#: bin/restore.php:607
+#: bin/backup.php:191
+msgid "Disabling registered trunks... "
+msgstr ""
+
+#: bin/restore.php:609
 msgid "Done!"
 msgstr ""
 
@@ -542,7 +546,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:828
+#: functions.inc/class.backup.php:844
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -660,7 +664,7 @@ msgstr "未找到文件！ "
 msgid "File restore complete!"
 msgstr "还原文件成功！"
 
-#: bin/backup.php:128
+#: bin/backup.php:129
 msgid "File verification failed. "
 msgstr "文件验证错误。 "
 
@@ -700,7 +704,7 @@ msgstr ""
 msgid "Go!"
 msgstr ""
 
-#: bin/backup.php:129
+#: bin/backup.php:130
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr ""
 
@@ -763,7 +767,7 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
-#: bin/backup.php:39
+#: bin/backup.php:40
 msgid "Initializing Backup"
 msgstr "初始备份"
 
@@ -945,11 +949,11 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: bin/backup.php:73
+#: bin/backup.php:74
 msgid "No items in backup set. Aborting."
 msgstr ""
 
-#: bin/backup.php:34
+#: bin/backup.php:35
 msgid "No storage servers found! Aborting."
 msgstr ""
 
@@ -1038,7 +1042,7 @@ msgstr ""
 msgid "Path/DB"
 msgstr ""
 
-#: functions.inc/class.backup.php:817 functions.inc/class.backup.php:818
+#: functions.inc/class.backup.php:833 functions.inc/class.backup.php:834
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1098,7 +1102,7 @@ msgstr ""
 msgid "Processed %s%% of external database %s (%s of %s lines)"
 msgstr ""
 
-#: bin/backup.php:142
+#: bin/backup.php:143
 msgid "Processing received file..."
 msgstr ""
 
@@ -1114,7 +1118,7 @@ msgstr ""
 msgid "Reboot"
 msgstr ""
 
-#: bin/restore.php:592
+#: bin/restore.php:594
 msgid "Reloading..."
 msgstr ""
 
@@ -1188,7 +1192,7 @@ msgstr ""
 msgid "Restore backup to this server after the backup is complete"
 msgstr ""
 
-#: bin/restore.php:591
+#: bin/restore.php:593
 msgid "Restore complete!"
 msgstr ""
 
@@ -1237,7 +1241,7 @@ msgstr ""
 msgid "Restoring astDB..."
 msgstr ""
 
-#: bin/backup.php:176
+#: bin/backup.php:177
 msgid "Restoring backup..."
 msgstr ""
 
@@ -1287,7 +1291,7 @@ msgstr ""
 msgid "Running post restore script..."
 msgstr ""
 
-#: bin/backup.php:150 bin/backup.php:200
+#: bin/backup.php:151 bin/backup.php:207
 msgid "Running post-backup hooks..."
 msgstr ""
 
@@ -1295,7 +1299,7 @@ msgstr ""
 msgid "Running post-restore hooks, if any..."
 msgstr ""
 
-#: bin/backup.php:50
+#: bin/backup.php:51
 msgid "Running pre-backup hooks..."
 msgstr ""
 
@@ -1412,11 +1416,11 @@ msgstr "服务器地址不能为空"
 msgid "Servers"
 msgstr "服务器"
 
-#: bin/backup.php:184
+#: bin/backup.php:185
 msgid "Skip Bindaddrss is Enabled... "
 msgstr ""
 
-#: bin/backup.php:190
+#: bin/backup.php:197
 msgid "Skip DNS is Enabled... "
 msgstr ""
 
@@ -1428,7 +1432,7 @@ msgstr ""
 msgid "Skipping host-specific DNS"
 msgstr ""
 
-#: bin/backup.php:106
+#: bin/backup.php:107
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr ""
 
@@ -1464,7 +1468,7 @@ msgstr "存储服务器"
 msgid "Storage location for backups"
 msgstr ""
 
-#: bin/backup.php:147
+#: bin/backup.php:148
 msgid "Storing backup..."
 msgstr ""
 
@@ -1600,7 +1604,7 @@ msgstr "用户名"
 msgid "Username"
 msgstr ""
 
-#: bin/backup.php:113
+#: bin/backup.php:114
 msgid "Verifying received file..."
 msgstr ""
 
@@ -1742,7 +1746,7 @@ msgstr ""
 msgid "table names, one per line"
 msgstr ""
 
-#: bin/backup.php:45
+#: bin/backup.php:46
 msgid "waiting for lock..."
 msgstr ""
 

@@ -108,6 +108,21 @@ if (!isset($vars['restore'])) {
 	//files exists before trying to restore them?
 	$manifest = backup_get_manifest_tarball($vars['restore']);
 
+	/*
+		Compare the versions for restoration.
+	*/
+	$from = explode(".",$manifest["pbx_version"]);
+	$to = explode(".",getversion());
+	if($from[0] !== $to[0]  || $from[1] !== $to[1]){
+		// The version are differents, so we stop.
+		backup_log(_('This archive cannot be used, because the version is not correct!!!'));
+		backup_log(sprintf( _('Freepbx version %s, Archive version %s'),getversion(),$manifest["pbx_version"]));
+		backup_log(sprintf( _('The archive must be come from a release like this: %s.%s'),$to[0],$to[1]));
+		backup_log(_('Restoration canceled.'));
+		exit();
+	}
+	backup_log(_('Archive coorect.'));
+	
 	//run hooks
 	if (isset($manifest['hooks']['pre_restore']) && $manifest['hooks']['pre_restore']) {
 		backup_log(_('Running pre-restore scripts...'));

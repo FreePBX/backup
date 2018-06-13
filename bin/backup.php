@@ -22,9 +22,10 @@ if (!isset($mod_info['backup'])) {
 
 $getopt = (function_exists('_getopt') ? '_' : '') . 'getopt';
 $vars = $getopt($short = '', $long = array('opts::', 'id::', 'astdb::', 'data::'));
-
+$optsgood = false;
 //if the id option was passed
 if (isset($vars['id']) && $vars['id']) {
+	$optsgood = true;
 	//bu = backup settings
 	//s= servers
 	//b= backup object
@@ -179,19 +180,25 @@ if (isset($vars['id']) && $vars['id']) {
 				} else {
 					$skipnat = "";
 				}
-                                if (!empty($b->b['skipbind'])) {
-                                        $skipbind = "--skipbind ";
+                if (!empty($b->b['skipbind'])) {
+                    $skipbind = "--skipbind ";
 					backup_log(_('Skip Bindaddrss is Enabled... '));
-                                } else {
-                                        $skipbind = "";
-                                }
+            	} else {
+                    $skipbind = "";
+                }
+                if (!empty($b->b['disabletrunks'])) {
+                    $disabletrunks = "--disabletrunks ";
+					backup_log(_('Disabling registered trunks... '));
+            	} else {
+                    $disabletrunks = "";
+                }
 				if (!empty($b->b['skipdns'])) {
 				        $skipdns = "--skipdns";
 				        backup_log(_('Skip DNS is Enabled... '));
 				} else {
 				        $skipdns = "";
 				}
-				$cmd = $amp_conf['AMPBIN'] . "/restore.php  $skipnat $skipdns $skipbind"
+				$cmd = $amp_conf['AMPBIN'] . "/restore.php $disabletrunks $skipnat $skipdns $skipbind"
 						. '--restore=' . $b->b['_tmpfile']
 						. ' --items=' . base64_encode(json_encode($restore));
 				system($cmd);
@@ -199,12 +206,6 @@ if (isset($vars['id']) && $vars['id']) {
 
 			backup_log(_('Running post-backup hooks...'));
 			$b->run_hooks('post-backup');
-
-			//disable registered trunks if requested
-			if ($b->b['disabletrunks'] == 'true' && function_exists('core_trunks_disable')) {
-				//disables registered trunks
-				core_trunks_disable('reg', true);
-			}
 
 			//apply configs if requested
 			if ($b->b['applyconfigs'] == 'true') {
@@ -228,8 +229,10 @@ if (isset($vars['id']) && $vars['id']) {
 			$b->emailCheck();
 		}
 	}
-//if the opts option was passed, used for remote backup (warm spare)
-} elseif(isset($vars['opts']) && $vars['opts']) {
+	
+}
+
+if(isset($vars['opts']) && $vars['opts']) {
 	//r = remote options
 	if(!$r = unserialize(base64_decode($vars['opts']))) {
 		echo 'invalid opts';
@@ -237,6 +240,7 @@ if (isset($vars['id']) && $vars['id']) {
 		unset($b);
 		exit(1);
 	}
+	$optsgood = true;
 	$b = new FreePBX\modules\Backup\Backup($r['bu'], $r['s']);
 	$b->b['_ctime']		= $r['b']->b['_ctime'];
 	$b->b['_file']		= $r['b']->b['_file'];
@@ -251,19 +255,20 @@ if (isset($vars['id']) && $vars['id']) {
 	//on exit the destructor may not be called. tmp stuff cleaned up on destruction
 	unset($b);
 	exit();
-} elseif(isset($vars['astdb']) && $vars['astdb']) {
-	switch ($vars['astdb']) {
-		case 'dump':
-			echo astdb_get(array('RG', 'BLKVM', 'FM', 'dundi'));
-			break;
-		case 'restore':
-			if (is_file($vars['data'])) {
-				$vars['data'] = file_get_contents($vars['data']);
-			}
-			astdb_put(unserialize($vars['data']), array('RINGGROUP', 'BLKVM', 'FM', 'dundi'));
-			break;
+}
+if(isset($vars['astdb']) && $vars['astdb']) {
+	$optsgood = true;
+	if($vars['astdb'] === 'dump'){
+		echo astdb_get(array('RG', 'BLKVM', 'FM', 'dundi'));
 	}
-} else {
+	if($vars['astdb'] === 'restore'){
+		if (is_file($vars['data'])) {
+			$vars['data'] = file_get_contents($vars['data']);
+		}
+		astdb_put(unserialize($vars['data']), array('RINGGROUP', 'BLKVM', 'FM', 'dundi'));
+	}
+}
+if(!$optsgood){
 	show_opts();
 }
 //on exit the destructor may not be called. tmp stuff cleaned up on destruction

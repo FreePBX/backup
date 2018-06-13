@@ -511,7 +511,9 @@ if (!isset($vars['restore'])) {
 			unlink($amp_conf['ASTSPOOLDIR'] . '/tmp/' . $file);
 		}
 	}
-
+	if (isset($vars['disabletrunks'])) {
+		core_trunks_disable('reg', true);
+	}
 	backup_log(_('Restore complete!'));
 	backup_log(_('Reloading...'));
 	do_reload();

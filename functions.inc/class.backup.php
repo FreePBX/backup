@@ -502,17 +502,25 @@ class Backup {
 					$this->maintenance($s['type'], $path, $ftp);
 					break;
 				case 'awss3':
-					//subsitute variables if nesesary
+					//substitute variables if necessary
 					$s['bucket'] 		= backup__($s['bucket']);
 					$s['awsaccesskey'] 	= backup__($s['awsaccesskey']);
 					$s['awssecret'] 	= backup__($s['awssecret']);
 					$awss3 = new \S3($s['awsaccesskey'], $s['awssecret']);
 
 					// Does this bucket already exist?
-					$buckets = $awss3->listBuckets();
-					if (!in_array($s['bucket'], $buckets)) {
-						// Create the bucket
-						$awss3->putBucket($s['bucket'], \S3::ACL_PRIVATE);
+					// In hyper-secure environments we may not have permission to 
+					//	list the bucket, try to, but if we can't just move on.
+					try {
+						$buckets = $awss3->listBuckets();
+						if (!in_array($s['bucket'], $buckets)) {
+							// Create the bucket
+							$awss3->putBucket($s['bucket'], \S3::ACL_PRIVATE);
+						}
+					}
+					catch (\Exception $e)
+					{
+						backup_log("Unable to list buckets: " . $e->getMessage());
 					}
 
 					//copy file
@@ -523,7 +531,15 @@ class Backup {
 					}
 
 					//run maintenance on the directory
-					$this->maintenance($s['type'], $s, $awss3);
+					// In hyper-secure environments we may not have permission to 
+					//	cleanup up the bucket, try to, but if we can't just move on.
+					try {
+						$this->maintenance($s['type'], $s, $awss3);
+					}
+					catch (\Exception $e)
+					{
+						backup_log("Unable to perform maintenance: " . $e->getMessage());
+					}
 
 					break;
 				case 'ssh':

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-13 16:47-0400\n"
+"POT-Creation-Date: 2018-06-13 17:37-0400\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -142,6 +142,10 @@ msgstr "اعمال تنظیمات"
 #: views/cron.php:47
 msgid "April"
 msgstr "آوریل"
+
+#: bin/restore.php:124
+msgid "Archive coorect."
+msgstr ""
 
 #: views/restore/browseserver.php:21
 msgid "AstDB's"
@@ -346,7 +350,7 @@ msgstr "تماس های ضبط شده"
 msgid "Can not create backup tables"
 msgstr "امکان ایجاد جداول پشتیبان وجود ندارد"
 
-#: bin/restore.php:485
+#: bin/restore.php:500
 msgid "Cleaning up..."
 msgstr "پاک کردن..."
 
@@ -496,7 +500,7 @@ msgstr "غیرفعال کردن ترانک های رجیستر شده"
 msgid "Disabling registered trunks... "
 msgstr ""
 
-#: bin/restore.php:533
+#: bin/restore.php:548
 msgid "Done!"
 msgstr "انجام شد!"
 
@@ -688,7 +692,7 @@ msgstr "فایل"
 msgid "File not found! "
 msgstr "فایل یافت نشد! "
 
-#: bin/restore.php:162
+#: bin/restore.php:177
 msgid "File restore complete!"
 msgstr "بازیابی فایل پایان یافت!"
 
@@ -708,11 +712,16 @@ msgstr "نوع فایل سیستم"
 msgid "FreePBX"
 msgstr "مرکزتماس رایگان"
 
+#: bin/restore.php:119
+#, php-format
+msgid "Freepbx version %s, Archive version %s"
+msgstr ""
+
 #: views/cron.php:33 assets/js/backup.js:83
 msgid "Friday"
 msgstr "جمعه"
 
-#: bin/restore.php:226
+#: bin/restore.php:241
 msgid "Getting CDR size..."
 msgstr "دریافت اندازه جزئیات تماس..."
 
@@ -1110,24 +1119,24 @@ msgstr "تله پیش از اجرای پشتیبان"
 msgid "Pre-Restore Hook"
 msgstr "تله پیش از اجرای بازیابی"
 
-#: bin/restore.php:334
+#: bin/restore.php:349
 msgid "Preserving local Bind address"
 msgstr ""
 
-#: bin/restore.php:327
+#: bin/restore.php:342
 msgid "Preserving local DNS settings"
 msgstr ""
 
-#: bin/restore.php:313
+#: bin/restore.php:328
 msgid "Preserving local NAT settings"
 msgstr "حفظ تنظیمات NAT محلی"
 
-#: bin/restore.php:260
+#: bin/restore.php:275
 #, php-format
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr "پردازش %s%% از CDR ها (%s از %s خط)"
 
-#: bin/restore.php:407
+#: bin/restore.php:422
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "پردازش %s%% از تنظیمات (%s از %s خط)"
@@ -1148,7 +1157,7 @@ msgstr "تصادفی"
 msgid "Reboot"
 msgstr "راه اندازی مجدد"
 
-#: bin/restore.php:518
+#: bin/restore.php:533
 msgid "Reloading..."
 msgstr "بارگذاری..."
 
@@ -1197,6 +1206,10 @@ msgstr ""
 msgid "Reset"
 msgstr "بازنشانی"
 
+#: bin/restore.php:121
+msgid "Restoration canceled."
+msgstr ""
+
 #: page.backup_restore.php:201 views/restore/backup_list.php:46
 #: views/restore/browseserver.php:4 views/restore/restore.php:34
 #: views/rnav/main.php:4
@@ -1223,47 +1236,47 @@ msgstr "بازیابی تمامی تنظیمات ذخیره شده در دیتا
 msgid "Restore backup to this server after the backup is complete"
 msgstr "بازیابی پشتیبان بر روی این سرور بعد از اتمام پشتیبان گیری"
 
-#: bin/restore.php:517
+#: bin/restore.php:532
 msgid "Restore complete!"
 msgstr "بازیابی کامل شد!"
 
-#: bin/restore.php:411
+#: bin/restore.php:426
 msgid "Restored Database"
 msgstr "دیتابیس بازیابی شد"
 
-#: bin/restore.php:440
+#: bin/restore.php:455
 msgid "Restoring Bindaddres Settings"
 msgstr ""
 
-#: bin/restore.php:267
+#: bin/restore.php:282
 msgid "Restoring CDRs complete"
 msgstr "تکمیل بازیابی CDR ها"
 
-#: bin/restore.php:181
+#: bin/restore.php:196
 msgid "Restoring CDRs..."
 msgstr "بازیابی CDR ها…"
 
-#: bin/restore.php:434
+#: bin/restore.php:449
 msgid "Restoring DNS settings"
 msgstr ""
 
-#: bin/restore.php:369
+#: bin/restore.php:384
 msgid "Restoring Database..."
 msgstr "بازیابی دیتابیس..."
 
-#: bin/restore.php:419
+#: bin/restore.php:434
 msgid "Restoring NAT settings"
 msgstr "بازیابی تنظیمات NAT"
 
-#: bin/restore.php:470
+#: bin/restore.php:485
 msgid "Restoring Settings complete"
 msgstr "تکمیل بازیابی تنظیمات"
 
-#: bin/restore.php:126
+#: bin/restore.php:141
 msgid "Restoring all files (this may take some time)..."
 msgstr "بازیابی تمامی فایل ها (ممکن است طول بکشد)..."
 
-#: bin/restore.php:460
+#: bin/restore.php:475
 msgid "Restoring astDB..."
 msgstr "بازیابی دیتابیس استریسک..."
 
@@ -1271,7 +1284,7 @@ msgstr "بازیابی دیتابیس استریسک..."
 msgid "Restoring backup..."
 msgstr "بازیابی پشتیبان..."
 
-#: bin/restore.php:130
+#: bin/restore.php:145
 msgid "Restoring files (this may take some time)..."
 msgstr "بازیابی فایل ها (ممکن است طول بکشد)..."
 
@@ -1315,7 +1328,7 @@ msgstr "یک مرتبه در هر ساعت اجرا شود، در ابتدای �
 msgid "Running maintenance.."
 msgstr ""
 
-#: bin/restore.php:476
+#: bin/restore.php:491
 msgid "Running post restore script..."
 msgstr "اجرای اسکریپت پس از بازیابی..."
 
@@ -1323,7 +1336,7 @@ msgstr "اجرای اسکریپت پس از بازیابی..."
 msgid "Running post-backup hooks..."
 msgstr "اجرای تله های بعد از پشتیبان گیری…"
 
-#: bin/restore.php:480
+#: bin/restore.php:495
 msgid "Running post-restore hooks, if any..."
 msgstr "اجرای تله های پس از بازیابی…"
 
@@ -1331,11 +1344,11 @@ msgstr "اجرای تله های پس از بازیابی…"
 msgid "Running pre-backup hooks..."
 msgstr "اجرای تله های پیش از پشتیبان گیری…"
 
-#: bin/restore.php:116
+#: bin/restore.php:131
 msgid "Running pre-restore hooks, if any..."
 msgstr "اجرای تله های پیش از بازیابی…"
 
-#: bin/restore.php:113
+#: bin/restore.php:128
 msgid "Running pre-restore scripts..."
 msgstr "اجرای اسکریپت های پیش از بازیابی…"
 
@@ -1537,6 +1550,11 @@ msgstr ""
 msgid "The Restore script is still running"
 msgstr ""
 
+#: bin/restore.php:120
+#, php-format
+msgid "The archive must be come from a release like this: %s.%s"
+msgstr ""
+
 #: functions.inc/class.backup.php:411
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
@@ -1567,6 +1585,10 @@ msgstr ""
 "حداکثر اندازه ای که یک پشتیبان می تواند داشته باشد تا ایمیل گردد. برخی از "
 "ایمیل سرور ها سایز فایل های ضمیمه شده را محدود می کنند. لذا از این طریق می "
 "توان از ارسال فایل های بزرگ جلوگیری کرد."
+
+#: bin/restore.php:118
+msgid "This archive cannot be used, because the version is not correct!!!"
+msgstr ""
 
 #: views/servers/ftp.php:166
 msgid ""
@@ -1662,11 +1684,11 @@ msgstr "محل ذخیره سازی صندوق صوتی"
 msgid "Voicemails"
 msgstr "صندوق های صوتی"
 
-#: bin/restore.php:273
+#: bin/restore.php:288
 msgid "WARNING!"
 msgstr "هشدار!"
 
-#: bin/restore.php:274
+#: bin/restore.php:289
 msgid "Web Root restore not detected, not restoring module table"
 msgstr "بازیابی شاخه اصلی وب شناسایی نگردید، عدم وجود جدول ماژول بازیابی"
 
@@ -1755,7 +1777,7 @@ msgstr "سال"
 msgid "Yes"
 msgstr "بله"
 
-#: bin/restore.php:275
+#: bin/restore.php:290
 #, php-format
 msgid "You should run \"%s\" to ensure system integrity"
 msgstr "برای اطمینان از یکپارچگی اطلاعات باید \"%s\" را اجرا کنید"

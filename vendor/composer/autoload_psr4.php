@@ -7,5 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'phpseclib\\' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
-    'Hhxsv5\\SSE\\' => array($vendorDir . '/hhxsv5/php-sse/src'),
 );

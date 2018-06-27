@@ -2,14 +2,12 @@
 $backupClass = FreePBX::Backup();
 ?>
 <div class="container-fluid">
-	<div class="display full-border">
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="fpbx-container">
-					<div class="display full-border">
+					<div class="display no-border">
 						<ul class="nav nav-tabs">
-							<li role="presentation" class='<?php echo ((isset($_GET[' view ']) && $_GET['view '] == 'form ') || !isset($_GET['view
-								']))?"active":""?>'>
+							<li role="presentation" class='<?php echo ((isset($_GET['view']) && $_GET['view '] == 'form') || !isset($_GET['view']))?"active":""?>'>
 								<a href="?display=backup">
 									<?php echo _("Backup")?>
 								</a>
@@ -21,14 +19,16 @@ $backupClass = FreePBX::Backup();
 							</li>
 							<!--Hide for alpha/beta... -->
 							<?php echo $transfer?>
-							<li role="presentation" class='<?php echo ((isset($_GET[' view ']) && $_GET['view '] == 'settings '))?"active":""?>'>
+							<li role="presentation" class='<?php echo ((isset($_GET['view']) && $_GET['view'] == 'settings'))?"active":""?>'>
 								<a href="?display=backup&view=settings">
 									<?php echo _("Global Backup Settings")?>
 								</a>
 							</li>
 						</ul>
-						<br/>
-						<?php echo $backupClass->showPage('backup'); ?>
+						<div class="display">
+							<?php echo $backupClass->showPage('backup'); ?>
+						</div>
+
 					</div>
 				</div>
 			</div>
@@ -55,5 +55,4 @@ $backupClass = FreePBX::Backup();
 				</div>
 			</div>
 		</div>
-	</div>
 </div>

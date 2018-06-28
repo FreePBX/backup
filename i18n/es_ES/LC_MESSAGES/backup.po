@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-13 17:37-0400\n"
+"POT-Creation-Date: 2018-06-28 15:33-0400\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -204,17 +204,9 @@ msgstr "Respaldo"
 msgid "Backup & Restore"
 msgstr "Copias de seguridad"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "Respalda & Restaura - Restaura"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "Respalda & Restaura - Servidores"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "Respaldar & Restaurar - Plantillas"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -252,7 +244,7 @@ msgstr "Bloqueo de copia de seguridad adquirida!"
 msgid "Backup Log:"
 msgstr "Bitacora del respaldo:"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "Modulo de Respaldo"
 
@@ -543,7 +535,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr "Sueltelos aqui"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr "Correo "
 
@@ -1572,7 +1564,7 @@ msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr ""
 "El tipo de Filesystem del servidor FTP. Si no esta seguro déjelo en Auto"
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "El campo From: para correos cuando se usa la funcionalidad de email del "
@@ -1865,6 +1857,12 @@ msgstr "esperando por bloqueo..."
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "(no servidores disponibles)"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Respalda & Restaura - Servidores"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Respaldar & Restaurar - Plantillas"
 
 #~ msgid "Error connecting to the FTP Server... Check your host name or DNS"
 #~ msgstr ""

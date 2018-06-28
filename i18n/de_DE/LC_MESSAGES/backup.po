@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-13 16:46-0400\n"
+"POT-Creation-Date: 2018-06-28 15:33-0400\n"
 "PO-Revision-Date: 2018-02-16 19:51+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -188,17 +188,9 @@ msgstr "Sicherung"
 msgid "Backup & Restore"
 msgstr "Sichern & Wiederherstellen"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "Sichern & Wiederherstellen - Wiederherstellen"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "Sichern & Wiederherstellen - Server"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "Sichern & Wiederherstellen - Vorlagen"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -236,7 +228,7 @@ msgstr "Sicherungssperre erworben!"
 msgid "Backup Log:"
 msgstr "Sicherungsprotokoll:"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "Sicherungsmodule"
 
@@ -527,7 +519,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr "Hier reinziehen"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr "E-Mail "
 
@@ -1568,7 +1560,7 @@ msgstr ""
 "Der Dateisystemtyp des FTP-Servers. Wenn Sie nicht sicher sind, stellen Sie "
 "dies auf Auto"
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr "Von: Ein Feld für E-Mails, wenn Sie das E-Mail-Feature verwenden."
 
@@ -1851,3 +1843,9 @@ msgstr "warte auf Sperrung..."
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{keine Server Verfügbar}"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Sichern & Wiederherstellen - Server"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Sichern & Wiederherstellen - Vorlagen"

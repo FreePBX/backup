@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>13.0.27.19</version>
+	<version>13.0.27.20</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -19,6 +19,7 @@
 		<version>13.0.5</version>
 	</depends>
 	<changelog>
+		*13.0.27.20* FREEPBX-16782 - make sure we can pass in an argument to disable trunks since we check it later 
 		*13.0.27.19* FREEPBX-16782 Move trunk disable to the restore section of the warm spare 
 		*13.0.27.18* FREEPBX-17063 Backup module do not permit to reset entries settings in custom backup schedules 
 		*13.0.27.17* FREEPBX-15251 FREEPBX-15321 CDR and Call Log Data field under Backup Wizard is broken 

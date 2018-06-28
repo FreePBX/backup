@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-13 16:46-0400\n"
+"POT-Creation-Date: 2018-06-28 15:33-0400\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -186,17 +186,9 @@ msgstr "Sao lưu"
 msgid "Backup & Restore"
 msgstr "Sao lưu và khôi phục"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "Sao lưu và Khôi phục- Khôi phục"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "Sao lưu & Khôi phục- Các máy chủ"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "Sao lưu & Khôi phục- Các mẫu"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -234,7 +226,7 @@ msgstr "Sao lưu Lock thu được!"
 msgid "Backup Log:"
 msgstr "Sao lưu Nhật ký:"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "Sao lưu Mô đun"
 
@@ -522,7 +514,7 @@ msgstr "Kéo và thả các mẫu vào bản mục lục để thêm các thư m
 msgid "Drop Here"
 msgstr "Thả tại đây"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr "Thư điện tử "
 
@@ -1548,7 +1540,7 @@ msgstr ""
 "Kiểu hệ thống tệp của máy chủ FTP. Nếu bạn không chắc chắn hãy cài đặt về Tự "
 "động"
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "The From: Trường cho các thư điện tử khi sử dụng đặc tính sao lưu Thư điện "
@@ -1826,3 +1818,9 @@ msgstr "Đang đợi để khóa..."
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{không có máy chủ nào khả dụng}"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Sao lưu & Khôi phục- Các máy chủ"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Sao lưu & Khôi phục- Các mẫu"

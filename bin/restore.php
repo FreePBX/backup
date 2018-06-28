@@ -22,7 +22,7 @@ if (!function_exists('backup_log')) {
  */
 
 $getopt = (function_exists('_getopt') ? '_' : '') . 'getopt';
-$vars = $getopt($short = '', $long = array('restore::', 'items::', 'manifest::', 'skipnat::', 'skipbind::', 'skipdns::'));
+$vars = $getopt($short = '', $long = array('restore::', 'items::', 'manifest::', 'skipnat::', 'skipbind::', 'skipdns::', 'disabletrunks::'));
 // Let items be descriptive - it may NOT be an encoded array.
 if (isset($vars['items'])) {
 	// Is it an encoded array though?

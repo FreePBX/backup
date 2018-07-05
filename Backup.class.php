@@ -437,16 +437,15 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 	}
 
 	public function getBackupSettingsDisplay($module,$id = ''){
-		$hooks = $this->FreePBX->Hooks->processHooks($module,$id);
-		if(empty($hooks)){
-			return false;
-		}
-		$ret = '<div class="hooksetting">';
-		foreach ($hooks as $value) {
-			$ret .= $value;
-		}
-		$ret .= '</div>';
-		return $ret;
+        $module = ucfirst($module);
+        if($module === 'Backup'){
+            return;
+        }
+        $class = $this->FreePBX->$module;
+        if( method_exists($class, 'getBackupSettingsDisplay')){
+            return '<div class="hooksetting">'. $class->getBackupSettingsDisplay($id).'</div>';
+        }
+        return '<div class="hooksetting">'._("No user configurable settings")."</div>";
 	}
 
 	/** Oh... Migration, migration, let's learn about migration. It's nature's inspiration to move around the sea.
@@ -786,7 +785,7 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 	 * @return string the backup id
 	 */
 	public function updateBackup(){
-		      $data = [];
+		$data = [];
 		$data['id'] = $this->getReq('id',$this->generateID());
 
 		foreach ($this->backupFields as $col) {
@@ -816,7 +815,14 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 		}
 		$this->scheduleJobs($id);
 		return $id;
-	}
+    }
+    
+    public function processBackupSettings($id = '', $data = []){
+        $modules = $this->FreePBX->getModulesByMethod('processBackupSettings');
+        foreach ($modules as $module) {
+            $this->FreePBX->$module->processBackupSettings($id, $data);
+        }
+    }
 
 	/**
 	 * Sets an individual setting

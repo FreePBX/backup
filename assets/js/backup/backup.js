@@ -151,7 +151,7 @@ function linkFormatter(value, row, index) {
 }
 
 function moduleSettingFormatter(value, row, index) {
-	if (r.settingdisplay) {
+	if (row.settingdisplay) {
 		return `<div class = "settingdisplay">${row.settingdisplay}</div>`;
 	} else {
 		return _("This module has no settings");

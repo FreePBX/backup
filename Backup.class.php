@@ -251,7 +251,6 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 				$pid = $process->getPid();
 				return ['status' => true, 'message' => _("Backup running"), 'process' => $pid, 'transaction' => $jobid, 'backupid' => $buid];
 			case 'getJSON':
-				dbug("HERE");
 				switch ($_REQUEST['jdata']) {
 					case 'backupGrid':
 						return array_values($this->listBackups());
@@ -787,7 +786,6 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 	public function updateBackup(){
 		$data = [];
 		$data['id'] = $this->getReq('id',$this->generateID());
-
 		foreach ($this->backupFields as $col) {
 			//This will be set independently
 			if($col == 'immortal'){
@@ -803,23 +801,28 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 			}
 			$value = $this->getReqUnsafe($col,'');
 			$this->updateBackupSetting($data['id'], $col, $value);
-		}
+        }
 		$description = $this->getReq('backup_description',sprintf(_('Backup %s'),$this->getReq('backup_name')));
 		$this->setConfig($data['id'],array('id' => $data['id'], 'name' => $this->getReq('backup_name',''), 'description' => $description),'backupList');
-		if($this->getReq('backup_items','unchanged') !== 'unchanged'){
+        if($this->getReq('backup_items','unchanged') !== 'unchanged'){
 			$backup_items = json_decode(html_entity_decode($this->getReq('backup_items',[])),true);
 			$this->setModulesById($data['id'], $backup_items);
-		}
-		if(isset($data['backup_items_settings']) && $data['backup_items_settings'] !== 'unchanged' ){
-			$this->processBackupSettings($data['id'], json_decode($this->getReq('backup_items_settings'),true));
+        }
+        //We wxpect this to be JSON so we don't sanitize it.
+        $data['backup_items_settings'] = $this->getReqUnsafe('backup_items_settings', 'unchanged');
+		if($data['backup_items_settings'] !== 'unchanged' ){
+			$this->processBackupSettings($data['id'], json_decode($data['backup_items_settings'],true));
 		}
 		$this->scheduleJobs($id);
 		return $id;
     }
     
     public function processBackupSettings($id = '', $data = []){
-        $modules = $this->FreePBX->getModulesByMethod('processBackupSettings');
+        $modules = $this->FreePBX->Modules->getModulesByMethod('processBackupSettings');
         foreach ($modules as $module) {
+            if($module === 'Backup'){
+                continue;
+            }
             $this->FreePBX->$module->processBackupSettings($id, $data);
         }
     }

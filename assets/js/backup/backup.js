@@ -35,11 +35,18 @@ $(document).ready(function () {
 		$('#backupmodules').bootstrapTable('refresh');
 	})
 	$('#backupmodules').on('expand-row.bs.table', function (i, r) {
-		$('.hooksetting :input').on('change', function (e) {
-			var obj = $(this).serializeArray()[0];
-			modulesettings[obj.name] = obj.value;
-			$('#backup_items_settings').val(JSON.stringify(modulesettings));
-		});
+        /** Delay for dynamic contenet so we don't miss the bind on expand. */
+        setTimeout(function(){
+    		$('.hooksetting :input').on('change', function (e) {
+                var obj = $(this).serializeArray()[0];
+                if(obj){
+                    modulesettings[obj.name] = obj.value;
+                }else{
+                    modulesettings[e.currentTarget.name] = '';
+                }
+			    $('#backup_items_settings').val(JSON.stringify(modulesettings));
+            });
+        },400);
 	});
 	$('[name="warmspareenables"]').change(function () {
 		toggle_warmspare();

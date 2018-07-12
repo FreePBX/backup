@@ -88,7 +88,7 @@ class Backup{
 			if(!in_array($mod, $validmods)){
 				$err = sprintf(_("Could not backup module %s, it may not be installed or enabled"),$mod);
 				$warnings[] = $err;
-				$this->Backup->manifest['skipped'][] = $mod;
+				$manifest['skipped'][] = $mod;
 				$this->Backup->log($transactionId,$err,'DEBUG');
 				continue;
 			}
@@ -113,10 +113,11 @@ class Backup{
 			$class = new $class($backup,$this->FreePBX);
 			$class->runBackup($id,$transactionId);
 			\modgettext::pop_textdomain();
+			$this->Backup->log($transactionId,sprintf(_("Calling backup for module: %s."), $mod['name']));
 			//Skip empty.
 			if($backup->getModified() === false){
 				$this->Backup->log($transactionId,sprintf(_("%s returned no data. This module may not impliment the new backup yet. Skipping"), $mod['name']));
-				$this->Backup->manifest['skipped'][] = $mod['name'];
+				$manifest['skipped'][] = $mod['name'];
 				continue;
 			}
 			$dependencies = $backup->getDependencies();
@@ -138,9 +139,12 @@ class Backup{
 			$rawname = strtolower($mod['name']);
 			$moduleinfo = $this->FreePBX->Modules->getInfo($rawname);
 			$manifest['modules'][] = ['module' => $mod['name'], 'version' => $moduleinfo[$rawname]['version']];
-			$moddata = $backup->getData();
+            $moddata = $backup->getData();
 			foreach ($moddata['dirs'] as $dir) {
-				$dirs[] = $this->Backup->getPath('files/' . ltrim($dir['pathto'],'/'));
+				if(empty($dir)){
+				    continue;
+				}
+				$dirs[] = $this->Backup->getPath('files/' . ltrim($dir,'/'));
 			}
 			foreach ($moddata['files'] as $file) {
 				$srcpath = isset($file['pathto'])?$file['pathto']:'';
@@ -321,5 +325,29 @@ class Backup{
 		if(!$skipsort){
 			$this->dependencies = array_unique($this->dependencies);
 		}
+	}
+	
+	static function parseFile($filename){
+		//20171012-130011-1507838411-15.0.1alpha1-42886857.tar.gz
+		preg_match("/(\d{7})-(\d{6})-(\d{10,11})-(.*)-\d*\.tar\.gz(.sha256sum)?/", $filename, $output_array);
+		$valid = false;
+		$arraySize = sizeof($output_array);
+		if($arraySize == 5){
+			$valid = true;
+		}
+		if($arraySize == 6){
+			$valid = true;
+		}
+		if(!$valid){
+			return false;
+		}
+		return [
+			'filename' => $output_array[0],
+			'datestring' => $output_array[1],
+			'timestring' => $output_array[2],
+			'timestamp' => $output_array[3],
+			'framework' => $output_array[4],
+			'isCheckSum' => ($arraySize == 6)
+		];
 	}
 }

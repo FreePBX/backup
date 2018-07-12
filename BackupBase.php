@@ -6,7 +6,7 @@ namespace FreePBX\modules\Backup;
 class BackupBase{
    
   public function __construct($backupobj=null,$freepbx = null){
-    if(empty($freepbx) || empty($freepbx)){
+    if(empty($freepbx) || empty($backupobj)){
         throw new \InvalidArgumentException("The module expects to recieve a backup object and a FreePBX object");
     }
     $this->backupObj = $backupobj;

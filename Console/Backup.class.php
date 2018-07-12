@@ -9,6 +9,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Filesystem\LockHandler;
 
+
 class Backup extends Command {
 	protected function configure(){
 		$this->setName('backup')
@@ -22,6 +23,8 @@ class Backup extends Command {
 				new InputOption('list', 'ls', InputOption::VALUE_NONE, 'List backups'),
 				new InputOption('implemented', '', InputOption::VALUE_NONE, ''),
 				new InputOption('restore', 're', InputOption::VALUE_REQUIRED, 'Restore File'),
+				new InputOption('backupsingle', 'bs', InputOption::VALUE_REQUIRED, 'Module to backup'),
+				new InputOption('singlesaveto', '', InputOption::VALUE_REQUIRED, 'Where to save the single module backup.'),
 				new InputOption('manifest', 'man', InputOption::VALUE_REQUIRED, 'File Manifest'),
 		))
 		->setHelp('Run a backup: fwconsole backup --id=[backup-id]'.PHP_EOL
@@ -30,6 +33,7 @@ class Backup extends Command {
 		.'Dump remote backup string: fwconsole --dumpextern=[backup-id]'.PHP_EOL
 		.'Run backup job with remote string: fwconsole --externbackup=[Base64encodedString]'.PHP_EOL
 		.'Run backup job with remote string and custom transaction id: fwconsole --externbackup=[Base64encodedString] --transaction=[yourstring]'.PHP_EOL
+		.'Run backup on a single module: fwconsole --backupsingle=[modulename] --singlesaveto=[output/path]'.PHP_EOL
 		);
 	}
 	protected function execute(InputInterface $input, OutputInterface $output){
@@ -45,6 +49,12 @@ class Backup extends Command {
 		$dumpextern = $input->getOption('dumpextern');
 		$transaction = $input->getOption('transaction');
 		$manifest = $input->getOption('manifest');
+        $backupsingle = $input->getOption('backupsingle');
+        if($backupsingle){
+            $saveto = $input->getOption('singlesaveto')?$input->getOption('singlesaveto'):'';
+            $job = new Handler\SingleBackup($backupsingle, $this->freepbx, $saveto);
+            return $job->doSingleBackup();
+        }
 		if($manifest){
 			return 	$output->writeln(json_encode($this->freepbx->Backup->getMetaData($manifest),\JSON_PRETTY_PRINT));
 		}

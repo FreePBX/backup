@@ -1,13 +1,12 @@
 <?php
 /**
- * Copyright Sangoma T
- * chnologies, Inc 2018
+ * Copyright Sangoma Technologies, Inc 2018
  */
 namespace FreePBX\modules\Backup\Handlers;
 use FreePBX\modules\Backup\Handlers as Handlers;
 use FreePBX\modules\Backup\Modules as Module;
 use FreePBX\modules\Backup\Models as Models;
-
+use Phar;
 class Backup{
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
@@ -174,7 +173,7 @@ class Backup{
 		}
 		$manifest['processorder'] = $this->dependencies;
 		$phar->setMetadata($manifest);
-		$phar->compress(\Phar::GZ);
+		$phar->compress(Phar::GZ);
 		$signatures = $phar->getSignature();
 		//Done with Phar, unlock the file so we can do stuff..
 		unset($phar);

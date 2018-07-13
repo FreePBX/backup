@@ -23,6 +23,7 @@ class Backup extends Command {
 				new InputOption('list', 'ls', InputOption::VALUE_NONE, 'List backups'),
 				new InputOption('implemented', '', InputOption::VALUE_NONE, ''),
 				new InputOption('restore', 're', InputOption::VALUE_REQUIRED, 'Restore File'),
+				new InputOption('restoresingle', 'rs', InputOption::VALUE_REQUIRED, 'Module backup to restore'),
 				new InputOption('backupsingle', 'bs', InputOption::VALUE_REQUIRED, 'Module to backup'),
 				new InputOption('singlesaveto', '', InputOption::VALUE_REQUIRED, 'Where to save the single module backup.'),
 				new InputOption('manifest', 'man', InputOption::VALUE_REQUIRED, 'File Manifest'),
@@ -34,6 +35,7 @@ class Backup extends Command {
 		.'Run backup job with remote string: fwconsole --externbackup=[Base64encodedString]'.PHP_EOL
 		.'Run backup job with remote string and custom transaction id: fwconsole --externbackup=[Base64encodedString] --transaction=[yourstring]'.PHP_EOL
 		.'Run backup on a single module: fwconsole --backupsingle=[modulename] --singlesaveto=[output/path]'.PHP_EOL
+		.'Run a single module backup: fwconsole --restoresingle=[filename]'.PHP_EOL
 		);
 	}
 	protected function execute(InputInterface $input, OutputInterface $output){
@@ -50,10 +52,15 @@ class Backup extends Command {
 		$transaction = $input->getOption('transaction');
 		$manifest = $input->getOption('manifest');
         $backupsingle = $input->getOption('backupsingle');
+        $restoresingle = $input->getOption('restoresingle');
         if($backupsingle){
             $saveto = $input->getOption('singlesaveto')?$input->getOption('singlesaveto'):'';
             $job = new Handler\SingleBackup($backupsingle, $this->freepbx, $saveto);
             return $job->doSingleBackup();
+        }
+        if($restoresingle){
+            $job = new Handler\SingleRestore($restoresingle, $this->freepbx);
+            return $job->doSingleRestore();
         }
 		if($manifest){
 			return 	$output->writeln(json_encode($this->freepbx->Backup->getMetaData($manifest),\JSON_PRETTY_PRINT));

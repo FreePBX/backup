@@ -16,6 +16,9 @@ class RestoreBase{
   public function getConfigs(){
     return $this->backupObj->getConfigs();
   }
+  public function getDirs(){
+    return $this->backupObj->getDirs();
+  }
   public function addDirectories($directories = []){
     $this->backupObj->addDirs($directories);
   }

@@ -6,10 +6,13 @@ namespace FreePBX\modules\Backup\Handlers;
 use FreePBX\modules\Backup\Modules as Module;
 use FreePBX\modules\Backup\Models as Models;
 use FreePBX\modules\Backup\Handlers as Handlers;
+use Phar;
+use PharData;
+use InvalidArgumentException;
 class Restore{
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
-			throw new \InvalidArgumentException('Not given a BMO Object');
+			throw new InvalidArgumentException('Not given a BMO Object');
 		}
 		$this->FreePBX = $freepbx;
 		$this->Backup = $freepbx->Backup;
@@ -65,7 +68,8 @@ class Restore{
 		}
 		$this->Backup->log($jobid,_("Running post restore hooks"));
 		$this->postHooks($jobid,$restoreData);
-		$this->Backup->fs->remove(BACKUPTMPDIR);
+        $this->Backup->fs->remove(BACKUPTMPDIR);
+        \needreload();
 		return $errors;
 	}
 

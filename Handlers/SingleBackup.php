@@ -68,7 +68,7 @@ class SingleBackup{
             $this->FreePBX->Backup->fs->mkdir(dirname($modjson));
         }
         file_put_contents($modjson, json_encode($moddata, JSON_PRETTY_PRINT));
-        $phar->addFile($modjson, 'modulejson/' . $mod['name'] . '.json');
+        $phar->addFile($modjson, 'modulejson/' . ucfirst($this->module) . '.json');
         $data = $moddata;
         $cleanup = $moddata['garbage'];
         if (is_array($dirs)) {

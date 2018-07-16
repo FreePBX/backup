@@ -34,7 +34,6 @@ function backup_get_backup($id = '') {
 	switch ($id) {
 		case '':
 			$ret = array(
-				'applyconfigs'		=> '',
 				'emailfailonly' => false,
 				'bu_server'			=> '',
 				'cron_dom'			=> array(),
@@ -147,7 +146,6 @@ function backup_get_backup($id = '') {
 
 			//ensure bool's are initialized
 			$ret['restore']			= isset($ret['restore'])		? $ret['restore'] : false;
-			$ret['applyconfigs']	= isset($ret['applyconfigs'])	? $ret['applyconfigs'] : false;
 			$ret['disabletrunks']	= isset($ret['disabletrunks'])	? $ret['disabletrunks'] : false;
 			$ret['skipnat']		= isset($ret['skipnat'])	? $ret['skipnat'] : false;
 			$ret['skipbind']		= isset($ret['skipbind'])	? $ret['skipbind'] : false;
@@ -268,7 +266,6 @@ function backup_put_backup($var) {
 				}
 				break;
 			case 'disabletrunks':
-			case 'applyconfigs':
 			case 'skipnat':
 				//only save if we have a value, we didnt select the local server, and were doing a restore
 				if ($value == 'true' && $var['bu_server'] > 0 && $var['restore'] == 'true') {

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-28 03:32-0500\n"
+"POT-Creation-Date: 2018-06-28 15:33-0400\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -87,7 +87,7 @@ msgstr "فعال"
 msgid "Add Server"
 msgstr "افزودن سرور"
 
-#: bin/backup.php:53
+#: bin/backup.php:54
 msgid "Adding items..."
 msgstr "افزودن آیتم ها..."
 
@@ -103,6 +103,10 @@ msgid ""
 msgstr ""
 "پس از بازنشانی، ترانک هایی که رجیستر می شوند را غیرفعال نمایید. این مهم به "
 "جلوگیری از تلاش سیستم های اصلی و فرعی برای رجیستر شدن کمک می کند."
+
+#: views/cron.php:27 views/cron.php:43 views/cron.php:65
+msgid "All"
+msgstr ""
 
 #: views/backup/backups.php:171
 msgid ""
@@ -135,7 +139,7 @@ msgstr "سالیانه"
 msgid "Apply Configs"
 msgstr "اعمال تنظیمات"
 
-#: views/cron.php:46
+#: views/cron.php:47
 msgid "April"
 msgstr "آوریل"
 
@@ -147,7 +151,7 @@ msgstr "دیتابیس های استریسک"
 msgid "Asterisk DB"
 msgstr "دیتابیس استریسک"
 
-#: views/cron.php:50
+#: views/cron.php:51
 msgid "August"
 msgstr "آگوست"
 
@@ -180,17 +184,9 @@ msgstr "پشتیبان گیری"
 msgid "Backup & Restore"
 msgstr "پشتیبان گیری و بازیابی"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "پشتیبان گیری و بازیابی - بازیابی"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "پشتیبان گیری و بازیابی - سرورها"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "پشتیبان گیری و بازیابی - قالب ها"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -221,7 +217,7 @@ msgstr "زمانبندی پشتیبان"
 msgid "Backup Items"
 msgstr "انتخاب موارد جهت تهیه پشتیبان"
 
-#: bin/backup.php:48
+#: bin/backup.php:49
 msgid "Backup Lock acquired!"
 msgstr "به وجود آمدن قفل پشتیبان گیری!"
 
@@ -229,7 +225,7 @@ msgstr "به وجود آمدن قفل پشتیبان گیری!"
 msgid "Backup Log:"
 msgstr "لاگ پشتیبان گیری:"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "ماژول پشتیبان گیری"
 
@@ -261,7 +257,7 @@ msgstr "ویزارد پشتیبان گیری"
 msgid "Backup and Restore"
 msgstr "پشتیبان گیری و بازیابی"
 
-#: bin/backup.php:155 bin/backup.php:215
+#: bin/backup.php:156 bin/backup.php:216
 msgid "Backup completed with errors!"
 msgstr "پشتیبان گیری با خطا پایان یافت!"
 
@@ -286,7 +282,7 @@ msgstr ""
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "ماژول پشتیبان گیری یافت نشد و یا غیرفعال است. بی نتیجه!"
 
-#: bin/backup.php:157 bin/backup.php:217
+#: bin/backup.php:158 bin/backup.php:218
 msgid "Backup successfully completed!"
 msgstr "پشتیبان گیری با موفقیت پایان یافت!"
 
@@ -314,7 +310,7 @@ msgstr ""
 msgid "Bucket Name"
 msgstr "نام Bucket"
 
-#: bin/backup.php:56
+#: bin/backup.php:57
 msgid "Building manifest..."
 msgstr "ساختن ظاهر..."
 
@@ -354,11 +350,11 @@ msgstr "برای ادامه 'بعدی' را کلیک کنید."
 msgid "Configurations only"
 msgstr "فقط پیکربندی ها"
 
-#: bin/backup.php:78
+#: bin/backup.php:79
 msgid "Connecting to remote server..."
 msgstr "اتصال به سرور دور دست..."
 
-#: functions.inc/class.backup.php:821
+#: functions.inc/class.backup.php:837
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -367,7 +363,7 @@ msgstr ""
 msgid "Created"
 msgstr "ساخته شد"
 
-#: bin/backup.php:61
+#: bin/backup.php:62
 msgid "Creating backup..."
 msgstr "در حال پشتیبان گیری..."
 
@@ -392,7 +388,7 @@ msgstr "روزانه"
 msgid "Day each month"
 msgstr "روز هر ماه"
 
-#: views/cron.php:224
+#: views/cron.php:227
 msgid "Day of Week"
 msgstr "روز هفته"
 
@@ -400,15 +396,15 @@ msgstr "روز هفته"
 msgid "Days"
 msgstr "روز"
 
-#: views/cron.php:272 views/cron.php:276
+#: views/cron.php:275 views/cron.php:279
 msgid "Days of Month"
 msgstr "روزهای ماه"
 
-#: views/cron.php:286
+#: views/cron.php:289
 msgid "Days of month to run"
 msgstr "پشتیبان گیری در چه روز هایی از ماه انجام خواهد شد"
 
-#: views/cron.php:54
+#: views/cron.php:55
 msgid "December"
 msgstr "دسامبر"
 
@@ -488,7 +484,11 @@ msgstr "دایرکتوری '%s' وجود ندارد و نمی توان آن را
 msgid "Disable Registered Trunks"
 msgstr "غیرفعال کردن ترانک های رجیستر شده"
 
-#: bin/restore.php:607
+#: bin/backup.php:191
+msgid "Disabling registered trunks... "
+msgstr ""
+
+#: bin/restore.php:609
 msgid "Done!"
 msgstr "انجام شد!"
 
@@ -513,7 +513,7 @@ msgstr "برای اضافه کردن قالب ها به جدول، آن ها ر�
 msgid "Drop Here"
 msgstr "اینجا بیندازید"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr "ایمیل "
 
@@ -558,7 +558,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr "خطا در ایجاد شی در FTP"
 
-#: functions.inc/class.backup.php:828
+#: functions.inc/class.backup.php:844
 #, php-format
 msgid "Error deleting %s"
 msgstr "خطا در حذف کردن %s"
@@ -668,7 +668,7 @@ msgstr "شکست در بازیابی فایل از سرور!"
 msgid "Family, one per line"
 msgstr "خانواده، یکی در هر خط"
 
-#: views/cron.php:44
+#: views/cron.php:45
 msgid "February"
 msgstr "فوریه"
 
@@ -684,7 +684,7 @@ msgstr "فایل یافت نشد! "
 msgid "File restore complete!"
 msgstr "بازیابی فایل پایان یافت!"
 
-#: bin/backup.php:128
+#: bin/backup.php:129
 msgid "File verification failed. "
 msgstr "بازبینی فایل شکست خورد. "
 
@@ -700,7 +700,7 @@ msgstr "نوع فایل سیستم"
 msgid "FreePBX"
 msgstr "مرکزتماس رایگان"
 
-#: views/cron.php:32 assets/js/backup.js:83
+#: views/cron.php:33 assets/js/backup.js:83
 msgid "Friday"
 msgstr "جمعه"
 
@@ -724,7 +724,7 @@ msgstr "یک نام مناسب برای این پشتیبان انتخاب نم�
 msgid "Go!"
 msgstr "برو!"
 
-#: bin/backup.php:129
+#: bin/backup.php:130
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr "چند خط ابتدایی فایلی که برای سرور راه دور ارسال شده است عبارتند از:"
 
@@ -740,7 +740,7 @@ msgstr "نام میزبان"
 msgid "Hourly"
 msgstr "ساعتی"
 
-#: views/backup/backup.php:551 views/cron.php:194 views/cron.php:198
+#: views/backup/backup.php:551 views/cron.php:197 views/cron.php:201
 msgid "Hours"
 msgstr "ساعت"
 
@@ -764,7 +764,7 @@ msgstr "آدرس IP یا FQDN سرور FTP راه دور"
 msgid "IP address or FQDN of remote mysql host"
 msgstr "آدرس IP یا FQDN سرور mysql راه دور"
 
-#: views/cron.php:155
+#: views/cron.php:158
 msgid ""
 "If Randomize is selected, a similar frequency will be followed, only the "
 "exact times will be randomized (avoiding peak business hours, when "
@@ -775,7 +775,7 @@ msgstr ""
 "توجه داشته باشید که زمانبندی تصادفی در هر زمانی که پشتیبان ذخیره شده باشد به "
 "صورت تصادفی اجرا می گردد"
 
-#: views/cron.php:105
+#: views/cron.php:108
 msgid ""
 "If a custom schedule is selected, any section not specified will be "
 "considered to be \"any\" (aka: wildcard).\n"
@@ -794,7 +794,7 @@ msgstr ""
 msgid "Import"
 msgstr "ورود"
 
-#: bin/backup.php:39
+#: bin/backup.php:40
 msgid "Initializing Backup"
 msgstr "مقداردهی اولیه پشتیبان گیری"
 
@@ -823,15 +823,15 @@ msgstr "عنوان"
 msgid "Items"
 msgstr "موارد"
 
-#: views/cron.php:43
+#: views/cron.php:44
 msgid "January"
 msgstr "ژانویه"
 
-#: views/cron.php:49
+#: views/cron.php:50
 msgid "July"
 msgstr "جولای"
 
-#: views/cron.php:48
+#: views/cron.php:49
 msgid "June"
 msgstr "ژوئن"
 
@@ -863,7 +863,7 @@ msgstr "مگابایت"
 msgid "Maintenance"
 msgstr "نگهداری"
 
-#: views/cron.php:45
+#: views/cron.php:46
 msgid "March"
 msgstr "مارس"
 
@@ -871,15 +871,15 @@ msgstr "مارس"
 msgid "Max Email Size"
 msgstr "حداکثراندازه ایمیل"
 
-#: views/cron.php:47
+#: views/cron.php:48
 msgid "May"
 msgstr "می"
 
-#: views/backup/backup.php:549 views/cron.php:168 views/cron.php:172
+#: views/backup/backup.php:549 views/cron.php:171 views/cron.php:175
 msgid "Minutes"
 msgstr "دقیقه"
 
-#: views/cron.php:28 assets/js/backup.js:83
+#: views/cron.php:29 assets/js/backup.js:83
 msgid "Monday"
 msgstr "دوشنبه"
 
@@ -887,7 +887,7 @@ msgstr "دوشنبه"
 msgid "Monthly"
 msgstr "ماهانه"
 
-#: views/backup/backup.php:557 views/cron.php:246 views/cron.php:250
+#: views/backup/backup.php:557 views/cron.php:249 views/cron.php:253
 msgid "Months"
 msgstr "ماه"
 
@@ -927,7 +927,7 @@ msgstr "نام این پشتیبان"
 msgid "Never"
 msgstr "هرگز"
 
-#: views/cron.php:101
+#: views/cron.php:104
 msgid "Never will never run the backup automatically"
 msgstr "هرگز پشتیبان گیری به صورت خودکار اجرا نشود"
 
@@ -972,15 +972,15 @@ msgstr "شبانه"
 #: views/backup/backup.php:387 views/backup/backup.php:416
 #: views/backup/backup.php:445 views/backup/backups.php:186
 #: views/backup/backups.php:213 views/backup/backups.php:240
-#: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:147
+#: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:150
 msgid "No"
 msgstr "خیر"
 
-#: bin/backup.php:73
+#: bin/backup.php:74
 msgid "No items in backup set. Aborting."
 msgstr "مواردی برای پشتیبان تعیین نشده. بی نتیجه."
 
-#: bin/backup.php:34
+#: bin/backup.php:35
 msgid "No storage servers found! Aborting."
 msgstr "سروری برای ذخیره سازی یافت نشد! بی نتیجه."
 
@@ -992,7 +992,7 @@ msgstr "چیزی برای بازیابی وجود ندارد!"
 msgid "Notifications"
 msgstr "اطلاع رسانی"
 
-#: views/cron.php:53
+#: views/cron.php:54
 msgid "November"
 msgstr "نوامبر"
 
@@ -1000,7 +1000,7 @@ msgstr "نوامبر"
 msgid "ON"
 msgstr "روشن"
 
-#: views/cron.php:52
+#: views/cron.php:53
 msgid "October"
 msgstr "اکتبر"
 
@@ -1069,7 +1069,7 @@ msgstr "مسیر کلید SSH، به عنوان مثال home/asterisk/.ssh/id_r
 msgid "Path/DB"
 msgstr "مسیر/دیتابیس"
 
-#: functions.inc/class.backup.php:817 functions.inc/class.backup.php:818
+#: functions.inc/class.backup.php:833 functions.inc/class.backup.php:834
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1129,7 +1129,7 @@ msgstr "پردازش %s%% از تنظیمات (%s از %s خط)"
 msgid "Processed %s%% of external database %s (%s of %s lines)"
 msgstr ""
 
-#: bin/backup.php:142
+#: bin/backup.php:143
 msgid "Processing received file..."
 msgstr "پردازش فایل دریافتی..."
 
@@ -1137,7 +1137,7 @@ msgstr "پردازش فایل دریافتی..."
 msgid "Provide the name for this server"
 msgstr "برای این سرور یک نام  تعریف کنید"
 
-#: views/cron.php:140
+#: views/cron.php:143
 msgid "Randomize"
 msgstr "تصادفی"
 
@@ -1145,7 +1145,7 @@ msgstr "تصادفی"
 msgid "Reboot"
 msgstr "راه اندازی مجدد"
 
-#: bin/restore.php:592
+#: bin/restore.php:594
 msgid "Reloading..."
 msgstr "بارگذاری..."
 
@@ -1220,7 +1220,7 @@ msgstr "بازیابی تمامی تنظیمات ذخیره شده در دیتا
 msgid "Restore backup to this server after the backup is complete"
 msgstr "بازیابی پشتیبان بر روی این سرور بعد از اتمام پشتیبان گیری"
 
-#: bin/restore.php:591
+#: bin/restore.php:593
 msgid "Restore complete!"
 msgstr "بازیابی کامل شد!"
 
@@ -1269,7 +1269,7 @@ msgstr "بازیابی تمامی فایل ها (ممکن است طول بکشد
 msgid "Restoring astDB..."
 msgstr "بازیابی دیتابیس استریسک..."
 
-#: bin/backup.php:176
+#: bin/backup.php:177
 msgid "Restoring backup..."
 msgstr "بازیابی پشتیبان..."
 
@@ -1277,11 +1277,11 @@ msgstr "بازیابی پشتیبان..."
 msgid "Restoring files (this may take some time)..."
 msgstr "بازیابی فایل ها (ممکن است طول بکشد)..."
 
-#: views/cron.php:120
+#: views/cron.php:123
 msgid "Run Automatically"
 msgstr "اجرای خودکار"
 
-#: views/cron.php:97
+#: views/cron.php:100
 msgid ""
 "Run at startup of the server OR of the cron deamon (i.e. after every "
 "<code>service cron restart</code>)"
@@ -1293,23 +1293,23 @@ msgstr ""
 msgid "Run now"
 msgstr "اجرا شود"
 
-#: views/cron.php:81
+#: views/cron.php:84
 msgid "Run once a day, at midnight"
 msgstr "یک مرتبه در روز اجرا شود، در نیمه شب"
 
-#: views/cron.php:89
+#: views/cron.php:92
 msgid "Run once a month, midnight, first of month"
 msgstr "یک مرتبه در ماه اجرا شود، در نیمه شب، اول هر ماه"
 
-#: views/cron.php:85
+#: views/cron.php:88
 msgid "Run once a week, midnight on Sun"
 msgstr "یک مرتبه در هفته اجرا شود، در نیمه شب جمعه"
 
-#: views/cron.php:93
+#: views/cron.php:96
 msgid "Run once a year, midnight, Jan. 1"
 msgstr "یک مرتبه در سال اجرا شود، در نیمه شب یکم ژانویه"
 
-#: views/cron.php:77
+#: views/cron.php:80
 msgid "Run once an hour, beginning of hour"
 msgstr "یک مرتبه در هر ساعت اجرا شود، در ابتدای هر ساعت"
 
@@ -1321,7 +1321,7 @@ msgstr ""
 msgid "Running post restore script..."
 msgstr "اجرای اسکریپت پس از بازیابی..."
 
-#: bin/backup.php:150 bin/backup.php:200
+#: bin/backup.php:151 bin/backup.php:207
 msgid "Running post-backup hooks..."
 msgstr "اجرای تله های بعد از پشتیبان گیری…"
 
@@ -1329,7 +1329,7 @@ msgstr "اجرای تله های بعد از پشتیبان گیری…"
 msgid "Running post-restore hooks, if any..."
 msgstr "اجرای تله های پس از بازیابی…"
 
-#: bin/backup.php:50
+#: bin/backup.php:51
 msgid "Running pre-backup hooks..."
 msgstr "اجرای تله های پیش از پشتیبان گیری…"
 
@@ -1365,7 +1365,7 @@ msgstr "سرور SSH "
 msgid "SSH Username"
 msgstr "نام کاربری SSH"
 
-#: views/cron.php:33 assets/js/backup.js:83
+#: views/cron.php:34 assets/js/backup.js:83
 msgid "Saturday"
 msgstr "شنبه"
 
@@ -1381,7 +1381,7 @@ msgstr "ذخیره و اجرا"
 msgid "Saving file to remote ftp"
 msgstr "ذخیره فایل در FTP راه دور"
 
-#: views/cron.php:71
+#: views/cron.php:74
 msgid "Schedule Help"
 msgstr "راهنمای زمان بندی"
 
@@ -1389,7 +1389,7 @@ msgstr "راهنمای زمان بندی"
 msgid "Select a file and click go"
 msgstr "یک فایل را انتخاب کرده و گزینه \"برو\" را انتخاب نمایید"
 
-#: views/cron.php:73
+#: views/cron.php:76
 msgid ""
 "Select how often to run this backup. The following schedule will be followed "
 "for all but custom."
@@ -1406,7 +1406,7 @@ msgstr ""
 "سرور مورد نظر جهت تهیه پشتیبان را انتخاب نمایید (این سرور و یا هر سرو SSH "
 "دیگر)"
 
-#: views/cron.php:51
+#: views/cron.php:52
 msgid "September"
 msgstr "سپتامبر"
 
@@ -1448,11 +1448,11 @@ msgstr "آدرس سرور نمی تواند خالی باشد"
 msgid "Servers"
 msgstr "سرورها"
 
-#: bin/backup.php:184
+#: bin/backup.php:185
 msgid "Skip Bindaddrss is Enabled... "
 msgstr ""
 
-#: bin/backup.php:190
+#: bin/backup.php:197
 msgid "Skip DNS is Enabled... "
 msgstr ""
 
@@ -1464,7 +1464,7 @@ msgstr ""
 msgid "Skipping host-specific DNS"
 msgstr ""
 
-#: bin/backup.php:106
+#: bin/backup.php:107
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr ""
 "ممکن است برخی تنظیمات برای ارتباط با سرور راه دور اشتباه باشد. بی نتیجه!"
@@ -1501,11 +1501,11 @@ msgstr "سرورهای ذخیره سازی"
 msgid "Storage location for backups"
 msgstr "محل ذخیره سازی پشتیبان ها"
 
-#: bin/backup.php:147
+#: bin/backup.php:148
 msgid "Storing backup..."
 msgstr "ذخیره سازی پشتیبان..."
 
-#: views/cron.php:27 assets/js/backup.js:83
+#: views/cron.php:28 assets/js/backup.js:83
 msgid "Sunday"
 msgstr "یک شنبه"
 
@@ -1526,7 +1526,7 @@ msgstr "قالب ها"
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr "سیستم فایل از نوع سرور FTP . اگر مطمئن نیستید به صورت خودکارتنظیم کنید"
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "از طرف: فیلد مبدا ایمیل ها وقتی از قابلیت ارسال ایمیل پشتیبان استفاده می شود."
@@ -1597,7 +1597,7 @@ msgid "This wizard can be used to add a basic backup task for your %s system"
 msgstr ""
 "این ویزارد به شما کمک می کند تا یک پشتیبان پایه برای سیستم %s ایجاد کنید"
 
-#: views/cron.php:31 assets/js/backup.js:83
+#: views/cron.php:32 assets/js/backup.js:83
 msgid "Thursday"
 msgstr "پنج شنبه"
 
@@ -1614,7 +1614,7 @@ msgstr "نوع انتقال"
 msgid "Trying to upload %s to %s"
 msgstr ""
 
-#: views/cron.php:29 assets/js/backup.js:83
+#: views/cron.php:30 assets/js/backup.js:83
 msgid "Tuesday"
 msgstr "سه شنبه"
 
@@ -1652,7 +1652,7 @@ msgstr "نام کاربری"
 msgid "Username"
 msgstr "نام کاربری"
 
-#: bin/backup.php:113
+#: bin/backup.php:114
 msgid "Verifying received file..."
 msgstr "بازبینی فایل دریافتی..."
 
@@ -1672,11 +1672,11 @@ msgstr "هشدار!"
 msgid "Web Root restore not detected, not restoring module table"
 msgstr "بازیابی شاخه اصلی وب شناسایی نگردید، عدم وجود جدول ماژول بازیابی"
 
-#: views/cron.php:30 assets/js/backup.js:83
+#: views/cron.php:31 assets/js/backup.js:83
 msgid "Wednesday"
 msgstr "چهارشنبه"
 
-#: views/cron.php:220
+#: views/cron.php:223
 msgid "Week Days"
 msgstr "روزهای هفته"
 
@@ -1704,19 +1704,19 @@ msgstr "این چیست؟"
 msgid "Where should status emails for this job be sent?"
 msgstr "ایمیل وضعیت باید به کجا ارسال شود؟"
 
-#: views/cron.php:234
+#: views/cron.php:237
 msgid "Which Days of the week to run"
 msgstr "پشتیبان گیری در چه روزی از هفته انجام خواهد شد"
 
-#: views/cron.php:208
+#: views/cron.php:211
 msgid "Which Hours to run."
 msgstr "پشتیبان گیری در چه ساعتی انجام خواهد شد."
 
-#: views/cron.php:260
+#: views/cron.php:263
 msgid "Which Months to run"
 msgstr "پشتیبان گیری در چه ماهی انجام خواهد شد"
 
-#: views/cron.php:182
+#: views/cron.php:185
 msgid "Which minutes to run"
 msgstr "پشتیبان گیری در چه دقیقه ای انجام خواهد شد"
 
@@ -1753,7 +1753,7 @@ msgstr "سال"
 #: views/backup/backup.php:385 views/backup/backup.php:414
 #: views/backup/backup.php:443 views/backup/backups.php:184
 #: views/backup/backups.php:211 views/backup/backups.php:238
-#: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:145
+#: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:148
 msgid "Yes"
 msgstr "بله"
 
@@ -1795,13 +1795,19 @@ msgstr "ظاهر یافت نشد"
 msgid "table names, one per line"
 msgstr "نام جدول ها، یکی در هر خط"
 
-#: bin/backup.php:45
+#: bin/backup.php:46
 msgid "waiting for lock..."
 msgstr "انتظار برای قفل..."
 
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{سروری در دسترس نیست}"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "پشتیبان گیری و بازیابی - سرورها"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "پشتیبان گیری و بازیابی - قالب ها"
 
 #~ msgid "Error connecting to the FTP Server... Check your host name or DNS"
 #~ msgstr "خطا در اتصال به سرور FTP... لطفا نام میزبان یا DNS را بررسی کنید"

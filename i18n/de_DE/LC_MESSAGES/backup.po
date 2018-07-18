@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-30 22:57-0500\n"
+"POT-Creation-Date: 2018-06-28 15:33-0400\n"
 "PO-Revision-Date: 2018-02-16 19:51+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
-"Language-Team: German "
-"<http://weblate.freepbx.org/projects/freepbx/backup/de_DE/>\n"
+"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/backup/"
+"de_DE/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -88,7 +88,7 @@ msgstr "Aktive"
 msgid "Add Server"
 msgstr "Server hinzufügen"
 
-#: bin/backup.php:53
+#: bin/backup.php:54
 msgid "Adding items..."
 msgstr "Elemente hinzufügen..."
 
@@ -106,6 +106,10 @@ msgstr ""
 "Hauptleitungen. Dies ist hilfreich, um zu verhindern, dass Primäre Systeme "
 "und Standby Systeme Probleme bei der Registrierung bekommen und somit Anrufe "
 "fälschlicherweise an das Standby System geroutet werden."
+
+#: views/cron.php:27 views/cron.php:43 views/cron.php:65
+msgid "All"
+msgstr ""
 
 #: views/backup/backups.php:171
 msgid ""
@@ -139,7 +143,7 @@ msgstr "Jährlich"
 msgid "Apply Configs"
 msgstr "Konfigurationen anwenden"
 
-#: views/cron.php:46
+#: views/cron.php:47
 msgid "April"
 msgstr "April"
 
@@ -151,7 +155,7 @@ msgstr "Ast-DB's"
 msgid "Asterisk DB"
 msgstr "Asterisk-DB"
 
-#: views/cron.php:50
+#: views/cron.php:51
 msgid "August"
 msgstr "August"
 
@@ -184,17 +188,9 @@ msgstr "Sicherung"
 msgid "Backup & Restore"
 msgstr "Sichern & Wiederherstellen"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "Sichern & Wiederherstellen - Wiederherstellen"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "Sichern & Wiederherstellen - Server"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "Sichern & Wiederherstellen - Vorlagen"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -224,7 +220,7 @@ msgstr "Sicherungshäufigkeit"
 msgid "Backup Items"
 msgstr "Sicherungselemente"
 
-#: bin/backup.php:48
+#: bin/backup.php:49
 msgid "Backup Lock acquired!"
 msgstr "Sicherungssperre erworben!"
 
@@ -232,7 +228,7 @@ msgstr "Sicherungssperre erworben!"
 msgid "Backup Log:"
 msgstr "Sicherungsprotokoll:"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "Sicherungsmodule"
 
@@ -264,7 +260,7 @@ msgstr "Sicherungsassistent"
 msgid "Backup and Restore"
 msgstr "Sichern und Wiederherstellen"
 
-#: bin/backup.php:155 bin/backup.php:215
+#: bin/backup.php:156 bin/backup.php:216
 msgid "Backup completed with errors!"
 msgstr "Sicherung mit Fehler beendet!"
 
@@ -289,7 +285,7 @@ msgstr "Backup-Datei wird auf den Remote-Server hinaufgeladen"
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "Sicherungsmodul nicht gefunden oder deaktiviert. Abbrechen!"
 
-#: bin/backup.php:157 bin/backup.php:217
+#: bin/backup.php:158 bin/backup.php:218
 msgid "Backup successfully completed!"
 msgstr "Sicherung erfolgreich erstellt!"
 
@@ -317,7 +313,7 @@ msgstr "Browser Echtzeitaktualisierungen sind nicht verfügbar."
 msgid "Bucket Name"
 msgstr "Bucket-Name"
 
-#: bin/backup.php:56
+#: bin/backup.php:57
 msgid "Building manifest..."
 msgstr "erstelle Manifest..."
 
@@ -357,11 +353,11 @@ msgstr "Klicken Sie 'Weiter' um fortzufahren."
 msgid "Configurations only"
 msgstr "Nur Konfigurationen"
 
-#: bin/backup.php:78
+#: bin/backup.php:79
 msgid "Connecting to remote server..."
 msgstr "Verbindung zum Remote-Server ..."
 
-#: functions.inc/class.backup.php:821
+#: functions.inc/class.backup.php:837
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr "Konnte %s auf dem Remote-System nicht finden"
@@ -370,7 +366,7 @@ msgstr "Konnte %s auf dem Remote-System nicht finden"
 msgid "Created"
 msgstr "Erstellt"
 
-#: bin/backup.php:61
+#: bin/backup.php:62
 msgid "Creating backup..."
 msgstr "Erstelle Sicherung..."
 
@@ -395,7 +391,7 @@ msgstr "Täglich"
 msgid "Day each month"
 msgstr "Tag pro Monat"
 
-#: views/cron.php:224
+#: views/cron.php:227
 msgid "Day of Week"
 msgstr "Wochentag"
 
@@ -403,15 +399,15 @@ msgstr "Wochentag"
 msgid "Days"
 msgstr "Tage"
 
-#: views/cron.php:272 views/cron.php:276
+#: views/cron.php:275 views/cron.php:279
 msgid "Days of Month"
 msgstr "Monatstag(e)"
 
-#: views/cron.php:286
+#: views/cron.php:289
 msgid "Days of month to run"
 msgstr "Monatstag(e) der Ausführung"
 
-#: views/cron.php:54
+#: views/cron.php:55
 msgid "December"
 msgstr "Dezember"
 
@@ -493,7 +489,11 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr "Deaktivieren Sie registrierte Hauptleitungen"
 
-#: bin/restore.php:607
+#: bin/backup.php:191
+msgid "Disabling registered trunks... "
+msgstr ""
+
+#: bin/restore.php:609
 msgid "Done!"
 msgstr "Erledigt!"
 
@@ -519,7 +519,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr "Hier reinziehen"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr "E-Mail "
 
@@ -568,7 +568,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr "Fehler beim Erstellen des FTP-Objekts"
 
-#: functions.inc/class.backup.php:828
+#: functions.inc/class.backup.php:844
 #, php-format
 msgid "Error deleting %s"
 msgstr "Fehler %s löschen"
@@ -684,7 +684,7 @@ msgstr "Fehler beim Abrufen der Datei vom Server!"
 msgid "Family, one per line"
 msgstr "Familie, eine pro Zeile"
 
-#: views/cron.php:44
+#: views/cron.php:45
 msgid "February"
 msgstr "Februar"
 
@@ -700,7 +700,7 @@ msgstr "Datei nicht gefunden! "
 msgid "File restore complete!"
 msgstr "Dateiwiederherstellung vollständig!"
 
-#: bin/backup.php:128
+#: bin/backup.php:129
 msgid "File verification failed. "
 msgstr "Dateiüberprüfung fehlgeschlagen. "
 
@@ -716,7 +716,7 @@ msgstr "Dateisystemtyp"
 msgid "FreePBX"
 msgstr "FreePBX"
 
-#: views/cron.php:32 assets/js/backup.js:83
+#: views/cron.php:33 assets/js/backup.js:83
 msgid "Friday"
 msgstr "Freitag"
 
@@ -740,7 +740,7 @@ msgstr "Geben Sie der Sicherung einen aussagekräftige Namen"
 msgid "Go!"
 msgstr "Los!"
 
-#: bin/backup.php:129
+#: bin/backup.php:130
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr ""
 "Hier sind die ersten Zeilen der Datei, die vom Remote Server gesendet werden:"
@@ -749,8 +749,7 @@ msgstr ""
 msgid "Hooks"
 msgstr "Anhänge"
 
-#: views/servers/ftp.php:46 views/servers/mysql.php:64
-#: views/servers/ssh.php:64
+#: views/servers/ftp.php:46 views/servers/mysql.php:64 views/servers/ssh.php:64
 msgid "Hostname"
 msgstr "Hostname"
 
@@ -758,7 +757,7 @@ msgstr "Hostname"
 msgid "Hourly"
 msgstr "Stündlich"
 
-#: views/backup/backup.php:551 views/cron.php:194 views/cron.php:198
+#: views/backup/backup.php:551 views/cron.php:197 views/cron.php:201
 msgid "Hours"
 msgstr "Stunden"
 
@@ -782,7 +781,7 @@ msgstr "IP Adresse oder FQDN des Remote ftp-Server"
 msgid "IP address or FQDN of remote mysql host"
 msgstr "IP Adresse oder FQDN des Remote MySQL-Host"
 
-#: views/cron.php:155
+#: views/cron.php:158
 msgid ""
 "If Randomize is selected, a similar frequency will be followed, only the "
 "exact times will be randomized (avoiding peak business hours, when "
@@ -794,7 +793,7 @@ msgstr ""
 "Hauptgeschäftszeiten, wenn möglich). Bitte beachten Sie: Randomisierte "
 "Zeitpläne werden jedes Mal neu geplant, wenn ein Backup gespeichert wird"
 
-#: views/cron.php:105
+#: views/cron.php:108
 msgid ""
 "If a custom schedule is selected, any section not specified will be "
 "considered to be \"any\" (aka: wildcard).\n"
@@ -815,7 +814,7 @@ msgstr ""
 msgid "Import"
 msgstr "Importieren"
 
-#: bin/backup.php:39
+#: bin/backup.php:40
 msgid "Initializing Backup"
 msgstr "Sicherung initialisieren"
 
@@ -844,15 +843,15 @@ msgstr "Element"
 msgid "Items"
 msgstr "Elemente"
 
-#: views/cron.php:43
+#: views/cron.php:44
 msgid "January"
 msgstr "Januar"
 
-#: views/cron.php:49
+#: views/cron.php:50
 msgid "July"
 msgstr "Juli"
 
-#: views/cron.php:48
+#: views/cron.php:49
 msgid "June"
 msgstr "Juni"
 
@@ -886,7 +885,7 @@ msgstr "MB"
 msgid "Maintenance"
 msgstr "Erhaltungsdauer"
 
-#: views/cron.php:45
+#: views/cron.php:46
 msgid "March"
 msgstr "März"
 
@@ -894,15 +893,15 @@ msgstr "März"
 msgid "Max Email Size"
 msgstr "Maximale E-Mail größe"
 
-#: views/cron.php:47
+#: views/cron.php:48
 msgid "May"
 msgstr "Mai"
 
-#: views/backup/backup.php:549 views/cron.php:168 views/cron.php:172
+#: views/backup/backup.php:549 views/cron.php:171 views/cron.php:175
 msgid "Minutes"
 msgstr "Minuten"
 
-#: views/cron.php:28 assets/js/backup.js:83
+#: views/cron.php:29 assets/js/backup.js:83
 msgid "Monday"
 msgstr "Montag"
 
@@ -910,7 +909,7 @@ msgstr "Montag"
 msgid "Monthly"
 msgstr "Monatlich"
 
-#: views/backup/backup.php:557 views/cron.php:246 views/cron.php:250
+#: views/backup/backup.php:557 views/cron.php:249 views/cron.php:253
 msgid "Months"
 msgstr "Monat(e)"
 
@@ -950,7 +949,7 @@ msgstr "Beschriften Sie die Sicherung"
 msgid "Never"
 msgstr "Niemals"
 
-#: views/cron.php:101
+#: views/cron.php:104
 msgid "Never will never run the backup automatically"
 msgstr "Die Sicherung wird niemals automatisch gestartet"
 
@@ -995,16 +994,15 @@ msgstr "Nächtlich"
 #: views/backup/backup.php:387 views/backup/backup.php:416
 #: views/backup/backup.php:445 views/backup/backups.php:186
 #: views/backup/backups.php:213 views/backup/backups.php:240
-#: views/backup/backups.php:271 views/backup/backups.php:327
-#: views/cron.php:147
+#: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:150
 msgid "No"
 msgstr "Nein"
 
-#: bin/backup.php:73
+#: bin/backup.php:74
 msgid "No items in backup set. Aborting."
 msgstr "Keine Elemente in der Sicherung! Abgebrochen."
 
-#: bin/backup.php:34
+#: bin/backup.php:35
 msgid "No storage servers found! Aborting."
 msgstr "Keinen Speicherserver gefunden! Abgebrochen."
 
@@ -1016,7 +1014,7 @@ msgstr "Nichts Wiederherzustellen!"
 msgid "Notifications"
 msgstr "Benachrichtigungen"
 
-#: views/cron.php:53
+#: views/cron.php:54
 msgid "November"
 msgstr "November"
 
@@ -1024,7 +1022,7 @@ msgstr "November"
 msgid "ON"
 msgstr "EIN"
 
-#: views/cron.php:52
+#: views/cron.php:53
 msgid "October"
 msgstr "Oktober"
 
@@ -1098,7 +1096,7 @@ msgstr "Pfad zum SSH-Schlüssel (Beispiel /home/asterisk/.ssh/id_rsa)"
 msgid "Path/DB"
 msgstr "Pfad/DB"
 
-#: functions.inc/class.backup.php:817 functions.inc/class.backup.php:818
+#: functions.inc/class.backup.php:833 functions.inc/class.backup.php:834
 #, php-format
 msgid "Path: %s"
 msgstr "Pfad: %s"
@@ -1111,8 +1109,7 @@ msgstr "Bitte warten"
 msgid "Please wait, loading..."
 msgstr "Bitte warten, lade..."
 
-#: views/servers/ftp.php:66 views/servers/mysql.php:88
-#: views/servers/ssh.php:88
+#: views/servers/ftp.php:66 views/servers/mysql.php:88 views/servers/ssh.php:88
 msgid "Port"
 msgstr "Port"
 
@@ -1159,7 +1156,7 @@ msgstr "durchgeführt %s%% der Einstellungen (%s von %s Zeilen)"
 msgid "Processed %s%% of external database %s (%s of %s lines)"
 msgstr "Verarbeitet %s%% der externen Datenbank %s (%s von %s Zeilen)"
 
-#: bin/backup.php:142
+#: bin/backup.php:143
 msgid "Processing received file..."
 msgstr "Verarbeitung der empfangenen Datei ..."
 
@@ -1167,7 +1164,7 @@ msgstr "Verarbeitung der empfangenen Datei ..."
 msgid "Provide the name for this server"
 msgstr "Geben Sie den Namen für diesen Server an"
 
-#: views/cron.php:140
+#: views/cron.php:143
 msgid "Randomize"
 msgstr "Zufällig"
 
@@ -1175,7 +1172,7 @@ msgstr "Zufällig"
 msgid "Reboot"
 msgstr "Neustart"
 
-#: bin/restore.php:592
+#: bin/restore.php:594
 msgid "Reloading..."
 msgstr "Neu laden..."
 
@@ -1253,7 +1250,7 @@ msgstr ""
 "Stellen Sie die Sicherung auf diesem Server wieder her, nachdem die "
 "Sicherung abgeschlossen ist"
 
-#: bin/restore.php:591
+#: bin/restore.php:593
 msgid "Restore complete!"
 msgstr "Wiederherstellung abgeschlossen!"
 
@@ -1302,7 +1299,7 @@ msgstr "Wiederherstellen aller Dateien (dies kann einige Zeit dauern) ..."
 msgid "Restoring astDB..."
 msgstr "AstDB wiederherstellen ...."
 
-#: bin/backup.php:176
+#: bin/backup.php:177
 msgid "Restoring backup..."
 msgstr "Sicherung wird wiederhergestellt ..."
 
@@ -1310,11 +1307,11 @@ msgstr "Sicherung wird wiederhergestellt ..."
 msgid "Restoring files (this may take some time)..."
 msgstr "Wiederherstellen von Dateien (dies kann einige Zeit dauern) ..."
 
-#: views/cron.php:120
+#: views/cron.php:123
 msgid "Run Automatically"
 msgstr "Automatisch ausführen"
 
-#: views/cron.php:97
+#: views/cron.php:100
 msgid ""
 "Run at startup of the server OR of the cron deamon (i.e. after every "
 "<code>service cron restart</code>)"
@@ -1326,23 +1323,23 @@ msgstr ""
 msgid "Run now"
 msgstr "Jetzt starten"
 
-#: views/cron.php:81
+#: views/cron.php:84
 msgid "Run once a day, at midnight"
 msgstr "Startet einmal pro Tag um Mitternacht"
 
-#: views/cron.php:89
+#: views/cron.php:92
 msgid "Run once a month, midnight, first of month"
 msgstr "Startet einmal pro Monat, am ersten des Monats, um Mitternacht"
 
-#: views/cron.php:85
+#: views/cron.php:88
 msgid "Run once a week, midnight on Sun"
 msgstr "Startet einmal pro Woche, am Sonntag, um Mitternacht"
 
-#: views/cron.php:93
+#: views/cron.php:96
 msgid "Run once a year, midnight, Jan. 1"
 msgstr "Startet einmal jährlich, am 1.Januar, um Mitternacht"
 
-#: views/cron.php:77
+#: views/cron.php:80
 msgid "Run once an hour, beginning of hour"
 msgstr "Startet einmal stündlich, am Stundenanfang"
 
@@ -1354,7 +1351,7 @@ msgstr "Wartung läuft.."
 msgid "Running post restore script..."
 msgstr "Laufendes Wiederherstellungs-Post-Skript..."
 
-#: bin/backup.php:150 bin/backup.php:200
+#: bin/backup.php:151 bin/backup.php:207
 msgid "Running post-backup hooks..."
 msgstr "Laufende Sicherungs-Post-Skripte..."
 
@@ -1362,7 +1359,7 @@ msgstr "Laufende Sicherungs-Post-Skripte..."
 msgid "Running post-restore hooks, if any..."
 msgstr "Laufende Wiederherstellungs-Post-Skripte, falls vorhanden..."
 
-#: bin/backup.php:50
+#: bin/backup.php:51
 msgid "Running pre-backup hooks..."
 msgstr "Laufende Sicherungs-Pre-Skripte..."
 
@@ -1398,7 +1395,7 @@ msgstr "SSH-Server "
 msgid "SSH Username"
 msgstr "SSH Benutzername"
 
-#: views/cron.php:33 assets/js/backup.js:83
+#: views/cron.php:34 assets/js/backup.js:83
 msgid "Saturday"
 msgstr "Samstag"
 
@@ -1414,7 +1411,7 @@ msgstr "Speichern und Starten"
 msgid "Saving file to remote ftp"
 msgstr "Datei auf FTP-Server speichern"
 
-#: views/cron.php:71
+#: views/cron.php:74
 msgid "Schedule Help"
 msgstr "Hilfe"
 
@@ -1422,7 +1419,7 @@ msgstr "Hilfe"
 msgid "Select a file and click go"
 msgstr "Markiere eine Datei und Klick auf Los"
 
-#: views/cron.php:73
+#: views/cron.php:76
 msgid ""
 "Select how often to run this backup. The following schedule will be followed "
 "for all but custom."
@@ -1441,7 +1438,7 @@ msgstr ""
 "Wählen Sie den zu sichernden Server (diesen Server, oder einen anderen SSH "
 "Server)"
 
-#: views/cron.php:51
+#: views/cron.php:52
 msgid "September"
 msgstr "September"
 
@@ -1483,11 +1480,11 @@ msgstr "Server-Adresse darf nicht leer sein"
 msgid "Servers"
 msgstr "Server"
 
-#: bin/backup.php:184
+#: bin/backup.php:185
 msgid "Skip Bindaddrss is Enabled... "
 msgstr "Bindaddrss überspringen ist aktiviert ... "
 
-#: bin/backup.php:190
+#: bin/backup.php:197
 msgid "Skip DNS is Enabled... "
 msgstr "DNS überspringen ist aktiviert ... "
 
@@ -1499,7 +1496,7 @@ msgstr "Hostspezifische Bind-Adresse überspringen"
 msgid "Skipping host-specific DNS"
 msgstr "Host-spezifische DNS überspringen"
 
-#: bin/backup.php:106
+#: bin/backup.php:107
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr ""
 "Bei der Verbindung zum Remoteserver ist ein Fehler aufgetreten. Abgebrochen!"
@@ -1536,11 +1533,11 @@ msgstr "Speicherserver"
 msgid "Storage location for backups"
 msgstr "Speicherort für Sicherungen"
 
-#: bin/backup.php:147
+#: bin/backup.php:148
 msgid "Storing backup..."
 msgstr "Speichere Sicherung..."
 
-#: views/cron.php:27 assets/js/backup.js:83
+#: views/cron.php:28 assets/js/backup.js:83
 msgid "Sunday"
 msgstr "Sonntag"
 
@@ -1563,7 +1560,7 @@ msgstr ""
 "Der Dateisystemtyp des FTP-Servers. Wenn Sie nicht sicher sind, stellen Sie "
 "dies auf Auto"
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr "Von: Ein Feld für E-Mails, wenn Sie das E-Mail-Feature verwenden."
 
@@ -1619,8 +1616,8 @@ msgid ""
 "send data."
 msgstr ""
 "Dies ist standardmäßig \"Passiv\". Wenn sich Ihr FTP-Server hinter einem "
-"separaten NAT oder Firewall zu diesem VoIP-Server befindet, sollten Sie \""
-"Aktiv\" wählen. Im aktiven Modus baut der FTP-Server eine Verbindung zum "
+"separaten NAT oder Firewall zu diesem VoIP-Server befindet, sollten Sie "
+"\"Aktiv\" wählen. Im aktiven Modus baut der FTP-Server eine Verbindung zum "
 "VoIP-Server auf, um die Daten zu empfangen. Im passiven Modus verbindet sich "
 "der VoIP-Server mit dem FTP-Server, um Daten zu senden."
 
@@ -1639,7 +1636,7 @@ msgstr ""
 "Mit diesen Assistenten können Sie Ihrem %s eine Standard-Sicherungsaufgabe "
 "hinzufügen"
 
-#: views/cron.php:31 assets/js/backup.js:83
+#: views/cron.php:32 assets/js/backup.js:83
 msgid "Thursday"
 msgstr "Donnerstag"
 
@@ -1656,7 +1653,7 @@ msgstr "Übertragungstyp"
 msgid "Trying to upload %s to %s"
 msgstr "Versuche %s auf %s hochzuladen"
 
-#: views/cron.php:29 assets/js/backup.js:83
+#: views/cron.php:30 assets/js/backup.js:83
 msgid "Tuesday"
 msgstr "Dienstag"
 
@@ -1694,7 +1691,7 @@ msgstr "Benutzername"
 msgid "Username"
 msgstr "Benutzername"
 
-#: bin/backup.php:113
+#: bin/backup.php:114
 msgid "Verifying received file..."
 msgstr "Überprüfen der empfangenen Datei ..."
 
@@ -1716,11 +1713,11 @@ msgstr ""
 "Web-Root-Wiederherstellung nicht erkannt, Modul-Tabelle wird nicht "
 "wiederhergestellt"
 
-#: views/cron.php:30 assets/js/backup.js:83
+#: views/cron.php:31 assets/js/backup.js:83
 msgid "Wednesday"
 msgstr "Mittwoch"
 
-#: views/cron.php:220
+#: views/cron.php:223
 msgid "Week Days"
 msgstr "Wochentag(e)"
 
@@ -1748,19 +1745,19 @@ msgstr "Was ist das?"
 msgid "Where should status emails for this job be sent?"
 msgstr "Wohin soll die Statusmeldung für diese Aufgabe gesendet werden?"
 
-#: views/cron.php:234
+#: views/cron.php:237
 msgid "Which Days of the week to run"
 msgstr "An welchem/welchen Tag(en) soll die Sicherung ausgeführt werden"
 
-#: views/cron.php:208
+#: views/cron.php:211
 msgid "Which Hours to run."
 msgstr "Zu welcher/welchen Stunde(n) soll die Sicherung ausgeführt werden."
 
-#: views/cron.php:260
+#: views/cron.php:263
 msgid "Which Months to run"
 msgstr "An welchem/welchen Monat(en) soll die Sicherung ausgeführt werden"
 
-#: views/cron.php:182
+#: views/cron.php:185
 msgid "Which minutes to run"
 msgstr "Zu welcher/welchen Minute(n) soll die Sicherung ausgeführt werden"
 
@@ -1797,8 +1794,7 @@ msgstr "Jahre"
 #: views/backup/backup.php:385 views/backup/backup.php:414
 #: views/backup/backup.php:443 views/backup/backups.php:184
 #: views/backup/backups.php:211 views/backup/backups.php:238
-#: views/backup/backups.php:269 views/backup/backups.php:325
-#: views/cron.php:145
+#: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:148
 msgid "Yes"
 msgstr "Ja"
 
@@ -1840,10 +1836,16 @@ msgstr "Manifest nicht gefunden"
 msgid "table names, one per line"
 msgstr "Tabellennamen, einer pro Zeile"
 
-#: bin/backup.php:45
+#: bin/backup.php:46
 msgid "waiting for lock..."
 msgstr "warte auf Sperrung..."
 
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{keine Server Verfügbar}"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Sichern & Wiederherstellen - Server"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Sichern & Wiederherstellen - Vorlagen"

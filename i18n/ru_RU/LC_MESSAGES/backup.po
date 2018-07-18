@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-28 03:32-0500\n"
+"POT-Creation-Date: 2018-06-28 15:33-0400\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -102,7 +102,7 @@ msgstr "Активно"
 msgid "Add Server"
 msgstr "Добавить сервер"
 
-#: bin/backup.php:53
+#: bin/backup.php:54
 msgid "Adding items..."
 msgstr "Добавление элементов..."
 
@@ -120,6 +120,10 @@ msgstr ""
 "помогает предотвратить основную и  резерную системы от \"борьбы\" за "
 "регистрацию,в результате чего некоторые звонки могут пойти на резервную "
 "систему."
+
+#: views/cron.php:27 views/cron.php:43 views/cron.php:65
+msgid "All"
+msgstr "Все"
 
 #: views/backup/backups.php:171
 msgid ""
@@ -153,7 +157,7 @@ msgstr "Ежегодно"
 msgid "Apply Configs"
 msgstr "Применить конфигурации"
 
-#: views/cron.php:46
+#: views/cron.php:47
 msgid "April"
 msgstr "Апрель"
 
@@ -165,7 +169,7 @@ msgstr "АстБД"
 msgid "Asterisk DB"
 msgstr "Астериск БД"
 
-#: views/cron.php:50
+#: views/cron.php:51
 msgid "August"
 msgstr "Август"
 
@@ -198,17 +202,9 @@ msgstr "Бекап"
 msgid "Backup & Restore"
 msgstr "Резервное копирование и восстановление"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "Резервное копирование и восстановление - Восстановление"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "Резервное копирование и восстановление - Серверы"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "Резервное копирование и восстановление - Шаблоны"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -239,7 +235,7 @@ msgstr "Частота выполнения резервного копиров�
 msgid "Backup Items"
 msgstr "Пункты бекапа"
 
-#: bin/backup.php:48
+#: bin/backup.php:49
 msgid "Backup Lock acquired!"
 msgstr "Блокировка бекапа установлена!"
 
@@ -247,7 +243,7 @@ msgstr "Блокировка бекапа установлена!"
 msgid "Backup Log:"
 msgstr "Лог бекапа:"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "Модуль резервного копирования"
 
@@ -279,7 +275,7 @@ msgstr "Мастер создания  резервной копии"
 msgid "Backup and Restore"
 msgstr "Резервное копирование и  восстановление"
 
-#: bin/backup.php:155 bin/backup.php:215
+#: bin/backup.php:156 bin/backup.php:216
 msgid "Backup completed with errors!"
 msgstr "Резервное копирование завершилось с ошибками!"
 
@@ -304,7 +300,7 @@ msgstr ""
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "Модуль резервного копирования не найден или отключен. Прерывание!"
 
-#: bin/backup.php:157 bin/backup.php:217
+#: bin/backup.php:158 bin/backup.php:218
 msgid "Backup successfully completed!"
 msgstr "Резервное копирование выполнено успешно!"
 
@@ -332,7 +328,7 @@ msgstr ""
 msgid "Bucket Name"
 msgstr "Имя хранилища"
 
-#: bin/backup.php:56
+#: bin/backup.php:57
 msgid "Building manifest..."
 msgstr "Генерируется манифест..."
 
@@ -372,11 +368,11 @@ msgstr "Нажмите \"Next\" чтобы продолжить."
 msgid "Configurations only"
 msgstr "Только конфигурация"
 
-#: bin/backup.php:78
+#: bin/backup.php:79
 msgid "Connecting to remote server..."
 msgstr "Соединение с удаленным сервером..."
 
-#: functions.inc/class.backup.php:821
+#: functions.inc/class.backup.php:837
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -385,7 +381,7 @@ msgstr ""
 msgid "Created"
 msgstr "Создано"
 
-#: bin/backup.php:61
+#: bin/backup.php:62
 msgid "Creating backup..."
 msgstr "Создание бекапа..."
 
@@ -410,7 +406,7 @@ msgstr "Ежедневно"
 msgid "Day each month"
 msgstr "День каждого месяца"
 
-#: views/cron.php:224
+#: views/cron.php:227
 msgid "Day of Week"
 msgstr "День недели"
 
@@ -418,15 +414,15 @@ msgstr "День недели"
 msgid "Days"
 msgstr "Дни"
 
-#: views/cron.php:272 views/cron.php:276
+#: views/cron.php:275 views/cron.php:279
 msgid "Days of Month"
 msgstr "Дни месяца"
 
-#: views/cron.php:286
+#: views/cron.php:289
 msgid "Days of month to run"
 msgstr "Дни месяца когда запускать"
 
-#: views/cron.php:54
+#: views/cron.php:55
 msgid "December"
 msgstr "Декабрь"
 
@@ -506,7 +502,11 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr "Отключить зарегистрированные транки"
 
-#: bin/restore.php:607
+#: bin/backup.php:191
+msgid "Disabling registered trunks... "
+msgstr ""
+
+#: bin/restore.php:609
 msgid "Done!"
 msgstr "Готово!"
 
@@ -533,7 +533,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr "Бросить здесь"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr "E-mail "
 
@@ -580,7 +580,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:828
+#: functions.inc/class.backup.php:844
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -690,7 +690,7 @@ msgstr "Не удалось получить файл с сервера!"
 msgid "Family, one per line"
 msgstr "Фамилия, по одной в строке"
 
-#: views/cron.php:44
+#: views/cron.php:45
 msgid "February"
 msgstr "Февраль"
 
@@ -706,7 +706,7 @@ msgstr "Файл не найден! "
 msgid "File restore complete!"
 msgstr "Восстановление файла завершено!"
 
-#: bin/backup.php:128
+#: bin/backup.php:129
 msgid "File verification failed. "
 msgstr "Проверка файла не удалась. "
 
@@ -722,7 +722,7 @@ msgstr ""
 msgid "FreePBX"
 msgstr "Система FreePBX"
 
-#: views/cron.php:32 assets/js/backup.js:83
+#: views/cron.php:33 assets/js/backup.js:83
 msgid "Friday"
 msgstr "Пятница"
 
@@ -746,7 +746,7 @@ msgstr "Присвойте резервной копии   дружествен�
 msgid "Go!"
 msgstr "Погнали!"
 
-#: bin/backup.php:129
+#: bin/backup.php:130
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr "Вот первые несколько строк файла, посланного удаленным сервером:"
 
@@ -762,7 +762,7 @@ msgstr "Имя хоста"
 msgid "Hourly"
 msgstr "Ежечасно"
 
-#: views/backup/backup.php:551 views/cron.php:194 views/cron.php:198
+#: views/backup/backup.php:551 views/cron.php:197 views/cron.php:201
 msgid "Hours"
 msgstr "Часы"
 
@@ -786,7 +786,7 @@ msgstr "IP адрес или FQDN удаленного ftp хоста"
 msgid "IP address or FQDN of remote mysql host"
 msgstr "IP адрес или FQDN удаленного mysql хоста"
 
-#: views/cron.php:155
+#: views/cron.php:158
 msgid ""
 "If Randomize is selected, a similar frequency will be followed, only the "
 "exact times will be randomized (avoiding peak business hours, when "
@@ -799,7 +799,7 @@ msgstr ""
 "перепланируется (случайным образом) каждый раз, когда резервная копия "
 "сохраняется"
 
-#: views/cron.php:105
+#: views/cron.php:108
 msgid ""
 "If a custom schedule is selected, any section not specified will be "
 "considered to be \"any\" (aka: wildcard).\n"
@@ -820,7 +820,7 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
-#: bin/backup.php:39
+#: bin/backup.php:40
 msgid "Initializing Backup"
 msgstr "Инициализация резервного копирования"
 
@@ -849,15 +849,15 @@ msgstr "Элемент"
 msgid "Items"
 msgstr "Пункты"
 
-#: views/cron.php:43
+#: views/cron.php:44
 msgid "January"
 msgstr "Январь"
 
-#: views/cron.php:49
+#: views/cron.php:50
 msgid "July"
 msgstr "Июль"
 
-#: views/cron.php:48
+#: views/cron.php:49
 msgid "June"
 msgstr "Июнь"
 
@@ -890,7 +890,7 @@ msgstr "Мб"
 msgid "Maintenance"
 msgstr "Сопровождение"
 
-#: views/cron.php:45
+#: views/cron.php:46
 msgid "March"
 msgstr "Март"
 
@@ -898,15 +898,15 @@ msgstr "Март"
 msgid "Max Email Size"
 msgstr "Максимальный размер Email"
 
-#: views/cron.php:47
+#: views/cron.php:48
 msgid "May"
 msgstr "Май"
 
-#: views/backup/backup.php:549 views/cron.php:168 views/cron.php:172
+#: views/backup/backup.php:549 views/cron.php:171 views/cron.php:175
 msgid "Minutes"
 msgstr "Минуты"
 
-#: views/cron.php:28 assets/js/backup.js:83
+#: views/cron.php:29 assets/js/backup.js:83
 msgid "Monday"
 msgstr "Понедельник"
 
@@ -914,7 +914,7 @@ msgstr "Понедельник"
 msgid "Monthly"
 msgstr "Ежемесячный"
 
-#: views/backup/backup.php:557 views/cron.php:246 views/cron.php:250
+#: views/backup/backup.php:557 views/cron.php:249 views/cron.php:253
 msgid "Months"
 msgstr "Месяцы"
 
@@ -954,7 +954,7 @@ msgstr "Имя этой  резервной копии"
 msgid "Never"
 msgstr "Никогда"
 
-#: views/cron.php:101
+#: views/cron.php:104
 msgid "Never will never run the backup automatically"
 msgstr "Никогда  Процедура резервного копирования не будет запущена никогда"
 
@@ -999,15 +999,15 @@ msgstr "Каждую ночь"
 #: views/backup/backup.php:387 views/backup/backup.php:416
 #: views/backup/backup.php:445 views/backup/backups.php:186
 #: views/backup/backups.php:213 views/backup/backups.php:240
-#: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:147
+#: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:150
 msgid "No"
 msgstr "Нет"
 
-#: bin/backup.php:73
+#: bin/backup.php:74
 msgid "No items in backup set. Aborting."
 msgstr "Нет элементов в резервной копии . Завершение."
 
-#: bin/backup.php:34
+#: bin/backup.php:35
 msgid "No storage servers found! Aborting."
 msgstr "Не найден сервер хранения! Завершение."
 
@@ -1019,7 +1019,7 @@ msgstr "Нет ничего для восстановления!"
 msgid "Notifications"
 msgstr "Уведомления"
 
-#: views/cron.php:53
+#: views/cron.php:54
 msgid "November"
 msgstr "Ноябрь"
 
@@ -1027,7 +1027,7 @@ msgstr "Ноябрь"
 msgid "ON"
 msgstr "Вкл"
 
-#: views/cron.php:52
+#: views/cron.php:53
 msgid "October"
 msgstr "Октябрь"
 
@@ -1096,7 +1096,7 @@ msgstr "Путь к ключу ssh, например  /home/asterisk/.ssh/id_rsa
 msgid "Path/DB"
 msgstr "Путь/DB"
 
-#: functions.inc/class.backup.php:817 functions.inc/class.backup.php:818
+#: functions.inc/class.backup.php:833 functions.inc/class.backup.php:834
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1156,7 +1156,7 @@ msgstr "Обработано  %s%% настроек (%s  %s строк)"
 msgid "Processed %s%% of external database %s (%s of %s lines)"
 msgstr ""
 
-#: bin/backup.php:142
+#: bin/backup.php:143
 msgid "Processing received file..."
 msgstr "Обработка принятого файла..."
 
@@ -1164,7 +1164,7 @@ msgstr "Обработка принятого файла..."
 msgid "Provide the name for this server"
 msgstr "Укажите имя для этого сервера"
 
-#: views/cron.php:140
+#: views/cron.php:143
 msgid "Randomize"
 msgstr "Случайный"
 
@@ -1172,7 +1172,7 @@ msgstr "Случайный"
 msgid "Reboot"
 msgstr "Перегрузка"
 
-#: bin/restore.php:592
+#: bin/restore.php:594
 msgid "Reloading..."
 msgstr "Перезагрузка..."
 
@@ -1248,7 +1248,7 @@ msgstr ""
 "Восстановить резервную  копию для этого сервера после завершения резервного "
 "копирования"
 
-#: bin/restore.php:591
+#: bin/restore.php:593
 msgid "Restore complete!"
 msgstr "Восстановление  завершено!"
 
@@ -1297,7 +1297,7 @@ msgstr "Восстановление всех файлов (это может з
 msgid "Restoring astDB..."
 msgstr "Восстановление  astDB..."
 
-#: bin/backup.php:176
+#: bin/backup.php:177
 msgid "Restoring backup..."
 msgstr "Восстановление резервной копии ..."
 
@@ -1305,11 +1305,11 @@ msgstr "Восстановление резервной копии ..."
 msgid "Restoring files (this may take some time)..."
 msgstr "Восстановление файлов (это может занять некоторое время)..."
 
-#: views/cron.php:120
+#: views/cron.php:123
 msgid "Run Automatically"
 msgstr "Запустить автоматически"
 
-#: views/cron.php:97
+#: views/cron.php:100
 msgid ""
 "Run at startup of the server OR of the cron deamon (i.e. after every "
 "<code>service cron restart</code>)"
@@ -1321,23 +1321,23 @@ msgstr ""
 msgid "Run now"
 msgstr "Запустить немедленно"
 
-#: views/cron.php:81
+#: views/cron.php:84
 msgid "Run once a day, at midnight"
 msgstr "Запустить единожды в один из дней , в полночь"
 
-#: views/cron.php:89
+#: views/cron.php:92
 msgid "Run once a month, midnight, first of month"
 msgstr "Запустить единожды в один из месяцев, в полночь, в первый месяц"
 
-#: views/cron.php:85
+#: views/cron.php:88
 msgid "Run once a week, midnight on Sun"
 msgstr "Запустить единожды  в одну  из недель , в полночь, в воскресенье"
 
-#: views/cron.php:93
+#: views/cron.php:96
 msgid "Run once a year, midnight, Jan. 1"
 msgstr "Запустить единожды в один из годов , в полночь 1-го Янв"
 
-#: views/cron.php:77
+#: views/cron.php:80
 msgid "Run once an hour, beginning of hour"
 msgstr "Запустить единожды в один из часов , начиная с часа"
 
@@ -1349,7 +1349,7 @@ msgstr ""
 msgid "Running post restore script..."
 msgstr "Запускается  скрипт после окончания процедуры восстановления..."
 
-#: bin/backup.php:150 bin/backup.php:200
+#: bin/backup.php:151 bin/backup.php:207
 msgid "Running post-backup hooks..."
 msgstr "Запускаются   обработчики после создания резервной копии..."
 
@@ -1359,7 +1359,7 @@ msgstr ""
 "Запускаются   обработчики после окончания процедуры восстановления, если "
 "что ..."
 
-#: bin/backup.php:50
+#: bin/backup.php:51
 msgid "Running pre-backup hooks..."
 msgstr "Запускаются  обработчики перед процедурой создания резервной копии ..."
 
@@ -1396,7 +1396,7 @@ msgstr "SSH сервер "
 msgid "SSH Username"
 msgstr "SSH имя пользователя"
 
-#: views/cron.php:33 assets/js/backup.js:83
+#: views/cron.php:34 assets/js/backup.js:83
 msgid "Saturday"
 msgstr "Суббота"
 
@@ -1412,7 +1412,7 @@ msgstr "Сохранить и запустить"
 msgid "Saving file to remote ftp"
 msgstr ""
 
-#: views/cron.php:71
+#: views/cron.php:74
 msgid "Schedule Help"
 msgstr "Помощь по планировщику"
 
@@ -1420,7 +1420,7 @@ msgstr "Помощь по планировщику"
 msgid "Select a file and click go"
 msgstr "Выберите файл и нажмите \"Вперёд\""
 
-#: views/cron.php:73
+#: views/cron.php:76
 msgid ""
 "Select how often to run this backup. The following schedule will be followed "
 "for all but custom."
@@ -1437,7 +1437,7 @@ msgstr ""
 "Выбрать сервер ,для которого будет создана резервная копия   (этот сервер "
 "или любой другой SSH сервер)"
 
-#: views/cron.php:51
+#: views/cron.php:52
 msgid "September"
 msgstr "Сентябрь"
 
@@ -1479,11 +1479,11 @@ msgstr "Имя сервера не может быть пустым"
 msgid "Servers"
 msgstr "Сервера"
 
-#: bin/backup.php:184
+#: bin/backup.php:185
 msgid "Skip Bindaddrss is Enabled... "
 msgstr ""
 
-#: bin/backup.php:190
+#: bin/backup.php:197
 msgid "Skip DNS is Enabled... "
 msgstr ""
 
@@ -1495,7 +1495,7 @@ msgstr ""
 msgid "Skipping host-specific DNS"
 msgstr ""
 
-#: bin/backup.php:106
+#: bin/backup.php:107
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr "Что-то пошло не так при подключении к удалённому серверу. Завершаем!"
 
@@ -1531,11 +1531,11 @@ msgstr "Сервер хранения"
 msgid "Storage location for backups"
 msgstr "Расположение хранилища резервных копий"
 
-#: bin/backup.php:147
+#: bin/backup.php:148
 msgid "Storing backup..."
 msgstr "Сохранение резервной копии..."
 
-#: views/cron.php:27 assets/js/backup.js:83
+#: views/cron.php:28 assets/js/backup.js:83
 msgid "Sunday"
 msgstr "Воскресенье"
 
@@ -1556,7 +1556,7 @@ msgstr "Образцы"
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr ""
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr "Форма: поле для e-mail's, когда используется функция backup e-mail."
 
@@ -1627,7 +1627,7 @@ msgstr ""
 "Этот мастер  может использоваться для добавления задачи создания базовой  "
 "резервной копии  для вашей %s системы"
 
-#: views/cron.php:31 assets/js/backup.js:83
+#: views/cron.php:32 assets/js/backup.js:83
 msgid "Thursday"
 msgstr "Четверг"
 
@@ -1644,7 +1644,7 @@ msgstr "Тип передачи"
 msgid "Trying to upload %s to %s"
 msgstr ""
 
-#: views/cron.php:29 assets/js/backup.js:83
+#: views/cron.php:30 assets/js/backup.js:83
 msgid "Tuesday"
 msgstr "Вторник"
 
@@ -1682,7 +1682,7 @@ msgstr "Имя пользователя"
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: bin/backup.php:113
+#: bin/backup.php:114
 msgid "Verifying received file..."
 msgstr "Проверка принятого файла..."
 
@@ -1703,11 +1703,11 @@ msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
 "Не обнаружено восстановление Web Root, нет восстанавливающей таблицы модуля"
 
-#: views/cron.php:30 assets/js/backup.js:83
+#: views/cron.php:31 assets/js/backup.js:83
 msgid "Wednesday"
 msgstr "Среда"
 
-#: views/cron.php:220
+#: views/cron.php:223
 msgid "Week Days"
 msgstr "Дни недели"
 
@@ -1735,19 +1735,19 @@ msgstr "Что это?"
 msgid "Where should status emails for this job be sent?"
 msgstr "Куда отправить email с сообщением о статусе этого задания?"
 
-#: views/cron.php:234
+#: views/cron.php:237
 msgid "Which Days of the week to run"
 msgstr "В какие дни недели запускать"
 
-#: views/cron.php:208
+#: views/cron.php:211
 msgid "Which Hours to run."
 msgstr "В какие часы запускать."
 
-#: views/cron.php:260
+#: views/cron.php:263
 msgid "Which Months to run"
 msgstr "В какие месяцы запускать"
 
-#: views/cron.php:182
+#: views/cron.php:185
 msgid "Which minutes to run"
 msgstr "В какие минуты запускать"
 
@@ -1785,7 +1785,7 @@ msgstr "Года"
 #: views/backup/backup.php:385 views/backup/backup.php:414
 #: views/backup/backup.php:443 views/backup/backups.php:184
 #: views/backup/backups.php:211 views/backup/backups.php:238
-#: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:145
+#: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:148
 msgid "Yes"
 msgstr "Да"
 
@@ -1827,13 +1827,19 @@ msgstr "манифест не найден"
 msgid "table names, one per line"
 msgstr "имена таблицы, одно на строку"
 
-#: bin/backup.php:45
+#: bin/backup.php:46
 msgid "waiting for lock..."
 msgstr "ожидание блокировки..."
 
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{сервера не доступны}"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Резервное копирование и восстановление - Серверы"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Резервное копирование и восстановление - Шаблоны"
 
 #~ msgid "Error connecting to the FTP Server..."
 #~ msgstr "Ошибка соединения с FTP сервером..."
@@ -1978,9 +1984,6 @@ msgstr "{сервера не доступны}"
 #~ msgstr ""
 #~ "Полное резервное копирование настроек ядра и web-интерфейса, исключая "
 #~ "системные звуки или записи. "
-
-#~ msgid "All"
-#~ msgstr "Все"
 
 #~ msgid "Backup the Operator Panel (HTML and Database)"
 #~ msgstr "Резервировать Панель оператора (HTML и база данных)"

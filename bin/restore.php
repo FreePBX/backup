@@ -22,7 +22,7 @@ if (!function_exists('backup_log')) {
  */
 
 $getopt = (function_exists('_getopt') ? '_' : '') . 'getopt';
-$vars = $getopt($short = '', $long = array('restore::', 'items::', 'manifest::', 'skipnat::', 'skipbind::', 'skipdns::'));
+$vars = $getopt($short = '', $long = array('restore::', 'items::', 'manifest::', 'skipnat::', 'skipbind::', 'skipdns::', 'disabletrunks::'));
 // Let items be descriptive - it may NOT be an encoded array.
 if (isset($vars['items'])) {
 	// Is it an encoded array though?
@@ -587,7 +587,9 @@ if (!isset($vars['restore'])) {
 			unlink($amp_conf['ASTSPOOLDIR'] . '/tmp/' . $file);
 		}
 	}
-
+	if (isset($vars['disabletrunks'])) {
+		core_trunks_disable('reg', true);
+	}
 	backup_log(_('Restore complete!'));
 	backup_log(_('Reloading...'));
 	do_reload();

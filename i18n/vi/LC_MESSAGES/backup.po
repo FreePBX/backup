@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-28 03:32-0500\n"
+"POT-Creation-Date: 2018-06-28 15:33-0400\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -87,7 +87,7 @@ msgstr "Hoạt động"
 msgid "Add Server"
 msgstr "Thêm máy chủ"
 
-#: bin/backup.php:53
+#: bin/backup.php:54
 msgid "Adding items..."
 msgstr "Đang thêm các hạng mục...."
 
@@ -104,6 +104,10 @@ msgstr ""
 "Sau khi khôi phục, vô hiệu tất cả các trung kế có sử dụng đăng ký. Điều này "
 "nhằm giúp ngăn chặn các hệ thống sơ cấp và dự phòng khỏi \"xung đột\" cho "
 "việc đăng ký, gây nên một số cuộc gọi bị chuyển đến hệ thống dự phòng."
+
+#: views/cron.php:27 views/cron.php:43 views/cron.php:65
+msgid "All"
+msgstr ""
 
 #: views/backup/backups.php:171
 msgid ""
@@ -137,7 +141,7 @@ msgstr "Hằng năm"
 msgid "Apply Configs"
 msgstr "Áp dụng các cấu hình"
 
-#: views/cron.php:46
+#: views/cron.php:47
 msgid "April"
 msgstr "Tháng tư"
 
@@ -149,7 +153,7 @@ msgstr "Các tập tin AstDB's"
 msgid "Asterisk DB"
 msgstr "Cơ sở dữ liễu Asterisk ( Asterisk Database)"
 
-#: views/cron.php:50
+#: views/cron.php:51
 msgid "August"
 msgstr "Tháng tám"
 
@@ -182,17 +186,9 @@ msgstr "Sao lưu"
 msgid "Backup & Restore"
 msgstr "Sao lưu và khôi phục"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "Sao lưu và Khôi phục- Khôi phục"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "Sao lưu & Khôi phục- Các máy chủ"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "Sao lưu & Khôi phục- Các mẫu"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -222,7 +218,7 @@ msgstr "Sao lưu Tần số"
 msgid "Backup Items"
 msgstr "Sao lưu các mục tin"
 
-#: bin/backup.php:48
+#: bin/backup.php:49
 msgid "Backup Lock acquired!"
 msgstr "Sao lưu Lock thu được!"
 
@@ -230,7 +226,7 @@ msgstr "Sao lưu Lock thu được!"
 msgid "Backup Log:"
 msgstr "Sao lưu Nhật ký:"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "Sao lưu Mô đun"
 
@@ -262,7 +258,7 @@ msgstr "Sao lưu Wizard"
 msgid "Backup and Restore"
 msgstr "Sao lưu & Khôi phục"
 
-#: bin/backup.php:155 bin/backup.php:215
+#: bin/backup.php:156 bin/backup.php:216
 msgid "Backup completed with errors!"
 msgstr "Sao lưu hoàn thành nhưng bị các lỗi!"
 
@@ -287,7 +283,7 @@ msgstr "Sao lưu tệp đã được tải đến máy chủ từ xa"
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "Sao lưu mô đun không tìm thấy hoặc đã bị vô hiệu. Hủy bỏ!"
 
-#: bin/backup.php:157 bin/backup.php:217
+#: bin/backup.php:158 bin/backup.php:218
 msgid "Backup successfully completed!"
 msgstr "Sao lưu thành công!"
 
@@ -315,7 +311,7 @@ msgstr "Các cập nhật thời gian thực ngắt kết nối không khả d�
 msgid "Bucket Name"
 msgstr "Tên bộ chứa"
 
-#: bin/backup.php:56
+#: bin/backup.php:57
 msgid "Building manifest..."
 msgstr "Đang xây dựng kê khai..."
 
@@ -355,11 +351,11 @@ msgstr "Kích chọn \"Tiếp theo\" để tiếp tục."
 msgid "Configurations only"
 msgstr "Chỉ các cấu hình"
 
-#: bin/backup.php:78
+#: bin/backup.php:79
 msgid "Connecting to remote server..."
 msgstr "Đang kết nối tới máy chủ từ xa..."
 
-#: functions.inc/class.backup.php:821
+#: functions.inc/class.backup.php:837
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr "Không thể tìm thấy  %s trên hệ thống từ xa"
@@ -368,7 +364,7 @@ msgstr "Không thể tìm thấy  %s trên hệ thống từ xa"
 msgid "Created"
 msgstr "Đã tạo"
 
-#: bin/backup.php:61
+#: bin/backup.php:62
 msgid "Creating backup..."
 msgstr "Đang tạo sao lưu..."
 
@@ -393,7 +389,7 @@ msgstr "Hằng ngày"
 msgid "Day each month"
 msgstr "Ngày mỗi tháng"
 
-#: views/cron.php:224
+#: views/cron.php:227
 msgid "Day of Week"
 msgstr "Ngày trong tuần"
 
@@ -401,15 +397,15 @@ msgstr "Ngày trong tuần"
 msgid "Days"
 msgstr "Các ngày"
 
-#: views/cron.php:272 views/cron.php:276
+#: views/cron.php:275 views/cron.php:279
 msgid "Days of Month"
 msgstr "Các ngày trong tháng"
 
-#: views/cron.php:286
+#: views/cron.php:289
 msgid "Days of month to run"
 msgstr "Các ngày trong tháng để chạy"
 
-#: views/cron.php:54
+#: views/cron.php:55
 msgid "December"
 msgstr "Tháng 12"
 
@@ -489,7 +485,11 @@ msgstr "Thư mục '%s' không tồn tại và chúng tôi không thể tạo n�
 msgid "Disable Registered Trunks"
 msgstr "Vô hiệu các trung kế đã đăng ký"
 
-#: bin/restore.php:607
+#: bin/backup.php:191
+msgid "Disabling registered trunks... "
+msgstr ""
+
+#: bin/restore.php:609
 msgid "Done!"
 msgstr "Đã xong!"
 
@@ -514,7 +514,7 @@ msgstr "Kéo và thả các mẫu vào bản mục lục để thêm các thư m
 msgid "Drop Here"
 msgstr "Thả tại đây"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr "Thư điện tử "
 
@@ -561,7 +561,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr "Lỗi khi đang tạo đối tượng FTP"
 
-#: functions.inc/class.backup.php:828
+#: functions.inc/class.backup.php:844
 #, php-format
 msgid "Error deleting %s"
 msgstr "Lỗi khi đang xóa  %s"
@@ -673,7 +673,7 @@ msgstr "Truy xuất tệp từ máy chủ không thành công!"
 msgid "Family, one per line"
 msgstr "Dãy, một trên mỗi dòng"
 
-#: views/cron.php:44
+#: views/cron.php:45
 msgid "February"
 msgstr "Tháng hai"
 
@@ -689,7 +689,7 @@ msgstr "Không tìm thấy tệp! "
 msgid "File restore complete!"
 msgstr "Khôi phục tệp thành công!"
 
-#: bin/backup.php:128
+#: bin/backup.php:129
 msgid "File verification failed. "
 msgstr "Xác nhận tệp không thành công. "
 
@@ -705,7 +705,7 @@ msgstr "Kiểu của Hệ thống tệp tin"
 msgid "FreePBX"
 msgstr "Giao diện FreePBX"
 
-#: views/cron.php:32 assets/js/backup.js:83
+#: views/cron.php:33 assets/js/backup.js:83
 msgid "Friday"
 msgstr "Thứ sáu"
 
@@ -729,7 +729,7 @@ msgstr "Đặt cho sao lưu của bạn một cái tên thân thiện"
 msgid "Go!"
 msgstr "Đi!"
 
-#: bin/backup.php:129
+#: bin/backup.php:130
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr "Đây là vài dòng đầu tiên của tệp tin đã được gửi bởi máy chủ từ xa:"
 
@@ -745,7 +745,7 @@ msgstr "Tên host"
 msgid "Hourly"
 msgstr "Hằng giờ"
 
-#: views/backup/backup.php:551 views/cron.php:194 views/cron.php:198
+#: views/backup/backup.php:551 views/cron.php:197 views/cron.php:201
 msgid "Hours"
 msgstr "Giờ"
 
@@ -769,7 +769,7 @@ msgstr "Địa chỉ IP hoặc FQDN của host ftp từ xa"
 msgid "IP address or FQDN of remote mysql host"
 msgstr "Địa chỉ IP hoặc FQDN của host mysql từ xa"
 
-#: views/cron.php:155
+#: views/cron.php:158
 msgid ""
 "If Randomize is selected, a similar frequency will be followed, only the "
 "exact times will be randomized (avoiding peak business hours, when "
@@ -781,7 +781,7 @@ msgstr ""
 "thể). Xin lưu ý:Các lịch trình ngẫu nhiên sẽ được sắp xếp lại (một cách ngẫu "
 "nhiên) khi mỗi lần sao lưu bất kỳ được lưu"
 
-#: views/cron.php:105
+#: views/cron.php:108
 msgid ""
 "If a custom schedule is selected, any section not specified will be "
 "considered to be \"any\" (aka: wildcard).\n"
@@ -803,7 +803,7 @@ msgstr ""
 msgid "Import"
 msgstr "Nhập vào"
 
-#: bin/backup.php:39
+#: bin/backup.php:40
 msgid "Initializing Backup"
 msgstr "Đang khởi tạo sao lưu"
 
@@ -832,15 +832,15 @@ msgstr "Thư mục"
 msgid "Items"
 msgstr "Các thư mục"
 
-#: views/cron.php:43
+#: views/cron.php:44
 msgid "January"
 msgstr "Tháng một"
 
-#: views/cron.php:49
+#: views/cron.php:50
 msgid "July"
 msgstr "Tháng bảy"
 
-#: views/cron.php:48
+#: views/cron.php:49
 msgid "June"
 msgstr "Tháng sáu"
 
@@ -872,7 +872,7 @@ msgstr "Megabyte"
 msgid "Maintenance"
 msgstr "Bảo dưỡng"
 
-#: views/cron.php:45
+#: views/cron.php:46
 msgid "March"
 msgstr "Tháng ba"
 
@@ -880,15 +880,15 @@ msgstr "Tháng ba"
 msgid "Max Email Size"
 msgstr "Kich cỡ Thư điện tử lớn nhất"
 
-#: views/cron.php:47
+#: views/cron.php:48
 msgid "May"
 msgstr "Tháng năm"
 
-#: views/backup/backup.php:549 views/cron.php:168 views/cron.php:172
+#: views/backup/backup.php:549 views/cron.php:171 views/cron.php:175
 msgid "Minutes"
 msgstr "Phút"
 
-#: views/cron.php:28 assets/js/backup.js:83
+#: views/cron.php:29 assets/js/backup.js:83
 msgid "Monday"
 msgstr "Thứ Hai"
 
@@ -896,7 +896,7 @@ msgstr "Thứ Hai"
 msgid "Monthly"
 msgstr "Hằng tháng"
 
-#: views/backup/backup.php:557 views/cron.php:246 views/cron.php:250
+#: views/backup/backup.php:557 views/cron.php:249 views/cron.php:253
 msgid "Months"
 msgstr "Tháng"
 
@@ -936,7 +936,7 @@ msgstr "Tên sao lưu này"
 msgid "Never"
 msgstr "Không bao giờ"
 
-#: views/cron.php:101
+#: views/cron.php:104
 msgid "Never will never run the backup automatically"
 msgstr "Never sẽ không bao giờ cho phép chạy sao lưu tự động"
 
@@ -981,15 +981,15 @@ msgstr "Hằng đêm"
 #: views/backup/backup.php:387 views/backup/backup.php:416
 #: views/backup/backup.php:445 views/backup/backups.php:186
 #: views/backup/backups.php:213 views/backup/backups.php:240
-#: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:147
+#: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:150
 msgid "No"
 msgstr "Không"
 
-#: bin/backup.php:73
+#: bin/backup.php:74
 msgid "No items in backup set. Aborting."
 msgstr "Không có thư mục nào trong cài đặt sao lưu. Hủy bỏ."
 
-#: bin/backup.php:34
+#: bin/backup.php:35
 msgid "No storage servers found! Aborting."
 msgstr "Không có máy chủ lưu trư nào được tìm thấy. Hủy bỏ."
 
@@ -1001,7 +1001,7 @@ msgstr "Không có gì để khôi phục!"
 msgid "Notifications"
 msgstr "Các thông báo"
 
-#: views/cron.php:53
+#: views/cron.php:54
 msgid "November"
 msgstr "Tháng mười một"
 
@@ -1009,7 +1009,7 @@ msgstr "Tháng mười một"
 msgid "ON"
 msgstr "BẬT"
 
-#: views/cron.php:52
+#: views/cron.php:53
 msgid "October"
 msgstr "Tháng mười"
 
@@ -1082,7 +1082,7 @@ msgstr "Đường dẫn đến khóa ssh, ví dụ /home/asterisk/.ssh/id_rsa"
 msgid "Path/DB"
 msgstr "Đường dẫn/DB"
 
-#: functions.inc/class.backup.php:817 functions.inc/class.backup.php:818
+#: functions.inc/class.backup.php:833 functions.inc/class.backup.php:834
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1142,7 +1142,7 @@ msgstr "Đã xử lý %s%% của các cài đặt (%s của %s dòng)"
 msgid "Processed %s%% of external database %s (%s of %s lines)"
 msgstr ""
 
-#: bin/backup.php:142
+#: bin/backup.php:143
 msgid "Processing received file..."
 msgstr "Đang xử lý tệp đã nhận..."
 
@@ -1150,7 +1150,7 @@ msgstr "Đang xử lý tệp đã nhận..."
 msgid "Provide the name for this server"
 msgstr "Cung cấp tên cho máy chủ này"
 
-#: views/cron.php:140
+#: views/cron.php:143
 msgid "Randomize"
 msgstr "Ngẫu nhiên hóa"
 
@@ -1158,7 +1158,7 @@ msgstr "Ngẫu nhiên hóa"
 msgid "Reboot"
 msgstr "Khởi động lại"
 
-#: bin/restore.php:592
+#: bin/restore.php:594
 msgid "Reloading..."
 msgstr "Đang tải lại..."
 
@@ -1232,7 +1232,7 @@ msgstr "Khôi phục tất cả các cài đặt đã lưu trong cơ sở dữ l
 msgid "Restore backup to this server after the backup is complete"
 msgstr "Khôi phục sao lưu tới máy chủ sau khi sao lưu hoàn thành"
 
-#: bin/restore.php:591
+#: bin/restore.php:593
 msgid "Restore complete!"
 msgstr "Khôi phục hoàn thành!"
 
@@ -1281,7 +1281,7 @@ msgstr "Đang khôi phục tất cả các tệp ( Điều này có thể tốn 
 msgid "Restoring astDB..."
 msgstr "Đang khôi phục astDB ( Dữ liệu Asterisk)..."
 
-#: bin/backup.php:176
+#: bin/backup.php:177
 msgid "Restoring backup..."
 msgstr "Đang khôi phục sao lưu..."
 
@@ -1289,11 +1289,11 @@ msgstr "Đang khôi phục sao lưu..."
 msgid "Restoring files (this may take some time)..."
 msgstr "Đang khôi phục các tệp ( Việc này có thể tốn chút thời gian)..."
 
-#: views/cron.php:120
+#: views/cron.php:123
 msgid "Run Automatically"
 msgstr "Chạy tự đông"
 
-#: views/cron.php:97
+#: views/cron.php:100
 msgid ""
 "Run at startup of the server OR of the cron deamon (i.e. after every "
 "<code>service cron restart</code>)"
@@ -1305,23 +1305,23 @@ msgstr ""
 msgid "Run now"
 msgstr "Chạy ngay bây giờ"
 
-#: views/cron.php:81
+#: views/cron.php:84
 msgid "Run once a day, at midnight"
 msgstr "Chạy 1 lần 1 ngày, vào nửa đêm"
 
-#: views/cron.php:89
+#: views/cron.php:92
 msgid "Run once a month, midnight, first of month"
 msgstr "Chạy 1 lần 1 tháng, vào nửa đêm, ngày đầu tiên của tháng"
 
-#: views/cron.php:85
+#: views/cron.php:88
 msgid "Run once a week, midnight on Sun"
 msgstr "Chạy một lần 1 tuần/ vào nửa đêm ngày Chủ nhật"
 
-#: views/cron.php:93
+#: views/cron.php:96
 msgid "Run once a year, midnight, Jan. 1"
 msgstr "Chạy 1 lần 1 năm/ vào nửa đêm ngày 1 tháng 1"
 
-#: views/cron.php:77
+#: views/cron.php:80
 msgid "Run once an hour, beginning of hour"
 msgstr "Chạy 1 lần 1 giờ, vào lúc bắt đầu của giờ đó"
 
@@ -1333,7 +1333,7 @@ msgstr "Đang chạy bảo dưỡng..."
 msgid "Running post restore script..."
 msgstr "Đang chạy kịch bản sau khôi phục..."
 
-#: bin/backup.php:150 bin/backup.php:200
+#: bin/backup.php:151 bin/backup.php:207
 msgid "Running post-backup hooks..."
 msgstr "Đang chạt Hooks sau sao lưu..."
 
@@ -1341,7 +1341,7 @@ msgstr "Đang chạt Hooks sau sao lưu..."
 msgid "Running post-restore hooks, if any..."
 msgstr "Đang chạy hooks sau khôi phục, nếu có..."
 
-#: bin/backup.php:50
+#: bin/backup.php:51
 msgid "Running pre-backup hooks..."
 msgstr "Đang chạy hooks trước sao lưu..."
 
@@ -1377,7 +1377,7 @@ msgstr "Máy chủ SSH "
 msgid "SSH Username"
 msgstr "Tên người dùng SSH"
 
-#: views/cron.php:33 assets/js/backup.js:83
+#: views/cron.php:34 assets/js/backup.js:83
 msgid "Saturday"
 msgstr "Thứ Bảy"
 
@@ -1393,7 +1393,7 @@ msgstr "Lưu và chạy"
 msgid "Saving file to remote ftp"
 msgstr "Đang lưu tệp tới ftp từ xa"
 
-#: views/cron.php:71
+#: views/cron.php:74
 msgid "Schedule Help"
 msgstr "Lịch trình giúp đỡ"
 
@@ -1401,7 +1401,7 @@ msgstr "Lịch trình giúp đỡ"
 msgid "Select a file and click go"
 msgstr "Chọn một tệp và kích chọn Đi"
 
-#: views/cron.php:73
+#: views/cron.php:76
 msgid ""
 "Select how often to run this backup. The following schedule will be followed "
 "for all but custom."
@@ -1419,7 +1419,7 @@ msgid ""
 msgstr ""
 "Chọn máy chủ đã được sao lưu ( máy chủ này , hoặc bất kỳ máy chủ SSH khác)"
 
-#: views/cron.php:51
+#: views/cron.php:52
 msgid "September"
 msgstr "Tháng chín"
 
@@ -1461,11 +1461,11 @@ msgstr "Địa chỉ máy chủ không được để trống"
 msgid "Servers"
 msgstr "Các máy chủ"
 
-#: bin/backup.php:184
+#: bin/backup.php:185
 msgid "Skip Bindaddrss is Enabled... "
 msgstr "Bỏ qua Địa chỉ IP để gán đã kích hoạt "
 
-#: bin/backup.php:190
+#: bin/backup.php:197
 msgid "Skip DNS is Enabled... "
 msgstr ""
 
@@ -1477,7 +1477,7 @@ msgstr "Bỏ qua Địa chỉ IP để gán theo host"
 msgid "Skipping host-specific DNS"
 msgstr ""
 
-#: bin/backup.php:106
+#: bin/backup.php:107
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr "Xuất hiện lỗi khi kết nối với máy chủ từ xa. Hủy bỏ!"
 
@@ -1513,11 +1513,11 @@ msgstr "Các máy chủ lưu trữ"
 msgid "Storage location for backups"
 msgstr "Vị trí lưu trữ cho các sao lưu"
 
-#: bin/backup.php:147
+#: bin/backup.php:148
 msgid "Storing backup..."
 msgstr "Đang lưu trữ sao lưu..."
 
-#: views/cron.php:27 assets/js/backup.js:83
+#: views/cron.php:28 assets/js/backup.js:83
 msgid "Sunday"
 msgstr "Chủ nhật"
 
@@ -1540,7 +1540,7 @@ msgstr ""
 "Kiểu hệ thống tệp của máy chủ FTP. Nếu bạn không chắc chắn hãy cài đặt về Tự "
 "động"
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "The From: Trường cho các thư điện tử khi sử dụng đặc tính sao lưu Thư điện "
@@ -1613,7 +1613,7 @@ msgstr ""
 "Wizard này có thể được sử dụng để thêm vào một tác vụ sao lưu cho hệ thống  "
 "%s của bạn"
 
-#: views/cron.php:31 assets/js/backup.js:83
+#: views/cron.php:32 assets/js/backup.js:83
 msgid "Thursday"
 msgstr "Thứ Năm"
 
@@ -1630,7 +1630,7 @@ msgstr "Kiểu truyền"
 msgid "Trying to upload %s to %s"
 msgstr "Đang cố gắng tải lên %s đến %s"
 
-#: views/cron.php:29 assets/js/backup.js:83
+#: views/cron.php:30 assets/js/backup.js:83
 msgid "Tuesday"
 msgstr "Thứ Ba"
 
@@ -1668,7 +1668,7 @@ msgstr "Tên người dùng"
 msgid "Username"
 msgstr "Tên người dùng"
 
-#: bin/backup.php:113
+#: bin/backup.php:114
 msgid "Verifying received file..."
 msgstr "Đang xác nhận tệp đã nhận..."
 
@@ -1689,11 +1689,11 @@ msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
 "Việc khôi phục Web Root không được phát hiện, không khôi phục bảng mô đun"
 
-#: views/cron.php:30 assets/js/backup.js:83
+#: views/cron.php:31 assets/js/backup.js:83
 msgid "Wednesday"
 msgstr "Thứ Tư"
 
-#: views/cron.php:220
+#: views/cron.php:223
 msgid "Week Days"
 msgstr "Các ngày trong tuần"
 
@@ -1721,19 +1721,19 @@ msgstr "Đây là cái gì?"
 msgid "Where should status emails for this job be sent?"
 msgstr "Các trạng thái thư điện tử cho công việc này nên được gửi đến đâu?"
 
-#: views/cron.php:234
+#: views/cron.php:237
 msgid "Which Days of the week to run"
 msgstr "Chạy vào những ngày nào trong tuần"
 
-#: views/cron.php:208
+#: views/cron.php:211
 msgid "Which Hours to run."
 msgstr "Chạy vào những giờ nào."
 
-#: views/cron.php:260
+#: views/cron.php:263
 msgid "Which Months to run"
 msgstr "Chạy vào các tháng nào"
 
-#: views/cron.php:182
+#: views/cron.php:185
 msgid "Which minutes to run"
 msgstr "Chạy vào những phút nào"
 
@@ -1770,7 +1770,7 @@ msgstr "Năm"
 #: views/backup/backup.php:385 views/backup/backup.php:414
 #: views/backup/backup.php:443 views/backup/backups.php:184
 #: views/backup/backups.php:211 views/backup/backups.php:238
-#: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:145
+#: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:148
 msgid "Yes"
 msgstr "Có"
 
@@ -1811,10 +1811,16 @@ msgstr "Không tìm thấy kê khai"
 msgid "table names, one per line"
 msgstr "Tên bảng, một trên một dòng"
 
-#: bin/backup.php:45
+#: bin/backup.php:46
 msgid "waiting for lock..."
 msgstr "Đang đợi để khóa..."
 
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{không có máy chủ nào khả dụng}"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Sao lưu & Khôi phục- Các máy chủ"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Sao lưu & Khôi phục- Các mẫu"

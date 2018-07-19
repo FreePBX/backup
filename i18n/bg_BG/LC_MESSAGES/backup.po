@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-28 15:33-0400\n"
+"POT-Creation-Date: 2018-07-19 17:59-0400\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -194,9 +194,17 @@ msgstr "Архивиране"
 msgid "Backup & Restore"
 msgstr "Архивирай & Възстанови"
 
-#: backup.i18n.php:12
+#: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
 msgstr "Архивирай & Възстанови - Възстановяване"
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Servers"
+msgstr "Архивирай & Възстанови - Сървъри"
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Templates"
+msgstr "Архивирай & Възстанови - Шаблони"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -234,7 +242,7 @@ msgstr "Архива е Заключен!"
 msgid "Backup Log:"
 msgstr "Лог на Архива:"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:20
 msgid "Backup Module"
 msgstr "Модул за Архиви"
 
@@ -514,7 +522,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr "Пуснете Тук"
 
-#: backup.i18n.php:14
+#: backup.i18n.php:18
 msgid "Email "
 msgstr "Email "
 
@@ -1504,7 +1512,7 @@ msgstr "Шаблони"
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr ""
 
-#: backup.i18n.php:18
+#: backup.i18n.php:22
 msgid "The From: field for emails when using the backup email feature."
 msgstr "Поле От: за  email-и когато използвате услугата архив към  email."
 
@@ -1773,12 +1781,6 @@ msgstr ""
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr ""
-
-#~ msgid "Backup & Restore - Servers"
-#~ msgstr "Архивирай & Възстанови - Сървъри"
-
-#~ msgid "Backup & Restore - Templates"
-#~ msgstr "Архивирай & Възстанови - Шаблони"
 
 #~ msgid "Error connecting to the FTP Server..."
 #~ msgstr "Грешка при свързване с FTP Сървър..."

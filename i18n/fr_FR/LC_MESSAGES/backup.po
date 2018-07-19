@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-28 15:33-0400\n"
+"POT-Creation-Date: 2018-07-19 17:59-0400\n"
 "PO-Revision-Date: 2016-02-05 11:17+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -191,9 +191,17 @@ msgstr "Copie de sauvegarde"
 msgid "Backup & Restore"
 msgstr "Sauvegarder et restaurer"
 
-#: backup.i18n.php:12
+#: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
 msgstr "Sauvegarder et restaurer - Restaurer"
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Servers"
+msgstr "Sauvegarder et restaurer - Serveurs"
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Templates"
+msgstr "Sauvegarder et restaurer - Modèles"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -231,7 +239,7 @@ msgstr ""
 msgid "Backup Log:"
 msgstr "Journal de la copie de sauvegarde :"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:20
 msgid "Backup Module"
 msgstr "Modele de copie de sauvegarde"
 
@@ -509,7 +517,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr ""
 
-#: backup.i18n.php:14
+#: backup.i18n.php:18
 msgid "Email "
 msgstr ""
 
@@ -1498,7 +1506,7 @@ msgstr ""
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr ""
 
-#: backup.i18n.php:18
+#: backup.i18n.php:22
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 
@@ -1767,12 +1775,6 @@ msgstr ""
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr ""
-
-#~ msgid "Backup & Restore - Servers"
-#~ msgstr "Sauvegarder et restaurer - Serveurs"
-
-#~ msgid "Backup & Restore - Templates"
-#~ msgstr "Sauvegarder et restaurer - Modèles"
 
 #~ msgid " Authentication Failure"
 #~ msgstr " Échec d'authentification"

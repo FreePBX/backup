@@ -63,7 +63,8 @@ class Backup extends Command {
             return $job->doSingleRestore();
         }
 		if($manifest){
-			return 	$output->writeln(json_encode($this->freepbx->Backup->getMetaData($manifest),\JSON_PRETTY_PRINT));
+            $phar = new \PharData($manifest);
+			return 	$output->writeln(json_encode($phar->getMetaData(),\JSON_PRETTY_PRINT));
 		}
 		if($input->getOption('implemented')){
 			$output->writeln(json_encode($backupHandler->getModules()));

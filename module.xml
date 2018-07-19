@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>13.0.27.20</version>
+	<version>14.0.9</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -19,29 +19,30 @@
 		<version>13.0.5</version>
 	</depends>
 	<changelog>
-		*13.0.27.20* FREEPBX-16782 - make sure we can pass in an argument to disable trunks since we check it later 
-		*13.0.27.19* FREEPBX-16782 Move trunk disable to the restore section of the warm spare 
-		*13.0.27.18* FREEPBX-17063 Backup module do not permit to reset entries settings in custom backup schedules 
-		*13.0.27.17* FREEPBX-15251 FREEPBX-15321 CDR and Call Log Data field under Backup Wizard is broken 
-		*13.0.27.16* FREEPBX-16094 Items are removed from backup upon save
-		*13.0.27.15* FREEPBX-15279 Set errors message for SSH failures. 
-		*13.0.27.14* FREEPBX-11713
-		*13.0.27.13* FREEPBX-12339
-		*13.0.27.12* FREEPBX-16098 Add wanpipe configs to config only and full 
-		*13.0.27.11* Revert FREEPBX-16094
-		*13.0.27.10* FREEPBX-16147 Fix log format 
-		*13.0.27.8* FREEPBX-15630 Fix commands causing whoops errors 
-		*13.0.27.7* FREEPBX-16085 On FTP error break loop iteration rather than exit 
-		*13.0.27.6* Bugfix/FREEPBX-16094 
-		*13.0.27.5* FREEPBX-16258 Fix wizard to add config database 
-		*13.0.27.4* FREEPBX-12339
-		*13.0.27.3* FREEPBX-13872 
-		*13.0.27.2* FREEPBX-15322 FREEPBX-15326
-		*13.0.27.1* FREEPBX-15226 Catch additional exceptions add log messages
-		*13.0.27* FREEPBX-14935
-		*13.0.26.8* FREEPBX-15043 FREEPBX-15135 FREEPBX-15127
-		*13.0.26.7* FREEPBX-14937 Add better Exception messages
-		*13.0.26.6* FREEPBX-13260, FREEPBX-13782, FREEPBX-14680
+		*14.0.9* FREEPBX-16782 - make sure we can pass in an argument to disable trunks since we check it later 
+		*14.0.8* FREEPBX-16338 Build in a safeguard to prevent restoring mismatched versions 
+		*14.0.7* FREEPBX-16782 Move trunk disable to the restore section of the warm spare 
+		*14.0.6* FREEPBX-17063 Backup module do not permit to reset entries settings in custom backup schedules 
+		*14.0.5* FREEPBX-15251 FREEPBX-15321 CDR and Call Log Data field under Backup Wizard is broken 
+		*14.0.4* Ensure that .git folders are not accidentally backed up, causing massive bloat
+		*14.0.3.16* FREEPBX-16094 Items are removed from backup upon save
+		*14.0.3.15* FREEPBX-15325 Remove duplicate row with  asterrisk db 
+		*14.0.3.14* FREEPBX-15279
+		*14.0.3.13* FREEPBX-16098 Add wanpipe configs to config only and full 
+		*14.0.3.12* Revert FREEPBX-16094
+		*14.0.3.11* FREEPBX-16147 Fix log format 
+		*14.0.3.9* FREEPBX-15630 Fix commands causing whoops errors 
+		*14.0.3.8* FREEPBX-16085 On FTP error break loop iteration rather than exit 
+		*14.0.3.7* Bugfix/FREEPBX-16094 
+		*14.0.3.6* FREEPBX-16258 Fix wizard to add config database 
+		*14.0.3.5* FREEPBX-12339 Backup and Restore sync from primary to backup restores SIP IP settings from primary
+		*14.0.3.4* Naming of object
+		*14.0.3.3* FREEPBX-12339 FREEPBX-11713
+		*14.0.3.2* FREEPBX-13872
+		*14.0.3.1* FREEPBX-15326 FREEPBX-15322
+		*14.0.3* Merge from 13
+		*14.0.2* Merge from 13
+		*14.0.1* Merge from 13
 		*13.0.26.5* FREEPBX-14413 Cant set Path with Date Variable for (SSH) backups
 		*13.0.26.4* FREEPBX-14463 Exclude SIP Settings Bind Address (bindaddr) from Warm Spare Backup
 		*13.0.26.3* FREEPBX-14414 FREEPBX-14466
@@ -66,7 +67,7 @@
 		*13.0.19.1* #11130 - Ensure backup path is correct when saving to S3
 	</changelog>
 	<supported>
-		<version>13.0</version>
+		<version>14.0</version>
 	</supported>
 	<location>x</location>
 	<md5sum>x</md5sum>

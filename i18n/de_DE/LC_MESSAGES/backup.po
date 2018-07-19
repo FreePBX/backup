@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-28 15:33-0400\n"
-"PO-Revision-Date: 2018-02-16 19:51+0200\n"
-"Last-Translator: Nils <Nils@heckenkamp.info>\n"
+"PO-Revision-Date: 2017-03-06 03:04+0200\n"
+"Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/backup/"
 "de_DE/>\n"
 "Language: de_DE\n"
@@ -61,7 +61,7 @@ msgstr "Ein Script, dass VOR der Durchführung einer Sicherung startet."
 
 #: views/backup/backups.php:154 assets/js/backup.js:93 assets/js/backup.js:105
 msgid "AT"
-msgstr "AT"
+msgstr ""
 
 #: views/servers/awss3.php:41
 msgid "AWS Access Key"
@@ -147,6 +147,10 @@ msgstr "Konfigurationen anwenden"
 msgid "April"
 msgstr "April"
 
+#: bin/restore.php:124
+msgid "Archive coorect."
+msgstr ""
+
 #: views/restore/browseserver.php:21
 msgid "AstDB's"
 msgstr "Ast-DB's"
@@ -175,12 +179,12 @@ msgstr "B"
 msgid "BACKUP LOG ATTACHED"
 msgstr "Sicherungsprotokoll angehängt"
 
-#: functions.inc/class.backup.php:407 functions.inc/class.backup.php:410
+#: functions.inc/class.backup.php:411 functions.inc/class.backup.php:414
 msgid "BACKUP NOT ATTACHED"
 msgstr "Sicherung nicht angehängt"
 
 #: Backup.class.php:321 functions.inc/backup.php:82
-#: functions.inc/class.backup.php:401 views/backup/backup.php:6
+#: functions.inc/class.backup.php:405 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Sicherung"
 
@@ -204,11 +208,11 @@ msgstr "Anruferdatensätze und Aufzeichnungsdaten Sichern?"
 msgid "Backup Description"
 msgstr "Sicherungsbeschreibung"
 
-#: functions.inc/class.backup.php:406
+#: functions.inc/class.backup.php:410
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr "Sicherungsfehler (überschrittene SMTP-Grenzwerte)"
 
-#: functions.inc/class.backup.php:409
+#: functions.inc/class.backup.php:413
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr "Sicherungsfehler (Softlimit überschritten)"
 
@@ -264,7 +268,7 @@ msgstr "Sichern und Wiederherstellen"
 msgid "Backup completed with errors!"
 msgstr "Sicherung mit Fehler beendet!"
 
-#: functions.inc/class.backup.php:292
+#: functions.inc/class.backup.php:296
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -277,9 +281,9 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr "Sicherungsdatei nicht gefunden! Abbrechen."
 
-#: functions.inc/class.backup.php:495
+#: functions.inc/class.backup.php:499
 msgid "Backup file uploaded to the remote server"
-msgstr "Backup-Datei wird auf den Remote-Server hinaufgeladen"
+msgstr ""
 
 #: bin/backup.php:12
 msgid "Backup module not found or is disabled. Aborting!"
@@ -315,7 +319,7 @@ msgstr "Bucket-Name"
 
 #: bin/backup.php:57
 msgid "Building manifest..."
-msgstr "erstelle Manifest..."
+msgstr ""
 
 #: views/backup/backups.php:233
 msgid "CDR and Call Log Data"
@@ -341,7 +345,7 @@ msgstr "Anruferberichte"
 msgid "Can not create backup tables"
 msgstr "Es können keine Sicherungstabellen erstellt werden"
 
-#: bin/restore.php:561
+#: bin/restore.php:500
 msgid "Cleaning up..."
 msgstr "Aufräumen..."
 
@@ -357,12 +361,12 @@ msgstr "Nur Konfigurationen"
 msgid "Connecting to remote server..."
 msgstr "Verbindung zum Remote-Server ..."
 
-#: functions.inc/class.backup.php:837
+#: functions.inc/class.backup.php:841
 #, php-format
 msgid "Could not find %s on the remote system"
-msgstr "Konnte %s auf dem Remote-System nicht finden"
+msgstr ""
 
-#: functions.inc/class.backup.php:394 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:398 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Erstellt"
 
@@ -370,7 +374,7 @@ msgstr "Erstellt"
 msgid "Creating backup..."
 msgstr "Erstelle Sicherung..."
 
-#: functions.inc/class.backup.php:473
+#: functions.inc/class.backup.php:477
 #, php-format
 msgid "Creating directory '%s'"
 msgstr "Erstelle Verzeichnis '%s'"
@@ -479,7 +483,7 @@ msgstr "Ziel"
 msgid "Directory"
 msgstr "Verzeichnis"
 
-#: functions.inc/class.backup.php:477
+#: functions.inc/class.backup.php:481
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr ""
@@ -493,7 +497,7 @@ msgstr "Deaktivieren Sie registrierte Hauptleitungen"
 msgid "Disabling registered trunks... "
 msgstr ""
 
-#: bin/restore.php:609
+#: bin/restore.php:548
 msgid "Done!"
 msgstr "Erledigt!"
 
@@ -563,12 +567,12 @@ msgstr ""
 "Das Gleiche, wie auf den Roten Button zu drücken, passiert automatisch nach "
 "einer Wiederherstellung (restore) auf einem Standby-System"
 
-#: functions.inc/class.backup.php:467 functions.inc/restore.php:117
+#: functions.inc/class.backup.php:471 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
 msgstr "Fehler beim Erstellen des FTP-Objekts"
 
-#: functions.inc/class.backup.php:844
+#: functions.inc/class.backup.php:848
 #, php-format
 msgid "Error deleting %s"
 msgstr "Fehler %s löschen"
@@ -587,7 +591,7 @@ msgstr "Ausschließen"
 
 #: views/backup/backup.php:380
 msgid "Exclude BIND address"
-msgstr "BIND-Adresse ausschließen"
+msgstr ""
 
 #: install.php:180
 msgid ""
@@ -599,7 +603,7 @@ msgstr ""
 
 #: views/backup/backup.php:409
 msgid "Exclude DNS"
-msgstr "DNS ausschließen"
+msgstr ""
 
 #: views/backup/backup.php:353
 msgid "Exclude NAT settings"
@@ -610,26 +614,18 @@ msgid ""
 "Explicitly exclude any machine-specific Bindaddres. This allows you to have "
 "a warm-spare machine with a different IP address."
 msgstr ""
-"Schließen Sie explizit alle maschinenspezifischen Bindaddres aus. Auf diese "
-"Weise können Sie ein Warm-Spare-machine mit einer anderen IP-Adresse "
-"verwenden."
 
 #: views/backup/backup.php:424
 msgid ""
 "Explicitly exclude any machine-specific DNS. This allows you to have a warm-"
 "spare machine with a different DNS."
 msgstr ""
-"Schließen Sie explizit alle maschinenspezifischen DNS aus. Auf diese Weise "
-"können Sie einen Warm-Spare-machine mit einem anderen DNS verwenden."
 
 #: views/backup/backup.php:368
 msgid ""
 "Explicitly exclude any machine-specific IP settings. This allows you to have "
 "a warm-spare machine with a different IP address."
 msgstr ""
-"Schließen Sie explizit alle maschinenspezifischen IP-Einstellungen aus. Auf "
-"diese Weise können Sie ein Warm-Spare-machine mit einer anderen IP-Adresse "
-"verwenden."
 
 #: bin/restore.php:65
 msgid "Explicitly skipping host-specific NAT settings"
@@ -664,8 +660,6 @@ msgid ""
 "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
 "current state"
 msgstr ""
-"Fehler beim Konvertieren von asterisk.sql in das richtige Format, umbenennen "
-"in mysql-db.sql im aktuellen Zustand"
 
 #: functions.inc/restore.php:577
 msgid ""
@@ -696,7 +690,7 @@ msgstr "Datei"
 msgid "File not found! "
 msgstr "Datei nicht gefunden! "
 
-#: bin/restore.php:162
+#: bin/restore.php:177
 msgid "File restore complete!"
 msgstr "Dateiwiederherstellung vollständig!"
 
@@ -704,7 +698,7 @@ msgstr "Dateiwiederherstellung vollständig!"
 msgid "File verification failed. "
 msgstr "Dateiüberprüfung fehlgeschlagen. "
 
-#: functions.inc/class.backup.php:395 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:399 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Dateien"
 
@@ -716,11 +710,16 @@ msgstr "Dateisystemtyp"
 msgid "FreePBX"
 msgstr "FreePBX"
 
+#: bin/restore.php:119
+#, php-format
+msgid "Freepbx version %s, Archive version %s"
+msgstr ""
+
 #: views/cron.php:33 assets/js/backup.js:83
 msgid "Friday"
 msgstr "Freitag"
 
-#: bin/restore.php:226
+#: bin/restore.php:241
 msgid "Getting CDR size..."
 msgstr "CDR-Größe erhalten ..."
 
@@ -788,10 +787,6 @@ msgid ""
 "possible). Please note: randomized schedules will be rescheduled (randomly) "
 "every time ANY backup is saved"
 msgstr ""
-"Wenn Randomize ausgewählt ist, wird eine ähnliche Häufigkeit eingehalten, "
-"nur die genauen Zeiten werden randomisiert (Vermeidung von "
-"Hauptgeschäftszeiten, wenn möglich). Bitte beachten Sie: Randomisierte "
-"Zeitpläne werden jedes Mal neu geplant, wenn ein Backup gespeichert wird"
 
 #: views/cron.php:108
 msgid ""
@@ -925,7 +920,7 @@ msgstr "MySQL"
 msgid "Mysql DB's"
 msgstr "MySQL DB's"
 
-#: functions.inc/class.backup.php:396
+#: functions.inc/class.backup.php:400
 msgid "Mysql Db's"
 msgstr "MySQL DB's"
 
@@ -933,7 +928,7 @@ msgstr "MySQL DB's"
 msgid "Mysql Server "
 msgstr "MySQL Server "
 
-#: functions.inc/class.backup.php:393 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:397 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Name"
 
@@ -1045,7 +1040,7 @@ msgstr ""
 
 #: views/restore/backup_list.php:37
 msgid "Other MySQL databases"
-msgstr "Andere MySQL-Datenbanken"
+msgstr ""
 
 #: functions.inc/templates.php:259
 msgid "PATTERNs, one per line"
@@ -1096,10 +1091,10 @@ msgstr "Pfad zum SSH-Schlüssel (Beispiel /home/asterisk/.ssh/id_rsa)"
 msgid "Path/DB"
 msgstr "Pfad/DB"
 
-#: functions.inc/class.backup.php:833 functions.inc/class.backup.php:834
+#: functions.inc/class.backup.php:837 functions.inc/class.backup.php:838
 #, php-format
 msgid "Path: %s"
-msgstr "Pfad: %s"
+msgstr ""
 
 #: assets/js/backup.js:150
 msgid "Please wait"
@@ -1129,32 +1124,27 @@ msgstr "Sicherung-Vor-Skript"
 msgid "Pre-Restore Hook"
 msgstr "Wiederherstellung-Vor-Skript"
 
-#: bin/restore.php:334
+#: bin/restore.php:349
 msgid "Preserving local Bind address"
-msgstr "Lokale Bind-Adresse beibehalten"
+msgstr ""
 
-#: bin/restore.php:327
+#: bin/restore.php:342
 msgid "Preserving local DNS settings"
-msgstr "Lokale DNS-Einstellungen beibehalten"
+msgstr ""
 
-#: bin/restore.php:313
+#: bin/restore.php:328
 msgid "Preserving local NAT settings"
 msgstr "Lokale NAT-Einstellungen werden beibehalten"
 
-#: bin/restore.php:260
+#: bin/restore.php:275
 #, php-format
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr "durchgeführt %s%% der CDRs (%s von %s Zeilen)"
 
-#: bin/restore.php:406
+#: bin/restore.php:422
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "durchgeführt %s%% der Einstellungen (%s von %s Zeilen)"
-
-#: bin/restore.php:518
-#, php-format
-msgid "Processed %s%% of external database %s (%s of %s lines)"
-msgstr "Verarbeitet %s%% der externen Datenbank %s (%s von %s Zeilen)"
 
 #: bin/backup.php:143
 msgid "Processing received file..."
@@ -1172,7 +1162,7 @@ msgstr "Zufällig"
 msgid "Reboot"
 msgstr "Neustart"
 
-#: bin/restore.php:594
+#: bin/restore.php:533
 msgid "Reloading..."
 msgstr "Neu laden..."
 
@@ -1220,6 +1210,10 @@ msgstr "Remote Speicherpfad, für Standardpfad Feld leer lassen"
 msgid "Reset"
 msgstr "Zurücksetzen"
 
+#: bin/restore.php:121
+msgid "Restoration canceled."
+msgstr ""
+
 #: page.backup_restore.php:201 views/restore/backup_list.php:46
 #: views/restore/browseserver.php:4 views/restore/restore.php:34
 #: views/rnav/main.php:4
@@ -1238,7 +1232,7 @@ msgstr "Hier wiederherstellen"
 
 #: views/restore/backup_list.php:37
 msgid "Restore MySQL databases stored in the backup"
-msgstr "Stellen Sie die im Backup gespeicherten MySQL-Datenbanken wieder her"
+msgstr ""
 
 #: views/restore/backup_list.php:22
 msgid "Restore all setting stored in the database"
@@ -1250,52 +1244,47 @@ msgstr ""
 "Stellen Sie die Sicherung auf diesem Server wieder her, nachdem die "
 "Sicherung abgeschlossen ist"
 
-#: bin/restore.php:593
+#: bin/restore.php:532
 msgid "Restore complete!"
 msgstr "Wiederherstellung abgeschlossen!"
 
-#: bin/restore.php:410 bin/restore.php:528
+#: bin/restore.php:426
 msgid "Restored Database"
 msgstr "Wiederhergestellte Datenbank"
 
-#: bin/restore.php:439
+#: bin/restore.php:455
 msgid "Restoring Bindaddres Settings"
-msgstr "Bindaddres Einstellungen wiederherstellen"
+msgstr ""
 
-#: bin/restore.php:267
+#: bin/restore.php:282
 msgid "Restoring CDRs complete"
 msgstr "Wiederherstellen von CDRs abgeschlossen"
 
-#: bin/restore.php:181
+#: bin/restore.php:196
 msgid "Restoring CDRs..."
 msgstr "Wiederherstellen von CDRs ..."
 
-#: bin/restore.php:433
+#: bin/restore.php:449
 msgid "Restoring DNS settings"
-msgstr "Wiederherstellen der DNS-Einstellungen"
+msgstr ""
 
-#: bin/restore.php:497
-#, php-format
-msgid "Restoring Database %s..."
-msgstr "Wiederherstellen der Datenbank %s..."
-
-#: bin/restore.php:368
+#: bin/restore.php:384
 msgid "Restoring Database..."
 msgstr "Datenbank wird wiederhergestellt ..."
 
-#: bin/restore.php:418
+#: bin/restore.php:434
 msgid "Restoring NAT settings"
 msgstr "NAT-Einstellungen werden wiederhergestellt"
 
-#: bin/restore.php:546
+#: bin/restore.php:485
 msgid "Restoring Settings complete"
 msgstr "Wiederherstellen der Einstellungen abgeschlossen"
 
-#: bin/restore.php:126
+#: bin/restore.php:141
 msgid "Restoring all files (this may take some time)..."
 msgstr "Wiederherstellen aller Dateien (dies kann einige Zeit dauern) ..."
 
-#: bin/restore.php:536
+#: bin/restore.php:475
 msgid "Restoring astDB..."
 msgstr "AstDB wiederherstellen ...."
 
@@ -1303,7 +1292,7 @@ msgstr "AstDB wiederherstellen ...."
 msgid "Restoring backup..."
 msgstr "Sicherung wird wiederhergestellt ..."
 
-#: bin/restore.php:130
+#: bin/restore.php:145
 msgid "Restoring files (this may take some time)..."
 msgstr "Wiederherstellen von Dateien (dies kann einige Zeit dauern) ..."
 
@@ -1343,11 +1332,11 @@ msgstr "Startet einmal jährlich, am 1.Januar, um Mitternacht"
 msgid "Run once an hour, beginning of hour"
 msgstr "Startet einmal stündlich, am Stundenanfang"
 
-#: functions.inc/class.backup.php:496
+#: functions.inc/class.backup.php:500
 msgid "Running maintenance.."
-msgstr "Wartung läuft.."
+msgstr ""
 
-#: bin/restore.php:552
+#: bin/restore.php:491
 msgid "Running post restore script..."
 msgstr "Laufendes Wiederherstellungs-Post-Skript..."
 
@@ -1355,7 +1344,7 @@ msgstr "Laufendes Wiederherstellungs-Post-Skript..."
 msgid "Running post-backup hooks..."
 msgstr "Laufende Sicherungs-Post-Skripte..."
 
-#: bin/restore.php:556
+#: bin/restore.php:495
 msgid "Running post-restore hooks, if any..."
 msgstr "Laufende Wiederherstellungs-Post-Skripte, falls vorhanden..."
 
@@ -1363,11 +1352,11 @@ msgstr "Laufende Wiederherstellungs-Post-Skripte, falls vorhanden..."
 msgid "Running pre-backup hooks..."
 msgstr "Laufende Sicherungs-Pre-Skripte..."
 
-#: bin/restore.php:116
+#: bin/restore.php:131
 msgid "Running pre-restore hooks, if any..."
 msgstr "Laufende Wiederherstellungs-Pre-Skripte, falls vorhanden..."
 
-#: bin/restore.php:113
+#: bin/restore.php:128
 msgid "Running pre-restore scripts..."
 msgstr "Laufende Wiederherstellungs-Pre-Skripte..."
 
@@ -1407,7 +1396,7 @@ msgstr "Speichern"
 msgid "Save and Run"
 msgstr "Speichern und Starten"
 
-#: functions.inc/class.backup.php:484
+#: functions.inc/class.backup.php:488
 msgid "Saving file to remote ftp"
 msgstr "Datei auf FTP-Server speichern"
 
@@ -1429,7 +1418,7 @@ msgstr ""
 
 #: views/restore/backup_list.php:7
 msgid "Select items to restore"
-msgstr "Wählen Sie die wiederherzustellenden Elemente aus"
+msgstr ""
 
 #: views/backup/backup.php:281
 msgid ""
@@ -1482,19 +1471,19 @@ msgstr "Server"
 
 #: bin/backup.php:185
 msgid "Skip Bindaddrss is Enabled... "
-msgstr "Bindaddrss überspringen ist aktiviert ... "
+msgstr ""
 
 #: bin/backup.php:197
 msgid "Skip DNS is Enabled... "
-msgstr "DNS überspringen ist aktiviert ... "
+msgstr ""
 
 #: bin/restore.php:73
 msgid "Skipping host-specific Bind address"
-msgstr "Hostspezifische Bind-Adresse überspringen"
+msgstr ""
 
 #: bin/restore.php:79
 msgid "Skipping host-specific DNS"
-msgstr "Host-spezifische DNS überspringen"
+msgstr ""
 
 #: bin/backup.php:107
 msgid "Something went wrong when connecting to remote server. Aborting!"
@@ -1574,7 +1563,12 @@ msgstr ""
 msgid "The Restore script is still running"
 msgstr "Das Wiederherstellungsskript wird weiterhin ausgeführt"
 
-#: functions.inc/class.backup.php:407
+#: bin/restore.php:120
+#, php-format
+msgid "The archive must be come from a release like this: %s.%s"
+msgstr ""
+
+#: functions.inc/class.backup.php:411
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
@@ -1584,7 +1578,7 @@ msgstr ""
 "wurde nicht versucht zu senden. Bitte verkleinern Sie Ihre Sicherung oder "
 "verwenden Sie eine andere Methode die Sicherung zu übertragen."
 
-#: functions.inc/class.backup.php:410
+#: functions.inc/class.backup.php:414
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1607,6 +1601,10 @@ msgstr ""
 "sicher, dass Dateien die größer als die maximale Größe sind, nicht gesendet "
 "werden."
 
+#: bin/restore.php:118
+msgid "This archive cannot be used, because the version is not correct!!!"
+msgstr ""
+
 #: views/servers/ftp.php:166
 msgid ""
 "This defaults to 'Passive'. If your FTP server is behind a seperate NAT or "
@@ -1615,11 +1613,6 @@ msgid ""
 "the data. In 'Passive' mode, the VoIP server connects to the FTP Server to "
 "send data."
 msgstr ""
-"Dies ist standardmäßig \"Passiv\". Wenn sich Ihr FTP-Server hinter einem "
-"separaten NAT oder Firewall zu diesem VoIP-Server befindet, sollten Sie "
-"\"Aktiv\" wählen. Im aktiven Modus baut der FTP-Server eine Verbindung zum "
-"VoIP-Server auf, um die Daten zu empfangen. Im passiven Modus verbindet sich "
-"der VoIP-Server mit dem FTP-Server, um Daten zu senden."
 
 #: views/servers/email.php:118
 msgid "This has a maximum size of 25MB."
@@ -1648,10 +1641,10 @@ msgstr "Übertragungsmodus"
 msgid "Transfer Type"
 msgstr "Übertragungstyp"
 
-#: functions.inc/class.backup.php:489
+#: functions.inc/class.backup.php:493
 #, php-format
 msgid "Trying to upload %s to %s"
-msgstr "Versuche %s auf %s hochzuladen"
+msgstr ""
 
 #: views/cron.php:30 assets/js/backup.js:83
 msgid "Tuesday"
@@ -1661,7 +1654,7 @@ msgstr "Dienstag"
 msgid "Type"
 msgstr "Typ"
 
-#: functions.inc/class.backup.php:487
+#: functions.inc/class.backup.php:491
 msgid "Unable to upload file to the remote server"
 msgstr "Die Datei kann nicht auf dem Remoteserver hochgeladen werden"
 
@@ -1703,15 +1696,13 @@ msgstr "Speicher für Anrufbeantworter"
 msgid "Voicemails"
 msgstr "Anrufbeantworter"
 
-#: bin/restore.php:273
+#: bin/restore.php:288
 msgid "WARNING!"
 msgstr "Achtung!"
 
-#: bin/restore.php:274
+#: bin/restore.php:289
 msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
-"Web-Root-Wiederherstellung nicht erkannt, Modul-Tabelle wird nicht "
-"wiederhergestellt"
 
 #: views/cron.php:31 assets/js/backup.js:83
 msgid "Wednesday"
@@ -1763,7 +1754,7 @@ msgstr "Zu welcher/welchen Minute(n) soll die Sicherung ausgeführt werden"
 
 #: views/servers/ftp.php:117
 msgid "Windows"
-msgstr "Windows"
+msgstr ""
 
 #: Backup.class.php:67
 msgid "Wizard"
@@ -1798,7 +1789,7 @@ msgstr "Jahre"
 msgid "Yes"
 msgstr "Ja"
 
-#: bin/restore.php:275
+#: bin/restore.php:290
 #, php-format
 msgid "You should run \"%s\" to ensure system integrity"
 msgstr ""
@@ -1816,7 +1807,7 @@ msgstr "Standard-Sicherungsserver hinzugefügt"
 msgid "added default backup templates"
 msgstr "Standard-Sicherungsvorlagen hinzugefügt"
 
-#: functions.inc/class.backup.php:397
+#: functions.inc/class.backup.php:401
 msgid "astDb's"
 msgstr "ast-Db's"
 

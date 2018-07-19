@@ -69,10 +69,10 @@ if (isset($vars['skipnat'])) {
 
 // Checking  skip Bind address
 if (isset($vars['skipbind'])) {
-	$skipbind = true;
-	backup_log(_('Skipping host-specific Bind address'));
+        $skipbind = true;
+        backup_log(_('Skipping host-specific Bind address'));
 } else {
-	$skipbind = false;
+        $skipbind = false;
 }
 if (isset($vars['skipdns'])) {
 	$skipdns = true;
@@ -108,6 +108,21 @@ if (!isset($vars['restore'])) {
 	//files exists before trying to restore them?
 	$manifest = backup_get_manifest_tarball($vars['restore']);
 
+	/*
+		Compare the versions for restoration.
+	*/
+	$from = explode(".",$manifest["pbx_version"]);
+	$to = explode(".",getversion());
+	if($from[0] !== $to[0]  || $from[1] !== $to[1]){
+		// The version are differents, so we stop.
+		backup_log(_('This archive cannot be used, because the version is not correct!!!'));
+		backup_log(sprintf( _('Freepbx version %s, Archive version %s'),getversion(),$manifest["pbx_version"]));
+		backup_log(sprintf( _('The archive must be come from a release like this: %s.%s'),$to[0],$to[1]));
+		backup_log(_('Restoration canceled.'));
+		exit();
+	}
+	backup_log(_('Archive coorect.'));
+	
 	//run hooks
 	if (isset($manifest['hooks']['pre_restore']) && $manifest['hooks']['pre_restore']) {
 		backup_log(_('Running pre-restore scripts...'));
@@ -186,24 +201,24 @@ if (!isset($vars['restore'])) {
 
 		 //create cdrdb handler
 		$dsn = array(
-			'phptype'	=> $amp_conf['CDRDBTYPE']
-						? $amp_conf['CDRDBTYPE']
-						: $amp_conf['AMPDBENGINE'],
-			'hostspec'	=> $amp_conf['CDRDBHOST']
-						? $amp_conf['CDRDBHOST']
-						: $amp_conf['AMPDBHOST'],
-			'username'	=> $amp_conf['CDRDBUSER']
-						? $amp_conf['CDRDBUSER']
-						: $amp_conf['AMPDBUSER'],
-			'password'	=> $amp_conf['CDRDBPASS']
-						? $amp_conf['CDRDBPASS']
-						: $amp_conf['AMPDBPASS'],
-			'port'		=> $amp_conf['CDRDBPORT']
-						? $amp_conf['CDRDBPORT']
-						: '3306',
-			'database'	=> $amp_conf['CDRDBNAME']
-						? $amp_conf['CDRDBNAME']
-						: 'asteriskcdrdb',
+				'phptype'  => $amp_conf['CDRDBTYPE']
+							? $amp_conf['CDRDBTYPE']
+							: $amp_conf['AMPDBENGINE'],
+				'hostspec' => $amp_conf['CDRDBHOST']
+							? $amp_conf['CDRDBHOST']
+							: $amp_conf['AMPDBHOST'],
+				'username' => $amp_conf['CDRDBUSER']
+							? $amp_conf['CDRDBUSER']
+							: $amp_conf['AMPDBUSER'],
+				'password' => $amp_conf['CDRDBPASS']
+							? $amp_conf['CDRDBPASS']
+							: $amp_conf['AMPDBPASS'],
+				'port'     => $amp_conf['CDRDBPORT']
+							? $amp_conf['CDRDBPORT']
+							: '3306',
+				'database' => $amp_conf['CDRDBNAME']
+							? $amp_conf['CDRDBNAME']
+							: 'asteriskcdrdb',
 		);
 		$cdrdb = DB::connect($dsn);
 		$path = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . time() . '.sql';
@@ -319,7 +334,7 @@ if (!isset($vars['restore'])) {
 				$siparray = $ss->getChanSipSettings();
 				$backup['nat_mode'] = $siparray['nat_mode'];
 				$backup['externip_val'] = $siparray['externip_val'];
-				$backup['externhost_val'] = $siparray['externhost_val'];
+                                $backup['externhost_val'] = $siparray['externhost_val'];
 				unset($siparray);
 
 			}
@@ -339,31 +354,32 @@ if (!isset($vars['restore'])) {
 				$backup['bindaddr'] = $siparray['bindaddr'];
 				backup_log('backup server bindaddress='.$backup['bindaddr']);
 				// This is something tricky ahhh  PJSIP!!!!!!!!
-				$allBindsprese = $ss->getConfig("binds");
-				$protocolsprese = $ss->getConfig("protocols");
+					$allBindsprese = $ss->getConfig("binds");
+					$protocolsprese = $ss->getConfig("protocols");
 
-				foreach($protocolsprese as $p) {
-					$binds = !empty($allBindsprese[$p]) && is_array($allBindsprese[$p]) ? $allBindsprese[$p] : array();
+					foreach($protocolsprese as $p) {
+						$binds = !empty($allBindsprese[$p]) && is_array($allBindsprese[$p]) ? $allBindsprese[$p] : array();
 
-					foreach ($binds as $ip => $stat){
-						if ($stat != "on") {
+						foreach ($binds as $ip => $stat){
+							if ($stat != "on") {
+								continue;
+							}
+
+						// ws and wss are not configurable
+						if (strpos($p, "ws") === 0) {
 							continue;
 						}
 
-					// ws and wss are not configurable
-					if (strpos($p, "ws") === 0) {
-						continue;
-					}
+							$presvars[] = array(
+							$p."port-$ip" => $ss->getConfig($p."port-$ip"),
+							$p."domain-$ip" => $ss->getConfig($p."domain-$ip"),
+							$p."extip-$ip" => $ss->getConfig($p."extip-$ip"),
+							$p."localnet-$ip" =>$ss->getConfig($p."localnet-$ip"),
+							);
+						}
+						}
 
-						$presvars[] = array(
-						$p."port-$ip" => $ss->getConfig($p."port-$ip"),
-						$p."domain-$ip" => $ss->getConfig($p."domain-$ip"),
-						$p."extip-$ip" => $ss->getConfig($p."extip-$ip"),
-						$p."localnet-$ip" =>$ss->getConfig($p."localnet-$ip"),
-						);
-					}
-				}
-			}
+               }
 
 			backup_log(_('Restoring Database...'));
 
@@ -424,7 +440,7 @@ if (!isset($vars['restore'])) {
 					$backup['externip_val'] = false;
 				}
 				if($backup['externhost_val'] == null){
-					$backup['externhost_val'] = false;
+				        $backup['externhost_val'] = false;
 				}
 				$ss->updateChanSipSettings('externip_val',$backup['externip_val']);
 				$ss->updateChanSipSettings('externhost_val',$backup['externhost_val']);
@@ -438,7 +454,7 @@ if (!isset($vars['restore'])) {
 			if ($skipbind) {
 				backup_log(_('Restoring Bindaddres Settings'));
 				$ss = FreePBX::Sipsettings();
-				$ss->updateChanSipSettings('bindaddr',$backup['bindaddr']);
+		                $ss->updateChanSipSettings('bindaddr',$backup['bindaddr']);
 				// lets restore pjsip bindaddress
 				$ss->setConfig('binds',$allBindsprese);
 				foreach ($presvars as $v ) 	{
@@ -446,87 +462,10 @@ if (!isset($vars['restore'])) {
 						$ss->setConfig($proto,$val);
 					}
 				}
+
+
 			}
-		}
-	}
 
-	//  Restoring external MySQL databases
-	if (isset($items['external_dbs'])) {
-		$skip_files = array();
-		if (!empty($manifest['fpbx_cdrdb'])) {
-			$s = explode('-', $manifest['fpbx_cdrdb']);
-			$skip_files[] = $manifest['mysql'][$s[1]]['file'];
-		}
-		if (!empty($manifest['fpbx_db'])) {
-			$s = explode('-', $manifest['fpbx_db']);
-			$skip_files[] = $manifest['mysql'][$s[1]]['file'];
-		}
-		foreach ($manifest['mysql'] as $db_details) {
-			if (!in_array($db_details['file'], $skip_files)) {
-				$dsn = array(
-					'phptype'	=> 'mysql',
-					'hostspec'	=> $db_details['host'],
-					'username'	=> $db_details['user'],
-					'password'	=> $db_details['password'],
-					'port'		=> $db_details['port'],
-					'database'	=> $db_details['dbname'],
-				);
-				$extdb = DB::connect($dsn);
-
-				$file = $db_details['file'];
-				$settings_stat_time = time();//last time we sent status update
-				$notifed_for = array();//precentages we sent status updates for
-				$path = $amp_conf['ASTSPOOLDIR'] . '/tmp/' . time() . '.sql';
-
-				//get db
-				$cmd[] = fpbx_which('tar');
-				$cmd[] = 'zxOf';
-				$cmd[] = escapeshellarg($vars['restore']);
-				$cmd[] = escapeshellarg('./' . $file);
-				if (preg_match("/\.gz$/", $file)) {
-					$cmd[] = '|';
-					$cmd[] = fpbx_which('gunzip');
-				}
-				$cmd[] = '>';
-				$cmd[] = escapeshellarg($path);
-				$cmd = implode(' ', $cmd);
-
-				exec($cmd);
-				$cmd = array();
-
-				backup_log(sprintf(_('Restoring Database %s...'), $db_details['dbname']));
-
-				$linecount = 0;
-				$sql = "";
-				$nextnotify = time() + 30;
-				$file_data = file($path);
-				$lines = count($file_data);
-				foreach ($file_data as $linecount=>$line) {
-					$line = trim($line);
-					$sql .= $line;
-					if (substr($line, -1) == ';') {
-						$q = $extdb->query($sql);
-						$sql = "";
-						// This just resets the timelimit of the script.
-						set_time_limit(100);
-					}
-					// Update the user once every 30 seconds
-					if (time() > $nextnotify) {
-						$percent = floor((1 - ($lines - $linecount) / $lines) * 100);
-						$nextnotify = time() + 30;
-						$log = sprintf(
-							_("Processed %s%% of external database %s (%s of %s lines)"),
-							$percent,
-							$db_details['dbname'],
-							number_format($linecount),
-							number_format($lines)
-						);
-						backup_log($log);
-					}
-				}
-				unlink($path);
-				backup_log(_('Restored Database'));
-			}
 		}
 	}
 
@@ -633,7 +572,7 @@ function show_opts() {
 	$e[] = "\t\tThis explicitly skips any per-machine NAT settings (eg, externip)";
 	$e[] = "\t--skipbind";
 	$e[] = "\t\tSkips any per-machine Bind address settings";
-	$e[] = '';
+        $e[] = '';
 	$e[] = '';
 	echo implode("\n", $e);
 }

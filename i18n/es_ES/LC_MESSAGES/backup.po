@@ -159,6 +159,10 @@ msgstr "Aplicar configuraciones"
 msgid "April"
 msgstr "Abril"
 
+#: bin/restore.php:124
+msgid "Archive coorect."
+msgstr ""
+
 #: views/restore/browseserver.php:21
 msgid "AstDB's"
 msgstr "\"AstDB's\""
@@ -187,12 +191,12 @@ msgstr "B"
 msgid "BACKUP LOG ATTACHED"
 msgstr "BITACORA DE RESPALDOS ANEXADA"
 
-#: functions.inc/class.backup.php:407 functions.inc/class.backup.php:410
+#: functions.inc/class.backup.php:411 functions.inc/class.backup.php:414
 msgid "BACKUP NOT ATTACHED"
 msgstr "RESPALDO NO ANEXO"
 
 #: Backup.class.php:321 functions.inc/backup.php:82
-#: functions.inc/class.backup.php:401 views/backup/backup.php:6
+#: functions.inc/class.backup.php:405 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Respaldo"
 
@@ -216,11 +220,11 @@ msgstr "Respaldar CDR y datos de grabación de llamadas?"
 msgid "Backup Description"
 msgstr "Descripción de Respaldo"
 
-#: functions.inc/class.backup.php:406
+#: functions.inc/class.backup.php:410
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr "ERROR respaldo (excedio los limites SMTP)"
 
-#: functions.inc/class.backup.php:409
+#: functions.inc/class.backup.php:413
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr "ERROR respaldo (excede limites blandos)"
 
@@ -276,7 +280,7 @@ msgstr "Respaldo y Restauración"
 msgid "Backup completed with errors!"
 msgstr "Respaldo completado con errores!"
 
-#: functions.inc/class.backup.php:292
+#: functions.inc/class.backup.php:296
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -289,7 +293,7 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr "Archivo de Respaldo no encontrado!. Abortando."
 
-#: functions.inc/class.backup.php:495
+#: functions.inc/class.backup.php:499
 msgid "Backup file uploaded to the remote server"
 msgstr ""
 
@@ -353,7 +357,7 @@ msgstr "Grabaciones de Llamadas"
 msgid "Can not create backup tables"
 msgstr "No se pueden crear tablas de Respandos"
 
-#: bin/restore.php:561
+#: bin/restore.php:500
 msgid "Cleaning up..."
 msgstr "Limpiando ..."
 
@@ -369,12 +373,12 @@ msgstr "Solo Configuraciones"
 msgid "Connecting to remote server..."
 msgstr "Conectando a Servidor remoto..."
 
-#: functions.inc/class.backup.php:837
+#: functions.inc/class.backup.php:841
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
 
-#: functions.inc/class.backup.php:394 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:398 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Creado"
 
@@ -382,7 +386,7 @@ msgstr "Creado"
 msgid "Creating backup..."
 msgstr "Creando respaldo ..."
 
-#: functions.inc/class.backup.php:473
+#: functions.inc/class.backup.php:477
 #, php-format
 msgid "Creating directory '%s'"
 msgstr "Creando Directorio '%s'"
@@ -491,7 +495,7 @@ msgstr "Destino"
 msgid "Directory"
 msgstr "Directorio"
 
-#: functions.inc/class.backup.php:477
+#: functions.inc/class.backup.php:481
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr "Directorio '%s' no existe y no pudo ser creado"
@@ -504,7 +508,7 @@ msgstr "Deshabilitar Troncales Registrados"
 msgid "Disabling registered trunks... "
 msgstr ""
 
-#: bin/restore.php:609
+#: bin/restore.php:548
 msgid "Done!"
 msgstr "Hecho!"
 
@@ -573,12 +577,12 @@ msgstr ""
 "Equivalente de hacer clic en el botón rojo, se producirá automáticamente "
 "después de una restauración en un sistema de espera"
 
-#: functions.inc/class.backup.php:467 functions.inc/restore.php:117
+#: functions.inc/class.backup.php:471 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
 msgstr "Error creando el objeto FTP"
 
-#: functions.inc/class.backup.php:844
+#: functions.inc/class.backup.php:848
 #, php-format
 msgid "Error deleting %s"
 msgstr "Error borrando %s"
@@ -701,7 +705,7 @@ msgstr "Archivo"
 msgid "File not found! "
 msgstr "Archivo no encontrado! "
 
-#: bin/restore.php:162
+#: bin/restore.php:177
 msgid "File restore complete!"
 msgstr "Restauración de Archivo Completada!"
 
@@ -709,7 +713,7 @@ msgstr "Restauración de Archivo Completada!"
 msgid "File verification failed. "
 msgstr "Verificación de Archivo Fallida. "
 
-#: functions.inc/class.backup.php:395 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:399 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Archivos"
 
@@ -721,11 +725,16 @@ msgstr "Tipo de Filesystem"
 msgid "FreePBX"
 msgstr "FreePBX"
 
+#: bin/restore.php:119
+#, php-format
+msgid "Freepbx version %s, Archive version %s"
+msgstr ""
+
 #: views/cron.php:33 assets/js/backup.js:83
 msgid "Friday"
 msgstr "Viernes"
 
-#: bin/restore.php:226
+#: bin/restore.php:241
 msgid "Getting CDR size..."
 msgstr "Obteniendo tamaño de CDR ..."
 
@@ -932,7 +941,7 @@ msgstr "\"Mysql\""
 msgid "Mysql DB's"
 msgstr "BD's Mysql"
 
-#: functions.inc/class.backup.php:396
+#: functions.inc/class.backup.php:400
 msgid "Mysql Db's"
 msgstr "Bd's Mysql"
 
@@ -940,7 +949,7 @@ msgstr "Bd's Mysql"
 msgid "Mysql Server "
 msgstr "Servidor Mysql "
 
-#: functions.inc/class.backup.php:393 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:397 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Nombre"
 
@@ -1103,7 +1112,7 @@ msgstr "camino a llave ssh, ejemplo /home/asterisk/.ssh/id_rsa"
 msgid "Path/DB"
 msgstr "Camino/BD"
 
-#: functions.inc/class.backup.php:833 functions.inc/class.backup.php:834
+#: functions.inc/class.backup.php:837 functions.inc/class.backup.php:838
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1136,32 +1145,27 @@ msgstr "Gancho Pre-Respaldo"
 msgid "Pre-Restore Hook"
 msgstr "Gancho Pre-Restaurar"
 
-#: bin/restore.php:334
+#: bin/restore.php:349
 msgid "Preserving local Bind address"
 msgstr ""
 
-#: bin/restore.php:327
+#: bin/restore.php:342
 msgid "Preserving local DNS settings"
 msgstr ""
 
-#: bin/restore.php:313
+#: bin/restore.php:328
 msgid "Preserving local NAT settings"
 msgstr "Preservando configuración local NAT"
 
-#: bin/restore.php:260
+#: bin/restore.php:275
 #, php-format
 msgid "Processed %s%% of CDRs (%s of %s lines)"
 msgstr "Procesado %s%% de CDR (%s de %s líneas)"
 
-#: bin/restore.php:406
+#: bin/restore.php:422
 #, php-format
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr "Procesado %s%% de Ajustes (%s de  %s líneas)"
-
-#: bin/restore.php:518
-#, php-format
-msgid "Processed %s%% of external database %s (%s of %s lines)"
-msgstr ""
 
 #: bin/backup.php:143
 msgid "Processing received file..."
@@ -1179,7 +1183,7 @@ msgstr "Randomizar"
 msgid "Reboot"
 msgstr "Reiniciar"
 
-#: bin/restore.php:594
+#: bin/restore.php:533
 msgid "Reloading..."
 msgstr "Recargando..."
 
@@ -1227,6 +1231,10 @@ msgstr "Camino salvar remoto, dejar en blanco para valor por defecto"
 msgid "Reset"
 msgstr "Reiniciar"
 
+#: bin/restore.php:121
+msgid "Restoration canceled."
+msgstr ""
+
 #: page.backup_restore.php:201 views/restore/backup_list.php:46
 #: views/restore/browseserver.php:4 views/restore/restore.php:34
 #: views/rnav/main.php:4
@@ -1253,52 +1261,47 @@ msgstr "Restaurar toda la configuración almacenada en la base de datos"
 msgid "Restore backup to this server after the backup is complete"
 msgstr "Restaurar respaldo en este server luego que el respaldo sea completado"
 
-#: bin/restore.php:593
+#: bin/restore.php:532
 msgid "Restore complete!"
 msgstr "Restauración completada!"
 
-#: bin/restore.php:410 bin/restore.php:528
+#: bin/restore.php:426
 msgid "Restored Database"
 msgstr "Base de Datos restaurada"
 
-#: bin/restore.php:439
+#: bin/restore.php:455
 msgid "Restoring Bindaddres Settings"
 msgstr ""
 
-#: bin/restore.php:267
+#: bin/restore.php:282
 msgid "Restoring CDRs complete"
 msgstr "Restauración de CDRs completada"
 
-#: bin/restore.php:181
+#: bin/restore.php:196
 msgid "Restoring CDRs..."
 msgstr "restaurando CDRs..."
 
-#: bin/restore.php:433
+#: bin/restore.php:449
 msgid "Restoring DNS settings"
 msgstr ""
 
-#: bin/restore.php:497
-#, php-format
-msgid "Restoring Database %s..."
-msgstr ""
-
-#: bin/restore.php:368
+#: bin/restore.php:384
 msgid "Restoring Database..."
 msgstr "Restaurando Base de Datos..."
 
-#: bin/restore.php:418
+#: bin/restore.php:434
 msgid "Restoring NAT settings"
 msgstr "Restaurando configuración NAT"
 
-#: bin/restore.php:546
+#: bin/restore.php:485
 msgid "Restoring Settings complete"
 msgstr "Restauración de configuración completada"
 
-#: bin/restore.php:126
+#: bin/restore.php:141
 msgid "Restoring all files (this may take some time)..."
 msgstr "Restaurando todos los archivos (esto puede tomar un tiempo)..."
 
-#: bin/restore.php:536
+#: bin/restore.php:475
 msgid "Restoring astDB..."
 msgstr "restaurando astDB..."
 
@@ -1306,7 +1309,7 @@ msgstr "restaurando astDB..."
 msgid "Restoring backup..."
 msgstr "Restaurando respaldo..."
 
-#: bin/restore.php:130
+#: bin/restore.php:145
 msgid "Restoring files (this may take some time)..."
 msgstr "Restaurando archivos (esto puede tomar un tiempo)..."
 
@@ -1346,11 +1349,11 @@ msgstr "Ejecutar una vez al año, medianoche, 01 de enero"
 msgid "Run once an hour, beginning of hour"
 msgstr "Ejecutar una vez cada hora, a inicio de la hora"
 
-#: functions.inc/class.backup.php:496
+#: functions.inc/class.backup.php:500
 msgid "Running maintenance.."
 msgstr ""
 
-#: bin/restore.php:552
+#: bin/restore.php:491
 msgid "Running post restore script..."
 msgstr "Corriendo Script post-restauración..."
 
@@ -1358,7 +1361,7 @@ msgstr "Corriendo Script post-restauración..."
 msgid "Running post-backup hooks..."
 msgstr "Corriendo enganches post-respaldo..."
 
-#: bin/restore.php:556
+#: bin/restore.php:495
 msgid "Running post-restore hooks, if any..."
 msgstr "Corriendo enganches post-restauración, si hay alguno..."
 
@@ -1366,11 +1369,11 @@ msgstr "Corriendo enganches post-restauración, si hay alguno..."
 msgid "Running pre-backup hooks..."
 msgstr "Corriendo enganches pre-respaldo..."
 
-#: bin/restore.php:116
+#: bin/restore.php:131
 msgid "Running pre-restore hooks, if any..."
 msgstr "Corriendo enganches pre-restauración, si hay alguno..."
 
-#: bin/restore.php:113
+#: bin/restore.php:128
 msgid "Running pre-restore scripts..."
 msgstr "Corriendo scripts pre-restauración..."
 
@@ -1410,7 +1413,7 @@ msgstr "Salvar"
 msgid "Save and Run"
 msgstr "Guardar y Ejecutar"
 
-#: functions.inc/class.backup.php:484
+#: functions.inc/class.backup.php:488
 msgid "Saving file to remote ftp"
 msgstr "Guardando archivo en ftp remoto"
 
@@ -1575,7 +1578,12 @@ msgstr "El script de restauración Finalizado Puede cerrar esta ventana"
 msgid "The Restore script is still running"
 msgstr "El script de Restauración aun esta corriendo"
 
-#: functions.inc/class.backup.php:407
+#: bin/restore.php:120
+#, php-format
+msgid "The archive must be come from a release like this: %s.%s"
+msgstr ""
+
+#: functions.inc/class.backup.php:411
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
@@ -1585,7 +1593,7 @@ msgstr ""
 "se intentó ser enviados. Por favor, encoger la copia de seguridad, o "
 "utilizar un método diferente de transferencia de la copia de seguridad."
 
-#: functions.inc/class.backup.php:410
+#: functions.inc/class.backup.php:414
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1606,6 +1614,10 @@ msgstr ""
 "El tamaño máximo de un  respaldo y que pueda ser enviado por correo. Algunos "
 "servidores de correo limitan el tamaño máximo de anexo, esto asegurará que "
 "no se envíen archivos superiores a ese tamaño."
+
+#: bin/restore.php:118
+msgid "This archive cannot be used, because the version is not correct!!!"
+msgstr ""
 
 #: views/servers/ftp.php:166
 msgid ""
@@ -1648,7 +1660,7 @@ msgstr "Modo Transferencia"
 msgid "Transfer Type"
 msgstr "Tipo de Transferencia"
 
-#: functions.inc/class.backup.php:489
+#: functions.inc/class.backup.php:493
 #, php-format
 msgid "Trying to upload %s to %s"
 msgstr ""
@@ -1661,7 +1673,7 @@ msgstr "Martes"
 msgid "Type"
 msgstr "Tipo"
 
-#: functions.inc/class.backup.php:487
+#: functions.inc/class.backup.php:491
 msgid "Unable to upload file to the remote server"
 msgstr "No se puede subir el archivo al servidor remoto"
 
@@ -1704,11 +1716,11 @@ msgstr "Almacenamiento de Correo de Voz"
 msgid "Voicemails"
 msgstr "CorreosdeVoz"
 
-#: bin/restore.php:273
+#: bin/restore.php:288
 msgid "WARNING!"
 msgstr "ADVERTENCIA!"
 
-#: bin/restore.php:274
+#: bin/restore.php:289
 msgid "Web Root restore not detected, not restoring module table"
 msgstr "Restauración web Root no detectada, no se restaura tabla de modulo"
 
@@ -1800,7 +1812,7 @@ msgstr "Años"
 msgid "Yes"
 msgstr "Si"
 
-#: bin/restore.php:275
+#: bin/restore.php:290
 #, php-format
 msgid "You should run \"%s\" to ensure system integrity"
 msgstr "Debe ejecutar \"%s\" para asegurar la integridad del sistema"
@@ -1818,7 +1830,7 @@ msgstr "Añadidos servidores de respaldo por defecto"
 msgid "added default backup templates"
 msgstr "Añadidas plantillas de respaldo por defecto"
 
-#: functions.inc/class.backup.php:397
+#: functions.inc/class.backup.php:401
 msgid "astDb's"
 msgstr "\"astDb's\""
 

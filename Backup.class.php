@@ -34,14 +34,16 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 		$this->logger         = $this->FreePBX->Logger();
 		$this->logpath        = $this->getConfig('logpath');
 		$this->logpath        = !empty($this->logpath)?$this->logpath:'/var/log/asterisk/backup.log';
-		$this->logger->createCustomLog('Backup', $this->logpath,true);
-		$this->formatter = new Formatter\LineFormatter(null, null, false, true);
+        $this->logger->createCustomLog('Backup', $this->logpath,true);
+        $output = "%level_name%: %message%\n";
+
+		$this->formatter = new Formatter\LineFormatter($output);
 
 		if(php_sapi_name() == 'cli' || php_sapi_name() == 'phpdbg'){
-			$handler = new StreamHandler("php://stdout",\Monolog\Logger::INFO);
+			$handler = new StreamHandler("php://stdout",\Monolog\Logger::DEBUG);
 			$handler->setFormatter($this->formatter);
 			$this->logger->customLog->pushHandler($handler);
-		}
+        }
 		$this->loggingHooks = null;
 	}
 
@@ -919,7 +921,7 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 	public function log($transactionId = '', $message = '',$level = 'INFO'){
 		$this->sessionlog[$transactionId] = $message;
 		$this->setConfig('sessionlog',$this->sessionlog);
-		$this->logger->logWrite($transactionId,$message,true,$level);
+        $this->logger->logWrite($transactionId,$message,true,$level);
 	}
 
 	/**
@@ -937,9 +939,9 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 		$path           = '/var/log/asterisk/backup.log';
 		if($this->getConfig('logpath')){
 			$path = $this->getConfig('logpath');
-		}
-		$this->swiftmsg->attach(\Swift_Attachment::fromPath($path)->setFilename($filename));
-		try{
+        }
+        try {
+    		$this->swiftmsg->attach(\Swift_Attachment::fromPath($path)->setFilename($filename));
 			$this->handler->close();
 		}catch(\Exception $e){
 			dbug($e->getMessage());

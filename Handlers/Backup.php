@@ -6,8 +6,11 @@ namespace FreePBX\modules\Backup\Handlers;
 use FreePBX\modules\Backup\Handlers as Handlers;
 use FreePBX\modules\Backup\Modules as Module;
 use FreePBX\modules\Backup\Models as Models;
+use Symfony\Component\Console\Output\ConsoleOutput;
+use Symfony\Component\Console\Helper\ProgressBar;
 use Phar;
 class Backup{
+	const DEBUG = false;
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
 			throw new \InvalidArgumentException('Not given a BMO Object');
@@ -34,15 +37,15 @@ class Backup{
 		$external = !empty($base64Backup);
 		$transactionId = !empty($transactionId)?$transactionId:$this->Backup->generateId();
 		$this->Backup->setConfig($transactionId,$pid,'running');
-		$this->Backup->log($transactionId,sprintf(_("Running Backup ID: %s"),$id));
-		$this->Backup->log($transactionId,sprintf(_("Transaction: %s"),$transactionId));
+		$this->Backup->log($transactionId,sprintf(_("Running Backup ID: %s"),$id),'DEBUG');
+		$this->Backup->log($transactionId,sprintf(_("Transaction: %s"),$transactionId),'DEBUG');
 		$this->Backup->log($transactionId,_("Running pre backup hooks"));
 		$this->preHooks($id, $transactionId);
 		$base64Backup = !empty($base64Backup)?json_decode(base64_decode($base64Backup),true):false;
 		$backupInfo = $external?$base64Backup:$this->Backup->getBackup($id);
 		$this->Backup->attachEmail($backupInfo);
 		$underscoreName = str_replace(' ', '_', $backupInfo['backup_name']);
-		$this->Backup->log($transactionId,sprintf(_("Starting backup %s"),$underscoreName));
+		$this->Backup->log($transactionId,sprintf(_("Starting backup %s"),$underscoreName),'DEBUG');
 		$spooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
 		$serverName = str_replace(' ', '_',$this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT'));
 		$localPath = sprintf('%s/backup/%s',$spooldir,$underscoreName);
@@ -55,7 +58,7 @@ class Backup{
 		$pharnamebase = sprintf('%s/%s',$localPath,$pharfilename);
 		$phargzname = sprintf('%s.tar.gz',$pharnamebase);
 		$pharname = sprintf('%s.tar',$pharnamebase);
-		$this->Backup->log($transactionId,_("This backup will be stored locally is subject to maintinance settings"));
+		$this->Backup->log($transactionId,_("This backup will be stored locally is subject to maintinance settings"),'DEBUG');
 		$this->Backup->log($transactionId,sprintf(_("Storage Location: %s"),$phargzname));
 		$phar = new \PharData($pharname);
 		$phar->addEmptyDir('/modulejson');
@@ -94,10 +97,14 @@ class Backup{
 			$mod = $this->FreePBX->Modules->getInfo($raw);
 			$processQueue->enqueue(['name' => $mod[$raw]['rawname']]);
 		}
+
 		$errors = [];
 		$warnings = [];
 		if(!$external){
 			$maint = new Module\Maintinance($this->FreePBX,$id);
+		}
+		if ($inCLI) {
+			$cliout = new ConsoleOutput();
 		}
 		foreach($processQueue as $mod) {
 			$backup = new Models\Backup($this->FreePBX);
@@ -109,10 +116,17 @@ class Backup{
 				$this->Backup->log($transactionId,$err,'WARNING');
 				continue;
 			}
-			$class = new $class($backup,$this->FreePBX);
-			$class->runBackup($id,$transactionId);
+			try{
+				$class = new $class($backup,$this->FreePBX);
+				$class->runBackup($id,$transactionId);
+			}catch(Exception $e){
+				$this->Backup->log($transactionId, sprintf(_("There was an error running the backup for %s... %s"), $mod['name'], $e->getMessage()));
+				if(DEBUG){
+					throw $e;
+				}
+			}
 			\modgettext::pop_textdomain();
-			$this->Backup->log($transactionId,sprintf(_("Calling backup for module: %s."), $mod['name']));
+			$this->Backup->log($transactionId,sprintf(_("Processing backup for module: %s."), $mod['name']));
 			//Skip empty.
 			if($backup->getModified() === false){
 				$this->Backup->log($transactionId,sprintf(_("%s returned no data. This module may not impliment the new backup yet. Skipping"), $mod['name']));
@@ -138,10 +152,10 @@ class Backup{
 			$rawname = strtolower($mod['name']);
 			$moduleinfo = $this->FreePBX->Modules->getInfo($rawname);
 			$manifest['modules'][] = ['module' => $mod['name'], 'version' => $moduleinfo[$rawname]['version']];
-            $moddata = $backup->getData();
+			$moddata = $backup->getData();
 			foreach ($moddata['dirs'] as $dir) {
 				if(empty($dir)){
-				    continue;
+					continue;
 				}
 				$dirs[] = $this->Backup->getPath('files/' . ltrim($dir,'/'));
 			}
@@ -152,7 +166,7 @@ class Backup{
 				}
 				$srcfile = $srcpath .'/'. $file['filename'];
 				$destpath = $this->Backup->getPath('files/' . ltrim($file['pathto'],'/'));
-				$destfile = $destpath . $file['filename'];
+				$destfile = $destpath .'/'. $file['filename'];
 				$dirs[] = $destpath;
 				$files[$srcfile] = $destfile;
 				$phar->addFile($srcfile,$destfile);

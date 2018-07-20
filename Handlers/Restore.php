@@ -10,6 +10,8 @@ use Phar;
 use PharData;
 use InvalidArgumentException;
 class Restore{
+	const DEBUG = false;
+
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
 			throw new InvalidArgumentException('Not given a BMO Object');
@@ -59,17 +61,25 @@ class Restore{
 			$this->Backup->log($jobid,sprintf(_("Running restore process for %s"),$key));
 			$this->Backup->log($jobid,sprintf(_("Resetting the data for %s, this may take a moment"),$key));
 			$backedupVer = $value;
-			$modulehandler->reset($mod['name'],$backedupVer);
-			$this->Backup->log($jobid,sprintf(_("Restoring the data for %s, this may take a moment"),$key));
-			$class = sprintf('\\FreePBX\\modules\\%s\\Restore',ucfirst($key));
-			$class = new $class($restore,$this->FreePBX,BACKUPTMPDIR);
-			$class->runRestore($jobid);
+			try{
+				$modulehandler->reset($mod['name'],$backedupVer);
+				$this->Backup->log($jobid,sprintf(_("Restoring the data for %s, this may take a moment"),$key));
+				$class = sprintf('\\FreePBX\\modules\\%s\\Restore',ucfirst($key));
+				$class = new $class($restore,$this->FreePBX,BACKUPTMPDIR);
+				$class->runRestore($jobid);
+			} catch (Exception $e) {
+				$this->Backup->log($transactionId, sprintf(_("There was an error running the restore for %s... %s"), $mod['name'], $e->getMessage()));
+				if (DEBUG) {
+					throw $e;
+				}
+			}
+
 			\modgettext::pop_textdomain();
 		}
 		$this->Backup->log($jobid,_("Running post restore hooks"));
 		$this->postHooks($jobid,$restoreData);
-        $this->Backup->fs->remove(BACKUPTMPDIR);
-        \needreload();
+		$this->Backup->fs->remove(BACKUPTMPDIR);
+		\needreload();
 		return $errors;
 	}
 

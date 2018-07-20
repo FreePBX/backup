@@ -41,7 +41,8 @@ class Backup extends Command {
 	protected function execute(InputInterface $input, OutputInterface $output){
 		$this->output = $output;
 		$this->input = $input;
-		$this->freepbx = \FreePBX::Create();
+        $this->freepbx = \FreePBX::Create();
+        $this->freepbx->Backup->output = $output;
 		$backupHandler = new Handler\Backup($this->freepbx);
 		$restoreHandler = new Handler\Restore($this->freepbx);
 		$list = $input->getOption('list');

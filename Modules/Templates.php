@@ -1,7 +1,7 @@
 <?php
-namespace FreePBX\modules\Backup\Modules;
+namespace FreePBX\modules\Backup\Modules\Migration;
 class Templates extends Migration{
-    public function migrate(){
-        
-    }
+	public function process(){
+		return $this;
+	}
 }

@@ -1,38 +1,77 @@
 <?php
-namespace FreePBX\modules\Backup\Modules;
-
+namespace FreePBX\modules\Backup\Modules\Migration;
+use PDO;
+use FreePBX\modules\Backup\Handlers\FreePBXModule;
 class Backupjobs extends Migration{
-    public function migrate(){
-        $backups = $this->getLegacyBackups();
-        foreach($backups as $backup){
+	public $backupJobs = [];
+	public $moduleData = [];
+	public function process(){
+		$this->moduleManager = new FreePBXModule($this->FreePBX);
+		return $this->getLegacyBackups()
+			 ->migrate();
 
-        }
-    }
-    
-    private function getLegacyBackups(){
-        $sql = 'SELECT * FROM backup ORDER BY name';
-        $ret = $this->freepbx->Database->query($sql,\PDO::FETCH_ASSOC);
-        $backups = array();
-        //set index to server id for easy retrieval
-        $stmt = $this->freepbx->Database->prepare('SELECT * FROM backup WHERE id = ?');
-        foreach ($ret as $s) {
-            //set index to  id for easy retrieval
-            $backups[$s['id']] = $s;
-            //default name in one is missing
-            if (!$backups[$s['id']]['name']) {
-                $backups[$s['id']]['name'] = _('Backup') . ' ' . $s['id'];
-            }
-            $result = $stmt->execute([$s['id']]);
-            $budetails = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-            foreach($budetails as $value){
-                $backups[$s['id']][$value['key']] = $value['value'];
-            }
-        }
-        return $backups;
-    }
-    private function setMigrated($old,$new){
-        $sql = 'UPDATE backup set migrated = :new WHERE id = :old';
-        $stmt = $this->freepbx->Database->prepare($sql);
-        return $stmt->execute([':old' => $old, ':new' => $new]);
-    }
+	}
+	public function getLegacyBackups(){
+		$sql = 'SELECT * FROM backup ORDER BY name'; 
+		$backups = $this->Database->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+		$sql = 'SELECT * FROM backup_details';
+		$backupDetails = $this->Database->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+		$sql = 'SELECT * FROM backup_items';
+		$backupItems = $this->Database->query($sql)->fetchAll(PDO::FETCH_ASSOC); 
+		$final = [];
+		foreach($backups as $job){
+			$final['bu_'. $job['id']]['uuid'] = $this->Backup->generateId();
+			foreach(unserialize($job['data']) as $key => $val){
+				$final['bu_' . $job['id']]['data'][$key] = $val;				
+			}
+		}
+		foreach($backupDetails as $setting){
+			$final['bu_' . $setting['backup_id']]['data'][$setting['key']] = $setting['value'];				
+		}
+		foreach($backupItems as $item){
+			$item['excude'] = unserialize($item['exclude']);
+			$final['bu_' . $item['backup_id']]['items'][] = $item; 
+		}
+		$this->Backup->setMultiConfig($final, 'migratedbackups');
+		$this->backupJobs = $final;
+		return $this;
+	}
+	public function migrate(){
+		$this->buildModuleData();
+		foreach($this->Backupjobs as $backup){
+			$backupModules = $this->moduleData;
+			foreach($backup['items']['exclude'] as $exclude){
+				if(isset($this->moduleData['tables'][$exclude])){
+					unset($backupModules[$this->moduleData['tables'][$exclude]]);
+				}
+			}
+			$this->Backup->setModulesById($backup['uuid'],$backupModules);
+		}
+		foreach($backup['data'] as $key => $val){
+			if($key === 'desciption'){
+				$key = 'backup_description';
+			}
+			if($key === 'name'){
+				$key = 'backup_name';
+			}
+			if($key === 'email'){
+				$key = 'backup_email';
+			}
+			$this->Backup->updateBackupSetting($backup['uuid'], $key, $val);
+		}
+	}
+	public function buildModuleData(){
+		if(!empty($this->moduleData)){
+			return $this;
+		}
+		$amodules = array_keys($this->FreePBX->Modules->getActiveModules());
+		$this->moduleData['modules'] = $amodules;
+		foreach($amodules as $mod){
+			$modTables = $this->moduleManager->getTables($mod);
+			foreach($modTables as $table){
+				$this->moduleData['tables'][$table] = $mod;
+			}
+		}
+		return $this;
+	}
 }

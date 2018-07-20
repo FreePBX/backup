@@ -15,7 +15,12 @@ use Monolog\Handler\SwiftMailerHandler;
 use Monolog\Handler\BufferHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Formatter as Formatter;
-class Backup extends \FreePBX_Helpers implements \BMO {
+use FreePBX\modules\Backup\Modules\Migration\Backupjobs;
+use FreePBX\modules\Backup\Modules\Migration\Servers;
+use FreePBX\modules\Backup\Modules\Migration\Templates;
+use FreePBX_Helpers;
+use BMO;
+class Backup extends FreePBX_Helpers implements BMO {
 	public function __construct($freepbx = null) {
 		include __DIR__.'/vendor/autoload.php';
 		if ($freepbx == null) {
@@ -34,8 +39,8 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 		$this->logger         = $this->FreePBX->Logger();
 		$this->logpath        = $this->getConfig('logpath');
 		$this->logpath        = !empty($this->logpath)?$this->logpath:'/var/log/asterisk/backup.log';
-        $this->logger->createCustomLog('Backup', $this->logpath,true);
-        $output = "%level_name%: %message%\n";
+		$this->logger->createCustomLog('Backup', $this->logpath,true);
+		$output = "%level_name%: %message%\n";
 
 		$this->formatter = new Formatter\LineFormatter($output);
 
@@ -43,11 +48,27 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 			$handler = new StreamHandler("php://stdout",\Monolog\Logger::DEBUG);
 			$handler->setFormatter($this->formatter);
 			$this->logger->customLog->pushHandler($handler);
-        }
+		}
 		$this->loggingHooks = null;
 	}
 
 	public function install(){
+
+		/** Oh... Migration, migration, let's learn about migration. It's nature's inspiration to move around the sea.
+		 * We have split the functionality up so things backup use to do may be done by another module. The other module(s)
+		 * May not yet be installed or may install after.  So we need to keep a kvstore with the various data and when installing
+		 * The other modules will checkin on install and process the data needed by them.
+		 **/
+
+		$dbexist = $this->db->query("SHOW TABLES LIKE 'backup'")->columnCount();
+		if($dbexist === 1){
+			$servers = new Servers($this->FreePBX);
+			$servers->process();
+			$templates = new Templates($this->FreePBX);
+			$templates->process();
+			$jobs = new Backupjobs($this->FreePBX);
+			$jobs->process(); 
+		}
 	}
 
 	public function uninstall(){
@@ -271,7 +292,7 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 									'children' => []
 								];
 								foreach ($locations as $location) {
-									          $select       = in_array($driver.'_'.$location['id'], $storage_ids);
+											  $select       = in_array($driver.'_'.$location['id'], $storage_ids);
 									$optgroup['children'][] = [
 										'label'    => $location['name'],
 										'title'    => $location['description'],
@@ -343,8 +364,8 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 					return load_view(__DIR__.'/views/backup/run.php',array('id' => $_REQUEST['id']));
 				}
 				if(isset($_GET['view']) && $_GET['view'] == 'settings'){
-					      $vars        = $this->getAll('globalsettings');
-					      $vars        = $vars?$vars:[];
+						  $vars        = $this->getAll('globalsettings');
+						  $vars        = $vars?$vars:[];
 					$vars['fromemail'] = isset($vars['fromemail'])?$vars['fromemail']:'backup@pbx.local';
 					$vars['logpath']   = isset($vars['logpath'])?$vars['logpath']:'/var/log/asterisk/backup.log';
 					return load_view(__DIR__.'/views/backup/settings.php',$vars);
@@ -353,8 +374,8 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 					return load_view(__DIR__.'/views/backup/rsa.php');
 				}
 				if(isset($_GET['view']) && $_GET['view'] == 'form'){
-					      $randcron          = sprintf('59 23 * * %s',rand(0,6));
-					      $vars              = ['id' => ''];
+						  $randcron          = sprintf('59 23 * * %s',rand(0,6));
+						  $vars              = ['id' => ''];
 					$vars['backup_schedule'] = $randcron;
 					if(isset($_GET['id']) && !empty($_GET['id'])){
 						$vars              = $this->getBackup($_GET['id']);
@@ -374,14 +395,14 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 						$settings = $this->getConfig('warmsparesettings');
 						$settings = $settings?$settings:[];
 						foreach($warmsparedefaults as $key => $value){
-							      $value = isset($settings[$key])?$settings[$key]:$value;
+								  $value = isset($settings[$key])?$settings[$key]:$value;
 							$vars[$key]  = $value;
 						}
 						if($vars['warmspare_type'] == 'primary'){
-							      $file        = '/home/asterisk/.ssh/id_rsa.pub';
+								  $file        = '/home/asterisk/.ssh/id_rsa.pub';
 							$vars['publickey'] = '';
 							if(file_exists($file)){
-								      $data        = file_get_contents($file);
+									  $data        = file_get_contents($file);
 								$vars['publickey'] = $data;
 							}
 						}
@@ -438,97 +459,16 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 	}
 
 	public function getBackupSettingsDisplay($module,$id = ''){
-        $module = ucfirst($module);
-        if($module === 'Backup'){
-            return;
-        }
-        $class = $this->FreePBX->$module;
-        if( method_exists($class, 'getBackupSettingsDisplay')){
-            return '<div class="hooksetting">'. $class->getBackupSettingsDisplay($id).'</div>';
-        }
-        return '<div class="hooksetting">'._("No user configurable settings")."</div>";
-	}
-
-	/** Oh... Migration, migration, let's learn about migration. It's nature's inspiration to move around the sea.
-	* We have split the functionality up so things backup use to do may be done by another module. The other module(s)
-	* May not yet be installed or may install after.  So we need to keep a kvstore with the various data and when installing
-	* The other modules will checkin on install and process the data needed by them.
-	**/
-
-	/** TODO: This is all getting moved to sub classes */
-
-
-	public function migrateBackupJobs(){
-		//['backup_name','backup_description','backup_items','backup_storage','backup_schedule','maintage','maintruns','backup_email','backup_emailtype','immortal'];
-		$ids = array();
-		try {
-			$q = $this->db->query('SELECT * FROM backup');
-			while ($item = $q->fetch(\PDO::FETCH_ASSOC)) {
-				$id     = $this->generateId();
-				$insert = ['id' => $id];
-				if($this->getConfig($item['id'],'migratedbackups')){
-					continue;
-				}
-				        $default              = sprintf("Migrated Backup id: %s",$item['id']);
-				$insert['backup_name']        = isset($item['name'])?$item['name']:$default;
-				$insert['backup_description'] = isset($item['description'])?$item['description']:$default;
-				$insert['backup_email']       = isset($item['email'])?$item['email']:$default;
-				        $immortal             = (isset($item['immortal']) && !is_null($item['immortal']));
-				$this->updateBackup($insert);
-				$this->updateBackupSetting($id, 'immortal', $immortal);
-				$this->updateBackupSetting($id, 'migratedid', $item['id']);
-				$ids[] = ['oldid' => $item['id'], 'newid' => $id];
-			}
-		} catch (\Exception $e) {
-			if($e->getCode() != '42S02'){
-				throw $e;
-			}
+		$module = ucfirst($module);
+		if($module === 'Backup'){
+			return;
 		}
-		$stmt = $this->db->prepare('SELECT `key`,`value` FROM backup_details WHERE backup_id = :id');
-		foreach ($ids as $item) {
-			try {
-				$stmt->execute([':id' => $item['oldid']]);
-				$data = $stmt->fetchAll(\PDO::FETCH_KEY_PAIR);
-				if(isset($data['emailfailonly']) && !empty($data['emailfailonly'])){
-					$this->updateBackupSetting($item['newid'], 'backup_emailtype', 'failure');
-				}
-				if(isset($data['delete_ammount']) && !empty($data['delete_ammount'])){
-					$this->updateBackupSetting($item['newid'], 'maintruns', $data['delete_ammount']);
-				}
-			} catch (\Exception $e) {
-				if($e->getCode() != '42S02'){
-					throw $e;
-				}
-			}
-
-			$this->setConfig($item['oldid'],$item['newid'],'migratedbackups');
-
+		$class = $this->FreePBX->$module;
+		if( method_exists($class, 'getBackupSettingsDisplay')){
+			return '<div class="hooksetting">'. $class->getBackupSettingsDisplay($id).'</div>';
 		}
+		return '<div class="hooksetting">'._("No user configurable settings")."</div>";
 	}
-	public function migrateStorage(){
-		if($this->getMigrationFlag('filestore')){
-			return true;
-		}
-	}
-	public function setMigration($rawname,$data){
-		$this->setConfig('data',$data,$rawname);
-	}
-	//Set a flag that says we have migrated
-	public function setMigtatedFlag($rawname){
-		$this->setConfig('migrated',true,$rawname);
-	}
-	//Check if we have migrated
-	public function getMigrationFlag($rawname){
-		return $this->getConfig('migrated',$rawname);
-	}
-	//Get any migration data the module has for us
-	public function getMigration($rawname){
-		return $this->getConfig('data',$rawname);
-	}
-	public function cleanMigrationData($rawname){
-		$this->setConfig('data',false,$rawname);
-	}
-	//End migration stuff
 
 	//Getters
 
@@ -565,11 +505,11 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 		}
 
 		foreach (new \DirectoryIterator($hookpath) as $fileInfo) {
-    		if($fileInfo->isFile() && $fileInfo->isReadable() && $fileInfo->isExecutable()){
+			if($fileInfo->isFile() && $fileInfo->isReadable() && $fileInfo->isExecutable()){
 				$fileobj = $fileInfo->openFile('r');
 				while (!$fileobj->eof()) {
 					$found = preg_match("/(pre|post):(backup|restore)/", $fileobj->fgets(), $out);
-       				if($found === 1){
+	   				if($found === 1){
 						$hooktype = $out[1].$out[2];
 						$filename = $hookpath.'/'.$fileobj->getFilename();
 						if($hooktype == 'prebackup' && !empty($this->preBackup)){
@@ -803,31 +743,31 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 			}
 			$value = $this->getReqUnsafe($col,'');
 			$this->updateBackupSetting($data['id'], $col, $value);
-        }
+		}
 		$description = $this->getReq('backup_description',sprintf(_('Backup %s'),$this->getReq('backup_name')));
 		$this->setConfig($data['id'],array('id' => $data['id'], 'name' => $this->getReq('backup_name',''), 'description' => $description),'backupList');
-        if($this->getReq('backup_items','unchanged') !== 'unchanged'){
+		if($this->getReq('backup_items','unchanged') !== 'unchanged'){
 			$backup_items = json_decode(html_entity_decode($this->getReq('backup_items',[])),true);
 			$this->setModulesById($data['id'], $backup_items);
-        }
-        //We wxpect this to be JSON so we don't sanitize it.
-        $data['backup_items_settings'] = $this->getReqUnsafe('backup_items_settings', 'unchanged');
+		}
+		//We wxpect this to be JSON so we don't sanitize it.
+		$data['backup_items_settings'] = $this->getReqUnsafe('backup_items_settings', 'unchanged');
 		if($data['backup_items_settings'] !== 'unchanged' ){
 			$this->processBackupSettings($data['id'], json_decode($data['backup_items_settings'],true));
 		}
 		$this->scheduleJobs($id);
 		return $id;
-    }
-    
-    public function processBackupSettings($id = '', $data = []){
-        $modules = $this->FreePBX->Modules->getModulesByMethod('processBackupSettings');
-        foreach ($modules as $module) {
-            if($module === 'Backup'){
-                continue;
-            }
-            $this->FreePBX->$module->processBackupSettings($id, $data);
-        }
-    }
+	}
+	
+	public function processBackupSettings($id = '', $data = []){
+		$modules = $this->FreePBX->Modules->getModulesByMethod('processBackupSettings');
+		foreach ($modules as $module) {
+			if($module === 'Backup'){
+				continue;
+			}
+			$this->FreePBX->$module->processBackupSettings($id, $data);
+		}
+	}
 
 	/**
 	 * Sets an individual setting
@@ -921,7 +861,7 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 	public function log($transactionId = '', $message = '',$level = 'INFO'){
 		$this->sessionlog[$transactionId] = $message;
 		$this->setConfig('sessionlog',$this->sessionlog);
-        $this->logger->logWrite($transactionId,$message,true,$level);
+		$this->logger->logWrite($transactionId,$message,true,$level);
 	}
 
 	/**
@@ -939,9 +879,9 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 		$path           = '/var/log/asterisk/backup.log';
 		if($this->getConfig('logpath')){
 			$path = $this->getConfig('logpath');
-        }
-        try {
-    		$this->swiftmsg->attach(\Swift_Attachment::fromPath($path)->setFilename($filename));
+		}
+		try {
+			$this->swiftmsg->attach(\Swift_Attachment::fromPath($path)->setFilename($filename));
 			$this->handler->close();
 		}catch(\Exception $e){
 			dbug($e->getMessage());
@@ -981,7 +921,7 @@ class Backup extends \FreePBX_Helpers implements \BMO {
 		if (!preg_match("/__(.+)__/", $string, $out)) {
 			return $string;
 		}
-		$path = \FreePBX::Config()->get($out[1]);
+		$path = $this->FreePBX->Config->get($out[1]);
 		if($path){
 			return str_replace($out[0], $path, $string);
 		}

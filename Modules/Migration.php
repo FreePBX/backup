@@ -1,11 +1,10 @@
 <?php
 namespace FreePBX\modules\Backup\Modules;
-
 class Migration(){
-    public function __construct($freepbx=''){
-        $this->freepbx = $freepbx;
-        if(empty($freepbx)){
-            throw \InvalidArgumentException("You must provide a FreePBX object");
-        }
-    }
+	const DEBUG = true;
+	public function __construct($freepbx = ''){
+		$this->FreePBX = $freepbx;
+		$this->Database = $freepbx->Database;
+		$this->Backup = $freepbx->Backup;
+	}
 }

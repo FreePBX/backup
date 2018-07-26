@@ -15,12 +15,12 @@ use Monolog\Handler\SwiftMailerHandler;
 use Monolog\Handler\BufferHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Formatter as Formatter;
-use FreePBX\modules\Backup\Modules\Migration\Backupjobs;
-use FreePBX\modules\Backup\Modules\Migration\Servers;
-use FreePBX\modules\Backup\Modules\Migration\Templates;
+use FreePBX\modules\Backup\Modules\Backupjobs;
+use FreePBX\modules\Backup\Modules\Servers;
 use FreePBX_Helpers;
 use BMO;
 class Backup extends FreePBX_Helpers implements BMO {
+	const DEBUG = true;
 	public function __construct($freepbx = null) {
 		include __DIR__.'/vendor/autoload.php';
 		if ($freepbx == null) {
@@ -30,7 +30,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 		$this->db             = $freepbx->Database;
 		$this->mf             = \module_functions::create();
 		$this->fs             = new Filesystem;
-		$this->backupFields   = ['backup_name','backup_description','backup_items','backup_storage','backup_schedule','schedule_enabled','maintage','maintruns','backup_email','backup_emailtype','immortal','warmspare_type','warmspare_user','warmspare_remote','warmspareenables','publickey'];
+		$this->backupFields   = ['backup_name','backup_description','backup_items','backup_storage','backup_schedule','schedule_enabled','maintage','maintruns','backup_email','backup_emailtype','immortal', 'warmspareenabled', 'warmspare_remotetrunks', 'warmspare_remotenat', 'warmspare_remotebind', 'warmspare_remotenat', 'warmspare_remotedns', 'warmspare_remoteapply', 'warmspare_remoteip', 'warmspare_user', 'publickey'];
 		$this->templateFields = [];
 		$this->serverName     = $this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT');
 		$this->sessionlog     = [];
@@ -62,12 +62,31 @@ class Backup extends FreePBX_Helpers implements BMO {
 
 		$dbexist = $this->db->query("SHOW TABLES LIKE 'backup'")->columnCount();
 		if($dbexist === 1){
+			out(_("Migrating legacy backupjobs"));
+			out(_("Moving servers to filestore"));
 			$servers = new Servers($this->FreePBX);
 			$servers->process();
-			$templates = new Templates($this->FreePBX);
-			$templates->process();
+			out(_("Migrating legacy backups to the new backup"));
 			$jobs = new Backupjobs($this->FreePBX);
 			$jobs->process(); 
+
+			out(_("Cleaning up old data"));
+			$tables = [
+				'backup',
+				'backup_cache',
+				'backup_details',
+				'backup_items',
+				'backup_server_details',
+				'backup_servers',
+				'backup_template_details',
+				'backup_templates',
+			];
+			foreach ($tables as $table) {
+				out(sprintf(_("Removing table %s."),$table));
+				if(!DEBUG){
+					$this->db->prepare("DROP TABLE :table")->execute([':table' => $table]);
+				}
+			}
 		}
 	}
 
@@ -139,7 +158,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 				'value' => _('Delete'),
 			],
 		];
-		if('bacup_restore' == $request['display']){
+		if('backup_restore' == $request['display']){
 			unset($buttons['run']);
 		}
 
@@ -292,7 +311,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 									'children' => []
 								];
 								foreach ($locations as $location) {
-											  $select       = in_array($driver.'_'.$location['id'], $storage_ids);
+									$select       = in_array($driver.'_'.$location['id'], $storage_ids);
 									$optgroup['children'][] = [
 										'label'    => $location['name'],
 										'title'    => $location['description'],
@@ -343,16 +362,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 
 	//TODO: This whole thing
 	public function getRightNav($request) {
-		//We don't need an rnav if the view is not set
-		if(isset($_GET['display']) && isset($_GET['view'])){
-			switch ($_GET['display']) {
-				case 'backup'          :
-				case 'backup_restore'  :
-					return "Placeholder";
-				default:
-				break;
-			}
-		}
+		return;
 	}
 
 	//Display stuff
@@ -364,18 +374,25 @@ class Backup extends FreePBX_Helpers implements BMO {
 					return load_view(__DIR__.'/views/backup/run.php',array('id' => $_REQUEST['id']));
 				}
 				if(isset($_GET['view']) && $_GET['view'] == 'settings'){
-						  $vars        = $this->getAll('globalsettings');
-						  $vars        = $vars?$vars:[];
+					$vars = $this->getAll('globalsettings');
+					$vars = $vars?$vars:[];
 					$vars['fromemail'] = isset($vars['fromemail'])?$vars['fromemail']:'backup@pbx.local';
 					$vars['logpath']   = isset($vars['logpath'])?$vars['logpath']:'/var/log/asterisk/backup.log';
+					$file = '/home/asterisk/.ssh/id_rsa.pub';
+					if (!file_exists($file)) {
+						$ssh = new FilestoreRemote();
+						$ret = $ssh->generateKey('/home/asterisk/.ssh');
+					}
+					$data = file_get_contents($file);
+					$vars['publickey'] = $data;
 					return load_view(__DIR__.'/views/backup/settings.php',$vars);
 				}
 				if(isset($_GET['view']) && $_GET['view'] == 'newRSA'){
 					return load_view(__DIR__.'/views/backup/rsa.php');
 				}
 				if(isset($_GET['view']) && $_GET['view'] == 'form'){
-						  $randcron          = sprintf('59 23 * * %s',rand(0,6));
-						  $vars              = ['id' => ''];
+					$randcron          = sprintf('59 23 * * %s',rand(0,6));
+					$vars              = ['id' => ''];
 					$vars['backup_schedule'] = $randcron;
 					if(isset($_GET['id']) && !empty($_GET['id'])){
 						$vars              = $this->getBackup($_GET['id']);
@@ -387,7 +404,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 					$vars['warmspare']      = '';
 					if(empty($warmsparedisable)){
 						$warmsparedefaults = [
-							'warmspare_type'   => 'primary',
 							'warmspare_user'   => 'root',
 							'warmspare_remote' => 'no',
 							'warmspare_enable' => 'no',
@@ -395,17 +411,10 @@ class Backup extends FreePBX_Helpers implements BMO {
 						$settings = $this->getConfig('warmsparesettings');
 						$settings = $settings?$settings:[];
 						foreach($warmsparedefaults as $key => $value){
-								  $value = isset($settings[$key])?$settings[$key]:$value;
+							$value = isset($settings[$key])?$settings[$key]:$value;
 							$vars[$key]  = $value;
 						}
-						if($vars['warmspare_type'] == 'primary'){
-								  $file        = '/home/asterisk/.ssh/id_rsa.pub';
-							$vars['publickey'] = '';
-							if(file_exists($file)){
-									  $data        = file_get_contents($file);
-								$vars['publickey'] = $data;
-							}
-						}
+
 						$vars['warmspare'] = load_view(__DIR__.'/views/backup/warmspare.php',$vars);
 					}
 					$vars['transfer'] = '';
@@ -733,14 +742,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			if($col == 'immortal'){
 				continue;
 			}
-			//If this system is the primary system we get the key from the system.
-			if($col == 'publickey'){
-				if($this->getReq('warmspare_type','primary') === "primary"){
-					continue;
-				}
-				$ssh = new FilestoreRemote();
-				$ssh->addTrustedKey($this->getReq('publickey'));
-			}
+
 			$value = $this->getReqUnsafe($col,'');
 			$this->updateBackupSetting($data['id'], $col, $value);
 		}
@@ -750,7 +752,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			$backup_items = json_decode(html_entity_decode($this->getReq('backup_items',[])),true);
 			$this->setModulesById($data['id'], $backup_items);
 		}
-		//We wxpect this to be JSON so we don't sanitize it.
+		//We expect this to be JSON so we don't sanitize it.
 		$data['backup_items_settings'] = $this->getReqUnsafe('backup_items_settings', 'unchanged');
 		if($data['backup_items_settings'] !== 'unchanged' ){
 			$this->processBackupSettings($data['id'], json_decode($data['backup_items_settings'],true));

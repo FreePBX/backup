@@ -1,6 +1,6 @@
 <?php
 namespace FreePBX\modules\Backup\Modules;
-class Migration(){
+class Migration{
 	const DEBUG = true;
 	public function __construct($freepbx = ''){
 		$this->FreePBX = $freepbx;

@@ -16,17 +16,18 @@ class Backup extends Command {
 		->setAliases(array('bu'))
 		->setDescription('Run backup and restore jobs')
 		->setDefinition(array(
-				new InputOption('backup', 'bu', InputOption::VALUE_REQUIRED, 'Backup ID'),
-				new InputOption('externbackup', 'ebu', InputOption::VALUE_REQUIRED, 'Base64 encoded backup job'),
-				new InputOption('dumpextern', 'd', InputOption::VALUE_REQUIRED, 'Dump Base64 backup data'),
-				new InputOption('transaction', 't', InputOption::VALUE_REQUIRED, 'Transaction ID for the backup'),
-				new InputOption('list', 'ls', InputOption::VALUE_NONE, 'List backups'),
+				new InputOption('backup', '', InputOption::VALUE_REQUIRED, 'Backup ID'),
+				new InputOption('externbackup', '', InputOption::VALUE_REQUIRED, 'Base64 encoded backup job'),
+				new InputOption('dumpextern', '', InputOption::VALUE_REQUIRED, 'Dump Base64 backup data'),
+				new InputOption('transaction', '', InputOption::VALUE_REQUIRED, 'Transaction ID for the backup'),
+				new InputOption('list', '', InputOption::VALUE_NONE, 'List backups'),
+				new InputOption('warmspare', '', InputOption::VALUE_NONE, 'Set the warmspare flag'),
 				new InputOption('implemented', '', InputOption::VALUE_NONE, ''),
-				new InputOption('restore', 're', InputOption::VALUE_REQUIRED, 'Restore File'),
-				new InputOption('restoresingle', 'rs', InputOption::VALUE_REQUIRED, 'Module backup to restore'),
-				new InputOption('backupsingle', 'bs', InputOption::VALUE_REQUIRED, 'Module to backup'),
+				new InputOption('restore', '', InputOption::VALUE_REQUIRED, 'Restore File'),
+				new InputOption('restoresingle', '', InputOption::VALUE_REQUIRED, 'Module backup to restore'),
+				new InputOption('backupsingle', '', InputOption::VALUE_REQUIRED, 'Module to backup'),
 				new InputOption('singlesaveto', '', InputOption::VALUE_REQUIRED, 'Where to save the single module backup.'),
-				new InputOption('manifest', 'man', InputOption::VALUE_REQUIRED, 'File Manifest'),
+				new InputOption('manifest', '', InputOption::VALUE_REQUIRED, 'File Manifest'),
 		))
 		->setHelp('Run a backup: fwconsole backup --id=[backup-id]'.PHP_EOL
 		.'Run a restore: fwconsole backup --restore=[/path/to/restore-xxxxxx.tar.gz]'.PHP_EOL
@@ -46,6 +47,7 @@ class Backup extends Command {
 		$backupHandler = new Handler\Backup($this->freepbx);
 		$restoreHandler = new Handler\Restore($this->freepbx);
 		$list = $input->getOption('list');
+		$warmspare = $input->getOption('warmspare');
 		$backup = $input->getOption('backup');
 		$restore = $input->getOption('restore');
 		$remote = $input->getOption('externbackup');
@@ -98,7 +100,7 @@ class Backup extends Command {
 					$this->log($job, _("A restore task is already running"));
     				return false;
 				}
-				$restoreHandler->process($restore,$job);
+				$restoreHandler->process($restore,$job,$warmspare);
 				$lockHandler->release();
 			break;
 			case $dumpextern:

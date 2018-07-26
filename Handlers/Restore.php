@@ -23,11 +23,12 @@ class Restore{
 		define('WEBROOT', $webrootpath);
 		define('BACKUPTMPDIR','/var/spool/asterisk/tmp');
 	}
-	public function process($backupFile, $jobid) {
+	public function process($backupFile, $jobid, $warmspare = false) {
 		$this->Backup->fs->remove(BACKUPTMPDIR);
 		$this->Backup->fs->mkdir(BACKUPTMPDIR);
 		$phar = new \PharData($backupFile);
 		$restoreData = $phar->getMetadata();
+		$restoreData['isWarmSpare'] = $warmspare;
 		if(isset($restoreData['processorder'])){
 			$this->restoreModules = $restoreData['processorder'];
 		}
@@ -60,8 +61,8 @@ class Restore{
 			\modgettext::push_textdomain($key);
 			$this->Backup->log($jobid,sprintf(_("Running restore process for %s"),$key));
 			$this->Backup->log($jobid,sprintf(_("Resetting the data for %s, this may take a moment"),$key));
-			$backedupVer = $value;
 			try{
+				$backedupVer = $value;
 				$modulehandler->reset($mod['name'],$backedupVer);
 				$this->Backup->log($jobid,sprintf(_("Restoring the data for %s, this may take a moment"),$key));
 				$class = sprintf('\\FreePBX\\modules\\%s\\Restore',ucfirst($key));

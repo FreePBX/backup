@@ -2,10 +2,10 @@
 /**
  * Copyright Sangoma Technologies, Inc 2017
  */
-namespace FreePBX\modules\Backup\Modules;
+namespace FreePBX\modules\Backup\Modules\Migration;
 
-class Transfer{
-  public function __construct(){
-    return true;
-  }
+class Transfer extends Migration{
+	public function process(){
+		return $this;
+	}
 }

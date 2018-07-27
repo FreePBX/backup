@@ -8,6 +8,7 @@ use FreePBX\modules\Filestore\Modules\Remote as FilestoreRemote;
 
 use Exception;
 class Warmspare{
+	const DEBUG = true;
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
 			throw new \Exception('Not given a FreePBX Object');
@@ -23,7 +24,7 @@ class Warmspare{
 			return;
 		}
 		$ssh->createSSH($host);
-		$user = isset($this->backupdata['warmspare_user'])?$this->backupdata['warmspareuser']:'root';
+		$user = isset($this->backupdata['warmspare_user'])?$this->backupdata['warmspare_user']:'root';
 		$homepath = '/home/'.$user;
 		if($user == 'root'){
 			$homepath = '/root';
@@ -32,7 +33,7 @@ class Warmspare{
 		$ssh->authenticateSSH($user,$keypath);
 		$transaction = 'remote-backup-'.time();
 		$command = sprintf('/usr/sbin/fwconsole backup --externbackup=%s --transaction=%s',$backupData, $transaction);
-		$ssh->sendCommand($command);
+		$ssh->sendCommand($command, DEBUG);
 		$ssh->grabFile($homepath.'/'.$transaction.'.tar.gz', $homepath . '/' . $transaction . '.tar.gz');
 		exec('/usr/sbin/fwconsole backup --warmspare --restore='. $homepath . '/' . $transaction . '.tar.gz',$out,$ret);
 		return $ret;
@@ -40,7 +41,7 @@ class Warmspare{
 
 	public function getBackupString($id){
 		$this->backupdata = $this->FreePBX->Backup->getBackup($id);
-		$this->backupdata['backup_items'] = $this->freepbx->Backup->getAll('modules_' . $id);
+		$this->backupdata['backup_items'] = $this->FreePBX->Backup->getAll('modules_' . $id);
 		return base64_encode(json_encode($this->backupdata));
 	}
 }

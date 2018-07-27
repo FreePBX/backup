@@ -48,7 +48,7 @@ $(document).ready(function () {
             });
         },400);
 	});
-	$('[name="warmspareenables"]').change(function () {
+	$('[name="warmspareenabled"]').change(function () {
 		toggle_warmspare();
 	});
 });
@@ -84,7 +84,7 @@ $("#backup_backup").on('post-body.bs.table', function () {
 });
 
 function toggle_warmspare() {
-	if ($('input[name="warmspareenables"]:checked').val() == 'yes') {
+	if ($('input[name="warmspareenabled"]:checked').val() == 'yes') {
 		$(".warmspare").slideDown();
 	} else {
 		$(".warmspare").slideUp();

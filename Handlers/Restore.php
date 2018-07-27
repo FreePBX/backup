@@ -28,7 +28,6 @@ class Restore{
 		$this->Backup->fs->mkdir(BACKUPTMPDIR);
 		$phar = new \PharData($backupFile);
 		$restoreData = $phar->getMetadata();
-		$restoreData['isWarmSpare'] = $warmspare;
 		if(isset($restoreData['processorder'])){
 			$this->restoreModules = $restoreData['processorder'];
 		}
@@ -51,6 +50,7 @@ class Restore{
 				continue;
 			}
 			$moddata = json_decode(file_get_contents($modjson), true);
+			$moddata['isWarmSpare'] = $warmspare;
 			$restore = new Models\Restore($this->Backup->FreePBX, $moddata);
 			$depsOk = $this->Backup->processDependencies($restore->getDependencies());
 			if(!$depsOk){

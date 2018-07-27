@@ -10,18 +10,18 @@
     <div class="row">
       <div class="form-group">
         <div class="col-md-3">
-          <label class="control-label" for="warmspareenables">
+          <label class="control-label" for="warmspareenabled">
             <?php echo _("Enable") ?>
           </label>
-          <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspareenables"></i>
+          <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspareenabled"></i>
         </div>
         <div class="col-md-9 radioset">
-          <input type="radio" name="warmspareenables" id="warmspareenablesyes" value="yes" <?php echo ($warmspareenables=="yes" ?"CHECKED": "") ?>>
-          <label for="warmspareenablesyes">
+          <input type="radio" name="warmspareenabled" id="warmspareenabledyes" value="yes" <?php echo ($warmspareenabled=="yes" ?"CHECKED": "") ?>>
+          <label for="warmspareenabledyes">
             <?php echo _("Yes");?>
           </label>
-          <input type="radio" name="warmspareenables" id="warmspareenablesno" <?php echo ($warmspareenables=="yes" ? "": "CHECKED")?>>
-          <label for="warmspareenablesno">
+          <input type="radio" name="warmspareenabled" id="warmspareenabledno" <?php echo ($warmspareenabled=="yes" ? "": "CHECKED")?>>
+          <label for="warmspareenabledno">
             <?php echo _("No");?>
           </label>
         </div>
@@ -29,7 +29,7 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <span id="warmspareenables-help" class="help-block fpbx-help-block">
+        <span id="warmspareenabled-help" class="help-block fpbx-help-block">
           <?php echo _("Should the warm spare feature be enabled")?>
         </span>
       </div>
@@ -204,7 +204,7 @@
           <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remoteip"></i>
         </div>
         <div class="col-md-9">
-          <input type="text" class="form-control" id="warmspare_remote" name="warmspare_remote" value="<?php echo isset($warmspare_remoteip)?$warmspare_remoteip:''?>">
+          <input type="text" class="form-control" id="warmspare_remoteip" name="warmspare_remoteip" value="<?php echo isset($warmspare_remoteip)?$warmspare_remoteip:''?>">
         </div>
       </div>
     </div>

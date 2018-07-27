@@ -87,6 +87,10 @@ class Backup extends Command {
 					$this->log($job, _("A backup job for this id is already running"));
     			return false;
 				}
+				if ($warmspare) {
+					$ws = new FreePBX\modules\Backup\Handlers\Warmspare($this->freepbx);
+					return $ws->process($buid);
+				}
 				$pid = posix_getpid();
 				$backupHandler->process($buid,$job,null,$pid);
 				$lockHandler->release();
@@ -114,10 +118,15 @@ class Backup extends Command {
 				return true;
 			break;
 			case $remote:
+				$lockHandler = new LockHandler('restore');
+				if (!$lockHandler->lock()) {
+					$this->log($job, _("A backup task is already running"));
+					return false;
+				}			
 				$job = $transaction?$transaction:$this->freepbx->Backup->generateID();
 				$output->writeln(sprintf('Starting backup job with ID: %s',$job));
 				$pid = posix_getpid();
-				$this->freepbx->Backup->doBackup('',$job,$input->getOption('externbackup'),$pid);
+				$backupHandler->process('',$job,$input->getOption('externbackup'),$pid);
 			break;
 			default:
 				$output->writeln($this->getHelp());

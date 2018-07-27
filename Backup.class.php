@@ -283,7 +283,12 @@ class Backup extends FreePBX_Helpers implements BMO {
 				}
 				$buid    = escapeshellarg($_GET['id']);
 				$jobid   = $this->generateId();
-				$process = new Process('fwconsole backup --backup='.$buid.' --transaction='.$jobid.' > /dev/null 2>&1 &');
+				$warmspare = $this->getConfig('warmspareenabled', $buid) === 'yes';
+				$command = 'fwconsole backup --backup=' . $buid . ' --transaction=' . $jobid . ' > /dev/null 2>&1 &';
+				if($warmspare){
+					$command .= ' --warmspare';
+				}
+				$process = new Process($command);
 				$process->disableOutput();
 				try {
 					$process->mustRun();
@@ -701,9 +706,10 @@ class Backup extends FreePBX_Helpers implements BMO {
 	public function scheduleJobs($id = 'all'){
 		if($id !== 'all'){
 			$enabled = $this->getBackupSetting($id, 'schedule_enabled');
+			$warmspare = $this->getConfig('warmspareenabled', $buid) === 'yes';
 			if($enabled === 'yes'){
 				$schedule = $this->getBackupSetting($id, 'backup_schedule');
-				$command  = sprintf('/usr/sbin/fwconsole backup backup=%s > /dev/null 2>&1',$id);
+				$command  = sprintf('/usr/sbin/fwconsole backup backup=%s %s > /dev/null 2>&1',$id, $warmspare ? '--warmspare' : '');
 				$this->FreePBX->Cron->removeAll($command);
 				$this->FreePBX->Cron->add($schedule.' '.$command);
 				return true;
@@ -720,9 +726,10 @@ class Backup extends FreePBX_Helpers implements BMO {
 		$backups = $this->listBackups();
 		foreach ($backups as $key => $value) {
 			$enabled = $this->getBackupSetting($key, 'schedule_enabled');
+			$warmspare = $this->getConfig('warmspareenabled', $key) === 'yes';
 			if($enabled === 'yes'){
 				$schedule = $this->getBackupSetting($key, 'backup_schedule');
-				$command  = sprintf('/usr/sbin/fwconsole backup backup=%s > /dev/null 2>&1',$key);
+				$command  = sprintf('/usr/sbin/fwconsole backup backup=%s %s> /dev/null 2>&1',$key, $warmspare ? '--warmspare' : '');
 				$this->FreePBX->Cron->removeAll($command);
 				$this->FreePBX->Cron->add($schedule.' '.$command);
 			}

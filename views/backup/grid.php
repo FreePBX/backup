@@ -3,7 +3,7 @@
 ?>
 <div id="toolbar-backup">
   <a href='?display=backup&view=form' class="btn btn-default"><i class = "fa fa-plus"></i>&nbsp;<?php echo _("Add Backup")?></a>
-  <a href='' class="btn btn-default disabled" id="wizard"><i class = "fa fa-magic"></i>&nbsp;<?php echo _("Backup Wizard")?></a>
+  <!--<a href='' class="btn btn-default disabled" id="wizard"><i class = "fa fa-magic"></i>&nbsp;<?php echo _("Backup Wizard")?></a>-->
 </div>
  <table id="backup_backup"
         data-url="<?php echo $dataurl?>"

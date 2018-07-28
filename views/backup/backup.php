@@ -428,33 +428,6 @@ if ($restore == "true" || $restore == "on") {
 
 <!-- END exclude DNS -->
 
-<!--Apply Configs-->
-<div class="element-container remote restore">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
-					<div class="col-md-3">
-						<label class="control-label" for="applyconfigs"><?php echo _("Apply Configs") ?></label>
-						<i class="fa fa-question-circle fpbx-help-icon" data-for="applyconfigs"></i>
-					</div>
-					<div class="col-md-9 radioset">
-            <input type="radio" name="applyconfigs" id="applyconfigsyes" value="true" <?php echo ($applyconfigs == "true"?"CHECKED":"") ?>>
-            <label for="applyconfigsyes"><?php echo _("Yes");?></label>
-            <input type="radio" name="applyconfigs" id="applyconfigsno" value="" <?php echo ($applyconfigs == "true"?"":"CHECKED") ?>>
-            <label for="applyconfigsno"><?php echo _("No");?></label>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<span id="applyconfigs-help" class="help-block fpbx-help-block"><?php echo _("Equivalence of clicking the red button, will happen automatically after a restore on a Standby system")?></span>
-		</div>
-	</div>
-</div>
-<!--END Apply Configs-->
 <?php
 foreach ($storage_servers as $s) {
 	echo '<input type="hidden" name="storage_servers[]" value="' . $s . '">';

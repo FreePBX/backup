@@ -213,7 +213,7 @@ function run_backup(id) {
 	      eventSource.onerror = function (event) {
 		      eventSource.close();
 		      $('.backup_status').next('progress').val('1');
-		      backup_log('Complete (Connection closed)<br>');
+		      backup_log($('.backup_status'), 'Complete (Connection closed)<br>');
 	      };
 
 	      return false;

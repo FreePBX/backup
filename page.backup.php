@@ -3,7 +3,6 @@
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 $get_vars = array(
 				'action'			=> '',
-				'applyconfigs'		=> '',
 				'bu_server'			=> '',
 				'cron_dom'			=> array(),
 				'cron_dow'			=> array(),

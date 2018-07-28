@@ -207,11 +207,6 @@ if (isset($vars['id']) && $vars['id']) {
 			backup_log(_('Running post-backup hooks...'));
 			$b->run_hooks('post-backup');
 
-			//apply configs if requested
-			if ($b->b['applyconfigs'] == 'true') {
-				do_reload(true);
-			}
-
 			if ($b->b['error'] !== false) {
 				backup_log(_('Backup completed with errors!'));
 			} else {

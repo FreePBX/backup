@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-19 17:59-0400\n"
+"POT-Creation-Date: 2018-07-27 20:53-0400\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -135,10 +135,6 @@ msgstr "Amazon S3&trade; سرور"
 msgid "Annually"
 msgstr "سالیانه"
 
-#: views/backup/backup.php:438
-msgid "Apply Configs"
-msgstr "اعمال تنظیمات"
-
 #: views/cron.php:47
 msgid "April"
 msgstr "آوریل"
@@ -163,7 +159,7 @@ msgstr "آگوست"
 msgid "Auto"
 msgstr "خودکار"
 
-#: views/backup/backup.php:495
+#: views/backup/backup.php:468
 msgid "Available Servers"
 msgstr "سرور های در دسترس"
 
@@ -179,7 +175,7 @@ msgstr "لاگ پشتیبان ضمیمه شده"
 msgid "BACKUP NOT ATTACHED"
 msgstr "پشتیبان ضمیمه نشد"
 
-#: Backup.class.php:321 functions.inc/backup.php:82
+#: Backup.class.php:321 functions.inc/backup.php:81
 #: functions.inc/class.backup.php:405 views/backup/backup.php:6
 msgid "Backup"
 msgstr "پشتیبان گیری"
@@ -245,7 +241,7 @@ msgstr "ماژول پشتیبان گیری"
 msgid "Backup Name"
 msgstr "نام پشتیبان"
 
-#: views/backup/backup.php:517
+#: views/backup/backup.php:490
 msgid "Backup Schedule"
 msgstr "زمان بندی پشتیبان"
 
@@ -265,11 +261,11 @@ msgstr "قالب پشتیبان"
 msgid "Backup Wizard"
 msgstr "ویزارد پشتیبان گیری"
 
-#: page.backup.php:117
+#: page.backup.php:116
 msgid "Backup and Restore"
 msgstr "پشتیبان گیری و بازیابی"
 
-#: bin/backup.php:156 bin/backup.php:216
+#: bin/backup.php:156 bin/backup.php:211
 msgid "Backup completed with errors!"
 msgstr "پشتیبان گیری با خطا پایان یافت!"
 
@@ -294,7 +290,7 @@ msgstr ""
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "ماژول پشتیبان گیری یافت نشد و یا غیرفعال است. بی نتیجه!"
 
-#: bin/backup.php:158 bin/backup.php:218
+#: bin/backup.php:158 bin/backup.php:213
 msgid "Backup successfully completed!"
 msgstr "پشتیبان گیری با موفقیت پایان یافت!"
 
@@ -404,7 +400,7 @@ msgstr "روز هر ماه"
 msgid "Day of Week"
 msgstr "روز هفته"
 
-#: views/backup/backup.php:553
+#: views/backup/backup.php:526
 msgid "Days"
 msgstr "روز"
 
@@ -428,17 +424,17 @@ msgstr "پیش فرض"
 msgid "Default backup; automatically installed"
 msgstr "پشتیبان پیش فرض، که به صورت خودکار نصب شده است"
 
-#: Backup.class.php:38 Backup.class.php:207 page.backup.php:48
+#: Backup.class.php:38 Backup.class.php:207 page.backup.php:47
 #: page.backup_servers.php:36 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
 msgstr "حذف"
 
-#: views/backup/backup.php:541 views/backup/backup.php:578
+#: views/backup/backup.php:514 views/backup/backup.php:551
 msgid "Delete After"
 msgstr "حذف بعد از"
 
-#: views/backup/backup.php:568
+#: views/backup/backup.php:541
 msgid ""
 "Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
 "Please note that deletes aren't time based and will only happen after a "
@@ -448,7 +444,7 @@ msgstr ""
 "که عمل حذف مبتنی بر زمان نیست و تنها پس از اجرای پشتیبان صورت می پذیرد ."
 "مقدار صفر هرگونه حذف را غیرفعال می نماید"
 
-#: views/backup/backup.php:591
+#: views/backup/backup.php:564
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -508,7 +504,7 @@ msgstr "انجام شد!"
 msgid "Download"
 msgstr "دانلود"
 
-#: views/backup/backup.php:466
+#: views/backup/backup.php:439
 msgid ""
 "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
@@ -556,14 +552,6 @@ msgstr "اطلاع رسانی از طریق ایمیل روی بله تنظیم 
 #: views/backup/backup.php:77
 msgid "Email to send status messages to when this task is run"
 msgstr "آدرس ایمیلی که وضعیت اجرای این پشتیبان گیری به آن ارسال می گردد"
-
-#: views/backup/backup.php:453
-msgid ""
-"Equivalence of clicking the red button, will happen automatically after a "
-"restore on a Standby system"
-msgstr ""
-"پس از کلیک بر روی دکمه قرمز رنگ، هم ارزی به صورت خودکار پس از بازیابی بر روی "
-"سیستم فرعی انجام خواهد شد"
 
 #: functions.inc/class.backup.php:471 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
@@ -708,7 +696,7 @@ msgstr "فایل ها"
 msgid "Filesystem Type"
 msgstr "نوع فایل سیستم"
 
-#: page.backup.php:54
+#: page.backup.php:53
 msgid "FreePBX"
 msgstr "مرکزتماس رایگان"
 
@@ -757,7 +745,7 @@ msgstr "نام میزبان"
 msgid "Hourly"
 msgstr "ساعتی"
 
-#: views/backup/backup.php:551 views/cron.php:197 views/cron.php:201
+#: views/backup/backup.php:524 views/cron.php:197 views/cron.php:201
 msgid "Hours"
 msgstr "ساعت"
 
@@ -876,7 +864,7 @@ msgstr "محل کلید خصوصی SSH که برای اتصال به میزبا�
 msgid "MB"
 msgstr "مگابایت"
 
-#: views/backup/backup.php:532
+#: views/backup/backup.php:505
 msgid "Maintenance"
 msgstr "نگهداری"
 
@@ -892,7 +880,7 @@ msgstr "حداکثراندازه ایمیل"
 msgid "May"
 msgstr "می"
 
-#: views/backup/backup.php:549 views/cron.php:171 views/cron.php:175
+#: views/backup/backup.php:522 views/cron.php:171 views/cron.php:175
 msgid "Minutes"
 msgstr "دقیقه"
 
@@ -904,7 +892,7 @@ msgstr "دوشنبه"
 msgid "Monthly"
 msgstr "ماهانه"
 
-#: views/backup/backup.php:557 views/cron.php:249 views/cron.php:253
+#: views/backup/backup.php:530 views/cron.php:249 views/cron.php:253
 msgid "Months"
 msgstr "ماه"
 
@@ -987,9 +975,9 @@ msgstr "شبانه"
 #: views/backup/backup.php:96 views/backup/backup.php:308
 #: views/backup/backup.php:333 views/backup/backup.php:360
 #: views/backup/backup.php:387 views/backup/backup.php:416
-#: views/backup/backup.php:445 views/backup/backups.php:186
-#: views/backup/backups.php:213 views/backup/backups.php:240
-#: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:150
+#: views/backup/backups.php:186 views/backup/backups.php:213
+#: views/backup/backups.php:240 views/backup/backups.php:271
+#: views/backup/backups.php:327 views/cron.php:150
 msgid "No"
 msgstr "خیر"
 
@@ -1300,7 +1288,7 @@ msgstr ""
 "در زمان راه اندازی سرور و یا سرویس cron اجرا شود (بعد از هر <code> سرویس "
 "cron راه اندازی مجدد می نماید</code>)"
 
-#: page.backup.php:50
+#: page.backup.php:49
 msgid "Run now"
 msgstr "اجرا شود"
 
@@ -1352,7 +1340,7 @@ msgstr "اجرای تله های پیش از بازیابی…"
 msgid "Running pre-restore scripts..."
 msgstr "اجرای اسکریپت های پیش از بازیابی…"
 
-#: views/backup/backup.php:584
+#: views/backup/backup.php:557
 msgid "Runs"
 msgstr "اجرا"
 
@@ -1504,7 +1492,7 @@ msgstr "گام چهارم"
 msgid "Step 5"
 msgstr "گام پنجم"
 
-#: views/backup/backup.php:472
+#: views/backup/backup.php:445
 msgid "Storage Servers"
 msgstr "سرورهای ذخیره سازی"
 
@@ -1704,7 +1692,7 @@ msgstr "روزهای هفته"
 msgid "Weekly"
 msgstr "هفتگی"
 
-#: views/backup/backup.php:555
+#: views/backup/backup.php:528
 msgid "Weeks"
 msgstr "هفته"
 
@@ -1764,16 +1752,16 @@ msgstr "آیا تمایل به تهیه پشتیبان از مکالمات ضب�
 msgid "Would you like voicemails backded up."
 msgstr "آیا تمایل به تهیه پشتیبان از صندوق های صوتی دارید."
 
-#: views/backup/backup.php:559
+#: views/backup/backup.php:532
 msgid "Years"
 msgstr "سال"
 
 #: views/backup/backup.php:94 views/backup/backup.php:306
 #: views/backup/backup.php:331 views/backup/backup.php:358
 #: views/backup/backup.php:385 views/backup/backup.php:414
-#: views/backup/backup.php:443 views/backup/backups.php:184
-#: views/backup/backups.php:211 views/backup/backups.php:238
-#: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:148
+#: views/backup/backups.php:184 views/backup/backups.php:211
+#: views/backup/backups.php:238 views/backup/backups.php:269
+#: views/backup/backups.php:325 views/cron.php:148
 msgid "Yes"
 msgstr "بله"
 
@@ -1822,6 +1810,16 @@ msgstr "انتظار برای قفل..."
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{سروری در دسترس نیست}"
+
+#~ msgid "Apply Configs"
+#~ msgstr "اعمال تنظیمات"
+
+#~ msgid ""
+#~ "Equivalence of clicking the red button, will happen automatically after a "
+#~ "restore on a Standby system"
+#~ msgstr ""
+#~ "پس از کلیک بر روی دکمه قرمز رنگ، هم ارزی به صورت خودکار پس از بازیابی بر "
+#~ "روی سیستم فرعی انجام خواهد شد"
 
 #~ msgid "Error connecting to the FTP Server... Check your host name or DNS"
 #~ msgstr "خطا در اتصال به سرور FTP... لطفا نام میزبان یا DNS را بررسی کنید"

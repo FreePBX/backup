@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-19 17:59-0400\n"
+"POT-Creation-Date: 2018-07-27 20:53-0400\n"
 "PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/backup/pl/"
@@ -128,10 +128,6 @@ msgstr "Serwer Amazon S3&trade"
 msgid "Annually"
 msgstr "Rocznie"
 
-#: views/backup/backup.php:438
-msgid "Apply Configs"
-msgstr "Zastosuj konfiguracje"
-
 #: views/cron.php:47
 msgid "April"
 msgstr "Kwiecień"
@@ -158,7 +154,7 @@ msgstr "Sierpień"
 msgid "Auto"
 msgstr "Automatycznie"
 
-#: views/backup/backup.php:495
+#: views/backup/backup.php:468
 msgid "Available Servers"
 msgstr "Dostępne serwery"
 
@@ -174,7 +170,7 @@ msgstr "LOG KOPII ZAPASOWEJ DOŁĄCZONY"
 msgid "BACKUP NOT ATTACHED"
 msgstr "KOPIA ZAPASOWA NIE DOŁĄCZONA"
 
-#: Backup.class.php:321 functions.inc/backup.php:82
+#: Backup.class.php:321 functions.inc/backup.php:81
 #: functions.inc/class.backup.php:405 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Kopa zapasowa"
@@ -240,7 +236,7 @@ msgstr "Moduł kopii zapasowej"
 msgid "Backup Name"
 msgstr "Nazwa kopii zapasowej"
 
-#: views/backup/backup.php:517
+#: views/backup/backup.php:490
 msgid "Backup Schedule"
 msgstr "Plan kopii zapasowej"
 
@@ -260,11 +256,11 @@ msgstr "Szablon kopii zapasowej"
 msgid "Backup Wizard"
 msgstr "Kreator tworzenia kopii zapasowych"
 
-#: page.backup.php:117
+#: page.backup.php:116
 msgid "Backup and Restore"
 msgstr "Kopia zapasowa i przywracanie"
 
-#: bin/backup.php:156 bin/backup.php:216
+#: bin/backup.php:156 bin/backup.php:211
 msgid "Backup completed with errors!"
 msgstr "Tworzenie kopii zapasowej zakończyło się błędem!"
 
@@ -289,7 +285,7 @@ msgstr ""
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "Moduł kopii zapasowej nie znaleziony lub wyłączony. Przerywanie!"
 
-#: bin/backup.php:158 bin/backup.php:218
+#: bin/backup.php:158 bin/backup.php:213
 msgid "Backup successfully completed!"
 msgstr "Tworzenie kopii zapasowej zakończono sukcesem!"
 
@@ -401,7 +397,7 @@ msgstr "Dzień każdego miesiąca"
 msgid "Day of Week"
 msgstr "Dzień tygodnia"
 
-#: views/backup/backup.php:553
+#: views/backup/backup.php:526
 msgid "Days"
 msgstr "Dni"
 
@@ -425,17 +421,17 @@ msgstr "Fabryczny"
 msgid "Default backup; automatically installed"
 msgstr "Fabryczna kopia zapasowa; zainstalowana automatycznie"
 
-#: Backup.class.php:38 Backup.class.php:207 page.backup.php:48
+#: Backup.class.php:38 Backup.class.php:207 page.backup.php:47
 #: page.backup_servers.php:36 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
 msgstr "Skasuj"
 
-#: views/backup/backup.php:541 views/backup/backup.php:578
+#: views/backup/backup.php:514 views/backup/backup.php:551
 msgid "Delete After"
 msgstr "Skasuj później"
 
-#: views/backup/backup.php:568
+#: views/backup/backup.php:541
 msgid ""
 "Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
 "Please note that deletes aren't time based and will only happen after a "
@@ -446,7 +442,7 @@ msgstr ""
 "włączeniu kopii zapasowej. Ustawienie wartości 0 spowoduje wyłączenie "
 "każdego usuwania"
 
-#: views/backup/backup.php:591
+#: views/backup/backup.php:564
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -505,7 +501,7 @@ msgstr "Zrobione!"
 msgid "Download"
 msgstr "Pobieranie"
 
-#: views/backup/backup.php:466
+#: views/backup/backup.php:439
 msgid ""
 "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
@@ -555,12 +551,6 @@ msgid "Email to send status messages to when this task is run"
 msgstr ""
 "Email na który ma zostać wysłany status wiadomości kiedy to zadanie jest "
 "włączone"
-
-#: views/backup/backup.php:453
-msgid ""
-"Equivalence of clicking the red button, will happen automatically after a "
-"restore on a Standby system"
-msgstr ""
 
 #: functions.inc/class.backup.php:471 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
@@ -699,7 +689,7 @@ msgstr "Pliki"
 msgid "Filesystem Type"
 msgstr ""
 
-#: page.backup.php:54
+#: page.backup.php:53
 msgid "FreePBX"
 msgstr "FreePBX"
 
@@ -748,7 +738,7 @@ msgstr "Nazwa hosta"
 msgid "Hourly"
 msgstr "Cogodzinny"
 
-#: views/backup/backup.php:551 views/cron.php:197 views/cron.php:201
+#: views/backup/backup.php:524 views/cron.php:197 views/cron.php:201
 msgid "Hours"
 msgstr "Godziny"
 
@@ -861,7 +851,7 @@ msgstr ""
 msgid "MB"
 msgstr "MB"
 
-#: views/backup/backup.php:532
+#: views/backup/backup.php:505
 msgid "Maintenance"
 msgstr ""
 
@@ -877,7 +867,7 @@ msgstr "Maksymalny rozmiar maila"
 msgid "May"
 msgstr "Maj"
 
-#: views/backup/backup.php:549 views/cron.php:171 views/cron.php:175
+#: views/backup/backup.php:522 views/cron.php:171 views/cron.php:175
 msgid "Minutes"
 msgstr "Minuty"
 
@@ -889,7 +879,7 @@ msgstr "Poniedziałek"
 msgid "Monthly"
 msgstr "Miesięczny"
 
-#: views/backup/backup.php:557 views/cron.php:249 views/cron.php:253
+#: views/backup/backup.php:530 views/cron.php:249 views/cron.php:253
 msgid "Months"
 msgstr "Miesiące"
 
@@ -972,9 +962,9 @@ msgstr "Nocny"
 #: views/backup/backup.php:96 views/backup/backup.php:308
 #: views/backup/backup.php:333 views/backup/backup.php:360
 #: views/backup/backup.php:387 views/backup/backup.php:416
-#: views/backup/backup.php:445 views/backup/backups.php:186
-#: views/backup/backups.php:213 views/backup/backups.php:240
-#: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:150
+#: views/backup/backups.php:186 views/backup/backups.php:213
+#: views/backup/backups.php:240 views/backup/backups.php:271
+#: views/backup/backups.php:327 views/cron.php:150
 msgid "No"
 msgstr "Nie"
 
@@ -1287,7 +1277,7 @@ msgid ""
 "<code>service cron restart</code>)"
 msgstr ""
 
-#: page.backup.php:50
+#: page.backup.php:49
 msgid "Run now"
 msgstr "Uruchom teraz"
 
@@ -1339,7 +1329,7 @@ msgstr ""
 msgid "Running pre-restore scripts..."
 msgstr ""
 
-#: views/backup/backup.php:584
+#: views/backup/backup.php:557
 msgid "Runs"
 msgstr "Uruchomione"
 
@@ -1490,7 +1480,7 @@ msgstr "Krok 4"
 msgid "Step 5"
 msgstr "Krok 5"
 
-#: views/backup/backup.php:472
+#: views/backup/backup.php:445
 msgid "Storage Servers"
 msgstr "Serwery pamięci masowej"
 
@@ -1693,7 +1683,7 @@ msgstr "Dni tygodnia"
 msgid "Weekly"
 msgstr "Co tydzień"
 
-#: views/backup/backup.php:555
+#: views/backup/backup.php:528
 msgid "Weeks"
 msgstr "Tygodnie"
 
@@ -1754,16 +1744,16 @@ msgstr "Czy utworzyć kopię zapasową nagrań?"
 msgid "Would you like voicemails backded up."
 msgstr "Czy utworzyć kopię zapasową poczty głosowej."
 
-#: views/backup/backup.php:559
+#: views/backup/backup.php:532
 msgid "Years"
 msgstr "Lata"
 
 #: views/backup/backup.php:94 views/backup/backup.php:306
 #: views/backup/backup.php:331 views/backup/backup.php:358
 #: views/backup/backup.php:385 views/backup/backup.php:414
-#: views/backup/backup.php:443 views/backup/backups.php:184
-#: views/backup/backups.php:211 views/backup/backups.php:238
-#: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:148
+#: views/backup/backups.php:184 views/backup/backups.php:211
+#: views/backup/backups.php:238 views/backup/backups.php:269
+#: views/backup/backups.php:325 views/cron.php:148
 msgid "Yes"
 msgstr "Tak"
 
@@ -1812,3 +1802,6 @@ msgstr "oczekiwanie na blokadę..."
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{brak dostępnych serwerów}"
+
+#~ msgid "Apply Configs"
+#~ msgstr "Zastosuj konfiguracje"

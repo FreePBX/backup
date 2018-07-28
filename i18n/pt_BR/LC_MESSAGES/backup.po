@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-19 17:59-0400\n"
+"POT-Creation-Date: 2018-07-27 20:53-0400\n"
 "PO-Revision-Date: 2017-03-08 21:01+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -138,10 +138,6 @@ msgstr "Servidor S3&trade; Amazon"
 msgid "Annually"
 msgstr "Anualmente"
 
-#: views/backup/backup.php:438
-msgid "Apply Configs"
-msgstr "Aplicar Configurações"
-
 #: views/cron.php:47
 msgid "April"
 msgstr "Abril"
@@ -166,7 +162,7 @@ msgstr "Agosto"
 msgid "Auto"
 msgstr "Automático"
 
-#: views/backup/backup.php:495
+#: views/backup/backup.php:468
 msgid "Available Servers"
 msgstr "Servidores Disponíveis"
 
@@ -182,7 +178,7 @@ msgstr "LOG DE BACKUP ANEXADO"
 msgid "BACKUP NOT ATTACHED"
 msgstr "BACKUP NÃO ANEXADO"
 
-#: Backup.class.php:321 functions.inc/backup.php:82
+#: Backup.class.php:321 functions.inc/backup.php:81
 #: functions.inc/class.backup.php:405 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Backup"
@@ -247,7 +243,7 @@ msgstr "Módulo de Backup"
 msgid "Backup Name"
 msgstr "Nome do Backup"
 
-#: views/backup/backup.php:517
+#: views/backup/backup.php:490
 msgid "Backup Schedule"
 msgstr "Programação do Backup"
 
@@ -267,11 +263,11 @@ msgstr "Modelo de Backup"
 msgid "Backup Wizard"
 msgstr "Assistente de Backup"
 
-#: page.backup.php:117
+#: page.backup.php:116
 msgid "Backup and Restore"
 msgstr "Backup e Restauração"
 
-#: bin/backup.php:156 bin/backup.php:216
+#: bin/backup.php:156 bin/backup.php:211
 msgid "Backup completed with errors!"
 msgstr "Backup completado com erros!"
 
@@ -296,7 +292,7 @@ msgstr ""
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "Módulo de backup não encontrado ou desativado. Abortando!"
 
-#: bin/backup.php:158 bin/backup.php:218
+#: bin/backup.php:158 bin/backup.php:213
 msgid "Backup successfully completed!"
 msgstr "Backup completado com sucesso!"
 
@@ -407,7 +403,7 @@ msgstr "Dia de cada mês"
 msgid "Day of Week"
 msgstr "Dia da Semana"
 
-#: views/backup/backup.php:553
+#: views/backup/backup.php:526
 msgid "Days"
 msgstr "Dias"
 
@@ -431,17 +427,17 @@ msgstr "Padrão"
 msgid "Default backup; automatically installed"
 msgstr "Backup padrão; instalado automaticamente"
 
-#: Backup.class.php:38 Backup.class.php:207 page.backup.php:48
+#: Backup.class.php:38 Backup.class.php:207 page.backup.php:47
 #: page.backup_servers.php:36 page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
 msgstr "Apagar"
 
-#: views/backup/backup.php:541 views/backup/backup.php:578
+#: views/backup/backup.php:514 views/backup/backup.php:551
 msgid "Delete After"
 msgstr "Apagar Após"
 
-#: views/backup/backup.php:568
+#: views/backup/backup.php:541
 msgid ""
 "Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
 "Please note that deletes aren't time based and will only happen after a "
@@ -452,7 +448,7 @@ msgstr ""
 "acontecerá depois que um backup for executado. Definir o valor para 0 irá "
 "desativar qualquer exclusão"
 
-#: views/backup/backup.php:591
+#: views/backup/backup.php:564
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -513,7 +509,7 @@ msgstr "Feito!"
 msgid "Download"
 msgstr "Baixar"
 
-#: views/backup/backup.php:466
+#: views/backup/backup.php:439
 msgid ""
 "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
@@ -565,14 +561,6 @@ msgstr ""
 #: views/backup/backup.php:77
 msgid "Email to send status messages to when this task is run"
 msgstr "Email para enviar mensagens de status quando esta tarefa for executada"
-
-#: views/backup/backup.php:453
-msgid ""
-"Equivalence of clicking the red button, will happen automatically after a "
-"restore on a Standby system"
-msgstr ""
-"Equivalente à clicar no \"botão vermelho\", ocorrerá automaticamente após "
-"uma restauração de um Sistema em Espera"
 
 #: functions.inc/class.backup.php:471 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
@@ -718,7 +706,7 @@ msgstr "Arquivos"
 msgid "Filesystem Type"
 msgstr "Tipo de Sistema de Arquivos"
 
-#: page.backup.php:54
+#: page.backup.php:53
 msgid "FreePBX"
 msgstr "FreePBX"
 
@@ -768,7 +756,7 @@ msgstr "Nome do Host"
 msgid "Hourly"
 msgstr "A cada hora"
 
-#: views/backup/backup.php:551 views/cron.php:197 views/cron.php:201
+#: views/backup/backup.php:524 views/cron.php:197 views/cron.php:201
 msgid "Hours"
 msgstr "Horas"
 
@@ -892,7 +880,7 @@ msgstr "Localização da chave privada ssh a ser usada ao se conectar a um host"
 msgid "MB"
 msgstr "MB"
 
-#: views/backup/backup.php:532
+#: views/backup/backup.php:505
 msgid "Maintenance"
 msgstr "Manutenção"
 
@@ -908,7 +896,7 @@ msgstr "Tamanho Máximo do Email"
 msgid "May"
 msgstr "Maio"
 
-#: views/backup/backup.php:549 views/cron.php:171 views/cron.php:175
+#: views/backup/backup.php:522 views/cron.php:171 views/cron.php:175
 msgid "Minutes"
 msgstr "Minutos"
 
@@ -920,7 +908,7 @@ msgstr "Segunda"
 msgid "Monthly"
 msgstr "Mensalmente"
 
-#: views/backup/backup.php:557 views/cron.php:249 views/cron.php:253
+#: views/backup/backup.php:530 views/cron.php:249 views/cron.php:253
 msgid "Months"
 msgstr "Meses"
 
@@ -1003,9 +991,9 @@ msgstr "Noturno"
 #: views/backup/backup.php:96 views/backup/backup.php:308
 #: views/backup/backup.php:333 views/backup/backup.php:360
 #: views/backup/backup.php:387 views/backup/backup.php:416
-#: views/backup/backup.php:445 views/backup/backups.php:186
-#: views/backup/backups.php:213 views/backup/backups.php:240
-#: views/backup/backups.php:271 views/backup/backups.php:327 views/cron.php:150
+#: views/backup/backups.php:186 views/backup/backups.php:213
+#: views/backup/backups.php:240 views/backup/backups.php:271
+#: views/backup/backups.php:327 views/cron.php:150
 msgid "No"
 msgstr "Não"
 
@@ -1319,7 +1307,7 @@ msgstr ""
 "Executar na inicialização do servidor OU do deamon cron (ou seja, após cada "
 "<code>service cron restart</code>)"
 
-#: page.backup.php:50
+#: page.backup.php:49
 msgid "Run now"
 msgstr "Executar agora"
 
@@ -1371,7 +1359,7 @@ msgstr "Executando ganchos pré-restauração, se houver..."
 msgid "Running pre-restore scripts..."
 msgstr "Executando scripts pré-restauração..."
 
-#: views/backup/backup.php:584
+#: views/backup/backup.php:557
 msgid "Runs"
 msgstr "Executar"
 
@@ -1524,7 +1512,7 @@ msgstr "Passo 4"
 msgid "Step 5"
 msgstr "Passo 5"
 
-#: views/backup/backup.php:472
+#: views/backup/backup.php:445
 msgid "Storage Servers"
 msgstr "Servidores de Armazenamento"
 
@@ -1728,7 +1716,7 @@ msgstr "Dias da Semana"
 msgid "Weekly"
 msgstr "Semanalmente"
 
-#: views/backup/backup.php:555
+#: views/backup/backup.php:528
 msgid "Weeks"
 msgstr "Semanas"
 
@@ -1788,16 +1776,16 @@ msgstr "Gostaria de fazer backup de gravações?"
 msgid "Would you like voicemails backded up."
 msgstr "Gostaria de fazer backup de correios de voz."
 
-#: views/backup/backup.php:559
+#: views/backup/backup.php:532
 msgid "Years"
 msgstr "Anos"
 
 #: views/backup/backup.php:94 views/backup/backup.php:306
 #: views/backup/backup.php:331 views/backup/backup.php:358
 #: views/backup/backup.php:385 views/backup/backup.php:414
-#: views/backup/backup.php:443 views/backup/backups.php:184
-#: views/backup/backups.php:211 views/backup/backups.php:238
-#: views/backup/backups.php:269 views/backup/backups.php:325 views/cron.php:148
+#: views/backup/backups.php:184 views/backup/backups.php:211
+#: views/backup/backups.php:238 views/backup/backups.php:269
+#: views/backup/backups.php:325 views/cron.php:148
 msgid "Yes"
 msgstr "Sim"
 
@@ -1845,3 +1833,13 @@ msgstr "esperando por bloqueio..."
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{sem servidores disponíveis}"
+
+#~ msgid "Apply Configs"
+#~ msgstr "Aplicar Configurações"
+
+#~ msgid ""
+#~ "Equivalence of clicking the red button, will happen automatically after a "
+#~ "restore on a Standby system"
+#~ msgstr ""
+#~ "Equivalente à clicar no \"botão vermelho\", ocorrerá automaticamente após "
+#~ "uma restauração de um Sistema em Espera"

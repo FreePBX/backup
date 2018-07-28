@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-28 15:33-0400\n"
+"POT-Creation-Date: 2018-07-27 20:53-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -131,10 +131,6 @@ msgstr ""
 msgid "Annually"
 msgstr ""
 
-#: views/backup/backup.php:438
-msgid "Apply Configs"
-msgstr ""
-
 #: views/cron.php:47
 msgid "April"
 msgstr ""
@@ -155,7 +151,7 @@ msgstr ""
 msgid "Auto"
 msgstr ""
 
-#: views/backup/backup.php:495
+#: views/backup/backup.php:468
 msgid "Available Servers"
 msgstr ""
 
@@ -173,7 +169,7 @@ msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
 #: Backup.class.php:321
-#: functions.inc/backup.php:82
+#: functions.inc/backup.php:81
 #: functions.inc/class.backup.php:401
 #: views/backup/backup.php:6
 msgid "Backup"
@@ -184,8 +180,16 @@ msgstr ""
 msgid "Backup & Restore"
 msgstr ""
 
-#: backup.i18n.php:12
+#: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
+msgstr ""
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Servers"
+msgstr ""
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Templates"
 msgstr ""
 
 #: backup.i18n.php:8
@@ -224,7 +228,7 @@ msgstr ""
 msgid "Backup Log:"
 msgstr ""
 
-#: backup.i18n.php:16
+#: backup.i18n.php:20
 msgid "Backup Module"
 msgstr ""
 
@@ -233,7 +237,7 @@ msgstr ""
 msgid "Backup Name"
 msgstr ""
 
-#: views/backup/backup.php:517
+#: views/backup/backup.php:490
 msgid "Backup Schedule"
 msgstr ""
 
@@ -253,12 +257,12 @@ msgstr ""
 msgid "Backup Wizard"
 msgstr ""
 
-#: page.backup.php:117
+#: page.backup.php:116
 msgid "Backup and Restore"
 msgstr ""
 
 #: bin/backup.php:156
-#: bin/backup.php:216
+#: bin/backup.php:211
 msgid "Backup completed with errors!"
 msgstr ""
 
@@ -282,7 +286,7 @@ msgid "Backup module not found or is disabled. Aborting!"
 msgstr ""
 
 #: bin/backup.php:158
-#: bin/backup.php:218
+#: bin/backup.php:213
 msgid "Backup successfully completed!"
 msgstr ""
 
@@ -394,7 +398,7 @@ msgstr ""
 msgid "Day of Week"
 msgstr ""
 
-#: views/backup/backup.php:553
+#: views/backup/backup.php:526
 msgid "Days"
 msgstr ""
 
@@ -422,26 +426,26 @@ msgstr ""
 
 #: Backup.class.php:38
 #: Backup.class.php:207
-#: page.backup.php:48
+#: page.backup.php:47
 #: page.backup_servers.php:36
 #: page.backup_templates.php:20
 #: views/item_table.php:14
 msgid "Delete"
 msgstr ""
 
-#: views/backup/backup.php:541
-#: views/backup/backup.php:578
+#: views/backup/backup.php:514
+#: views/backup/backup.php:551
 msgid "Delete After"
 msgstr ""
 
-#: views/backup/backup.php:568
+#: views/backup/backup.php:541
 msgid ""
 "Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
 "Please note that deletes aren't time based and will only happen after a "
 "backup was run. Setting the value to 0 will disable any deleting"
 msgstr ""
 
-#: views/backup/backup.php:591
+#: views/backup/backup.php:564
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
@@ -506,7 +510,7 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-#: views/backup/backup.php:466
+#: views/backup/backup.php:439
 msgid ""
 "Drag servers from the Available Servers list to add them as Storage Servers"
 msgstr ""
@@ -521,7 +525,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr ""
 
-#: backup.i18n.php:14
+#: backup.i18n.php:18
 msgid "Email "
 msgstr ""
 
@@ -552,12 +556,6 @@ msgstr ""
 
 #: views/backup/backup.php:77
 msgid "Email to send status messages to when this task is run"
-msgstr ""
-
-#: views/backup/backup.php:453
-msgid ""
-"Equivalence of clicking the red button, will happen automatically after a "
-"restore on a Standby system"
 msgstr ""
 
 #: functions.inc/class.backup.php:467
@@ -700,7 +698,7 @@ msgstr ""
 msgid "Filesystem Type"
 msgstr ""
 
-#: page.backup.php:54
+#: page.backup.php:53
 msgid "FreePBX"
 msgstr ""
 
@@ -747,7 +745,7 @@ msgstr ""
 msgid "Hourly"
 msgstr ""
 
-#: views/backup/backup.php:551
+#: views/backup/backup.php:524
 #: views/cron.php:197
 #: views/cron.php:201
 msgid "Hours"
@@ -864,7 +862,7 @@ msgstr ""
 msgid "MB"
 msgstr ""
 
-#: views/backup/backup.php:532
+#: views/backup/backup.php:505
 msgid "Maintenance"
 msgstr ""
 
@@ -880,7 +878,7 @@ msgstr ""
 msgid "May"
 msgstr ""
 
-#: views/backup/backup.php:549
+#: views/backup/backup.php:522
 #: views/cron.php:171
 #: views/cron.php:175
 msgid "Minutes"
@@ -896,7 +894,7 @@ msgstr ""
 msgid "Monthly"
 msgstr ""
 
-#: views/backup/backup.php:557
+#: views/backup/backup.php:530
 #: views/cron.php:249
 #: views/cron.php:253
 msgid "Months"
@@ -986,7 +984,6 @@ msgstr ""
 #: views/backup/backup.php:360
 #: views/backup/backup.php:387
 #: views/backup/backup.php:416
-#: views/backup/backup.php:445
 #: views/backup/backups.php:186
 #: views/backup/backups.php:213
 #: views/backup/backups.php:240
@@ -1317,7 +1314,7 @@ msgid ""
 "<code>service cron restart</code>)"
 msgstr ""
 
-#: page.backup.php:50
+#: page.backup.php:49
 msgid "Run now"
 msgstr ""
 
@@ -1370,7 +1367,7 @@ msgstr ""
 msgid "Running pre-restore scripts..."
 msgstr ""
 
-#: views/backup/backup.php:584
+#: views/backup/backup.php:557
 msgid "Runs"
 msgstr ""
 
@@ -1526,7 +1523,7 @@ msgstr ""
 msgid "Step 5"
 msgstr ""
 
-#: views/backup/backup.php:472
+#: views/backup/backup.php:445
 msgid "Storage Servers"
 msgstr ""
 
@@ -1561,7 +1558,7 @@ msgstr ""
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr ""
 
-#: backup.i18n.php:18
+#: backup.i18n.php:22
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 
@@ -1710,7 +1707,7 @@ msgstr ""
 msgid "Weekly"
 msgstr ""
 
-#: views/backup/backup.php:555
+#: views/backup/backup.php:528
 msgid "Weeks"
 msgstr ""
 
@@ -1771,7 +1768,7 @@ msgstr ""
 msgid "Would you like voicemails backded up."
 msgstr ""
 
-#: views/backup/backup.php:559
+#: views/backup/backup.php:532
 msgid "Years"
 msgstr ""
 
@@ -1781,7 +1778,6 @@ msgstr ""
 #: views/backup/backup.php:358
 #: views/backup/backup.php:385
 #: views/backup/backup.php:414
-#: views/backup/backup.php:443
 #: views/backup/backups.php:184
 #: views/backup/backups.php:211
 #: views/backup/backups.php:238

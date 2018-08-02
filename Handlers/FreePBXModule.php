@@ -77,7 +77,9 @@ class FreePBXModule{
             return [];
         }
         $moduleTables = $this->moduleXML->database->table;
-        $moduleTables = is_array($moduleTables)?$moduleTables:[];
+        if(!$moduleTables){
+            return [];
+        }
         foreach ($moduleTables as $table) {
             $tname = (string)$table->attributes()->name;
             $tables[] = $tname;

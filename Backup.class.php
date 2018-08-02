@@ -19,10 +19,12 @@ use FreePBX\modules\Backup\Modules\Backupjobs;
 use FreePBX\modules\Backup\Modules\Servers;
 use FreePBX_Helpers;
 use BMO;
+use PharData;
+use Phar;
+use ZipArchive;
 class Backup extends FreePBX_Helpers implements BMO {
 	const DEBUG = true;
 	public function __construct($freepbx = null) {
-		include __DIR__.'/vendor/autoload.php';
 		if ($freepbx == null) {
 				throw new Exception('Not given a FreePBX Object');
 		}
@@ -1005,5 +1007,20 @@ class Backup extends FreePBX_Helpers implements BMO {
 		$this->setConfig(md5($localpath),$localpath,'localfilepaths');
 
 		return $localpath;
+	}
+	public function determineBackupFileType($filepath){
+		$phar = new PharData($filepath);
+		$phar->convertToData(Phar::ZIP);
+		$zip = new ZipArchive;
+		$newfilename = str_replace(['tgz','tar.gz'],'zip',$filepath);
+		if($zip->open($newfilename) === false){
+			return false;
+		}
+		if($zip->locateName('modulejson/') !== false){
+			@unlink($newfilename);
+			return 'current';
+		}
+		@unlink($newfilename);
+		return 'legacy';
 	}
 }

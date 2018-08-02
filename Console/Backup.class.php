@@ -44,8 +44,6 @@ class Backup extends Command {
 		$this->input = $input;
         $this->freepbx = \FreePBX::Create();
         $this->freepbx->Backup->output = $output;
-		$backupHandler = new Handler\Backup($this->freepbx);
-		$restoreHandler = new Handler\Restore($this->freepbx);
 		$list = $input->getOption('list');
 		$warmspare = $input->getOption('warmspare');
 		$backup = $input->getOption('backup');
@@ -91,19 +89,31 @@ class Backup extends Command {
 					$ws = new FreePBX\modules\Backup\Handlers\Warmspare($this->freepbx);
 					return $ws->process($buid);
 				}
+				$backupHandler = new Handler\Backup($this->freepbx);
 				$pid = posix_getpid();
 				$backupHandler->process($buid,$job,null,$pid);
 				$lockHandler->release();
 
 			break;
 			case $restore:
+				$backupType = $this->freepbx->Backup->determineBackupFileType($restore);
+				dbug($backupType);
+				if($backupType === false){
+					throw new \Exception('Unknown file type');
+				}
+				if($backupType === 'current'){
+					$restoreHandler = new Handler\Restore($this->freepbx);
+				}
+				if($backupType === 'legacy'){
+					$restoreHandler = new Handler\Legacy($this->freepbx);
+				}
 				$output->writeln(sprintf('Starting restore job with file: %s',$restore));
 				//We don't EVER want multiple restores running.
 				$lockHandler = new LockHandler('restore');
 				if (!$lockHandler->lock()) {
 					$this->log($job, _("A restore task is already running"));
     				return false;
-				}
+				}				
 				$restoreHandler->process($restore,$job,$warmspare);
 				$lockHandler->release();
 			break;

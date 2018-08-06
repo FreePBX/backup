@@ -66,7 +66,7 @@ class Legacy{
         }
         foreach($files as $file){
             $pdo = $this->setupTempDb($file);
-            $loadedTables = $pdo->query("SELECT TABLE_NAME FROM information_schema.TABLES WHERE TABLE_TYPE='BASE TABLE';");
+            $loadedTables = $pdo->query("SHOW TABLES");
             $final = ['unknown' => []];
             while ($current = $loadedTables->fetch(PDO::FETCH_COLUMN)) {
                 if(!isset($tables[$current])){
@@ -86,9 +86,12 @@ class Legacy{
                 }
                 $class = new $namespace(null,$this->FreePBX, BACKUPTMPDIR);
                 if(method_exists($class,'processLegacy')){
+                    echo sprintf(_("Calling legacy restore on module %s".PHP_EOL),$key);
                     $class->processLegacy($pdo, $this->data, $value, $final['unknown'],BACKUPTMPDIR);
+                    unset($class);
+                    continue;
                 }
-                unset($class);
+                echo sprintf(_("The module %s does not seem to support legacy restores." . PHP_EOL), $key);
             }
         }
     }

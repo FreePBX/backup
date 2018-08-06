@@ -1,5 +1,7 @@
 <?php
 namespace FreePBX\modules\Backup;
+use PDO;
+use Exception;
 /**
  * This is a base class used when creating your modules "Restore.php" class
  */
@@ -24,5 +26,14 @@ class RestoreBase{
   }
   public function getFiles(){
     return $this->backupObj->getFiles();
+  }
+  
+  public function getAMPConf($database){
+    $sql = "select keyword, value from freepbx_settings";
+    try{
+      return $database->query($sql)->fetchAll(PDO::FETCH_KEY_PAIR);
+    } catch (Exception $e){
+      return [];
+    }
   }
 }

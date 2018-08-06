@@ -36,4 +36,15 @@ class RestoreBase{
       return [];
     }
   }
+
+  public function getAstDb($path){
+    if(!file_exists($path)){
+      return [];
+    }
+    $data = @unserialize(file_get_contents($path));
+    if($data === false){
+      return [];
+    }
+    return $data;
+  }
 }

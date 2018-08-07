@@ -8,4 +8,9 @@ class Restore Extends Base\RestoreBase{
             $this->FreePBX->Backup->setMultiConfig($value, $key);
         }
     }
+  public function processLegacy($pdo, $data, $tables, $unknownTables, $tmpfiledir){
+    return $this->transformLegacyKV($pdo,'backup', $this->FreePBX)
+                ->transformNamespacedKV($pdo,'backup', $this->FreePBX);
+  }
+
 }

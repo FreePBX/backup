@@ -71,7 +71,7 @@ class RestoreBase{
     return $this;
   }
 
-  public function transformNameSpacedKV($pdo, $module, $freepbx){
+  public function transformNamespacedKV($pdo, $module, $freepbx){
     $module = ucfirst($module);
     $newkvsql = "SELECT * FROM :table";
     try {

@@ -47,4 +47,58 @@ class RestoreBase{
     }
     return $data;
   }
+
+  public function getUnderscoreClass($freepbx,$module){
+    $module = ucfirst($module);
+    $namespace = get_class($freepbx->$module);
+    return str_replace('\\','_',$namespace);
+  }
+
+  public function transformLegacyKV($pdo, $module, $freepbx){
+    $module = ucfirst($module);
+    $kvsql = "SELECT * FROM kvstore WHERE module = :module";
+    try {
+      $oldkv = $pdo->prepare($kvsql)
+        ->execute(['module' => $module])
+        ->fetchAll(PDO::FETCH_ASSOC);
+    } catch (\Exception $e) {
+      if ($e->getCode != '42S02') {
+        throw $e;
+      }
+    }
+    (!isset($oldkv) || !is_array($oldkv)) ? : $oldkv = [];
+    $this->insertKV($freepbx, $module, $oldkv);
+    return $this;
+  }
+
+  public function transformNameSpacedKV($pdo, $module, $freepbx){
+    $module = ucfirst($module);
+    $newkvsql = "SELECT * FROM :table";
+    try {
+      $newkv = $pdo->prepare($newkvsql)
+        ->execute([':table' => $this->getUnderscoreClass($freepbx, $module)])
+        ->fetchAll(PDO::FETCH_ASSOC);
+    } catch (\Exception $e) {
+      if ($e->getCode != '42S02') {
+        throw $e;
+      }
+    }
+    (!isset($newkv) || !is_array($newkv)) ? : $newkv = [];
+    $this->insertKV($freepbx, $module, $newkv);
+    return $this;
+  }
+
+  public function insertKV($freepbx, $module, $data){
+    $module = ucfirst($module);
+    if ($freepbx->Modules->checkStatus(strtolower($module))) {
+      return $this;
+    }
+    foreach ($data as $entry) {
+      if ($entry['type'] === 'json-arr') {
+        $entry['val'] = json_decode($entry['val'], true);
+      }
+      $freepbx->$module->setConfig($entry['key'], $entry['val'], $entry['id']);
+    }
+    return $this;
+  }
 }

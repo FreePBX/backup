@@ -1,9 +1,9 @@
 <?php
 namespace FreePBX\modules\Backup\Models;
 
-use SplFileObject;
+use SplFileInfo;
 
-class BackupFile extends SplFileObject{
+class BackupFile extends SplFileInfo{
 
     /**
      * Parse the filename in to components based on the file format

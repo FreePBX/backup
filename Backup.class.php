@@ -984,7 +984,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 					if($file['type'] == 'dir'){
 						continue;
 					}
-					$backupFile = new BackupFile($file);
+					$backupFile = new BackupFile($file['path']);
 					$info = $backupFile->backupData();
 					if($info['isCheckSum']){
 						continue;

@@ -188,11 +188,13 @@ class Backup{
 		}
 		$manifest['processorder'] = $this->dependencies;
 		$phar->setMetadata($manifest);
-		$phar->compress(Phar::GZ);
+
+		//PHP is stupid and eats anything after a . and calls it the extension, so lets force Phar to use a happy prefix.
+		$phar->compress(Phar::GZ, substr($phargzname, strpos($phargzname, '.') + 1));
+
 		$signatures = $phar->getSignature();
 		//Done with Phar, unlock the file so we can do stuff..
 		unset($phar);
-		$this->Backup->fs->rename($pharname, $phargzname);
 		@unlink($pharname);
 		if(!$external){
 			$remote = $remotePath.'/'.$pharnamebase.'.tar.gz';

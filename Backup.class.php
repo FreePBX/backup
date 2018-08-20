@@ -647,11 +647,17 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 * @return array file list
 	 */
 	public function getLocalFiles(){
+		$files     = [];
 		$base      = $this->FreePBX->Config->get('ASTSPOOLDIR');
 		$base      = $base?$base:'/var/spool/asterisk';
-		$Directory = new \RecursiveDirectoryIterator($base.'/backup',\FilesystemIterator::SKIP_DOTS|\FilesystemIterator::CURRENT_AS_FILEINFO);
+		$backupdir = $base . '/backup';
+
+		if (!file_exists($backupdir)) {
+			return $files;
+		}
+
+		$Directory = new \RecursiveDirectoryIterator($backupdir,\FilesystemIterator::SKIP_DOTS|\FilesystemIterator::CURRENT_AS_FILEINFO);
 		$Iterator  = new \RecursiveIteratorIterator($Directory,\RecursiveIteratorIterator::LEAVES_ONLY);
-		$files     = [];
 		$this->delById('localfilepaths');
 		foreach($Iterator as $k => $v){
 			$path       = $v->getPathInfo()->getRealPath();

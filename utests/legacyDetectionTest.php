@@ -42,7 +42,7 @@ class legacyDetectionTest extends PHPUnit_Framework_TestCase{
     /** 
      * @attribution http://php.net/manual/en/function.rmdir.php#117354
      */
-    public function rrmdir($dir){
+    static function rrmdir($dir){
         if (is_dir($dir)) {
             $objects = scandir($dir);
             foreach ($objects as $object) {

@@ -49,6 +49,7 @@ class Backup{
 		$spooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
 		$serverName = str_replace(' ', '_',$this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT'));
 		$localPath = sprintf('%s/backup/%s',$spooldir,$underscoreName);
+		$this->Backup->fs->mkdir($localPath);
 		$remotePath =  sprintf('/%s/%s',$serverName,$underscoreName);
 		$tmpdir = sprintf('%s/backup/%s','/var/spool/asterisk/tmp',$underscoreName);
 		@unlink($tmpdir);

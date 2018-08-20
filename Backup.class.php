@@ -505,6 +505,11 @@ class Backup extends FreePBX_Helpers implements BMO {
 		}
 		$hookpath      = getenv('BACKUPHOOKDIR');
 		$hookpath      = $hookpath?$hookpath:'/home/asterisk/Backup';
+
+		if (!file_exists($hookpath)) {
+			return;
+		}
+
 		$filehooks     = ['BACKUPPREHOOKS' => 'preBackup','RESTOREPREHOOKS' => 'preRestore','BACKUPPOSTHOOKS' => 'postBackup','RESTOREPOSTHOOKS' => 'postRestore'];
 		foreach($filehooks as $hook => $objName){
 			$env = getenv($hook);
@@ -652,9 +657,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 		$base      = $base?$base:'/var/spool/asterisk';
 		$backupdir = $base . '/backup';
 
-		if (!file_exists($backupdir)) {
-			return $files;
-		}
+		$this->fs->mkdir($backupdir);
 
 		$Directory = new \RecursiveDirectoryIterator($backupdir,\FilesystemIterator::SKIP_DOTS|\FilesystemIterator::CURRENT_AS_FILEINFO);
 		$Iterator  = new \RecursiveIteratorIterator($Directory,\RecursiveIteratorIterator::LEAVES_ONLY);

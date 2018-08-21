@@ -130,7 +130,7 @@ class Backup{
 			$this->Backup->log($transactionId,sprintf(_("Processing backup for module: %s."), $mod['name']));
 			//Skip empty.
 			if($backup->getModified() === false){
-				$this->Backup->log($transactionId,sprintf(_("%s returned no data. This module may not impliment the new backup yet. Skipping"), $mod['name']));
+				$this->Backup->log($transactionId,sprintf(_("%s returned no data. This module may not implement the new backup yet. Skipping"), $mod['name']));
 				$manifest['skipped'][] = $mod['name'];
 				continue;
 			}

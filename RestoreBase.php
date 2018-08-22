@@ -55,14 +55,15 @@ class RestoreBase{
   }
 
   public function transformLegacyKV($pdo, $module, $freepbx){
+    $oldkv = NULL;
     $module = ucfirst($module);
-    $kvsql = "SELECT * FROM kvstore WHERE module = :module";
+    $kvsql = "SELECT * FROM kvstore WHERE `module` = :module";
     try {
-      $oldkv = $pdo->prepare($kvsql)
-        ->execute(['module' => $module])
-        ->fetchAll(PDO::FETCH_ASSOC);
+      $stmt = $pdo->prepare($kvsql);
+      $stmt->execute([':module' => $module]);
+      $oldkv = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (\Exception $e) {
-      if ($e->getCode != '42S02') {
+      if ($e->getCode() != '42S02') {
         throw $e;
       }
     }
@@ -73,13 +74,13 @@ class RestoreBase{
 
   public function transformNamespacedKV($pdo, $module, $freepbx){
     $module = ucfirst($module);
-    $newkvsql = "SELECT * FROM :table";
+    $newkvsql = "SELECT * FROM " . $this->getUnderscoreClass($freepbx, $module);
     try {
-      $newkv = $pdo->prepare($newkvsql)
-        ->execute([':table' => $this->getUnderscoreClass($freepbx, $module)])
-        ->fetchAll(PDO::FETCH_ASSOC);
+      $stmt = $pdo->prepare($newkvsql);
+      $stmt->execute();
+      $newkv = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (\Exception $e) {
-      if ($e->getCode != '42S02') {
+      if ($e->getCode() != '42S02') {
         throw $e;
       }
     }

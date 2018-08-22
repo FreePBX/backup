@@ -3,6 +3,7 @@
  * Copyright Sangoma Technologies, Inc 2018
  */
 namespace FreePBX\modules;
+include __DIR__.'/vendor/autoload.php';
 use FreePBX\modules\Backup\Handlers as Handler;
 use FreePBX\modules\Filestore\Modules\Remote as FilestoreRemote;
 use FreePBX\modules\Backup\Models\BackupFile;
@@ -17,6 +18,8 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Formatter as Formatter;
 use FreePBX\modules\Backup\Modules\Backupjobs;
 use FreePBX\modules\Backup\Modules\Servers;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use FreePBX_Helpers;
 use BMO;
 use PharData;
@@ -238,28 +241,61 @@ class Backup extends FreePBX_Helpers implements BMO {
 				}
 				return ['status' => 'stopped', 'log' => $log];
 			case 'uploadrestore':
-			if(!isset($_FILES['filetorestore'])){
-				return ['status' => false, 'error' => _("No file provided")];
-			}
-			if($_FILES['filetorestore']['error'] !== 0){
-				return ['status' => false, 'err' => $_FILES['filetorestore']['error'], 'message' => _("File reached the server but could not be processed")];
-			}
-			if($_FILES['filetorestore']['type'] != 'application/x-gzip'){
-				return ['status' => false, 'mime' => $_FILES['filetorestore']['type'], 'message' => _("The uploaded file type is incorrect and couldn't be processed")];
-			}
-			$spooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
-			$path     = sprintf('%s/backup/uploads/',$spooldir);
-			//This will ignore if exists
-			$this->fs->mkdir($path);
-			$file = $path.basename($_FILES['filetorestore']['name']);
-			if (!move_uploaded_file($_FILES['filetorestore']['tmp_name'],$file)){
-				return ['status' => false, 'message' => _("Failed to copy the uploaded file")];
-			}
-			$this->setConfig(md5($file), $file, 'localfilepaths');
-			$backupFile = new BackupFile($file);
-			$meta       = $backupFile->getMetadata();
-			$this->setConfig('meta', $meta, md5($file));
-			return ['status' => true, 'id' => md5($file)];
+				$response = new Response(null,400,['Content-Type' => 'application/json']);
+				$err = false;
+				if (!isset($_FILES['file'])) {
+					$err = ['status' => false, 'error' => _("No file provided")];
+				}
+				if ($_FILES['file']['error'] !== 0) {
+					$err = ['status' => false, 'err' => $_FILES['file']['error'], 'message' => _("File reached the server but could not be processed")];
+				}
+
+				if ($_FILES['file']['type'] != 'application/x-gzip') {
+					//$err = ['status' => false, 'mime' => $_FILES['file']['type'], 'message' => _("The uploaded file type is incorrect and couldn't be processed")];
+				}
+				if($err !== false){
+					$response->setContent(json_encode($err));
+					$response->send();
+					exit();
+				}
+				$spooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
+				$path = sprintf('%s/backup/uploads/', $spooldir);
+				$finalname = $path.'/'. $_FILES['file']['name'];
+				$tmp_name = $_FILES['file']['tmp_name'];
+				$filename = $_FILES['file']['name'];
+				$num = $_POST['dzchunkindex'];
+				$num_chunks = $_POST['dztotalchunkcount'];
+				$uuid = $_POST['dzuuid'];
+				$partialPath = sprintf('%s/backup/uploads/%s/', $spooldir,$uuid);
+				$target_file = $partialPath.$filename;
+				@mkdir($partialPath, 0755, true);
+				move_uploaded_file($tmp_name, $partialPath.$filename.$num);
+				if($num + 1 == $num_chunks){
+					for ($i = 0; $i <= $num_chunks - 1; $i++) {
+
+						$file = fopen($target_file . $i, 'rb');
+						$buff = fread($file, 2097152);
+						fclose($file);
+
+						$final = fopen($finalname, 'ab');
+						$write = fwrite($final, $buff);
+						fclose($final);
+						unlink($target_file . $i);
+					}
+					$file = $finalname;
+					$this->setConfig(md5($file), $file, 'localfilepaths');
+					$backupFile = new BackupFile($file);
+					$meta = $backupFile->getMetadata();
+					$this->setConfig('meta', $meta, md5($file));
+					header("HTTP/1.1 200 Ok");
+					return ['status' => true, 'md5' => md5($file)];
+				}
+				if ($num + 1 < $num_chunks) {
+					header("HTTP/1.1 201 Created");
+					break;
+				}
+
+				break;
 			case 'localRestoreFiles':
 				return $this->getLocalFiles();
 			case 'restoreFiles':

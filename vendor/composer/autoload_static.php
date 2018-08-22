@@ -4,101 +4,22 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit78b6f9929379f4593e0ac3fde0ca8a33
+class ComposerStaticInited6b999a743f1564bd340d847d7d501b
 {
     public static $prefixesPsr0 = array (
-        'T' => 
+        'F' => 
         array (
-            'Touki\\FTP' => 
+            'Flow' => 
             array (
-                0 => __DIR__ . '/..' . '/touki/ftp/lib',
-                1 => __DIR__ . '/..' . '/touki/ftp/tests',
+                0 => __DIR__ . '/..' . '/flowjs/flow-php-server/src',
             ),
         ),
-    );
-
-    public static $classMap = array (
-        'Touki\\FTP\\ConnectionInterface' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/ConnectionInterface.php',
-        'Touki\\FTP\\Connection\\AnonymousConnection' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Connection/AnonymousConnection.php',
-        'Touki\\FTP\\Connection\\Connection' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Connection/Connection.php',
-        'Touki\\FTP\\Connection\\SSLConnection' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Connection/SSLConnection.php',
-        'Touki\\FTP\\CreatorInterface' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/CreatorInterface.php',
-        'Touki\\FTP\\CreatorVotableInterface' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/CreatorVotableInterface.php',
-        'Touki\\FTP\\CreatorVoter' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/CreatorVoter.php',
-        'Touki\\FTP\\CreatorVoterInterface' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/CreatorVoterInterface.php',
-        'Touki\\FTP\\Creator\\RecursiveDirectoryCreator' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Creator/RecursiveDirectoryCreator.php',
-        'Touki\\FTP\\DeleterInterface' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/DeleterInterface.php',
-        'Touki\\FTP\\DeleterVotableInterface' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/DeleterVotableInterface.php',
-        'Touki\\FTP\\DeleterVoter' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/DeleterVoter.php',
-        'Touki\\FTP\\DeleterVoterInterface' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/DeleterVoterInterface.php',
-        'Touki\\FTP\\Deleter\\FileDeleter' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Deleter/FileDeleter.php',
-        'Touki\\FTP\\Deleter\\RecursiveDirectoryDeleter' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Deleter/RecursiveDirectoryDeleter.php',
-        'Touki\\FTP\\DownloaderInterface' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/DownloaderInterface.php',
-        'Touki\\FTP\\DownloaderVotableInterface' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/DownloaderVotableInterface.php',
-        'Touki\\FTP\\DownloaderVoter' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/DownloaderVoter.php',
-        'Touki\\FTP\\DownloaderVoterInterface' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/DownloaderVoterInterface.php',
-        'Touki\\FTP\\Downloader\\FileDownloader' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Downloader/FileDownloader.php',
-        'Touki\\FTP\\Downloader\\NbFileDownloader' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Downloader/NbFileDownloader.php',
-        'Touki\\FTP\\Downloader\\NbResourceDownloader' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Downloader/NbResourceDownloader.php',
-        'Touki\\FTP\\Downloader\\ResourceDownloader' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Downloader/ResourceDownloader.php',
-        'Touki\\FTP\\Exception\\ConnectionEstablishedException' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Exception/ConnectionEstablishedException.php',
-        'Touki\\FTP\\Exception\\ConnectionException' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Exception/ConnectionException.php',
-        'Touki\\FTP\\Exception\\ConnectionUnestablishedException' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Exception/ConnectionUnestablishedException.php',
-        'Touki\\FTP\\Exception\\DirectoryException' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Exception/DirectoryException.php',
-        'Touki\\FTP\\Exception\\DownloadException' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Exception/DownloadException.php',
-        'Touki\\FTP\\Exception\\FTPException' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Exception/FTPException.php',
-        'Touki\\FTP\\Exception\\UploadException' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Exception/UploadException.php',
-        'Touki\\FTP\\FTP' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/FTP.php',
-        'Touki\\FTP\\FTPFactory' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/FTPFactory.php',
-        'Touki\\FTP\\FTPInterface' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/FTPInterface.php',
-        'Touki\\FTP\\FTPWrapper' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/FTPWrapper.php',
-        'Touki\\FTP\\FilesystemFactory' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/FilesystemFactory.php',
-        'Touki\\FTP\\FilesystemFactoryInterface' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/FilesystemFactoryInterface.php',
-        'Touki\\FTP\\Manager\\FTPFilesystemManager' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Manager/FTPFilesystemManager.php',
-        'Touki\\FTP\\Model\\Directory' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Model/Directory.php',
-        'Touki\\FTP\\Model\\File' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Model/File.php',
-        'Touki\\FTP\\Model\\Filesystem' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Model/Filesystem.php',
-        'Touki\\FTP\\Model\\Permissions' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Model/Permissions.php',
-        'Touki\\FTP\\PermissionsFactory' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/PermissionsFactory.php',
-        'Touki\\FTP\\Tests\\ConnectionAwareTestCase' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/ConnectionAwareTestCase.php',
-        'Touki\\FTP\\Tests\\Connection\\ConnectionTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/Connection/ConnectionTest.php',
-        'Touki\\FTP\\Tests\\CreatorVoterTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/CreatorVoterTest.php',
-        'Touki\\FTP\\Tests\\Creator\\RecursiveDirectoryCreatorTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/Creator/RecursiveDirectoryCreatorTest.php',
-        'Touki\\FTP\\Tests\\Deleter\\FTP\\RecursiveDirectoryDeleterTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/Deleter/RecursiveDirectoryDeleterTest.php',
-        'Touki\\FTP\\Tests\\DownloaderVoterFTPTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/DownloaderVoterFTPTest.php',
-        'Touki\\FTP\\Tests\\DownloaderVoterTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/DownloaderVoterTest.php',
-        'Touki\\FTP\\Tests\\Downloader\\FileDownloaderTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/Downloader/FileDownloaderTest.php',
-        'Touki\\FTP\\Tests\\Downloader\\NbFileDownloaderTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/Downloader/NbFileDownloaderTest.php',
-        'Touki\\FTP\\Tests\\Downloader\\NbResourceDownloaderTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/Downloader/NbResourceDownloaderTest.php',
-        'Touki\\FTP\\Tests\\Downloader\\ResourceDownloaderTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/Downloader/ResourceDownloaderTest.php',
-        'Touki\\FTP\\Tests\\FTPFactoryTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/FTPFactoryTest.php',
-        'Touki\\FTP\\Tests\\FTPTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/FTPTest.php',
-        'Touki\\FTP\\Tests\\FilesystemFactoryTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/FilesystemFactoryTest.php',
-        'Touki\\FTP\\Tests\\Manager\\FTPFilesystemManagerTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/Manager/FTPFilesystemManagerTest.php',
-        'Touki\\FTP\\Tests\\PermissionsFactoryTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/PermissionsFactoryTest.php',
-        'Touki\\FTP\\Tests\\UploaderVoterFTPTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/UploaderVoterFTPTest.php',
-        'Touki\\FTP\\Tests\\UploaderVoterTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/UploaderVoterTest.php',
-        'Touki\\FTP\\Tests\\Uploader\\FileUploaderTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/Uploader/FileUploaderTest.php',
-        'Touki\\FTP\\Tests\\Uploader\\NbFileUploaderTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/Uploader/NbFileUploaderTest.php',
-        'Touki\\FTP\\Tests\\Uploader\\NbResourceUploaderTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/Uploader/NbResourceUploaderTest.php',
-        'Touki\\FTP\\Tests\\Uploader\\ResourceUploaderTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/Uploader/ResourceUploaderTest.php',
-        'Touki\\FTP\\Tests\\WindowsFileFactoryTest' => __DIR__ . '/..' . '/touki/ftp/tests/Touki/FTP/Tests/WindowsFilesystemFactoryTest.php',
-        'Touki\\FTP\\UploaderInterface' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/UploaderInterface.php',
-        'Touki\\FTP\\UploaderVotableInterface' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/UploaderVotableInterface.php',
-        'Touki\\FTP\\UploaderVoter' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/UploaderVoter.php',
-        'Touki\\FTP\\UploaderVoterInterface' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/UploaderVoterInterface.php',
-        'Touki\\FTP\\Uploader\\FileUploader' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Uploader/FileUploader.php',
-        'Touki\\FTP\\Uploader\\NbFileUploader' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Uploader/NbFileUploader.php',
-        'Touki\\FTP\\Uploader\\NbResourceUploader' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Uploader/NbResourceUploader.php',
-        'Touki\\FTP\\Uploader\\ResourceUploader' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/Uploader/ResourceUploader.php',
-        'Touki\\FTP\\WindowsFilesystemFactory' => __DIR__ . '/..' . '/touki/ftp/lib/Touki/FTP/WindowsFilesystemFactory.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixesPsr0 = ComposerStaticInit78b6f9929379f4593e0ac3fde0ca8a33::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit78b6f9929379f4593e0ac3fde0ca8a33::$classMap;
+            $loader->prefixesPsr0 = ComposerStaticInited6b999a743f1564bd340d847d7d501b::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }

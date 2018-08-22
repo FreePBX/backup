@@ -5,9 +5,6 @@
  */
 namespace FreePBX\modules\Backup\Handlers;
 use FreePBX\modules\Backup\Modules as Module;
-use Phar;
-use PharData;
-use ZipArchive;
 use PDO;
 class Legacy{
     public function __construct($freepbx = null) {

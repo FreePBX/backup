@@ -30,7 +30,6 @@ class SingleBackup{
 		$phar = new PharData($pharname);
 		$phar->addEmptyDir('/modulejson');
 		$phar->addEmptyDir('/files');
-		$phar->setSignatureAlgorithm(Phar::SHA256);
 		$class = sprintf('\\FreePBX\\modules\\%s\\Backup', ucfirst($this->module));
 		if(!class_exists($class)){
 			exit(sprintf("The module %s doesn't seem to support Backup, no backup created".PHP_EOL, $this->module));
@@ -78,7 +77,6 @@ class SingleBackup{
 		}
 		$phar->setMetadata(['moddata' => $moddata, 'module' => $moduleInfo]);
 		$phar->compress(Phar::GZ);
-		$signatures = $phar->getSignature();
 		unset($phar);
 		$this->FreePBX->Backup->fs->rename($pharname, $phargzname);
 		@unlink($pharname);

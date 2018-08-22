@@ -22,9 +22,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FreePBX_Helpers;
 use BMO;
-use PharData;
-use Phar;
-use ZipArchive;
+use splitbrain\PHPArchive\Tar;
 class Backup extends FreePBX_Helpers implements BMO {
 	const DEBUG = true;
 	public function __construct($freepbx = null) {
@@ -1054,9 +1052,13 @@ class Backup extends FreePBX_Helpers implements BMO {
 		return $localpath;
 	}
 	public function determineBackupFileType($filepath){
-		$phar = new PharData($filepath);
-		if ($phar->offsetExists('modulejson')) {
-			return 'current';
+		$tar = new Tar();
+		$tar->open($filepath);
+		$files = $tar->contents();
+		foreach ($files as $file) {
+			if ($file->getIsdir() && $file->getPath() === 'modulejson') {
+				return 'current';
+			}
 		}
 
 		return 'legacy';

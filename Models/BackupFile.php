@@ -29,14 +29,13 @@ class BackupFile extends SplFileInfo{
     }
 
     /**
-     * Gets the manifest and signature from the file
+     * Gets the manifest from the file
      *
      * @return array manifest
      */
     public function getMetaData(){
         $p = new \PharData($this->getPathname());
         $meta = $p->getMetadata();
-        $meta['signature'] = $p->getSignature();
         unset($p);
         return $meta;
     }

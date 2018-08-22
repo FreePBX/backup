@@ -27,7 +27,6 @@ class Backup extends Command {
 				new InputOption('restoresingle', '', InputOption::VALUE_REQUIRED, 'Module backup to restore'),
 				new InputOption('backupsingle', '', InputOption::VALUE_REQUIRED, 'Module to backup'),
 				new InputOption('singlesaveto', '', InputOption::VALUE_REQUIRED, 'Where to save the single module backup.'),
-				new InputOption('manifest', '', InputOption::VALUE_REQUIRED, 'File Manifest'),
 		))
 		->setHelp('Run a backup: fwconsole backup --id=[backup-id]'.PHP_EOL
 		.'Run a restore: fwconsole backup --restore=[/path/to/restore-xxxxxx.tar.gz]'.PHP_EOL
@@ -51,7 +50,6 @@ class Backup extends Command {
 		$remote = $input->getOption('externbackup');
 		$dumpextern = $input->getOption('dumpextern');
 		$transaction = $input->getOption('transaction');
-		$manifest = $input->getOption('manifest');
         $backupsingle = $input->getOption('backupsingle');
         $restoresingle = $input->getOption('restoresingle');
         if($backupsingle){
@@ -63,10 +61,6 @@ class Backup extends Command {
             $job = new Handler\SingleRestore($restoresingle, $this->freepbx);
             return $job->doSingleRestore();
         }
-		if($manifest){
-            $phar = new \PharData($manifest);
-			return 	$output->writeln(json_encode($phar->getMetaData(),\JSON_PRETTY_PRINT));
-		}
 		if($input->getOption('implemented')){
 			$output->writeln(json_encode($backupHandler->getModules()));
 			return;

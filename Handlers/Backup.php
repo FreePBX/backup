@@ -8,7 +8,7 @@ use FreePBX\modules\Backup\Modules as Module;
 use FreePBX\modules\Backup\Models as Models;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Helper\ProgressBar;
-use Phar;
+use splitbrain\PHPArchive\Tar;
 class Backup{
 	const DEBUG = false;
 	public function __construct($freepbx = null) {
@@ -55,16 +55,21 @@ class Backup{
 		@unlink($tmpdir);
 		$this->Backup->fs->mkdir($tmpdir);
 		//Use Legacy backup naming
-		$pharfilename = sprintf('%s%s-%s-%s',date("Ymd-His-"),time(),get_framework_version(),rand());
-		$pharnamebase = sprintf('%s/%s',$localPath,$pharfilename);
-		$phargzname = sprintf('%s.tar.gz',$pharnamebase);
-		$pharname = sprintf('%s.tar',$pharnamebase);
-		$this->Backup->log($transactionId,_("This backup will be stored locally is subject to maintinance settings"),'DEBUG');
-		$this->Backup->log($transactionId,sprintf(_("Storage Location: %s"),$phargzname));
-		$phar = new \PharData($pharname);
-		$phar->addEmptyDir('/modulejson');
-		$phar->addEmptyDir('/files');
-		$phar->setSignatureAlgorithm(\Phar::SHA256);
+		$tarfilename = sprintf('%s%s-%s-%s',date("Ymd-His-"),time(),get_framework_version(),rand());
+		$tarnamebase = sprintf('%s/%s',$localPath,$tarfilename);
+		$targzname = sprintf('%s.tar.gz',$tarnamebase);
+		$this->Backup->log($transactionId,_("This backup will be stored locally is subject to maintenance settings"),'DEBUG');
+		$this->Backup->log($transactionId,sprintf(_("Storage Location: %s"),$targzname));
+
+		$tar = new Tar();
+		$tar->create($targzname);
+
+		$this->Backup->fs->mkdir($tmpdir . '/modulejson');
+		$this->Backup->fs->mkdir($tmpdir . '/files');
+
+		$tar->addFile($tmpdir . '/modulejson', 'modulejson');
+		$tar->addFile($tmpdir . '/files', 'files');
+
 		$storage_ids = $this->Backup->getStorageById($id);
 		$this->dependencies = [];
 		$processQueue = new \SplQueue();
@@ -170,7 +175,7 @@ class Backup{
 				$destfile = $destpath .'/'. $file['filename'];
 				$dirs[] = $destpath;
 				$files[$srcfile] = $destfile;
-				$phar->addFile($srcfile,$destfile);
+				$tar->addFile($srcfile,$destfile);
 			}
 			$mod['name'] = ucfirst($mod['name']);
 			$modjson = $tmpdir . '/modulejson/' . $mod['name'] . '.json';
@@ -178,26 +183,22 @@ class Backup{
 				$this->Backup->fs->mkdir(dirname($modjson));
 			}
 			file_put_contents($modjson, json_encode($moddata, JSON_PRETTY_PRINT));
-			$phar->addFile($modjson,'modulejson/'.$mod['name'].'.json');
+			$tar->addFile($modjson,'modulejson/'.$mod['name'].'.json');
 			$data[$mod['name']] = $moddata;
 			$cleanup[$mod['name']] = $moddata['garbage'];
 		}
 
 		foreach ($dirs as $dir) {
-			$phar->addEmptyDir($dir);
+			$this->Backup->fs->mkdir($tmpdir . '/' . $dir);
+			$tar->addFile($tmpdir . '/' . $dir, $dir);
 		}
 		$manifest['processorder'] = $this->dependencies;
-		$phar->setMetadata($manifest);
+		$tar->addData('metadata.json', json_encode($manifest));
 
-		//PHP is stupid and eats anything after a . and calls it the extension, so lets force Phar to use a happy prefix.
-		$phar->compress(Phar::GZ, substr($phargzname, strpos($phargzname, '.') + 1));
-
-		$signatures = $phar->getSignature();
-		//Done with Phar, unlock the file so we can do stuff..
-		unset($phar);
-		@unlink($pharname);
+		//Done with Tar, unlock the file so we can do stuff..
+		unset($tar);
 		if(!$external){
-			$remote = $remotePath.'/'.$pharnamebase.'.tar.gz';
+			$remote = $remotePath.'/'.$targzname;
 			$this->Backup->log($transactionId,_("Saving to selected Filestore locations"));
 			$hash = false;
 			if(isset($signatures['hash'])){
@@ -208,7 +209,7 @@ class Backup{
 			foreach ($storage_ids as $location) {
 				try {
 					$location = explode('_', $location);
-					$this->Backup->FreePBX->Filestore->put($location[0],$location[1],file_get_contents($phargzname),$remote);
+					$this->Backup->FreePBX->Filestore->put($location[0],$location[1],file_get_contents($targzname),$remote);
 					if($hash){
 						$this->Backup->FreePBX->Filestore->put($location[0],$location[1],$hash,$remote.'.sha256sum');
 					}
@@ -228,11 +229,10 @@ class Backup{
 		}
 
 		if($external && empty($errors)){
-			$this->Backup->fs->rename($phargzname,getcwd().'/'.$transactionId.'.tar.gz');
+			$this->Backup->fs->rename($targzname,getcwd().'/'.$transactionId.'.tar.gz');
 			$this->Backup->log($transactionId,sprintf(_("Remote transaction complete, file saved to %s"),getcwd().'/'.$transactionId.'tar.gz'));
 		}
 		$this->Backup->fs->remove($tmpdir);
-		$this->Backup->fs->remove($pharname);
 
 		if(!$external){
 			$this->Backup->log($transactionId,_("Performing Local Maintnance"));

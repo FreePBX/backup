@@ -6,8 +6,7 @@ namespace FreePBX\modules\Backup\Handlers;
 use FreePBX\modules\Backup\Modules as Module;
 use FreePBX\modules\Backup\Models as Models;
 use FreePBX\modules\Backup\Handlers as Handlers;
-use Phar;
-use PharData;
+use splitbrain\PHPArchive\Tar;
 use InvalidArgumentException;
 class Restore{
 	const DEBUG = false;
@@ -26,16 +25,21 @@ class Restore{
 	public function process($backupFile, $jobid, $warmspare = false) {
 		$this->Backup->fs->remove(BACKUPTMPDIR);
 		$this->Backup->fs->mkdir(BACKUPTMPDIR);
-		$phar = new \PharData($backupFile);
-		$restoreData = $phar->getMetadata();
+
+		$this->Backup->log($jobid,_("Extracting Backup"));
+
+		$tar = new Tar();
+		$tar->open($backupFile);
+		$tar->extract(BACKUPTMPDIR);
+
+		$metadata = file_get_contents(BACKUPTMPDIR . 'metadata.json');
+		$restoreData = json_decode($metadata, true);
 		if(isset($restoreData['processorder'])){
 			$this->restoreModules = $restoreData['processorder'];
 		}
 		if(!isset($restoreData['processorder'])){
 			$this->restoreModules = $restoreData['modules'];
 		}
-		$this->Backup->log($jobid,_("Extracting Backup"));
-		$phar->extractTo(BACKUPTMPDIR);
 		$errors = [];
 		$warnings = [];
 		$this->Backup->log($jobid,_("Running pre restore hooks"));

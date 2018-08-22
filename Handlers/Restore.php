@@ -32,7 +32,7 @@ class Restore{
 		$tar->open($backupFile);
 		$tar->extract(BACKUPTMPDIR);
 
-		$metadata = file_get_contents(BACKUPTMPDIR . 'metadata.json');
+		$metadata = file_get_contents(BACKUPTMPDIR . '/metadata.json');
 		$restoreData = json_decode($metadata, true);
 		if(isset($restoreData['processorder'])){
 			$this->restoreModules = $restoreData['processorder'];

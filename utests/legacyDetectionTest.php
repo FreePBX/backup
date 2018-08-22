@@ -1,8 +1,7 @@
 <?php
 namespace FreePBX\modules\Backup\utests;
 use PHPUnit_Framework_TestCase;
-use PharData;
-use Phar;
+use splitbrain\PHPArchive\Tar;
 /**
  * https://blogs.kent.ac.uk/webdev/2011/07/14/phpunit-and-unserialized-pdo-instances/
  * @backupGlobals disabled
@@ -16,18 +15,20 @@ class legacyDetectionTest extends PHPUnit_Framework_TestCase{
         self::$f = \FreePBX::create();
         self::$o = self::$f->Backup;
         self::rrmdir('/tmp/unittest/');
-        @unlink('/tmp/unittest/current.tar');
         @unlink('/tmp/unittest/current.tar.gz');
         mkdir('/tmp/unittest/',true);
+        mkdir('/tmp/unittest/modulejson',true);
+        touch('/tmp/unittest/modulejson/foo');
         touch('/tmp/unittest/manifest');
-        touch('/tmp/unittest/foo');
         chdir('/tmp/unittest');
         exec('tar -czvf legacy.tgz manifest', $out, $ret);
-        $phar = new PharData('/tmp/unittest/current.tar');
-        $phar->addEmptyDir('/modulejson');
-        $phar->addFile('/tmp/unittest/foo','/modulejson/foo');
-        $phar->compress(Phar::GZ);
-        unset($phar);
+	$tar = new Tar();
+	$tar->create('/tmp/unittest/current.tar.gz');
+        $tar->addFile('/tmp/unittest/modulejson','/modulejson');
+        $tar->addFile('/tmp/unittest/modulejson/foo','/modulejson/foo');
+	$tar->close();
+
+        unset($tar);
     }
     public function testLegacy(){
         $this->assertTrue(file_exists('/tmp/unittest/legacy.tgz'));

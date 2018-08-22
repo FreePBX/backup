@@ -2,6 +2,7 @@
 namespace FreePBX\modules\Backup\Models;
 
 use SplFileInfo;
+use splitbrain\PHPArchive\Tar;
 
 class BackupFile extends SplFileInfo{
 
@@ -33,10 +34,19 @@ class BackupFile extends SplFileInfo{
      *
      * @return array manifest
      */
-    public function getMetaData(){
-        $p = new \PharData($this->getPathname());
-        $meta = $p->getMetadata();
-        unset($p);
+    public function getMetadata(){
+	define('BACKUPTMPDIR', '/var/spool/asterisk/tmp');
+
+	$tar = new Tar();
+	$tar->open($this->getPathname());
+	$tar->extract(BACKUPTMPDIR, '', '', '/metadata\.json/');
+
+	$metadata = file_get_contents(BACKUPTMPDIR . '/metadata.json');
+	$meta = json_decode($metadata, true);
+
+	$tar->close();
+
+        unset($tar);
         return $meta;
     }
 }

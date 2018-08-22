@@ -50,7 +50,7 @@ class Legacy{
     public function extractFile($filepath){
         $this->Backup->fs->remove(BACKUPTMPDIR);
         $this->Backup->fs->mkdir(BACKUPTMPDIR);
-        //We have to go the exec route because legacy backups root is ./ which freaks out PharData
+        //We have to go the exec route because legacy backups root is ./ which breaks things
         exec('tar -xzvf '.$filepath.' -C '.BACKUPTMPDIR, $out, $ret);
         return $ret;
     }

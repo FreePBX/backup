@@ -492,7 +492,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 						}
 						if($path){
 							$file = new BackupFile($path);
-							$manifest = $file->getMetaData($path);
+							$manifest = $file->getMetadata($path);
 						}
 						$vars['meta']     = $manifest;
 						$vars['date']     = $this->FreePBX->View->getDateTime($manifest['date']);

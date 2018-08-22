@@ -44,6 +44,9 @@ class SingleBackup{
 		}
 		$dependencies = $backup->getDependencies();
 		foreach ($dependencies as $value) {
+			if (empty($value)) {
+				continue;
+			}
 			echo sprintf("The module %s says it depends on %s which will not be backed up in this mode".PHP_EOL,$this->module, $value);
 		}
 		$moddata = $backup->getData();

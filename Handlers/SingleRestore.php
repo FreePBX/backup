@@ -34,7 +34,7 @@ class SingleRestore{
 		$tar->extract(BACKUPTMPDIR);
 
 		$metadata = file_get_contents(BACKUPTMPDIR . '/metadata.json');
-		$restoreData = json_decode($metadata, true)
+		$restoreData = json_decode($metadata, true);
 
 		$moduleInfo = $restoreData['module'];
 		foreach ($moduleInfo as $key => $value) {

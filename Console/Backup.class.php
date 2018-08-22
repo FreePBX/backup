@@ -109,6 +109,7 @@ class Backup extends Command {
     				return false;
 				}				
 				$restoreHandler->process($restore,$job,$warmspare);
+				$output->writeln(sprintf('Finished restore job with file: %s',$restore));
 				$lockHandler->release();
 			break;
 			case $dumpextern:

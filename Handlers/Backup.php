@@ -130,7 +130,7 @@ class Backup{
 			$this->Backup->log($transactionId,sprintf(_("Processing backup for module: %s."), $mod['name']));
 			//Skip empty.
 			if($backup->getModified() === false){
-				$this->Backup->log($transactionId,sprintf(_("%s returned no data. This module may not impliment the new backup yet. Skipping"), $mod['name']));
+				$this->Backup->log($transactionId,sprintf(_("%s returned no data. This module may not implement the new backup yet. Skipping"), $mod['name']));
 				$manifest['skipped'][] = $mod['name'];
 				continue;
 			}
@@ -188,11 +188,13 @@ class Backup{
 		}
 		$manifest['processorder'] = $this->dependencies;
 		$phar->setMetadata($manifest);
-		$phar->compress(Phar::GZ);
+
+		//PHP is stupid and eats anything after a . and calls it the extension, so lets force Phar to use a happy prefix.
+		$phar->compress(Phar::GZ, substr($phargzname, strpos($phargzname, '.') + 1));
+
 		$signatures = $phar->getSignature();
 		//Done with Phar, unlock the file so we can do stuff..
 		unset($phar);
-		$this->Backup->fs->rename($pharname, $phargzname);
 		@unlink($pharname);
 		if(!$external){
 			$remote = $remotePath.'/'.$pharnamebase.'.tar.gz';

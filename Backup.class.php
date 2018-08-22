@@ -65,7 +65,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 		 * The other modules will checkin on install and process the data needed by them.
 		 **/
 
-		$dbexist = $this->db->query("SHOW TABLES LIKE 'backup'")->columnCount();
+		$dbexist = $this->db->query("SHOW TABLES LIKE 'backup'")->rowCount();
 		if($dbexist === 1){
 			out(_("Migrating legacy backupjobs"));
 			out(_("Moving servers to filestore"));
@@ -1055,17 +1055,10 @@ class Backup extends FreePBX_Helpers implements BMO {
 	}
 	public function determineBackupFileType($filepath){
 		$phar = new PharData($filepath);
-		$phar->convertToData(Phar::ZIP);
-		$zip = new ZipArchive;
-		$newfilename = str_replace(['tgz','tar.gz'],'zip',$filepath);
-		if($zip->open($newfilename) === false){
-			return false;
-		}
-		if($zip->locateName('modulejson/') !== false){
-			@unlink($newfilename);
+		if ($phar->offsetExists('modulejson')) {
 			return 'current';
 		}
-		@unlink($newfilename);
+
 		return 'legacy';
 	}
 }

@@ -7,6 +7,8 @@ use FreePBX\modules\Filestore\drivers\SSH\SSH;
 use FreePBX\modules\Filestore\drivers\Email\Email;
 use PDO;
 class Servers extends Migration{
+	public $servers;
+
 	public function process(){
 		$this->servers = [];
 		$this->getLegacyServers()
@@ -15,8 +17,16 @@ class Servers extends Migration{
 	}
 
 	public function getLegacyServers(){
+		$this->servers = [];
+
 		$sql = 'SELECT * FROM backup_servers';
-		$servers = $this->Database->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+		try {
+			$servers = $this->Database->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+		} catch (\Exception $e) {
+			// This is a new install, so there was no historical 'backup_servers' table
+			return $this;
+		}
+
 		$sql = 'SELECT * FROM backup_server_details';
 		$serverDetails = $this->Database->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 		$final = [];

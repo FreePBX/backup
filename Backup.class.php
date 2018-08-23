@@ -25,6 +25,7 @@ use BMO;
 use splitbrain\PHPArchive\Tar;
 class Backup extends FreePBX_Helpers implements BMO {
 	const DEBUG = true;
+	public $swiftmsg = false;
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
 				throw new Exception('Not given a FreePBX Object');
@@ -936,6 +937,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 		$path           = '/var/log/asterisk/backup.log';
 		if($this->getConfig('logpath')){
 			$path = $this->getConfig('logpath');
+		}
+		if(!$this->swiftmsg){
+			return;
 		}
 		try {
 			$this->swiftmsg->attach(\Swift_Attachment::fromPath($path)->setFilename($filename));

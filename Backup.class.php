@@ -422,7 +422,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 					$file = '/home/asterisk/.ssh/id_rsa.pub';
 					if (!file_exists($file)) {
 						$ssh = new FilestoreRemote();
-						$ret = $ssh->generateKey('/home/asterisk/.ssh');
+						$ssh->generateKey('/home/asterisk/.ssh');
 					}
 					$data = file_get_contents($file);
 					$vars['publickey'] = $data;
@@ -788,7 +788,10 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 */
 	public function updateBackup(){
 		$data = [];
-		$data['id'] = $this->getReq('id',$this->generateID());
+		$data['id'] = $this->getReq('id');
+		if(empty($data['id'])){
+			$data['id'] = $this->generateID();
+		}
 		foreach ($this->backupFields as $col) {
 			//This will be set independently
 			if($col == 'immortal'){
@@ -927,9 +930,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 * @return void
 	 */
 	public function processNotifications($id, $transactionId, $errors){
-		$backupInfo = $this->getBackup($id);
+		$serverName = str_replace(' ', '_', $this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT'));
 		$serverfilename = str_replace(' ','-',$serverName);
-		$filename       = sprintf('%s-%s-backup.log',$serverfilenam,time());
+		$filename       = sprintf('%s-%s-backup.log',$serverfilename,time());
 		$path           = '/var/log/asterisk/backup.log';
 		if($this->getConfig('logpath')){
 			$path = $this->getConfig('logpath');

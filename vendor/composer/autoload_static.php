@@ -16,10 +16,29 @@ class ComposerStaticInited6b999a743f1564bd340d847d7d501b
         ),
     );
 
+    public static $classMap = array (
+        'Flow\\Autoloader' => __DIR__ . '/..' . '/flowjs/flow-php-server/src/Flow/Autoloader.php',
+        'Flow\\Basic' => __DIR__ . '/..' . '/flowjs/flow-php-server/src/Flow/Basic.php',
+        'Flow\\Config' => __DIR__ . '/..' . '/flowjs/flow-php-server/src/Flow/Config.php',
+        'Flow\\ConfigInterface' => __DIR__ . '/..' . '/flowjs/flow-php-server/src/Flow/ConfigInterface.php',
+        'Flow\\File' => __DIR__ . '/..' . '/flowjs/flow-php-server/src/Flow/File.php',
+        'Flow\\FileLockException' => __DIR__ . '/..' . '/flowjs/flow-php-server/src/Flow/FileLockException.php',
+        'Flow\\FileOpenException' => __DIR__ . '/..' . '/flowjs/flow-php-server/src/Flow/FileOpenException.php',
+        'Flow\\FustyRequest' => __DIR__ . '/..' . '/flowjs/flow-php-server/src/Flow/FustyRequest.php',
+        'Flow\\Mongo\\MongoConfig' => __DIR__ . '/..' . '/flowjs/flow-php-server/src/Flow/Mongo/MongoConfig.php',
+        'Flow\\Mongo\\MongoConfigInterface' => __DIR__ . '/..' . '/flowjs/flow-php-server/src/Flow/Mongo/MongoConfigInterface.php',
+        'Flow\\Mongo\\MongoFile' => __DIR__ . '/..' . '/flowjs/flow-php-server/src/Flow/Mongo/MongoFile.php',
+        'Flow\\Mongo\\MongoUploader' => __DIR__ . '/..' . '/flowjs/flow-php-server/src/Flow/Mongo/MongoUploader.php',
+        'Flow\\Request' => __DIR__ . '/..' . '/flowjs/flow-php-server/src/Flow/Request.php',
+        'Flow\\RequestInterface' => __DIR__ . '/..' . '/flowjs/flow-php-server/src/Flow/RequestInterface.php',
+        'Flow\\Uploader' => __DIR__ . '/..' . '/flowjs/flow-php-server/src/Flow/Uploader.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixesPsr0 = ComposerStaticInited6b999a743f1564bd340d847d7d501b::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInited6b999a743f1564bd340d847d7d501b::$classMap;
 
         }, null, ClassLoader::class);
     }

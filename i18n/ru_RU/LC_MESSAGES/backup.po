@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-21 21:56-0300\n"
+"POT-Creation-Date: 2018-08-27 19:33+0000\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -49,24 +49,24 @@ msgstr ""
 msgid "%s Days (%s Months)"
 msgstr ""
 
-#: Handlers/Backup.php:285 Handlers/Backup.php:300 Handlers/Restore.php:118
-#: Handlers/Restore.php:134
+#: Handlers/Backup.php:285 Handlers/Backup.php:300 Handlers/Restore.php:122
+#: Handlers/Restore.php:138
 #, php-format
 msgid "%s finished with a non-zero status"
 msgstr ""
 
-#: Handlers/Backup.php:133
+#: Handlers/Backup.php:138
 #, php-format
 msgid ""
 "%s returned no data. This module may not implement the new backup yet. "
 "Skipping"
 msgstr ""
 
-#: Console/Backup.class.php:85
+#: Console/Backup.class.php:79
 msgid "A backup job for this id is already running"
 msgstr ""
 
-#: Console/Backup.class.php:133
+#: Console/Backup.class.php:128
 msgid "A backup task is already running"
 msgstr ""
 
@@ -74,16 +74,12 @@ msgstr ""
 msgid "A name used to identify your backups"
 msgstr ""
 
-#: Console/Backup.class.php:114
+#: Console/Backup.class.php:108
 msgid "A restore task is already running"
 msgstr ""
 
-#: assets/js/backup_restore/backup_restore.js:73
-msgid "Abort"
-msgstr ""
-
 #: views/backup/download.php:16 views/backup/grid.php:25
-#: views/restore/landing.php:57 views/restore/landing.php:90
+#: views/restore/landing.php:65 views/restore/landing.php:98
 msgid "Actions"
 msgstr "Действия"
 
@@ -107,7 +103,7 @@ msgstr ""
 msgid "Apply Configs"
 msgstr "Применить конфигурации"
 
-#: assets/js/backup_restore/backup_restore.js:98
+#: assets/js/backup_restore/backup_restore.js:90
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
 
@@ -115,17 +111,17 @@ msgstr ""
 msgid "Backup"
 msgstr "Бекап"
 
-#: Backup.class.php:767
+#: Backup.class.php:805
 #, php-format
 msgid "Backup %s"
 msgstr ""
 
-#: Backup.class.php:591
+#: Backup.class.php:626
 #, php-format
 msgid "Backup %s failed for %s"
 msgstr ""
 
-#: Backup.class.php:589
+#: Backup.class.php:624
 #, php-format
 msgid "Backup %s success for %s"
 msgstr ""
@@ -134,24 +130,16 @@ msgstr ""
 msgid "Backup & Restore"
 msgstr "Резервное копирование и восстановление"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "Резервное копирование и восстановление - Восстановление"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "Резервное копирование и восстановление - Серверы"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "Резервное копирование и восстановление - Шаблоны"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
 msgstr "Резервное копирование и восстановление для вашего FreePBX"
 
-#: views/backup/download.php:14 views/restore/landing.php:55
-#: views/restore/landing.php:88
+#: views/backup/download.php:14 views/restore/landing.php:63
+#: views/restore/landing.php:96
 msgid "Backup Date"
 msgstr ""
 
@@ -171,12 +159,12 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Пункты бекапа"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "Модуль резервного копирования"
 
 #: views/backup/download.php:13 views/backup/form.php:20
-#: views/restore/landing.php:54 views/restore/landing.php:87
+#: views/restore/landing.php:62 views/restore/landing.php:95
 msgid "Backup Name"
 msgstr "Имя бекапа"
 
@@ -184,7 +172,7 @@ msgstr "Имя бекапа"
 msgid "Backup Output"
 msgstr ""
 
-#: views/backup/download.php:15 views/restore/landing.php:89
+#: views/backup/download.php:15 views/restore/landing.php:97
 msgid "Backup Type"
 msgstr ""
 
@@ -200,7 +188,7 @@ msgstr ""
 msgid "Backup finished with but with errors"
 msgstr ""
 
-#: Backup.class.php:301
+#: Backup.class.php:336
 msgid "Backup running"
 msgstr ""
 
@@ -212,31 +200,30 @@ msgstr "Базовая информация"
 msgid "Both"
 msgstr ""
 
-#: Handlers/Legacy.php:89
+#: Handlers/Legacy.php:86
 #, php-format
 msgid "Calling legacy restore on module %s"
 msgstr ""
 
-#: Handlers/SingleRestore.php:47
+#: Handlers/SingleRestore.php:51
 #, php-format
 msgid "Can't find the module data for %s"
 msgstr ""
 
-#: assets/js/backup_restore/backup_restore.js:75
-#: assets/js/backup_restore/backup_restore.js:99
+#: assets/js/backup_restore/backup_restore.js:91
 msgid "Cancel"
 msgstr ""
 
-#: Handlers/Backup.php:224
+#: Handlers/Backup.php:225
 msgid "Cleaning up"
 msgstr ""
 
-#: Handlers/Backup.php:226
+#: Handlers/Backup.php:227
 #, php-format
 msgid "Cleaning up data generated by %s"
 msgstr ""
 
-#: Backup.class.php:75
+#: Backup.class.php:77
 msgid "Cleaning up old data"
 msgstr ""
 
@@ -244,34 +231,34 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: Handlers/Backup.php:92
+#: Handlers/Backup.php:97
 #, php-format
 msgid "Could not backup module %s, it may not be installed or enabled"
 msgstr ""
 
-#: Backup.class.php:270
+#: Backup.class.php:305
 msgid "Could not find a file for the id supplied"
 msgstr ""
 
-#: Handlers/Restore.php:46
+#: Handlers/Restore.php:50
 #, php-format
 msgid "Could not find a manifest for %s, skipping"
 msgstr ""
 
-#: Handlers/Backup.php:116
+#: Handlers/Backup.php:121
 #, php-format
 msgid "Couldn't find class %s"
 msgstr ""
 
-#: Backup.class.php:456
+#: Backup.class.php:491
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
-#: Backup.class.php:278 Backup.class.php:298
+#: Backup.class.php:313 Backup.class.php:333
 msgid "Couldn't run process."
 msgstr ""
 
-#: Backup.class.php:160 assets/js/backup_restore/backup_restore.js:99
+#: Backup.class.php:162 assets/js/backup_restore/backup_restore.js:91
 msgid "Delete"
 msgstr "Удалить "
 
@@ -283,7 +270,7 @@ msgstr ""
 msgid "Delete After Runs"
 msgstr ""
 
-#: Handlers/Restore.php:57
+#: Handlers/Restore.php:61
 #, php-format
 msgid "Dependencies not resolved for %s Skipped"
 msgstr ""
@@ -300,13 +287,7 @@ msgstr ""
 msgid "Download"
 msgstr "Загрузить "
 
-#: assets/js/backup_restore/backup_restore.js:60
-msgid ""
-"Drag & Drop your files or <span class=\"filepond--label - action\"> Browse </"
-"span>"
-msgstr ""
-
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr "E-mail "
 
@@ -334,7 +315,7 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:965 views/backup/form.php:209
+#: Backup.class.php:1006 views/backup/form.php:209
 msgid "Enabled"
 msgstr ""
 
@@ -345,14 +326,6 @@ msgid ""
 msgstr ""
 "Эквивалентно нажатию на красную кнопку, происходит автоматически после "
 "восстановления на резервной системе"
-
-#: assets/js/backup_restore/backup_restore.js:64
-msgid "Error during load"
-msgstr ""
-
-#: assets/js/backup_restore/backup_restore.js:68
-msgid "Error during upload"
-msgstr ""
 
 #: views/backup/warmspare.php:107
 msgid "Exclude Bind Address"
@@ -386,31 +359,23 @@ msgstr ""
 "Явно исключать любые специфичные для конкретной системы IP-настройки. Это "
 "позволяет иметь запасную систему с другими IP-адресами."
 
-#: Handlers/Restore.php:37
+#: Handlers/Restore.php:29
 msgid "Extracting Backup"
-msgstr ""
-
-#: Backup.class.php:256
-msgid "Failed to copy the uploaded file"
 msgstr ""
 
 #: views/backup/form.php:141
 msgid "Failure"
 msgstr ""
 
-#: assets/js/backup_restore/backup_restore.js:59
-msgid "File of invalid type"
-msgstr ""
-
-#: Backup.class.php:245
+#: Backup.class.php:249
 msgid "File reached the server but could not be processed"
 msgstr ""
 
-#: Handlers/SingleRestore.php:64
+#: Handlers/SingleRestore.php:68
 msgid "Finished..."
 msgstr ""
 
-#: views/restore/landing.php:56
+#: views/restore/landing.php:64
 msgid "Framework"
 msgstr ""
 
@@ -426,7 +391,7 @@ msgstr ""
 msgid "Global Backup Settings"
 msgstr ""
 
-#: Backup.class.php:136
+#: Backup.class.php:138
 msgid "Go Back"
 msgstr ""
 
@@ -446,20 +411,16 @@ msgstr ""
 msgid "ID From the donor machine"
 msgstr ""
 
-#: Handlers/SingleRestore.php:51
+#: Handlers/SingleRestore.php:55
 msgid "In single restore mode dependencies are NOT processed"
 msgstr ""
 
-#: Backup.class.php:210
+#: Backup.class.php:212
 msgid "Invalid ID Provided"
 msgstr ""
 
 #: views/backup/transfer.php:39
 msgid "Is this the donor machine or the recipient"
-msgstr ""
-
-#: assets/js/backup_restore/backup_restore.js:63
-msgid "Loading"
 msgstr ""
 
 #: views/backup/settings.php:37
@@ -470,15 +431,15 @@ msgstr ""
 msgid "Maintinence"
 msgstr ""
 
-#: Backup.class.php:67
+#: Backup.class.php:69
 msgid "Migrating legacy backupjobs"
 msgstr ""
 
-#: Backup.class.php:71
+#: Backup.class.php:73
 msgid "Migrating legacy backups to the new backup"
 msgstr ""
 
-#: Backup.class.php:226
+#: Backup.class.php:228
 msgid "Missing id or transaction"
 msgstr ""
 
@@ -498,7 +459,7 @@ msgstr ""
 msgid "Modules to Backup"
 msgstr ""
 
-#: Backup.class.php:68
+#: Backup.class.php:70
 msgid "Moving servers to filestore"
 msgstr ""
 
@@ -517,19 +478,19 @@ msgstr "Нет"
 msgid "No Storage Locations"
 msgstr ""
 
-#: Backup.class.php:284
+#: Backup.class.php:319
 msgid "No backup id provided"
 msgstr ""
 
-#: Backup.class.php:242
+#: Backup.class.php:246
 msgid "No file provided"
 msgstr ""
 
-#: Backup.class.php:445
+#: Backup.class.php:480
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
-#: Backup.class.php:486
+#: Backup.class.php:521
 msgid "No user configurable settings"
 msgstr ""
 
@@ -549,7 +510,7 @@ msgstr ""
 msgid "Performing Remote Maintnance"
 msgstr ""
 
-#: Handlers/Backup.php:130
+#: Handlers/Backup.php:135
 #, php-format
 msgid "Processing backup for module: %s."
 msgstr ""
@@ -560,10 +521,6 @@ msgstr ""
 
 #: views/backup/settings.php:58
 msgid "Public SSH key to allow other servers to connect"
-msgstr ""
-
-#: assets/js/backup_restore/filepond.min.js:8
-msgid "REMOVE_ITEM"
 msgstr ""
 
 #: views/backup/transfer.php:33
@@ -578,29 +535,25 @@ msgstr ""
 msgid "Remote User"
 msgstr ""
 
-#: Handlers/Backup.php:232
+#: Handlers/Backup.php:233
 #, php-format
 msgid "Remote transaction complete, file saved to %s"
 msgstr ""
 
-#: assets/js/backup_restore/backup_restore.js:72
-msgid "Remove"
-msgstr ""
-
-#: Backup.class.php:87
+#: Backup.class.php:89
 #, php-format
 msgid "Removing table %s."
 msgstr ""
 
-#: Backup.class.php:145 views/backup/form.php:382
+#: Backup.class.php:147 views/backup/form.php:382
 msgid "Reset"
 msgstr "Сброс"
 
-#: Handlers/SingleRestore.php:54
+#: Handlers/SingleRestore.php:58
 msgid "Resetting module data, depending on the module it may take a bit."
 msgstr ""
 
-#: Handlers/Restore.php:63
+#: Handlers/Restore.php:67
 #, php-format
 msgid "Resetting the data for %s, this may take a moment"
 msgstr ""
@@ -613,37 +566,32 @@ msgstr "Восстановить"
 msgid "Restore Information"
 msgstr ""
 
-#: views/restore/landing.php:36
+#: views/restore/landing.php:44
 msgid "Restore from local cache"
 msgstr ""
 
-#: views/restore/landing.php:65
+#: views/restore/landing.php:73
 msgid "Restore from the cloud"
 msgstr ""
 
-#: Backup.class.php:281
+#: Backup.class.php:316
 msgid "Restore running"
 msgstr ""
 
-#: Handlers/SingleRestore.php:61
+#: Handlers/SingleRestore.php:65
 msgid "Restoring Data..."
 msgstr ""
 
-#: Handlers/Restore.php:67
+#: Handlers/Restore.php:71
 #, php-format
 msgid "Restoring the data for %s, this may take a moment"
-msgstr ""
-
-#: assets/js/backup_restore/backup_restore.js:74
-#: assets/js/backup_restore/backup_restore.js:77
-msgid "Retry"
 msgstr ""
 
 #: views/restore/processRestore.php:10
 msgid "Run Date"
 msgstr ""
 
-#: Backup.class.php:131
+#: Backup.class.php:133
 msgid "Run Restore"
 msgstr ""
 
@@ -664,7 +612,7 @@ msgstr ""
 msgid "Running post backup hooks"
 msgstr ""
 
-#: Handlers/Restore.php:80
+#: Handlers/Restore.php:84
 msgid "Running post restore hooks"
 msgstr ""
 
@@ -672,11 +620,11 @@ msgstr ""
 msgid "Running pre backup hooks"
 msgstr ""
 
-#: Handlers/Restore.php:41
+#: Handlers/Restore.php:45
 msgid "Running pre restore hooks"
 msgstr ""
 
-#: Handlers/Restore.php:62
+#: Handlers/Restore.php:66
 #, php-format
 msgid "Running restore process for %s"
 msgstr ""
@@ -685,12 +633,12 @@ msgstr ""
 msgid "Runtime Log Path"
 msgstr ""
 
-#: Handlers/Backup.php:205
+#: Handlers/Backup.php:206
 #, php-format
 msgid "SHA256: %s"
 msgstr ""
 
-#: Backup.class.php:150
+#: Backup.class.php:152
 msgid "Save"
 msgstr "Сохранить"
 
@@ -698,15 +646,15 @@ msgstr "Сохранить"
 msgid "Save Changes"
 msgstr ""
 
-#: Backup.class.php:155
+#: Backup.class.php:157
 msgid "Save and Run"
 msgstr "Сохранить и запустить"
 
-#: Handlers/Backup.php:201
+#: Handlers/Backup.php:202
 msgid "Saving to selected Filestore locations"
 msgstr ""
 
-#: Handlers/Backup.php:215
+#: Handlers/Backup.php:216
 #, php-format
 msgid "Saving to: %s instance"
 msgstr ""
@@ -743,10 +691,6 @@ msgstr ""
 msgid "Should the warm spare feature be enabled"
 msgstr ""
 
-#: assets/js/backup_restore/backup_restore.js:62
-msgid "Size not available"
-msgstr ""
-
 #: Handlers/Backup.php:48
 #, php-format
 msgid "Starting backup %s"
@@ -764,7 +708,7 @@ msgstr ""
 msgid "Storage Location"
 msgstr ""
 
-#: Handlers/Backup.php:63
+#: Handlers/Backup.php:62
 #, php-format
 msgid "Storage Location: %s"
 msgstr ""
@@ -777,11 +721,11 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: Backup.class.php:429
+#: Backup.class.php:464
 msgid "System Transfer"
 msgstr ""
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr "Форма: поле для e-mail's, когда используется функция backup e-mail."
 
@@ -789,30 +733,26 @@ msgstr "Форма: поле для e-mail's, когда используетс�
 msgid "The address of the remote server."
 msgstr ""
 
-#: Handlers/Legacy.php:94
+#: Handlers/Legacy.php:91
 #, php-format
 msgid "The module %s does not seem to support legacy restores."
 msgstr ""
 
-#: Backup.class.php:248
-msgid "The uploaded file type is incorrect and couldn't be processed"
-msgstr ""
-
-#: Handlers/Backup.php:124
+#: Handlers/Backup.php:129
 #, php-format
 msgid "There was an error running the backup for %s... %s"
 msgstr ""
 
-#: Handlers/Restore.php:72
+#: Handlers/Restore.php:76
 #, php-format
 msgid "There was an error running the restore for %s... %s"
 msgstr ""
 
-#: Handlers/Backup.php:62
-msgid "This backup will be stored locally is subject to maintinance settings"
+#: Handlers/Backup.php:61
+msgid "This backup will be stored locally is subject to maintenance settings"
 msgstr ""
 
-#: views/restore/landing.php:69
+#: views/restore/landing.php:77
 msgid ""
 "This feature requires filestore be setup and may not be availible on a clean "
 "install"
@@ -841,11 +781,7 @@ msgstr ""
 msgid "Transfer Id"
 msgstr ""
 
-#: assets/js/backup_restore/backup_restore.js:76
-msgid "Undo"
-msgstr ""
-
-#: Backup.class.php:965
+#: Backup.class.php:1006
 msgid "Uninstalled or Disabled"
 msgstr ""
 
@@ -853,28 +789,12 @@ msgstr ""
 msgid "Unlimited"
 msgstr ""
 
-#: assets/js/backup_restore/backup_restore.js:78
-msgid "Upload"
-msgstr ""
-
-#: views/restore/landing.php:26
+#: views/restore/landing.php:34
 msgid "Upload a valid backup.tar.gz"
-msgstr ""
-
-#: assets/js/backup_restore/backup_restore.js:67
-msgid "Upload cancelled"
-msgstr ""
-
-#: assets/js/backup_restore/backup_restore.js:66
-msgid "Upload complete"
 msgstr ""
 
 #: views/restore/landing.php:8
 msgid "Upload your restore file"
-msgstr ""
-
-#: assets/js/backup_restore/backup_restore.js:65
-msgid "Uploading"
 msgstr ""
 
 #: views/backup/warmspare.php:238
@@ -885,19 +805,15 @@ msgstr ""
 msgid "Version in Backup"
 msgstr ""
 
-#: assets/js/backup_restore/backup_restore.js:61
-msgid "Waiting for size"
-msgstr ""
-
 #: views/backup/warmspare.php:4
 msgid "Warm Spare"
 msgstr ""
 
-#: Backup.class.php:219
+#: Backup.class.php:221
 msgid "We can't seem to delete the chosen file"
 msgstr ""
 
-#: Backup.class.php:214
+#: Backup.class.php:216
 msgid "We don't have permissions to this file"
 msgstr ""
 
@@ -920,17 +836,11 @@ msgstr "Да"
 msgid "Your backup has finished"
 msgstr ""
 
-#: assets/js/backup_restore/backup_restore.js:69
-msgid "tap to cancel"
-msgstr ""
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Резервное копирование и восстановление - Серверы"
 
-#: assets/js/backup_restore/backup_restore.js:70
-msgid "tap to retry"
-msgstr ""
-
-#: assets/js/backup_restore/backup_restore.js:71
-msgid "tap to undo"
-msgstr ""
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Резервное копирование и восстановление - Шаблоны"
 
 #~ msgid "%s Backup Wizard"
 #~ msgstr "%s Мастер создания резервной копии"

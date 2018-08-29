@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.3alpha1</version>
+	<version>15.0.3alpha2</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -16,6 +16,7 @@
 		<module>filestore</module>
 	</depends>
 	<changelog>
+      	*15.0.3alpha2* Fix import of cron job for backup migration
 		*15.0.3alpha1* Alpha 1 release of the Backup 15 module
 		*15.0.2.1* Don't crash on a new install
 		*15.0.2* Packaging of ver 15.0.2

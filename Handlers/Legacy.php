@@ -62,6 +62,10 @@ class Legacy{
             $files[] = $filename;
         }
         foreach($files as $file){
+            $amodules = $this->FreePBX->Modules->getActiveModules();
+            foreach ($amodules as $key => $value) {
+                $final[$key] = [];
+            }
             $pdo = $this->setupTempDb($file);
             $loadedTables = $pdo->query("SHOW TABLES");
             $final = ['unknown' => []];

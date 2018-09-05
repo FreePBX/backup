@@ -46,7 +46,7 @@ class Legacy{
             $this->data['astdb'] = unserialize(file_get_contents(BACKUPTMPDIR.'/astdb'));
         }
     }
-    
+
     public function extractFile($filepath){
         $this->Backup->fs->remove(BACKUPTMPDIR);
         $this->Backup->fs->mkdir(BACKUPTMPDIR);
@@ -54,13 +54,14 @@ class Legacy{
         exec('tar -xzvf '.$filepath.' -C '.BACKUPTMPDIR, $out, $ret);
         return $ret;
     }
-    
+
     public function parseSQL(){
         $tables = $this->getModuleTables();
         $files = [];
         foreach (glob(BACKUPTMPDIR."/*.sql.gz") as $filename) {
             $files[] = $filename;
         }
+				$final = ['unknown' => []];
         foreach($files as $file){
             $amodules = $this->FreePBX->Modules->getActiveModules();
             foreach ($amodules as $key => $value) {
@@ -68,7 +69,6 @@ class Legacy{
             }
             $pdo = $this->setupTempDb($file);
             $loadedTables = $pdo->query("SHOW TABLES");
-            $final = ['unknown' => []];
             while ($current = $loadedTables->fetch(PDO::FETCH_COLUMN)) {
                 if(!isset($tables[$current])){
                     $final['unknown'][] = $current;

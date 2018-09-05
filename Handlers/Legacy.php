@@ -61,12 +61,12 @@ class Legacy{
         foreach (glob(BACKUPTMPDIR."/*.sql.gz") as $filename) {
             $files[] = $filename;
         }
+				$amodules = $this->FreePBX->Modules->getActiveModules();
+				foreach ($amodules as $key => $value) {
+						$final[$key] = [];
+				}
 				$final = ['unknown' => []];
         foreach($files as $file){
-            $amodules = $this->FreePBX->Modules->getActiveModules();
-            foreach ($amodules as $key => $value) {
-                $final[$key] = [];
-            }
             $pdo = $this->setupTempDb($file);
             $loadedTables = $pdo->query("SHOW TABLES");
             while ($current = $loadedTables->fetch(PDO::FETCH_COLUMN)) {

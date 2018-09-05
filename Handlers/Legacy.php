@@ -58,6 +58,7 @@ class Legacy{
 	public function parseSQL(){
 		$tables = $this->getModuleTables();
 		$files = [];
+		$final = ['unknown' => []];
 		foreach (glob(BACKUPTMPDIR."/*.sql.gz") as $filename) {
 			$files[] = $filename;
 		}
@@ -65,7 +66,6 @@ class Legacy{
 		foreach ($amodules as $key => $value) {
 			$final[$key] = [];
 		}
-		$final = ['unknown' => []];
 		foreach($files as $file){
 			$pdo = $this->setupTempDb($file);
 			$loadedTables = $pdo->query("SHOW TABLES");

@@ -1,7 +1,7 @@
 <?php
 /**
- * Copyright Sangoma Technologies, Inc 2018
- */
+* Copyright Sangoma Technologies, Inc 2018
+*/
 namespace FreePBX\modules\Backup\Handlers;
 use FreePBX\modules\Backup\Modules as Module;
 use FreePBX\modules\Backup\Models as Models;
@@ -89,9 +89,9 @@ class Restore{
 	}
 
 	/**
-	 * Get a list of modules that implement the restore method
-	 * @return array list of modules
-	 */
+	* Get a list of modules that implement the restore method
+	* @return array list of modules
+	*/
 	public function getModules($force = false){
 		//Cache
 		if(isset($this->restoreMods) && !empty($this->restoreMods) && !$force) {

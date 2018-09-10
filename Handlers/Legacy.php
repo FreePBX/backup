@@ -40,22 +40,30 @@ class Legacy{
 		$this->data['manifest'] = [];
 		$this->data['astdb'] = [];
 		if(file_exists(BACKUPTMPDIR . '/manifest')){
+			echo _("Loading manifest to memory").PHP_EOL;
 			$this->data['manifest'] = unserialize(file_get_contents(BACKUPTMPDIR.'/manifest'));
 		}
 		if(file_exists(BACKUPTMPDIR . '/astdb')){
+			echo _("Loading astdb to memory").PHP_EOL;
 			$this->data['astdb'] = unserialize(file_get_contents(BACKUPTMPDIR.'/astdb'));
 		}
 	}
 
 	public function extractFile($filepath){
+		echo _("Cleaning up old data from the temp directory".PHP_EOL);
 		$this->Backup->fs->remove(BACKUPTMPDIR);
 		$this->Backup->fs->mkdir(BACKUPTMPDIR);
 		//We have to go the exec route because legacy backups root is ./ which breaks things
+		echo sprintf(_("Extracting: %s... This may take a moment depending on the backup size").PHP_EOL, $filepath);
 		exec('tar -xzvf '.$filepath.' -C '.BACKUPTMPDIR, $out, $ret);
+		if($ret == 0){
+			echo sprintf(_("File extracted to %s. These files will remain until a new restore is run or until cleaned manually.").PHP_EOL,BACKUPTMPDIR);
+		}
 		return $ret;
 	}
 
 	public function parseSQL(){
+		echo _("Parsing out SQL tables. This may take a moment depending on backup size.").PHP_EOL;
 		$tables = $this->getModuleTables();
 		$files = [];
 		$final = ['unknown' => []];
@@ -66,6 +74,7 @@ class Legacy{
 		foreach ($amodules as $key => $value) {
 			$final[$key] = [];
 		}
+		sprintf(_("Found %s database files in the backup.").PHP_EOL,count($files));
 		foreach($files as $file){
 			$pdo = $this->setupTempDb($file);
 			$loadedTables = $pdo->query("SHOW TABLES");
@@ -83,6 +92,7 @@ class Legacy{
 				}
 				$namespace = '\\FreePBX\\modules\\'.ucfirst($key).'\\Restore';
 				if(!class_exists($namespace)){
+					sprintf(_("Couldn't find %s").PHP_EOL,$namespace);
 					continue;
 				}
 				$class = new $namespace(null,$this->FreePBX, BACKUPTMPDIR);
@@ -97,9 +107,11 @@ class Legacy{
 		}
 	}
 	public function setupTempDb($file){
+		sprintf(_("Loading supplied database file %s").PHP_EOL, $file);
 		exec('mysqladmin -f DROP asterisktemp', $out, $ret);
 		exec('mysqladmin CREATE asterisktemp', $out, $ret);
 		exec('gunzip < '.$file.'  | mysql asterisktemp', $out, $ret);
+		_("Temporary database loaded".PHP_EOL);
 		$host = '127.0.0.1';
 		$db = 'asterisktemp';
 		$user = 'root';

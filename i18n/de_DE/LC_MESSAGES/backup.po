@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-27 20:53-0400\n"
-"PO-Revision-Date: 2018-08-25 11:00+0000\n"
-"Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
+"PO-Revision-Date: 2018-09-11 17:00+0000\n"
+"Last-Translator: Thomas Rock <trock@sangoma.com>\n"
 "Language-Team: German <http://*/projects/freepbx/backup/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
@@ -60,7 +60,7 @@ msgstr "Ein Script, dass VOR der Durchführung einer Sicherung startet."
 
 #: views/backup/backups.php:154 assets/js/backup.js:93 assets/js/backup.js:105
 msgid "AT"
-msgstr ""
+msgstr "AT"
 
 #: views/servers/awss3.php:41
 msgid "AWS Access Key"
@@ -144,7 +144,7 @@ msgstr "April"
 
 #: bin/restore.php:124
 msgid "Archive coorect."
-msgstr ""
+msgstr "Richtiges Archiv."
 
 #: views/restore/browseserver.php:21
 msgid "AstDB's"
@@ -322,7 +322,7 @@ msgstr "Bucket-Name"
 
 #: bin/backup.php:57
 msgid "Building manifest..."
-msgstr ""
+msgstr "Aufbau des Manifests..."
 
 #: views/backup/backups.php:233
 msgid "CDR and Call Log Data"

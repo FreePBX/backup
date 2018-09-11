@@ -3,7 +3,6 @@
  * Copyright Sangoma Technologies, Inc 2018
  */
 namespace FreePBX\modules;
-include __DIR__.'/vendor/autoload.php';
 use FreePBX\modules\Backup\Handlers as Handler;
 use FreePBX\modules\Filestore\Modules\Remote as FilestoreRemote;
 use FreePBX\modules\Backup\Models\BackupFile;

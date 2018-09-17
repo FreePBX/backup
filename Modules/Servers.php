@@ -68,10 +68,9 @@ class Servers extends Migration{
 	}
 
 	public function migrate(){
-		foreach ($this->servers as $server) {
-			$uuid = $server['uuid'];
-			$server = $server['data'] + $server['server'];
-			$server['id'] = $uuid;
+		foreach ($this->servers as $item) {
+			$server = $item['server'];
+			$server['id'] = $item['uuid'];
 			if($server['type'] === 'ftp'){
 				return $this->handleFTP($server);
 			}
@@ -102,7 +101,7 @@ class Servers extends Migration{
 	}
 	public function handleSSH($data){
 		$ssh = new SSH($this->FreePBX);
-		$email->addItem($data);    
+		$ssh->addItem($data);    
 	}
 	public function handleMySQL($data){
 

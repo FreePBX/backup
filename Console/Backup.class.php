@@ -62,6 +62,7 @@ class Backup extends Command {
             return $job->doSingleRestore();
         }
 		if($input->getOption('implemented')){
+			$backupHandler = new Handler\Backup($this->freepbx);
 			$output->writeln(json_encode($backupHandler->getModules()));
 			return;
 		}

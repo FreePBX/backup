@@ -184,7 +184,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			case 'run'              :
 			case 'runRestore'       :
 			case 'remotedownload'	:
-			case 'remotedelete'		:
+			case 'deleteRemote'		:
 			case 'localdownload'    :
 			case 'localRestoreFiles':
 			case 'restoreFiles'     :
@@ -203,8 +203,15 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 */
 	public function ajaxHandler() {
 		switch ($_REQUEST['command']) {
-			case 'remotedelete':
-			break;
+			case 'deleteRemote':
+				$server = $_REQUEST['id'];
+				$file = $_REQUEST['file'];
+				$server = explode('_', $server);
+				if($this->deleteRemote($server[0], $server[1], $file)){
+					return ['status' => true, "message" => _("File Deleted")];
+				}
+				return ['status' => false, "message" => _("Something failed, The file may need to be removed manually.")];
+
 			case 'deleteLocal':
 				$filepath = $this->pathFromId($_REQUEST['id']);
 				if(!$filepath){
@@ -256,7 +263,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 					$response->send();
 					exit();
 				}
-				dbug($_REQUEST);
 				$spooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
 				$path = sprintf('%s/backup/uploads/', $spooldir);
 				$finalname = $path.'/'. $_FILES['file']['name'];
@@ -1012,6 +1018,11 @@ class Backup extends FreePBX_Helpers implements BMO {
 		}
 		return json_encode($return);
 	}
+
+	public function deleteRemote($driver, $id, $path){
+		return $this->FreePBX->Filestore->delete($driver, $id, $path);
+	}
+
 	public function getAllRemote(){
 		$final = [];
 		$serverName = str_replace(' ', '_',$this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT'));

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 17:37-0400\n"
+"POT-Creation-Date: 2018-09-19 12:14-0400\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -60,11 +60,11 @@ msgid ""
 "Skipping"
 msgstr ""
 
-#: Console/Backup.class.php:79
+#: Console/Backup.class.php:80
 msgid "A backup job for this id is already running"
 msgstr ""
 
-#: Console/Backup.class.php:128
+#: Console/Backup.class.php:129
 msgid "A backup task is already running"
 msgstr ""
 
@@ -72,7 +72,7 @@ msgstr ""
 msgid "A name used to identify your backups"
 msgstr ""
 
-#: Console/Backup.class.php:108
+#: Console/Backup.class.php:109
 msgid "A restore task is already running"
 msgstr ""
 
@@ -101,25 +101,21 @@ msgstr ""
 msgid "Apply Configs"
 msgstr "Aplicar configuraciones"
 
-#: assets/js/backup_restore/backup_restore.js:90
-msgid "Are you sure you wish to delete this file? This cannot be undone"
-msgstr ""
-
 #: page.backup.php:12 page.backup_restore.php:13
 msgid "Backup"
 msgstr "Respaldo"
 
-#: Backup.class.php:804
+#: Backup.class.php:805
 #, php-format
 msgid "Backup %s"
 msgstr ""
 
-#: Backup.class.php:625
+#: Backup.class.php:626
 #, php-format
 msgid "Backup %s failed for %s"
 msgstr ""
 
-#: Backup.class.php:623
+#: Backup.class.php:624
 #, php-format
 msgid "Backup %s success for %s"
 msgstr ""
@@ -186,7 +182,7 @@ msgstr ""
 msgid "Backup finished with but with errors"
 msgstr ""
 
-#: Backup.class.php:335
+#: Backup.class.php:336
 msgid "Backup running"
 msgstr ""
 
@@ -206,10 +202,6 @@ msgstr ""
 #: Handlers/SingleRestore.php:51
 #, php-format
 msgid "Can't find the module data for %s"
-msgstr ""
-
-#: assets/js/backup_restore/backup_restore.js:91
-msgid "Cancel"
 msgstr ""
 
 #: Handlers/Backup.php:225
@@ -238,7 +230,7 @@ msgstr ""
 msgid "Could not backup module %s, it may not be installed or enabled"
 msgstr ""
 
-#: Backup.class.php:304
+#: Backup.class.php:305
 msgid "Could not find a file for the id supplied"
 msgstr ""
 
@@ -257,15 +249,15 @@ msgstr ""
 msgid "Couldn't find class %s"
 msgstr ""
 
-#: Backup.class.php:490
+#: Backup.class.php:491
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
-#: Backup.class.php:312 Backup.class.php:332
+#: Backup.class.php:313 Backup.class.php:333
 msgid "Couldn't run process."
 msgstr ""
 
-#: Backup.class.php:161 assets/js/backup_restore/backup_restore.js:91
+#: Backup.class.php:161
 msgid "Delete"
 msgstr "Eliminar"
 
@@ -322,7 +314,7 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1005 views/backup/form.php:209
+#: Backup.class.php:1006 views/backup/form.php:209
 msgid "Enabled"
 msgstr ""
 
@@ -516,7 +508,7 @@ msgstr "No"
 msgid "No Storage Locations"
 msgstr ""
 
-#: Backup.class.php:318
+#: Backup.class.php:319
 msgid "No backup id provided"
 msgstr ""
 
@@ -524,11 +516,11 @@ msgstr ""
 msgid "No file provided"
 msgstr ""
 
-#: Backup.class.php:479
+#: Backup.class.php:480
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
-#: Backup.class.php:520
+#: Backup.class.php:521
 msgid "No user configurable settings"
 msgstr ""
 
@@ -617,7 +609,7 @@ msgstr ""
 msgid "Restore from the cloud"
 msgstr ""
 
-#: Backup.class.php:315
+#: Backup.class.php:316
 msgid "Restore running"
 msgstr ""
 
@@ -764,7 +756,7 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: Backup.class.php:463
+#: Backup.class.php:464
 msgid "System Transfer"
 msgstr ""
 
@@ -830,7 +822,7 @@ msgstr ""
 msgid "Transfer Id"
 msgstr ""
 
-#: Backup.class.php:1005
+#: Backup.class.php:1006
 msgid "Uninstalled or Disabled"
 msgstr ""
 

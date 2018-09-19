@@ -256,6 +256,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 					$response->send();
 					exit();
 				}
+				dbug($_REQUEST);
 				$spooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
 				$path = sprintf('%s/backup/uploads/', $spooldir);
 				$finalname = $path.'/'. $_FILES['file']['name'];

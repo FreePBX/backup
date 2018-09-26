@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-26 00:08-0400\n"
+"POT-Creation-Date: 2018-09-26 00:10-0400\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -92,17 +92,17 @@ msgstr "Aplicar Configs"
 msgid "Backup"
 msgstr "Cópia de Segurança"
 
-#: Backup.class.php:805
+#: Backup.class.php:804
 #, php-format
 msgid "Backup %s"
 msgstr ""
 
-#: Backup.class.php:626
+#: Backup.class.php:617
 #, php-format
 msgid "Backup %s failed for %s"
 msgstr ""
 
-#: Backup.class.php:624
+#: Backup.class.php:615
 #, php-format
 msgid "Backup %s success for %s"
 msgstr ""
@@ -168,7 +168,7 @@ msgstr ""
 msgid "Backup finished with but with errors"
 msgstr ""
 
-#: Backup.class.php:336
+#: Backup.class.php:335
 msgid "Backup running"
 msgstr ""
 
@@ -216,7 +216,7 @@ msgstr ""
 msgid "Could not backup module %s, it may not be installed or enabled"
 msgstr ""
 
-#: Backup.class.php:305
+#: Backup.class.php:304
 msgid "Could not find a file for the id supplied"
 msgstr ""
 
@@ -235,11 +235,11 @@ msgstr ""
 msgid "Couldn't find class %s"
 msgstr ""
 
-#: Backup.class.php:491
+#: Backup.class.php:490
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
-#: Backup.class.php:313 Backup.class.php:333
+#: Backup.class.php:312 Backup.class.php:332
 msgid "Couldn't run process."
 msgstr ""
 
@@ -296,7 +296,7 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1006 views/backup/form.php:209
+#: Backup.class.php:1008 views/backup/form.php:209
 msgid "Enabled"
 msgstr ""
 
@@ -485,7 +485,7 @@ msgstr ""
 msgid "No Storage Locations"
 msgstr ""
 
-#: Backup.class.php:319
+#: Backup.class.php:318
 msgid "No backup id provided"
 msgstr ""
 
@@ -493,11 +493,11 @@ msgstr ""
 msgid "No file provided"
 msgstr ""
 
-#: Backup.class.php:480
+#: Backup.class.php:479
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
-#: Backup.class.php:521
+#: Backup.class.php:520
 msgid "No user configurable settings"
 msgstr ""
 
@@ -586,7 +586,7 @@ msgstr ""
 msgid "Restore from the cloud"
 msgstr ""
 
-#: Backup.class.php:316
+#: Backup.class.php:315
 msgid "Restore running"
 msgstr ""
 
@@ -733,7 +733,7 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: Backup.class.php:464
+#: Backup.class.php:463
 msgid "System Transfer"
 msgstr ""
 
@@ -799,7 +799,7 @@ msgstr ""
 msgid "Transfer Id"
 msgstr ""
 
-#: Backup.class.php:1006
+#: Backup.class.php:1008
 msgid "Uninstalled or Disabled"
 msgstr ""
 

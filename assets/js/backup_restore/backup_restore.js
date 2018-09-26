@@ -19,7 +19,7 @@ $(document).ready(() => {
 	});
 	$("#goback").click(event => {
 		event.preventDefault();
-		window.history(-1);
+		window.history.back(-1);
 	});
 	$("#backupUpload").click( event => {
 		event.preventDefault();

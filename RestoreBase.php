@@ -58,6 +58,7 @@ class RestoreBase{
     $oldkv = NULL;
     $module = ucfirst($module);
     $kvsql = "SELECT * FROM kvstore WHERE `module` = :module";
+    var_dump($kvsql);
     try {
       $stmt = $pdo->prepare($kvsql);
       $stmt->execute([':module' => $module]);
@@ -69,12 +70,14 @@ class RestoreBase{
     }
     (!isset($oldkv) || !is_array($oldkv)) ? : $oldkv = [];
     $this->insertKV($freepbx, $module, $oldkv);
+    //var_dump($this);
     return $this;
   }
 
   public function transformNamespacedKV($pdo, $module, $freepbx){
     $module = ucfirst($module);
     $newkvsql = "SELECT * FROM " . $this->getUnderscoreClass($freepbx, $module);
+    var_dump($newkvsql);
     try {
       $stmt = $pdo->prepare($newkvsql);
       $stmt->execute();
@@ -86,6 +89,7 @@ class RestoreBase{
     }
     (!isset($newkv) || !is_array($newkv)) ? : $newkv = [];
     $this->insertKV($freepbx, $module, $newkv);
+    //var_dump($this);
     return $this;
   }
 
@@ -102,4 +106,30 @@ class RestoreBase{
     }
     return $this;
   }
+
+	public function addDataDB($data){
+		foreach( $data['tables'] as $table){
+			$loadedTables = $data['pdo']->query("SELECT * FROM $table");
+			$results = $loadedTables->fetchAll(\PDO::FETCH_ASSOC);
+			foreach ($results as $key => $value) {
+			  $truncate = "TRUNCATE TABLE $table";
+			  $freepbx->Database->query($truncate);
+			  $first = $results[0];
+			  $params = $columns = array_keys($first);
+			  array_walk($params, function(&$v, $k) {
+				$v = ':'.preg_replace("/[^a-z0-9]/i", "", $v);
+			  });
+			  $sql = "INSERT INTO `$table` (`".implode('`,`',$columns)."`) VALUES (".implode(',',$params).")";
+			  $sth = $freepbx->Database->prepare($sql);
+			  foreach($results as $row) {
+				$insertable = [];
+				foreach($row as $k => $v) {
+				  $k = preg_replace("/[^a-z0-9]/i", "", $k);
+				  $insertable[':'.$k] = $v;
+				}
+				$sth->execute($insertable);
+			  }
+			}
+		  }
+	}
 }

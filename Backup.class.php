@@ -256,7 +256,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 					$response->send();
 					exit();
 				}
-				dbug($_REQUEST);
 				$spooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
 				$path = sprintf('%s/backup/uploads/', $spooldir);
 				$finalname = $path.'/'. $_FILES['file']['name'];
@@ -611,14 +610,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 		if(!isset($backupInfo['backup_emailtype']) || empty($backupInfo['backup_emailtype'])){
 			return false;
 		}
-		$transport      = \Swift_MailTransport::newInstance();
-		$this->swiftmsg = \Swift_Message::newInstance();
-		$this->swiftmsg->setContentType("text/html");
-		$swift         = \Swift_Mailer::newInstance($transport);
-		$this->handler = new BufferHandler(new SwiftMailerHandler($swift,$this->swiftmsg,\Monolog\Logger::INFO),0,\Monolog\Logger::INFO);
-		$formatter = new Formatter\HtmlFormatter();
-		$this->handler->SetFormatter($formatter);
-		$this->logger->customLog->pushHandler($this->handler);
 
 		$serverName   = $this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT');
 		$emailSubject = sprintf(_('Backup %s success for %s'),$backupInfo['backup_name'], $serverName);
@@ -639,6 +630,14 @@ class Backup extends FreePBX_Helpers implements BMO {
 		if(empty($from)){
 			return;
 		}
+		$transport = \Swift_MailTransport::newInstance();
+		$this->swiftmsg = \Swift_Message::newInstance();
+		$this->swiftmsg->setContentType("text/html");
+		$swift = \Swift_Mailer::newInstance($transport);
+		$this->handler = new BufferHandler(new SwiftMailerHandler($swift, $this->swiftmsg, \Monolog\Logger::INFO), 0, \Monolog\Logger::INFO);
+		$formatter = new Formatter\HtmlFormatter();
+		$this->handler->SetFormatter($formatter);
+		$this->logger->customLog->pushHandler($this->handler);
 		$this->swiftmsg->setFrom($from);
 		$this->swiftmsg->setSubject($emailSubject);
 		$this->swiftmsg->setTo($backupInfo['backup_email']);
@@ -939,6 +938,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 			$path = $this->getConfig('logpath');
 		}
 		if(!$this->swiftmsg){
+			return;
+		}
+		if(empty($this->swiftmsg->getTo())){
 			return;
 		}
 		try {

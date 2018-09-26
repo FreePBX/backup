@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.3alpha5</version>
+	<version>15.0.3alpha8</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -16,6 +16,10 @@
 		<module>filestore</module>
 	</depends>
 	<changelog>
+		*15.0.3alpha8* FREEPBX-18202 Fix restore file ajax handling 
+		*15.0.3alpha7* FREEPBX-18160 Migration improvements 
+		*15.0.3alpha6* FREEPBX-18215 Fix the mail handler validation 
+		*15.0.3alpha5* FREEPBX-18210 Remove unimplemented tab 
 		*15.0.3alpha4* FREEPBX-18160 Fix server migration 
 		*15.0.3alpha3* Remove unneeded composer deps
 		*15.0.3alpha2* Fix import of cron job for backup migration

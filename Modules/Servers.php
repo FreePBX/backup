@@ -46,7 +46,7 @@ class Servers extends Migration{
 		}
 		foreach ($serverDetails as $data) {
 			$value = $this->processValue($data['value']);
-			$final['server_' . $data['server_id']]['data'][$data['key']] = $value;
+			$final['server_' . $data['server_id']][$data['key']] = $value;
 		}
 		$this->Backup->setMultiConfig($final, 'migratedservers');
 		$this->servers = $final;
@@ -72,24 +72,23 @@ class Servers extends Migration{
 			$server = $item['server'];
 			$server['id'] = $item['uuid'];
 			if($server['type'] === 'ftp'){
-				return $this->handleFTP($server);
+				$this->handleFTP($server);
 			}
 			if($server['type'] === 'mysql'){
-				return $this->handleMySql($server);
+				$this->handleMySql($server);
 			}
 			if($server['type'] === 'email'){
-				return $this->handleEmail($server);
+				$this->handleEmail($server);
 			}
 			if($server['type'] === 'local'){
-				return $this->handleLocal($server);
+				$this->handleLocal($server);
 			}
 			if($server['type'] === 'ssh'){
-				return $this->handleSSH($server);
+				$this->handleSSH($server);
 			}
 			if($server['type'] === 'awss3'){
-				return $this->handleS3($server);
+				$this->handleS3($server);
 			}
-			continue;
 		}
 		return $this;
 	}

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 12:14-0400\n"
+"POT-Creation-Date: 2018-09-26 00:12-0400\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -63,8 +63,8 @@ msgstr ""
 msgid "A restore task is already running"
 msgstr ""
 
-#: views/backup/download.php:16 views/backup/grid.php:25
-#: views/restore/landing.php:65 views/restore/landing.php:98
+#: views/backup/grid.php:25 views/restore/landing.php:65
+#: views/restore/landing.php:98
 msgid "Actions"
 msgstr "Các thao tác"
 
@@ -88,21 +88,25 @@ msgstr ""
 msgid "Apply Configs"
 msgstr "Áp dụng các cấu hình"
 
+#: assets/js/backup_restore/backup_restore.js:115
+msgid "Are you sure you wish to delete this file? This cannot be undone"
+msgstr ""
+
 #: page.backup.php:12 page.backup_restore.php:13
 msgid "Backup"
 msgstr "Sao lưu"
 
-#: Backup.class.php:805
+#: Backup.class.php:811
 #, php-format
 msgid "Backup %s"
 msgstr ""
 
-#: Backup.class.php:626
+#: Backup.class.php:624
 #, php-format
 msgid "Backup %s failed for %s"
 msgstr ""
 
-#: Backup.class.php:624
+#: Backup.class.php:622
 #, php-format
 msgid "Backup %s success for %s"
 msgstr ""
@@ -119,8 +123,7 @@ msgstr "Sao lưu và Khôi phục- Khôi phục"
 msgid "Backup & Restore for your FreePBX environment"
 msgstr "Sao lưu & Khôi phục cho môi trường FreePBX của bạn"
 
-#: views/backup/download.php:14 views/restore/landing.php:63
-#: views/restore/landing.php:96
+#: views/restore/landing.php:63 views/restore/landing.php:96
 msgid "Backup Date"
 msgstr ""
 
@@ -144,8 +147,8 @@ msgstr "Sao lưu các mục tin"
 msgid "Backup Module"
 msgstr "Sao lưu Mô đun"
 
-#: views/backup/download.php:13 views/backup/form.php:20
-#: views/restore/landing.php:62 views/restore/landing.php:95
+#: views/backup/form.php:20 views/restore/landing.php:62
+#: views/restore/landing.php:95
 msgid "Backup Name"
 msgstr "Sao lưu Tên"
 
@@ -153,7 +156,7 @@ msgstr "Sao lưu Tên"
 msgid "Backup Output"
 msgstr ""
 
-#: views/backup/download.php:15 views/restore/landing.php:97
+#: views/restore/landing.php:97
 msgid "Backup Type"
 msgstr ""
 
@@ -169,7 +172,7 @@ msgstr ""
 msgid "Backup finished with but with errors"
 msgstr ""
 
-#: Backup.class.php:336
+#: Backup.class.php:342
 msgid "Backup running"
 msgstr ""
 
@@ -189,6 +192,10 @@ msgstr ""
 #: Handlers/SingleRestore.php:51
 #, php-format
 msgid "Can't find the module data for %s"
+msgstr ""
+
+#: assets/js/backup_restore/backup_restore.js:116
+msgid "Cancel"
 msgstr ""
 
 #: Handlers/Backup.php:225
@@ -217,7 +224,7 @@ msgstr ""
 msgid "Could not backup module %s, it may not be installed or enabled"
 msgstr ""
 
-#: Backup.class.php:305
+#: Backup.class.php:311
 msgid "Could not find a file for the id supplied"
 msgstr ""
 
@@ -236,15 +243,15 @@ msgstr ""
 msgid "Couldn't find class %s"
 msgstr ""
 
-#: Backup.class.php:491
+#: Backup.class.php:497
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
-#: Backup.class.php:313 Backup.class.php:333
+#: Backup.class.php:319 Backup.class.php:339
 msgid "Couldn't run process."
 msgstr ""
 
-#: Backup.class.php:161
+#: Backup.class.php:161 assets/js/backup_restore/backup_restore.js:116
 msgid "Delete"
 msgstr "Xóa"
 
@@ -268,10 +275,6 @@ msgstr "Mô tả"
 #: views/backup/transfer.php:31
 msgid "Donor"
 msgstr ""
-
-#: page.backup_restore.php:15
-msgid "Download"
-msgstr "Tải về"
 
 #: backup.i18n.php:14
 msgid "Email "
@@ -301,7 +304,7 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1006 views/backup/form.php:209
+#: Backup.class.php:1015 views/backup/form.php:209
 msgid "Enabled"
 msgstr ""
 
@@ -360,6 +363,10 @@ msgstr ""
 msgid "Failure"
 msgstr ""
 
+#: Backup.class.php:211
+msgid "File Deleted"
+msgstr ""
+
 #: Handlers/Legacy.php:60
 #, php-format
 msgid ""
@@ -367,7 +374,7 @@ msgid ""
 "until cleaned manually."
 msgstr ""
 
-#: Backup.class.php:248
+#: Backup.class.php:255
 msgid "File reached the server but could not be processed"
 msgstr ""
 
@@ -392,7 +399,7 @@ msgstr ""
 msgid "Generating Key Pair please standby"
 msgstr ""
 
-#: page.backup.php:24
+#: page.backup.php:24 page.backup_restore.php:17
 msgid "Global Backup Settings"
 msgstr ""
 
@@ -420,7 +427,7 @@ msgstr ""
 msgid "In single restore mode dependencies are NOT processed"
 msgstr ""
 
-#: Backup.class.php:211
+#: Backup.class.php:218
 msgid "Invalid ID Provided"
 msgstr ""
 
@@ -457,7 +464,7 @@ msgstr ""
 msgid "Migrating legacy backups to the new backup"
 msgstr ""
 
-#: Backup.class.php:227
+#: Backup.class.php:234
 msgid "Missing id or transaction"
 msgstr ""
 
@@ -496,19 +503,19 @@ msgstr "Không"
 msgid "No Storage Locations"
 msgstr ""
 
-#: Backup.class.php:319
+#: Backup.class.php:325
 msgid "No backup id provided"
 msgstr ""
 
-#: Backup.class.php:245
+#: Backup.class.php:252
 msgid "No file provided"
 msgstr ""
 
-#: Backup.class.php:480
+#: Backup.class.php:486
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
-#: Backup.class.php:521
+#: Backup.class.php:527
 msgid "No user configurable settings"
 msgstr ""
 
@@ -597,7 +604,7 @@ msgstr ""
 msgid "Restore from the cloud"
 msgstr ""
 
-#: Backup.class.php:316
+#: Backup.class.php:322
 msgid "Restore running"
 msgstr ""
 
@@ -714,6 +721,10 @@ msgstr ""
 msgid "Should the warm spare feature be enabled"
 msgstr ""
 
+#: Backup.class.php:213
+msgid "Something failed, The file may need to be removed manually."
+msgstr ""
+
 #: Handlers/Backup.php:48
 #, php-format
 msgid "Starting backup %s"
@@ -744,7 +755,7 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: Backup.class.php:464
+#: Backup.class.php:470
 msgid "System Transfer"
 msgstr ""
 
@@ -810,7 +821,7 @@ msgstr ""
 msgid "Transfer Id"
 msgstr ""
 
-#: Backup.class.php:1006
+#: Backup.class.php:1015
 msgid "Uninstalled or Disabled"
 msgstr ""
 
@@ -838,11 +849,11 @@ msgstr ""
 msgid "Warm Spare"
 msgstr ""
 
-#: Backup.class.php:220
+#: Backup.class.php:227
 msgid "We can't seem to delete the chosen file"
 msgstr ""
 
-#: Backup.class.php:215
+#: Backup.class.php:222
 msgid "We don't have permissions to this file"
 msgstr ""
 
@@ -864,6 +875,9 @@ msgstr "Có"
 #: assets/js/backup/backup.js:124
 msgid "Your backup has finished"
 msgstr ""
+
+#~ msgid "Download"
+#~ msgstr "Tải về"
 
 #~ msgid "Backup & Restore - Servers"
 #~ msgstr "Sao lưu & Khôi phục- Các máy chủ"

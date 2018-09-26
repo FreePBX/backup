@@ -184,7 +184,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			case 'run'              :
 			case 'runRestore'       :
 			case 'remotedownload'	:
-			case 'remotedelete'		:
+			case 'deleteRemote'		:
 			case 'localdownload'    :
 			case 'localRestoreFiles':
 			case 'restoreFiles'     :
@@ -203,8 +203,15 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 */
 	public function ajaxHandler() {
 		switch ($_REQUEST['command']) {
-			case 'remotedelete':
-			break;
+			case 'deleteRemote':
+				$server = $_REQUEST['id'];
+				$file = $_REQUEST['file'];
+				$server = explode('_', $server);
+				if($this->deleteRemote($server[0], $server[1], $file)){
+					return ['status' => true, "message" => _("File Deleted")];
+				}
+				return ['status' => false, "message" => _("Something failed, The file may need to be removed manually.")];
+
 			case 'deleteLocal':
 				$filepath = $this->pathFromId($_REQUEST['id']);
 				if(!$filepath){
@@ -256,7 +263,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 					$response->send();
 					exit();
 				}
-				dbug($_REQUEST);
 				$spooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
 				$path = sprintf('%s/backup/uploads/', $spooldir);
 				$finalname = $path.'/'. $_FILES['file']['name'];
@@ -611,14 +617,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 		if(!isset($backupInfo['backup_emailtype']) || empty($backupInfo['backup_emailtype'])){
 			return false;
 		}
-		$transport      = \Swift_MailTransport::newInstance();
-		$this->swiftmsg = \Swift_Message::newInstance();
-		$this->swiftmsg->setContentType("text/html");
-		$swift         = \Swift_Mailer::newInstance($transport);
-		$this->handler = new BufferHandler(new SwiftMailerHandler($swift,$this->swiftmsg,\Monolog\Logger::INFO),0,\Monolog\Logger::INFO);
-		$formatter = new Formatter\HtmlFormatter();
-		$this->handler->SetFormatter($formatter);
-		$this->logger->customLog->pushHandler($this->handler);
 
 		$serverName   = $this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT');
 		$emailSubject = sprintf(_('Backup %s success for %s'),$backupInfo['backup_name'], $serverName);
@@ -639,6 +637,14 @@ class Backup extends FreePBX_Helpers implements BMO {
 		if(empty($from)){
 			return;
 		}
+		$transport = \Swift_MailTransport::newInstance();
+		$this->swiftmsg = \Swift_Message::newInstance();
+		$this->swiftmsg->setContentType("text/html");
+		$swift = \Swift_Mailer::newInstance($transport);
+		$this->handler = new BufferHandler(new SwiftMailerHandler($swift, $this->swiftmsg, \Monolog\Logger::INFO), 0, \Monolog\Logger::INFO);
+		$formatter = new Formatter\HtmlFormatter();
+		$this->handler->SetFormatter($formatter);
+		$this->logger->customLog->pushHandler($this->handler);
 		$this->swiftmsg->setFrom($from);
 		$this->swiftmsg->setSubject($emailSubject);
 		$this->swiftmsg->setTo($backupInfo['backup_email']);
@@ -941,6 +947,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 		if(!$this->swiftmsg){
 			return;
 		}
+		if(empty($this->swiftmsg->getTo())){
+			return;
+		}
 		try {
 			$this->swiftmsg->attach(\Swift_Attachment::fromPath($path)->setFilename($filename));
 			$this->handler->close();
@@ -1012,6 +1021,11 @@ class Backup extends FreePBX_Helpers implements BMO {
 		}
 		return json_encode($return);
 	}
+
+	public function deleteRemote($driver, $id, $path){
+		return $this->FreePBX->Filestore->delete($driver, $id, $path);
+	}
+
 	public function getAllRemote(){
 		$final = [];
 		$serverName = str_replace(' ', '_',$this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT'));

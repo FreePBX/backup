@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 12:14-0400\n"
+"POT-Creation-Date: 2018-09-26 00:08-0400\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -63,8 +63,8 @@ msgstr ""
 msgid "A restore task is already running"
 msgstr ""
 
-#: views/backup/download.php:16 views/backup/grid.php:25
-#: views/restore/landing.php:65 views/restore/landing.php:98
+#: views/backup/grid.php:25 views/restore/landing.php:65
+#: views/restore/landing.php:98
 msgid "Actions"
 msgstr "عملیات"
 
@@ -119,8 +119,7 @@ msgstr "پشتیبان گیری و بازیابی - بازیابی"
 msgid "Backup & Restore for your FreePBX environment"
 msgstr "پشتیبان گیری و بازیابی برای محیط FreePBX"
 
-#: views/backup/download.php:14 views/restore/landing.php:63
-#: views/restore/landing.php:96
+#: views/restore/landing.php:63 views/restore/landing.php:96
 msgid "Backup Date"
 msgstr ""
 
@@ -144,8 +143,8 @@ msgstr "انتخاب موارد جهت تهیه پشتیبان"
 msgid "Backup Module"
 msgstr "ماژول پشتیبان گیری"
 
-#: views/backup/download.php:13 views/backup/form.php:20
-#: views/restore/landing.php:62 views/restore/landing.php:95
+#: views/backup/form.php:20 views/restore/landing.php:62
+#: views/restore/landing.php:95
 msgid "Backup Name"
 msgstr "نام پشتیبان"
 
@@ -153,7 +152,7 @@ msgstr "نام پشتیبان"
 msgid "Backup Output"
 msgstr ""
 
-#: views/backup/download.php:15 views/restore/landing.php:97
+#: views/restore/landing.php:97
 msgid "Backup Type"
 msgstr ""
 
@@ -268,10 +267,6 @@ msgstr "توضیحات"
 #: views/backup/transfer.php:31
 msgid "Donor"
 msgstr ""
-
-#: page.backup_restore.php:15
-msgid "Download"
-msgstr "دانلود"
 
 #: backup.i18n.php:14
 msgid "Email "
@@ -390,7 +385,7 @@ msgstr ""
 msgid "Generating Key Pair please standby"
 msgstr ""
 
-#: page.backup.php:24
+#: page.backup.php:24 page.backup_restore.php:17
 msgid "Global Backup Settings"
 msgstr ""
 
@@ -861,6 +856,9 @@ msgstr "بله"
 #: assets/js/backup/backup.js:124
 msgid "Your backup has finished"
 msgstr ""
+
+#~ msgid "Download"
+#~ msgstr "دانلود"
 
 #~ msgid "Backup & Restore - Servers"
 #~ msgstr "پشتیبان گیری و بازیابی - سرورها"

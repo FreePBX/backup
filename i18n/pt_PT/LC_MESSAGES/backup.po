@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 12:14-0400\n"
+"POT-Creation-Date: 2018-09-26 00:08-0400\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -63,8 +63,8 @@ msgstr ""
 msgid "A restore task is already running"
 msgstr ""
 
-#: views/backup/download.php:16 views/backup/grid.php:25
-#: views/restore/landing.php:65 views/restore/landing.php:98
+#: views/backup/grid.php:25 views/restore/landing.php:65
+#: views/restore/landing.php:98
 msgid "Actions"
 msgstr ""
 
@@ -119,8 +119,7 @@ msgstr "Cópia de Segurança & Restauro - Restauro"
 msgid "Backup & Restore for your FreePBX environment"
 msgstr ""
 
-#: views/backup/download.php:14 views/restore/landing.php:63
-#: views/restore/landing.php:96
+#: views/restore/landing.php:63 views/restore/landing.php:96
 msgid "Backup Date"
 msgstr ""
 
@@ -144,8 +143,8 @@ msgstr "Itens da Cópia de Segurança"
 msgid "Backup Module"
 msgstr "Módulo de Cópia de Segurança"
 
-#: views/backup/download.php:13 views/backup/form.php:20
-#: views/restore/landing.php:62 views/restore/landing.php:95
+#: views/backup/form.php:20 views/restore/landing.php:62
+#: views/restore/landing.php:95
 msgid "Backup Name"
 msgstr "Nome da Cópia de Segurança"
 
@@ -153,7 +152,7 @@ msgstr "Nome da Cópia de Segurança"
 msgid "Backup Output"
 msgstr ""
 
-#: views/backup/download.php:15 views/restore/landing.php:97
+#: views/restore/landing.php:97
 msgid "Backup Type"
 msgstr ""
 
@@ -269,10 +268,6 @@ msgstr "Descrição"
 msgid "Donor"
 msgstr ""
 
-#: page.backup_restore.php:15
-msgid "Download"
-msgstr "Transferir"
-
 #: backup.i18n.php:14
 msgid "Email "
 msgstr "Email "
@@ -386,7 +381,7 @@ msgstr ""
 msgid "Generating Key Pair please standby"
 msgstr ""
 
-#: page.backup.php:24
+#: page.backup.php:24 page.backup_restore.php:17
 msgid "Global Backup Settings"
 msgstr ""
 
@@ -858,6 +853,9 @@ msgstr ""
 #: assets/js/backup/backup.js:124
 msgid "Your backup has finished"
 msgstr ""
+
+#~ msgid "Download"
+#~ msgstr "Transferir"
 
 #~ msgid "Backup & Restore - Servers"
 #~ msgstr "Cópia de Segurança & Restauro - Servidores"

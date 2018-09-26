@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 12:14-0400\n"
+"POT-Creation-Date: 2018-09-26 00:08-0400\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -76,8 +76,8 @@ msgstr ""
 msgid "A restore task is already running"
 msgstr ""
 
-#: views/backup/download.php:16 views/backup/grid.php:25
-#: views/restore/landing.php:65 views/restore/landing.php:98
+#: views/backup/grid.php:25 views/restore/landing.php:65
+#: views/restore/landing.php:98
 msgid "Actions"
 msgstr "Действия"
 
@@ -132,8 +132,7 @@ msgstr "Архивирай & Възстанови - Възстановяване
 msgid "Backup & Restore for your FreePBX environment"
 msgstr "Архивирай & Възстанови за вашата FreePBX система"
 
-#: views/backup/download.php:14 views/restore/landing.php:63
-#: views/restore/landing.php:96
+#: views/restore/landing.php:63 views/restore/landing.php:96
 msgid "Backup Date"
 msgstr ""
 
@@ -157,8 +156,8 @@ msgstr "Елементи на Архива"
 msgid "Backup Module"
 msgstr "Модул за Архиви"
 
-#: views/backup/download.php:13 views/backup/form.php:20
-#: views/restore/landing.php:62 views/restore/landing.php:95
+#: views/backup/form.php:20 views/restore/landing.php:62
+#: views/restore/landing.php:95
 msgid "Backup Name"
 msgstr "Име на Архив"
 
@@ -166,7 +165,7 @@ msgstr "Име на Архив"
 msgid "Backup Output"
 msgstr ""
 
-#: views/backup/download.php:15 views/restore/landing.php:97
+#: views/restore/landing.php:97
 msgid "Backup Type"
 msgstr ""
 
@@ -282,10 +281,6 @@ msgstr "Описание"
 msgid "Donor"
 msgstr ""
 
-#: page.backup_restore.php:15
-msgid "Download"
-msgstr "Изтегли"
-
 #: backup.i18n.php:14
 msgid "Email "
 msgstr "Email "
@@ -399,7 +394,7 @@ msgstr ""
 msgid "Generating Key Pair please standby"
 msgstr ""
 
-#: page.backup.php:24
+#: page.backup.php:24 page.backup_restore.php:17
 msgid "Global Backup Settings"
 msgstr ""
 
@@ -869,6 +864,9 @@ msgstr "Да"
 #: assets/js/backup/backup.js:124
 msgid "Your backup has finished"
 msgstr ""
+
+#~ msgid "Download"
+#~ msgstr "Изтегли"
 
 #~ msgid "Backup & Restore - Servers"
 #~ msgstr "Архивирай & Възстанови - Сървъри"

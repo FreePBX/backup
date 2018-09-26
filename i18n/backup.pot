@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 12:16-0400\n"
+"POT-Creation-Date: 2018-09-26 00:08-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,7 +66,6 @@ msgstr ""
 msgid "A restore task is already running"
 msgstr ""
 
-#: views/backup/download.php:16
 #: views/backup/grid.php:25
 #: views/restore/landing.php:65
 #: views/restore/landing.php:98
@@ -126,7 +125,6 @@ msgstr ""
 msgid "Backup & Restore for your FreePBX environment"
 msgstr ""
 
-#: views/backup/download.php:14
 #: views/restore/landing.php:63
 #: views/restore/landing.php:96
 msgid "Backup Date"
@@ -152,7 +150,6 @@ msgstr ""
 msgid "Backup Module"
 msgstr ""
 
-#: views/backup/download.php:13
 #: views/backup/form.php:20
 #: views/restore/landing.php:62
 #: views/restore/landing.php:95
@@ -163,7 +160,6 @@ msgstr ""
 msgid "Backup Output"
 msgstr ""
 
-#: views/backup/download.php:15
 #: views/restore/landing.php:97
 msgid "Backup Type"
 msgstr ""
@@ -282,10 +278,6 @@ msgstr ""
 msgid "Donor"
 msgstr ""
 
-#: page.backup_restore.php:15
-msgid "Download"
-msgstr ""
-
 #: backup.i18n.php:14
 msgid "Email "
 msgstr ""
@@ -401,6 +393,7 @@ msgid "Generating Key Pair please standby"
 msgstr ""
 
 #: page.backup.php:24
+#: page.backup_restore.php:17
 msgid "Global Backup Settings"
 msgstr ""
 

@@ -94,11 +94,13 @@ class RestoreBase{
     if ($freepbx->Modules->checkStatus(strtolower($module))) {
       return $this;
     }
-    foreach ($data as $entry) {
-      if ($entry['type'] === 'json-arr') {
-        $entry['val'] = json_decode($entry['val'], true);
+    if (!is_null($data) ) {
+      foreach ($data as $entry) {
+        if ($entry['type'] === 'json-arr') {
+          $entry['val'] = json_decode($entry['val'], true);
+        }
+        $freepbx->$module->setConfig($entry['key'], $entry['val'], $entry['id']);
       }
-      $freepbx->$module->setConfig($entry['key'], $entry['val'], $entry['id']);
     }
     return $this;
   }

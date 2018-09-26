@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-26 00:10-0400\n"
+"POT-Creation-Date: 2018-09-26 00:12-0400\n"
 "PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/backup/pl/"
@@ -85,21 +85,25 @@ msgstr ""
 msgid "Apply Configs"
 msgstr "Zastosuj konfiguracje"
 
+#: assets/js/backup_restore/backup_restore.js:115
+msgid "Are you sure you wish to delete this file? This cannot be undone"
+msgstr ""
+
 #: page.backup.php:12 page.backup_restore.php:13
 msgid "Backup"
 msgstr "Kopa zapasowa"
 
-#: Backup.class.php:804
+#: Backup.class.php:811
 #, php-format
 msgid "Backup %s"
 msgstr ""
 
-#: Backup.class.php:617
+#: Backup.class.php:624
 #, php-format
 msgid "Backup %s failed for %s"
 msgstr ""
 
-#: Backup.class.php:615
+#: Backup.class.php:622
 #, php-format
 msgid "Backup %s success for %s"
 msgstr ""
@@ -165,7 +169,7 @@ msgstr ""
 msgid "Backup finished with but with errors"
 msgstr ""
 
-#: Backup.class.php:335
+#: Backup.class.php:342
 msgid "Backup running"
 msgstr ""
 
@@ -185,6 +189,10 @@ msgstr ""
 #: Handlers/SingleRestore.php:51
 #, php-format
 msgid "Can't find the module data for %s"
+msgstr ""
+
+#: assets/js/backup_restore/backup_restore.js:116
+msgid "Cancel"
 msgstr ""
 
 #: Handlers/Backup.php:225
@@ -213,7 +221,7 @@ msgstr ""
 msgid "Could not backup module %s, it may not be installed or enabled"
 msgstr ""
 
-#: Backup.class.php:304
+#: Backup.class.php:311
 msgid "Could not find a file for the id supplied"
 msgstr ""
 
@@ -232,15 +240,15 @@ msgstr ""
 msgid "Couldn't find class %s"
 msgstr ""
 
-#: Backup.class.php:490
+#: Backup.class.php:497
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
-#: Backup.class.php:312 Backup.class.php:332
+#: Backup.class.php:319 Backup.class.php:339
 msgid "Couldn't run process."
 msgstr ""
 
-#: Backup.class.php:161
+#: Backup.class.php:161 assets/js/backup_restore/backup_restore.js:116
 msgid "Delete"
 msgstr "Skasuj"
 
@@ -293,7 +301,7 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1008 views/backup/form.php:209
+#: Backup.class.php:1015 views/backup/form.php:209
 msgid "Enabled"
 msgstr ""
 
@@ -346,6 +354,10 @@ msgstr ""
 msgid "Failure"
 msgstr ""
 
+#: Backup.class.php:211
+msgid "File Deleted"
+msgstr ""
+
 #: Handlers/Legacy.php:60
 #, php-format
 msgid ""
@@ -353,7 +365,7 @@ msgid ""
 "until cleaned manually."
 msgstr ""
 
-#: Backup.class.php:248
+#: Backup.class.php:255
 msgid "File reached the server but could not be processed"
 msgstr ""
 
@@ -406,7 +418,7 @@ msgstr ""
 msgid "In single restore mode dependencies are NOT processed"
 msgstr ""
 
-#: Backup.class.php:211
+#: Backup.class.php:218
 msgid "Invalid ID Provided"
 msgstr ""
 
@@ -443,7 +455,7 @@ msgstr ""
 msgid "Migrating legacy backups to the new backup"
 msgstr ""
 
-#: Backup.class.php:227
+#: Backup.class.php:234
 msgid "Missing id or transaction"
 msgstr ""
 
@@ -482,19 +494,19 @@ msgstr "Nie"
 msgid "No Storage Locations"
 msgstr ""
 
-#: Backup.class.php:318
+#: Backup.class.php:325
 msgid "No backup id provided"
 msgstr ""
 
-#: Backup.class.php:245
+#: Backup.class.php:252
 msgid "No file provided"
 msgstr ""
 
-#: Backup.class.php:479
+#: Backup.class.php:486
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
-#: Backup.class.php:520
+#: Backup.class.php:527
 msgid "No user configurable settings"
 msgstr ""
 
@@ -583,7 +595,7 @@ msgstr ""
 msgid "Restore from the cloud"
 msgstr ""
 
-#: Backup.class.php:315
+#: Backup.class.php:322
 msgid "Restore running"
 msgstr ""
 
@@ -700,6 +712,10 @@ msgstr ""
 msgid "Should the warm spare feature be enabled"
 msgstr ""
 
+#: Backup.class.php:213
+msgid "Something failed, The file may need to be removed manually."
+msgstr ""
+
 #: Handlers/Backup.php:48
 #, php-format
 msgid "Starting backup %s"
@@ -730,7 +746,7 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: Backup.class.php:463
+#: Backup.class.php:470
 msgid "System Transfer"
 msgstr ""
 
@@ -796,7 +812,7 @@ msgstr ""
 msgid "Transfer Id"
 msgstr ""
 
-#: Backup.class.php:1008
+#: Backup.class.php:1015
 msgid "Uninstalled or Disabled"
 msgstr ""
 
@@ -824,11 +840,11 @@ msgstr ""
 msgid "Warm Spare"
 msgstr ""
 
-#: Backup.class.php:220
+#: Backup.class.php:227
 msgid "We can't seem to delete the chosen file"
 msgstr ""
 
-#: Backup.class.php:215
+#: Backup.class.php:222
 msgid "We don't have permissions to this file"
 msgstr ""
 

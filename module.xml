@@ -16,6 +16,7 @@
 		<module>filestore</module>
 	</depends>
 	<changelog>
+		*15.0.3alpha4* FREEPBX-18202 Fix restore file ajax handling 
 		*15.0.3alpha4* FREEPBX-18160 Migration improvements 
 		*15.0.3alpha4* FREEPBX-18215 Fix the mail handler validation 
 		*15.0.3alpha4* FREEPBX-18210 Remove unimplemented tab 

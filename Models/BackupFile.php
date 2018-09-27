@@ -34,18 +34,22 @@ class BackupFile extends SplFileInfo{
 	*
 	* @return array manifest
 	*/
-	public function getMetadata(){
+	public function getMetadata($cleanslate = true){
 		define('BACKUPTMPDIR', '/var/spool/asterisk/tmp');
-
+		if(!file_exists(BACKUPTMPDIR) && $cleanslate){
+			@rmdir(BACKUPTMPDIR);
+		}
+		mkdir(BACKUPTMPDIR, 0755, true);
 		$tar = new Tar();
 		$tar->open($this->getPathname());
 		$tar->extract(BACKUPTMPDIR, '', '', '/metadata\.json/');
-
-		$metadata = file_get_contents(BACKUPTMPDIR . '/metadata.json');
-		$meta = json_decode($metadata, true);
-
+		$metafile = BACKUPTMPDIR . '/metadata.json'
+		$meta = [];
+		if(file_exists($metafile)){
+			$metadata = file_get_contents(BACKUPTMPDIR . '/metadata.json');
+			$meta = json_decode($metadata, true);
+		}
 		$tar->close();
-
 		unset($tar);
 		return $meta;
 	}

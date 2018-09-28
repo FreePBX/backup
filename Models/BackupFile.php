@@ -43,7 +43,7 @@ class BackupFile extends SplFileInfo{
 		$tar = new Tar();
 		$tar->open($this->getPathname());
 		$tar->extract(BACKUPTMPDIR, '', '', '/metadata\.json/');
-		$metafile = BACKUPTMPDIR . '/metadata.json'
+		$metafile = BACKUPTMPDIR . '/metadata.json';
 		$meta = [];
 		if(file_exists($metafile)){
 			$metadata = file_get_contents(BACKUPTMPDIR . '/metadata.json');

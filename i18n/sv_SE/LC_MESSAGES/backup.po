@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-27 20:43-0400\n"
+"POT-Creation-Date: 2018-09-28 19:06-0400\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -43,8 +43,8 @@ msgstr ""
 msgid "%s Days (%s Months)"
 msgstr ""
 
-#: Handlers/Backup.php:291 Handlers/Backup.php:306 Handlers/Restore.php:122
-#: Handlers/Restore.php:138
+#: Handlers/Backup.php:291 Handlers/Backup.php:306 Handlers/Restore.php:132
+#: Handlers/Restore.php:148
 #, php-format
 msgid "%s finished with a non-zero status"
 msgstr ""
@@ -237,9 +237,15 @@ msgstr ""
 msgid "Could not find a file for the id supplied"
 msgstr ""
 
-#: Handlers/Restore.php:50
+#: Handlers/Restore.php:60
 #, php-format
 msgid "Could not find a manifest for %s, skipping"
+msgstr ""
+
+#: Handlers/Restore.php:44
+msgid ""
+"Could not locate the manifest for this file. This file will not restore "
+"properly though the data may still be present."
 msgstr ""
 
 #: Handlers/Legacy.php:95
@@ -272,7 +278,7 @@ msgstr ""
 msgid "Delete After Runs"
 msgstr ""
 
-#: Handlers/Restore.php:61
+#: Handlers/Restore.php:71
 #, php-format
 msgid "Dependencies not resolved for %s Skipped"
 msgstr ""
@@ -353,7 +359,7 @@ msgid ""
 "a warm-spare machine with a different IP address."
 msgstr ""
 
-#: Handlers/Restore.php:29
+#: Handlers/Restore.php:30
 msgid "Extracting Backup"
 msgstr ""
 
@@ -586,7 +592,7 @@ msgstr ""
 msgid "Resetting module data, depending on the module it may take a bit."
 msgstr ""
 
-#: Handlers/Restore.php:67
+#: Handlers/Restore.php:77
 #, php-format
 msgid "Resetting the data for %s, this may take a moment"
 msgstr ""
@@ -615,7 +621,7 @@ msgstr ""
 msgid "Restoring Data..."
 msgstr ""
 
-#: Handlers/Restore.php:71
+#: Handlers/Restore.php:81
 #, php-format
 msgid "Restoring the data for %s, this may take a moment"
 msgstr ""
@@ -645,7 +651,7 @@ msgstr ""
 msgid "Running post backup hooks"
 msgstr ""
 
-#: Handlers/Restore.php:84
+#: Handlers/Restore.php:94
 msgid "Running post restore hooks"
 msgstr ""
 
@@ -653,11 +659,11 @@ msgstr ""
 msgid "Running pre backup hooks"
 msgstr ""
 
-#: Handlers/Restore.php:45
+#: Handlers/Restore.php:55
 msgid "Running pre restore hooks"
 msgstr ""
 
-#: Handlers/Restore.php:66
+#: Handlers/Restore.php:76
 #, php-format
 msgid "Running restore process for %s"
 msgstr ""
@@ -784,7 +790,7 @@ msgstr ""
 msgid "There was an error running the backup for %s... %s"
 msgstr ""
 
-#: Handlers/Restore.php:76
+#: Handlers/Restore.php:86
 #, php-format
 msgid "There was an error running the restore for %s... %s"
 msgstr ""

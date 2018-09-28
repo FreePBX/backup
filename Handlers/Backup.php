@@ -115,8 +115,10 @@ class Backup{
 		foreach($processQueue as $mod) {
 			$backup = new Models\Backup($this->FreePBX);
 			$backup->setBackupId($id);
-			\modgettext::push_textdomain(strtolower($mod['name']));
-			$class = sprintf('\\FreePBX\\modules\\%s\\Backup', ucfirst($mod['name']));
+			$mod = is_array($mod)?$mod['name']:$mod;
+			$rawname = strtolower($mod);
+			\modgettext::push_textdomain(strtolower($mod));
+			$class = sprintf('\\FreePBX\\modules\\%s\\Backup', ucfirst($mod));
 			if(!class_exists($class)){
 				$err = sprintf(_("Couldn't find class %s"),$class);
 				$this->Backup->log($transactionId,$err,'WARNING');
@@ -126,17 +128,17 @@ class Backup{
 				$class = new $class($backup,$this->FreePBX);
 				$class->runBackup($id,$transactionId);
 			}catch(Exception $e){
-				$this->Backup->log($transactionId, sprintf(_("There was an error running the backup for %s... %s"), $mod['name'], $e->getMessage()));
+				$this->Backup->log($transactionId, sprintf(_("There was an error running the backup for %s... %s"), $mod, $e->getMessage()));
 				if(DEBUG){
 					throw $e;
 				}
 			}
 			\modgettext::pop_textdomain();
-			$this->Backup->log($transactionId,sprintf(_("Processing backup for module: %s."), $mod['name']));
+			$this->Backup->log($transactionId,sprintf(_("Processing backup for module: %s."), $mod));
 			//Skip empty.
 			if($backup->getModified() === false){
-				$this->Backup->log($transactionId,sprintf(_("%s returned no data. This module may not implement the new backup yet. Skipping"), $mod['name']));
-				$manifest['skipped'][] = $mod['name'];
+				$this->Backup->log($transactionId,sprintf(_("%s returned no data. This module may not implement the new backup yet. Skipping"), $mod));
+				$manifest['skipped'][] = $mod;
 				continue;
 			}
 			$dependencies = $backup->getDependencies();
@@ -152,12 +154,13 @@ class Backup{
 					$raw = \strtolower($depend);
 					$mod = $this->FreePBX->Modules->getInfo($raw);
 					$this->sortDepends($mod[$raw]['rawname'],$mod[$raw]['version']);
-					$this->processQueue->enqueue($depend);
+					if(!empty($depend)){
+						$processQueue->enqueue($depend);
+					}
 				}
 			}
-			$rawname = strtolower($mod['name']);
 			$moduleinfo = $this->FreePBX->Modules->getInfo($rawname);
-			$manifest['modules'][] = ['module' => $mod['name'], 'version' => $moduleinfo[$rawname]['version']];
+			$manifest['modules'][] = ['module' => $rawname, 'version' => $moduleinfo[$rawname]['version']];
 			$moddata = $backup->getData();
 			foreach ($moddata['dirs'] as $dir) {
 				if(empty($dir)){
@@ -177,15 +180,15 @@ class Backup{
 				$files[$srcfile] = $destfile;
 				$tar->addFile($srcfile,$destfile);
 			}
-			$mod['name'] = ucfirst($mod['name']);
-			$modjson = $tmpdir . '/modulejson/' . $mod['name'] . '.json';
+			$mod = ucfirst($rawname);
+			$modjson = $tmpdir . '/modulejson/' . $mod . '.json';
 			if (!$this->Backup->fs->exists(dirname($modjson))) {
 				$this->Backup->fs->mkdir(dirname($modjson));
 			}
 			file_put_contents($modjson, json_encode($moddata, JSON_PRETTY_PRINT));
-			$tar->addFile($modjson,'modulejson/'.$mod['name'].'.json');
-			$data[$mod['name']] = $moddata;
-			$cleanup[$mod['name']] = $moddata['garbage'];
+			$tar->addFile($modjson,'modulejson/'.$mod.'.json');
+			$data[$mod] = $moddata;
+			$cleanup[$mod] = $moddata['garbage'];
 		}
 
 		foreach ($dirs as $dir) {
@@ -207,6 +210,9 @@ class Backup{
 					$this->Backup->log($transactionId,$msg,'DEBUG');
 			}
 			foreach ($storage_ids as $location) {
+				if(empty(trim($location))){
+					continue;
+				}
 				try {
 					$location = explode('_', $location);
 					$this->Backup->FreePBX->Filestore->put($location[0],$location[1],file_get_contents($targzname),$remote);

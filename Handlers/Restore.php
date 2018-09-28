@@ -25,14 +25,25 @@ class Restore{
 	public function process($backupFile, $jobid, $warmspare = false) {
 		$this->Backup->fs->remove(BACKUPTMPDIR);
 		$this->Backup->fs->mkdir(BACKUPTMPDIR);
-
+		$errors = [];
+		$warnings = [];
 		$this->Backup->log($jobid,_("Extracting Backup"));
-
+		@rmdir(BACKUPTMPDIR);
+		mkdir(BACKUPTMPDIR,0755,true);
 		$tar = new Tar();
 		$tar->open($backupFile);
 		$tar->extract(BACKUPTMPDIR);
+		$metapath = BACKUPTMPDIR . '/metadata.json';
+		$metadata = '{}';
+		$metaerror = true;
+		if(file_exists($metapath)){
+			$metadata = file_get_contents($metapath);
+			$metaerror = false;
+		}
+		if($metaerror){
+			$errors[] = _("Could not locate the manifest for this file. This file will not restore properly though the data may still be present."); 
+		}
 
-		$metadata = file_get_contents(BACKUPTMPDIR . '/metadata.json');
 		$restoreData = json_decode($metadata, true);
 		if(isset($restoreData['processorder'])){
 			$this->restoreModules = $restoreData['processorder'];
@@ -40,8 +51,7 @@ class Restore{
 		if(!isset($restoreData['processorder'])){
 			$this->restoreModules = $restoreData['modules'];
 		}
-		$errors = [];
-		$warnings = [];
+
 		$this->Backup->log($jobid,_("Running pre restore hooks"));
 		$this->preHooks($jobid,$restoreData);
 		foreach($this->restoreModules as $key => $value) {

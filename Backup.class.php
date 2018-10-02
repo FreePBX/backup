@@ -123,6 +123,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 		if(!isset($request['view'])){
 			return [];
 		}
+		if($request['view' == 'run']){
+			return [];
+		}
 		/** Process restore file Buttons */
 		if($request['view'] == 'processrestore'){
 			return [
@@ -234,9 +237,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 					return ['status' => 'stopped', 'error' => _("Missing id or transaction")];
 				}
 				$job = $_GET['transaction'];
-				$log = $this->getConfig('sessionlog');
-				$log = is_array($log)?$log:[];
-				$log = implode(PHP_EOL,$log);
+				$logdata = $this->getConfig('sessionlog');
+				$log = is_array($logdata)?$logdata:[];
+				$log = implode(PHP_EOL,reset($log));
 				$log = '<pre>'.$log.'</pre>';
 				$buid = $_GET['id'];
 				$lockModule = new LockHandler($job.'.'.$buid);
@@ -418,8 +421,8 @@ class Backup extends FreePBX_Helpers implements BMO {
 	public function showPage($page){
 		switch ($page) {
 			case 'backup':
-				if(isset($_GET['view']) && $_GET['view'] == 'run'){
-					return load_view(__DIR__.'/views/backup/run.php',array('id' => $_REQUEST['id']));
+				if(isset($_GET['view']) && $_GET['view'] == 'run' || isset($_REQUEST['runit'])){
+					return load_view(__DIR__.'/views/run.php',array('id' => $_REQUEST['id']));
 				}
 				if(isset($_GET['view']) && $_GET['view'] == 'settings'){
 					$vars = $this->getAll('globalsettings');
@@ -923,7 +926,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 * @return void
 	 */
 	public function log($transactionId = '', $message = '',$level = 'INFO'){
-		$this->sessionlog[$transactionId] = $message;
+		$this->sessionlog[$transactionId][] = $message;
 		$this->setConfig('sessionlog',$this->sessionlog);
 		$this->logger->logWrite($transactionId,$message,true,$level);
 	}

@@ -31,8 +31,9 @@ class Servers extends Migration{
 		$serverDetails = $this->Database->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 		$final = [];
 		$migrated = $this->Backup->getAll('migratedservers');
+		$serverkeys = array_keys($servers);
 		foreach ($servers as $server) {
-			if(is_array($migrated && isset($migrated['server_'.$server['id']]))){
+			if(in_array('server_' . $server['id'], $serverkeys)){
 				continue;
 			}
 			if (!is_null($server['readonly'])) {
@@ -41,12 +42,13 @@ class Servers extends Migration{
 			if (!is_null($server['data'])) {
 				$server['data'] = unserialize($server['data']);
 			}
-			$final['server_' . $server['id']]['uuid'] = $this->Backup->generateId();
 			$final['server_' . $server['id']]['server'] = $server;
+			$final['server_' . $server['id']]['uuid'] = $this->Backup->generateId();
+
 		}
 		foreach ($serverDetails as $data) {
 			$value = $this->processValue($data['value']);
-			$final['server_' . $data['server_id']][$data['key']] = $value;
+			$final['server_' . $data['server_id']]['server'][$data['key']] = $value;
 		}
 		$this->Backup->setMultiConfig($final, 'migratedservers');
 		$this->servers = $final;

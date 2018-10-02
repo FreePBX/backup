@@ -46,7 +46,7 @@ class Backupjobs extends Migration{
 		$migrated = $this->Backup->getAll('migrationcompleted');
 		$migrated = !$migrated?[]:array_column($migrated,'id');
 		foreach($this->backupJobs as $key => $backup){
-			if(!isset($backup['id']) || in_array($backup['id'], $migrated)){
+			if(!isset($backup['id']) && in_array($backup['id'], $migrated)){
 				continue;
 			}
 			$backupModules = $this->moduleData;
@@ -240,6 +240,7 @@ class Backupjobs extends Migration{
 			$type = strtoupper($type);
 		}
 		return sprintf('%s_%s',$type,$id);
+
 	}
 	public function buildModuleData(){
 		if(!empty($this->moduleData)){

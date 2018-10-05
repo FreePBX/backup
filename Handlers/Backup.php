@@ -8,7 +8,7 @@ use FreePBX\modules\Backup\Modules as Module;
 use FreePBX\modules\Backup\Models as Models;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Helper\ProgressBar;
-use Phar;
+use splitbrain\PHPArchive\Tar;
 class Backup{
 	const DEBUG = false;
 	public function __construct($freepbx = null) {
@@ -49,21 +49,27 @@ class Backup{
 		$spooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
 		$serverName = str_replace(' ', '_',$this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT'));
 		$localPath = sprintf('%s/backup/%s',$spooldir,$underscoreName);
+		$this->Backup->fs->mkdir($localPath);
 		$remotePath =  sprintf('/%s/%s',$serverName,$underscoreName);
 		$tmpdir = sprintf('%s/backup/%s','/var/spool/asterisk/tmp',$underscoreName);
 		@unlink($tmpdir);
 		$this->Backup->fs->mkdir($tmpdir);
 		//Use Legacy backup naming
-		$pharfilename = sprintf('%s%s-%s-%s',date("Ymd-His-"),time(),get_framework_version(),rand());
-		$pharnamebase = sprintf('%s/%s',$localPath,$pharfilename);
-		$phargzname = sprintf('%s.tar.gz',$pharnamebase);
-		$pharname = sprintf('%s.tar',$pharnamebase);
-		$this->Backup->log($transactionId,_("This backup will be stored locally is subject to maintinance settings"),'DEBUG');
-		$this->Backup->log($transactionId,sprintf(_("Storage Location: %s"),$phargzname));
-		$phar = new \PharData($pharname);
-		$phar->addEmptyDir('/modulejson');
-		$phar->addEmptyDir('/files');
-		$phar->setSignatureAlgorithm(\Phar::SHA256);
+		$tarfilename = sprintf('%s%s-%s-%s',date("Ymd-His-"),time(),get_framework_version(),rand());
+		$tarnamebase = sprintf('%s/%s',$localPath,$tarfilename);
+		$targzname = sprintf('%s.tar.gz',$tarnamebase);
+		$this->Backup->log($transactionId,_("This backup will be stored locally is subject to maintenance settings"),'DEBUG');
+		$this->Backup->log($transactionId,sprintf(_("Storage Location: %s"),$targzname));
+
+		$tar = new Tar();
+		$tar->create($targzname);
+
+		$this->Backup->fs->mkdir($tmpdir . '/modulejson');
+		$this->Backup->fs->mkdir($tmpdir . '/files');
+
+		$tar->addFile($tmpdir . '/modulejson', 'modulejson');
+		$tar->addFile($tmpdir . '/files', 'files');
+
 		$storage_ids = $this->Backup->getStorageById($id);
 		$this->dependencies = [];
 		$processQueue = new \SplQueue();
@@ -109,8 +115,10 @@ class Backup{
 		foreach($processQueue as $mod) {
 			$backup = new Models\Backup($this->FreePBX);
 			$backup->setBackupId($id);
-			\modgettext::push_textdomain(strtolower($mod['name']));
-			$class = sprintf('\\FreePBX\\modules\\%s\\Backup', ucfirst($mod['name']));
+			$mod = is_array($mod)?$mod['name']:$mod;
+			$rawname = strtolower($mod);
+			\modgettext::push_textdomain(strtolower($mod));
+			$class = sprintf('\\FreePBX\\modules\\%s\\Backup', ucfirst($mod));
 			if(!class_exists($class)){
 				$err = sprintf(_("Couldn't find class %s"),$class);
 				$this->Backup->log($transactionId,$err,'WARNING');
@@ -120,17 +128,17 @@ class Backup{
 				$class = new $class($backup,$this->FreePBX);
 				$class->runBackup($id,$transactionId);
 			}catch(Exception $e){
-				$this->Backup->log($transactionId, sprintf(_("There was an error running the backup for %s... %s"), $mod['name'], $e->getMessage()));
+				$this->Backup->log($transactionId, sprintf(_("There was an error running the backup for %s... %s"), $mod, $e->getMessage()));
 				if(DEBUG){
 					throw $e;
 				}
 			}
 			\modgettext::pop_textdomain();
-			$this->Backup->log($transactionId,sprintf(_("Processing backup for module: %s."), $mod['name']));
+			$this->Backup->log($transactionId,sprintf(_("Processing backup for module: %s."), $mod));
 			//Skip empty.
 			if($backup->getModified() === false){
-				$this->Backup->log($transactionId,sprintf(_("%s returned no data. This module may not impliment the new backup yet. Skipping"), $mod['name']));
-				$manifest['skipped'][] = $mod['name'];
+				$this->Backup->log($transactionId,sprintf(_("%s returned no data. This module may not implement the new backup yet. Skipping"), $mod));
+				$manifest['skipped'][] = $mod;
 				continue;
 			}
 			$dependencies = $backup->getDependencies();
@@ -146,12 +154,13 @@ class Backup{
 					$raw = \strtolower($depend);
 					$mod = $this->FreePBX->Modules->getInfo($raw);
 					$this->sortDepends($mod[$raw]['rawname'],$mod[$raw]['version']);
-					$this->processQueue->enqueue($depend);
+					if(!empty($depend)){
+						$processQueue->enqueue($depend);
+					}
 				}
 			}
-			$rawname = strtolower($mod['name']);
 			$moduleinfo = $this->FreePBX->Modules->getInfo($rawname);
-			$manifest['modules'][] = ['module' => $mod['name'], 'version' => $moduleinfo[$rawname]['version']];
+			$manifest['modules'][] = ['module' => $rawname, 'version' => $moduleinfo[$rawname]['version']];
 			$moddata = $backup->getData();
 			foreach ($moddata['dirs'] as $dir) {
 				if(empty($dir)){
@@ -169,32 +178,30 @@ class Backup{
 				$destfile = $destpath .'/'. $file['filename'];
 				$dirs[] = $destpath;
 				$files[$srcfile] = $destfile;
-				$phar->addFile($srcfile,$destfile);
+				$tar->addFile($srcfile,$destfile);
 			}
-			$mod['name'] = ucfirst($mod['name']);
-			$modjson = $tmpdir . '/modulejson/' . $mod['name'] . '.json';
+			$mod = ucfirst($rawname);
+			$modjson = $tmpdir . '/modulejson/' . $mod . '.json';
 			if (!$this->Backup->fs->exists(dirname($modjson))) {
 				$this->Backup->fs->mkdir(dirname($modjson));
 			}
 			file_put_contents($modjson, json_encode($moddata, JSON_PRETTY_PRINT));
-			$phar->addFile($modjson,'modulejson/'.$mod['name'].'.json');
-			$data[$mod['name']] = $moddata;
-			$cleanup[$mod['name']] = $moddata['garbage'];
+			$tar->addFile($modjson,'modulejson/'.$mod.'.json');
+			$data[$mod] = $moddata;
+			$cleanup[$mod] = $moddata['garbage'];
 		}
 
 		foreach ($dirs as $dir) {
-			$phar->addEmptyDir($dir);
+			$this->Backup->fs->mkdir($tmpdir . '/' . $dir);
+			$tar->addFile($tmpdir . '/' . $dir, $dir);
 		}
 		$manifest['processorder'] = $this->dependencies;
-		$phar->setMetadata($manifest);
-		$phar->compress(Phar::GZ);
-		$signatures = $phar->getSignature();
-		//Done with Phar, unlock the file so we can do stuff..
-		unset($phar);
-		$this->Backup->fs->rename($pharname, $phargzname);
-		@unlink($pharname);
+		$tar->addData('metadata.json', json_encode($manifest));
+
+		//Done with Tar, unlock the file so we can do stuff..
+		unset($tar);
 		if(!$external){
-			$remote = $remotePath.'/'.$pharnamebase.'.tar.gz';
+			$remote = $remotePath.'/'.$targzname;
 			$this->Backup->log($transactionId,_("Saving to selected Filestore locations"));
 			$hash = false;
 			if(isset($signatures['hash'])){
@@ -203,9 +210,12 @@ class Backup{
 					$this->Backup->log($transactionId,$msg,'DEBUG');
 			}
 			foreach ($storage_ids as $location) {
+				if(empty(trim($location))){
+					continue;
+				}
 				try {
 					$location = explode('_', $location);
-					$this->Backup->FreePBX->Filestore->put($location[0],$location[1],file_get_contents($phargzname),$remote);
+					$this->Backup->FreePBX->Filestore->put($location[0],$location[1],file_get_contents($targzname),$remote);
 					if($hash){
 						$this->Backup->FreePBX->Filestore->put($location[0],$location[1],$hash,$remote.'.sha256sum');
 					}
@@ -225,11 +235,10 @@ class Backup{
 		}
 
 		if($external && empty($errors)){
-			$this->Backup->fs->rename($phargzname,getcwd().'/'.$transactionId.'.tar.gz');
+			$this->Backup->fs->rename($targzname,getcwd().'/'.$transactionId.'.tar.gz');
 			$this->Backup->log($transactionId,sprintf(_("Remote transaction complete, file saved to %s"),getcwd().'/'.$transactionId.'tar.gz'));
 		}
 		$this->Backup->fs->remove($tmpdir);
-		$this->Backup->fs->remove($pharname);
 
 		if(!$external){
 			$this->Backup->log($transactionId,_("Performing Local Maintnance"));

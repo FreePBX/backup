@@ -5,1744 +5,1904 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-22 18:53-0400\n"
+"POT-Creation-Date: 2018-09-28 19:06-0400\n"
 "PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/backup/pl/"
 ">\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: views/backup/backups.php:23
+#: views/backup/form.php:308 views/backup/form.php:311
+#: views/backup/form.php:314 views/backup/form.php:317
 #, php-format
-msgid "%s Backup Wizard"
-msgstr "%s Kreator kopii zapasowej"
-
-#: functions.inc/templates.php:251
-msgid "/path/to/dir"
-msgstr "/ścieżka/do/katalogu"
-
-#: functions.inc/templates.php:238
-msgid "/path/to/file"
-msgstr "/ścieżka/do/pliku"
-
-#: install.php:145
-msgid ""
-"A full backup of core settings and web files, doesn't include system sounds "
-"or recordings."
+msgid "%s Days"
 msgstr ""
-"Pełna kopia zapasowa ustawień podstawowych i plików internetowych, nie "
-"uwzględnia dźwięków i nagrań systemowych."
 
-#: views/backup/backup.php:197
-msgid "A script to be run AFTER a backup is completed."
-msgstr "Skrypt należy uruchomić PO wykonaniu kopii zapasowej."
+#: views/backup/form.php:320 views/backup/form.php:323
+#: views/backup/form.php:326 views/backup/form.php:329
+#: views/backup/form.php:332
+#, php-format
+msgid "%s Days (%s Months)"
+msgstr ""
 
-#: views/backup/backup.php:245
-msgid "A script to be run AFTER a backup is restored."
-msgstr "Skrypt należy uruchomić PO przywróceniu kopii zapasowej."
+#: Handlers/Backup.php:291 Handlers/Backup.php:306 Handlers/Restore.php:132
+#: Handlers/Restore.php:148
+#, php-format
+msgid "%s finished with a non-zero status"
+msgstr ""
 
-#: views/backup/backup.php:221
-msgid "A script to be run BEFORE a backup is restored."
-msgstr "Skrypt należy uruchomić PRZED przywróceniem kopii zapasowej."
+#: Handlers/Backup.php:140
+#, php-format
+msgid ""
+"%s returned no data. This module may not implement the new backup yet. "
+"Skipping"
+msgstr ""
 
-#: views/backup/backup.php:173
-msgid "A script to be run BEFORE a backup is started."
-msgstr "Skrypt należy uruchomić PRZED rozpoczęciem tworzenia kopii zapasowej."
+#: Console/Backup.class.php:80
+msgid "A backup job for this id is already running"
+msgstr ""
 
-#: views/backup/backups.php:154 assets/js/backup.js:93 assets/js/backup.js:105
-#, fuzzy
-msgid "AT"
-msgstr "AT"
+#: Console/Backup.class.php:129
+msgid "A backup task is already running"
+msgstr ""
 
-#: views/servers/awss3.php:41
-msgid "AWS Access Key"
-msgstr "Klucz dostępu AWS"
+#: views/backup/form.php:32
+msgid "A name used to identify your backups"
+msgstr ""
 
-#: functions.inc/servers.php:335
-msgid "AWS S3 Server "
-msgstr "Serwer AWS S3 "
+#: Console/Backup.class.php:109
+msgid "A restore task is already running"
+msgstr ""
 
-#: views/servers/awss3.php:58
-msgid "AWS Secret"
-msgstr "AWS ukryty"
-
-#: views/backup/backups.php:11 views/servers/servers.php:22
-#: views/templates/templates.php:9
+#: views/backup/grid.php:25 views/restore/landing.php:65
+#: views/restore/landing.php:98
 msgid "Actions"
 msgstr "Działania"
 
-#: views/backup/backups.php:501 views/servers/ftp.php:158
-msgid "Active"
-msgstr "Aktywny"
+#: views/backup/grid.php:5
+msgid "Add Backup"
+msgstr ""
 
-#: views/servers/servers.php:4
-msgid "Add Server"
-msgstr "Dodaj serwer"
-
-#: bin/backup.php:53
-msgid "Adding items..."
-msgstr "Dodawanie obiektów..."
+#: views/backup/form.php:56
+msgid "Add a description for your backup"
+msgstr ""
 
 #: backup.i18n.php:6
 msgid "Admin"
 msgstr "Administrator"
 
-#: views/backup/backup.php:341
-msgid ""
-"After a restore, disable any trunks that use registration. This is helpful "
-"to prevent the Primary and Standby systems from \"fighting\" for the "
-"registration, resulting in some calls routed to the Standby system."
+#: views/restore/processRestore.php:23
+msgid "After the restore you should reload with the apply config button"
 msgstr ""
 
-#: views/backup/backups.php:171
-msgid ""
-"All PBX Configuration files and any Custom Sound Prompts are included in the "
-"base backup"
-msgstr ""
-
-#: install.php:172
-msgid ""
-"All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
-"VOICEMAIL"
-msgstr ""
-
-#: functions.inc/servers.php:280
-msgid "Amazon S3 Server "
-msgstr "Serwer Amazon S3 "
-
-#: views/servers/awss3.php:4
-msgid "Amazon S3&trade; Server"
-msgstr "Serwer Amazon S3&trade"
-
-#: views/cron.php:8
-msgid "Annually"
-msgstr "Rocznie"
-
-#: views/backup/backup.php:408
+#: views/backup/warmspare.php:171
 msgid "Apply Configs"
 msgstr "Zastosuj konfiguracje"
 
-#: views/cron.php:46
-msgid "April"
-msgstr "Kwiecień"
+#: assets/js/backup_restore/backup_restore.js:115
+msgid "Are you sure you wish to delete this file? This cannot be undone"
+msgstr ""
 
-#: views/restore/browseserver.php:21
-#, fuzzy
-msgid "AstDB's"
-msgstr "AstDB's"
-
-#: functions.inc/templates.php:296
-#, fuzzy
-msgid "Asterisk DB"
-msgstr "Asterisk DB"
-
-#: views/cron.php:50
-msgid "August"
-msgstr "Sierpień"
-
-#: views/servers/ftp.php:113
-msgid "Auto"
-msgstr "Automatycznie"
-
-#: views/backup/backup.php:465
-msgid "Available Servers"
-msgstr "Dostępne serwery"
-
-#: views/servers/email.php:99
-msgid "B"
-msgstr "B"
-
-#: functions.inc.php:69
-msgid "BACKUP LOG ATTACHED"
-msgstr "LOG KOPII ZAPASOWEJ DOŁĄCZONY"
-
-#: functions.inc/class.backup.php:410 functions.inc/class.backup.php:413
-msgid "BACKUP NOT ATTACHED"
-msgstr "KOPIA ZAPASOWA NIE DOŁĄCZONA"
-
-#: Backup.class.php:316 functions.inc/backup.php:81
-#: functions.inc/class.backup.php:404 views/backup/backup.php:6
+#: page.backup.php:12 page.backup_restore.php:13
 msgid "Backup"
 msgstr "Kopa zapasowa"
+
+#: Backup.class.php:811
+#, php-format
+msgid "Backup %s"
+msgstr ""
+
+#: Backup.class.php:624
+#, php-format
+msgid "Backup %s failed for %s"
+msgstr ""
+
+#: Backup.class.php:622
+#, php-format
+msgid "Backup %s success for %s"
+msgstr ""
 
 #: backup.i18n.php:4 backup.i18n.php:10
 msgid "Backup & Restore"
 msgstr "Kopia zapasowa & Przywracanie"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "Kopia zapasowa & Przywracanie - Przywracanie"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "Kopia zapasowa & Przywracanie - Serwery"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "Kopia zapasowa & Przywracanie - Szblony"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
 msgstr "Kopia zapasowa & Przywracanie otoczenia FreePBX"
 
-#: views/backup/backups.php:248
-msgid "Backup CDR and call record data?"
-msgstr "Kopia zapasowa CDR a dane zapisu połączeń?"
+#: views/restore/landing.php:63 views/restore/landing.php:96
+msgid "Backup Date"
+msgstr ""
 
-#: views/backup/backups.php:121
+#: views/backup/form.php:44
 msgid "Backup Description"
 msgstr "Opis kopii zapasowej"
 
-#: functions.inc/class.backup.php:409
-msgid "Backup ERROR (exceeded SMTP limits)"
-msgstr "Błąd kopii zapasowej (przekroczono limit SMTP)"
+#: views/restore/landing.php:16
+msgid "Backup File"
+msgstr ""
 
-#: functions.inc/class.backup.php:412
-msgid "Backup ERROR (exceeded soft limit)"
-msgstr "Błąd kopii zapasowej (przekroczono limit oprogramowania)"
+#: views/restore/processRestore.php:5
+msgid "Backup Info"
+msgstr ""
 
-#: views/backup/backups.php:49
-msgid "Backup Frequency"
-msgstr "Częstotliwość kopii zapasowej"
-
-#: views/backup/backups.php:58
+#: views/backup/form.php:68
 msgid "Backup Items"
 msgstr "Obiekty kopii zapasowej"
 
-#: bin/backup.php:48
-msgid "Backup Lock acquired!"
-msgstr "Backup Lock wymagany!"
-
-#: functions.inc.php:72
-#, fuzzy
-msgid "Backup Log:"
-msgstr "Backup Log:"
-
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "Moduł kopii zapasowej"
 
-#: views/backup/backup.php:17 views/backup/backups.php:97
+#: views/backup/form.php:20 views/restore/landing.php:62
+#: views/restore/landing.php:95
 msgid "Backup Name"
 msgstr "Nazwa kopii zapasowej"
 
-#: views/backup/backup.php:487
-msgid "Backup Schedule"
-msgstr "Plan kopii zapasowej"
+#: page.backup.php:41
+msgid "Backup Output"
+msgstr ""
 
-#: views/backup/backup.php:267
-msgid "Backup Server"
-msgstr "Serwer kopii zapasowej"
+#: views/restore/landing.php:97
+msgid "Backup Type"
+msgstr ""
 
-#: functions.inc/restore.php:316
-msgid "Backup Server not found!"
-msgstr "Nie znaleziono serwera kopii zapasowej!"
-
-#: views/templates/template.php:7
-msgid "Backup Template"
-msgstr "Szablon kopii zapasowej"
-
-#: views/backup/backups.php:2
+#: views/backup/grid.php:6
 msgid "Backup Wizard"
 msgstr "Kreator tworzenia kopii zapasowych"
 
-#: page.backup.php:116
-msgid "Backup and Restore"
-msgstr "Kopia zapasowa i przywracanie"
-
-#: bin/backup.php:150 bin/backup.php:205
-msgid "Backup completed with errors!"
-msgstr "Tworzenie kopii zapasowej zakończyło się błędem!"
-
-#: functions.inc/class.backup.php:298
-#, php-format
-msgid ""
-"Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
-"backup from server [%s]."
-msgstr ""
-"Błąd podczas tworzenia kopii zapasowej, baza danych SQL zrzuca [%s] do pliku "
-"[%s], masz uszkodzoną kopię zapasową z serwera [%s]."
-
-#: bin/restore.php:99
-msgid "Backup file not found! Aborting."
-msgstr "Nie zaleziono pliku kopii zapasowej! Przerywanie."
-
-#: functions.inc/class.backup.php:498
-msgid "Backup file uploaded to the remote server"
+#: Handlers/Backup.php:257
+msgid "Backup completed successfully"
 msgstr ""
 
-#: bin/backup.php:12
-msgid "Backup module not found or is disabled. Aborting!"
-msgstr "Moduł kopii zapasowej nie znaleziony lub wyłączony. Przerywanie!"
+#: Handlers/Backup.php:252
+msgid "Backup finished with but with errors"
+msgstr ""
 
-#: bin/backup.php:152 bin/backup.php:207
-msgid "Backup successfully completed!"
-msgstr "Tworzenie kopii zapasowej zakończono sukcesem!"
+#: Backup.class.php:342
+msgid "Backup running"
+msgstr ""
 
-#: views/rnav/main.php:3
-msgid "Backups"
-msgstr "Kopie zapasowe"
-
-#: views/backup/backups.php:88
-msgid "Basic Backup Information"
-msgstr "podstawowe informacje kopii zapasowej"
-
-#: views/backup/backups.php:40
+#: views/backup/form.php:10
 msgid "Basic Information"
 msgstr "Podstawowe informacje"
 
-#: views/restore/restore.php:7 views/restore/restore.php:23
-msgid "Browse"
-msgstr "Przeglądanie"
-
-#: page.backup_restore.php:184
-msgid "Browser reconnected realtime updates are unavailable."
-msgstr ""
-"Przeglądarka odświeżona, aktualizacje w czasie rzeczywistym nie są możliwe."
-
-#: views/servers/awss3.php:14
-#, fuzzy
-msgid "Bucket Name"
-msgstr "Bucket Name"
-
-#: bin/backup.php:56
-msgid "Building manifest..."
-msgstr "Budowanie manifestu..."
-
-#: views/backup/backups.php:233
-msgid "CDR and Call Log Data"
-msgstr "CDR i dane rejestru połączeń"
-
-#: install.php:100
-msgid "CDR server, generally a local database server"
-msgstr "Serwer CDR, zwykle lokalny serwer baz danych"
-
-#: views/restore/backup_list.php:26
-msgid "CDR's"
-msgstr "CDR"
-
-#: install.php:154
-msgid "Call Detail Records"
-msgstr "Szczegółowe zapisy połączeń"
-
-#: views/backup/backups.php:206
-msgid "Call Recordings"
-msgstr "Nagrania rozmowy"
-
-#: install.php:71
-msgid "Can not create backup tables"
-msgstr "Nie można stworzyć tabeli kopii zapasowej"
-
-#: bin/restore.php:454
-msgid "Cleaning up..."
-msgstr "Czyszczenie..."
-
-#: views/backup/backups.php:85
-msgid "Click 'Next' to continue."
-msgstr "Naciśnij \"Dalej\" aby kontynuować."
-
-#: install.php:136
-msgid "Configurations only"
-msgstr "Tylko konfiguracje"
-
-#: bin/backup.php:76
-msgid "Connecting to remote server..."
-msgstr "Łączenie z serwerem zdalnym..."
-
-#: functions.inc/class.backup.php:816
-#, php-format
-msgid "Could not find %s on the remote system"
+#: views/backup/form.php:146
+msgid "Both"
 msgstr ""
 
-#: functions.inc/class.backup.php:397 views/restore/browseserver.php:18
-msgid "Created"
-msgstr "Stworzono"
-
-#: bin/backup.php:61
-msgid "Creating backup..."
-msgstr "Tworzenie kopii zapasowej..."
-
-#: functions.inc/class.backup.php:476
+#: Handlers/Legacy.php:100
 #, php-format
-msgid "Creating directory '%s'"
-msgstr "Tworzenie katalogu '%s'"
+msgid "Calling legacy restore on module %s"
+msgstr ""
 
-#: views/cron.php:10
-msgid "Custom"
-msgstr "Zwyczajny"
+#: Handlers/SingleRestore.php:51
+#, php-format
+msgid "Can't find the module data for %s"
+msgstr ""
 
-#: views/servers/mysql.php:160
-msgid "DB Name"
-msgstr "Nazwa DB"
+#: assets/js/backup_restore/backup_restore.js:116
+msgid "Cancel"
+msgstr ""
 
-#: views/cron.php:5
-msgid "Daily"
-msgstr "Codziennie"
+#: Handlers/Backup.php:231
+msgid "Cleaning up"
+msgstr ""
 
-#: assets/js/backup.js:99
-msgid "Day each month"
-msgstr "Dzień każdego miesiąca"
+#: Handlers/Backup.php:233
+#, php-format
+msgid "Cleaning up data generated by %s"
+msgstr ""
 
-#: views/cron.php:224
-msgid "Day of Week"
-msgstr "Dzień tygodnia"
+#: Backup.class.php:76
+msgid "Cleaning up old data"
+msgstr ""
 
-#: views/backup/backup.php:523
-msgid "Days"
-msgstr "Dni"
+#: Handlers/Legacy.php:53
+msgid "Cleaning up old data from the temp directory"
+msgstr ""
 
-#: views/cron.php:272 views/cron.php:276
-msgid "Days of Month"
-msgstr "Dni miesiąca"
+#: views/backup/form.php:385
+msgid "Close"
+msgstr ""
 
-#: views/cron.php:286
-msgid "Days of month to run"
-msgstr "Dni miesiąca do uruchomienia"
+#: Handlers/Backup.php:97
+#, php-format
+msgid "Could not backup module %s, it may not be installed or enabled"
+msgstr ""
 
-#: views/cron.php:54
-msgid "December"
-msgstr "Grudzień"
+#: Backup.class.php:311
+msgid "Could not find a file for the id supplied"
+msgstr ""
 
-#: views/backup/backups.php:426 views/backup/backups.php:525
-msgid "Default"
-msgstr "Fabryczny"
+#: Handlers/Restore.php:60
+#, php-format
+msgid "Could not find a manifest for %s, skipping"
+msgstr ""
 
-#: install.php:230
-msgid "Default backup; automatically installed"
-msgstr "Fabryczna kopia zapasowa; zainstalowana automatycznie"
+#: Handlers/Restore.php:44
+msgid ""
+"Could not locate the manifest for this file. This file will not restore "
+"properly though the data may still be present."
+msgstr ""
 
-#: Backup.class.php:38 Backup.class.php:202 page.backup.php:47
-#: page.backup_servers.php:36 page.backup_templates.php:20
-#: views/item_table.php:14
+#: Handlers/Legacy.php:95
+#, php-format
+msgid "Couldn't find %s"
+msgstr ""
+
+#: Handlers/Backup.php:123
+#, php-format
+msgid "Couldn't find class %s"
+msgstr ""
+
+#: Backup.class.php:497
+msgid "Couldn't find your file, please try submitting your file again."
+msgstr ""
+
+#: Backup.class.php:319 Backup.class.php:339
+msgid "Couldn't run process."
+msgstr ""
+
+#: Backup.class.php:161 assets/js/backup_restore/backup_restore.js:116
 msgid "Delete"
 msgstr "Skasuj"
 
-#: views/backup/backup.php:511 views/backup/backup.php:548
-msgid "Delete After"
-msgstr "Skasuj później"
-
-#: views/backup/backup.php:538
-msgid ""
-"Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
-"Please note that deletes aren't time based and will only happen after a "
-"backup was run. Setting the value to 0 will disable any deleting"
+#: views/backup/form.php:298
+msgid "Delete After Days"
 msgstr ""
-"Skasuj tę kopię zapasową po X liczbie minut/godzin/dni/tygodni/miesięcy/lat. "
-"Należy pamiętać, że usuwanie nie jest osadzone w czasie i nastąpi dopiero po "
-"włączeniu kopii zapasowej. Ustawienie wartości 0 spowoduje wyłączenie "
-"każdego usuwania"
 
-#: views/backup/backup.php:561
-msgid ""
-"Delete this backup after X amount of runs. Setting the value to 0 will "
-"disable any deleting"
+#: views/backup/form.php:274
+msgid "Delete After Runs"
 msgstr ""
-"Skasuj tę kopię zapasową po X liczbie uruchomień. Ustawienie wartości 0 "
-"spowoduje wyłączenie każdego usuwania"
 
-#: functions.inc/templates.php:310
-msgid "Delete this entry. Don't forget to click Submit to save changes!"
-msgstr "Usuń ten wpis. Nie zapomnij kliknąć 'Zatwierdź' aby zapisać zmiany!"
+#: Handlers/Restore.php:71
+#, php-format
+msgid "Dependencies not resolved for %s Skipped"
+msgstr ""
 
-#: views/backup/backup.php:41 views/backup/backups.php:10
-#: views/servers/awss3.php:27 views/servers/email.php:40
-#: views/servers/ftp.php:32 views/servers/local.php:40
-#: views/servers/mysql.php:40 views/servers/servers.php:20
-#: views/servers/ssh.php:40 views/templates/template.php:36
-#: views/templates/templates.php:8
+#: views/backup/grid.php:24 views/restore/processRestore.php:9
 msgid "Description"
 msgstr "Opis"
 
-#: views/backup/backup.php:53
-msgid "Description or notes for this backup"
-msgstr "Opis lub notatka dla tej kopii zapasowej"
-
-#: views/servers/email.php:52 views/servers/local.php:52
-#: views/servers/mysql.php:52 views/servers/ssh.php:52
-msgid "Description or notes for this server"
-msgstr "Opis lub notatka dla tego serwera"
-
-#: views/backup/backups.php:76
-msgid "Destination"
-msgstr "Miejsce docelowe"
-
-#: functions.inc/templates.php:246
-msgid "Directory"
-msgstr "Książka adresowa"
-
-#: functions.inc/class.backup.php:480
-#, php-format
-msgid "Directory '%s' did not exist and we could not create it"
-msgstr "Książka adresowa '%s' nie istnieje i nie można jej stworzyć"
-
-#: views/backup/backup.php:326
-msgid "Disable Registered Trunks"
+#: views/backup/transfer.php:31
+msgid "Donor"
 msgstr ""
 
-#: bin/restore.php:500
-msgid "Done!"
-msgstr "Zrobione!"
-
-#: page.backup_restore.php:21 views/restore/browseserver.php:30
-msgid "Download"
-msgstr "Pobieranie"
-
-#: views/backup/backup.php:436
-msgid ""
-"Drag servers from the Available Servers list to add them as Storage Servers"
-msgstr ""
-
-#: views/backup/backup.php:112
-msgid ""
-"Drag templates and drop them in the items table to add the templates items "
-"to the table"
-msgstr ""
-"Przeciągnij szablony i upuść je w tabeli przedmiotów aby dodać szablony do "
-"tabeli"
-
-#: views/backup/backup.php:121
-msgid "Drop Here"
-msgstr "Upuść tutaj"
-
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr "Email "
 
-#: views/servers/email.php:64
-msgid "Email Address"
-msgstr "Adres email"
-
-#: views/backup/backups.php:264
-msgid "Email Notifications"
-msgstr "Zgłoszenia email"
-
-#: views/servers/email.php:4
-msgid "Email Server"
-msgstr "Serwer email"
-
-#: functions.inc/servers.php:265 functions.inc/servers.php:320
-msgid "Email Server "
-msgstr "Serwer email "
-
-#: views/servers/email.php:76
-msgid "Email address where backups should be emailed to"
-msgstr "Adres email na który powinna zostać wysłana kopia zapasowa"
-
-#: assets/js/backup.js:14
-msgid "Email notifications are set to Yes but no email provided"
+#: views/backup/form.php:126
+msgid "Email Type"
 msgstr ""
 
-#: views/backup/backup.php:77
-msgid "Email to send status messages to when this task is run"
+#: views/backup/settings.php:17
+msgid "Email address emails will come from"
 msgstr ""
-"Email na który ma zostać wysłany status wiadomości kiedy to zadanie jest "
-"włączone"
 
-#: views/backup/backup.php:423
+#: views/backup/form.php:114
+msgid "Email address to send notifications to."
+msgstr ""
+
+#: views/backup/warmspare.php:14
+msgid "Enable"
+msgstr ""
+
+#: views/backup/warmspare.php:45
+msgid "Enable Remote Trunks"
+msgstr ""
+
+#: views/backup/form.php:230
+msgid "Enable scheduled backups"
+msgstr ""
+
+#: Backup.class.php:1015 views/backup/form.php:209
+msgid "Enabled"
+msgstr ""
+
+#: views/backup/warmspare.php:190
 msgid ""
 "Equivalence of clicking the red button, will happen automatically after a "
 "restore on a Standby system"
 msgstr ""
 
-#: functions.inc/class.backup.php:470 functions.inc/restore.php:117
-#: functions.inc/restore.php:366
-msgid "Error creating the FTP object"
-msgstr "Błąd tworzenia obiektu FTP"
-
-#: functions.inc/class.backup.php:823
-#, php-format
-msgid "Error deleting %s"
-msgstr "Błąd usuwania %s"
-
-#: page.backup_restore.php:41
-msgid "Error uploading file!"
-msgstr "Błąd przenoszenia pliku!"
-
-#: page.backup_restore.php:50
-msgid "Error verifying uploaded file!"
-msgstr "Błąd weryfikacji przeniesionego pliku!"
-
-#: views/item_table.php:11
-msgid "Exclude"
-msgstr "Wykluczyć"
-
-#: views/backup/backup.php:380
-msgid "Exclude BIND address"
+#: views/backup/warmspare.php:107
+msgid "Exclude Bind Address"
 msgstr ""
 
-#: install.php:181
-msgid ""
-"Exclude Backup's settings so that they dont get restored, useful for a "
-"remote restore"
+#: views/backup/warmspare.php:140
+msgid "Exclude DNS"
 msgstr ""
-"Wykluczyć ustawienia kopii zapasowej tak aby ich nie przywrócić, przydatne "
-"przy zdalnym przywracaniu"
 
-#: views/backup/backup.php:353
+#: views/backup/warmspare.php:76
 msgid "Exclude NAT settings"
 msgstr "Wykluczyć ustawienia NAT"
 
-#: views/backup/backup.php:395
+#: views/backup/warmspare.php:128
 msgid ""
 "Explicitly exclude any machine-specific Bindaddres. This allows you to have "
 "a warm-spare machine with a different IP address."
 msgstr ""
 
-#: views/backup/backup.php:368
+#: views/backup/warmspare.php:159
+msgid ""
+"Explicitly exclude any machine-specific DNS. This allows you to have a warm-"
+"spare machine with a different DNS."
+msgstr ""
+
+#: views/backup/warmspare.php:95
 msgid ""
 "Explicitly exclude any machine-specific IP settings. This allows you to have "
 "a warm-spare machine with a different IP address."
 msgstr ""
 
-#: bin/restore.php:65
-msgid "Explicitly skipping host-specific NAT settings"
+#: Handlers/Restore.php:30
+msgid "Extracting Backup"
 msgstr ""
 
-#: views/backup/backups.php:352
-msgid "FTP"
-msgstr "FTP"
+#: Handlers/Legacy.php:57
+#, php-format
+msgid "Extracting: %s... This may take a moment depending on the backup size"
+msgstr ""
 
-#: views/backup/backups.php:482 views/servers/mysql.php:148
-msgid "FTP Password"
-msgstr "Hasło FTP"
+#: views/backup/form.php:141
+msgid "Failure"
+msgstr ""
 
-#: views/servers/ftp.php:8
-msgid "FTP Server"
-msgstr "Serwer FTP"
+#: Backup.class.php:211
+msgid "File Deleted"
+msgstr ""
 
-#: functions.inc/servers.php:268 functions.inc/servers.php:323
-msgid "FTP Server "
-msgstr "Serwer FTP "
-
-#: views/backup/backups.php:509
-msgid "FTP Transfer type"
-msgstr "Typ transferu FTP"
-
-#: views/servers/mysql.php:124
-msgid "FTP Username"
-msgstr "Nazwa użytkownika FTP"
-
-#: functions.inc/restore.php:550
+#: Handlers/Legacy.php:60
+#, php-format
 msgid ""
-"Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
-"current state"
+"File extracted to %s. These files will remain until a new restore is run or "
+"until cleaned manually."
 msgstr ""
 
-#: functions.inc/restore.php:577
+#: Backup.class.php:255
+msgid "File reached the server but could not be processed"
+msgstr ""
+
+#: Handlers/SingleRestore.php:68
+msgid "Finished..."
+msgstr ""
+
+#: Handlers/Legacy.php:77
+#, php-format
+msgid "Found %s database files in the backup."
+msgstr ""
+
+#: views/restore/landing.php:64
+msgid "Framework"
+msgstr ""
+
+#: views/backup/settings.php:7
+msgid "From Email"
+msgstr ""
+
+#: views/backup/rsa.php:1
+msgid "Generating Key Pair please standby"
+msgstr ""
+
+#: page.backup.php:24 page.backup_restore.php:17
+msgid "Global Backup Settings"
+msgstr ""
+
+#: Backup.class.php:137
+msgid "Go Back"
+msgstr ""
+
+#: views/backup/form.php:341
 msgid ""
-"Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
-"sql in current state"
+"How long to maintain backups. Example 30 will delete anything older than 30 "
+"days."
 msgstr ""
 
-#: functions.inc/restore.php:384 functions.inc/restore.php:404
-#: functions.inc/restore.php:417
-msgid "Failed to retrieve file from server!"
-msgstr "Odzyskiwanie pliku z serwera nie powiodło się!"
-
-#: functions.inc/templates.php:303
-msgid "Family, one per line"
-msgstr ""
-
-#: views/cron.php:44
-msgid "February"
-msgstr "Luty"
-
-#: functions.inc/templates.php:233
-msgid "File"
-msgstr "Plik"
-
-#: functions.inc/restore.php:424
-msgid "File not found! "
-msgstr "Plik nie znaleziony! "
-
-#: bin/restore.php:157
-msgid "File restore complete!"
-msgstr "Odzyskiwanie pliku zakończone!"
-
-#: bin/backup.php:124
-msgid "File verification failed. "
-msgstr "Weryfikacja pliku nie powiodła się. "
-
-#: functions.inc/class.backup.php:398 views/restore/browseserver.php:19
-msgid "Files"
-msgstr "Pliki"
-
-#: views/servers/ftp.php:108
-msgid "Filesystem Type"
-msgstr ""
-
-#: page.backup.php:53
-msgid "FreePBX"
-msgstr "FreePBX"
-
-#: views/cron.php:32 assets/js/backup.js:83
-msgid "Friday"
-msgstr "Piątek"
-
-#: bin/restore.php:221
-msgid "Getting CDR size..."
-msgstr "Uzyskiwanie rozmiaru CDR..."
-
-#: views/backup/backups.php:386
-msgid "Give the server a descriptive name"
-msgstr ""
-
-#: views/backup/backups.php:133
-msgid "Give your backup a description"
-msgstr "Daj opis kopii zapasowej"
-
-#: views/backup/backups.php:109
-msgid "Give your backup a friendly name"
-msgstr ""
-
-#: views/restore/browseserver.php:29
-msgid "Go!"
-msgstr "Start!"
-
-#: bin/backup.php:125
-msgid "Here are the first few lines of the file as sent by the remote server:"
-msgstr "To jest kilka pierwszych wersów pliku wysłanych przez serwer zdalny:"
-
-#: views/backup/backup.php:152
-msgid "Hooks"
-msgstr ""
-
-#: views/servers/ftp.php:46 views/servers/mysql.php:64
-#: views/servers/ssh.php:64
-msgid "Hostname"
-msgstr "Nazwa hosta"
-
-#: views/cron.php:4
-msgid "Hourly"
-msgstr "Cogodzinny"
-
-#: views/backup/backup.php:521 views/cron.php:194 views/cron.php:198
-msgid "Hours"
-msgstr "Godziny"
-
-#: views/backup/backups.php:140
-msgid "How often should we backup?"
-msgstr "Jak często tworzyć kopię zapasową?"
-
-#: views/backup/backups.php:410
-msgid "IP Address or FQDN of your server"
-msgstr "Adres IP lub FQDN dla serwera"
-
-#: views/servers/ssh.php:76
-msgid "IP address or FQDN of remote SSH server"
-msgstr "Adres IP lub FQDN lub zdalny serwer SSH"
-
-#: views/servers/ftp.php:56
-msgid "IP address or FQDN of remote ftp host"
-msgstr "Adres IP lub FQDN dla zdalnego hosta ftp"
-
-#: views/servers/mysql.php:76
-msgid "IP address or FQDN of remote mysql host"
-msgstr "Adres IP lub FQDN dla zdalnego hosta mysql"
-
-#: views/cron.php:155
+#: views/backup/form.php:286
 msgid ""
-"If Randomize is selected, a similar frequency will be followed, only the "
-"exact times will be randomized (avoiding peak business hours, when "
-"possible). Please note: randomized schedules will be rescheduled (randomly) "
-"every time ANY backup is saved"
+"How many updates to keep. If this number is 3, the last 3 will be kept. 0 is "
+"unlimited"
 msgstr ""
 
-#: views/cron.php:105
-msgid ""
-"If a custom schedule is selected, any section not specified will be "
-"considered to be \"any\" (aka: wildcard).\n"
-"\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, the "
-"Backup will be run on ANY 12th of\n"
-"\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week is "
-"set to, say, Monday, the Backup will run ONLY\n"
-"\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
+#: views/backup/transfer.php:16
+msgid "ID From the donor machine"
 msgstr ""
 
-#: views/restore/restore.php:6
-msgid "Import"
-msgstr "Import"
-
-#: bin/backup.php:39
-msgid "Initializing Backup"
-msgstr "Rozpoczęcie kopii zapasowej"
-
-#: bin/restore.php:96
-msgid "Initializing Restore..."
-msgstr "Rozpoczęcie przywracania..."
-
-#: views/backup/backups.php:31
-msgid "Introduction"
-msgstr "Wprowadzenie"
-
-#: assets/js/backup.js:8
-msgid "Invalid Backup Name"
-msgstr "Nieprawidłowa nazwa kopii zapasowej"
-
-#: page.backup_restore.php:116 page.backup_restore.php:136
-msgid "Invalid backup for or undefined error"
-msgstr "Nieprawidłowy do tworzenia kopii zapasowej lub niezidentyfikowany błąd"
-
-#: views/backup/backups.php:9 views/servers/servers.php:19
-#: views/templates/templates.php:7
-msgid "Item"
-msgstr "Pozycja"
-
-#: views/backup/backup.php:118
-msgid "Items"
-msgstr "Pozycje"
-
-#: views/cron.php:43
-msgid "January"
-msgstr "Styczeń"
-
-#: views/cron.php:49
-msgid "July"
-msgstr "Lipiec"
-
-#: views/cron.php:48
-msgid "June"
-msgstr "Czerwiec"
-
-#: views/servers/email.php:101
-msgid "KB"
-msgstr "KB"
-
-#: views/servers/ssh.php:136
-msgid "Key"
-msgstr "Klucz"
-
-#: views/servers/local.php:4
-msgid "Local Server"
-msgstr "Serwer lokalny"
-
-#: functions.inc/servers.php:271 functions.inc/servers.php:326
-msgid "Local Server "
-msgstr "Serwer lokalny "
-
-#: views/servers/ssh.php:148
-msgid "Location of ssh private key to be used when connecting to a host"
-msgstr ""
-"Lokalizacja prywatnego klucza do wykorzystania podczas łączenia z hostem"
-
-#: views/servers/email.php:103
-msgid "MB"
-msgstr "MB"
-
-#: views/backup/backup.php:502
-msgid "Maintenance"
+#: Handlers/SingleRestore.php:55
+msgid "In single restore mode dependencies are NOT processed"
 msgstr ""
 
-#: views/cron.php:45
-msgid "March"
-msgstr "Marzec"
+#: Backup.class.php:218
+msgid "Invalid ID Provided"
+msgstr ""
 
-#: views/servers/email.php:88
-msgid "Max Email Size"
-msgstr "Maksymalny rozmiar maila"
+#: views/backup/transfer.php:39
+msgid "Is this the donor machine or the recipient"
+msgstr ""
 
-#: views/cron.php:47
-msgid "May"
-msgstr "Maj"
+#: Handlers/Legacy.php:47
+msgid "Loading astdb to memory"
+msgstr ""
 
-#: views/backup/backup.php:519 views/cron.php:168 views/cron.php:172
-msgid "Minutes"
-msgstr "Minuty"
+#: Handlers/Legacy.php:43
+msgid "Loading manifest to memory"
+msgstr ""
 
-#: views/cron.php:28 assets/js/backup.js:83
-msgid "Monday"
-msgstr "Poniedziałek"
+#: Handlers/Legacy.php:110
+#, php-format
+msgid "Loading supplied database file %s"
+msgstr ""
 
-#: views/backup/backups.php:151 views/cron.php:7
-msgid "Monthly"
-msgstr "Miesięczny"
+#: views/backup/settings.php:37
+msgid "Location of the log kept during backup"
+msgstr ""
 
-#: views/backup/backup.php:527 views/cron.php:246 views/cron.php:250
-msgid "Months"
-msgstr "Miesiące"
+#: views/backup/form.php:264
+msgid "Maintinence"
+msgstr ""
 
-#: views/servers/mysql.php:4
-msgid "MySQL Server"
-msgstr "Serwer MySQL"
+#: Backup.class.php:68
+msgid "Migrating legacy backupjobs"
+msgstr ""
 
-#: functions.inc/templates.php:267
-msgid "Mysql"
-msgstr "Mysql"
+#: Backup.class.php:72
+msgid "Migrating legacy backups to the new backup"
+msgstr ""
 
-#: views/restore/browseserver.php:20
-msgid "Mysql DB's"
-msgstr "Mysql DB's"
+#: Backup.class.php:234
+msgid "Missing id or transaction"
+msgstr ""
 
-#: functions.inc/class.backup.php:399
-msgid "Mysql Db's"
-msgstr "Mysql Db's"
+#: views/backup/form.php:374 views/restore/processRestore.php:41
+msgid "Module"
+msgstr ""
 
-#: functions.inc/servers.php:274 functions.inc/servers.php:329
-msgid "Mysql Server "
-msgstr "Serwer Mysql "
+#: views/backup/form.php:74
+msgid "Modules"
+msgstr ""
 
-#: functions.inc/class.backup.php:396 views/restore/browseserver.php:17
+#: views/restore/processRestore.php:30
+msgid "Modules in this backup"
+msgstr ""
+
+#: views/backup/form.php:359
+msgid "Modules to Backup"
+msgstr ""
+
+#: Backup.class.php:69
+msgid "Moving servers to filestore"
+msgstr ""
+
+#: views/backup/grid.php:23 views/restore/processRestore.php:8
 msgid "Name"
 msgstr "Nazwa"
 
-#: views/servers/email.php:28
-msgid "Name this Server"
-msgstr "Nazwa tego serwera"
-
-#: views/backup/backup.php:29
-msgid "Name this backup"
-msgstr "Nazwa tej kopii zapasowej"
-
-#: views/cron.php:3
-msgid "Never"
-msgstr "Nigdy"
-
-#: views/cron.php:101
-msgid "Never will never run the backup automatically"
-msgstr ""
-
-#: views/servers/servers.php:12
-msgid "New Amazon S3 server"
-msgstr "Nowy serwer Amazon S3"
-
-#: views/backup/backups.php:3
-msgid "New Backup"
-msgstr "Nowa kopia zapasowa"
-
-#: views/servers/servers.php:9
-msgid "New Email server"
-msgstr "Nowy serwer email"
-
-#: views/servers/servers.php:7
-msgid "New FTP server"
-msgstr "Nowy serwer FTP"
-
-#: views/servers/servers.php:10
-msgid "New Local server"
-msgstr "Nowy serwer lokalny"
-
-#: views/servers/servers.php:11
-msgid "New MySQL server"
-msgstr "Nowy serwer MySQL"
-
-#: views/servers/servers.php:8
-msgid "New SSH server"
-msgstr "Nowy serwer SSH"
-
-#: views/templates/templates.php:2
-msgid "New Template"
-msgstr "Nowy szablon"
-
-#: views/backup/backups.php:147
-msgid "Nightly"
-msgstr "Nocny"
-
-#: views/backup/backup.php:96 views/backup/backup.php:308
-#: views/backup/backup.php:333 views/backup/backup.php:360
-#: views/backup/backup.php:387 views/backup/backup.php:415
-#: views/backup/backups.php:186 views/backup/backups.php:213
-#: views/backup/backups.php:240 views/backup/backups.php:271
-#: views/backup/backups.php:327 views/cron.php:147
+#: views/backup/form.php:222 views/backup/warmspare.php:25
+#: views/backup/warmspare.php:56 views/backup/warmspare.php:87
+#: views/backup/warmspare.php:120 views/backup/warmspare.php:151
+#: views/backup/warmspare.php:182
 msgid "No"
 msgstr "Nie"
 
-#: bin/backup.php:73
-msgid "No items in backup set. Aborting."
-msgstr "Brak elementów w zestawie kopii zapasowej. Przywracanie."
+#: assets/js/backup/backup.js:8
+msgid "No Storage Locations"
+msgstr ""
 
-#: bin/backup.php:34
-msgid "No storage servers found! Aborting."
-msgstr "Nie znaleziono serwerów pamięci masowej! Przywracanie."
+#: Backup.class.php:325
+msgid "No backup id provided"
+msgstr ""
 
-#: bin/restore.php:92
-msgid "Nothing to restore!"
-msgstr "Nic do przywrócenia!"
+#: Backup.class.php:252
+msgid "No file provided"
+msgstr ""
 
-#: views/backup/backups.php:67
+#: Backup.class.php:486
+msgid "No id was specified to process. Please try submitting your file again."
+msgstr ""
+
+#: Backup.class.php:527
+msgid "No user configurable settings"
+msgstr ""
+
+#: views/backup/form.php:102
+msgid "Notification Email"
+msgstr ""
+
+#: views/backup/form.php:92
 msgid "Notifications"
 msgstr "Powiadmienia"
 
-#: views/cron.php:53
-msgid "November"
-msgstr "Listopad"
-
-#: assets/js/backup.js:94
-msgid "ON"
-msgstr "Włącz"
-
-#: views/cron.php:52
-msgid "October"
-msgstr "Październik"
-
-#: views/backup/backup.php:89
-msgid "On Failure Only"
-msgstr "Tylko w przypadku awarii"
-
-#: assets/js/backup.js:101
-msgid "On the"
-msgstr "Na"
-
-#: views/backup/backup.php:104
-msgid "Only send an email on failure"
-msgstr "Wyślij email tylko w przypadku awarii"
-
-#: views/templates/template.php:48
-msgid "Optional description or notes for this backup temnplate."
-msgstr "Opcjonalny opis lub notatki dla szablonu kopii zapasowej."
-
-#: functions.inc/templates.php:260
-msgid "PATTERNs, one per line"
-msgstr ""
-
-#: views/restore/backup_list.php:19
-msgid "PBX Settings"
-msgstr "Ustawienia PBX"
-
-#: install.php:88
-msgid "PBX config server, generally a local database server"
-msgstr "Konfiguracje PBX serwera, na ogół lokalny serwer baz danych"
-
-#: views/backup/backups.php:499 views/servers/ftp.php:160
-msgid "Passive"
-msgstr "Pasywny"
-
-#: views/backup/backups.php:470 views/servers/ftp.php:94
-#: views/servers/mysql.php:136
-msgid "Password"
-msgstr "Hasło"
-
-#: views/servers/ftp.php:133 views/servers/local.php:64
-#: views/servers/ssh.php:160
-msgid "Path"
-msgstr "Ścieżka"
-
-#: views/servers/local.php:76 views/servers/ssh.php:172
-msgid "Path on remote server"
-msgstr "Ścieżka dostępu na zdalnym serwerze"
-
-#: views/servers/ftp.php:143
+#: Handlers/Legacy.php:66
 msgid ""
-"Path on remote server. This must be a COMPLETE PATH, starting with a / - for "
-"example, <tt>/home/backups/freepbx</tt>. A path without a leading slash will "
-"not work, and will behave in unexpected ways."
+"Parsing out SQL tables. This may take a moment depending on backup size."
 msgstr ""
-"Ścieżka dostępu na zdalnym serwerze. Musi to być KOMPLETNA ŚCIEŻKA, "
-"zaczynająca się od / - na przykład, <tt>/home/backups/freepbx</tt>. Ścieżka "
-"bez śledzącego ukośnika nie zadziała i zachowa się w niespodziewany sposób."
 
-#: views/backup/backups.php:557
-msgid "Path to ssh key, example /home/asterisk/.ssh/id_rsa"
-msgstr "Ścieżka do klucza ssh, przykład /home/asterisk/.ssh/id_rsa"
+#: Handlers/Backup.php:244
+msgid "Performing Local Maintnance"
+msgstr ""
 
-#: views/item_table.php:8
-msgid "Path/DB"
-msgstr "Ścieżka/DB"
+#: Handlers/Backup.php:246
+msgid "Performing Remote Maintnance"
+msgstr ""
 
-#: functions.inc/class.backup.php:812 functions.inc/class.backup.php:813
+#: Handlers/Backup.php:137
 #, php-format
-msgid "Path: %s"
+msgid "Processing backup for module: %s."
 msgstr ""
 
-#: assets/js/backup.js:150
-msgid "Please wait"
-msgstr "Proszę czekać"
-
-#: views/restore/backup_list.php:13
-msgid "Please wait, loading..."
-msgstr "Proszę czekać, ładowanie..."
-
-#: views/servers/ftp.php:66 views/servers/mysql.php:88
-#: views/servers/ssh.php:88
-msgid "Port"
-msgstr "Port"
-
-#: views/backup/backup.php:185
-msgid "Post-Backup Hook"
+#: views/backup/settings.php:48
+msgid "Public Key"
 msgstr ""
 
-#: views/backup/backup.php:233
-msgid "Post-Restore Hook"
+#: views/backup/settings.php:58
+msgid "Public SSH key to allow other servers to connect"
 msgstr ""
 
-#: views/backup/backup.php:161
-msgid "Pre-Backup Hook"
+#: views/backup/transfer.php:33
+msgid "Recipient"
 msgstr ""
 
-#: views/backup/backup.php:209
-msgid "Pre-Restore Hook"
+#: views/backup/warmspare.php:202
+msgid "Remote IP"
 msgstr ""
 
-#: bin/restore.php:316
-msgid "Preserving local Bind address"
+#: views/backup/warmspare.php:226
+msgid "Remote User"
 msgstr ""
 
-#: bin/restore.php:308
-msgid "Preserving local NAT settings"
-msgstr "Zachowanie ustawień lokalnych NAT"
-
-#: bin/restore.php:255
+#: Handlers/Backup.php:239
 #, php-format
-msgid "Processed %s%% of CDRs (%s of %s lines)"
+msgid "Remote transaction complete, file saved to %s"
 msgstr ""
 
-#: bin/restore.php:389
+#: Backup.class.php:88
 #, php-format
-msgid "Processed %s%% of Settings (%s of %s lines)"
+msgid "Removing table %s."
 msgstr ""
 
-#: bin/backup.php:137
-msgid "Processing received file..."
-msgstr "Przetwarzanie otrzymanego pliku..."
-
-#: views/servers/local.php:28 views/servers/ssh.php:28
-msgid "Provide the name for this server"
-msgstr "Podaj nazwę dla tego serwera"
-
-#: views/cron.php:140
-msgid "Randomize"
-msgstr "Losowy"
-
-#: views/cron.php:9
-msgid "Reboot"
-msgstr "Restart"
-
-#: bin/restore.php:485
-msgid "Reloading..."
-msgstr "Ponowne ładowanie..."
-
-#: views/servers/mysql.php:172
-msgid "Remote Database Name"
-msgstr "Zdalna nazwa bazy danych"
-
-#: views/servers/mysql.php:100
-msgid "Remote MySQL Port"
-msgstr "Zdalny port MySQL"
-
-#: views/backup/backups.php:521
-msgid "Remote Path"
-msgstr "Zdalna ścieżka"
-
-#: views/servers/ssh.php:100
-msgid "Remote SSH Port"
-msgstr "Zdalny port SSH"
-
-#: views/backup/backups.php:320
-msgid "Remote Save"
-msgstr "Zdalny zapis"
-
-#: views/backup/backups.php:335
-msgid "Remote Server Settings?"
-msgstr "Zdalne ustawienia serwera?"
-
-#: views/backup/backups.php:347
-msgid "Remote Server Type"
-msgstr "Zdalny typ serwera"
-
-#: views/backup/backups.php:362
-msgid "Remote Server type"
-msgstr "Zdalny typ serwera"
-
-#: views/backup/backups.php:310
-msgid "Remote save options"
-msgstr "Zdalnie zapisz opcje"
-
-#: views/backup/backups.php:533
-msgid "Remote save path, blank for default"
-msgstr "Zdalnie zapisz ścieżkę, puste dla domyślnych"
-
-#: Backup.class.php:187
+#: Backup.class.php:146 views/backup/form.php:382
 msgid "Reset"
 msgstr ""
 
-#: page.backup_restore.php:201 views/restore/backup_list.php:34
-#: views/restore/browseserver.php:4 views/restore/restore.php:34
-#: views/rnav/main.php:4
+#: Handlers/SingleRestore.php:58
+msgid "Resetting module data, depending on the module it may take a bit."
+msgstr ""
+
+#: Handlers/Restore.php:77
+#, php-format
+msgid "Resetting the data for %s, this may take a moment"
+msgstr ""
+
+#: page.backup.php:17 page.backup_restore.php:7 page.backup_restore.php:14
 msgid "Restore"
 msgstr "Prywracanie"
 
-#: views/restore/backup_list.php:26
-msgid "Restore CDR records stored in this backup"
-msgstr "Przywracanie nagrań CDR zapisane w tej kopii zapasowej"
-
-#: views/backup/backup.php:292
-msgid "Restore Here"
-msgstr "Przywróć tutaj"
-
-#: views/restore/backup_list.php:19
-msgid "Restore all setting stored in the database"
-msgstr "Przywracanie wszystkich ustawień zapisanych w bazie danych"
-
-#: views/backup/backup.php:314
-msgid "Restore backup to this server after the backup is complete"
-msgstr ""
-"Przywracanie kopii zapasowej na tym serwerze po zakończeniu tworzenia kopii "
-"zapasowej"
-
-#: bin/restore.php:484
-msgid "Restore complete!"
-msgstr "Przywracanie zakończone!"
-
-#: bin/restore.php:393
-msgid "Restored Database"
-msgstr "Przywrócono bazę danych"
-
-#: bin/restore.php:409
-msgid "Restoring Bindaddres Settings"
+#: views/restore/processRestore.php:17
+msgid "Restore Information"
 msgstr ""
 
-#: bin/restore.php:262
-msgid "Restoring CDRs complete"
-msgstr "Przywracanie CDR zakończone"
-
-#: bin/restore.php:176
-msgid "Restoring CDRs..."
-msgstr "Przywracanie CDR..."
-
-#: bin/restore.php:351
-msgid "Restoring Database..."
-msgstr "Przywracanie bazy danych..."
-
-#: bin/restore.php:401
-msgid "Restoring NAT settings"
-msgstr "Przywracanie ustawień NAT"
-
-#: bin/restore.php:439
-msgid "Restoring Settings complete"
-msgstr "Przywracanie ustawień zakończone"
-
-#: bin/restore.php:121
-msgid "Restoring all files (this may take some time)..."
-msgstr "Przywracanie wszystkich plików (może to zająć kilka minut)..."
-
-#: bin/restore.php:429
-msgid "Restoring astDB..."
-msgstr "Przywracanie astDB..."
-
-#: bin/backup.php:171
-msgid "Restoring backup..."
-msgstr "Przywracanie kopii zapasowej..."
-
-#: bin/restore.php:125
-msgid "Restoring files (this may take some time)..."
-msgstr "Przywracanie plików (może to zająć kilka minut)..."
-
-#: views/cron.php:120
-msgid "Run Automatically"
-msgstr "Uruchom automatycznie"
-
-#: views/cron.php:97
-msgid ""
-"Run at startup of the server OR of the cron deamon (i.e. after every "
-"<code>service cron restart</code>)"
+#: views/restore/landing.php:44
+msgid "Restore from local cache"
 msgstr ""
 
-#: page.backup.php:49
-msgid "Run now"
-msgstr "Uruchom teraz"
-
-#: views/cron.php:81
-msgid "Run once a day, at midnight"
-msgstr "Uruchom raz dziennie o północy"
-
-#: views/cron.php:89
-msgid "Run once a month, midnight, first of month"
-msgstr "Uruchom raz w miesiącu o północy pierwszego dnia miesiąca"
-
-#: views/cron.php:85
-msgid "Run once a week, midnight on Sun"
-msgstr "Uruchom raz w tygodniu o północy w niedzielę"
-
-#: views/cron.php:93
-msgid "Run once a year, midnight, Jan. 1"
-msgstr "Uruchom raz w roku, 1 stycznia o północy"
-
-#: views/cron.php:77
-msgid "Run once an hour, beginning of hour"
-msgstr "Uruchom raz na godzinę, zaczynając od godziny"
-
-#: functions.inc/class.backup.php:499
-msgid "Running maintenance.."
+#: views/restore/landing.php:73
+msgid "Restore from the cloud"
 msgstr ""
 
-#: bin/restore.php:445
-msgid "Running post restore script..."
-msgstr "Uruchamianie przywracania skryptu..."
-
-#: bin/backup.php:145 bin/backup.php:190
-msgid "Running post-backup hooks..."
+#: Backup.class.php:322
+msgid "Restore running"
 msgstr ""
 
-#: bin/restore.php:449
-msgid "Running post-restore hooks, if any..."
+#: Handlers/SingleRestore.php:65
+msgid "Restoring Data..."
 msgstr ""
 
-#: bin/backup.php:50
-msgid "Running pre-backup hooks..."
+#: Handlers/Restore.php:81
+#, php-format
+msgid "Restoring the data for %s, this may take a moment"
 msgstr ""
 
-#: bin/restore.php:111
-msgid "Running pre-restore hooks, if any..."
+#: views/restore/processRestore.php:10
+msgid "Run Date"
 msgstr ""
 
-#: bin/restore.php:108
-msgid "Running pre-restore scripts..."
+#: Backup.class.php:132
+msgid "Run Restore"
 msgstr ""
 
-#: views/backup/backup.php:554
-msgid "Runs"
-msgstr "Uruchomione"
-
-#: views/backup/backups.php:354
-msgid "SSH"
-msgstr "SSH"
-
-#: views/backup/backups.php:545
-msgid "SSH Key Path"
+#: assets/js/backup/backup.js:172
+msgid "Run the following in the CLI"
 msgstr ""
 
-#: views/servers/ssh.php:4
-msgid "SSH Server"
-msgstr "Serwer SSH"
+#: Handlers/Backup.php:40
+#, php-format
+msgid "Running Backup ID: %s"
+msgstr ""
 
-#: functions.inc/servers.php:277 functions.inc/servers.php:332
-msgid "SSH Server "
-msgstr "Serwer SSH "
+#: views/restore/processRestore.php:20
+msgid "Running a restore will overwrite current data. This cannot be undone!"
+msgstr ""
 
-#: views/servers/ssh.php:124
-msgid "SSH Username"
-msgstr "Nazwa użytkownika SSH"
+#: Handlers/Backup.php:249
+msgid "Running post backup hooks"
+msgstr ""
 
-#: views/cron.php:33 assets/js/backup.js:83
-msgid "Saturday"
-msgstr "Sobota"
+#: Handlers/Restore.php:94
+msgid "Running post restore hooks"
+msgstr ""
 
-#: Backup.class.php:192
+#: Handlers/Backup.php:42
+msgid "Running pre backup hooks"
+msgstr ""
+
+#: Handlers/Restore.php:55
+msgid "Running pre restore hooks"
+msgstr ""
+
+#: Handlers/Restore.php:76
+#, php-format
+msgid "Running restore process for %s"
+msgstr ""
+
+#: views/backup/settings.php:27
+msgid "Runtime Log Path"
+msgstr ""
+
+#: Handlers/Backup.php:209
+#, php-format
+msgid "SHA256: %s"
+msgstr ""
+
+#: Backup.class.php:151
 msgid "Save"
 msgstr "Zapisz"
 
-#: Backup.class.php:197
+#: views/backup/form.php:388
+msgid "Save Changes"
+msgstr ""
+
+#: Backup.class.php:156
 msgid "Save and Run"
 msgstr "Zapisz i uruchom"
 
-#: functions.inc/class.backup.php:487
-msgid "Saving file to remote ftp"
-msgstr "Zapisywanie pliku do zdalnego ftp"
-
-#: views/cron.php:71
-msgid "Schedule Help"
-msgstr "Harmonogram pomocy"
-
-#: views/restore/browseserver.php:12
-msgid "Select a file and click go"
-msgstr "Wybierz plik i kliknij start"
-
-#: views/cron.php:73
-msgid ""
-"Select how often to run this backup. The following schedule will be followed "
-"for all but custom."
-msgstr ""
-"Wybierz jak często uruchomić tę kopię zapasową. Następujący harmonogram "
-"będzie obowiązywał dla wszystkich prócz niestandardowych."
-
-#: views/backup/backup.php:281
-msgid ""
-"Select the server to be backed up (this server, or any other SSH server)"
-msgstr "Wybierz serwer do archiwizacji (ten serwer lub inny serwer SSH)"
-
-#: views/cron.php:51
-msgid "September"
-msgstr "Wrzesień"
-
-#: views/restore/restore.php:55
-msgid "Server"
-msgstr "Serwer"
-
-#: views/backup/backups.php:398
-msgid "Server Address"
-msgstr "Adres serwera"
-
-#: views/backup/backups.php:374 views/servers/email.php:16
-#: views/servers/ftp.php:18 views/servers/local.php:16
-#: views/servers/mysql.php:16 views/servers/ssh.php:16
-msgid "Server Name"
-msgstr "Nazwa Serwera"
-
-#: assets/js/backup.js:24
-msgid "Server Name can not be blank"
-msgstr "Nazwa serwera nie może być pusta"
-
-#: views/backup/backups.php:422
-msgid "Server Port"
-msgstr "Port serwera"
-
-#: views/backup/backups.php:434
-msgid "Server Port, leave blank for default"
-msgstr "Port serwera, zostaw puste dla ustawień domyślnych"
-
-#: views/backup/backups.php:458
-msgid "Server Username"
-msgstr "Nazwa użytkownika serwera"
-
-#: assets/js/backup.js:28
-msgid "Server address can not be blank"
-msgstr "Adres serwera nie może być pusty"
-
-#: page.backup_servers.php:80 views/rnav/main.php:5
-msgid "Servers"
-msgstr "Serwery"
-
-#: bin/backup.php:179
-msgid "Skip Bindaddrss is Enabled... "
+#: Handlers/Backup.php:205
+msgid "Saving to selected Filestore locations"
 msgstr ""
 
-#: bin/restore.php:73
-msgid "Skipping host-specific Bind address"
+#: Handlers/Backup.php:222
+#, php-format
+msgid "Saving to: %s instance"
 msgstr ""
 
-#: bin/backup.php:104
-msgid "Something went wrong when connecting to remote server. Aborting!"
-msgstr "Wystąpił błąd podczas łączenia ze zdalnym serwerem. Przerwanie!"
-
-#: views/backup/backup.php:65 views/backup/backups.php:291
-msgid "Status Email"
-msgstr "Status e-mail"
-
-#: views/backup/backups.php:39
-msgid "Step 1"
-msgstr "Krok 1"
-
-#: views/backup/backups.php:48
-msgid "Step 2"
-msgstr "Krok 2"
-
-#: views/backup/backups.php:57
-msgid "Step 3"
-msgstr "Krok 3"
-
-#: views/backup/backups.php:66
-msgid "Step 4"
-msgstr "Krok 4"
-
-#: views/backup/backups.php:75
-msgid "Step 5"
-msgstr "Krok 5"
-
-#: views/backup/backup.php:442
-msgid "Storage Servers"
-msgstr "Serwery pamięci masowej"
-
-#: install.php:80
-msgid "Storage location for backups"
-msgstr "Miejsce przechowania kopii zapasowej"
-
-#: bin/backup.php:142
-msgid "Storing backup..."
-msgstr "Przechowywanie kopii zapasowej..."
-
-#: views/cron.php:27 assets/js/backup.js:83
-msgid "Sunday"
-msgstr "Niedziela"
-
-#: views/servers/mysql.php:28
-msgid "Supply a server name"
-msgstr "Podaj nazwę serwera"
-
-#: views/templates/template.php:18
-msgid "Template Name"
-msgstr "Nazwa szablonu"
-
-#: page.backup_templates.php:52 views/backup/backup.php:129
-#: views/rnav/main.php:6
-msgid "Templates"
-msgstr "Szablony"
-
-#: views/servers/ftp.php:123
-msgid "The FTP Server's file system type. If you are unsure set this to Auto"
+#: views/backup/form.php:199
+msgid "Schedule and Maintinence"
 msgstr ""
-"Typ plików systemu serwera FTP. Jeśli nie jesteś pewny, ustaw to na "
-"automatyczne"
 
-#: backup.i18n.php:22
+#: views/backup/form.php:242
+msgid "Scheduling"
+msgstr ""
+
+#: views/backup/form.php:82
+msgid "Select items to backup, create new items in the Filestore module"
+msgstr ""
+
+#: views/backup/form.php:189
+msgid "Select one or more storage locations"
+msgstr ""
+
+#: views/backup/form.php:371
+msgid "Selected"
+msgstr ""
+
+#: views/backup/transfer.php:26
+msgid "Server Mode"
+msgstr ""
+
+#: views/backup/warmspare.php:64
+msgid "Should the remote trunks be enabled"
+msgstr ""
+
+#: views/backup/warmspare.php:33
+msgid "Should the warm spare feature be enabled"
+msgstr ""
+
+#: Backup.class.php:213
+msgid "Something failed, The file may need to be removed manually."
+msgstr ""
+
+#: Handlers/Backup.php:48
+#, php-format
+msgid "Starting backup %s"
+msgstr ""
+
+#: views/restore/processRestore.php:43
+msgid "Status"
+msgstr ""
+
+#: views/backup/form.php:165
+msgid "Storage"
+msgstr ""
+
+#: views/backup/form.php:175
+msgid "Storage Location"
+msgstr ""
+
+#: Handlers/Backup.php:62
+#, php-format
+msgid "Storage Location: %s"
+msgstr ""
+
+#: assets/js/backup/backup.js:63
+msgid "Submitting backup job"
+msgstr ""
+
+#: views/backup/form.php:136
+msgid "Success"
+msgstr ""
+
+#: Backup.class.php:470
+msgid "System Transfer"
+msgstr ""
+
+#: Handlers/Legacy.php:114
+msgid "Temporary database loaded"
+msgstr ""
+
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "Pole od: dla wiadomości e-mail podczas korzystania z funkcji tworzenia kopii "
 "zapasowej poczty e-mail."
 
-#: page.backup_restore.php:191
-msgid "The Restore script Finished You can close this window"
-msgstr "Zakończono przywracanie skryptu. Można zamknąć to okno"
-
-#: page.backup_restore.php:188
-msgid "The Restore script is still running"
-msgstr "Przywracanie skryptu nadal trwa"
-
-#: functions.inc/class.backup.php:410
-msgid ""
-"The backup file exceeded the maximum SMTP limits of 25MB. It was not "
-"attempted to be sent. Please shrink your backup, or use a different method "
-"of transferring your backup."
+#: views/backup/warmspare.php:214
+msgid "The address of the remote server."
 msgstr ""
-"Plik kopii zapasowej przekroczył maksymalne limity SMTP 25 MB. Nie próbowano "
-"go wysłać. Proszę zmniejszyć kopię zapasową lub użyć innej metody "
-"przenoszenia kopii zapasowej."
 
-#: functions.inc/class.backup.php:413
+#: Handlers/Legacy.php:105
 #, php-format
-msgid ""
-"The backup file exceeded the soft limit set in SMTP configuration (%s "
-"bytes). It was not attempted to be sent. Please shrink your backup, or use a "
-"different method of transferring your backup."
-msgstr ""
-"Plik kopii zapasowej przekroczył limit miękki w konfiguracji SMTP (%s "
-"bajtów). Nie próbowano go wysłać. Proszę zmniejszyć kopię zapasową lub użyć "
-"innej metody przenoszenia kopii zapasowej."
-
-#: views/servers/email.php:113
-msgid ""
-"The maximum size a backup can be and still be emailed. Some email servers "
-"limit the size of email attachments, this will make sure that files larger "
-"than the max size are not sent."
-msgstr ""
-"Maksymalny rozmiar kopii zapasowej może być i nadal  będą wysyłane pocztą "
-"elektroniczną. Niektóre serwery poczty elektronicznej ograniczają rozmiar "
-"załączników e-mail, co sprawi, że pliki większe niż maksymalny rozmiar nie "
-"zostaną wysłane."
-
-#: views/servers/ftp.php:166
-msgid ""
-"This defaults to 'Passive'. If your FTP server is behind a seperate NAT or "
-"Firewall to this VoIP server, you should select 'Active'. In 'Active' mode, "
-"the FTP server establishes a connection back to the VoIP server to receive "
-"the data. In 'Passive' mode, the VoIP server connects to the FTP Server to "
-"send data."
+msgid "The module %s does not seem to support legacy restores."
 msgstr ""
 
-#: views/servers/email.php:118
-msgid "This has a maximum size of 25MB."
-msgstr "To ma maksymalny rozmiar 25MB."
-
-#: views/backup/backup.php:252
-msgid "This server"
-msgstr "Ten serwer"
-
-#: views/backup/backups.php:84
+#: Handlers/Backup.php:131
 #, php-format
-msgid "This wizard can be used to add a basic backup task for your %s system"
+msgid "There was an error running the backup for %s... %s"
 msgstr ""
-"Ten kreator może zostać użyty do dodania podstawowego zadania tworzenia "
-"kopii zapasowych dla systemu %s"
 
-#: views/cron.php:31 assets/js/backup.js:83
-msgid "Thursday"
-msgstr "Czwartek"
-
-#: views/servers/ftp.php:153
-msgid "Transfer Mode"
-msgstr "Tryb transferu"
-
-#: views/backup/backups.php:494
-msgid "Transfer Type"
-msgstr "Typ transferu"
-
-#: functions.inc/class.backup.php:492
+#: Handlers/Restore.php:86
 #, php-format
-msgid "Trying to upload %s to %s"
+msgid "There was an error running the restore for %s... %s"
 msgstr ""
 
-#: views/cron.php:29 assets/js/backup.js:83
-msgid "Tuesday"
-msgstr "Wtorek"
+#: Handlers/Backup.php:61
+msgid "This backup will be stored locally is subject to maintenance settings"
+msgstr ""
 
-#: views/item_table.php:5 views/servers/servers.php:21
-msgid "Type"
-msgstr "Typ"
+#: views/restore/landing.php:77
+msgid ""
+"This feature requires filestore be setup and may not be availible on a clean "
+"install"
+msgstr ""
 
-#: functions.inc/class.backup.php:490
-msgid "Unable to upload file to the remote server"
-msgstr "Nie można przesłać pliku na serwer zdalny"
+#: assets/js/backup/backup.js:164
+msgid "This module has no settings"
+msgstr ""
 
-#: views/servers/ftp.php:115
-msgid "Unix/Linux"
-msgstr "Unix/Linux"
+#: views/restore/processRestore.php:21
+msgid ""
+"This restore will attempt to install and enable the module version in the "
+"backup."
+msgstr ""
 
-#: install.php:290
+#: views/restore/processRestore.php:22
+msgid "This restore will only affect the modules listed below"
+msgstr ""
+
+#: Handlers/Backup.php:41
 #, php-format
-msgid "Updated Job %s with new custom sounds directory"
-msgstr ""
-"Zaktualizowano zadanie %s przy użyciu nowego katalogu dźwięków "
-"niestandardowych"
-
-#: install.php:278
-msgid "Updated System Recordings template"
+msgid "Transaction: %s"
 msgstr ""
 
-#: views/restore/restore.php:19
-msgid "Upload File"
-msgstr "Przesyłanie pliku"
-
-#: views/servers/mysql.php:112
-msgid "User Name"
-msgstr "Nazwa użytkownika"
-
-#: views/backup/backups.php:446 views/servers/ftp.php:80
-#: views/servers/ssh.php:112
-msgid "Username"
-msgstr "Nazwa użytkownika"
-
-#: bin/backup.php:109
-msgid "Verifying received file..."
-msgstr "Weryfikacja otrzymanego pliku..."
-
-#: install.php:163
-msgid "Voice Mail Storage"
-msgstr "Przechowywanie poczty głosowej"
-
-#: views/backup/backups.php:179
-msgid "Voicemails"
-msgstr "Poczta głosowa"
-
-#: bin/restore.php:268
-msgid "WARNING!"
-msgstr "OSTRZEŻENIE!"
-
-#: bin/restore.php:269
-msgid "Web Root restore not detected, not restoring module table"
+#: views/backup/transfer.php:6
+msgid "Transfer Id"
 msgstr ""
 
-#: views/cron.php:30 assets/js/backup.js:83
-msgid "Wednesday"
-msgstr "Środa"
-
-#: views/cron.php:220
-msgid "Week Days"
-msgstr "Dni tygodnia"
-
-#: views/backup/backups.php:149 views/cron.php:6
-msgid "Weekly"
-msgstr "Co tydzień"
-
-#: views/backup/backup.php:525
-msgid "Weeks"
-msgstr "Tygodnie"
-
-#: views/backup/backups.php:82
-msgid "Welcome to the Backup Wizard"
-msgstr "Witaj w kreatorze kopii zapasowej"
-
-#: views/backup/backups.php:169
-msgid "What should we backup?"
-msgstr "Czego kopię zapasową utworzyć?"
-
-#: views/servers/awss3.php:46 views/servers/awss3.php:63
-msgid "What's this?"
-msgstr "Co to jest?"
-
-#: views/backup/backups.php:303
-msgid "Where should status emails for this job be sent?"
-msgstr ""
-"Gdzie powinny być przesyłane wiadomości e-mail o statusie tego zadania?"
-
-#: views/cron.php:234
-msgid "Which Days of the week to run"
-msgstr "W które dni tygodnia uruchomić"
-
-#: views/cron.php:208
-msgid "Which Hours to run."
-msgstr "W które godziny uruchomić."
-
-#: views/cron.php:260
-msgid "Which Months to run"
-msgstr "W które miesiące uruchomić"
-
-#: views/cron.php:182
-msgid "Which minutes to run"
-msgstr "W które minuty uruchomić"
-
-#: views/servers/ftp.php:117
-msgid "Windows"
+#: Backup.class.php:1015
+msgid "Uninstalled or Disabled"
 msgstr ""
 
-#: Backup.class.php:67
-msgid "Wizard"
-msgstr "Kreator"
+#: views/backup/form.php:305
+msgid "Unlimited"
+msgstr ""
 
-#: views/backup/backups.php:279
-msgid "Would you like an email when this job runs?"
-msgstr "Czy wysłać e-mail kiedy to zadanie zostanie uruchomione?"
+#: views/restore/landing.php:34
+msgid "Upload a valid backup.tar.gz"
+msgstr ""
 
-#: views/backup/backups.php:255
-msgid "Would you like notifications?"
-msgstr "Czy chcesz otrzymywać powiadomienia?"
+#: views/restore/landing.php:8
+msgid "Upload your restore file"
+msgstr ""
 
-#: views/backup/backups.php:221
-msgid "Would you like to backup recordings?"
-msgstr "Czy utworzyć kopię zapasową nagrań?"
+#: views/backup/warmspare.php:238
+msgid "User on remote system with proper permissions, usually root."
+msgstr ""
 
-#: views/backup/backups.php:194
-msgid "Would you like voicemails backded up."
-msgstr "Czy utworzyć kopię zapasową poczty głosowej."
+#: views/restore/processRestore.php:42
+msgid "Version in Backup"
+msgstr ""
 
-#: views/backup/backup.php:529
-msgid "Years"
-msgstr "Lata"
+#: views/backup/warmspare.php:4
+msgid "Warm Spare"
+msgstr ""
 
-#: views/backup/backup.php:94 views/backup/backup.php:306
-#: views/backup/backup.php:331 views/backup/backup.php:358
-#: views/backup/backup.php:385 views/backup/backup.php:413
-#: views/backup/backups.php:184 views/backup/backups.php:211
-#: views/backup/backups.php:238 views/backup/backups.php:269
-#: views/backup/backups.php:325 views/cron.php:145
+#: Backup.class.php:227
+msgid "We can't seem to delete the chosen file"
+msgstr ""
+
+#: Backup.class.php:222
+msgid "We don't have permissions to this file"
+msgstr ""
+
+#: views/backup/form.php:254
+msgid "When should this backup run"
+msgstr ""
+
+#: views/backup/form.php:155
+msgid "When to email"
+msgstr ""
+
+#: views/backup/form.php:217 views/backup/warmspare.php:21
+#: views/backup/warmspare.php:52 views/backup/warmspare.php:83
+#: views/backup/warmspare.php:115 views/backup/warmspare.php:147
+#: views/backup/warmspare.php:178
 msgid "Yes"
 msgstr "Tak"
 
-#: bin/restore.php:270
-#, php-format
-msgid "You should run \"%s\" to ensure system integrity"
-msgstr "Powinieneś uruchomić \"%s\" w celu zapewnienia integralności systemu"
-
-#: views/backup/backups.php:312
-msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
-msgstr ""
-"Twoja kopia zapasowa zostanie zapisana lokalnie na /var/spool/asterisk/backup"
-
-#: install.php:126
-msgid "added default backup servers"
-msgstr "Dodano domyślne serwery kopii zapasowych"
-
-#: install.php:215
-msgid "added default backup templates"
-msgstr "Dodane domyślne szablony tworzenia kopii zapasowych"
-
-#: functions.inc/class.backup.php:400
-msgid "astDb's"
-msgstr "astDb's"
-
-#: views/item_table.php:48
-msgid "chose"
-msgstr "wybierz"
-
-#: functions.inc/restore.php:32
-msgid "error/not found!"
-msgstr "błąd nie znaleziony!"
-
-#: functions.inc/restore.php:226
-msgid "manifest not found"
+#: assets/js/backup/backup.js:124
+msgid "Your backup has finished"
 msgstr ""
 
-#: functions.inc/templates.php:289
-msgid "table names, one per line"
-msgstr "Nazwy tabel, po jednej w wierszu"
+#~ msgid "Download"
+#~ msgstr "Pobieranie"
 
-#: bin/backup.php:45
-msgid "waiting for lock..."
-msgstr "oczekiwanie na blokadę..."
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Kopia zapasowa & Przywracanie - Serwery"
 
-#: functions.inc/templates.php:281
-msgid "{no servers available}"
-msgstr "{brak dostępnych serwerów}"
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Kopia zapasowa & Przywracanie - Szblony"
+
+#~ msgid "%s Backup Wizard"
+#~ msgstr "%s Kreator kopii zapasowej"
+
+#~ msgid "/path/to/dir"
+#~ msgstr "/ścieżka/do/katalogu"
+
+#~ msgid "/path/to/file"
+#~ msgstr "/ścieżka/do/pliku"
+
+#~ msgid ""
+#~ "A full backup of core settings and web files, doesn't include system "
+#~ "sounds or recordings."
+#~ msgstr ""
+#~ "Pełna kopia zapasowa ustawień podstawowych i plików internetowych, nie "
+#~ "uwzględnia dźwięków i nagrań systemowych."
+
+#~ msgid "A script to be run AFTER a backup is completed."
+#~ msgstr "Skrypt należy uruchomić PO wykonaniu kopii zapasowej."
+
+#~ msgid "A script to be run AFTER a backup is restored."
+#~ msgstr "Skrypt należy uruchomić PO przywróceniu kopii zapasowej."
+
+#~ msgid "A script to be run BEFORE a backup is restored."
+#~ msgstr "Skrypt należy uruchomić PRZED przywróceniem kopii zapasowej."
+
+#~ msgid "A script to be run BEFORE a backup is started."
+#~ msgstr ""
+#~ "Skrypt należy uruchomić PRZED rozpoczęciem tworzenia kopii zapasowej."
+
+#, fuzzy
+#~ msgid "AT"
+#~ msgstr "AT"
+
+#~ msgid "AWS Access Key"
+#~ msgstr "Klucz dostępu AWS"
+
+#~ msgid "AWS S3 Server "
+#~ msgstr "Serwer AWS S3 "
+
+#~ msgid "AWS Secret"
+#~ msgstr "AWS ukryty"
+
+#~ msgid "Active"
+#~ msgstr "Aktywny"
+
+#~ msgid "Add Server"
+#~ msgstr "Dodaj serwer"
+
+#~ msgid "Adding items..."
+#~ msgstr "Dodawanie obiektów..."
+
+#~ msgid "Amazon S3 Server "
+#~ msgstr "Serwer Amazon S3 "
+
+#~ msgid "Amazon S3&trade; Server"
+#~ msgstr "Serwer Amazon S3&trade"
+
+#~ msgid "Annually"
+#~ msgstr "Rocznie"
+
+#~ msgid "April"
+#~ msgstr "Kwiecień"
+
+#, fuzzy
+#~ msgid "AstDB's"
+#~ msgstr "AstDB's"
+
+#, fuzzy
+#~ msgid "Asterisk DB"
+#~ msgstr "Asterisk DB"
+
+#~ msgid "August"
+#~ msgstr "Sierpień"
+
+#~ msgid "Auto"
+#~ msgstr "Automatycznie"
+
+#~ msgid "Available Servers"
+#~ msgstr "Dostępne serwery"
+
+#~ msgid "B"
+#~ msgstr "B"
+
+#~ msgid "BACKUP LOG ATTACHED"
+#~ msgstr "LOG KOPII ZAPASOWEJ DOŁĄCZONY"
+
+#~ msgid "BACKUP NOT ATTACHED"
+#~ msgstr "KOPIA ZAPASOWA NIE DOŁĄCZONA"
+
+#~ msgid "Backup CDR and call record data?"
+#~ msgstr "Kopia zapasowa CDR a dane zapisu połączeń?"
+
+#~ msgid "Backup ERROR (exceeded SMTP limits)"
+#~ msgstr "Błąd kopii zapasowej (przekroczono limit SMTP)"
+
+#~ msgid "Backup ERROR (exceeded soft limit)"
+#~ msgstr "Błąd kopii zapasowej (przekroczono limit oprogramowania)"
+
+#~ msgid "Backup Frequency"
+#~ msgstr "Częstotliwość kopii zapasowej"
+
+#~ msgid "Backup Lock acquired!"
+#~ msgstr "Backup Lock wymagany!"
+
+#, fuzzy
+#~ msgid "Backup Log:"
+#~ msgstr "Backup Log:"
+
+#~ msgid "Backup Schedule"
+#~ msgstr "Plan kopii zapasowej"
+
+#~ msgid "Backup Server"
+#~ msgstr "Serwer kopii zapasowej"
+
+#~ msgid "Backup Server not found!"
+#~ msgstr "Nie znaleziono serwera kopii zapasowej!"
+
+#~ msgid "Backup Template"
+#~ msgstr "Szablon kopii zapasowej"
+
+#~ msgid "Backup and Restore"
+#~ msgstr "Kopia zapasowa i przywracanie"
+
+#~ msgid "Backup completed with errors!"
+#~ msgstr "Tworzenie kopii zapasowej zakończyło się błędem!"
+
+#~ msgid ""
+#~ "Backup failed dumping SQL database [%s] to file [%s], you have a "
+#~ "corrupted backup from server [%s]."
+#~ msgstr ""
+#~ "Błąd podczas tworzenia kopii zapasowej, baza danych SQL zrzuca [%s] do "
+#~ "pliku [%s], masz uszkodzoną kopię zapasową z serwera [%s]."
+
+#~ msgid "Backup file not found! Aborting."
+#~ msgstr "Nie zaleziono pliku kopii zapasowej! Przerywanie."
+
+#~ msgid "Backup module not found or is disabled. Aborting!"
+#~ msgstr "Moduł kopii zapasowej nie znaleziony lub wyłączony. Przerywanie!"
+
+#~ msgid "Backup successfully completed!"
+#~ msgstr "Tworzenie kopii zapasowej zakończono sukcesem!"
+
+#~ msgid "Backups"
+#~ msgstr "Kopie zapasowe"
+
+#~ msgid "Basic Backup Information"
+#~ msgstr "podstawowe informacje kopii zapasowej"
+
+#~ msgid "Browse"
+#~ msgstr "Przeglądanie"
+
+#~ msgid "Browser reconnected realtime updates are unavailable."
+#~ msgstr ""
+#~ "Przeglądarka odświeżona, aktualizacje w czasie rzeczywistym nie są "
+#~ "możliwe."
+
+#, fuzzy
+#~ msgid "Bucket Name"
+#~ msgstr "Bucket Name"
+
+#~ msgid "Building manifest..."
+#~ msgstr "Budowanie manifestu..."
+
+#~ msgid "CDR and Call Log Data"
+#~ msgstr "CDR i dane rejestru połączeń"
+
+#~ msgid "CDR server, generally a local database server"
+#~ msgstr "Serwer CDR, zwykle lokalny serwer baz danych"
+
+#~ msgid "CDR's"
+#~ msgstr "CDR"
+
+#~ msgid "Call Detail Records"
+#~ msgstr "Szczegółowe zapisy połączeń"
+
+#~ msgid "Call Recordings"
+#~ msgstr "Nagrania rozmowy"
+
+#~ msgid "Can not create backup tables"
+#~ msgstr "Nie można stworzyć tabeli kopii zapasowej"
+
+#~ msgid "Cleaning up..."
+#~ msgstr "Czyszczenie..."
+
+#~ msgid "Click 'Next' to continue."
+#~ msgstr "Naciśnij \"Dalej\" aby kontynuować."
+
+#~ msgid "Configurations only"
+#~ msgstr "Tylko konfiguracje"
+
+#~ msgid "Connecting to remote server..."
+#~ msgstr "Łączenie z serwerem zdalnym..."
+
+#~ msgid "Created"
+#~ msgstr "Stworzono"
+
+#~ msgid "Creating backup..."
+#~ msgstr "Tworzenie kopii zapasowej..."
+
+#~ msgid "Creating directory '%s'"
+#~ msgstr "Tworzenie katalogu '%s'"
+
+#~ msgid "Custom"
+#~ msgstr "Zwyczajny"
+
+#~ msgid "DB Name"
+#~ msgstr "Nazwa DB"
+
+#~ msgid "Daily"
+#~ msgstr "Codziennie"
+
+#~ msgid "Day each month"
+#~ msgstr "Dzień każdego miesiąca"
+
+#~ msgid "Day of Week"
+#~ msgstr "Dzień tygodnia"
+
+#~ msgid "Days"
+#~ msgstr "Dni"
+
+#~ msgid "Days of Month"
+#~ msgstr "Dni miesiąca"
+
+#~ msgid "Days of month to run"
+#~ msgstr "Dni miesiąca do uruchomienia"
+
+#~ msgid "December"
+#~ msgstr "Grudzień"
+
+#~ msgid "Default"
+#~ msgstr "Fabryczny"
+
+#~ msgid "Default backup; automatically installed"
+#~ msgstr "Fabryczna kopia zapasowa; zainstalowana automatycznie"
+
+#~ msgid "Delete After"
+#~ msgstr "Skasuj później"
+
+#~ msgid ""
+#~ "Delete this backup after X amount of minutes/hours/days/weeks/months/"
+#~ "years. Please note that deletes aren't time based and will only happen "
+#~ "after a backup was run. Setting the value to 0 will disable any deleting"
+#~ msgstr ""
+#~ "Skasuj tę kopię zapasową po X liczbie minut/godzin/dni/tygodni/miesięcy/"
+#~ "lat. Należy pamiętać, że usuwanie nie jest osadzone w czasie i nastąpi "
+#~ "dopiero po włączeniu kopii zapasowej. Ustawienie wartości 0 spowoduje "
+#~ "wyłączenie każdego usuwania"
+
+#~ msgid ""
+#~ "Delete this backup after X amount of runs. Setting the value to 0 will "
+#~ "disable any deleting"
+#~ msgstr ""
+#~ "Skasuj tę kopię zapasową po X liczbie uruchomień. Ustawienie wartości 0 "
+#~ "spowoduje wyłączenie każdego usuwania"
+
+#~ msgid "Delete this entry. Don't forget to click Submit to save changes!"
+#~ msgstr "Usuń ten wpis. Nie zapomnij kliknąć 'Zatwierdź' aby zapisać zmiany!"
+
+#~ msgid "Description or notes for this backup"
+#~ msgstr "Opis lub notatka dla tej kopii zapasowej"
+
+#~ msgid "Description or notes for this server"
+#~ msgstr "Opis lub notatka dla tego serwera"
+
+#~ msgid "Destination"
+#~ msgstr "Miejsce docelowe"
+
+#~ msgid "Directory"
+#~ msgstr "Książka adresowa"
+
+#~ msgid "Directory '%s' did not exist and we could not create it"
+#~ msgstr "Książka adresowa '%s' nie istnieje i nie można jej stworzyć"
+
+#~ msgid "Done!"
+#~ msgstr "Zrobione!"
+
+#~ msgid ""
+#~ "Drag templates and drop them in the items table to add the templates "
+#~ "items to the table"
+#~ msgstr ""
+#~ "Przeciągnij szablony i upuść je w tabeli przedmiotów aby dodać szablony "
+#~ "do tabeli"
+
+#~ msgid "Drop Here"
+#~ msgstr "Upuść tutaj"
+
+#~ msgid "Email Address"
+#~ msgstr "Adres email"
+
+#~ msgid "Email Notifications"
+#~ msgstr "Zgłoszenia email"
+
+#~ msgid "Email Server"
+#~ msgstr "Serwer email"
+
+#~ msgid "Email Server "
+#~ msgstr "Serwer email "
+
+#~ msgid "Email address where backups should be emailed to"
+#~ msgstr "Adres email na który powinna zostać wysłana kopia zapasowa"
+
+#~ msgid "Email to send status messages to when this task is run"
+#~ msgstr ""
+#~ "Email na który ma zostać wysłany status wiadomości kiedy to zadanie jest "
+#~ "włączone"
+
+#~ msgid "Error creating the FTP object"
+#~ msgstr "Błąd tworzenia obiektu FTP"
+
+#~ msgid "Error deleting %s"
+#~ msgstr "Błąd usuwania %s"
+
+#~ msgid "Error uploading file!"
+#~ msgstr "Błąd przenoszenia pliku!"
+
+#~ msgid "Error verifying uploaded file!"
+#~ msgstr "Błąd weryfikacji przeniesionego pliku!"
+
+#~ msgid "Exclude"
+#~ msgstr "Wykluczyć"
+
+#~ msgid ""
+#~ "Exclude Backup's settings so that they dont get restored, useful for a "
+#~ "remote restore"
+#~ msgstr ""
+#~ "Wykluczyć ustawienia kopii zapasowej tak aby ich nie przywrócić, "
+#~ "przydatne przy zdalnym przywracaniu"
+
+#~ msgid "FTP"
+#~ msgstr "FTP"
+
+#~ msgid "FTP Password"
+#~ msgstr "Hasło FTP"
+
+#~ msgid "FTP Server"
+#~ msgstr "Serwer FTP"
+
+#~ msgid "FTP Server "
+#~ msgstr "Serwer FTP "
+
+#~ msgid "FTP Transfer type"
+#~ msgstr "Typ transferu FTP"
+
+#~ msgid "FTP Username"
+#~ msgstr "Nazwa użytkownika FTP"
+
+#~ msgid "Failed to retrieve file from server!"
+#~ msgstr "Odzyskiwanie pliku z serwera nie powiodło się!"
+
+#~ msgid "February"
+#~ msgstr "Luty"
+
+#~ msgid "File"
+#~ msgstr "Plik"
+
+#~ msgid "File not found! "
+#~ msgstr "Plik nie znaleziony! "
+
+#~ msgid "File restore complete!"
+#~ msgstr "Odzyskiwanie pliku zakończone!"
+
+#~ msgid "File verification failed. "
+#~ msgstr "Weryfikacja pliku nie powiodła się. "
+
+#~ msgid "Files"
+#~ msgstr "Pliki"
+
+#~ msgid "FreePBX"
+#~ msgstr "FreePBX"
+
+#~ msgid "Friday"
+#~ msgstr "Piątek"
+
+#~ msgid "Getting CDR size..."
+#~ msgstr "Uzyskiwanie rozmiaru CDR..."
+
+#~ msgid "Give your backup a description"
+#~ msgstr "Daj opis kopii zapasowej"
+
+#~ msgid "Go!"
+#~ msgstr "Start!"
+
+#~ msgid ""
+#~ "Here are the first few lines of the file as sent by the remote server:"
+#~ msgstr ""
+#~ "To jest kilka pierwszych wersów pliku wysłanych przez serwer zdalny:"
+
+#~ msgid "Hostname"
+#~ msgstr "Nazwa hosta"
+
+#~ msgid "Hourly"
+#~ msgstr "Cogodzinny"
+
+#~ msgid "Hours"
+#~ msgstr "Godziny"
+
+#~ msgid "How often should we backup?"
+#~ msgstr "Jak często tworzyć kopię zapasową?"
+
+#~ msgid "IP Address or FQDN of your server"
+#~ msgstr "Adres IP lub FQDN dla serwera"
+
+#~ msgid "IP address or FQDN of remote SSH server"
+#~ msgstr "Adres IP lub FQDN lub zdalny serwer SSH"
+
+#~ msgid "IP address or FQDN of remote ftp host"
+#~ msgstr "Adres IP lub FQDN dla zdalnego hosta ftp"
+
+#~ msgid "IP address or FQDN of remote mysql host"
+#~ msgstr "Adres IP lub FQDN dla zdalnego hosta mysql"
+
+#~ msgid "Import"
+#~ msgstr "Import"
+
+#~ msgid "Initializing Backup"
+#~ msgstr "Rozpoczęcie kopii zapasowej"
+
+#~ msgid "Initializing Restore..."
+#~ msgstr "Rozpoczęcie przywracania..."
+
+#~ msgid "Introduction"
+#~ msgstr "Wprowadzenie"
+
+#~ msgid "Invalid Backup Name"
+#~ msgstr "Nieprawidłowa nazwa kopii zapasowej"
+
+#~ msgid "Invalid backup for or undefined error"
+#~ msgstr ""
+#~ "Nieprawidłowy do tworzenia kopii zapasowej lub niezidentyfikowany błąd"
+
+#~ msgid "Item"
+#~ msgstr "Pozycja"
+
+#~ msgid "Items"
+#~ msgstr "Pozycje"
+
+#~ msgid "January"
+#~ msgstr "Styczeń"
+
+#~ msgid "July"
+#~ msgstr "Lipiec"
+
+#~ msgid "June"
+#~ msgstr "Czerwiec"
+
+#~ msgid "KB"
+#~ msgstr "KB"
+
+#~ msgid "Key"
+#~ msgstr "Klucz"
+
+#~ msgid "Local Server"
+#~ msgstr "Serwer lokalny"
+
+#~ msgid "Local Server "
+#~ msgstr "Serwer lokalny "
+
+#~ msgid "Location of ssh private key to be used when connecting to a host"
+#~ msgstr ""
+#~ "Lokalizacja prywatnego klucza do wykorzystania podczas łączenia z hostem"
+
+#~ msgid "MB"
+#~ msgstr "MB"
+
+#~ msgid "March"
+#~ msgstr "Marzec"
+
+#~ msgid "Max Email Size"
+#~ msgstr "Maksymalny rozmiar maila"
+
+#~ msgid "May"
+#~ msgstr "Maj"
+
+#~ msgid "Minutes"
+#~ msgstr "Minuty"
+
+#~ msgid "Monday"
+#~ msgstr "Poniedziałek"
+
+#~ msgid "Monthly"
+#~ msgstr "Miesięczny"
+
+#~ msgid "Months"
+#~ msgstr "Miesiące"
+
+#~ msgid "MySQL Server"
+#~ msgstr "Serwer MySQL"
+
+#~ msgid "Mysql"
+#~ msgstr "Mysql"
+
+#~ msgid "Mysql DB's"
+#~ msgstr "Mysql DB's"
+
+#~ msgid "Mysql Db's"
+#~ msgstr "Mysql Db's"
+
+#~ msgid "Mysql Server "
+#~ msgstr "Serwer Mysql "
+
+#~ msgid "Name this Server"
+#~ msgstr "Nazwa tego serwera"
+
+#~ msgid "Name this backup"
+#~ msgstr "Nazwa tej kopii zapasowej"
+
+#~ msgid "Never"
+#~ msgstr "Nigdy"
+
+#~ msgid "New Amazon S3 server"
+#~ msgstr "Nowy serwer Amazon S3"
+
+#~ msgid "New Backup"
+#~ msgstr "Nowa kopia zapasowa"
+
+#~ msgid "New Email server"
+#~ msgstr "Nowy serwer email"
+
+#~ msgid "New FTP server"
+#~ msgstr "Nowy serwer FTP"
+
+#~ msgid "New Local server"
+#~ msgstr "Nowy serwer lokalny"
+
+#~ msgid "New MySQL server"
+#~ msgstr "Nowy serwer MySQL"
+
+#~ msgid "New SSH server"
+#~ msgstr "Nowy serwer SSH"
+
+#~ msgid "New Template"
+#~ msgstr "Nowy szablon"
+
+#~ msgid "Nightly"
+#~ msgstr "Nocny"
+
+#~ msgid "No items in backup set. Aborting."
+#~ msgstr "Brak elementów w zestawie kopii zapasowej. Przywracanie."
+
+#~ msgid "No storage servers found! Aborting."
+#~ msgstr "Nie znaleziono serwerów pamięci masowej! Przywracanie."
+
+#~ msgid "Nothing to restore!"
+#~ msgstr "Nic do przywrócenia!"
+
+#~ msgid "November"
+#~ msgstr "Listopad"
+
+#~ msgid "ON"
+#~ msgstr "Włącz"
+
+#~ msgid "October"
+#~ msgstr "Październik"
+
+#~ msgid "On Failure Only"
+#~ msgstr "Tylko w przypadku awarii"
+
+#~ msgid "On the"
+#~ msgstr "Na"
+
+#~ msgid "Only send an email on failure"
+#~ msgstr "Wyślij email tylko w przypadku awarii"
+
+#~ msgid "Optional description or notes for this backup temnplate."
+#~ msgstr "Opcjonalny opis lub notatki dla szablonu kopii zapasowej."
+
+#~ msgid "PBX Settings"
+#~ msgstr "Ustawienia PBX"
+
+#~ msgid "PBX config server, generally a local database server"
+#~ msgstr "Konfiguracje PBX serwera, na ogół lokalny serwer baz danych"
+
+#~ msgid "Passive"
+#~ msgstr "Pasywny"
+
+#~ msgid "Password"
+#~ msgstr "Hasło"
+
+#~ msgid "Path"
+#~ msgstr "Ścieżka"
+
+#~ msgid "Path on remote server"
+#~ msgstr "Ścieżka dostępu na zdalnym serwerze"
+
+#~ msgid ""
+#~ "Path on remote server. This must be a COMPLETE PATH, starting with a / - "
+#~ "for example, <tt>/home/backups/freepbx</tt>. A path without a leading "
+#~ "slash will not work, and will behave in unexpected ways."
+#~ msgstr ""
+#~ "Ścieżka dostępu na zdalnym serwerze. Musi to być KOMPLETNA ŚCIEŻKA, "
+#~ "zaczynająca się od / - na przykład, <tt>/home/backups/freepbx</tt>. "
+#~ "Ścieżka bez śledzącego ukośnika nie zadziała i zachowa się w "
+#~ "niespodziewany sposób."
+
+#~ msgid "Path to ssh key, example /home/asterisk/.ssh/id_rsa"
+#~ msgstr "Ścieżka do klucza ssh, przykład /home/asterisk/.ssh/id_rsa"
+
+#~ msgid "Path/DB"
+#~ msgstr "Ścieżka/DB"
+
+#~ msgid "Please wait"
+#~ msgstr "Proszę czekać"
+
+#~ msgid "Please wait, loading..."
+#~ msgstr "Proszę czekać, ładowanie..."
+
+#~ msgid "Port"
+#~ msgstr "Port"
+
+#~ msgid "Preserving local NAT settings"
+#~ msgstr "Zachowanie ustawień lokalnych NAT"
+
+#~ msgid "Processing received file..."
+#~ msgstr "Przetwarzanie otrzymanego pliku..."
+
+#~ msgid "Provide the name for this server"
+#~ msgstr "Podaj nazwę dla tego serwera"
+
+#~ msgid "Randomize"
+#~ msgstr "Losowy"
+
+#~ msgid "Reboot"
+#~ msgstr "Restart"
+
+#~ msgid "Reloading..."
+#~ msgstr "Ponowne ładowanie..."
+
+#~ msgid "Remote Database Name"
+#~ msgstr "Zdalna nazwa bazy danych"
+
+#~ msgid "Remote MySQL Port"
+#~ msgstr "Zdalny port MySQL"
+
+#~ msgid "Remote Path"
+#~ msgstr "Zdalna ścieżka"
+
+#~ msgid "Remote SSH Port"
+#~ msgstr "Zdalny port SSH"
+
+#~ msgid "Remote Save"
+#~ msgstr "Zdalny zapis"
+
+#~ msgid "Remote Server Settings?"
+#~ msgstr "Zdalne ustawienia serwera?"
+
+#~ msgid "Remote Server Type"
+#~ msgstr "Zdalny typ serwera"
+
+#~ msgid "Remote Server type"
+#~ msgstr "Zdalny typ serwera"
+
+#~ msgid "Remote save options"
+#~ msgstr "Zdalnie zapisz opcje"
+
+#~ msgid "Remote save path, blank for default"
+#~ msgstr "Zdalnie zapisz ścieżkę, puste dla domyślnych"
+
+#~ msgid "Restore CDR records stored in this backup"
+#~ msgstr "Przywracanie nagrań CDR zapisane w tej kopii zapasowej"
+
+#~ msgid "Restore Here"
+#~ msgstr "Przywróć tutaj"
+
+#~ msgid "Restore all setting stored in the database"
+#~ msgstr "Przywracanie wszystkich ustawień zapisanych w bazie danych"
+
+#~ msgid "Restore backup to this server after the backup is complete"
+#~ msgstr ""
+#~ "Przywracanie kopii zapasowej na tym serwerze po zakończeniu tworzenia "
+#~ "kopii zapasowej"
+
+#~ msgid "Restore complete!"
+#~ msgstr "Przywracanie zakończone!"
+
+#~ msgid "Restored Database"
+#~ msgstr "Przywrócono bazę danych"
+
+#~ msgid "Restoring CDRs complete"
+#~ msgstr "Przywracanie CDR zakończone"
+
+#~ msgid "Restoring CDRs..."
+#~ msgstr "Przywracanie CDR..."
+
+#~ msgid "Restoring Database..."
+#~ msgstr "Przywracanie bazy danych..."
+
+#~ msgid "Restoring NAT settings"
+#~ msgstr "Przywracanie ustawień NAT"
+
+#~ msgid "Restoring Settings complete"
+#~ msgstr "Przywracanie ustawień zakończone"
+
+#~ msgid "Restoring all files (this may take some time)..."
+#~ msgstr "Przywracanie wszystkich plików (może to zająć kilka minut)..."
+
+#~ msgid "Restoring astDB..."
+#~ msgstr "Przywracanie astDB..."
+
+#~ msgid "Restoring backup..."
+#~ msgstr "Przywracanie kopii zapasowej..."
+
+#~ msgid "Restoring files (this may take some time)..."
+#~ msgstr "Przywracanie plików (może to zająć kilka minut)..."
+
+#~ msgid "Run Automatically"
+#~ msgstr "Uruchom automatycznie"
+
+#~ msgid "Run now"
+#~ msgstr "Uruchom teraz"
+
+#~ msgid "Run once a day, at midnight"
+#~ msgstr "Uruchom raz dziennie o północy"
+
+#~ msgid "Run once a month, midnight, first of month"
+#~ msgstr "Uruchom raz w miesiącu o północy pierwszego dnia miesiąca"
+
+#~ msgid "Run once a week, midnight on Sun"
+#~ msgstr "Uruchom raz w tygodniu o północy w niedzielę"
+
+#~ msgid "Run once a year, midnight, Jan. 1"
+#~ msgstr "Uruchom raz w roku, 1 stycznia o północy"
+
+#~ msgid "Run once an hour, beginning of hour"
+#~ msgstr "Uruchom raz na godzinę, zaczynając od godziny"
+
+#~ msgid "Running post restore script..."
+#~ msgstr "Uruchamianie przywracania skryptu..."
+
+#~ msgid "Runs"
+#~ msgstr "Uruchomione"
+
+#~ msgid "SSH"
+#~ msgstr "SSH"
+
+#~ msgid "SSH Server"
+#~ msgstr "Serwer SSH"
+
+#~ msgid "SSH Server "
+#~ msgstr "Serwer SSH "
+
+#~ msgid "SSH Username"
+#~ msgstr "Nazwa użytkownika SSH"
+
+#~ msgid "Saturday"
+#~ msgstr "Sobota"
+
+#~ msgid "Saving file to remote ftp"
+#~ msgstr "Zapisywanie pliku do zdalnego ftp"
+
+#~ msgid "Schedule Help"
+#~ msgstr "Harmonogram pomocy"
+
+#~ msgid "Select a file and click go"
+#~ msgstr "Wybierz plik i kliknij start"
+
+#~ msgid ""
+#~ "Select how often to run this backup. The following schedule will be "
+#~ "followed for all but custom."
+#~ msgstr ""
+#~ "Wybierz jak często uruchomić tę kopię zapasową. Następujący harmonogram "
+#~ "będzie obowiązywał dla wszystkich prócz niestandardowych."
+
+#~ msgid ""
+#~ "Select the server to be backed up (this server, or any other SSH server)"
+#~ msgstr "Wybierz serwer do archiwizacji (ten serwer lub inny serwer SSH)"
+
+#~ msgid "September"
+#~ msgstr "Wrzesień"
+
+#~ msgid "Server"
+#~ msgstr "Serwer"
+
+#~ msgid "Server Address"
+#~ msgstr "Adres serwera"
+
+#~ msgid "Server Name"
+#~ msgstr "Nazwa Serwera"
+
+#~ msgid "Server Name can not be blank"
+#~ msgstr "Nazwa serwera nie może być pusta"
+
+#~ msgid "Server Port"
+#~ msgstr "Port serwera"
+
+#~ msgid "Server Port, leave blank for default"
+#~ msgstr "Port serwera, zostaw puste dla ustawień domyślnych"
+
+#~ msgid "Server Username"
+#~ msgstr "Nazwa użytkownika serwera"
+
+#~ msgid "Server address can not be blank"
+#~ msgstr "Adres serwera nie może być pusty"
+
+#~ msgid "Servers"
+#~ msgstr "Serwery"
+
+#~ msgid "Something went wrong when connecting to remote server. Aborting!"
+#~ msgstr "Wystąpił błąd podczas łączenia ze zdalnym serwerem. Przerwanie!"
+
+#~ msgid "Status Email"
+#~ msgstr "Status e-mail"
+
+#~ msgid "Step 1"
+#~ msgstr "Krok 1"
+
+#~ msgid "Step 2"
+#~ msgstr "Krok 2"
+
+#~ msgid "Step 3"
+#~ msgstr "Krok 3"
+
+#~ msgid "Step 4"
+#~ msgstr "Krok 4"
+
+#~ msgid "Step 5"
+#~ msgstr "Krok 5"
+
+#~ msgid "Storage Servers"
+#~ msgstr "Serwery pamięci masowej"
+
+#~ msgid "Storage location for backups"
+#~ msgstr "Miejsce przechowania kopii zapasowej"
+
+#~ msgid "Storing backup..."
+#~ msgstr "Przechowywanie kopii zapasowej..."
+
+#~ msgid "Sunday"
+#~ msgstr "Niedziela"
+
+#~ msgid "Supply a server name"
+#~ msgstr "Podaj nazwę serwera"
+
+#~ msgid "Template Name"
+#~ msgstr "Nazwa szablonu"
+
+#~ msgid "Templates"
+#~ msgstr "Szablony"
+
+#~ msgid ""
+#~ "The FTP Server's file system type. If you are unsure set this to Auto"
+#~ msgstr ""
+#~ "Typ plików systemu serwera FTP. Jeśli nie jesteś pewny, ustaw to na "
+#~ "automatyczne"
+
+#~ msgid "The Restore script Finished You can close this window"
+#~ msgstr "Zakończono przywracanie skryptu. Można zamknąć to okno"
+
+#~ msgid "The Restore script is still running"
+#~ msgstr "Przywracanie skryptu nadal trwa"
+
+#~ msgid ""
+#~ "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
+#~ "attempted to be sent. Please shrink your backup, or use a different "
+#~ "method of transferring your backup."
+#~ msgstr ""
+#~ "Plik kopii zapasowej przekroczył maksymalne limity SMTP 25 MB. Nie "
+#~ "próbowano go wysłać. Proszę zmniejszyć kopię zapasową lub użyć innej "
+#~ "metody przenoszenia kopii zapasowej."
+
+#~ msgid ""
+#~ "The backup file exceeded the soft limit set in SMTP configuration (%s "
+#~ "bytes). It was not attempted to be sent. Please shrink your backup, or "
+#~ "use a different method of transferring your backup."
+#~ msgstr ""
+#~ "Plik kopii zapasowej przekroczył limit miękki w konfiguracji SMTP (%s "
+#~ "bajtów). Nie próbowano go wysłać. Proszę zmniejszyć kopię zapasową lub "
+#~ "użyć innej metody przenoszenia kopii zapasowej."
+
+#~ msgid ""
+#~ "The maximum size a backup can be and still be emailed. Some email servers "
+#~ "limit the size of email attachments, this will make sure that files "
+#~ "larger than the max size are not sent."
+#~ msgstr ""
+#~ "Maksymalny rozmiar kopii zapasowej może być i nadal  będą wysyłane pocztą "
+#~ "elektroniczną. Niektóre serwery poczty elektronicznej ograniczają rozmiar "
+#~ "załączników e-mail, co sprawi, że pliki większe niż maksymalny rozmiar "
+#~ "nie zostaną wysłane."
+
+#~ msgid "This has a maximum size of 25MB."
+#~ msgstr "To ma maksymalny rozmiar 25MB."
+
+#~ msgid "This server"
+#~ msgstr "Ten serwer"
+
+#~ msgid ""
+#~ "This wizard can be used to add a basic backup task for your %s system"
+#~ msgstr ""
+#~ "Ten kreator może zostać użyty do dodania podstawowego zadania tworzenia "
+#~ "kopii zapasowych dla systemu %s"
+
+#~ msgid "Thursday"
+#~ msgstr "Czwartek"
+
+#~ msgid "Transfer Mode"
+#~ msgstr "Tryb transferu"
+
+#~ msgid "Transfer Type"
+#~ msgstr "Typ transferu"
+
+#~ msgid "Tuesday"
+#~ msgstr "Wtorek"
+
+#~ msgid "Type"
+#~ msgstr "Typ"
+
+#~ msgid "Unable to upload file to the remote server"
+#~ msgstr "Nie można przesłać pliku na serwer zdalny"
+
+#~ msgid "Unix/Linux"
+#~ msgstr "Unix/Linux"
+
+#~ msgid "Updated Job %s with new custom sounds directory"
+#~ msgstr ""
+#~ "Zaktualizowano zadanie %s przy użyciu nowego katalogu dźwięków "
+#~ "niestandardowych"
+
+#~ msgid "Upload File"
+#~ msgstr "Przesyłanie pliku"
+
+#~ msgid "User Name"
+#~ msgstr "Nazwa użytkownika"
+
+#~ msgid "Username"
+#~ msgstr "Nazwa użytkownika"
+
+#~ msgid "Verifying received file..."
+#~ msgstr "Weryfikacja otrzymanego pliku..."
+
+#~ msgid "Voice Mail Storage"
+#~ msgstr "Przechowywanie poczty głosowej"
+
+#~ msgid "Voicemails"
+#~ msgstr "Poczta głosowa"
+
+#~ msgid "WARNING!"
+#~ msgstr "OSTRZEŻENIE!"
+
+#~ msgid "Wednesday"
+#~ msgstr "Środa"
+
+#~ msgid "Week Days"
+#~ msgstr "Dni tygodnia"
+
+#~ msgid "Weekly"
+#~ msgstr "Co tydzień"
+
+#~ msgid "Weeks"
+#~ msgstr "Tygodnie"
+
+#~ msgid "Welcome to the Backup Wizard"
+#~ msgstr "Witaj w kreatorze kopii zapasowej"
+
+#~ msgid "What should we backup?"
+#~ msgstr "Czego kopię zapasową utworzyć?"
+
+#~ msgid "What's this?"
+#~ msgstr "Co to jest?"
+
+#~ msgid "Where should status emails for this job be sent?"
+#~ msgstr ""
+#~ "Gdzie powinny być przesyłane wiadomości e-mail o statusie tego zadania?"
+
+#~ msgid "Which Days of the week to run"
+#~ msgstr "W które dni tygodnia uruchomić"
+
+#~ msgid "Which Hours to run."
+#~ msgstr "W które godziny uruchomić."
+
+#~ msgid "Which Months to run"
+#~ msgstr "W które miesiące uruchomić"
+
+#~ msgid "Which minutes to run"
+#~ msgstr "W które minuty uruchomić"
+
+#~ msgid "Wizard"
+#~ msgstr "Kreator"
+
+#~ msgid "Would you like an email when this job runs?"
+#~ msgstr "Czy wysłać e-mail kiedy to zadanie zostanie uruchomione?"
+
+#~ msgid "Would you like notifications?"
+#~ msgstr "Czy chcesz otrzymywać powiadomienia?"
+
+#~ msgid "Would you like to backup recordings?"
+#~ msgstr "Czy utworzyć kopię zapasową nagrań?"
+
+#~ msgid "Would you like voicemails backded up."
+#~ msgstr "Czy utworzyć kopię zapasową poczty głosowej."
+
+#~ msgid "Years"
+#~ msgstr "Lata"
+
+#~ msgid "You should run \"%s\" to ensure system integrity"
+#~ msgstr ""
+#~ "Powinieneś uruchomić \"%s\" w celu zapewnienia integralności systemu"
+
+#~ msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
+#~ msgstr ""
+#~ "Twoja kopia zapasowa zostanie zapisana lokalnie na /var/spool/asterisk/"
+#~ "backup"
+
+#~ msgid "added default backup servers"
+#~ msgstr "Dodano domyślne serwery kopii zapasowych"
+
+#~ msgid "added default backup templates"
+#~ msgstr "Dodane domyślne szablony tworzenia kopii zapasowych"
+
+#~ msgid "astDb's"
+#~ msgstr "astDb's"
+
+#~ msgid "chose"
+#~ msgstr "wybierz"
+
+#~ msgid "error/not found!"
+#~ msgstr "błąd nie znaleziony!"
+
+#~ msgid "table names, one per line"
+#~ msgstr "Nazwy tabel, po jednej w wierszu"
+
+#~ msgid "waiting for lock..."
+#~ msgstr "oczekiwanie na blokadę..."
+
+#~ msgid "{no servers available}"
+#~ msgstr "{brak dostępnych serwerów}"

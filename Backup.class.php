@@ -17,13 +17,14 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Formatter as Formatter;
 use FreePBX\modules\Backup\Modules\Backupjobs;
 use FreePBX\modules\Backup\Modules\Servers;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use FreePBX_Helpers;
 use BMO;
-use PharData;
-use Phar;
-use ZipArchive;
+use splitbrain\PHPArchive\Tar;
 class Backup extends FreePBX_Helpers implements BMO {
 	const DEBUG = true;
+	public $swiftmsg = false;
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
 				throw new Exception('Not given a FreePBX Object');
@@ -62,7 +63,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 		 * The other modules will checkin on install and process the data needed by them.
 		 **/
 
-		$dbexist = $this->db->query("SHOW TABLES LIKE 'backup'")->columnCount();
+		$dbexist = $this->db->query("SHOW TABLES LIKE 'backup'")->rowCount();
 		if($dbexist === 1){
 			out(_("Migrating legacy backupjobs"));
 			out(_("Moving servers to filestore"));
@@ -183,7 +184,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			case 'run'              :
 			case 'runRestore'       :
 			case 'remotedownload'	:
-			case 'remotedelete'		:
+			case 'deleteRemote'		:
 			case 'localdownload'    :
 			case 'localRestoreFiles':
 			case 'restoreFiles'     :
@@ -202,8 +203,15 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 */
 	public function ajaxHandler() {
 		switch ($_REQUEST['command']) {
-			case 'remotedelete':
-			break;
+			case 'deleteRemote':
+				$server = $_REQUEST['id'];
+				$file = $_REQUEST['file'];
+				$server = explode('_', $server);
+				if($this->deleteRemote($server[0], $server[1], $file)){
+					return ['status' => true, "message" => _("File Deleted")];
+				}
+				return ['status' => false, "message" => _("Something failed, The file may need to be removed manually.")];
+
 			case 'deleteLocal':
 				$filepath = $this->pathFromId($_REQUEST['id']);
 				if(!$filepath){
@@ -238,28 +246,61 @@ class Backup extends FreePBX_Helpers implements BMO {
 				}
 				return ['status' => 'stopped', 'log' => $log];
 			case 'uploadrestore':
-			if(!isset($_FILES['filetorestore'])){
-				return ['status' => false, 'error' => _("No file provided")];
-			}
-			if($_FILES['filetorestore']['error'] !== 0){
-				return ['status' => false, 'err' => $_FILES['filetorestore']['error'], 'message' => _("File reached the server but could not be processed")];
-			}
-			if($_FILES['filetorestore']['type'] != 'application/x-gzip'){
-				return ['status' => false, 'mime' => $_FILES['filetorestore']['type'], 'message' => _("The uploaded file type is incorrect and couldn't be processed")];
-			}
-			$spooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
-			$path     = sprintf('%s/backup/uploads/',$spooldir);
-			//This will ignore if exists
-			$this->fs->mkdir($path);
-			$file = $path.basename($_FILES['filetorestore']['name']);
-			if (!move_uploaded_file($_FILES['filetorestore']['tmp_name'],$file)){
-				return ['status' => false, 'message' => _("Failed to copy the uploaded file")];
-			}
-			$this->setConfig(md5($file), $file, 'localfilepaths');
-			$backupFile = new BackupFile($file);
-			$meta       = $backupFile->getMetadata();
-			$this->setConfig('meta', $meta, md5($file));
-			return ['status' => true, 'id' => md5($file)];
+				$response = new Response(null,400,['Content-Type' => 'application/json']);
+				$err = false;
+				if (!isset($_FILES['file'])) {
+					$err = ['status' => false, 'error' => _("No file provided")];
+				}
+				if ($_FILES['file']['error'] !== 0) {
+					$err = ['status' => false, 'err' => $_FILES['file']['error'], 'message' => _("File reached the server but could not be processed")];
+				}
+
+				if ($_FILES['file']['type'] != 'application/x-gzip') {
+					//$err = ['status' => false, 'mime' => $_FILES['file']['type'], 'message' => _("The uploaded file type is incorrect and couldn't be processed")];
+				}
+				if($err !== false){
+					$response->setContent(json_encode($err));
+					$response->send();
+					exit();
+				}
+				$spooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
+				$path = sprintf('%s/backup/uploads/', $spooldir);
+				$finalname = $path.'/'. $_FILES['file']['name'];
+				$tmp_name = $_FILES['file']['tmp_name'];
+				$filename = $_FILES['file']['name'];
+				$num = $_POST['dzchunkindex'];
+				$num_chunks = $_POST['dztotalchunkcount'];
+				$uuid = $_POST['dzuuid'];
+				$partialPath = sprintf('%s/backup/uploads/%s/', $spooldir,$uuid);
+				$target_file = $partialPath.$filename;
+				@mkdir($partialPath, 0755, true);
+				move_uploaded_file($tmp_name, $partialPath.$filename.$num);
+				if($num + 1 == $num_chunks){
+					for ($i = 0; $i <= $num_chunks - 1; $i++) {
+
+						$file = fopen($target_file . $i, 'rb');
+						$buff = fread($file, 2097152);
+						fclose($file);
+
+						$final = fopen($finalname, 'ab');
+						$write = fwrite($final, $buff);
+						fclose($final);
+						unlink($target_file . $i);
+					}
+					$file = $finalname;
+					$this->setConfig(md5($file), $file, 'localfilepaths');
+					$backupFile = new BackupFile($file);
+					$meta = $backupFile->getMetadata();
+					$this->setConfig('meta', $meta, md5($file));
+					header("HTTP/1.1 200 Ok");
+					return ['status' => true, 'md5' => md5($file)];
+				}
+				if ($num + 1 < $num_chunks) {
+					header("HTTP/1.1 201 Created");
+					break;
+				}
+
+				break;
 			case 'localRestoreFiles':
 				return $this->getLocalFiles();
 			case 'restoreFiles':
@@ -388,7 +429,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 					$file = '/home/asterisk/.ssh/id_rsa.pub';
 					if (!file_exists($file)) {
 						$ssh = new FilestoreRemote();
-						$ret = $ssh->generateKey('/home/asterisk/.ssh');
+						$ssh->generateKey('/home/asterisk/.ssh');
 					}
 					$data = file_get_contents($file);
 					$vars['publickey'] = $data;
@@ -457,7 +498,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 						}
 						if($path){
 							$file = new BackupFile($path);
-							$manifest = $file->getMetaData($path);
+							$manifest = $file->getMetadata($path);
 						}
 						$vars['meta']     = $manifest;
 						$vars['date']     = $this->FreePBX->View->getDateTime($manifest['date']);
@@ -505,6 +546,11 @@ class Backup extends FreePBX_Helpers implements BMO {
 		}
 		$hookpath      = getenv('BACKUPHOOKDIR');
 		$hookpath      = $hookpath?$hookpath:'/home/asterisk/Backup';
+
+		if (!file_exists($hookpath)) {
+			return;
+		}
+
 		$filehooks     = ['BACKUPPREHOOKS' => 'preBackup','RESTOREPREHOOKS' => 'preRestore','BACKUPPOSTHOOKS' => 'postBackup','RESTOREPOSTHOOKS' => 'postRestore'];
 		foreach($filehooks as $hook => $objName){
 			$env = getenv($hook);
@@ -571,14 +617,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 		if(!isset($backupInfo['backup_emailtype']) || empty($backupInfo['backup_emailtype'])){
 			return false;
 		}
-		$transport      = \Swift_MailTransport::newInstance();
-		$this->swiftmsg = \Swift_Message::newInstance();
-		$this->swiftmsg->setContentType("text/html");
-		$swift         = \Swift_Mailer::newInstance($transport);
-		$this->handler = new BufferHandler(new SwiftMailerHandler($swift,$this->swiftmsg,\Monolog\Logger::INFO),0,\Monolog\Logger::INFO);
-		$formatter = new Formatter\HtmlFormatter();
-		$this->handler->SetFormatter($formatter);
-		$this->logger->customLog->pushHandler($this->handler);
 
 		$serverName   = $this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT');
 		$emailSubject = sprintf(_('Backup %s success for %s'),$backupInfo['backup_name'], $serverName);
@@ -599,6 +637,14 @@ class Backup extends FreePBX_Helpers implements BMO {
 		if(empty($from)){
 			return;
 		}
+		$transport = \Swift_MailTransport::newInstance();
+		$this->swiftmsg = \Swift_Message::newInstance();
+		$this->swiftmsg->setContentType("text/html");
+		$swift = \Swift_Mailer::newInstance($transport);
+		$this->handler = new BufferHandler(new SwiftMailerHandler($swift, $this->swiftmsg, \Monolog\Logger::INFO), 0, \Monolog\Logger::INFO);
+		$formatter = new Formatter\HtmlFormatter();
+		$this->handler->SetFormatter($formatter);
+		$this->logger->customLog->pushHandler($this->handler);
 		$this->swiftmsg->setFrom($from);
 		$this->swiftmsg->setSubject($emailSubject);
 		$this->swiftmsg->setTo($backupInfo['backup_email']);
@@ -647,11 +693,15 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 * @return array file list
 	 */
 	public function getLocalFiles(){
+		$files     = [];
 		$base      = $this->FreePBX->Config->get('ASTSPOOLDIR');
 		$base      = $base?$base:'/var/spool/asterisk';
-		$Directory = new \RecursiveDirectoryIterator($base.'/backup',\FilesystemIterator::SKIP_DOTS|\FilesystemIterator::CURRENT_AS_FILEINFO);
+		$backupdir = $base . '/backup';
+
+		$this->fs->mkdir($backupdir);
+
+		$Directory = new \RecursiveDirectoryIterator($backupdir,\FilesystemIterator::SKIP_DOTS|\FilesystemIterator::CURRENT_AS_FILEINFO);
 		$Iterator  = new \RecursiveIteratorIterator($Directory,\RecursiveIteratorIterator::LEAVES_ONLY);
-		$files     = [];
 		$this->delById('localfilepaths');
 		foreach($Iterator as $k => $v){
 			$path       = $v->getPathInfo()->getRealPath();
@@ -745,7 +795,10 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 */
 	public function updateBackup(){
 		$data = [];
-		$data['id'] = $this->getReq('id',$this->generateID());
+		$data['id'] = $this->getReq('id');
+		if(empty($data['id'])){
+			$data['id'] = $this->generateID();
+		}
 		foreach ($this->backupFields as $col) {
 			//This will be set independently
 			if($col == 'immortal'){
@@ -884,12 +937,18 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 * @return void
 	 */
 	public function processNotifications($id, $transactionId, $errors){
-		$backupInfo = $this->getBackup($id);
+		$serverName = str_replace(' ', '_', $this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT'));
 		$serverfilename = str_replace(' ','-',$serverName);
-		$filename       = sprintf('%s-%s-backup.log',$serverfilenam,time());
+		$filename       = sprintf('%s-%s-backup.log',$serverfilename,time());
 		$path           = '/var/log/asterisk/backup.log';
 		if($this->getConfig('logpath')){
 			$path = $this->getConfig('logpath');
+		}
+		if(!$this->swiftmsg){
+			return;
+		}
+		if(empty($this->swiftmsg->getTo())){
+			return;
 		}
 		try {
 			$this->swiftmsg->attach(\Swift_Attachment::fromPath($path)->setFilename($filename));
@@ -962,6 +1021,11 @@ class Backup extends FreePBX_Helpers implements BMO {
 		}
 		return json_encode($return);
 	}
+
+	public function deleteRemote($driver, $id, $path){
+		return $this->FreePBX->Filestore->delete($driver, $id, $path);
+	}
+
 	public function getAllRemote(){
 		$final = [];
 		$serverName = str_replace(' ', '_',$this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT'));
@@ -975,7 +1039,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 					if($file['type'] == 'dir'){
 						continue;
 					}
-					$backupFile = new BackupFile($file);
+					$backupFile = new BackupFile($file['path']);
 					$info = $backupFile->backupData();
 					if($info['isCheckSum']){
 						continue;
@@ -1009,18 +1073,15 @@ class Backup extends FreePBX_Helpers implements BMO {
 		return $localpath;
 	}
 	public function determineBackupFileType($filepath){
-		$phar = new PharData($filepath);
-		$phar->convertToData(Phar::ZIP);
-		$zip = new ZipArchive;
-		$newfilename = str_replace(['tgz','tar.gz'],'zip',$filepath);
-		if($zip->open($newfilename) === false){
-			return false;
+		$tar = new Tar();
+		$tar->open($filepath);
+		$files = $tar->contents();
+		foreach ($files as $file) {
+			if ($file->getIsdir() && $file->getPath() === 'modulejson') {
+				return 'current';
+			}
 		}
-		if($zip->locateName('modulejson/') !== false){
-			@unlink($newfilename);
-			return 'current';
-		}
-		@unlink($newfilename);
+
 		return 'legacy';
 	}
 }

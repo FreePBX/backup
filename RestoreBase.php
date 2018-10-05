@@ -55,14 +55,15 @@ class RestoreBase{
   }
 
   public function transformLegacyKV($pdo, $module, $freepbx){
+    $oldkv = NULL;
     $module = ucfirst($module);
-    $kvsql = "SELECT * FROM kvstore WHERE module = :module";
+    $kvsql = "SELECT * FROM kvstore WHERE `module` = :module";
     try {
-      $oldkv = $pdo->prepare($kvsql)
-        ->execute(['module' => $module])
-        ->fetchAll(PDO::FETCH_ASSOC);
+      $stmt = $pdo->prepare($kvsql);
+      $stmt->execute([':module' => $module]);
+      $oldkv = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (\Exception $e) {
-      if ($e->getCode != '42S02') {
+      if ($e->getCode() != '42S02') {
         throw $e;
       }
     }
@@ -73,13 +74,13 @@ class RestoreBase{
 
   public function transformNamespacedKV($pdo, $module, $freepbx){
     $module = ucfirst($module);
-    $newkvsql = "SELECT * FROM :table";
+    $newkvsql = "SELECT * FROM " . $this->getUnderscoreClass($freepbx, $module);
     try {
-      $newkv = $pdo->prepare($newkvsql)
-        ->execute([':table' => $this->getUnderscoreClass($freepbx, $module)])
-        ->fetchAll(PDO::FETCH_ASSOC);
+      $stmt = $pdo->prepare($newkvsql);
+      $stmt->execute();
+      $newkv = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (\Exception $e) {
-      if ($e->getCode != '42S02') {
+      if ($e->getCode() != '42S02') {
         throw $e;
       }
     }
@@ -93,11 +94,13 @@ class RestoreBase{
     if ($freepbx->Modules->checkStatus(strtolower($module))) {
       return $this;
     }
-    foreach ($data as $entry) {
-      if ($entry['type'] === 'json-arr') {
-        $entry['val'] = json_decode($entry['val'], true);
+    if (!is_null($data) ) {
+      foreach ($data as $entry) {
+        if ($entry['type'] === 'json-arr') {
+          $entry['val'] = json_decode($entry['val'], true);
+        }
+        $freepbx->$module->setConfig($entry['key'], $entry['val'], $entry['id']);
       }
-      $freepbx->$module->setConfig($entry['key'], $entry['val'], $entry['id']);
     }
     return $this;
   }
@@ -117,16 +120,16 @@ class RestoreBase{
 			  $sql = "INSERT INTO `$table` (`".implode('`,`',$columns)."`) VALUES (".implode(',',$params).")";
 			  $sth = $this->FreePBX->Database->prepare($sql);
 			  foreach($results as $row) {
-          $insertable = [];
-          foreach($row as $k => $v) {
-            $k = preg_replace("/[^a-z0-9]/i", "", $k);
-            $insertable[':'.$k] = $v;
-          }
-          $sth->execute($insertable);
-			    }
+				$insertable = [];
+				foreach($row as $k => $v) {
+				  $k = preg_replace("/[^a-z0-9]/i", "", $k);
+				  $insertable[':'.$k] = $v;
+				}
+				$sth->execute($insertable);
 			  }
-		    }
-    }
+			}
+		  }
+  }
   
   public function loadDbentries($table, $data){
     $oldData = "SELECT * FROM $table";
@@ -135,9 +138,7 @@ class RestoreBase{
       $stmnt = $this->FreePBX->Database->query($oldData)->fetchAll(\PDO::FETCH_ASSOC); 
       $before = count($stmnt);
     }catch (\Exception $e) {
-      if ($e->getCode() != '42S02') {
-        throw $e;
-      }
+      dbug("Cannot execute the after SELECT query.");
     }
     try{
       $this->FreePBX->Database->query($truncate);
@@ -172,9 +173,7 @@ class RestoreBase{
       $infotables = "$table had $before rows, now it has {$after['total']} rows.\n";
       return $infotables;
     }catch (\Exception $e) {
-      if ($e->getCode() != '42S02') {
-        throw $e;
-      }
+      dbug("Cannot execute the before SELECT query.");
     }
 	}
 }

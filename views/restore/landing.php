@@ -17,7 +17,15 @@ if(isset($error) && !empty($error)){
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="filetorestore"></i>
 					</div>
 					<div class="col-md-9">
-						<input type="file" data-max-files="1" id="filetorestore" name="filetorestore" value="">
+						<div id="uploadrestore" class="alert alert-info">
+							<i class="fa fa-upload"></i> Click to upload a backup file.
+						</div>
+						<div class="progress">
+  							<div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" data-last="0" aria-valuemax="100" id="uploadprogress">
+    							<span class="sr-only" id="filelabel">Processing</span>
+  							</div>
+						</div>
+
 					</div>
 				</div>
 			</div>

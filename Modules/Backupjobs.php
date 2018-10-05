@@ -194,11 +194,11 @@ class Backupjobs extends Migration{
 							$cronjob = sprintf('* * * * *', rand(0, 23));
 							break;
 						case 'custom':
-							$minute = isset($backup['data']['cron_minute']) ? implode(',', $backup['data']['cron_minute']) : '*';
-							$dom = isset($backup['data']['cron_dom']) ? implode(',', $backup['data']['cron_dom']) : '*';
-							$dow = isset($backup['data']['cron_dow']) ? implode(',', $backup['data']['cron_dow']) : '*';
-							$hour = isset($backup['data']['cron_hour']) ? implode(',', $backup['data']['cron_hour']) : '*';
-							$month = isset($backup['data']['cron_month']) ? implode(',', $backup['data']['cron_month']) : '*';
+							$minute = isset($backup['data']['cron_minute']) ? $backup['data']['cron_minute'] : '*';
+							$dom = isset($backup['data']['cron_dom']) ? $backup['data']['cron_dom'] : '*';
+							$dow = isset($backup['data']['cron_dow']) ? $backup['data']['cron_dow'] : '*';
+							$hour = isset($backup['data']['cron_hour']) ? $backup['data']['cron_hour'] : '*';
+							$month = isset($backup['data']['cron_month']) ? $backup['data']['cron_month'] : '*';
 							$cronjob = sprintf('%s %s %s %s %s', $minute, $hour, $dom, $month, $dow);
 							break;						
 						default:

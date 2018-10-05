@@ -1,7 +1,7 @@
 <?php
 /**
- * Copyright Sangoma Technologies, Inc 2018
- */
+* Copyright Sangoma Technologies, Inc 2018
+*/
 namespace FreePBX\modules\Backup\Handlers;
 
 class Transfer{
@@ -10,5 +10,5 @@ class Transfer{
 			throw new \Exception('Not given a FreePBX Object');
 		}
 		$this->FreePBX = $freepbx;
-    }
+	}
 }

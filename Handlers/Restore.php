@@ -1,13 +1,12 @@
 <?php
 /**
- * Copyright Sangoma Technologies, Inc 2018
- */
+* Copyright Sangoma Technologies, Inc 2018
+*/
 namespace FreePBX\modules\Backup\Handlers;
 use FreePBX\modules\Backup\Modules as Module;
 use FreePBX\modules\Backup\Models as Models;
 use FreePBX\modules\Backup\Handlers as Handlers;
-use Phar;
-use PharData;
+use splitbrain\PHPArchive\Tar;
 use InvalidArgumentException;
 class Restore{
 	const DEBUG = false;
@@ -26,18 +25,33 @@ class Restore{
 	public function process($backupFile, $jobid, $warmspare = false) {
 		$this->Backup->fs->remove(BACKUPTMPDIR);
 		$this->Backup->fs->mkdir(BACKUPTMPDIR);
-		$phar = new \PharData($backupFile);
-		$restoreData = $phar->getMetadata();
+		$errors = [];
+		$warnings = [];
+		$this->Backup->log($jobid,_("Extracting Backup"));
+		@rmdir(BACKUPTMPDIR);
+		mkdir(BACKUPTMPDIR,0755,true);
+		$tar = new Tar();
+		$tar->open($backupFile);
+		$tar->extract(BACKUPTMPDIR);
+		$metapath = BACKUPTMPDIR . '/metadata.json';
+		$metadata = '{}';
+		$metaerror = true;
+		if(file_exists($metapath)){
+			$metadata = file_get_contents($metapath);
+			$metaerror = false;
+		}
+		if($metaerror){
+			$errors[] = _("Could not locate the manifest for this file. This file will not restore properly though the data may still be present."); 
+		}
+
+		$restoreData = json_decode($metadata, true);
 		if(isset($restoreData['processorder'])){
 			$this->restoreModules = $restoreData['processorder'];
 		}
 		if(!isset($restoreData['processorder'])){
 			$this->restoreModules = $restoreData['modules'];
 		}
-		$this->Backup->log($jobid,_("Extracting Backup"));
-		$phar->extractTo(BACKUPTMPDIR);
-		$errors = [];
-		$warnings = [];
+
 		$this->Backup->log($jobid,_("Running pre restore hooks"));
 		$this->preHooks($jobid,$restoreData);
 		foreach($this->restoreModules as $key => $value) {
@@ -85,9 +99,9 @@ class Restore{
 	}
 
 	/**
-	 * Get a list of modules that implement the restore method
-	 * @return array list of modules
-	 */
+	* Get a list of modules that implement the restore method
+	* @return array list of modules
+	*/
 	public function getModules($force = false){
 		//Cache
 		if(isset($this->restoreMods) && !empty($this->restoreMods) && !$force) {

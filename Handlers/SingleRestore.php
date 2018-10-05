@@ -3,12 +3,11 @@
  * Copyright Sangoma Technologies Inc 2018
  */
 namespace FreePBX\modules\Backup\Handlers;
-use Phar;
-use PharData;
 use FreePBX\modules\Backup\Models as Model;
 use FreePBX\modules\Backup\Handlers\FreePBXModule;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\ConsoleOutput;
+use splitbrain\PHPArchive\Tar;
 
 class SingleRestore{
 	public function __construct($file, $freepbx){
@@ -27,11 +26,16 @@ class SingleRestore{
 	}
 
 	public function doSingleRestore(){
-		$phar = new PharData($this->restoreFile);
-		$restoreData = $phar->getMetadata();
 		$this->Backup->fs->remove(BACKUPTMPDIR);
 		$this->Backup->fs->mkdir(BACKUPTMPDIR);
-		$phar->extractTo(BACKUPTMPDIR);
+
+		$tar = new Tar();
+		$tar->open($this->restoreFile);
+		$tar->extract(BACKUPTMPDIR);
+
+		$metadata = file_get_contents(BACKUPTMPDIR . '/metadata.json');
+		$restoreData = json_decode($metadata, true);
+
 		$moduleInfo = $restoreData['module'];
 		foreach ($moduleInfo as $key => $value) {
 			if($key === 'builtin'){

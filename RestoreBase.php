@@ -123,10 +123,10 @@ class RestoreBase{
             $insertable[':'.$k] = $v;
           }
           $sth->execute($insertable);
+			    }
 			  }
-			}
-		}
-  }
+		    }
+    }
   
   public function loadDbentries($table, $data){
     $oldData = "SELECT * FROM $table";

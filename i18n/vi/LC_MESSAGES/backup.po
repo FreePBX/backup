@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-28 19:06-0400\n"
+"POT-Creation-Date: 2018-10-10 17:15+0530\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -142,10 +142,6 @@ msgstr ""
 #: views/backup/form.php:68
 msgid "Backup Items"
 msgstr "Sao lưu các mục tin"
-
-#: backup.i18n.php:16
-msgid "Backup Module"
-msgstr "Sao lưu Mô đun"
 
 #: views/backup/form.php:20 views/restore/landing.php:62
 #: views/restore/landing.php:95
@@ -281,10 +277,6 @@ msgstr "Mô tả"
 #: views/backup/transfer.php:31
 msgid "Donor"
 msgstr ""
-
-#: backup.i18n.php:14
-msgid "Email "
-msgstr "Thư điện tử "
 
 #: views/backup/form.php:126
 msgid "Email Type"
@@ -769,12 +761,6 @@ msgstr ""
 msgid "Temporary database loaded"
 msgstr ""
 
-#: backup.i18n.php:18
-msgid "The From: field for emails when using the backup email feature."
-msgstr ""
-"The From: Trường cho các thư điện tử khi sử dụng đặc tính sao lưu Thư điện "
-"tử."
-
 #: views/backup/warmspare.php:214
 msgid "The address of the remote server."
 msgstr ""
@@ -881,6 +867,17 @@ msgstr "Có"
 #: assets/js/backup/backup.js:124
 msgid "Your backup has finished"
 msgstr ""
+
+#~ msgid "Backup Module"
+#~ msgstr "Sao lưu Mô đun"
+
+#~ msgid "Email "
+#~ msgstr "Thư điện tử "
+
+#~ msgid "The From: field for emails when using the backup email feature."
+#~ msgstr ""
+#~ "The From: Trường cho các thư điện tử khi sử dụng đặc tính sao lưu Thư "
+#~ "điện tử."
 
 #~ msgid "Download"
 #~ msgstr "Tải về"

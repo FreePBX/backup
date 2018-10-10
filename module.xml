@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.3alpha9</version>
+	<version>15.0.3alpha10</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -16,6 +16,7 @@
 		<module>filestore</module>
 	</depends>
 	<changelog>
+		*15.0.3alpha10* FREEPBX-18160 More fixes to server migrations 
 		*15.0.3alpha9* FREEPBX-18252 Fix variables in Backup, handle the use of a single module 
 		*15.0.3alpha8* FREEPBX-18202 Fix restore file ajax handling 
 		*15.0.3alpha7* FREEPBX-18160 Migration improvements 

@@ -129,5 +129,51 @@ class RestoreBase{
 			  }
 			}
 		  }
+  }
+  
+  public function loadDbentries($table, $data){
+    $oldData = "SELECT * FROM $table";
+    $truncate = "TRUNCATE TABLE $table";
+    try{
+      $stmnt = $this->FreePBX->Database->query($oldData)->fetchAll(\PDO::FETCH_ASSOC); 
+      $before = count($stmnt);
+    }catch (\Exception $e) {
+      dbug("Cannot execute the after SELECT query.");
+    }
+    try{
+      $this->FreePBX->Database->query($truncate);
+    }catch (\Exception $e) {
+      if ($e->getCode() != '42S02') {
+        throw $e;
+      }
+    }
+		foreach($data as $value){
+			$params = $columns = array_keys($value);
+			array_walk($params, function(&$v, $k) {
+			  $v = ':'.preg_replace("/[^a-z0-9]/i", "", $v);
+      });
+			foreach($value as $k => $v){
+				$k = preg_replace("/[^a-z0-9]/i", "", $k);
+				$insertable[':'.$k] = $v;
+      }
+      $sql = "INSERT INTO `$table` (`".implode('`,`',$columns)."`) VALUES (".implode(',',$params).")";
+      try{
+        $sth = $this->FreePBX->Database->prepare($sql);
+        $sth->execute($insertable);
+      }catch (\Exception $e) {
+        if ($e->getCode() != '42S02') {
+          throw $e;
+        }
+      }
+    }
+    try {
+      $sth = $this->FreePBX->Database->prepare("SELECT count(*) as total FROM $table");
+      $sth->execute();
+      $after = $sth->fetch(\PDO::FETCH_ASSOC);
+      $infotables = "$table had $before rows, now it has {$after['total']} rows.\n";
+      return $infotables;
+    }catch (\Exception $e) {
+      dbug("Cannot execute the before SELECT query.");
+    }
 	}
 }

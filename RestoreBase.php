@@ -156,7 +156,14 @@ class RestoreBase{
 				$k = preg_replace("/[^a-z0-9]/i", "", $k);
 				$insertable[':'.$k] = $v;
       }
-      $sql = "INSERT INTO `$table` (`".implode('`,`',$columns)."`) VALUES (".implode(',',$params).")";
+      $dbCdr = "asteriskcdrdb.";
+      $sql = "INSERT INTO ";
+      if(preg_match("/^$dbCdr/i",$table)){
+        $sql .= "$table";
+      }else{
+        $sql .= "`$table`";
+      }
+      $sql .= " (`".implode('`,`',$columns)."`) VALUES (".implode(',',$params).")";
       try{
         $sth = $this->FreePBX->Database->prepare($sql);
         $sth->execute($insertable);

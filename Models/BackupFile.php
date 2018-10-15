@@ -1,6 +1,7 @@
 <?php
 namespace FreePBX\modules\Backup\Models;
-
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use SplFileInfo;
 use splitbrain\PHPArchive\Tar;
 
@@ -36,19 +37,35 @@ class BackupFile extends SplFileInfo{
 	*/
 	public function getMetadata($cleanslate = true){
 		define('BACKUPTMPDIR', '/var/spool/asterisk/tmp');
-		if(!file_exists(BACKUPTMPDIR) && $cleanslate){
-			@rmdir(BACKUPTMPDIR);
+		$fileSystem = new Filesystem();
+		if(file_exists(BACKUPTMPDIR) && $cleanslate){
+			$fileSystem->remove([BACKUPTMPDIR]);
 		}
-		mkdir(BACKUPTMPDIR, 0755, true);
+		$fileSystem->mkdir(BACKUPTMPDIR, 0755);
 		$tar = new Tar();
 		$tar->open($this->getPathname());
-		$tar->extract(BACKUPTMPDIR, '', '', '/metadata\.json/');
+		$tar->extract(BACKUPTMPDIR, '', '', '/(manifest|metadata\.json)/');
+
 		$metafile = BACKUPTMPDIR . '/metadata.json';
+		$manafestfile = BACKUPTMPDIR . '/manifest';
 		$meta = [];
 		if(file_exists($metafile)){
 			$metadata = file_get_contents(BACKUPTMPDIR . '/metadata.json');
 			$meta = json_decode($metadata, true);
 		}
+		if(file_exists($manafestfile)){
+			$manifestdata = file_get_contents($manafestfile);
+			$tmpdata = unserialize($manifestdata);
+			$meta = [
+				'date' => $tmpdata['ctime'],
+				'backupInfo' => [
+					'backup_name' => $tmpdata['name'],
+					'backup_description' => _("Legacy Restore"),
+				],
+				'manifest' => $tmpdata,
+			];
+		}
+
 		$tar->close();
 		unset($tar);
 		return $meta;

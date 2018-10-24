@@ -153,7 +153,7 @@ function localLinkFormatter(value, row, index) {
 
 function remoteFormatter(value, row, index) {
 	var html = `<a href="/admin/api/backup/remotedownload?id=${row['id']}&filepath=${row['file']}" class="remotedownload" target="_blank"><i class="fa fa-download"></i></a>`;
-	html += `<a href="?display=backup_restore&view=processrestore&type=remote&id=${row['id']}&filepath=${row['file']}"><i class="fa fa-play"></i></a>`;
+	html += `<a href="?display=backup_restore&view=processrestore&type=remote&fileid=${row['id']}&filepath=${row['file']}"><i class="fa fa-play"></i></a>`;
 	html += `<a href="#" data-id = "${row['id']}" data-file = "${row['file']}" class="remoteDelete delitem"><i class = "fa fa-trash"></i></a>`;
 
 	return html;

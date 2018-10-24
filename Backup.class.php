@@ -490,7 +490,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 							$path = $this->pathFromId($_GET['fileid']);
 						}
 						if($_GET['type'] == 'remote'){
-							$path = $this->remoteToLocal($_GET['id'],$_GET['filepath']);
+							$path = $this->remoteToLocal($_GET['fileid'],$_GET['filepath']);
 							$fileid = md5($path);
 						}
 						if(empty($path)){
@@ -510,7 +510,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 					default:
 						return load_view(__DIR__.'/views/restore/landing.php');
 				}
-			break;
 			default:
 				return load_view(__DIR__.'/views/backup/grid.php');
 		}

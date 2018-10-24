@@ -117,7 +117,19 @@ class RestoreBase{
 			  array_walk($params, function(&$v, $k) {
 				$v = ':'.preg_replace("/[^a-z0-9]/i", "", $v);
 			  });
-			  $sql = "INSERT INTO `$table` (`".implode('`,`',$columns)."`) VALUES (".implode(',',$params).")";
+        $dbCdr = "asteriskcdrdb.";
+        if( ($data['case'] == "insert") || (!isset($data['case'])) ){
+          $sqlstm = "INSERT";
+        }elseif($data['case'] == "replace"){
+          $sqlstm = "REPLACE";
+        }
+        $sql = "$sqlstm INTO ";
+        if(preg_match("/^$dbCdr/i",$table)){
+          $sql .= "$table";
+        }else{
+          $sql .= "`$table`";
+        }
+        $sql .= " (`".implode('`,`',$columns)."`) VALUES (".implode(',',$params).")";
 			  $sth = $this->FreePBX->Database->prepare($sql);
 			  foreach($results as $row) {
 				$insertable = [];

@@ -16,7 +16,8 @@ class Servers extends Migration{
 		return $this;
 	}
 
-	public function getLegacyServers(){
+	public function getLegacyServers()
+	{
 		$this->servers = [];
 
 		$sql = 'SELECT * FROM backup_servers';
@@ -26,14 +27,13 @@ class Servers extends Migration{
 			// This is a new install, so there was no historical 'backup_servers' table
 			return $this;
 		}
-
 		$sql = 'SELECT * FROM backup_server_details';
 		$serverDetails = $this->Database->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 		$final = [];
 		$migrated = $this->Backup->getAll('migratedservers');
-		$serverkeys = array_keys($servers);
+		$migrated = is_array($migrated) ? $migrated : [];
 		foreach ($servers as $server) {
-			if(in_array('server_' . $server['id'], $serverkeys)){
+			if (isset($migrated['server_' . $server['id']])) {
 				continue;
 			}
 			if (!is_null($server['readonly'])) {
@@ -54,6 +54,7 @@ class Servers extends Migration{
 		$this->servers = $final;
 		return $this;
 	}
+	
 	public function processValue($value){
 		if(strpos($value, '__') === false){
 			return $value;

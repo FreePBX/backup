@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-10 17:15+0530\n"
+"POT-Creation-Date: 2018-10-26 17:43-0400\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -142,6 +142,10 @@ msgstr ""
 #: views/backup/form.php:68
 msgid "Backup Items"
 msgstr "انتخاب موارد جهت تهیه پشتیبان"
+
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "ماژول پشتیبان گیری"
 
 #: views/backup/form.php:20 views/restore/landing.php:62
 #: views/restore/landing.php:95
@@ -277,6 +281,10 @@ msgstr "توضیحات"
 #: views/backup/transfer.php:31
 msgid "Donor"
 msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
+msgstr "ایمیل "
 
 #: views/backup/form.php:126
 msgid "Email Type"
@@ -759,6 +767,11 @@ msgstr ""
 msgid "Temporary database loaded"
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr ""
+"از طرف: فیلد مبدا ایمیل ها وقتی از قابلیت ارسال ایمیل پشتیبان استفاده می شود."
+
 #: views/backup/warmspare.php:214
 msgid "The address of the remote server."
 msgstr ""
@@ -865,17 +878,6 @@ msgstr "بله"
 #: assets/js/backup/backup.js:124
 msgid "Your backup has finished"
 msgstr ""
-
-#~ msgid "Backup Module"
-#~ msgstr "ماژول پشتیبان گیری"
-
-#~ msgid "Email "
-#~ msgstr "ایمیل "
-
-#~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr ""
-#~ "از طرف: فیلد مبدا ایمیل ها وقتی از قابلیت ارسال ایمیل پشتیبان استفاده می "
-#~ "شود."
 
 #~ msgid "Download"
 #~ msgstr "دانلود"

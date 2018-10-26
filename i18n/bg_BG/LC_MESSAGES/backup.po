@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-10 17:15+0530\n"
+"POT-Creation-Date: 2018-10-26 17:43-0400\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -156,6 +156,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Елементи на Архива"
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "Модул за Архиви"
+
 #: views/backup/form.php:20 views/restore/landing.php:62
 #: views/restore/landing.php:95
 msgid "Backup Name"
@@ -290,6 +294,10 @@ msgstr "Описание"
 #: views/backup/transfer.php:31
 msgid "Donor"
 msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
+msgstr "Email "
 
 #: views/backup/form.php:126
 msgid "Email Type"
@@ -768,6 +776,10 @@ msgstr ""
 msgid "Temporary database loaded"
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr "Поле От: за  email-и когато използвате услугата архив към  email."
+
 #: views/backup/warmspare.php:214
 msgid "The address of the remote server."
 msgstr ""
@@ -874,15 +886,6 @@ msgstr "Да"
 #: assets/js/backup/backup.js:124
 msgid "Your backup has finished"
 msgstr ""
-
-#~ msgid "Backup Module"
-#~ msgstr "Модул за Архиви"
-
-#~ msgid "Email "
-#~ msgstr "Email "
-
-#~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr "Поле От: за  email-и когато използвате услугата архив към  email."
 
 #~ msgid "Download"
 #~ msgstr "Изтегли"

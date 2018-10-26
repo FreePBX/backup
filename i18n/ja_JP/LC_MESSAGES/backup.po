@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-10 17:15+0530\n"
+"POT-Creation-Date: 2018-10-26 17:43-0400\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -170,6 +170,10 @@ msgstr ""
 #: views/backup/form.php:68
 msgid "Backup Items"
 msgstr "バックアップ アイテム"
+
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "バックアップモジュール"
 
 #: views/backup/form.php:20 views/restore/landing.php:62
 #: views/restore/landing.php:95
@@ -304,6 +308,10 @@ msgstr "説明"
 
 #: views/backup/transfer.php:31
 msgid "Donor"
+msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
 msgstr ""
 
 #: views/backup/form.php:126
@@ -783,6 +791,10 @@ msgstr ""
 msgid "Temporary database loaded"
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr "バックアップEメール機能使用時のFrom:フィールド。"
+
 #: views/backup/warmspare.php:214
 msgid "The address of the remote server."
 msgstr ""
@@ -889,12 +901,6 @@ msgstr ""
 #: assets/js/backup/backup.js:124
 msgid "Your backup has finished"
 msgstr ""
-
-#~ msgid "Backup Module"
-#~ msgstr "バックアップモジュール"
-
-#~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr "バックアップEメール機能使用時のFrom:フィールド。"
 
 #~ msgid "Download"
 #~ msgstr "ダウンロード"

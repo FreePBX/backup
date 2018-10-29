@@ -76,6 +76,7 @@ class Legacy{
 		}
 		sprintf(_("Found %s database files in the backup.").PHP_EOL,count($files));
 		foreach($files as $file){
+			echo _("File named: ".$file.PHP_EOL);
 			$pdo = $this->setupTempDb($file);
 			$loadedTables = $pdo->query("SHOW TABLES");
 			while ($current = $loadedTables->fetch(PDO::FETCH_COLUMN)) {
@@ -85,24 +86,16 @@ class Legacy{
 				}
 				$final[$tables[$current]][] = $current;
 			}
-
-			foreach ($final as $key => $value) {
-				if($key === 'unknown' || $key === 'framework'){
-					continue;
-				}
-				$namespace = '\\FreePBX\\modules\\'.ucfirst($key).'\\Restore';
-				if(!class_exists($namespace)){
-					sprintf(_("Couldn't find %s").PHP_EOL,$namespace);
-					continue;
-				}
-				$class = new $namespace(null,$this->FreePBX, BACKUPTMPDIR);
-				if(method_exists($class,'processLegacy')){
-					echo sprintf(_("Calling legacy restore on module %s".PHP_EOL),$key);
-					$class->processLegacy($pdo, $this->data, $value, $final['unknown'],BACKUPTMPDIR);
-					unset($class);
-					continue;
-				}
-				echo sprintf(_("The module %s does not seem to support legacy restores." . PHP_EOL), $key);
+			$dt = $this->data['manifest']['fpbx_cdrdb'];
+			$scndCndtn = preg_match("/$dt/i",$file);
+			$data = [
+					'final' => $final,
+					'pdo' => $pdo,
+			];
+			if(!empty($dt) && $scndCndtn){
+				$this->processLegacyCdr($data);
+			}else{
+				$this->processLegacyNormal($data);
 			}
 		}
 	}
@@ -110,8 +103,10 @@ class Legacy{
 		sprintf(_("Loading supplied database file %s").PHP_EOL, $file);
 		exec('mysqladmin -f DROP asterisktemp', $out, $ret);
 		exec('mysqladmin CREATE asterisktemp', $out, $ret);
-		exec('gunzip < '.$file.'  | mysql asterisktemp', $out, $ret);
-		_("Temporary database loaded".PHP_EOL);
+		echo _("Temporary DB asterisktemp CREATED".PHP_EOL);
+		echo _("Loading content to asterisktemp".PHP_EOL);
+		system('pv '.$file.' | gunzip | mysql asterisktemp', $out);
+		echo _("Temporary DB asteriskcdrdb loaded with ".$file." data.".PHP_EOL);
 		$host = '127.0.0.1';
 		$db = 'asterisktemp';
 		$user = 'root';
@@ -126,5 +121,46 @@ class Legacy{
 		];
 		$this->tempDB = new PDO($dsn, $user, $pass, $opt);
 		return $this->tempDB;
+	}
+	public function processLegacyCdr($info){
+		foreach ($info['final'] as $key => $value) {
+			if($key === 'cdr' || $key === 'cel' || $key === 'queuelog'){
+				$namespace = '\\FreePBX\\modules\\'.ucfirst($key).'\\Restore';
+				if(!class_exists($namespace)){
+					sprintf(_("Couldn't find %s").PHP_EOL,$namespace);
+					continue;
+				}
+				$class = new $namespace(null,$this->FreePBX, BACKUPTMPDIR);
+				if(method_exists($class,'processLegacy')){
+					echo sprintf(_("Calling legacy restore on module %s".PHP_EOL),$key);
+					$class->processLegacy($info['pdo'], $this->data, $value, $info['final']['unknown'],BACKUPTMPDIR);
+					unset($class);
+					continue;
+				}
+				echo sprintf(_("The module %s does not seem to support legacy restores." . PHP_EOL), $key);
+			}else{
+				continue;
+			}
+		}
+	}
+	public function processLegacyNormal($info){
+		foreach ($info['final'] as $key => $value) {
+			if($key === 'unknown' || $key === 'framework' || $key === 'cdr' || $key === 'cel' || $key === 'queuelog'){
+				continue;
+			}
+			$namespace = '\\FreePBX\\modules\\'.ucfirst($key).'\\Restore';
+			if(!class_exists($namespace)){
+				sprintf(_("Couldn't find %s").PHP_EOL,$namespace);
+				continue;
+			}
+			$class = new $namespace(null,$this->FreePBX, BACKUPTMPDIR);
+			if(method_exists($class,'processLegacy')){
+				echo sprintf(_("Calling legacy restore on module %s".PHP_EOL),$key);
+				$class->processLegacy($info['pdo'], $this->data, $value, $info['final']['unknown'],BACKUPTMPDIR);
+				unset($class);
+				continue;
+			}
+			echo sprintf(_("The module %s does not seem to support legacy restores." . PHP_EOL), $key);
+		}
 	}
 }

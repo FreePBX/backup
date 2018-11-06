@@ -107,8 +107,12 @@ class RestoreBase{
 
 	public function addDataDB($data){
 		foreach( $data['tables'] as $table){
-			$loadedTables = $data['pdo']->query("SELECT * FROM $table");
-			$results = $loadedTables->fetchAll(\PDO::FETCH_ASSOC);
+      try{
+        $loadedTables = $data['pdo']->query("SELECT * FROM $table");
+      }catch(\Exception $e){
+        continue;
+      }
+      $results = $loadedTables->fetchAll(\PDO::FETCH_ASSOC);
 			foreach ($results as $key => $value) {
 			  $truncate = "TRUNCATE TABLE $table";
 			  $this->FreePBX->Database->query($truncate);

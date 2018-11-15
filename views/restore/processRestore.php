@@ -28,6 +28,7 @@
 </div>
 <div id="restoremodule-toolbar">
   <h3><?php echo _("Modules in this backup")?></h3>
+  <p><?php echo _("This table will be empty on backups created prior to version 15") ?></p>
 </div>
 <table id="restoremodules"
   data-toggle="table"

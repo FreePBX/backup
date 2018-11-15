@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="pcsg-generated-ruleset">
+<description>Created with the PHP Coding Standard Generator. http://edorian.github.com/php-coding-standard-generator/
+</description>
+<rule ref="Generic.CodeAnalysis.EmptyStatement"/>
+<rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+<rule ref="Generic.ControlStructures.InlineControlStructure"/>
+<rule ref="Generic.Files.LineEndings"/>
+<rule ref="Generic.Formatting.DisallowMultipleStatements"/>
+<rule ref="Generic.Formatting.MultipleStatementAlignment"/>
+<rule ref="Generic.Formatting.NoSpaceAfterCast"/>
+<rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie"/>
+<rule ref="Generic.NamingConventions.ConstructorName"/>
+<rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+<rule ref="Generic.PHP.DeprecatedFunctions"/>
+<rule ref="Generic.PHP.DisallowShortOpenTag"/>
+<rule ref="Generic.Strings.UnnecessaryStringConcat"/>
+<rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
+<rule ref="PSR1.Classes.ClassDeclaration"/>
+<rule ref="PSR2.ControlStructures.ElseIfDeclaration"/>
+<rule ref="PSR2.ControlStructures.SwitchDeclaration"/>
+<rule ref="PSR2.Namespaces.NamespaceDeclaration"/>
+<rule ref="PSR2.Namespaces.UseDeclaration"/>
+<rule ref="Squiz.PHP.CommentedOutCode"/>
+<rule ref="Squiz.PHP.DisallowMultipleAssignments"/>
+<rule ref="Squiz.PHP.DiscouragedFunctions"/>
+<rule ref="Squiz.PHP.LowercasePHPFunctions"/>
+<rule ref="Squiz.PHP.NonExecutableCode"/>
+<rule ref="Zend.Files.ClosingTag"/>
+</ruleset>

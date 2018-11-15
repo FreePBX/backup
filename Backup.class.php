@@ -264,7 +264,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 					exit();
 				}
 				$spooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
-				$path = sprintf('%s/backup/uploads/', $spooldir);
+				$path = sprintf('%s/backup/uploads', $spooldir);
 				$finalname = $path.'/'. $_FILES['file']['name'];
 				$tmp_name = $_FILES['file']['tmp_name'];
 				$filename = $_FILES['file']['name'];
@@ -287,13 +287,13 @@ class Backup extends FreePBX_Helpers implements BMO {
 						fclose($final);
 						unlink($target_file . $i);
 					}
-					$file = $finalname;
-					$this->setConfig(md5($file), $file, 'localfilepaths');
-					$backupFile = new BackupFile($file);
+					$filemd5 = md5($finalname);
+					$this->setConfig($filemd5, $finalname, 'localfilepaths');
+					$backupFile = new BackupFile($finalname);
 					$meta = $backupFile->getMetadata();
-					$this->setConfig('meta', $meta, md5($file));
+					$this->setConfig('meta', $meta, $filemd5);
 					header("HTTP/1.1 200 Ok");
-					return ['status' => true, 'md5' => md5($file)];
+					return ['status' => true, 'md5' => $filemd5];
 				}
 				if ($num + 1 < $num_chunks) {
 					header("HTTP/1.1 201 Created");
@@ -482,15 +482,15 @@ class Backup extends FreePBX_Helpers implements BMO {
 			$view = isset($_GET['view'])?$_GET['view']: 'default';
 				switch ($view) {
 					case 'processrestore':
-						if(!isset($_GET['id']) || empty($_GET['id'])){
+						if(!isset($_GET['fileid']) || empty($_GET['fileid'])){
 							return load_view(__DIR__.'/views/restore/landing.php',['error' => _("No id was specified to process. Please try submitting your file again.")]);
 						}
 						if($_GET['type'] == 'local'){
 							$fileid = $_GET['id'];
-							$path = $this->pathFromId($_GET['id']);
+							$path = $this->pathFromId($_GET['fileid']);
 						}
 						if($_GET['type'] == 'remote'){
-							$path = $this->remoteToLocal($_GET['id'],$_GET['filepath']);
+							$path = $this->remoteToLocal($_GET['fileid'],$_GET['filepath']);
 							$fileid = md5($path);
 						}
 						if(empty($path)){
@@ -506,10 +506,10 @@ class Backup extends FreePBX_Helpers implements BMO {
 						$vars['id']       = $_GET['id'];
 						$vars['fileid']   = $fileid;
 						return load_view(__DIR__.'/views/restore/processRestore.php',$vars);
+					case 'restorerunning':
 					default:
 						return load_view(__DIR__.'/views/restore/landing.php');
 				}
-			break;
 			default:
 				return load_view(__DIR__.'/views/backup/grid.php');
 		}

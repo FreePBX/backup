@@ -2,7 +2,7 @@ $(document).ready(() => {
 
 	$("#runrestore").click(event => {
 		event.preventDefault();
-		var fileid = window.fileid;
+		var fileid = location.search.split('fileid=')[1];
 		$.ajax({
 			url: ajaxurl,
 			method: "GET",
@@ -15,6 +15,8 @@ $(document).ready(() => {
 		.then(data => {
 			fpbxToast(data.message || "Something went wrong.");
 			$("#runrestore").disable();
+			let url = `${window.location.href}&view=restorerunninge&job=${data.transaction}`;
+			window.location = url;
 		});
 	});
 	$("#goback").click(event => {
@@ -35,7 +37,7 @@ $(document).ready(() => {
 		})
 		.then(data => {
 			if(data.status == true){
-				let url = `${window.location.href}&view=processrestore&id=${data.id}`;
+				let url = `${window.location.href}&view=processrestore&fileid=${data.id}`;
 				console.log(url);
 				window.location = url;
 			}else{
@@ -62,7 +64,7 @@ $(document).ready(() => {
 			var ret = file.xhr.response || "{}";
 			var jres = JSON.parse(ret);
 			if(jres.md5.length){
-				window.location = `?display=backup_restore&view=processrestore&type=local&id=${jres.md5}`;
+				window.location = `?display=backup_restore&view=processrestore&type=local&fileid=${jres.md5}`;
 			}
 
 		});
@@ -143,7 +145,7 @@ $(document).ready(() => {
 });//end document ready
 
 function localLinkFormatter(value, row, index) {
-	var html = '<a href="?display=backup_restore&view=processrestore&type=local&id=' + row['id'] + '"><i class="fa fa-play"></i></a>';
+	var html = '<a href="?display=backup_restore&view=processrestore&type=local&fileid=' + row['id'] + '"><i class="fa fa-play"></i></a>';
 	html += '<a href="/admin/api/backup/localdownload?id=' + row['id'] + '" class="localdownload" target="_blank"><i class="fa fa-download"></i></a>';
 	html += '&nbsp;<a href="#" id="' + row['id'] + '" class="localDelete"><i class="fa fa-trash"></i></a>';
 	return html;
@@ -151,7 +153,7 @@ function localLinkFormatter(value, row, index) {
 
 function remoteFormatter(value, row, index) {
 	var html = `<a href="/admin/api/backup/remotedownload?id=${row['id']}&filepath=${row['file']}" class="remotedownload" target="_blank"><i class="fa fa-download"></i></a>`;
-	html += `<a href="?display=backup_restore&view=processrestore&type=remote&id=${row['id']}&filepath=${row['file']}"><i class="fa fa-play"></i></a>`;
+	html += `<a href="?display=backup_restore&view=processrestore&type=remote&fileid=${row['id']}&filepath=${row['file']}"><i class="fa fa-play"></i></a>`;
 	html += `<a href="#" data-id = "${row['id']}" data-file = "${row['file']}" class="remoteDelete delitem"><i class = "fa fa-trash"></i></a>`;
 
 	return html;

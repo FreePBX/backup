@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-26 17:43-0400\n"
+"POT-Creation-Date: 2018-11-14 22:09-0500\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -197,7 +197,7 @@ msgstr "Основна Информация"
 msgid "Both"
 msgstr ""
 
-#: Handlers/Legacy.php:100
+#: Handlers/Legacy.php:135 Handlers/Legacy.php:158
 #, php-format
 msgid "Calling legacy restore on module %s"
 msgstr ""
@@ -252,7 +252,7 @@ msgid ""
 "properly though the data may still be present."
 msgstr ""
 
-#: Handlers/Legacy.php:95
+#: Handlers/Legacy.php:130 Handlers/Legacy.php:153
 #, php-format
 msgid "Couldn't find %s"
 msgstr ""
@@ -387,6 +387,10 @@ msgid ""
 "until cleaned manually."
 msgstr ""
 
+#: Handlers/Legacy.php:79
+msgid "File named: "
+msgstr ""
+
 #: Backup.class.php:255
 msgid "File reached the server but could not be processed"
 msgstr ""
@@ -452,11 +456,15 @@ msgstr ""
 msgid "Loading astdb to memory"
 msgstr ""
 
+#: Handlers/Legacy.php:107
+msgid "Loading content to asterisktemp"
+msgstr ""
+
 #: Handlers/Legacy.php:43
 msgid "Loading manifest to memory"
 msgstr ""
 
-#: Handlers/Legacy.php:110
+#: Handlers/Legacy.php:103
 #, php-format
 msgid "Loading supplied database file %s"
 msgstr ""
@@ -772,8 +780,12 @@ msgstr ""
 msgid "System Transfer"
 msgstr ""
 
-#: Handlers/Legacy.php:114
-msgid "Temporary database loaded"
+#: Handlers/Legacy.php:109
+msgid "Temporary DB asteriskcdrdb loaded with "
+msgstr ""
+
+#: Handlers/Legacy.php:106
+msgid "Temporary DB asterisktemp CREATED"
 msgstr ""
 
 #: backup.i18n.php:18
@@ -784,7 +796,7 @@ msgstr "Поле От: за  email-и когато използвате услу
 msgid "The address of the remote server."
 msgstr ""
 
-#: Handlers/Legacy.php:105
+#: Handlers/Legacy.php:140 Handlers/Legacy.php:163
 #, php-format
 msgid "The module %s does not seem to support legacy restores."
 msgstr ""

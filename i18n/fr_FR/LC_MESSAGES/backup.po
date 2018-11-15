@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-14 22:09-0500\n"
+"POT-Creation-Date: 2018-11-14 22:15-0500\n"
 "PO-Revision-Date: 2016-02-05 11:17+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -98,7 +98,7 @@ msgstr ""
 msgid "Apply Configs"
 msgstr "Appliquer la configuration"
 
-#: assets/js/backup_restore/backup_restore.js:115
+#: assets/js/backup_restore/backup_restore.js:117
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
 
@@ -204,7 +204,7 @@ msgstr ""
 msgid "Can't find the module data for %s"
 msgstr ""
 
-#: assets/js/backup_restore/backup_restore.js:116
+#: assets/js/backup_restore/backup_restore.js:118
 msgid "Cancel"
 msgstr ""
 
@@ -267,7 +267,7 @@ msgstr ""
 msgid "Couldn't run process."
 msgstr ""
 
-#: Backup.class.php:161 assets/js/backup_restore/backup_restore.js:116
+#: Backup.class.php:161 assets/js/backup_restore/backup_restore.js:118
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -449,6 +449,10 @@ msgstr ""
 msgid "Is this the donor machine or the recipient"
 msgstr ""
 
+#: Models/BackupFile.php:63
+msgid "Legacy Restore"
+msgstr ""
+
 #: Handlers/Legacy.php:47
 msgid "Loading astdb to memory"
 msgstr ""
@@ -486,7 +490,7 @@ msgstr ""
 msgid "Missing id or transaction"
 msgstr ""
 
-#: views/backup/form.php:374 views/restore/processRestore.php:41
+#: views/backup/form.php:374 views/restore/processRestore.php:42
 msgid "Module"
 msgstr ""
 
@@ -748,7 +752,7 @@ msgstr ""
 msgid "Starting backup %s"
 msgstr ""
 
-#: views/restore/processRestore.php:43
+#: views/restore/processRestore.php:44
 msgid "Status"
 msgstr ""
 
@@ -832,6 +836,10 @@ msgstr ""
 msgid "This restore will only affect the modules listed below"
 msgstr ""
 
+#: views/restore/processRestore.php:31
+msgid "This table will be empty on backups created prior to version 15"
+msgstr ""
+
 #: Handlers/Backup.php:41
 #, php-format
 msgid "Transaction: %s"
@@ -861,7 +869,7 @@ msgstr ""
 msgid "User on remote system with proper permissions, usually root."
 msgstr ""
 
-#: views/restore/processRestore.php:42
+#: views/restore/processRestore.php:43
 msgid "Version in Backup"
 msgstr ""
 

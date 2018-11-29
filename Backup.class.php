@@ -226,8 +226,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 				}
 				return ['status' => false, "message" => _("We can't seem to delete the chosen file")];
 			case 'generateRSA':
+				$homedir = $this->getAsteriskUserHomeDir();
 				$ssh = new FilestoreRemote();
-				$ret = $ssh->generateKey('/home/asterisk/.ssh');
+				$ret = $ssh->generateKey($homedir.'/.ssh');
 			return ['status' => $ret];
 			case 'runstatus':
 				if(!isset($_GET['id']) || !isset($_GET['transaction'])){
@@ -424,12 +425,13 @@ class Backup extends FreePBX_Helpers implements BMO {
 				if(isset($_GET['view']) && $_GET['view'] == 'settings'){
 					$vars = $this->getAll('globalsettings');
 					$vars = $vars?$vars:[];
+					$hdir = $this->getAsteriskUserHomeDir();
 					$vars['fromemail'] = isset($vars['fromemail'])?$vars['fromemail']:'backup@pbx.local';
 					$vars['logpath']   = isset($vars['logpath'])?$vars['logpath']:'/var/log/asterisk/backup.log';
-					$file = '/home/asterisk/.ssh/id_rsa.pub';
+					$file = $hdir.'/.ssh/id_rsa.pub';
 					if (!file_exists($file)) {
 						$ssh = new FilestoreRemote();
-						$ssh->generateKey('/home/asterisk/.ssh');
+						$ssh->generateKey($hdir.'/.ssh');
 					}
 					$data = file_get_contents($file);
 					$vars['publickey'] = $data;
@@ -545,7 +547,8 @@ class Backup extends FreePBX_Helpers implements BMO {
 			$this->postRestore = new \SplQueue();
 		}
 		$hookpath      = getenv('BACKUPHOOKDIR');
-		$hookpath      = $hookpath?$hookpath:'/home/asterisk/Backup';
+		$homedir = $this->getAsteriskUserHomeDir();
+		$hookpath      = $hookpath?$hookpath:$homedir.'/Backup';
 
 		if (!file_exists($hookpath)) {
 			return;
@@ -1083,5 +1086,20 @@ class Backup extends FreePBX_Helpers implements BMO {
 		}
 
 		return 'legacy';
+	}
+	/**
+	 * Returns the home directory of the AMPASTERISKWEBUSER. If the user has no home directory we return home dir for the current running process.
+	 *
+	 * @return string path to home dir such as /home/asterisk
+	 */
+	public function getAsteriskUserHomeDir(){
+		if(!isset($this->homeDir) || empty($this->homeDir)){
+			$webuser = escapeshellarg($this->FreePBX->Config->get('AMPASTERISKWEBUSER'));
+			exec('id -u '.$webuser, $out,$ret);
+			$uid = !empty($out[0])?$out[0]:posix_getuid();
+			$userinfo = posix_getpwuid($uid);
+			$this->homeDir = $userinfo['dir'];
+		}
+		return $this->homeDir;
 	}
 }

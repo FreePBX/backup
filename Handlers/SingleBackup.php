@@ -54,7 +54,9 @@ class SingleBackup{
 			if (empty($dir)) {
 				continue;
 			}
-			$dirs[] = $this->FreePBX->Backup->getPath('files/' . ltrim($dir, '/'));
+			$fdir = $this->FreePBX->Backup->getPath('/' . ltrim($dir, '/'));
+			$dirs[] = $fdir;
+
 		}
 		foreach ($moddata['files'] as $file) {
 			$srcpath = isset($file['pathto']) ? $file['pathto'] : '';
@@ -77,8 +79,10 @@ class SingleBackup{
 		$data = $moddata;
 		$cleanup = $moddata['garbage'];
 		if (is_array($dirs)) {
+			$this->FreePBX->Backup->fs->mkdir('/tmp/SingleBackup'.$dir);
+
 			foreach ($dirs as $dir) {
-				$tar->addFile($dir, $dir);
+				$tar->addFile('/tmp/SingleBackup'.$dir, $dir);
 			}
 		}
 		$manifest = array(

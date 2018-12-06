@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-14 22:15-0500\n"
+"POT-Creation-Date: 2018-12-05 21:58-0500\n"
 "PO-Revision-Date: 2017-03-08 21:01+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "%s Days (%s Months)"
 msgstr ""
 
-#: Handlers/Backup.php:291 Handlers/Backup.php:306 Handlers/Restore.php:132
+#: Handlers/Backup.php:295 Handlers/Backup.php:310 Handlers/Restore.php:132
 #: Handlers/Restore.php:148
 #, php-format
 msgid "%s finished with a non-zero status"
@@ -51,7 +51,7 @@ msgstr ""
 msgid "A backup job for this id is already running"
 msgstr ""
 
-#: Console/Backup.class.php:129
+#: Console/Backup.class.php:127
 msgid "A backup task is already running"
 msgstr ""
 
@@ -59,7 +59,7 @@ msgstr ""
 msgid "A name used to identify your backups"
 msgstr ""
 
-#: Console/Backup.class.php:109
+#: Console/Backup.class.php:107
 msgid "A restore task is already running"
 msgstr ""
 
@@ -96,17 +96,17 @@ msgstr ""
 msgid "Backup"
 msgstr "Backup"
 
-#: Backup.class.php:811
+#: Backup.class.php:805
 #, php-format
 msgid "Backup %s"
 msgstr ""
 
-#: Backup.class.php:624
+#: Backup.class.php:949
 #, php-format
 msgid "Backup %s failed for %s"
 msgstr ""
 
-#: Backup.class.php:622
+#: Backup.class.php:947
 #, php-format
 msgid "Backup %s success for %s"
 msgstr ""
@@ -164,11 +164,11 @@ msgstr ""
 msgid "Backup Wizard"
 msgstr "Assistente de Backup"
 
-#: Handlers/Backup.php:257
+#: Handlers/Backup.php:261
 msgid "Backup completed successfully"
 msgstr ""
 
-#: Handlers/Backup.php:252
+#: Handlers/Backup.php:253
 msgid "Backup finished with but with errors"
 msgstr ""
 
@@ -219,7 +219,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: Handlers/Backup.php:97
+#: Handlers/Backup.php:99
 #, php-format
 msgid "Could not backup module %s, it may not be installed or enabled"
 msgstr ""
@@ -310,7 +310,7 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1015 views/backup/form.php:209
+#: Backup.class.php:1014 views/backup/form.php:209
 msgid "Enabled"
 msgstr ""
 
@@ -646,7 +646,7 @@ msgstr ""
 msgid "Run the following in the CLI"
 msgstr ""
 
-#: Handlers/Backup.php:40
+#: Handlers/Backup.php:42
 #, php-format
 msgid "Running Backup ID: %s"
 msgstr ""
@@ -663,7 +663,7 @@ msgstr ""
 msgid "Running post restore hooks"
 msgstr ""
 
-#: Handlers/Backup.php:42
+#: Handlers/Backup.php:44
 msgid "Running pre backup hooks"
 msgstr ""
 
@@ -738,11 +738,16 @@ msgstr ""
 msgid "Should the warm spare feature be enabled"
 msgstr ""
 
+#: Handlers/Backup.php:259
+msgid ""
+"Some warnings were logged. These are typically ok but should be reviewed"
+msgstr ""
+
 #: Backup.class.php:213
 msgid "Something failed, The file may need to be removed manually."
 msgstr ""
 
-#: Handlers/Backup.php:48
+#: Handlers/Backup.php:50
 #, php-format
 msgid "Starting backup %s"
 msgstr ""
@@ -759,7 +764,7 @@ msgstr ""
 msgid "Storage Location"
 msgstr ""
 
-#: Handlers/Backup.php:62
+#: Handlers/Backup.php:64
 #, php-format
 msgid "Storage Location: %s"
 msgstr ""
@@ -792,6 +797,11 @@ msgstr "O campo De: Campo para e-mails ao usar o recurso de e-mail do backup ."
 msgid "The address of the remote server."
 msgstr ""
 
+#: Backup.class.php:622
+#, php-format
+msgid "The backup %s did not set a status and may have had an error"
+msgstr ""
+
 #: Handlers/Legacy.php:140 Handlers/Legacy.php:163
 #, php-format
 msgid "The module %s does not seem to support legacy restores."
@@ -807,7 +817,7 @@ msgstr ""
 msgid "There was an error running the restore for %s... %s"
 msgstr ""
 
-#: Handlers/Backup.php:61
+#: Handlers/Backup.php:63
 msgid "This backup will be stored locally is subject to maintenance settings"
 msgstr ""
 
@@ -835,7 +845,7 @@ msgstr ""
 msgid "This table will be empty on backups created prior to version 15"
 msgstr ""
 
-#: Handlers/Backup.php:41
+#: Handlers/Backup.php:43
 #, php-format
 msgid "Transaction: %s"
 msgstr ""
@@ -844,7 +854,7 @@ msgstr ""
 msgid "Transfer Id"
 msgstr ""
 
-#: Backup.class.php:1015
+#: Backup.class.php:1014
 msgid "Uninstalled or Disabled"
 msgstr ""
 

@@ -16,6 +16,7 @@
 		<module>filestore</module>
 	</depends>
 	<changelog>
+		*15.0.3alpha14* FREEPBX-18625 Rework the message handling 
 		*15.0.3alpha14* FREEPBX-18166 
 		*15.0.3alpha14* Fixing problems in Backup 15 
 		*15.0.3alpha11* New Backup and Restore for 15.0 

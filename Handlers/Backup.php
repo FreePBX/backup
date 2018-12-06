@@ -29,6 +29,8 @@ class Backup{
 		if(empty($id) && empty($base64Backup)){
 			throw new \Exception("Backup id not provided", 500);
 		}
+		$errors = [];
+		$warnings = [];
 		$this->Backup->delById('monolog');
 		$handler = new Handlers\MonologKVStore($this->Backup);
 		$this->Backup->logger->customLog->pushHandler($handler);
@@ -104,8 +106,6 @@ class Backup{
 			$processQueue->enqueue(['name' => $mod[$raw]['rawname']]);
 		}
 
-		$errors = [];
-		$warnings = [];
 		if(!$external){
 			$maint = new Module\Maintinance($this->FreePBX,$id);
 		}
@@ -249,13 +249,17 @@ class Backup{
 		$this->Backup->log($transactionId,_("Running post backup hooks"));
 		$this->postHooks($id, $signatures, $errors, $transactionId);
 		if(!empty($errors)){
+			$this->Backup->errors = $errors;
 			$this->Backup->log($transactionId,_("Backup finished with but with errors"),'WARNING');
-			$this->Backup->processNotifications($id, $transactionId, $errors,true);
+			$this->Backup->processNotifications($id, $transactionId, $errors, $backupInfo['backup_name']);
 			//TODO: Don't think I need this because monolog
 			return $errors;
 		}
+		if(!empty($warnings)){
+			$this->Backup->log($transactionId, _("Some warnings were logged. These are typically ok but should be reviewed"));
+		}
 		$this->Backup->log($transactionId,_("Backup completed successfully"));
-		$this->Backup->processNotifications($id, $transactionId, [],true);
+		$this->Backup->processNotifications($id, $transactionId, [], $backupInfo['backup_name']);
 		$this->Backup->setConfig('log',$this->sessionlog[$transactionId],$transactionId);
 		$this->Backup->delConfig($transactionId,'running');
 		return $signatures;

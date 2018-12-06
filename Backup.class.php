@@ -22,6 +22,7 @@ use Symfony\Component\HttpFoundation\Response;
 use FreePBX_Helpers;
 use BMO;
 use splitbrain\PHPArchive\Tar;
+use FreePBX\modules\Backup\Handlers\MonologSwift;
 class Backup extends FreePBX_Helpers implements BMO {
 	const DEBUG = true;
 	public $swiftmsg = false;
@@ -44,9 +45,8 @@ class Backup extends FreePBX_Helpers implements BMO {
 		$this->logpath        = !empty($this->logpath)?$this->logpath:'/var/log/asterisk/backup.log';
 		$this->logger->createCustomLog('Backup', $this->logpath,true);
 		$output = "%level_name%: %message%\n";
-
+		$this->errors = [];
 		$this->formatter = new Formatter\LineFormatter($output);
-
 		if(php_sapi_name() == 'cli' || php_sapi_name() == 'phpdbg'){
 			$handler = new StreamHandler("php://stdout",\Monolog\Logger::DEBUG);
 			$handler->setFormatter($this->formatter);
@@ -619,16 +619,8 @@ class Backup extends FreePBX_Helpers implements BMO {
 		}
 
 		$serverName   = $this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT');
-		$emailSubject = sprintf(_('Backup %s success for %s'),$backupInfo['backup_name'], $serverName);
-		if(!empty($this->errors)){
-			$emailSubject = sprintf(_('Backup %s failed for %s'),$backupInfo['backup_name'], $serverName);
-		}
+		$emailSubject = sprintf(_("The backup %s did not set a status and may have had an error"), $backupInfo['backup_name']);
 
-		if(isset($backupInfo['backup_emailtype']) && $backupInfo['backup_emailtype'] == 'success'){
-			if(!empty($this->errors)){
-				return false;
-			}
-		}
 		$from    = $this->getConfig('fromemail');
 		$envfrom = getenv('BACKUPEMAILFROM');
 		if(!empty($envfrom)){
@@ -637,17 +629,19 @@ class Backup extends FreePBX_Helpers implements BMO {
 		if(empty($from)){
 			return;
 		}
+
 		$transport = \Swift_MailTransport::newInstance();
 		$this->swiftmsg = \Swift_Message::newInstance();
 		$this->swiftmsg->setContentType("text/html");
 		$swift = \Swift_Mailer::newInstance($transport);
-		$this->handler = new BufferHandler(new SwiftMailerHandler($swift, $this->swiftmsg, \Monolog\Logger::INFO), 0, \Monolog\Logger::INFO);
 		$formatter = new Formatter\HtmlFormatter();
-		$this->handler->SetFormatter($formatter);
-		$this->logger->customLog->pushHandler($this->handler);
 		$this->swiftmsg->setFrom($from);
 		$this->swiftmsg->setSubject($emailSubject);
 		$this->swiftmsg->setTo($backupInfo['backup_email']);
+		$this->handler = new BufferHandler(new MonologSwift($swift, $this->swiftmsg, \Monolog\Logger::INFO, true, $backupInfo['backup_emailtype']), 0, \Monolog\Logger::INFO);
+		$this->handler->SetFormatter($formatter);
+		$this->logger->customLog->pushHandler($this->handler);
+
 	}
 
 	/**
@@ -936,7 +930,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 * @param array $errors
 	 * @return void
 	 */
-	public function processNotifications($id, $transactionId, $errors){
+	public function processNotifications($id, $transactionId, $errors, $backupName){
 		$serverName = str_replace(' ', '_', $this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT'));
 		$serverfilename = str_replace(' ','-',$serverName);
 		$filename       = sprintf('%s-%s-backup.log',$serverfilename,time());
@@ -950,7 +944,12 @@ class Backup extends FreePBX_Helpers implements BMO {
 		if(empty($this->swiftmsg->getTo())){
 			return;
 		}
+		$emailSubject = sprintf(_('Backup %s success for %s'), $backupName, $serverName);
+		if (!empty($errors)) {
+    		$emailSubject = sprintf(_('Backup %s failed for %s'), $backupName, $serverName);
+		}
 		try {
+			$this->swiftmsg->setSubject($emailSubject);
 			$this->swiftmsg->attach(\Swift_Attachment::fromPath($path)->setFilename($filename));
 			$this->handler->close();
 		}catch(\Exception $e){

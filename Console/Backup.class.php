@@ -42,7 +42,7 @@ class Backup extends Command {
 		$this->output = $output;
 		$this->input = $input;
         $this->freepbx = \FreePBX::Create();
-        $this->freepbx->Backup->output = $output;
+		$this->freepbx->Backup->output = $output;
 		$list = $input->getOption('list');
 		$warmspare = $input->getOption('warmspare');
 		$backup = $input->getOption('backup');
@@ -86,13 +86,11 @@ class Backup extends Command {
 				}
 				$backupHandler = new Handler\Backup($this->freepbx);
 				$pid = posix_getpid();
-				$backupHandler->process($buid,$job,null,$pid);
+				$errors = $backupHandler->process($buid,$job,null,$pid);
 				$lockHandler->release();
-
 			break;
 			case $restore:
 				$backupType = $this->freepbx->Backup->determineBackupFileType($restore);
-				dbug($backupType);
 				if($backupType === false){
 					throw new \Exception('Unknown file type');
 				}
@@ -109,7 +107,7 @@ class Backup extends Command {
 					$this->log($job, _("A restore task is already running"));
     				return false;
 				}				
-				$restoreHandler->process($restore,$job,$warmspare);
+				$errors = $restoreHandler->process($restore,$job,$warmspare);
 				$output->writeln(sprintf('Finished restore job with file: %s',$restore));
 				$lockHandler->release();
 			break;
@@ -132,12 +130,16 @@ class Backup extends Command {
 				$job = $transaction?$transaction:$this->freepbx->Backup->generateID();
 				$output->writeln(sprintf('Starting backup job with ID: %s',$job));
 				$pid = posix_getpid();
-				$backupHandler->process('',$job,$input->getOption('externbackup'),$pid);
+				$errors  = $backupHandler->process('',$job,$input->getOption('externbackup'),$pid);
 			break;
 			default:
 				$output->writeln($this->getHelp());
 			break;
 		}
+		if(!empty($errors) && OutputInterface::VERBOSITY_VERY_VERBOSE){
+			$output->writeln(implode(PHP_EOL,$errors));
+		}
+
 	}
 	public function listBackups(){
 		$this->output->writeln("fwconsole backup --backup=[Backup ID]");

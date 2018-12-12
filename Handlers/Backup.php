@@ -33,7 +33,7 @@ class Backup{
 		$warnings = [];
 		$this->Backup->delById('monolog');
 		$handler = new Handlers\MonologKVStore($this->Backup);
-		$this->Backup->logger->customLog->pushHandler($handler);
+		$this->Backup->logger->pushHandler($handler);
 		$this->Backup->attachLoggers('backup');
 		$pid = !empty($pid)?$pid:posix_getpid();
 		$external = !empty($base64Backup);

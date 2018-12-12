@@ -37,7 +37,7 @@ class Maintinance{
 			if(isset($this->backupInfo['maintage']) && $this->backupInfo['maintage'] > 1){
 				if($backupDate->diffInDays() > $backupInfo['maintage']){
 					if($this->dryrun){
-					 dbug(sprintf("UNLINK %s/%s".PHP_EOL,$file->getPath(),$file->getBasename().'.tar.gz'));
+					 $this->FreePBX->Logger->getDriver('default')->debug(sprintf("UNLINK %s/%s".PHP_EOL,$file->getPath(),$file->getBasename().'.tar.gz'));
 						continue;
 					}
 					unlink($file->getPath().'/'.$file->getBasename());
@@ -45,7 +45,7 @@ class Maintinance{
 				}
 			}
 			if($this->dryrun){
-			 dbug(sprintf("Adding %s/%s to maintfiles with a key of %s".PHP_EOL,$file->getPath(),$file->getBasename(),$parsed['timestamp']));
+			 $this->FreePBX->Logger->getDriver('default')->debug(sprintf("Adding %s/%s to maintfiles with a key of %s".PHP_EOL,$file->getPath(),$file->getBasename(),$parsed['timestamp']));
 			}
 			if(!$parsed['isCheckSum']){
 				$maintfiles[$parsed['timestamp']] = $file->getPath().'/'.$file->getBasename();
@@ -56,7 +56,7 @@ class Maintinance{
 			$remove = array_slice($maintfiles,$this->backupInfo['maintruns'],null,true);
 			foreach ($remove as $key => $value) {
 				if($this->dryrun){
-				 dbug(sprintf("UNLINK %s".PHP_EOL,$value));
+				 $this->FreePBX->Logger->getDriver('default')->debug(sprintf("UNLINK %s".PHP_EOL,$value));
 					continue;
 				}
 				unlink($value);
@@ -87,7 +87,7 @@ class Maintinance{
 					if($backupDate->diffInDays() > $backupInfo['maintage']){
 						try {
 							if($this->dryrun){
-							 dbug(sprintf("UNLINK %s".PHP_EOL,$file['path']));
+							 $this->FreePBX->Logger->getDriver('default')->debug(sprintf("UNLINK %s".PHP_EOL,$file['path']));
 								continue;
 							}
 							$this->FreePBX->Filestore->delete($location[0],$location[1],$file['path']);
@@ -109,7 +109,7 @@ class Maintinance{
 				foreach ($remove as $key => $value) {
 					try {
 						if($this->dryrun){
-						 dbug(sprintf("UNLINK %s".PHP_EOL,$value));
+						 $this->FreePBX->Logger->getDriver('default')->debug(sprintf("UNLINK %s".PHP_EOL,$value));
 							continue;
 						}
 						$this->FreePBX->Filestore->delete($location[0],$location[1],$value);

@@ -71,7 +71,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			$servers->process();
 			out(_("Migrating legacy backups to the new backup"));
 			$jobs = new Backupjobs($this->FreePBX);
-			$jobs->process(); 
+			$jobs->process();
 
 			out(_("Cleaning up old data"));
 			$tables = [
@@ -123,7 +123,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 		if(!isset($request['view'])){
 			return [];
 		}
-		if($request['view' == 'run']){
+		if($request['view'] == 'run'){
 			return [];
 		}
 		/** Process restore file Buttons */
@@ -825,7 +825,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 		$this->scheduleJobs($id);
 		return $id;
 	}
-	
+
 	public function processBackupSettings($id = '', $data = []){
 		$modules = $this->FreePBX->Modules->getModulesByMethod('processBackupSettings');
 		foreach ($modules as $module) {

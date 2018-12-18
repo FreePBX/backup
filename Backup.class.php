@@ -71,7 +71,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			$servers->process();
 			out(_("Migrating legacy backups to the new backup"));
 			$jobs = new Backupjobs($this->FreePBX);
-			$jobs->process(); 
+			$jobs->process();
 
 			out(_("Cleaning up old data"));
 			$tables = [
@@ -825,7 +825,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 		$this->scheduleJobs($id);
 		return $id;
 	}
-	
+
 	public function processBackupSettings($id = '', $data = []){
 		$modules = $this->FreePBX->Modules->getModulesByMethod('processBackupSettings');
 		foreach ($modules as $module) {
@@ -1094,11 +1094,29 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 */
 	public function getAsteriskUserHomeDir(){
 		if(!isset($this->homeDir) || empty($this->homeDir)){
-			$webuser = escapeshellarg($this->FreePBX->Config->get('AMPASTERISKWEBUSER'));
-			exec('id -u '.$webuser, $out,$ret);
-			$uid = !empty($out[0])?$out[0]:posix_getuid();
-			$userinfo = posix_getpwuid($uid);
-			$this->homeDir = $userinfo['dir'];
+			$webuser = $this->FreePBX->Config->get('AMPASTERISKWEBUSER');
+
+			if (!$webuser) {
+				throw new \Exception(_("I don't know who I should be running Backup as."));
+			}
+
+			// We need to ensure that we can actually read the GPG files.
+			$web = posix_getpwnam($webuser);
+			if (!$web) {
+				throw new \Exception(sprintf(_("I tried to find out about %s, but the system doesn't think that user exists"),$webuser));
+			}
+			$home = trim($web['dir']);
+			if (!is_dir($home)) {
+				// Well, that's handy. It doesn't exist. Let's use ASTSPOOLDIR instead, because
+				// that should exist and be writable.
+				$home = $this->FreePBX->Config->get('ASTSPOOLDIR');
+				if (!is_dir($home)) {
+					// OK, I give up.
+					throw new \Exception(sprintf(_("Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. Aborting"),$home));
+				}
+			}
+
+			$this->homeDir = $home;
 		}
 		return $this->homeDir;
 	}

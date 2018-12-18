@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-05 21:58-0500\n"
+"POT-Creation-Date: 2018-12-17 19:03-0500\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -107,21 +107,28 @@ msgstr "Применить конфигурации"
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
 
+#: Backup.class.php:1114
+#, php-format
+msgid ""
+"Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
+"Aborting"
+msgstr ""
+
 #: page.backup.php:12 page.backup_restore.php:13
 msgid "Backup"
 msgstr "Бекап"
 
-#: Backup.class.php:805
+#: Backup.class.php:808
 #, php-format
 msgid "Backup %s"
 msgstr ""
 
-#: Backup.class.php:949
+#: Backup.class.php:952
 #, php-format
 msgid "Backup %s failed for %s"
 msgstr ""
 
-#: Backup.class.php:947
+#: Backup.class.php:950
 #, php-format
 msgid "Backup %s success for %s"
 msgstr ""
@@ -187,7 +194,7 @@ msgstr ""
 msgid "Backup finished with but with errors"
 msgstr ""
 
-#: Backup.class.php:342
+#: Backup.class.php:343
 msgid "Backup running"
 msgstr ""
 
@@ -239,7 +246,7 @@ msgstr ""
 msgid "Could not backup module %s, it may not be installed or enabled"
 msgstr ""
 
-#: Backup.class.php:311
+#: Backup.class.php:312
 msgid "Could not find a file for the id supplied"
 msgstr ""
 
@@ -264,11 +271,11 @@ msgstr ""
 msgid "Couldn't find class %s"
 msgstr ""
 
-#: Backup.class.php:497
+#: Backup.class.php:499
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
-#: Backup.class.php:319 Backup.class.php:339
+#: Backup.class.php:320 Backup.class.php:340
 msgid "Couldn't run process."
 msgstr ""
 
@@ -325,7 +332,7 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1014 views/backup/form.php:209
+#: Backup.class.php:1017 views/backup/form.php:209
 msgid "Enabled"
 msgstr ""
 
@@ -397,7 +404,7 @@ msgstr ""
 msgid "File named: "
 msgstr ""
 
-#: Backup.class.php:255
+#: Backup.class.php:256
 msgid "File reached the server but could not be processed"
 msgstr ""
 
@@ -440,6 +447,16 @@ msgstr ""
 msgid ""
 "How many updates to keep. If this number is 3, the last 3 will be kept. 0 is "
 "unlimited"
+msgstr ""
+
+#: Backup.class.php:1099
+msgid "I don't know who I should be running Backup as."
+msgstr ""
+
+#: Backup.class.php:1105
+#, php-format
+msgid ""
+"I tried to find out about %s, but the system doesn't think that user exists"
 msgstr ""
 
 #: views/backup/transfer.php:16
@@ -495,7 +512,7 @@ msgstr ""
 msgid "Migrating legacy backups to the new backup"
 msgstr ""
 
-#: Backup.class.php:234
+#: Backup.class.php:235
 msgid "Missing id or transaction"
 msgstr ""
 
@@ -534,19 +551,19 @@ msgstr "Нет"
 msgid "No Storage Locations"
 msgstr ""
 
-#: Backup.class.php:325
+#: Backup.class.php:326
 msgid "No backup id provided"
 msgstr ""
 
-#: Backup.class.php:252
+#: Backup.class.php:253
 msgid "No file provided"
 msgstr ""
 
-#: Backup.class.php:486
+#: Backup.class.php:488
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
-#: Backup.class.php:527
+#: Backup.class.php:529
 msgid "No user configurable settings"
 msgstr ""
 
@@ -635,7 +652,7 @@ msgstr ""
 msgid "Restore from the cloud"
 msgstr ""
 
-#: Backup.class.php:322
+#: Backup.class.php:323
 msgid "Restore running"
 msgstr ""
 
@@ -791,7 +808,7 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: Backup.class.php:470
+#: Backup.class.php:472
 msgid "System Transfer"
 msgstr ""
 
@@ -811,7 +828,7 @@ msgstr "Форма: поле для e-mail's, когда используетс�
 msgid "The address of the remote server."
 msgstr ""
 
-#: Backup.class.php:622
+#: Backup.class.php:625
 #, php-format
 msgid "The backup %s did not set a status and may have had an error"
 msgstr ""
@@ -868,7 +885,7 @@ msgstr ""
 msgid "Transfer Id"
 msgstr ""
 
-#: Backup.class.php:1014
+#: Backup.class.php:1017
 msgid "Uninstalled or Disabled"
 msgstr ""
 

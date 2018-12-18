@@ -71,7 +71,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			$servers->process();
 			out(_("Migrating legacy backups to the new backup"));
 			$jobs = new Backupjobs($this->FreePBX);
-			$jobs->process(); 
+			$jobs->process();
 
 			out(_("Cleaning up old data"));
 			$tables = [
@@ -226,8 +226,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 				}
 				return ['status' => false, "message" => _("We can't seem to delete the chosen file")];
 			case 'generateRSA':
+				$homedir = $this->getAsteriskUserHomeDir();
 				$ssh = new FilestoreRemote();
-				$ret = $ssh->generateKey('/home/asterisk/.ssh');
+				$ret = $ssh->generateKey($homedir.'/.ssh');
 			return ['status' => $ret];
 			case 'runstatus':
 				if(!isset($_GET['id']) || !isset($_GET['transaction'])){
@@ -424,12 +425,13 @@ class Backup extends FreePBX_Helpers implements BMO {
 				if(isset($_GET['view']) && $_GET['view'] == 'settings'){
 					$vars = $this->getAll('globalsettings');
 					$vars = $vars?$vars:[];
+					$hdir = $this->getAsteriskUserHomeDir();
 					$vars['fromemail'] = isset($vars['fromemail'])?$vars['fromemail']:'backup@pbx.local';
 					$vars['logpath']   = isset($vars['logpath'])?$vars['logpath']:'/var/log/asterisk/backup.log';
-					$file = '/home/asterisk/.ssh/id_rsa.pub';
+					$file = $hdir.'/.ssh/id_rsa.pub';
 					if (!file_exists($file)) {
 						$ssh = new FilestoreRemote();
-						$ssh->generateKey('/home/asterisk/.ssh');
+						$ssh->generateKey($hdir.'/.ssh');
 					}
 					$data = file_get_contents($file);
 					$vars['publickey'] = $data;
@@ -545,7 +547,8 @@ class Backup extends FreePBX_Helpers implements BMO {
 			$this->postRestore = new \SplQueue();
 		}
 		$hookpath      = getenv('BACKUPHOOKDIR');
-		$hookpath      = $hookpath?$hookpath:'/home/asterisk/Backup';
+		$homedir = $this->getAsteriskUserHomeDir();
+		$hookpath      = $hookpath?$hookpath:$homedir.'/Backup';
 
 		if (!file_exists($hookpath)) {
 			return;
@@ -816,7 +819,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 		$this->scheduleJobs($id);
 		return $id;
 	}
-	
+
 	public function processBackupSettings($id = '', $data = []){
 		$modules = $this->FreePBX->Modules->getModulesByMethod('processBackupSettings');
 		foreach ($modules as $module) {
@@ -1082,5 +1085,38 @@ class Backup extends FreePBX_Helpers implements BMO {
 		}
 
 		return 'legacy';
+	}
+	/**
+	 * Returns the home directory of the AMPASTERISKWEBUSER. If the user has no home directory we return home dir for the current running process.
+	 *
+	 * @return string path to home dir such as /home/asterisk
+	 */
+	public function getAsteriskUserHomeDir(){
+		if(!isset($this->homeDir) || empty($this->homeDir)){
+			$webuser = $this->FreePBX->Config->get('AMPASTERISKWEBUSER');
+
+			if (!$webuser) {
+				throw new \Exception(_("I don't know who I should be running Backup as."));
+			}
+
+			// We need to ensure that we can actually read the GPG files.
+			$web = posix_getpwnam($webuser);
+			if (!$web) {
+				throw new \Exception(sprintf(_("I tried to find out about %s, but the system doesn't think that user exists"),$webuser));
+			}
+			$home = trim($web['dir']);
+			if (!is_dir($home)) {
+				// Well, that's handy. It doesn't exist. Let's use ASTSPOOLDIR instead, because
+				// that should exist and be writable.
+				$home = $this->FreePBX->Config->get('ASTSPOOLDIR');
+				if (!is_dir($home)) {
+					// OK, I give up.
+					throw new \Exception(sprintf(_("Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. Aborting"),$home));
+				}
+			}
+
+			$this->homeDir = $home;
+		}
+		return $this->homeDir;
 	}
 }

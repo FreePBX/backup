@@ -51,38 +51,45 @@ $(document).ready(function () {
 	$('[name="warmspareenabled"]').change(function () {
 		toggle_warmspare();
 	});
-});
-//end ready
+	$("#run_backup").on('click', function (e) {
+		var input = $("<input>")
+			.attr("type", "hidden")
+			.attr("name", "runit").val(true);
+		$('.fpbx-submit').append(input);
+		$('#submit').click();
+	});
 
-$("#backup_backup").on('post-body.bs.table', function () {
-	$(".run").on('click', function (e) {
-		e.preventDefault();
-		$("#loadingimg").removeClass('hidden');
-		let transaction = false;
-		let id = $(this).data('item');
-		fpbxToast(_("Submitting backup job"));
-		$(".run").each(function () {
-			if ($(this).data('item') == id) {
-				$(this).children(":first").removeClass('fa-play').addClass('fa-spinner fa-spin');
-			}
-		});
-		$('#backuplog').modal('show');
-		$.ajax({
-			url: ajaxurl,
-			data: {
-				module: 'backup',
-				command: 'run',
-				id: $(this).data('item')
-			},
-		})
-		.then(data => {
-			if(data.status){
-				lockButtons(data.backupid,data.transaction);
-			}
+
+	$("#backup_backup").on('post-body.bs.table', function () {
+		$(".run").on('click', function (e) {
+			e.preventDefault();
+			$("#loadingimg").removeClass('hidden');
+			let transaction = false;
+			let id = $(this).data('item');
+			fpbxToast(_("Submitting backup job"));
+			$(".run").each(function () {
+				if ($(this).data('item') == id) {
+					$(this).children(":first").removeClass('fa-play').addClass('fa-spinner fa-spin');
+				}
+			});
+			$('#backuplog').modal('show');
+			$.ajax({
+				url: ajaxurl,
+				data: {
+					module: 'backup',
+					command: 'run',
+					id: $(this).data('item')
+				},
+			})
+			.then(data => {
+				if(data.status){
+					lockButtons(data.backupid,data.transaction);
+				}
+			});
 		});
 	});
 });
-
+//end ready
 function toggle_warmspare() {
 	if ($('input[name="warmspareenabled"]:checked').val() == 'yes') {
 		$(".warmspare").slideDown();
@@ -92,12 +99,7 @@ function toggle_warmspare() {
 }
 
 function lockButtons(id, transaction) {
-	$(".run").each(function () {
-		$(this).addClass('disabled');
-		if ($(this).data('item') == id) {
-			$(this).next().addClass('fa-spin');
-		}
-	});
+
 	var checkit = setInterval(function () {
 		$.ajax({
 			url: ajaxurl,
@@ -109,18 +111,15 @@ function lockButtons(id, transaction) {
 			}
 			})
 			.then(data => {
+				console.log(data);
 				if(data.message){
-					fpbxToast(data.message);
+					fpbxToast(data.message);	
 				}
 				if(data.log){
 					$("#logtext").html(data.log);
 				}
 				if (data.status == 'stopped') {
 					$("#loadingimg").addClass('hidden');
-					$(".run").each(function () {
-						$(this).removeClass('disabled');
-						$(this).children(":first").removeClass('fa-spinner fa-spin').addClass('fa-play');
-					});
 					fpbxToast(_('Your backup has finished'));
 					clearInterval(checkit);
 				}
@@ -133,7 +132,7 @@ function lockButtons(id, transaction) {
 					clearInterval(checkit);
 				});
 			});
-	}, 1200);
+	}, 1100);
 }
 
 function processItems() {
@@ -151,7 +150,7 @@ function processItems() {
 /** bootstrap tables formatters */
 function linkFormatter(value, row, index) {
 	let html = `<a href="?display=backup&view=form&id=${value}"><i class="fa fa-pencil"></i></a>`;
-	html += `&nbsp;<a href="#" data-item="${value}" class="run"><i class="fa fa-play" id="${value}"></i></a>`;
+	html += `&nbsp;<a href="?display=backup&view=run&id=${value}" data-item="${value}"><i class="fa fa-play" id="${value}"></i></a>`;
 	html += `&nbsp;<a href="" data-item="${value}" class="clicmd"><i class="fa fa-terminal"></i></a>`;
 	html += `&nbsp;<a href="?display=backup&action=delete&id=${value}" class="delAction"><i class="fa fa-trash"></i></a>`;
 	return html;

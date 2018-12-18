@@ -14,11 +14,11 @@
 	</menuitems>
 	<depends>
 		<module>filestore</module>
+		<version>15.0.1.33</version>
+
 	</depends>
 	<changelog>
-		*15.0.3alpha15* FREEPBX-18754 Migrate to new BMO logging
-		*15.0.3alpha14* FREEPBX-18251 Fix save and run. 
-		*15.0.3alpha14* FREEPBX-18665 Remove hard coding of asterisk home directory 
+		*15.0.3alpha15* FREEPBX-18754 Updates for logger in framework 15.0.1.33
 		*15.0.3alpha14* FREEPBX-18625 Rework the message handling 
 		*15.0.3alpha14* FREEPBX-18166 
 		*15.0.3alpha14* Fixing problems in Backup 15 

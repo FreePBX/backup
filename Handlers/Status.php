@@ -27,7 +27,7 @@ class Status implements MessageComponentInterface{
 	public function messageHandler(){
 		if(!empty($this->conn)){
 			$message = \FreePBX::Hooks()->processHooks();
-			dbug($message);
+			FreePBX::Logger()->getDriver('default')->debug($message);
 			foreach ($this->clients as $client) {
 				$client->send($message[1]);
 			}

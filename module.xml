@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.3alpha14</version>
+	<version>15.0.3alpha15</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -16,6 +16,7 @@
 		<module>filestore</module>
 	</depends>
 	<changelog>
+		*15.0.3alpha15* FREEPBX-18754 Migrate to new BMO logging
 		*15.0.3alpha14* FREEPBX-18251 Fix save and run. 
 		*15.0.3alpha14* FREEPBX-18665 Remove hard coding of asterisk home directory 
 		*15.0.3alpha14* FREEPBX-18625 Rework the message handling 

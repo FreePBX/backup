@@ -18,6 +18,7 @@
 
 	</depends>
 	<changelog>
+		*15.0.3beta4* FREEPBX-18882 Update help text in fwconsole 
 		*15.0.3beta4* FREEPBX-18885 Fix cron syntax, don't hardcode sbin. 
 		*15.0.3beta1* Bump to beta
 		*15.0.3alpha15* FREEPBX-18754 Updates for logger in framework 15.0.1.33

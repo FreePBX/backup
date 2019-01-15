@@ -28,14 +28,14 @@ class Backup extends Command {
 				new InputOption('backupsingle', '', InputOption::VALUE_REQUIRED, 'Module to backup'),
 				new InputOption('singlesaveto', '', InputOption::VALUE_REQUIRED, 'Where to save the single module backup.'),
 		))
-		->setHelp('Run a backup: fwconsole backup --id=[backup-id]'.PHP_EOL
-		.'Run a restore: fwconsole backup --restore=[/path/to/restore-xxxxxx.tar.gz]'.PHP_EOL
+		->setHelp('Run a backup: fwconsole backup --backup [backup-id]'.PHP_EOL
+		.'Run a restore: fwconsole backup --restore [/path/to/restore-xxxxxx.tar.gz]'.PHP_EOL
 		.'List backups: fwconsole backup --list'.PHP_EOL
-		.'Dump remote backup string: fwconsole --dumpextern=[backup-id]'.PHP_EOL
-		.'Run backup job with remote string: fwconsole --externbackup=[Base64encodedString]'.PHP_EOL
-		.'Run backup job with remote string and custom transaction id: fwconsole --externbackup=[Base64encodedString] --transaction=[yourstring]'.PHP_EOL
-		.'Run backup on a single module: fwconsole --backupsingle=[modulename] --singlesaveto=[output/path]'.PHP_EOL
-		.'Run a single module backup: fwconsole --restoresingle=[filename]'.PHP_EOL
+		.'Dump remote backup string: fwconsole --dumpextern [backup-id]'.PHP_EOL
+		.'Run backup job with remote string: fwconsole --externbackup [Base64encodedString]'.PHP_EOL
+		.'Run backup job with remote string and custom transaction id: fwconsole --externbackup [Base64encodedString] --transaction [yourstring]'.PHP_EOL
+		.'Run backup on a single module: fwconsole --backupsingle [modulename] --singlesaveto [output/path]'.PHP_EOL
+		.'Run a single module backup: fwconsole --restoresingle [filename]'.PHP_EOL
 		);
 	}
 	protected function execute(InputInterface $input, OutputInterface $output){
@@ -142,7 +142,7 @@ class Backup extends Command {
 
 	}
 	public function listBackups(){
-		$this->output->writeln("fwconsole backup --backup=[Backup ID]");
+		$this->output->writeln("fwconsole backup --backup [Backup ID]");
 		$table = new Table($this->output);
 		$table->setHeaders(['Backup Name','Description','Backup ID']);
 		$list = [];

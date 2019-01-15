@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.3beta1</version>
+	<version>15.0.3beta4</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,6 +18,7 @@
 
 	</depends>
 	<changelog>
+		*15.0.3beta4* FREEPBX-18885 Fix cron syntax, don't hardcode sbin. 
 		*15.0.3beta1* Bump to beta
 		*15.0.3alpha15* FREEPBX-18754 Updates for logger in framework 15.0.1.33
 		*15.0.3alpha14* FREEPBX-18625 Rework the message handling 

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-18 17:34-0500\n"
+"POT-Creation-Date: 2019-01-15 15:48-0500\n"
 "PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/backup/pl/"
@@ -89,7 +89,7 @@ msgstr "Zastosuj konfiguracje"
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
 
-#: Backup.class.php:1116
+#: Backup.class.php:1117
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -100,17 +100,17 @@ msgstr ""
 msgid "Backup"
 msgstr "Kopa zapasowa"
 
-#: Backup.class.php:810
+#: Backup.class.php:811
 #, php-format
 msgid "Backup %s"
 msgstr ""
 
-#: Backup.class.php:954
+#: Backup.class.php:955
 #, php-format
 msgid "Backup %s failed for %s"
 msgstr ""
 
-#: Backup.class.php:952
+#: Backup.class.php:953
 #, php-format
 msgid "Backup %s success for %s"
 msgstr ""
@@ -326,7 +326,7 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1019 views/backup/form.php:209
+#: Backup.class.php:1020 views/backup/form.php:209
 msgid "Enabled"
 msgstr ""
 
@@ -439,11 +439,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1101
+#: Backup.class.php:1102
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1107
+#: Backup.class.php:1108
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -881,7 +881,7 @@ msgstr ""
 msgid "Transfer Id"
 msgstr ""
 
-#: Backup.class.php:1019
+#: Backup.class.php:1020
 msgid "Uninstalled or Disabled"
 msgstr ""
 

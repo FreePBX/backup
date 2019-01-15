@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for backup
-# Copyright (C) 2008-2018 Sangoma Technologies, Inc.
+# Copyright (C) 2008-2019 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-21 16:17-0500\n"
+"POT-Creation-Date: 2019-01-15 15:48-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,7 +96,7 @@ msgstr ""
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
 
-#: Backup.class.php:1116
+#: Backup.class.php:1117
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -108,17 +108,17 @@ msgstr ""
 msgid "Backup"
 msgstr ""
 
-#: Backup.class.php:810
+#: Backup.class.php:811
 #, php-format
 msgid "Backup %s"
 msgstr ""
 
-#: Backup.class.php:954
+#: Backup.class.php:955
 #, php-format
 msgid "Backup %s failed for %s"
 msgstr ""
 
-#: Backup.class.php:952
+#: Backup.class.php:953
 #, php-format
 msgid "Backup %s success for %s"
 msgstr ""
@@ -342,7 +342,7 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1019
+#: Backup.class.php:1020
 #: views/backup/form.php:209
 msgid "Enabled"
 msgstr ""
@@ -457,11 +457,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1101
+#: Backup.class.php:1102
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1107
+#: Backup.class.php:1108
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -906,7 +906,7 @@ msgstr ""
 msgid "Transfer Id"
 msgstr ""
 
-#: Backup.class.php:1019
+#: Backup.class.php:1020
 msgid "Uninstalled or Disabled"
 msgstr ""
 

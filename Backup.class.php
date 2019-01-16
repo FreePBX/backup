@@ -351,6 +351,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 						$storage_ids = [];
 						if(isset($_GET['id']) && !empty($_GET['id'])){
 							$storage_ids = $this->getStorageByID($_GET['id']);
+							dbug($storage_ids);
 						}
 						try {
 							$fstype = $this->getFSType();
@@ -362,9 +363,11 @@ class Backup extends FreePBX_Helpers implements BMO {
 									'children' => []
 								];
 								foreach ($locations as $location) {
+									dbug($location);
+									$name = isset($location['displayname'])?$location['displayname']:$location ['name'];
 									$select       = in_array($driver.'_'.$location['id'], $storage_ids);
 									$optgroup['children'][] = [
-										'label'    => $location['name'],
+										'label'    => $name,
 										'title'    => $location['description'],
 										'value'    => $driver.'_'.$location['id'],
 										'selected' => $select

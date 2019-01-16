@@ -8,10 +8,11 @@ $(document).ready(function () {
 			disabledText: _('No Storage Locations'),
 			enableFiltering: true,
 			includeSelectAllOption: true,
-			buttonWidth: '80%'
+			buttonWidth: '80%',
+			enableLazyLoad: true
 		});
 		//get items
-		$.getJSON(`ajax.php?module=backup&command=getJSON&jdata=backupStorage&id=${$("#id").val()}`)
+		$.getJSON(`${ajaxurl}?module=backup&command=getJSON&jdata=backupStorage&id=${$("#id").val()}`)
 			.done(
 				function (data) {
 					$('#backup_storage').multiselect('dataprovider', data);

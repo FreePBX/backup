@@ -13,10 +13,13 @@ $(document).ready(() => {
 			}
 		})
 		.then(data => {
+			if(data.status == false){
+				fpbxToast(data.message);
+				return;
+			}
 			fpbxToast(data.message || "Something went wrong.");
+			lockButtons(data.transaction, data.process);
 			$("#runrestore").disable();
-			let url = `${window.location.href}&view=restorerunninge&job=${data.transaction}`;
-			window.location = url;
 		});
 	});
 	$("#goback").click(event => {
@@ -38,7 +41,6 @@ $(document).ready(() => {
 		.then(data => {
 			if(data.status == true){
 				let url = `${window.location.href}&view=processrestore&fileid=${data.id}`;
-				console.log(url);
 				window.location = url;
 			}else{
 				fpbxToast(data.message, 'error');
@@ -69,7 +71,6 @@ $(document).ready(() => {
 
 		});
 		dz.on('uploadprogress', function(event,progress,total){
-			console.log(event);
 			var current = event.upload.progress ? event.upload.progress:0;
 			$("#uploadprogress").css('width', `${current}%`);
 		});
@@ -78,7 +79,6 @@ $(document).ready(() => {
 	$("#restoreFiles").on("post-body.bs.table", function () {
 		$('.remoteDelete').on('click', e => {
 			e.preventDefault();
-			console.log(e);
 			document.body.style.overflowY = "auto";
 			fpbxConfirm(_("Are you sure you wish to delete this file? This cannot be undone"),
 				_("Delete"), _("Cancel"),
@@ -96,7 +96,6 @@ $(document).ready(() => {
 						}
 					})
 					.then(data => {
-						console.log(data);
 						if (data.status) {
 							$("#restoreFiles").bootstrapTable('refresh', {
 								silent: true
@@ -128,7 +127,6 @@ $(document).ready(() => {
 						}
 					})
 					.then(data => {
-						console.log(data);
 						if(data.status){
 							$("#localrestorefiles").bootstrapTable('refresh',{silent:true});
 						}
@@ -141,6 +139,46 @@ $(document).ready(() => {
 			);
 		});
 	});
+function lockButtons(id, proc) {
+	var count = 0;
+	var checkit = setInterval(function () {
+		$.ajax({
+				url: ajaxurl,
+				data: {
+					module: 'backup',
+					command: 'getRestoreLog',
+					id: id,
+					proc: proc
+				}
+			})
+			.then(data => {
+				$('#backuplog').modal('show');
+				if (data.message) {
+					fpbxToast(data.message);
+				}
+				if (data.log) {
+					$("#logtext").html(data.log);
+				}
+				if (data.running == false) {
+					++count;
+					if (count < 5) {
+						return;
+					}
+					$("#loadingimg").addClass('hidden');
+					fpbxToast(_('Your restore has finished'));
+					clearInterval(checkit);
+				}
+			})
+			.fail(err => {
+				$(".run").each(function () {
+					$("#loadingimg").addClass('hidden');
+					$(this).removeClass('disabled');
+					$(this).children(":first").removeClass('fa-spinner fa-spin').addClass('fa-play');
+					clearInterval(checkit);
+				});
+			});
+	}, 1100);
+}
 
 });//end document ready
 

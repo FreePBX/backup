@@ -24,7 +24,7 @@ use BMO;
 use splitbrain\PHPArchive\Tar;
 use FreePBX\modules\Backup\Handlers\MonologSwift;
 class Backup extends FreePBX_Helpers implements BMO {
-	const DEBUG = true;
+	const DEBUG = false;
 	public $swiftmsg = false;
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {

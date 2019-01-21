@@ -36,21 +36,25 @@ class BackupFile extends SplFileInfo{
 	* @return array manifest
 	*/
 	public function getMetadata($cleanslate = true){
-		define('BACKUPTMPDIR', '/var/spool/asterisk/tmp');
+		//define('BACKUPTMPDIR', '/var/spool/asterisk/tmp');
+		$backuptmpdir = '/var/spool/asterisk/tmp';
 		$fileSystem = new Filesystem();
-		if(file_exists(BACKUPTMPDIR) && $cleanslate){
-			$fileSystem->remove([BACKUPTMPDIR]);
+
+		if(file_exists($backuptmpdir) && $cleanslate){
+
+			$fileSystem->remove(array($backuptmpdir));
 		}
-		$fileSystem->mkdir(BACKUPTMPDIR, 0755);
+
+		$fileSystem->mkdir($backuptmpdir, 0755);
+
 		$tar = new Tar();
 		$tar->open($this->getPathname());
-		$tar->extract(BACKUPTMPDIR, '', '', '/(manifest|metadata\.json)/');
-
-		$metafile = BACKUPTMPDIR . '/metadata.json';
-		$manafestfile = BACKUPTMPDIR . '/manifest';
+		$tar->extract($backuptmpdir, '', '', '/(manifest|metadata\.json)/');
+		$metafile = $backuptmpdir . '/metadata.json';
+		$manafestfile = $backuptmpdir . '/manifest';
 		$meta = [];
 		if(file_exists($metafile)){
-			$metadata = file_get_contents(BACKUPTMPDIR . '/metadata.json');
+			$metadata = file_get_contents($metafile);
 			$meta = json_decode($metadata, true);
 		}
 		if(file_exists($manafestfile)){
@@ -68,6 +72,7 @@ class BackupFile extends SplFileInfo{
 
 		$tar->close();
 		unset($tar);
+
 		return $meta;
 	}
 }

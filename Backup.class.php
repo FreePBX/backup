@@ -194,6 +194,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			case 'generateRSA'      :
 			case 'deleteLocal'      :
 			case 'runstatus'		:
+			case 'getRestoreLog'	:
 				return true;
 			default:
 				return false;
@@ -317,11 +318,12 @@ class Backup extends FreePBX_Helpers implements BMO {
 				$process = new Process('fwconsole backup --restore="'.$file.'" --transaction='.$jobid.' > /dev/null 2>&1 &');
 				$process->disableOutput();
 				try {
-					$process->mustRun();
+					$process->start();
+					$pid = $process->getPid();
+
 				} catch (\Exception $e) {
 					return ['status' => false, 'message' => _("Couldn't run process."),'exception'=> $e->getMessage()];
 				}
-				$pid = $process->getPid();
 				return ['status' => true, 'message' => _("Restore running"), 'process' => $pid, 'transaction' => $jobid];
 			case 'run':
 				if(!isset($_GET['id'])){
@@ -343,6 +345,19 @@ class Backup extends FreePBX_Helpers implements BMO {
 				}
 				$pid = $process->getPid();
 				return ['status' => true, 'message' => _("Backup running"), 'process' => $pid, 'transaction' => $jobid, 'backupid' => $buid];
+			case 'getRestoreLog':
+				$pid = $_GET['proc'];
+				$id = $_GET['id'];
+				$running = posix_kill($pid,0);
+				$logdata = $this->getConfig('sessionlog');
+				$logdata = is_array($logdata)?reset($logdata):[];
+				$log = implode(PHP_EOL,$logdata);
+				$log = '<pre>'.$log.'</pre>';
+				return [
+					'running' => $running,
+					'log' => $log,
+				];
+
 			case 'getJSON':
 				switch ($_REQUEST['jdata']) {
 					case 'backupGrid':
@@ -501,8 +516,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 							return load_view(__DIR__.'/views/restore/landing.php',['error' => _("Couldn't find your file, please try submitting your file again.")]);
 						}
 						if($path){
-							$file = new BackupFile($path);
-							$manifest = $file->getMetadata($path);
+							$fileClass = new BackupFile($path);
+							$manifest = $fileClass->getMetadata($path);
+
 						}
 						$vars['meta']     = $manifest;
 						$vars['date']     = $this->FreePBX->View->getDateTime($manifest['date']);
@@ -511,6 +527,10 @@ class Backup extends FreePBX_Helpers implements BMO {
 						$vars['fileid']   = $fileid;
 						return load_view(__DIR__.'/views/restore/processRestore.php',$vars);
 					case 'restorerunning':
+						$vars['job']       = $_GET['id'];
+						$vars['proc']       = $_GET['proc'];
+					return load_view(__DIR__.'/views/restore/status.php',$vars);
+					break;
 					default:
 						return load_view(__DIR__.'/views/restore/landing.php');
 				}
@@ -1122,4 +1142,5 @@ class Backup extends FreePBX_Helpers implements BMO {
 		}
 		return $this->homeDir;
 	}
+
 }

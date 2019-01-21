@@ -64,8 +64,8 @@ class Backup{
 		$this->Backup->log($transactionId,sprintf(_("Storage Location: %s"),$targzname));
 
 		$tar = new Tar();
+        $tar->setCompression(9, Tar::COMPRESS_GZIP);
 		$tar->create($targzname);
-
 		$this->Backup->fs->mkdir($tmpdir . '/modulejson');
 		$this->Backup->fs->mkdir($tmpdir . '/files');
 
@@ -197,9 +197,7 @@ class Backup{
 		}
 		$manifest['processorder'] = $this->dependencies;
 		$tar->addData('metadata.json', json_encode($manifest));
-
-		//Done with Tar, unlock the file so we can do stuff..
-		unset($tar);
+		$tar->close();
 		if(!$external){
 			$remote = $remotePath.'/'.$targzname;
 			$this->Backup->log($transactionId,_("Saving to selected Filestore locations"));

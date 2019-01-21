@@ -99,7 +99,7 @@ function toggle_warmspare() {
 }
 
 function lockButtons(id, transaction) {
-
+	var count = 0;
 	var checkit = setInterval(function () {
 		$.ajax({
 			url: ajaxurl,
@@ -119,6 +119,10 @@ function lockButtons(id, transaction) {
 					$("#logtext").html(data.log);
 				}
 				if (data.status == 'stopped') {
+					++count;
+					if(count < 2 ){
+						return;
+					}
 					$("#loadingimg").addClass('hidden');
 					fpbxToast(_('Your backup has finished'));
 					clearInterval(checkit);

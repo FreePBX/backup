@@ -18,6 +18,7 @@
 
 	</depends>
 	<changelog>
+		*15.0.3beta4* Set the debug flag to false which will clean up old data db data 
 		*15.0.3beta4* FREEPBX-18709 Fix corrupt backups, fix restore log 
 		*15.0.3beta5* FREEPBX-18155 Move echo to logger in legacy
 		*15.0.3beta4* FREEPBX-18882 Update help text in fwconsole 

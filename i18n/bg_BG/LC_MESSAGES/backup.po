@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-21 17:05-0500\n"
+"POT-Creation-Date: 2019-01-24 17:34-0500\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -60,11 +60,11 @@ msgid ""
 "Skipping"
 msgstr ""
 
-#: Console/Backup.class.php:80
+#: Console/Backup.class.php:85
 msgid "A backup job for this id is already running"
 msgstr ""
 
-#: Console/Backup.class.php:127
+#: Console/Backup.class.php:132
 msgid "A backup task is already running"
 msgstr ""
 
@@ -72,7 +72,7 @@ msgstr ""
 msgid "A name used to identify your backups"
 msgstr ""
 
-#: Console/Backup.class.php:107
+#: Console/Backup.class.php:112
 msgid "A restore task is already running"
 msgstr ""
 
@@ -683,7 +683,7 @@ msgstr ""
 msgid "Run Restore"
 msgstr ""
 
-#: assets/js/backup/backup.js:175
+#: assets/js/backup/backup.js:176
 msgid "Run the following in the CLI"
 msgstr ""
 
@@ -814,7 +814,7 @@ msgstr ""
 msgid "Storage Location: %s"
 msgstr ""
 
-#: assets/js/backup/backup.js:69
+#: assets/js/backup/backup.js:68
 msgid "Submitting backup job"
 msgstr ""
 
@@ -872,7 +872,7 @@ msgid ""
 "install"
 msgstr ""
 
-#: assets/js/backup/backup.js:167
+#: assets/js/backup/backup.js:168
 msgid "This module has no settings"
 msgstr ""
 
@@ -950,7 +950,7 @@ msgstr ""
 msgid "Yes"
 msgstr "Да"
 
-#: assets/js/backup/backup.js:127
+#: assets/js/backup/backup.js:126
 msgid "Your backup has finished"
 msgstr ""
 

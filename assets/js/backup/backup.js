@@ -19,7 +19,6 @@ $(document).ready(function () {
 			)
 			.fail(
 				function (jqxhr, textStatus, error) {
-					console.log(textStatus);
 					$('#backup_storage').multiselect('dataprovider', {});
 				}
 			);
@@ -111,21 +110,23 @@ function lockButtons(id, transaction) {
 			}
 			})
 			.then(data => {
-				console.log(data);
 				if(data.message){
 					fpbxToast(data.message);	
 				}
-				if(data.log){
+				if (data.log && data.log != '<pre></pre>'){
 					$("#logtext").html(data.log);
 				}
 				if (data.status == 'stopped') {
 					++count;
-					if(count < 2 ){
-						return;
+					if(count > 3 ){
+						clearInterval(checkit);
 					}
-					$("#loadingimg").addClass('hidden');
-					fpbxToast(_('Your backup has finished'));
-					clearInterval(checkit);
+					if(count >3){
+						$("#loadingimg").addClass('hidden');
+						fpbxToast(_('Your backup has finished'));
+						clearInterval(checkit);
+						return
+					}
 				}
 			})
 			.fail(err => {
@@ -136,7 +137,7 @@ function lockButtons(id, transaction) {
 					clearInterval(checkit);
 				});
 			});
-	}, 1100);
+	}, 3000);
 }
 
 function processItems() {

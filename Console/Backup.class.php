@@ -27,6 +27,7 @@ class Backup extends Command {
 				new InputOption('restoresingle', '', InputOption::VALUE_REQUIRED, 'Module backup to restore'),
 				new InputOption('backupsingle', '', InputOption::VALUE_REQUIRED, 'Module to backup'),
 				new InputOption('singlesaveto', '', InputOption::VALUE_REQUIRED, 'Where to save the single module backup.'),
+				new InputOption('b64import', '', InputOption::VALUE_REQUIRED, ''),
 		))
 		->setHelp('Run a backup: fwconsole backup --backup [backup-id]'.PHP_EOL
 		.'Run a restore: fwconsole backup --restore [/path/to/restore-xxxxxx.tar.gz]'.PHP_EOL
@@ -52,6 +53,10 @@ class Backup extends Command {
 		$transaction = $input->getOption('transaction');
         $backupsingle = $input->getOption('backupsingle');
         $restoresingle = $input->getOption('restoresingle');
+		$b64import = $input->getOption('b64import');
+		if($b64import){
+			return $this->addBackupByString($b64import);
+		}
         if($backupsingle){
             $saveto = $input->getOption('singlesaveto')?$input->getOption('singlesaveto'):'';
             $job = new Handler\SingleBackup($backupsingle, $this->freepbx, $saveto);
@@ -151,5 +156,27 @@ class Backup extends Command {
 		}
 		$table->setRows($list);
 		$table->render();
+	}
+
+	public function addBackupByString($base64){
+		$data = json_decode(base64_decode($base64), true);
+		if(json_last_error() !== JSON_ERROR_NONE){
+			$this->output->writeln(sprintf('Backup could not be imorted: %s',json_last_error_msg()));
+			return false;
+		}
+		$items = [];
+		if(isset($data['backup_items'])){
+			$items = $data['backup_items'];
+			unset($data['backup_items']);
+		}
+		$id = $this->freepbx->Backup->generateID();
+
+		foreach($data as $key => $value){
+			$this->freepbx->Backup->updateBackupSetting($id,$key,$value);
+		}
+		$this->freepbx->Backup->setModulesById($id, $items);
+		$this->freepbx->Backup->setConfig($id, array('id' => $id, 'name' => $data['backup_name'], 'description' => $data['backup_description']), 'backupList');
+		$this->output->writeln(sprintf('Backup created ID: %s', $id));
+		return $id;
 	}
 }

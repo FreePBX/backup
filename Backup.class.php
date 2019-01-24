@@ -377,9 +377,10 @@ class Backup extends FreePBX_Helpers implements BMO {
 									'children' => []
 								];
 								foreach ($locations as $location) {
+									$name = isset($location['displayname'])?$location['displayname']:$location ['name'];
 									$select       = in_array($driver.'_'.$location['id'], $storage_ids);
 									$optgroup['children'][] = [
-										'label'    => $location['name'],
+										'label'    => $name,
 										'title'    => $location['description'],
 										'value'    => $driver.'_'.$location['id'],
 										'selected' => $select

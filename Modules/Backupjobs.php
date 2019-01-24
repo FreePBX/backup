@@ -67,7 +67,7 @@ class Backupjobs extends Migration{
 			foreach($backup['data']['storage_servers'] as $server){
 				$lookup = $this->getStorageId($server);
 				if($lookup === false){
-					$this->FreePBX->Logger->getDriver('default')->debug("couldn't find a migration path for server $server");
+					//$this->FreePBX->Logger->getDriver('default')->debug("couldn't find a migration path for server $server");
 					continue;
 				}
 				$storage[] = $lookup;

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-24 17:34-0500\n"
+"POT-Creation-Date: 2019-01-24 18:34-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,7 +96,7 @@ msgstr ""
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
 
-#: Backup.class.php:1137
+#: Backup.class.php:1138
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -108,17 +108,17 @@ msgstr ""
 msgid "Backup"
 msgstr ""
 
-#: Backup.class.php:831
+#: Backup.class.php:832
 #, php-format
 msgid "Backup %s"
 msgstr ""
 
-#: Backup.class.php:975
+#: Backup.class.php:976
 #, php-format
 msgid "Backup %s failed for %s"
 msgstr ""
 
-#: Backup.class.php:973
+#: Backup.class.php:974
 #, php-format
 msgid "Backup %s success for %s"
 msgstr ""
@@ -278,7 +278,7 @@ msgstr ""
 msgid "Couldn't find class %s"
 msgstr ""
 
-#: Backup.class.php:516
+#: Backup.class.php:517
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
@@ -342,7 +342,7 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1040
+#: Backup.class.php:1041
 #: views/backup/form.php:209
 msgid "Enabled"
 msgstr ""
@@ -457,11 +457,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1122
+#: Backup.class.php:1123
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1128
+#: Backup.class.php:1129
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -572,11 +572,11 @@ msgstr ""
 msgid "No file provided"
 msgstr ""
 
-#: Backup.class.php:505
+#: Backup.class.php:506
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
-#: Backup.class.php:551
+#: Backup.class.php:552
 msgid "No user configurable settings"
 msgstr ""
 
@@ -693,7 +693,7 @@ msgstr ""
 msgid "Run Restore"
 msgstr ""
 
-#: assets/js/backup/backup.js:176
+#: assets/js/backup/backup.js:177
 msgid "Run the following in the CLI"
 msgstr ""
 
@@ -824,7 +824,7 @@ msgstr ""
 msgid "Storage Location: %s"
 msgstr ""
 
-#: assets/js/backup/backup.js:68
+#: assets/js/backup/backup.js:69
 msgid "Submitting backup job"
 msgstr ""
 
@@ -832,7 +832,7 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: Backup.class.php:489
+#: Backup.class.php:490
 msgid "System Transfer"
 msgstr ""
 
@@ -852,7 +852,7 @@ msgstr ""
 msgid "The address of the remote server."
 msgstr ""
 
-#: Backup.class.php:647
+#: Backup.class.php:648
 #, php-format
 msgid "The backup %s did not set a status and may have had an error"
 msgstr ""
@@ -883,7 +883,7 @@ msgid ""
 "install"
 msgstr ""
 
-#: assets/js/backup/backup.js:168
+#: assets/js/backup/backup.js:169
 msgid "This module has no settings"
 msgstr ""
 
@@ -910,7 +910,7 @@ msgstr ""
 msgid "Transfer Id"
 msgstr ""
 
-#: Backup.class.php:1040
+#: Backup.class.php:1041
 msgid "Uninstalled or Disabled"
 msgstr ""
 
@@ -964,7 +964,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: assets/js/backup/backup.js:126
+#: assets/js/backup/backup.js:127
 msgid "Your backup has finished"
 msgstr ""
 

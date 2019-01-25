@@ -51,3 +51,5 @@ $backupClass = FreePBX::Backup();
 				</div>
 			</div>
 		</div>
+	</div>
+</div>

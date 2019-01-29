@@ -7,18 +7,18 @@ class Backupjobs extends Migration{
 	public $backupJobs = [];
 	public $moduleData = [];
 	public function process(){
-		$this->moduleManager = new FreePBXModule($this->FreePBX);
+		$this->moduleManager = new FreePBXModule($this->freepbx);
 		return $this->getLegacyBackups()
 			 ->migrate();
 
 	}
 	public function getLegacyBackups(){
-		$sql = 'SELECT * FROM backup ORDER BY name'; 
+		$sql = 'SELECT * FROM backup ORDER BY name';
 		$backups = $this->Database->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 		$sql = 'SELECT * FROM backup_details';
 		$backupDetails = $this->Database->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 		$sql = 'SELECT * FROM backup_items';
-		$backupItems = $this->Database->query($sql)->fetchAll(PDO::FETCH_ASSOC); 
+		$backupItems = $this->Database->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 		$final = [];
 		foreach($backups as $job){
 			$final['bu_' . $job['id']] = $job;
@@ -31,11 +31,11 @@ class Backupjobs extends Migration{
 				$final['bu_' . $setting['backup_id']]['data']['storage_servers'][] = $setting['value'];
 				continue;
 			}
-			$final['bu_' . $setting['backup_id']]['data'][$setting['key']] = $setting['value'];				
+			$final['bu_' . $setting['backup_id']]['data'][$setting['key']] = $setting['value'];
 		}
 		foreach($backupItems as $item){
 			$item['exclude'] = unserialize($item['exclude']);
-			$final['bu_' . $item['backup_id']]['items'][] = $item; 
+			$final['bu_' . $item['backup_id']]['items'][] = $item;
 		}
 		$this->Backup->setMultiConfig($final, 'migratedbackups');
 		$this->backupJobs = $final;
@@ -67,7 +67,7 @@ class Backupjobs extends Migration{
 			foreach($backup['data']['storage_servers'] as $server){
 				$lookup = $this->getStorageId($server);
 				if($lookup === false){
-					//$this->FreePBX->Logger->getDriver('default')->debug("couldn't find a migration path for server $server");
+					//$this->freepbx->Logger->getDriver('default')->debug("couldn't find a migration path for server $server");
 					continue;
 				}
 				$storage[] = $lookup;
@@ -140,7 +140,7 @@ class Backupjobs extends Migration{
 					if($key === 'bu_server'){
 						$storageId = $this->getStorageId($value);
 						$tmp = explode('_',$storageId);
-						$storageItem = $this->FreePBX->Filestore->getAll($tmp[1]);
+						$storageItem = $this->freepbx->Filestore->getAll($tmp[1]);
 						if(is_array($storageItem)){
 							$this->Backup->updateBackupSetting($backup['uuid'], 'warmspare_remoteip', $storageItem['host']);
 							$this->Backup->updateBackupSetting($backup['uuid'], 'warmspare_user', $storageItem['user']);
@@ -200,7 +200,7 @@ class Backupjobs extends Migration{
 							$hour = isset($backup['data']['cron_hour']) ? $backup['data']['cron_hour'] : '*';
 							$month = isset($backup['data']['cron_month']) ? $backup['data']['cron_month'] : '*';
 							$cronjob = sprintf('%s %s %s %s %s', $minute, $hour, $dom, $month, $dow);
-							break;						
+							break;
 						default:
 							$cronjob = false;
 							break;
@@ -246,7 +246,7 @@ class Backupjobs extends Migration{
 		if(!empty($this->moduleData)){
 			return $this;
 		}
-		$amodules = $this->FreePBX->Modules->getActiveModules();
+		$amodules = $this->freepbx->Modules->getActiveModules();
 		$this->moduleData['modules'] = $amodules;
 		foreach($amodules as $mod){
 			$modTables = $this->moduleManager->getTables($mod['rawname']);

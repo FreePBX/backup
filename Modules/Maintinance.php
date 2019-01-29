@@ -13,12 +13,12 @@ class Maintinance{
 			throw new \Exception('Not given a FreePBX Object');
 		}
 		$this->dryrun = false;
-		$this->FreePBX = $freepbx;
-		$this->backupInfo = $this->FreePBX->Backup->getBackup($backupId);
-		$this->remoteStorage = $this->FreePBX->Backup->getStorageById($backupId);
+		$this->freepbx = $freepbx;
+		$this->backupInfo = $this->freepbx->Backup->getBackup($backupId);
+		$this->remoteStorage = $this->freepbx->Backup->getStorageById($backupId);
 		$this->name = str_replace(' ', '_', $this->backupInfo['backup_name']);
-		$this->spooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
-		$this->serverName = str_replace(' ', '_',$this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT'));
+		$this->spooldir = $this->freepbx->Config->get("ASTSPOOLDIR");
+		$this->serverName = str_replace(' ', '_',$this->freepbx->Config->get('FREEPBX_SYSTEM_IDENT'));
 		$this->localPath = sprintf('%s/backup/%s',$this->spooldir,$this->name);
 		$this->remotePath =  sprintf('/%s/%s',$this->serverName,$this->name);
 	}
@@ -37,7 +37,7 @@ class Maintinance{
 			if(isset($this->backupInfo['maintage']) && $this->backupInfo['maintage'] > 1){
 				if($backupDate->diffInDays() > $backupInfo['maintage']){
 					if($this->dryrun){
-					 $this->FreePBX->Logger->getDriver('default')->debug(sprintf("UNLINK %s/%s".PHP_EOL,$file->getPath(),$file->getBasename().'.tar.gz'));
+					 $this->freepbx->Logger->getDriver('default')->debug(sprintf("UNLINK %s/%s".PHP_EOL,$file->getPath(),$file->getBasename().'.tar.gz'));
 						continue;
 					}
 					unlink($file->getPath().'/'.$file->getBasename());
@@ -45,7 +45,7 @@ class Maintinance{
 				}
 			}
 			if($this->dryrun){
-			 $this->FreePBX->Logger->getDriver('default')->debug(sprintf("Adding %s/%s to maintfiles with a key of %s".PHP_EOL,$file->getPath(),$file->getBasename(),$parsed['timestamp']));
+			 $this->freepbx->Logger->getDriver('default')->debug(sprintf("Adding %s/%s to maintfiles with a key of %s".PHP_EOL,$file->getPath(),$file->getBasename(),$parsed['timestamp']));
 			}
 			if(!$parsed['isCheckSum']){
 				$maintfiles[$parsed['timestamp']] = $file->getPath().'/'.$file->getBasename();
@@ -56,7 +56,7 @@ class Maintinance{
 			$remove = array_slice($maintfiles,$this->backupInfo['maintruns'],null,true);
 			foreach ($remove as $key => $value) {
 				if($this->dryrun){
-				 $this->FreePBX->Logger->getDriver('default')->debug(sprintf("UNLINK %s".PHP_EOL,$value));
+				 $this->freepbx->Logger->getDriver('default')->debug(sprintf("UNLINK %s".PHP_EOL,$value));
 					continue;
 				}
 				unlink($value);
@@ -69,7 +69,7 @@ class Maintinance{
 			$maintfiles = [];
 			$location = explode('_', $location);
 			try {
-				$files = $this->FreePBX->Filestore->ls($location[0],$location[1],$this->remotePath);
+				$files = $this->freepbx->Filestore->ls($location[0],$location[1],$this->remotePath);
 			} catch (\Exception $e) {
 				$errors[] = $e->getMessage();
 				$files = [];
@@ -87,11 +87,11 @@ class Maintinance{
 					if($backupDate->diffInDays() > $backupInfo['maintage']){
 						try {
 							if($this->dryrun){
-							 $this->FreePBX->Logger->getDriver('default')->debug(sprintf("UNLINK %s".PHP_EOL,$file['path']));
+							 $this->freepbx->Logger->getDriver('default')->debug(sprintf("UNLINK %s".PHP_EOL,$file['path']));
 								continue;
 							}
-							$this->FreePBX->Filestore->delete($location[0],$location[1],$file['path']);
-							$this->FreePBX->Filestore->delete($location[0],$location[1],$file['path'].'.sha256sum');
+							$this->freepbx->Filestore->delete($location[0],$location[1],$file['path']);
+							$this->freepbx->Filestore->delete($location[0],$location[1],$file['path'].'.sha256sum');
 						} catch (\Exception $e) {
 							$errors[] = $e->getMessage();
 							continue;
@@ -109,11 +109,11 @@ class Maintinance{
 				foreach ($remove as $key => $value) {
 					try {
 						if($this->dryrun){
-						 $this->FreePBX->Logger->getDriver('default')->debug(sprintf("UNLINK %s".PHP_EOL,$value));
+						 $this->freepbx->Logger->getDriver('default')->debug(sprintf("UNLINK %s".PHP_EOL,$value));
 							continue;
 						}
-						$this->FreePBX->Filestore->delete($location[0],$location[1],$value);
-						$this->FreePBX->Filestore->delete($location[0],$location[1],$value.'.sha256sum');
+						$this->freepbx->Filestore->delete($location[0],$location[1],$value);
+						$this->freepbx->Filestore->delete($location[0],$location[1],$value.'.sha256sum');
 					} catch (\Exception $e) {
 						$errors[] = $e->getMessage();
 						continue;

@@ -9,6 +9,6 @@ class Transfer{
 		if ($freepbx == null) {
 			throw new \Exception('Not given a FreePBX Object');
 		}
-		$this->FreePBX = $freepbx;
+		$this->freepbx = $freepbx;
 	}
 }

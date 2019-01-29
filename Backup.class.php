@@ -10,7 +10,6 @@ use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
-use Symfony\Component\Filesystem\LockHandler;
 use Monolog\Handler\SwiftMailerHandler;
 use Monolog\Handler\BufferHandler;
 use Monolog\Handler\StreamHandler;
@@ -23,35 +22,81 @@ use FreePBX_Helpers;
 use BMO;
 use splitbrain\PHPArchive\Tar;
 use FreePBX\modules\Backup\Handlers\MonologSwift;
+use Hhxsv5\SSE\SSE;
+use Hhxsv5\SSE\Update;
 class Backup extends FreePBX_Helpers implements BMO {
-	const DEBUG = false;
 	public $swiftmsg = false;
+	public $backupHandler  = null;
+	public $restoreHandler = null;
+	public $errors = [];
+	public $templateFields = [];
+	public $backupFields = [
+		'backup_name',
+		'backup_description',
+		'backup_items',
+		'backup_storage',
+		'backup_schedule',
+		'schedule_enabled',
+		'maintage',
+		'maintruns',
+		'backup_email',
+		'backup_emailtype',
+		'immortal',
+		'warmspareenabled',
+		'warmspare_remotetrunks',
+		'warmspare_remotenat',
+		'warmspare_remotebind',
+		'warmspare_remotenat',
+		'warmspare_remotedns',
+		'warmspare_remoteapply',
+		'warmspare_remoteip',
+		'warmspare_user',
+		'publickey'
+	];
+	public $loggingHooks = null;
+
+
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
 				throw new Exception('Not given a FreePBX Object');
 		}
-		$this->FreePBX        = $freepbx;
-		$this->db             = $freepbx->Database;
-		$this->mf             = \module_functions::create();
-		$this->fs             = new Filesystem;
-		$this->backupFields   = ['backup_name','backup_description','backup_items','backup_storage','backup_schedule','schedule_enabled','maintage','maintruns','backup_email','backup_emailtype','immortal', 'warmspareenabled', 'warmspare_remotetrunks', 'warmspare_remotenat', 'warmspare_remotebind', 'warmspare_remotenat', 'warmspare_remotedns', 'warmspare_remoteapply', 'warmspare_remoteip', 'warmspare_user', 'publickey'];
-		$this->templateFields = [];
-		$this->serverName     = $this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT');
-		$this->sessionlog     = [];
-		$this->backupHandler  = null;
-		$this->restoreHandler = null;
-		$this->logpath        = $this->getConfig('logpath');
-		$this->logpath        = !empty($this->logpath)?$this->logpath:'/var/log/asterisk/backup.log';
-		$this->logger = $this->FreePBX->Logger->createLogDriver('backup', $this->logpath, \Monolog\Logger::DEBUG);
-		$output = "%level_name%: %message%\n";
-		$this->errors = [];
-		$this->formatter = new Formatter\LineFormatter($output);
-		if(php_sapi_name() == 'cli' || php_sapi_name() == 'phpdbg'){
-			$handler = new StreamHandler("php://stdout",\Monolog\Logger::DEBUG);
-			$handler->setFormatter($this->formatter);
-			$this->logger->pushHandler($handler);
+		$this->freepbx = $freepbx;
+		$this->db = $freepbx->Database;
+	}
+
+	public function __get($var) {
+		switch($var) {
+			case 'serverName':
+				$this->serverName = $this->freepbx->Config->get('FREEPBX_SYSTEM_IDENT');
+				return $this->serverName;
+			break;
+			case 'fs':
+				$this->fs = new Filesystem;
+				return $this->fs;
+			break;
+			case 'mf':
+				$this->mf = \module_functions::create();
+				return $this->mf;
+			break;
+			case 'logger':
+				$this->logger = $this->freepbx->Logger->createLogDriver('backup', $this->logpath, \Monolog\Logger::DEBUG);
+				if(php_sapi_name() == 'cli' || php_sapi_name() == 'phpdbg'){
+					$handler = new StreamHandler("php://stdout",\Monolog\Logger::DEBUG);
+
+					$output = "%message%\n";
+					$formatter = new Formatter\LineFormatter($output);
+
+					$handler->setFormatter($formatter);
+					$this->logger->pushHandler($handler);
+				}
+				return $this->logger;
+			break;
+			case 'logpath':
+				$this->logpath = $this->getConfig('logpath');
+				$this->logpath = !empty($this->logpath)?$this->logpath:$this->freepbx->Config->get('ASTLOGDIR').'/backup.log';
+				return $this->logpath;
+			break;
 		}
-		$this->loggingHooks = null;
 	}
 
 	public function install(){
@@ -66,10 +111,10 @@ class Backup extends FreePBX_Helpers implements BMO {
 		if($dbexist === 1){
 			out(_("Migrating legacy backupjobs"));
 			out(_("Moving servers to filestore"));
-			$servers = new Servers($this->FreePBX);
+			$servers = new Servers($this->freepbx);
 			$servers->process();
 			out(_("Migrating legacy backups to the new backup"));
-			$jobs = new Backupjobs($this->FreePBX);
+			$jobs = new Backupjobs($this->freepbx);
 			$jobs->process();
 
 			out(_("Cleaning up old data"));
@@ -85,9 +130,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			];
 			foreach ($tables as $table) {
 				out(sprintf(_("Removing table %s."),$table));
-				if(!DEBUG){
-					$this->db->prepare("DROP TABLE :table")->execute([':table' => $table]);
-				}
+				$this->db->query("DROP TABLE $table");
 			}
 		}
 	}
@@ -110,7 +153,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			if(isset($_POST['fromemail'])){
 				$this->importRequest();
 				$from = $this->getReq('fromemail','backup@pbx.local');
-				$path = $this->getReq('logpath','/var/log/asterisk/backup.log');
+				$path = $this->getReq('logpath',$this->freepbx->Config->get('ASTLOGDIR').'/backup.log');
 				return $this->setMultiConfig(['fromemail'=> $from,'logpath' => $path],'globalsettings');
 			}
 		}
@@ -120,9 +163,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 	public function getActionBar($request) {
 		/** No buttons unless we are in a view */
 		if(!isset($request['view'])){
-			return [];
-		}
-		if($request['view'] == 'run'){
 			return [];
 		}
 		/** Process restore file Buttons */
@@ -182,19 +222,23 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 */
 	public function ajaxRequest($command, &$setting) {
 		switch ($command) {
-			case 'getJSON'          :
-			case 'run'              :
-			case 'runRestore'       :
-			case 'remotedownload'	:
-			case 'deleteRemote'		:
-			case 'localdownload'    :
+			case 'getJSON':
+			case 'runBackup':
+			case 'runRestore':
+			case 'remotedownload':
+			case 'deleteRemote':
+			case 'localdownload':
 			case 'localRestoreFiles':
-			case 'restoreFiles'     :
-			case 'uploadrestore'    :
-			case 'generateRSA'      :
-			case 'deleteLocal'      :
-			case 'runstatus'		:
-			case 'getRestoreLog'	:
+			case 'restoreFiles':
+			case 'uploadrestore':
+			case 'generateRSA':
+			case 'deleteLocal':
+			case 'getRestoreLog':
+			case 'deleteBackup':
+				return true;
+			case 'restorestatus':
+			case 'backupstatus':
+				$setting['changesession'] = false;
 				return true;
 			default:
 				return false;
@@ -206,6 +250,13 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 */
 	public function ajaxHandler() {
 		switch ($_REQUEST['command']) {
+			case 'deleteBackup':
+				$id = $_REQUEST['id'];
+				if($this->deleteBackup($id)) {
+					return ['status' => true, "message" => _("Backup Deleted")];
+				}
+				return ['status' => false, "message" => _("Something failed.")];
+			break;
 			case 'deleteRemote':
 				$server = $_REQUEST['id'];
 				$file = $_REQUEST['file'];
@@ -214,7 +265,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 					return ['status' => true, "message" => _("File Deleted")];
 				}
 				return ['status' => false, "message" => _("Something failed, The file may need to be removed manually.")];
-
 			case 'deleteLocal':
 				$filepath = $this->pathFromId($_REQUEST['id']);
 				if(!$filepath){
@@ -233,22 +283,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 				$ssh = new FilestoreRemote();
 				$ret = $ssh->generateKey($homedir.'/.ssh');
 			return ['status' => $ret];
-			case 'runstatus':
-				if(!isset($_GET['id']) || !isset($_GET['transaction'])){
-					return ['status' => 'stopped', 'error' => _("Missing id or transaction")];
-				}
-				$job = $_GET['transaction'];
-				$logdata = $this->getConfig('sessionlog');
-				$logdata = is_array($logdata)?reset($logdata):[];
-				$log = implode(PHP_EOL,$logdata);
-				$log = '<pre>'.$log.'</pre>';
-				$buid = $_GET['id'];
-				$lockModule = new LockHandler($job.'.'.$buid);
-				if (!$lockModule->lock()) {
-					$lockModule->release();
-					return ['status' => 'running', 'log' => $log];
-				}
-				return ['status' => 'stopped', 'log' => $log];
 			case 'uploadrestore':
 				$response = new Response(null,400,['Content-Type' => 'application/json']);
 				$err = false;
@@ -267,7 +301,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 					$response->send();
 					exit();
 				}
-				$spooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
+				$spooldir = $this->freepbx->Config->get("ASTSPOOLDIR");
 				$path = sprintf('%s/backup/uploads', $spooldir);
 				$finalname = $path.'/'. $_FILES['file']['name'];
 				$tmp_name = $_FILES['file']['tmp_name'];
@@ -310,54 +344,34 @@ class Backup extends FreePBX_Helpers implements BMO {
 			case 'restoreFiles':
 				return $this->getAllRemote();
 			case 'runRestore':
-				$file = $this->pathFromId($_GET['fileid']);
+				$ruid = $_GET['fileid'];
+				$file = $this->pathFromId($ruid);
 				if(!$file){
 					return ['status' => false, 'message' => _("Could not find a file for the id supplied")];
 				}
-				$jobid   = $this->generateId();
-				$process = new Process('fwconsole backup --restore="'.$file.'" --transaction='.$jobid.' > /dev/null 2>&1 &');
-				$process->disableOutput();
-				try {
-					$process->start();
-					$pid = $process->getPid();
 
-				} catch (\Exception $e) {
-					return ['status' => false, 'message' => _("Couldn't run process."),'exception'=> $e->getMessage()];
-				}
-				return ['status' => true, 'message' => _("Restore running"), 'process' => $pid, 'transaction' => $jobid];
-			case 'run':
+				$jobid   = $this->generateId();
+				$location = $this->freepbx->Config->get('ASTLOGDIR');
+				$process = new Process($this->freepbx->Config->get('AMPSBIN').'/fwconsole backup --restore='.escapeshellarg($file).' --transaction='.escapeshellarg($jobid).' > '.$location.'/restore_'.$jobid.'_out.log 2> '.$location.'/restore_'.$jobid.'_err.log & echo $!');
+				$process->mustRun();
+				$log = file_get_contents($location.'/restore_'.$jobid.'_out.log');
+				return ['status' => true, 'message' => _("Restore running"), 'transaction' => $jobid, 'restoreid' => $ruid, 'pid' => trim($process->getOutput()), 'log' => $log];
+			case 'runBackup':
 				if(!isset($_GET['id'])){
 					return ['status' => false, 'message' => _("No backup id provided")];
 				}
-				$buid    = escapeshellarg($_GET['id']);
+				$buid    = $_GET['id'];
 				$jobid   = $this->generateId();
+				$location = $this->freepbx->Config->get('ASTLOGDIR');
 				$warmspare = $this->getConfig('warmspareenabled', $buid) === 'yes';
-				$command = 'fwconsole backup --backup=' . $buid . ' --transaction=' . $jobid . ' > /dev/null 2>&1 &';
+				$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup --backup=' . escapeshellarg($buid) . ' --transaction=' . escapeshellarg($jobid) . ' > '.$location.'/backup_'.$jobid.'_out.log 2> '.$location.'/backup_'.$jobid.'_err.log & echo $!';
 				if($warmspare){
 					$command .= ' --warmspare';
 				}
 				$process = new Process($command);
-				$process->disableOutput();
-				try {
-					$process->mustRun();
-				} catch (\Exception $e) {
-					return ['status' => false, 'message' => _("Couldn't run process."),'exception'=> $e->getMessage()];
-				}
-				$pid = $process->getPid();
-				return ['status' => true, 'message' => _("Backup running"), 'process' => $pid, 'transaction' => $jobid, 'backupid' => $buid];
-			case 'getRestoreLog':
-				$pid = $_GET['proc'];
-				$id = $_GET['id'];
-				$running = posix_kill($pid,0);
-				$logdata = $this->getConfig('sessionlog');
-				$logdata = is_array($logdata)?reset($logdata):[];
-				$log = implode(PHP_EOL,$logdata);
-				$log = '<pre>'.$log.'</pre>';
-				return [
-					'running' => $running,
-					'log' => $log,
-				];
-
+				$process->mustRun();
+				$log = file_get_contents($location.'/backup_'.$jobid.'_out.log');
+				return ['status' => true, 'message' => _("Backup running"), 'transaction' => $jobid, 'backupid' => $buid, 'pid' => trim($process->getOutput()), 'log' => $log];
 			case 'getJSON':
 				switch ($_REQUEST['jdata']) {
 					case 'backupGrid':
@@ -369,7 +383,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 						}
 						try {
 							$fstype = $this->getFSType();
-							$items  = $this->FreePBX->Filestore->listLocations($fstype);
+							$items  = $this->freepbx->Filestore->listLocations($fstype);
 							$return = [];
 							foreach ($items['locations'] as $driver => $locations ) {
 								$optgroup = [
@@ -393,7 +407,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 							return $e;
 						}
 					break;
-					case 'backupItems'                   :
+					case 'backupItems':
 					$id  = isset($_GET['id'])?$_GET['id']: '';
 					return $this->HandlerById($id);
 					default:
@@ -407,6 +421,48 @@ class Backup extends FreePBX_Helpers implements BMO {
 	public function ajaxCustomHandler() {
 
 		switch($_REQUEST['command']){
+			case 'restorestatus':
+			case 'backupstatus':
+				session_write_close();
+				ob_end_flush();
+				header_remove();
+				header('Content-Type: text/event-stream');
+				header('Cache-Control: no-cache');
+				header('Connection: keep-alive');
+				header('X-Accel-Buffering: no');//Nginx: unbuffered responses suitable for Comet and HTTP streaming applications
+				$location = $this->freepbx->Config->get('ASTLOGDIR');
+				(new SSE())->start(new Update(function () use ($location) {
+					if(!isset($_GET['id']) || !isset($_GET['transaction']) || !isset($_GET['pid'])){
+						return json_encode(['status' => 'stopped', 'error' => _("Missing id or transaction or pid")]);
+					}
+					$pid = $_GET['pid'];
+					$job = $_GET['transaction'];
+					$buid = $_GET['id'];
+
+					$type = $_REQUEST['command'] === 'restorestatus' ? 'restore' : 'backup';
+
+					$outFile = $location.'/'.$type.'_'.$job.'_out.log';
+					$errorFile = $location.'/'.$type.'_'.$job.'_err.log';
+
+					$log = file_get_contents($outFile);
+
+					if(posix_getpgid($pid) !== false) {
+						return json_encode(['status' => 'running', 'log' => $log]);
+					}
+
+					$error = file_get_contents($errorFile);
+					if(!empty($error)){
+						@unlink($outFile);
+						@unlink($errorFile);
+						return json_encode(['status' => 'errored', 'log' => $log.$error]);
+					}
+
+					@unlink($outFile);
+					@unlink($errorFile);
+					return json_encode(['status' => 'stopped', 'log' => $log]);
+				}), 'new-msgs', 1000);
+				exit;
+			break;
 			case 'remotedownload':
 				$filepath = $this->remoteToLocal($_REQUEST['id'],$_REQUEST['filepath']);
 			case 'localdownload':
@@ -434,62 +490,72 @@ class Backup extends FreePBX_Helpers implements BMO {
 
 	//Display stuff
 
+	public function myShowPage() {
+		$view = !empty($_GET['view']) ? $_GET['view'] : '';
+		switch($view) {
+			case 'editbackup':
+			case 'addbackup':
+				$randcron          = sprintf('59 23 * * %s',rand(0,6));
+				$vars              = ['id' => ''];
+				$vars['backup_schedule'] = $randcron;
+				if(isset($_GET['id']) && !empty($_GET['id'])){
+					$vars              = $this->getBackup($_GET['id']);
+					$vars['backup_schedule'] = !empty($vars['backup_schedule'])?$vars['backup_schedule']:$randcron;
+					$vars['id']              = $_GET['id'];
+				}
+				$warmsparedisable = $this->getConfig('warmsparedisable');
+				$vars['transfer']       = $this->getConfig('transferdisable');
+				$vars['warmspare']      = '';
+				if(empty($warmsparedisable)){
+					$warmsparedefaults = [
+						'warmspare_user'   => 'root',
+						'warmspare_remote' => 'no',
+						'warmspare_enable' => 'no',
+					];
+					$settings = $this->getConfig('warmsparesettings');
+					$settings = $settings?$settings:[];
+					foreach($warmsparedefaults as $key => $value){
+						$value = isset($settings[$key])?$settings[$key]:$value;
+						$vars[$key]  = $value;
+					}
+
+					$vars['warmspare'] = load_view(__DIR__.'/views/backup/warmspare.php',$vars);
+				}
+				$vars['transfer'] = '';
+				if(!$transferdisabled){
+					$vars['transfer'] = '<li role="presentation" class="'.(isset($_GET['view']) && $_GET['view'] == 'yes')?"active":"".'"><a href="?display=backup&view=transfer">'. _("System Transfer").'</a></li>';
+				}
+				return load_view(__DIR__.'/views/backup/form.php',$vars);
+			break;
+			default:
+				return load_view(__DIR__.'/views/landing.php',[]);
+			break;
+		}
+	}
+
 	public function showPage($page){
 		switch ($page) {
+			case 'settings':
+				$vars = $this->getAll('globalsettings');
+				$vars = $vars?$vars:[];
+				$hdir = $this->getAsteriskUserHomeDir();
+				$vars['fromemail'] = isset($vars['fromemail'])?$vars['fromemail']:'backup@pbx.local';
+				$vars['logpath']   = isset($vars['logpath'])?$vars['logpath']:$this->freepbx->Config->get('ASTLOGDIR').'/backup.log';
+				$file = $hdir.'/.ssh/id_rsa.pub';
+				if (!file_exists($file)) {
+					$ssh = new FilestoreRemote();
+					$ssh->generateKey($hdir.'/.ssh');
+				}
+				$data = file_get_contents($file);
+				$vars['publickey'] = $data;
+				return load_view(__DIR__.'/views/backup/settings.php',$vars);
+			break;
 			case 'backup':
-				if(isset($_GET['view']) && $_GET['view'] == 'run' || isset($_REQUEST['runit'])){
-					return load_view(__DIR__.'/views/run.php',array('id' => $_REQUEST['id']));
-				}
-				if(isset($_GET['view']) && $_GET['view'] == 'settings'){
-					$vars = $this->getAll('globalsettings');
-					$vars = $vars?$vars:[];
-					$hdir = $this->getAsteriskUserHomeDir();
-					$vars['fromemail'] = isset($vars['fromemail'])?$vars['fromemail']:'backup@pbx.local';
-					$vars['logpath']   = isset($vars['logpath'])?$vars['logpath']:'/var/log/asterisk/backup.log';
-					$file = $hdir.'/.ssh/id_rsa.pub';
-					if (!file_exists($file)) {
-						$ssh = new FilestoreRemote();
-						$ssh->generateKey($hdir.'/.ssh');
-					}
-					$data = file_get_contents($file);
-					$vars['publickey'] = $data;
-					return load_view(__DIR__.'/views/backup/settings.php',$vars);
-				}
 				if(isset($_GET['view']) && $_GET['view'] == 'newRSA'){
 					return load_view(__DIR__.'/views/backup/rsa.php');
 				}
 				if(isset($_GET['view']) && $_GET['view'] == 'form'){
-					$randcron          = sprintf('59 23 * * %s',rand(0,6));
-					$vars              = ['id' => ''];
-					$vars['backup_schedule'] = $randcron;
-					if(isset($_GET['id']) && !empty($_GET['id'])){
-						$vars              = $this->getBackup($_GET['id']);
-						$vars['backup_schedule'] = !empty($vars['backup_schedule'])?$vars['backup_schedule']:$randcron;
-						$vars['id']              = $_GET['id'];
-					}
-					$warmsparedisable = $this->getConfig('warmsparedisable');
-					$vars['transfer']       = $this->getConfig('transferdisable');
-					$vars['warmspare']      = '';
-					if(empty($warmsparedisable)){
-						$warmsparedefaults = [
-							'warmspare_user'   => 'root',
-							'warmspare_remote' => 'no',
-							'warmspare_enable' => 'no',
-						];
-						$settings = $this->getConfig('warmsparesettings');
-						$settings = $settings?$settings:[];
-						foreach($warmsparedefaults as $key => $value){
-							$value = isset($settings[$key])?$settings[$key]:$value;
-							$vars[$key]  = $value;
-						}
 
-						$vars['warmspare'] = load_view(__DIR__.'/views/backup/warmspare.php',$vars);
-					}
-					$vars['transfer'] = '';
-					if(!$transferdisabled){
-						$vars['transfer'] = '<li role="presentation" class="'.(isset($_GET['view']) && $_GET['view'] == 'yes')?"active":"".'"><a href="?display=backup&view=transfer">'. _("System Transfer").'</a></li>';
-					}
-					return load_view(__DIR__.'/views/backup/form.php',$vars);
 				}
 				if(isset($_GET['view']) && $_GET['view'] == 'download'){
 					return load_view(__DIR__.'/views/backup/download.php');
@@ -522,7 +588,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 
 						}
 						$vars['meta']     = $manifest;
-						$vars['date']     = $this->FreePBX->View->getDateTime($manifest['date']);
+						$vars['timestamp']     = $manifest['date'];
 						$vars['jsondata'] = $this->moduleJSONFromManifest($manifest);
 						$vars['id']       = $_GET['id'];
 						$vars['fileid']   = $fileid;
@@ -545,7 +611,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 		if($module === 'Backup'){
 			return;
 		}
-		$class = $this->FreePBX->$module;
+		$class = $this->freepbx->$module;
 		if( method_exists($class, 'getBackupSettingsDisplay')){
 			return '<div class="hooksetting">'. $class->getBackupSettingsDisplay($id).'</div>';
 		}
@@ -644,7 +710,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			return false;
 		}
 
-		$serverName   = $this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT');
+		$serverName   = $this->freepbx->Config->get('FREEPBX_SYSTEM_IDENT');
 		$emailSubject = sprintf(_("The backup %s did not set a status and may have had an error"), $backupInfo['backup_name']);
 
 		$from    = $this->getConfig('fromemail');
@@ -675,7 +741,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 * @return mixed if hooks are present it will present an array, otherwise a string
 	 */
 	public function getFSType(){
-		$types = $this->FreePBX->Hooks->processHooks();
+		$types = $this->freepbx->Hooks->processHooks();
 		$ret   = [];
 		foreach ($types as $key => $value) {
 			$value = is_array($value)?$value:[];
@@ -700,6 +766,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 */
 	public function getBackup($id){
 		$data   = $this->getAll($id);
+		if(empty($data)) {
+			return [];
+		}
 		$return = [];
 		foreach ($this->backupFields as $key) {
 			$return[$key] = isset($data[$key])?$data[$key]:'';
@@ -714,7 +783,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 */
 	public function getLocalFiles(){
 		$files     = [];
-		$base      = $this->FreePBX->Config->get('ASTSPOOLDIR');
+		$base      = $this->freepbx->Config->get('ASTSPOOLDIR');
 		$base      = $base?$base:'/var/spool/asterisk';
 		$backupdir = $base . '/backup';
 
@@ -736,7 +805,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			$backupinfo['path'] = $path;
 			$backupinfo['id']   = md5($k);
 			$backupinfo['name'] = $buname;
-			$backupinfo['date'] = $this->FreePBX->View->getDateTime($backupinfo['timestamp']);
+			$backupinfo['timestamp'] = $backupinfo['timestamp'];
 			$files     []       = $backupinfo;
 		}
 		return $files;
@@ -751,7 +820,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 */
 	public function HandlerById($id = '',$selectedOnly = false, $includeSettings = true){
 		if(empty($this->backupHandler)){
-			$this->backupHandler = new Handler\Backup($this->FreePBX);
+			$this->backupHandler = new Handler\Backup($this->freepbx);
 		}
 		$modules  = $this->backupHandler->getModules();
 		$selected = $this->getAll('modules_'.$id);
@@ -776,24 +845,24 @@ class Backup extends FreePBX_Helpers implements BMO {
 
 	//Setters
 	public function scheduleJobs($id = 'all'){
-		$sbin = $this->FreePBX->Config->get('AMPSBIN');
+		$sbin = $this->freepbx->Config->get('AMPSBIN');
 		if($id !== 'all'){
 			$enabled = $this->getBackupSetting($id, 'schedule_enabled');
 			$warmspare = $this->getConfig('warmspareenabled', $buid) === 'yes';
 			if($enabled === 'yes'){
 				$schedule = $this->getBackupSetting($id, 'backup_schedule');
 				$command  = sprintf($sbin.'/fwconsole backup --backup=%s %s > /dev/null 2>&1',$id, $warmspare ? '--warmspare' : '');
-				$this->FreePBX->Cron->removeAll($command);
-				$this->FreePBX->Cron->add($schedule.' '.$command);
+				$this->freepbx->Cron->removeAll($command);
+				$this->freepbx->Cron->add($schedule.' '.$command);
 				return true;
 			}
 		}
 		//Clean slate
-		$allcrons = $this->FreePBX->Cron->getAll();
+		$allcrons = $this->freepbx->Cron->getAll();
 		$allcrons = is_array($allcrons)?$allcrons:[];
 		foreach ($allcrons as $cmd) {
 			if (strpos($cmd, 'fwconsole backup') !== false) {
-				$this->FreePBX->Cron->remove($cmd);
+				$this->freepbx->Cron->remove($cmd);
 			}
 		}
 		$backups = $this->listBackups();
@@ -803,8 +872,8 @@ class Backup extends FreePBX_Helpers implements BMO {
 			if($enabled === 'yes'){
 				$schedule = $this->getBackupSetting($key, 'backup_schedule');
 				$command  = sprintf($sbin.'/fwconsole backup --backup=%s %s> /dev/null 2>&1',$key, $warmspare ? '--warmspare' : '');
-				$this->FreePBX->Cron->removeAll($command);
-				$this->FreePBX->Cron->add($schedule.' '.$command);
+				$this->freepbx->Cron->removeAll($command);
+				$this->freepbx->Cron->add($schedule.' '.$command);
 			}
 		}
 		return true;
@@ -845,12 +914,12 @@ class Backup extends FreePBX_Helpers implements BMO {
 	}
 
 	public function processBackupSettings($id = '', $data = []){
-		$modules = $this->FreePBX->Modules->getModulesByMethod('processBackupSettings');
+		$modules = $this->freepbx->Modules->getModulesByMethod('processBackupSettings');
 		foreach ($modules as $module) {
 			if($module === 'Backup'){
 				continue;
 			}
-			$this->FreePBX->$module->processBackupSettings($id, $data);
+			$this->freepbx->$module->processBackupSettings($id, $data);
 		}
 	}
 
@@ -915,7 +984,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 		$ret = true;
 		foreach($deps as $dep){
 
-			if($this->FreePBX->Modules->getInfo(strtolower($dep),true)){
+			if($this->freepbx->Modules->getInfo(strtolower($dep),true)){
 				continue;
 			}
 			try{
@@ -944,9 +1013,26 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 * @return void
 	 */
 	public function log($transactionId = '', $message = '',$level = 'INFO'){
-		$this->sessionlog[$transactionId][] = $message;
-		$this->setConfig('sessionlog',$this->sessionlog);
-		$this->FreePBX->Logger->driverChannelLogWrite('backup', $transactionId, $message);
+		$logger = $this->logger->withName($transactionId);
+		switch ($logLevel) {
+			case 'DEBUG':
+				return $logger->debug($message);
+			case 'NOTICE':
+				return $logger->notice($message);
+			case 'WARNING':
+				return $logger->warning($message);
+			case 'ERROR':
+				return $logger->error($message);
+			case 'CRITICAL':
+				return $logger->critical($message);
+			case 'ALERT':
+				return $logger->alert($message);
+			case 'EMERGENCY':
+				return $logger->emergency($message);
+			case 'INFO':
+			default:
+				return $logger->info($message);
+		}
 	}
 
 	/**
@@ -958,10 +1044,10 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 * @return void
 	 */
 	public function processNotifications($id, $transactionId, $errors, $backupName){
-		$serverName = str_replace(' ', '_', $this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT'));
+		$serverName = str_replace(' ', '_', $this->freepbx->Config->get('FREEPBX_SYSTEM_IDENT'));
 		$serverfilename = str_replace(' ','-',$serverName);
 		$filename       = sprintf('%s-%s-backup.log',$serverfilename,time());
-		$path           = '/var/log/asterisk/backup.log';
+		$path           = $this->freepbx->Config->get('ASTLOGDIR').'/backup.log';
 		if($this->getConfig('logpath')){
 			$path = $this->getConfig('logpath');
 		}
@@ -980,30 +1066,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			$this->swiftmsg->attach(\Swift_Attachment::fromPath($path)->setFilename($filename));
 			$this->handler->close();
 		}catch(\Exception $e){
-			$this->FreePBX->Logger->getDriver('default')->debug($e->getMessage());
-		}
-	}
-
-	/**
-	 * Attach monolog handlers from BMO hooks
-	 *
-	 * @param string $type backup or restore
-	 * @return void
-	 */
-	public function attachLoggers($type){
-		if(!is_object($this->loggingHooks)){
-			$this->loggingHooks = new \SplObjectStorage();
-		}
-		$this->FreePBX->Hooks->processHooks($this->loggingHooks,$type);
-		foreach($this->loggingHooks as $hook){
-			try{
-				$this->logger->pushHandler($hook);
-			}catch(\Exception $e){
-				//don't  let a bad apple mess it up for everyone
-				$this->FreePBX->Logger->getDriver('default')->debug('Backup: custom handler skipped');
-				$this->FreePBX->Logger->getDriver('default')->debug($e->getMessage());
-				continue;
-			}
+			$this->freepbx->Logger->getDriver('default')->debug($e->getMessage());
 		}
 	}
 
@@ -1017,7 +1080,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 		if (!preg_match("/__(.+)__/", $string, $out)) {
 			return $string;
 		}
-		$path = $this->FreePBX->Config->get($out[1]);
+		$path = $this->freepbx->Config->get($out[1]);
 		if($path){
 			return str_replace($out[0], $path, $string);
 		}
@@ -1038,7 +1101,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 		foreach($data['modules'] as $module){
 			$name    = $module['module'];
 			$version = $module['version'];
-			$status  = ($this->FreePBX->Modules->checkStatus(strtolower($name)))?_("Enabled"):_("Uninstalled or Disabled");
+			$status  = ($this->freepbx->Modules->checkStatus(strtolower($name)))?_("Enabled"):_("Uninstalled or Disabled");
 			$return[] = [
 				'modulename' => $name,
 				'version'    => $version,
@@ -1049,13 +1112,13 @@ class Backup extends FreePBX_Helpers implements BMO {
 	}
 
 	public function deleteRemote($driver, $id, $path){
-		return $this->FreePBX->Filestore->delete($driver, $id, $path);
+		return $this->freepbx->Filestore->delete($driver, $id, $path);
 	}
 
 	public function getAllRemote(){
 		$final = [];
-		$serverName = str_replace(' ', '_',$this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT'));
-		$ret = $this->FreePBX->Filestore->listAllFilesByPath($serverName);
+		$serverName = str_replace(' ', '_',$this->freepbx->Config->get('FREEPBX_SYSTEM_IDENT'));
+		$ret = $this->freepbx->Filestore->listAllFilesByPath($serverName);
 		foreach($ret as $dname => $driver){
 			foreach($driver as $id => $location){
 				if(!isset($location['results'])){
@@ -1075,7 +1138,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 						'type' => $dname,
 						'file' => $file['path'],
 						'framework' => $info['framework'],
-						'date' => $this->FreePBX->View->getDateTime($info['timestamp']),
+						'timestamp' => $info['timestamp'],
 						'name' => str_replace('_',' ',explode('/',$file['dirname'])[1]),
 					];
 				}
@@ -1086,10 +1149,10 @@ class Backup extends FreePBX_Helpers implements BMO {
 	public function remoteToLocal($location,$file){
 		$parts = explode('_',$location);
 		$fileparts = array_slice(explode('/',$file),-2);
-		$spooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
+		$spooldir = $this->freepbx->Config->get("ASTSPOOLDIR");
 		$localpath = sprintf('%s/backup/%s/%s',$spooldir,$fileparts[0],$fileparts[1]);
 		if(!file_exists($localpath)){
-			$this->FreePBX->Filestore->get($parts[0],$parts[1],$file,$localpath);
+			$this->freepbx->Filestore->get($parts[0],$parts[1],$file,$localpath);
 		}
 		if(!file_exists($localpath)){
 			return '';
@@ -1117,7 +1180,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 */
 	public function getAsteriskUserHomeDir(){
 		if(!isset($this->homeDir) || empty($this->homeDir)){
-			$webuser = $this->FreePBX->Config->get('AMPASTERISKWEBUSER');
+			$webuser = $this->freepbx->Config->get('AMPASTERISKWEBUSER');
 
 			if (!$webuser) {
 				throw new \Exception(_("I don't know who I should be running Backup as."));
@@ -1132,7 +1195,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			if (!is_dir($home)) {
 				// Well, that's handy. It doesn't exist. Let's use ASTSPOOLDIR instead, because
 				// that should exist and be writable.
-				$home = $this->FreePBX->Config->get('ASTSPOOLDIR');
+				$home = $this->freepbx->Config->get('ASTSPOOLDIR');
 				if (!is_dir($home)) {
 					// OK, I give up.
 					throw new \Exception(sprintf(_("Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. Aborting"),$home));

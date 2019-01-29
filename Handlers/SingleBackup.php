@@ -10,26 +10,26 @@ use FreePBX\modules\Backup\Models\Backup as BackupObj;
 class SingleBackup{
 
 	public function __construct($module, $FreePBX, $savePath = ''){
-		$this->FreePBX = $FreePBX;
+		$this->freepbx = $FreePBX;
 		$this->module = $module;
 		$this->savePath = $savePath;
-		$this->backupObj = new BackupObj($this->FreePBX);
+		$this->backupObj = new BackupObj($this->freepbx);
 	}
 
 	public function doSingleBackup(){
 		$tmpDir = '/tmp/SingleBackup';
 		@unlink($tmpDir);
 		$backup = $this->backupObj;
-		$this->FreePBX->Backup->fs->mkdir($tmpDir);
-		$moduleInfo = $this->FreePBX->Modules->getInfo(strtolower($this->module));
+		$this->freepbx->Backup->fs->mkdir($tmpDir);
+		$moduleInfo = $this->freepbx->Modules->getInfo(strtolower($this->module));
 		$tarfilename = sprintf('%s-%s%s-%s-%s', $this->module, date("Ymd-His-"), time(), $moduleInfo[strtolower($this->module)]['version'], rand());
 		$tarnamebase = sprintf('%s/%s', $tmpdir, $tarfilename);
 		$targzname = sprintf('%s.tar.gz', $tarfilename);
 
 		$tar = new Tar();
 		$tar->create($tmpdir .'/'. $targzname);
-		$this->FreePBX->Backup->fs->mkdir($tmpdir . '/modulejson');
-		$this->FreePBX->Backup->fs->mkdir($tmpdir . '/files');
+		$this->freepbx->Backup->fs->mkdir($tmpdir . '/modulejson');
+		$this->freepbx->Backup->fs->mkdir($tmpdir . '/files');
 		$tar->addFile($tmpdir . '/modulejson', 'modulejson');
 		$tar->addFile($tmpdir . '/files', 'files');
 
@@ -37,7 +37,7 @@ class SingleBackup{
 		if(!class_exists($class)){
 			exit(sprintf("The module %s doesn't seem to support Backup, no backup created".PHP_EOL, $this->module));
 		}
-		$class = new $class($backup, $this->FreePBX);
+		$class = new $class($backup, $this->freepbx);
 		$class->runBackup(1, 'tarnamebase');
 		if ($backup->getModified() === false) {
 			exit(sprintf("The module %s returned no data, No backup created".PHP_EOL,$this->module));
@@ -54,7 +54,7 @@ class SingleBackup{
 			if (empty($dir)) {
 				continue;
 			}
-			$fdir = $this->FreePBX->Backup->getPath('/' . ltrim($dir, '/'));
+			$fdir = $this->freepbx->Backup->getPath('/' . ltrim($dir, '/'));
 			$dirs[] = $fdir;
 
 		}
@@ -64,22 +64,22 @@ class SingleBackup{
 				continue;
 			}
 			$srcfile = $srcpath . '/' . $file['filename'];
-			$destpath = $this->FreePBX->Backup->getPath('files/' . ltrim($file['pathto'], '/'));
+			$destpath = $this->freepbx->Backup->getPath('files/' . ltrim($file['pathto'], '/'));
 			$destfile = $destpath .'/'. $file['filename'];
 			$dirs[] = $destpath;
 			$files[$srcfile] = $destfile;
 			$tar->addFile($srcfile, $destfile);
 		}
 		$modjson = $tmpdir . '/modulejson/' . ucfirst($this->module) . '.json';
-		if (!$this->FreePBX->Backup->fs->exists(dirname($modjson))) {
-			$this->FreePBX->Backup->fs->mkdir(dirname($modjson));
+		if (!$this->freepbx->Backup->fs->exists(dirname($modjson))) {
+			$this->freepbx->Backup->fs->mkdir(dirname($modjson));
 		}
 		file_put_contents($modjson, json_encode($moddata, JSON_PRETTY_PRINT));
 		$tar->addFile($modjson, 'modulejson/' . ucfirst($this->module) . '.json');
 		$data = $moddata;
 		$cleanup = $moddata['garbage'];
 		if (is_array($dirs)) {
-			$this->FreePBX->Backup->fs->mkdir('/tmp/SingleBackup'.$dir);
+			$this->freepbx->Backup->fs->mkdir('/tmp/SingleBackup'.$dir);
 
 			foreach ($dirs as $dir) {
 				$tar->addFile('/tmp/SingleBackup'.$dir, $dir);
@@ -95,7 +95,7 @@ class SingleBackup{
 		if(empty($this->savePath)){
 			$this->savePath = rtrim(getcwd());
 		}
-		$this->FreePBX->Backup->fs->rename($tmpdir .'/'. $targzname, $this->savePath .'/'. $targzname);
+		$this->freepbx->Backup->fs->rename($tmpdir .'/'. $targzname, $this->savePath .'/'. $targzname);
 		exit(sprintf("Your backup can be found at: %s".PHP_EOL, $this->savePath .'/'. $targzname));
 	}
 

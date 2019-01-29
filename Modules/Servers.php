@@ -54,7 +54,7 @@ class Servers extends Migration{
 		$this->servers = $final;
 		return $this;
 	}
-	
+
 	public function processValue($value){
 		if(strpos($value, '__') === false){
 			return $value;
@@ -63,7 +63,7 @@ class Servers extends Migration{
 		if(!isset($tmp[1])){
 			return $value;
 		}
-		$conf = $this->FreePBX->Config->get($tmp[1]);
+		$conf = $this->freepbx->Config->get($tmp[1]);
 		if(!$conf){
 			return $value;
 		}
@@ -97,30 +97,30 @@ class Servers extends Migration{
 	}
 
 	public function handleFTP($data){
-		$ftp = new FTP($this->FreePBX);
+		$ftp = new FTP($this->freepbx);
 		$ftp->addItem($data);
 		return $this;
 	}
 	public function handleSSH($data){
-		$ssh = new SSH($this->FreePBX);
-		$ssh->addItem($data);    
+		$ssh = new SSH($this->freepbx);
+		$ssh->addItem($data);
 	}
 	public function handleMySQL($data){
 
 	}
 	public function handleEmail($data){
-		$email = new Email($this->FreePBX);
-		$email->addItem($data);        
+		$email = new Email($this->freepbx);
+		$email->addItem($data);
 	}
 
 	public function handleLocal($data){
-		$local = new Local($this->FreePBX);
-		$local->addItem($data);        
+		$local = new Local($this->freepbx);
+		$local->addItem($data);
 	}
 	public function handleS3($data){
-		$S3 = new S3($this->FreePBX);
-		$S3->addItem($data);    
-	}        
+		$S3 = new S3($this->freepbx);
+		$S3->addItem($data);
+	}
 }
 
 // vim: set ai ts=4 sw=4 ft=php:

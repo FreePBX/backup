@@ -11,9 +11,9 @@ class Legacy{
 		if ($freepbx == null) {
 			throw new \InvalidArgumentException('Not given a BMO Object');
 		}
-		$this->FreePBX = $freepbx;
+		$this->freepbx = $freepbx;
 		$this->Backup = $freepbx->Backup;
-		$webrootpath = $this->FreePBX->Config->get('AMPWEBROOT');
+		$webrootpath = $this->freepbx->Config->get('AMPWEBROOT');
 		$webrootpath = (isset($webrootpath) && !empty($webrootpath)) ? $webrootpath : '/var/www/html';
 		$this->data = [];
 
@@ -26,8 +26,8 @@ class Legacy{
 		$this->parseSQL();
 	}
 	public function getModuleTables(){
-		$moduleManager = new FreePBXModule($this->FreePBX);
-		$amodules = $this->FreePBX->Modules->getActiveModules();
+		$moduleManager = new FreePBXModule($this->freepbx);
+		$amodules = $this->freepbx->Modules->getActiveModules();
 		foreach ($amodules as $mod => $data) {
 			$modTables = $moduleManager->getTables($mod);
 			foreach ($modTables as $table) {
@@ -70,7 +70,7 @@ class Legacy{
 		foreach (glob(BACKUPTMPDIR."/*.sql.gz") as $filename) {
 			$files[] = $filename;
 		}
-		$amodules = $this->FreePBX->Modules->getActiveModules();
+		$amodules = $this->freepbx->Modules->getActiveModules();
 		foreach ($amodules as $key => $value) {
 			$final[$key] = [];
 		}
@@ -130,7 +130,7 @@ class Legacy{
 					sprintf(_("Couldn't find %s").PHP_EOL,$namespace);
 					continue;
 				}
-				$class = new $namespace(null,$this->FreePBX, BACKUPTMPDIR);
+				$class = new $namespace(null,$this->freepbx, BACKUPTMPDIR);
 				if(method_exists($class,'processLegacy')){
 					$this->Backup->log('',sprintf(_("Calling legacy restore on module %s".PHP_EOL),$key));
 					$class->processLegacy($info['pdo'], $this->data, $value, $info['final']['unknown'],BACKUPTMPDIR);
@@ -153,7 +153,7 @@ class Legacy{
 				sprintf(_("Couldn't find %s").PHP_EOL,$namespace);
 				continue;
 			}
-			$class = new $namespace(null,$this->FreePBX, BACKUPTMPDIR);
+			$class = new $namespace(null,$this->freepbx, BACKUPTMPDIR);
 			if(method_exists($class,'processLegacy')){
 				$this->Backup->log('',sprintf(_("Calling legacy restore on module %s".PHP_EOL),$key));
 				$class->processLegacy($info['pdo'], $this->data, $value, $info['final']['unknown'],BACKUPTMPDIR);

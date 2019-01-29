@@ -13,7 +13,7 @@ class Warmspare{
 		if ($freepbx == null) {
 			throw new \Exception('Not given a FreePBX Object');
 		}
-		$this->FreePBX = $freepbx;
+		$this->freepbx = $freepbx;
 		$this->backupdata = '';
 	}
 	public function process($id){
@@ -40,8 +40,8 @@ class Warmspare{
 	}
 
 	public function getBackupString($id){
-		$this->backupdata = $this->FreePBX->Backup->getBackup($id);
-		$this->backupdata['backup_items'] = $this->FreePBX->Backup->getAll('modules_' . $id);
+		$this->backupdata = $this->freepbx->Backup->getBackup($id);
+		$this->backupdata['backup_items'] = $this->freepbx->Backup->getAll('modules_' . $id);
 		return base64_encode(json_encode($this->backupdata));
 	}
 }

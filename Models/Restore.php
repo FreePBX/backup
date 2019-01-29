@@ -18,7 +18,7 @@ class Restore{
 		if ($freepbx == null) {
 			throw new Exception('Not given a FreePBX Object');
 		}
-		$this->FreePBX = $freepbx;
+		$this->freepbx = $freepbx;
 		$this->modified = false;
 		$this->data = $moddata;
 		//TODO remove after new backup from bugfixed ver

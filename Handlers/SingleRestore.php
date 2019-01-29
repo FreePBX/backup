@@ -12,7 +12,7 @@ use splitbrain\PHPArchive\Tar;
 class SingleRestore{
 	public function __construct($file, $freepbx){
 		$this->restoreFile = $file;
-		$this->FreePBX = $freepbx;
+		$this->freepbx = $freepbx;
 		$this->Backup = $freepbx->Backup;
 		$this->out = new ConsoleOutput();
 		$this->progressBar = new ProgressBar($this->out, 4);
@@ -51,16 +51,16 @@ class SingleRestore{
 			exit(sprintf(REDTEXT ._("Can't find the module data for %s").PHP_EOL.WHITETEXT,$moduleName));
 		}
 		$modData = json_decode(file_get_contents($modJson), true);
-		$restore = new Model\Restore($this->Backup->FreePBX, $modData);    
+		$restore = new Model\Restore($this->Backup->freepbx, $modData);
 		echo REDTEXT."***"._("In single restore mode dependencies are NOT processed")."***".PHP_EOL.WHITETEXT;
-		$modulehandler = new FreePBXModule($this->FreePBX);
+		$modulehandler = new FreePBXModule($this->freepbx);
 		\modgettext::push_textdomain($moduleName);
 		$this->progressBar->setMessage(GREENTEXT._('Resetting module data, depending on the module it may take a bit.').WHITETEXT);
 		$this->progressBar->start();
 		$modulehandler->reset($moduleName, $moduleInfo['version']);
 		$this->progressBar->advance();
 		$class = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($moduleName));
-		$class = new $class($restore, $this->FreePBX, BACKUPTMPDIR);
+		$class = new $class($restore, $this->freepbx, BACKUPTMPDIR);
 		$this->progressBar->advance();
 		$this->progressBar->setMessage(GREENTEXT . _('Restoring Data...') . WHITETEXT);
 		$class->runRestore('');

@@ -54,13 +54,15 @@ if(isset($error) && !empty($error)){
 			data-show-columns="true"
 			data-show-toggle="true"
 			data-toggle="table"
+			data-sort-order="desc"
+			data-sort-name="timestamp"
 			data-pagination="true"
 			data-search="true"
 			class="table table-striped">
 			<thead>
 				<tr>
 					<th data-field="name"><?php echo _("Backup Name")?></th>
-					<th data-field="date"><?php echo _("Backup Date")?></th>
+					<th data-field="timestamp" data-formatter="timestampFormatter"><?php echo _("Backup Date")?></th>
 					<th data-field="framework"><?php echo _("Framework")?></th>
 					<th data-field="id" data-formatter="localLinkFormatter"><?php echo _("Actions")?></th>
 				</tr>
@@ -86,6 +88,8 @@ if(isset($error) && !empty($error)){
 			data-maintain-selected="true"
 			data-show-columns="true"
 			data-show-toggle="true"
+			data-sort-order="desc"
+			data-sort-name="timestamp"
 			data-toggle="table"
 			data-pagination="true"
 			data-search="true"
@@ -93,7 +97,7 @@ if(isset($error) && !empty($error)){
 			<thead>
 				<tr>
 					<th data-field="name"><?php echo _("Backup Name")?></th>
-					<th data-field="date"><?php echo _("Backup Date")?></th>
+					<th data-field="timestamp" data-formatter="timestampFormatter"><?php echo _("Backup Date")?></th>
 					<th data-field="type"><?php echo _("Backup Type")?></th>
 					<th data-field="id" data-formatter="remoteFormatter"><?php echo _("Actions")?></th>
 				</tr>

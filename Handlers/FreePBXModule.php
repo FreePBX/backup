@@ -10,11 +10,11 @@ class FreePBXModule{
 		if ($freepbx == null) {
 			throw new \Exception('Not given a FreePBX Object');
 		}
-		$this->FreePBX = $freepbx;
+		$this->freepbx = $freepbx;
 		$this->mf = \module_functions::create();
 	}
 	public function reset($module,$version){
-		$developer = $this->FreePBX->Config->get('DEVEL');
+		$developer = $this->freepbx->Config->get('DEVEL');
 		$module = \strtolower($module);
 		if($this->getModuleVersion($module) !== $version && !$developer){
 			$xml = $this->mf->getModuleDownloadByModuleNameAndVersion($module, $version);
@@ -52,7 +52,7 @@ class FreePBXModule{
 
 	public function truncateTables($module){
 		$tables = $this->getTables($module);
-		$stmt = $this->FreePBX->Database->prepare('TRUNCATE TABLE :table');
+		$stmt = $this->freepbx->Database->prepare('TRUNCATE TABLE :table');
 		foreach($tables as $table){
 			$stmt->execute([':table' => $table]);
 		}
@@ -60,12 +60,12 @@ class FreePBXModule{
 	}
 	//future functionality clean data
 	public function cleanAstdb($module){
-		if(!$this->FreePBX->astman->connected()){
+		if(!$this->freepbx->astman->connected()){
 			return false;
 		}
 		$keys = $this->getAstdb($module);
 		foreach ($keys as $key) {
-			$this->FreePBX->astman->database_deltree($key);
+			$this->freepbx->astman->database_deltree($key);
 		}
 		return $this;
 	}
@@ -103,7 +103,7 @@ class FreePBXModule{
 		if($this->ModuleXML){
 			return $this;
 		}
-		$dir = $this->FreePBX->Config->get('AMPWEBROOT') . '/admin/modules/' . $module;
+		$dir = $this->freepbx->Config->get('AMPWEBROOT') . '/admin/modules/' . $module;
 		if(!file_exists($dir.'/module.xml')){
 			$this->moduleXML = false;
 			return $this;

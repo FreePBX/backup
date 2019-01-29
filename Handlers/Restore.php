@@ -15,9 +15,9 @@ class Restore{
 		if ($freepbx == null) {
 			throw new InvalidArgumentException('Not given a BMO Object');
 		}
-		$this->FreePBX = $freepbx;
+		$this->freepbx = $freepbx;
 		$this->Backup = $freepbx->Backup;
-		$webrootpath = $this->FreePBX->Config->get('AMPWEBROOT');
+		$webrootpath = $this->freepbx->Config->get('AMPWEBROOT');
 		$webrootpath = (isset($webrootpath) && !empty($webrootpath))?$webrootpath:'/var/www/html';
 		define('WEBROOT', $webrootpath);
 		define('BACKUPTMPDIR','/var/spool/asterisk/tmp');
@@ -41,7 +41,7 @@ class Restore{
 			$metaerror = false;
 		}
 		if($metaerror){
-			$errors[] = _("Could not locate the manifest for this file. This file will not restore properly though the data may still be present."); 
+			$errors[] = _("Could not locate the manifest for this file. This file will not restore properly though the data may still be present.");
 		}
 
 		$restoreData = json_decode($metadata, true);
@@ -65,13 +65,13 @@ class Restore{
 			}
 			$moddata = json_decode(file_get_contents($modjson), true);
 			$moddata['isWarmSpare'] = $warmspare;
-			$restore = new Models\Restore($this->Backup->FreePBX, $moddata);
+			$restore = new Models\Restore($this->Backup->freepbx, $moddata);
 			$depsOk = $this->Backup->processDependencies($restore->getDependencies());
 			if(!$depsOk){
 				$errors[] = printf(_("Dependencies not resolved for %s Skipped"),$key);
 				continue;
 			}
-			$modulehandler = new Handlers\FreePBXModule($this->FreePBX);
+			$modulehandler = new Handlers\FreePBXModule($this->freepbx);
 			\modgettext::push_textdomain($key);
 			$this->Backup->log($jobid,sprintf(_("Running restore process for %s"),$key));
 			$this->Backup->log($jobid,sprintf(_("Resetting the data for %s, this may take a moment"),$key));
@@ -80,7 +80,7 @@ class Restore{
 				$modulehandler->reset($mod['name'],$backedupVer);
 				$this->Backup->log($jobid,sprintf(_("Restoring the data for %s, this may take a moment"),$key));
 				$class = sprintf('\\FreePBX\\modules\\%s\\Restore',ucfirst($key));
-				$class = new $class($restore,$this->FreePBX,BACKUPTMPDIR);
+				$class = new $class($restore,$this->freepbx,BACKUPTMPDIR);
 				$class->runRestore($jobid);
 			} catch (Exception $e) {
 				$this->Backup->log($transactionId, sprintf(_("There was an error running the restore for %s... %s"), $mod['name'], $e->getMessage()));
@@ -109,7 +109,7 @@ class Restore{
 		}
 		//All modules impliment the "backup" method so it is a horrible way to know
 		//which modules are valid. With the autoloader we can do this magic :)
-		$amodules = $this->FreePBX->Modules->getActiveModules();
+		$amodules = $this->freepbx->Modules->getActiveModules();
 		$validmods = [];
 		foreach ($amodules as $module) {
 			$bufile = WEBROOT . '/admin/modules/' . $module['rawname'].'/Restore.php';
@@ -123,7 +123,7 @@ class Restore{
 		$err = [];
 		$restoreData = base64_encode(json_encode($restoreData,\JSON_PRETTY_PRINT));
 		$args = escapeshellarg($transactionId).' '.$restoreData;
-		$this->FreePBX->Hooks->processHooks($transactionId,$restoreData);
+		$this->freepbx->Hooks->processHooks($transactionId,$restoreData);
 		$this->Backup->getHooks('restore');
 		foreach($this->Backup->preRestore as $command){
 			$cmd  = escapeshellcmd($command).' '.$args;
@@ -139,7 +139,7 @@ class Restore{
 		$err = [];
 		$restoreData = base64_encode(json_encode($restoreData,\JSON_PRETTY_PRINT));
 		$args = escapeshellarg($transactionId).' '.$restoreData;
-		$this->FreePBX->Hooks->processHooks($transactionId);
+		$this->freepbx->Hooks->processHooks($transactionId);
 		$this->Backup->getHooks('restore');
 		foreach($this->Backup->postRestore as $command){
 			$cmd  = escapeshellcmd($command).' '.$args;

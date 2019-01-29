@@ -4,12 +4,13 @@ namespace FreePBX\modules\Backup;
  * This is a base class used when creating your modules "Backup.php" class
  */
 class BackupBase{
-   
+
   public function __construct($backupobj=null,$freepbx = null){
     if(empty($freepbx) || empty($backupobj)){
         throw new \InvalidArgumentException("The module expects to recieve a backup object and a FreePBX object");
     }
     $this->backupObj = $backupobj;
+    $this->freepbx = $freepbx;
     $this->FreePBX = $freepbx;
   }
   public function addDependency($dependency){

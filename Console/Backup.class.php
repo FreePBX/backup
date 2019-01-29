@@ -7,10 +7,11 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
-use Symfony\Component\Filesystem\LockHandler;
-
+use Symfony\Component\Console\Command\LockableTrait;
 
 class Backup extends Command {
+	use LockableTrait;
+
 	protected function configure(){
 		$this->setName('backup')
 		->setAliases(array('bu'))
@@ -40,9 +41,14 @@ class Backup extends Command {
 		);
 	}
 	protected function execute(InputInterface $input, OutputInterface $output){
+		if (!$this->lock()) {
+			$output->writeln('The command is already running in another process.');
+			return 0;
+		}
 		$this->output = $output;
 		$this->input = $input;
-        $this->freepbx = \FreePBX::Create();
+		$this->freepbx = \FreePBX::Create();
+
 		$this->freepbx->Backup->output = $output;
 		$list = $input->getOption('list');
 		$warmspare = $input->getOption('warmspare');
@@ -80,11 +86,6 @@ class Backup extends Command {
 			case $backup:
 				$buid = $input->getOption('backup');
 				$output->writeln(sprintf('Starting backup job with ID: %s',$job));
-				$lockHandler = new LockHandler($job.'.'.$buid);
-				if (!$lockHandler->lock()) {
-					$this->log($job, _("A backup job for this id is already running"));
-    			return false;
-				}
 				if ($warmspare) {
 					$ws = new FreePBX\modules\Backup\Handlers\Warmspare($this->freepbx);
 					return $ws->process($buid);
@@ -92,7 +93,6 @@ class Backup extends Command {
 				$backupHandler = new Handler\Backup($this->freepbx);
 				$pid = posix_getpid();
 				$errors = $backupHandler->process($buid,$job,null,$pid);
-				$lockHandler->release();
 			break;
 			case $restore:
 				$backupType = $this->freepbx->Backup->determineBackupFileType($restore);
@@ -106,15 +106,8 @@ class Backup extends Command {
 					$restoreHandler = new Handler\Legacy($this->freepbx);
 				}
 				$output->writeln(sprintf('Starting restore job with file: %s',$restore));
-				//We don't EVER want multiple restores running.
-				$lockHandler = new LockHandler('restore');
-				if (!$lockHandler->lock()) {
-					$this->log($job, _("A restore task is already running"));
-    				return false;
-				}				
 				$errors = $restoreHandler->process($restore,$job,$warmspare);
 				$output->writeln(sprintf('Finished restore job with file: %s',$restore));
-				$lockHandler->release();
 			break;
 			case $dumpextern:
 				$backupdata = $this->freepbx->Backup->getBackup($input->getOption('dumpextern'));
@@ -127,11 +120,6 @@ class Backup extends Command {
 				return true;
 			break;
 			case $remote:
-				$lockHandler = new LockHandler('restore');
-				if (!$lockHandler->lock()) {
-					$this->log($job, _("A backup task is already running"));
-					return false;
-				}			
 				$job = $transaction?$transaction:$this->freepbx->Backup->generateID();
 				$output->writeln(sprintf('Starting backup job with ID: %s',$job));
 				$pid = posix_getpid();

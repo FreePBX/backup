@@ -15,7 +15,7 @@ class Backup{
 		if ($freepbx == null) {
 			throw new \InvalidArgumentException('Not given a BMO Object');
 		}
-		$this->FreePBX = $freepbx;
+		$this->freepbx = $freepbx;
 		$this->Backup = $freepbx->Backup;
 	}
 
@@ -31,14 +31,9 @@ class Backup{
 		}
 		$errors = [];
 		$warnings = [];
-		$this->Backup->delById('monolog');
-		$handler = new Handlers\MonologKVStore($this->Backup);
-		$this->Backup->logger->pushHandler($handler);
-		$this->Backup->attachLoggers('backup');
 		$pid = !empty($pid)?$pid:posix_getpid();
 		$external = !empty($base64Backup);
 		$transactionId = !empty($transactionId)?$transactionId:$this->Backup->generateId();
-		$this->Backup->setConfig($transactionId,$pid,'running');
 		$this->Backup->log($transactionId,sprintf(_("Running Backup ID: %s"),$id),'DEBUG');
 		$this->Backup->log($transactionId,sprintf(_("Transaction: %s"),$transactionId),'DEBUG');
 		$this->Backup->log($transactionId,_("Running pre backup hooks"));
@@ -48,19 +43,19 @@ class Backup{
 		$this->Backup->attachEmail($backupInfo);
 		$underscoreName = str_replace(' ', '_', $backupInfo['backup_name']);
 		$this->Backup->log($transactionId,sprintf(_("Starting backup %s"),$underscoreName),'DEBUG');
-		$spooldir = $this->FreePBX->Config->get("ASTSPOOLDIR");
-		$serverName = str_replace(' ', '_',$this->FreePBX->Config->get('FREEPBX_SYSTEM_IDENT'));
+		$spooldir = $this->freepbx->Config->get("ASTSPOOLDIR");
+		$serverName = str_replace(' ', '_',$this->freepbx->Config->get('FREEPBX_SYSTEM_IDENT'));
 		$localPath = sprintf('%s/backup/%s',$spooldir,$underscoreName);
 		$this->Backup->fs->mkdir($localPath);
 		$remotePath =  sprintf('/%s/%s',$serverName,$underscoreName);
-		$tmpdir = sprintf('%s/backup/%s','/var/spool/asterisk/tmp',$underscoreName);
+		$tmpdir = sprintf('%s/backup/%s',$spooldir.'/tmp',$underscoreName);
 		@unlink($tmpdir);
 		$this->Backup->fs->mkdir($tmpdir);
 		//Use Legacy backup naming
 		$tarfilename = sprintf('%s%s-%s-%s',date("Ymd-His-"),time(),get_framework_version(),rand());
 		$tarnamebase = sprintf('%s/%s',$localPath,$tarfilename);
 		$targzname = sprintf('%s.tar.gz',$tarnamebase);
-		$this->Backup->log($transactionId,_("This backup will be stored locally is subject to maintenance settings"),'DEBUG');
+		$this->Backup->log($transactionId,_("This backup will be stored locally and is subject to maintenance settings"),'DEBUG');
 		$this->Backup->log($transactionId,sprintf(_("Storage Location: %s"),$targzname));
 
 		$tar = new Tar();
@@ -102,18 +97,15 @@ class Backup{
 				$this->Backup->log($transactionId,$err,'DEBUG');
 				continue;
 			}
-			$mod = $this->FreePBX->Modules->getInfo($raw);
+			$mod = $this->freepbx->Modules->getInfo($raw);
 			$processQueue->enqueue(['name' => $mod[$raw]['rawname']]);
 		}
 
 		if(!$external){
-			$maint = new Module\Maintinance($this->FreePBX,$id);
-		}
-		if ($inCLI) {
-			$cliout = new ConsoleOutput();
+			$maint = new Module\Maintinance($this->freepbx,$id);
 		}
 		foreach($processQueue as $mod) {
-			$backup = new Models\Backup($this->FreePBX);
+			$backup = new Models\Backup($this->freepbx);
 			$backup->setBackupId($id);
 			$mod = is_array($mod)?$mod['name']:$mod;
 			$rawname = strtolower($mod);
@@ -125,7 +117,7 @@ class Backup{
 				continue;
 			}
 			try{
-				$class = new $class($backup,$this->FreePBX);
+				$class = new $class($backup,$this->freepbx);
 				$class->runBackup($id,$transactionId);
 			}catch(Exception $e){
 				$this->Backup->log($transactionId, sprintf(_("There was an error running the backup for %s... %s"), $mod, $e->getMessage()));
@@ -152,14 +144,14 @@ class Backup{
 				/** Add the dependency to the top of the lineup */
 				if(in_array($depend, $validmods)){
 					$raw = \strtolower($depend);
-					$mod = $this->FreePBX->Modules->getInfo($raw);
+					$mod = $this->freepbx->Modules->getInfo($raw);
 					$this->sortDepends($mod[$raw]['rawname'],$mod[$raw]['version']);
 					if(!empty($depend)){
 						$processQueue->enqueue($depend);
 					}
 				}
 			}
-			$moduleinfo = $this->FreePBX->Modules->getInfo($rawname);
+			$moduleinfo = $this->freepbx->Modules->getInfo($rawname);
 			$manifest['modules'][] = ['module' => $rawname, 'version' => $moduleinfo[$rawname]['version']];
 			$moddata = $backup->getData();
 			foreach ($moddata['dirs'] as $dir) {
@@ -196,7 +188,7 @@ class Backup{
 			$tar->addFile($tmpdir . '/' . $dir, $dir);
 		}
 		$manifest['processorder'] = $this->dependencies;
-		$tar->addData('metadata.json', json_encode($manifest));
+		$tar->addData('metadata.json', json_encode($manifest,JSON_PRETTY_PRINT));
 		$tar->close();
 		if(!$external){
 			$remote = $remotePath.'/'.$targzname;
@@ -213,9 +205,9 @@ class Backup{
 				}
 				try {
 					$location = explode('_', $location);
-					$this->Backup->FreePBX->Filestore->put($location[0],$location[1],file_get_contents($targzname),$remote);
+					$this->Backup->freepbx->Filestore->put($location[0],$location[1],file_get_contents($targzname),$remote);
 					if($hash){
-						$this->Backup->FreePBX->Filestore->put($location[0],$location[1],$hash,$remote.'.sha256sum');
+						$this->Backup->freepbx->Filestore->put($location[0],$location[1],$hash,$remote.'.sha256sum');
 					}
 					$msg = sprintf(_("Saving to: %s instance"),$location[0]);
 					$this->Backup->log($transactionId,$msg,'DEBUG');
@@ -258,33 +250,31 @@ class Backup{
 		}
 		$this->Backup->log($transactionId,_("Backup completed successfully"));
 		$this->Backup->processNotifications($id, $transactionId, [], $backupInfo['backup_name']);
-		$this->Backup->setConfig('log',$this->sessionlog[$transactionId],$transactionId);
-		$this->Backup->delConfig($transactionId,'running');
 		return $signatures;
 	}
 
 	public function settingsMagic() {
 		$settings = '';
-		$mods = $this->FreePBX->Modules->getModulesByMethod("backupSettings");
+		$mods = $this->freepbx->Modules->getModulesByMethod("backupSettings");
 		$mods = $this->getModules();
 		foreach($mods as $mod) {
 			\modgettext::push_textdomain(strtolower($mod));
-			$settings .= $this->FreePBX->$mod->backupSettings();
+			$settings .= $this->freepbx->$mod->backupSettings();
 			\modgettext::pop_textdomain();
 		}
 		return $settings;
 	}
 
 	public function processSettings($id,$settings){
-		 $this->FreePBX->Hooks->processHooks($id,$settings);
+		 $this->freepbx->Hooks->processHooks($id,$settings);
 	}
 	public function getSettings($id){
-		 return $this->FreePBX->Hooks->processHooks($id);
+		 return $this->freepbx->Hooks->processHooks($id);
 	}
 	public function preHooks($id = '', $transactionId = ''){
 		$err = [];
 		$args = escapeshellarg($id).' '.escapeshellarg($transactionId);
-		$this->FreePBX->Hooks->processHooks($id,$transactionId);
+		$this->freepbx->Hooks->processHooks($id,$transactionId);
 		$this->Backup->getHooks('backup');
 		foreach($this->Backup->preBackup as $command){
 			$cmd  = escapeshellcmd($command).' '.$args;
@@ -299,7 +289,7 @@ class Backup{
 	public function postHooks($id = '', $signatures = [], $errors = [], $transactionId = ''){
 		$err = [];
 		$args = escapeshellarg($id).' '.escapeshellarg($transactionId).' '.base64_encode(json_encode($signatures,\JSON_PRETTY_PRINT)).' '.base64_encode(json_encode($errors,\JSON_PRETTY_PRINT));
-		$this->FreePBX->Hooks->processHooks($id,$transactionId);
+		$this->freepbx->Hooks->processHooks($id,$transactionId);
 		$this->Backup->getHooks('backup');
 		foreach($this->Backup->postBackup as $command){
 			$cmd  = escapeshellcmd($command).' '.$args;
@@ -311,7 +301,7 @@ class Backup{
 		unset($this->Backup->postBackup);
 		return !empty($errors)?$errors:true;
 	}
-	
+
 
 	/**
 	 * Get a list of modules that implement the backup method
@@ -324,9 +314,8 @@ class Backup{
 		}
 		//All modules impliment the "backup" method so it is a horrible way to know
 		//which modules are valid. With the autploader we can do this magic :)
-		$webrootpath = $this->FreePBX->Config->get('AMPWEBROOT');
-		$webrootpath = (isset($webrootpath) && !empty($webrootpath))?$webrootpath:'/var/www/html';
-		$amodules = $this->FreePBX->Modules->getActiveModules();
+		$webrootpath = $this->freepbx->Config->get('AMPWEBROOT');
+		$amodules = $this->freepbx->Modules->getActiveModules();
 		$validmods = [];
 		foreach ($amodules as $module) {
 			$bufile = $webrootpath . '/admin/modules/' . $module['rawname'].'/Backup.php';
@@ -336,9 +325,10 @@ class Backup{
 		}
 		return $validmods;
 	}
+
 	public function sortDepends($dependency,$version = false,$skipsort = false){
 		if(!$version){
-			$moduleinfo = $this->FreePBX->Modules->getInfo($dependency);
+			$moduleinfo = $this->freepbx->Modules->getInfo($dependency);
 			$version = $moduleinfo[$dependency]['version'];
 		}
 		$tmp[$dependency] = $version;
@@ -350,7 +340,7 @@ class Backup{
 			$this->dependencies = array_unique($this->dependencies);
 		}
 	}
-	
+
 	static function parseFile($filename){
 		//20171012-130011-1507838411-15.0.1alpha1-42886857.tar.gz
 		preg_match("/(\d{7})-(\d{6})-(\d{10,11})-(.*)-\d*\.tar\.gz(.sha256sum)?/", $filename, $output_array);

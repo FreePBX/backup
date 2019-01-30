@@ -1,28 +1,11 @@
 <?php
 namespace FreePBX\modules\Backup;
+use FreePBX\modules\Backup\Models as Model;
 /**
  * This is a base class used when creating your modules "Backup.php" class
  */
-class BackupBase{
-
-  public function __construct($backupobj=null,$freepbx = null){
-    if(empty($freepbx) || empty($backupobj)){
-        throw new \InvalidArgumentException("The module expects to recieve a backup object and a FreePBX object");
-    }
-    $this->backupObj = $backupobj;
-    $this->freepbx = $freepbx;
-    $this->FreePBX = $freepbx;
-  }
-  public function addDependency($dependency){
-    $this->backupObj->addDependency($dependency);
-  }
-  public function addConfigs($configs){
-    $this->backupObj->addConfigs($configs);
-  }
-  public function addDirectories($directories = []){
-    $this->backupObj->addDirs($directories);
-  }
+class BackupBase extends Model\Backup{
   public function addFile($filename,$path,$base,$type = "file"){
-    $this->backupObj->addFiles([['type' => $type, 'filename' => $filename, 'pathto' => $path,'base' => $base]]);
+    parent::addFiles([['type' => $type, 'filename' => $filename, 'pathto' => $path,'base' => $base]]);
   }
 }

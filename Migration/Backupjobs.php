@@ -6,6 +6,13 @@ use FreePBX\modules\Backup\Handlers\FreePBXModule;
 class Backupjobs extends Migration{
 	public $backupJobs = [];
 	public $moduleData = [];
+
+	public function __construct($freepbx = ''){
+		$this->freepbx = $freepbx;
+		$this->Database = $freepbx->Database;
+		$this->Backup = $freepbx->Backup;
+	}
+
 	public function process(){
 		$this->moduleManager = new FreePBXModule($this->freepbx);
 		return $this->getLegacyBackups()

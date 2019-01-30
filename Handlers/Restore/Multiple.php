@@ -7,44 +7,45 @@ use FreePBX\modules\Backup\Modules as Module;
 use FreePBX\modules\Backup\Models as Models;
 use FreePBX\modules\Backup\Handlers as Handlers;
 use splitbrain\PHPArchive\Tar;
-use InvalidArgumentException;
-class Restore{
-	const DEBUG = false;
-
-	public function __construct($freepbx = null) {
-		if ($freepbx == null) {
-			throw new InvalidArgumentException('Not given a BMO Object');
-		}
+use function FreePBX\modules\Backup\Json\json_decode;
+use function FreePBX\modules\Backup\Json\json_encode;
+class Multiple extends Common {
+	public function __construct($freepbx, $file, $transactionId, $pid = null) {
 		$this->freepbx = $freepbx;
 		$this->Backup = $freepbx->Backup;
-		$webrootpath = $this->freepbx->Config->get('AMPWEBROOT');
-		$webrootpath = (isset($webrootpath) && !empty($webrootpath))?$webrootpath:'/var/www/html';
-		define('WEBROOT', $webrootpath);
-		define('BACKUPTMPDIR','/var/spool/asterisk/tmp');
+		$this->webroot = $this->freepbx->Config->get('AMPWEBROOT');
+		$this->backuptmpdir = $this->freepbx->Config->get('ASTSPOOLDIR').'/tmp';
+		$this->transactionId = $transactionId;
+		$this->restoreFile = $file;
+		$this->pid = !empty($pid) ? $pid : posix_getpid();
 	}
-	public function process($backupFile, $jobid, $warmspare = false) {
-		$this->Backup->fs->remove(BACKUPTMPDIR);
-		$this->Backup->fs->mkdir(BACKUPTMPDIR);
+
+
+	public function process($warmspare = false) {
+		if(!file_exists($this->restoreFile)) {
+			throw new \Exception(sprintf(_('%s does not exist'),$this->restoreFile));
+		}
 		$errors = [];
 		$warnings = [];
-		$this->Backup->log($jobid,_("Extracting Backup"));
-		@rmdir(BACKUPTMPDIR);
-		mkdir(BACKUPTMPDIR,0755,true);
+
+		$this->Backup->fs->remove($this->backuptmpdir);
+		$this->Backup->fs->mkdir($this->backuptmpdir);
+
+		$this->Backup->log($this->transactionId,_("Extracting Backup"));
+
 		$tar = new Tar();
-		$tar->open($backupFile);
-		$tar->extract(BACKUPTMPDIR);
-		$metapath = BACKUPTMPDIR . '/metadata.json';
-		$metadata = '{}';
-		$metaerror = true;
+		$tar->open($this->restoreFile);
+		$tar->extract($this->backuptmpdir);
+
+		$metapath = $this->backuptmpdir . '/metadata.json';
+
 		if(file_exists($metapath)){
-			$metadata = file_get_contents($metapath);
-			$metaerror = false;
-		}
-		if($metaerror){
-			$errors[] = _("Could not locate the manifest for this file. This file will not restore properly though the data may still be present.");
+			$restoreData = json_decode(file_get_contents($metapath), true);
+		} else {
+			$restoreData = [];
+			$errors[] = _("Could not locate the manifest for this backup. This backup will not restore properly though the data may still be present.");
 		}
 
-		$restoreData = json_decode($metadata, true);
 		if(isset($restoreData['processorder'])){
 			$this->restoreModules = $restoreData['processorder'];
 		}
@@ -52,20 +53,22 @@ class Restore{
 			$this->restoreModules = $restoreData['modules'];
 		}
 
-		$this->Backup->log($jobid,_("Running pre restore hooks"));
-		$this->preHooks($jobid,$restoreData);
+		$backupModVer = (string)$this->freepbx->Modules->getInfo('backup')['backup']['version'];
+
+		$this->Backup->log($this->transactionId,_("Running pre restore hooks"));
+		$this->preHooks($restoreData, $errors);
 		foreach($this->restoreModules as $key => $value) {
-			$modjson = BACKUPTMPDIR . '/modulejson/' . ucfirst($key) . '.json';
+			$modjson = $this->backuptmpdir . '/modulejson/' . ucfirst($key) . '.json';
 			if(!file_exists($modjson)){
 				$msg = sprintf(_("Could not find a manifest for %s, skipping"),ucfirst($key));
-				$this->Backup->log($jobid,$msg,'WARNING');
+				$this->Backup->log($this->transactionId,$msg,'WARNING');
 
 				$errors[] = $msg;
 				continue;
 			}
 			$moddata = json_decode(file_get_contents($modjson), true);
 			$moddata['isWarmSpare'] = $warmspare;
-			$restore = new Models\Restore($this->Backup->freepbx, $moddata);
+			$restore = new Models\Restore($this->Backup->freepbx, $moddata, $backupModVer);
 			$depsOk = $this->Backup->processDependencies($restore->getDependencies());
 			if(!$depsOk){
 				$errors[] = printf(_("Dependencies not resolved for %s Skipped"),$key);
@@ -73,17 +76,17 @@ class Restore{
 			}
 			$modulehandler = new Handlers\FreePBXModule($this->freepbx);
 			\modgettext::push_textdomain($key);
-			$this->Backup->log($jobid,sprintf(_("Running restore process for %s"),$key));
-			$this->Backup->log($jobid,sprintf(_("Resetting the data for %s, this may take a moment"),$key));
+			$this->Backup->log($this->transactionId,sprintf(_("Running restore process for %s"),$key));
+			$this->Backup->log($this->transactionId,sprintf(_("Resetting the data for %s, this may take a moment"),$key));
 			try{
 				$backedupVer = $value;
-				$modulehandler->reset($mod['name'],$backedupVer);
-				$this->Backup->log($jobid,sprintf(_("Restoring the data for %s, this may take a moment"),$key));
+				$modulehandler->reset($key,$backedupVer);
+				$this->Backup->log($this->transactionId,sprintf(_("Restoring the data for %s, this may take a moment"),$key));
 				$class = sprintf('\\FreePBX\\modules\\%s\\Restore',ucfirst($key));
-				$class = new $class($restore,$this->freepbx,BACKUPTMPDIR);
-				$class->runRestore($jobid);
+				$class = new $class($restore,$this->freepbx,$this->backuptmpdir);
+				$class->runRestore($this->transactionId);
 			} catch (Exception $e) {
-				$this->Backup->log($transactionId, sprintf(_("There was an error running the restore for %s... %s"), $mod['name'], $e->getMessage()));
+				$this->Backup->log($this->transactionId, sprintf(_("There was an error running the restore for %s... %s"), $key, $e->getMessage()));
 				if (DEBUG) {
 					throw $e;
 				}
@@ -91,10 +94,10 @@ class Restore{
 
 			\modgettext::pop_textdomain();
 		}
-		$this->Backup->log($jobid,_("Running post restore hooks"));
-		$this->postHooks($jobid,$restoreData);
-		$this->Backup->fs->remove(BACKUPTMPDIR);
-		\needreload();
+		$this->Backup->log($this->transactionId,_("Running post restore hooks"));
+		$this->postHooks($restoreData, $errors);
+		$this->Backup->fs->remove($this->backuptmpdir);
+		needreload();
 		return $errors;
 	}
 
@@ -112,16 +115,16 @@ class Restore{
 		$amodules = $this->freepbx->Modules->getActiveModules();
 		$validmods = [];
 		foreach ($amodules as $module) {
-			$bufile = WEBROOT . '/admin/modules/' . $module['rawname'].'/Restore.php';
+			$bufile = $this->webroot . '/admin/modules/' . $module['rawname'].'/Restore.php';
 			if(file_exists($bufile)){
 				$validmods[] = $module;
 			}
 		}
 		return $validmods;
 	}
-	public function preHooks($transactionId = '',$restoreData = []){
+	public function preHooks($restoreData = [], &$errors){
 		$err = [];
-		$restoreData = base64_encode(json_encode($restoreData,\JSON_PRETTY_PRINT));
+		$restoreData = base64_encode(json_encode($restoreData));
 		$args = escapeshellarg($transactionId).' '.$restoreData;
 		$this->freepbx->Hooks->processHooks($transactionId,$restoreData);
 		$this->Backup->getHooks('restore');
@@ -133,11 +136,10 @@ class Restore{
 			}
 		}
 		unset($this->Backup->preRestore);
-		return !empty($errors)?$errors:true;
 	}
-	public function postHooks($transactionId='',$restoreData=[]){
+	public function postHooks($restoreData=[], &$errors){
 		$err = [];
-		$restoreData = base64_encode(json_encode($restoreData,\JSON_PRETTY_PRINT));
+		$restoreData = base64_encode(json_encode($restoreData));
 		$args = escapeshellarg($transactionId).' '.$restoreData;
 		$this->freepbx->Hooks->processHooks($transactionId);
 		$this->Backup->getHooks('restore');
@@ -149,7 +151,5 @@ class Restore{
 			}
 		}
 		unset($this->Backup->postRestore);
-		return !empty($errors)?$errors:true;
 	}
-
 }

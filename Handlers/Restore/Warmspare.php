@@ -5,19 +5,14 @@
 namespace FreePBX\modules\Backup\Handlers;
 
 use FreePBX\modules\Filestore\Modules\Remote as FilestoreRemote;
-
+use function FreePBX\modules\Backup\Json\json_decode;
+use function FreePBX\modules\Backup\Json\json_encode;
 use Exception;
-class Warmspare{
-	const DEBUG = true;
-	public function __construct($freepbx = null) {
-		if ($freepbx == null) {
-			throw new \Exception('Not given a FreePBX Object');
-		}
-		$this->freepbx = $freepbx;
-		$this->backupdata = '';
-	}
-	public function process($id){
-		$backupData = $this->getBackupString($id);
+class Warmspare extends Multiple {
+	private $backupdata = [];
+
+	public function process(){
+		$backupData = $this->getBackupString($this->id);
 		$ssh = new FilestoreRemote();
 		$host = $this->backupdata['warmspare_remoteip'];
 		if(!$host){
@@ -39,9 +34,9 @@ class Warmspare{
 		return $ret;
 	}
 
-	public function getBackupString($id){
-		$this->backupdata = $this->freepbx->Backup->getBackup($id);
-		$this->backupdata['backup_items'] = $this->freepbx->Backup->getAll('modules_' . $id);
+	public function getBackupString(){
+		$this->backupdata = $this->freepbx->Backup->getBackup($this->id);
+		$this->backupdata['backup_items'] = $this->freepbx->Backup->getAll('modules_' . $this->id);
 		return base64_encode(json_encode($this->backupdata));
 	}
 }

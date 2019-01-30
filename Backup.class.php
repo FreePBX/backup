@@ -24,6 +24,9 @@ use splitbrain\PHPArchive\Tar;
 use FreePBX\modules\Backup\Handlers\MonologSwift;
 use Hhxsv5\SSE\SSE;
 use Hhxsv5\SSE\Update;
+use function FreePBX\modules\Backup\Json\json_decode;
+use function FreePBX\modules\Backup\Json\json_encode;
+include __DIR__.'/vendor/autoload.php';
 class Backup extends FreePBX_Helpers implements BMO {
 	public $swiftmsg = false;
 	public $backupHandler  = null;
@@ -352,7 +355,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 
 				$jobid   = $this->generateId();
 				$location = $this->freepbx->Config->get('ASTLOGDIR');
-				$process = new Process($this->freepbx->Config->get('AMPSBIN').'/fwconsole backup --restore='.escapeshellarg($file).' --transaction='.escapeshellarg($jobid).' > '.$location.'/restore_'.$jobid.'_out.log 2> '.$location.'/restore_'.$jobid.'_err.log & echo $!');
+				$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup --restore='.escapeshellarg($file).' --transaction='.escapeshellarg($jobid);
+				file_put_contents($location.'/restore_'.$jobid.'_out.log','Running with: '.$command.PHP_EOL);
+				$process = new Process($command.' >> '.$location.'/restore_'.$jobid.'_out.log 2> '.$location.'/restore_'.$jobid.'_err.log & echo $!');
 				$process->mustRun();
 				$log = file_get_contents($location.'/restore_'.$jobid.'_out.log');
 				return ['status' => true, 'message' => _("Restore running"), 'transaction' => $jobid, 'restoreid' => $ruid, 'pid' => trim($process->getOutput()), 'log' => $log];
@@ -364,10 +369,11 @@ class Backup extends FreePBX_Helpers implements BMO {
 				$jobid   = $this->generateId();
 				$location = $this->freepbx->Config->get('ASTLOGDIR');
 				$warmspare = $this->getConfig('warmspareenabled', $buid) === 'yes';
-				$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup --backup=' . escapeshellarg($buid) . ' --transaction=' . escapeshellarg($jobid) . ' > '.$location.'/backup_'.$jobid.'_out.log 2> '.$location.'/backup_'.$jobid.'_err.log & echo $!';
+				$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup --backup=' . escapeshellarg($buid) . ' --transaction=' . escapeshellarg($jobid) . ' >> '.$location.'/backup_'.$jobid.'_out.log 2> '.$location.'/backup_'.$jobid.'_err.log & echo $!';
 				if($warmspare){
 					$command .= ' --warmspare';
 				}
+				file_put_contents($location.'/backup_'.$jobid.'_out.log','Running with: '.$command.PHP_EOL);
 				$process = new Process($command);
 				$process->mustRun();
 				$log = file_get_contents($location.'/backup_'.$jobid.'_out.log');
@@ -982,6 +988,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 
 	public function processDependencies($deps = []){
 		$ret = true;
+		if(!is_array($deps)) {
+			return $ret;
+		}
 		foreach($deps as $dep){
 
 			if($this->freepbx->Modules->getInfo(strtolower($dep),true)){
@@ -1206,5 +1215,4 @@ class Backup extends FreePBX_Helpers implements BMO {
 		}
 		return $this->homeDir;
 	}
-
 }

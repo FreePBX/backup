@@ -1,11 +1,16 @@
 <?php
 namespace FreePBX\modules\Backup\Models;
 use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use SplFileInfo;
 use splitbrain\PHPArchive\Tar;
+use function FreePBX\modules\Backup\Json\json_decode;
+use function FreePBX\modules\Backup\Json\json_encode;
 
-class BackupFile extends SplFileInfo{
+/**
+ * Used to read information about a backup file
+ * Utilizes SplFileInfo
+ */
+class BackupSplFileInfo extends SplFileInfo{
 
 	/**
 	* Parse the filename in to components based on the file format

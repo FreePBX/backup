@@ -8,7 +8,8 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Command\LockableTrait;
-
+use function FreePBX\modules\Backup\Json\json_decode;
+use function FreePBX\modules\Backup\Json\json_encode;
 class Backup extends Command {
 	use LockableTrait;
 
@@ -33,22 +34,33 @@ class Backup extends Command {
 		->setHelp('Run a backup: fwconsole backup --backup [backup-id]'.PHP_EOL
 		.'Run a restore: fwconsole backup --restore [/path/to/restore-xxxxxx.tar.gz]'.PHP_EOL
 		.'List backups: fwconsole backup --list'.PHP_EOL
-		.'Dump remote backup string: fwconsole --dumpextern [backup-id]'.PHP_EOL
-		.'Run backup job with remote string: fwconsole --externbackup [Base64encodedString]'.PHP_EOL
-		.'Run backup job with remote string and custom transaction id: fwconsole --externbackup [Base64encodedString] --transaction [yourstring]'.PHP_EOL
-		.'Run backup on a single module: fwconsole --backupsingle [modulename] --singlesaveto [output/path]'.PHP_EOL
-		.'Run a single module backup: fwconsole --restoresingle [filename]'.PHP_EOL
+		.'Dump remote backup string: fwconsole backup --dumpextern [backup-id]'.PHP_EOL
+		.'Run backup job with remote string: fwconsole backup --externbackup [Base64encodedString]'.PHP_EOL
+		.'Run backup job with remote string and custom transaction id: fwconsole backup --externbackup [Base64encodedString] --transaction [yourstring]'.PHP_EOL
+		.'Run backup on a single module: fwconsole backup --backupsingle [modulename] --singlesaveto [output/path]'.PHP_EOL
+		.'Run a single module backup: fwconsole backup --restoresingle [filename]'.PHP_EOL
 		);
 	}
 	protected function execute(InputInterface $input, OutputInterface $output){
+		$this->freepbx = \FreePBX::Create();
+
+		if(posix_getuid() === 0) {
+			$AMPASTERISKWEBUSER = $this->freepbx->Config->get('AMPASTERISKWEBUSER');
+			$info = posix_getpwnam($AMPASTERISKWEBUSER);
+			if(empty($info)) {
+				$output->writeln("$AMPASTERISKWEBUSER is not a valid user");
+				return 0;
+			}
+			posix_setuid($info['uid']);
+		}
+
 		if (!$this->lock()) {
 			$output->writeln('The command is already running in another process.');
 			return 0;
 		}
+
 		$this->output = $output;
 		$this->input = $input;
-		$this->freepbx = \FreePBX::Create();
-
 		$this->freepbx->Backup->output = $output;
 		$list = $input->getOption('list');
 		$warmspare = $input->getOption('warmspare');
@@ -63,50 +75,52 @@ class Backup extends Command {
 		if($b64import){
 			return $this->addBackupByString($b64import);
 		}
-        if($backupsingle){
-            $saveto = $input->getOption('singlesaveto')?$input->getOption('singlesaveto'):'';
-            $job = new Handler\SingleBackup($backupsingle, $this->freepbx, $saveto);
-            return $job->doSingleBackup();
-        }
-        if($restoresingle){
-            $job = new Handler\SingleRestore($restoresingle, $this->freepbx);
-            return $job->doSingleRestore();
-        }
+
 		if($input->getOption('implemented')){
 			$backupHandler = new Handler\Backup($this->freepbx);
 			$output->writeln(json_encode($backupHandler->getModules()));
 			return;
 		}
-		$job = $transaction?$transaction:$this->freepbx->Backup->generateID();
+
+		$jobid = $transaction?$transaction:$this->freepbx->Backup->generateID();
 
 		switch (true) {
+			case $backupsingle:
+				$saveto = $input->getOption('singlesaveto')?$input->getOption('singlesaveto'):'';
+				$job = new Handler\SingleBackup($this->freepbx, $backupsingle, $saveto, $jobid);
+				return $job->process();
+			break;
+			case $restoresingle:
+				$job = new Handler\SingleRestore($this->freepbx, $restoresingle, $jobid);
+				return $job->process();
+			break;
 			case $list:
 				$this->listBackups();
 			break;
 			case $backup:
 				$buid = $input->getOption('backup');
-				$output->writeln(sprintf('Starting backup job with ID: %s',$job));
+				$output->writeln(sprintf('Starting backup job with ID: %s',$jobid));
 				if ($warmspare) {
-					$ws = new FreePBX\modules\Backup\Handlers\Warmspare($this->freepbx);
-					return $ws->process($buid);
+					$ws = new Handler\Warmspare($this->freepbx, $buid, $jobid, posix_getpid());
+					return $ws->process();
 				}
-				$backupHandler = new Handler\Backup($this->freepbx);
-				$pid = posix_getpid();
-				$errors = $backupHandler->process($buid,$job,null,$pid);
+				$backupHandler = new Handler\Backup($this->freepbx, $buid, $jobid, posix_getpid());
+				$errors = $backupHandler->process();
 			break;
 			case $restore:
 				$backupType = $this->freepbx->Backup->determineBackupFileType($restore);
 				if($backupType === false){
 					throw new \Exception('Unknown file type');
 				}
+				$pid = posix_getpid();
 				if($backupType === 'current'){
-					$restoreHandler = new Handler\Restore($this->freepbx);
+					$restoreHandler = new Handler\Restore($this->freepbx,$restore,$job);
 				}
 				if($backupType === 'legacy'){
-					$restoreHandler = new Handler\Legacy($this->freepbx);
+					$restoreHandler = new Handler\Legacy($this->freepbx,$restore,$job);
 				}
 				$output->writeln(sprintf('Starting restore job with file: %s',$restore));
-				$errors = $restoreHandler->process($restore,$job,$warmspare);
+				$errors = $restoreHandler->process($warmspare);
 				$output->writeln(sprintf('Finished restore job with file: %s',$restore));
 			break;
 			case $dumpextern:

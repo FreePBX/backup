@@ -7,7 +7,7 @@ namespace FreePBX\modules\Backup\Modules;
 use Carbon\Carbon;
 use FreePBX\modules\Backup\Handlers as Handler;
 
-class Maintinance{
+class Maintenance {
 	public function __construct($freepbx = null, $backupId) {
 		if ($freepbx == null) {
 			throw new \Exception('Not given a FreePBX Object');
@@ -29,7 +29,7 @@ class Maintinance{
 		$files = new \GlobIterator($this->localPath.'/*.tar.gz*');
 		$maintfiles = [];
 		foreach ($files as $file) {
-			$parsed = Handler\Backup::parseFile($file->getBasename());
+			$parsed = $this->parseFile($file->getBasename());
 			if($parsed === false){
 				continue;
 			}
@@ -78,7 +78,7 @@ class Maintinance{
 				if(!isset($file['path'])){
 					continue;
 				}
-				$parsed = Handler\Backup::parseFile($file['basename']);
+				$parsed = $this->parseFile($file['basename']);
 				if($parsed === false){
 					continue;
 				}
@@ -122,5 +122,29 @@ class Maintinance{
 			}
 		}
 		return empty($errors)?true:$errors;
+	}
+
+	static function parseFile($filename){
+		//20171012-130011-1507838411-15.0.1alpha1-42886857.tar.gz
+		preg_match("/(\d{7})-(\d{6})-(\d{10,11})-(.*)-\d*\.tar\.gz(.sha256sum)?/", $filename, $output_array);
+		$valid = false;
+		$arraySize = sizeof($output_array);
+		if($arraySize == 5){
+			$valid = true;
+		}
+		if($arraySize == 6){
+			$valid = true;
+		}
+		if(!$valid){
+			return false;
+		}
+		return [
+			'filename' => $output_array[0],
+			'datestring' => $output_array[1],
+			'timestring' => $output_array[2],
+			'timestamp' => $output_array[3],
+			'framework' => $output_array[4],
+			'isCheckSum' => ($arraySize == 6)
+		];
 	}
 }

@@ -1,0 +1,9 @@
+{
+    "autoload": {
+        "files": [
+            "Json/json_decode.php",
+            "Json/json_encode.php",
+            "Json/JsonException.php"
+        ]
+    }
+}

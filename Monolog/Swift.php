@@ -1,6 +1,6 @@
 <?php
 
-namespace FreePBX\modules\Backup\Handlers;
+namespace FreePBX\modules\Backup\Monolog;
 use Monolog\Handler\SwiftMailerHandler;
 use Monolog\Logger;
 
@@ -9,7 +9,7 @@ use Monolog\Logger;
  *
  * @author Gyula Sallai
  */
-class MonologSwift extends SwiftMailerHandler {
+class Swift extends SwiftMailerHandler {
 
 	/**
 	 * @param \Swift_Mailer           $mailer  The mailer to use

@@ -1,9 +1,10 @@
 <?php
 
-use Monolog\Logger;
+namespace FreePBX\modules\Backup\Monolog;
 use Monolog\Handler\AbstractProcessingHandler;
+use Monolog\Logger;
 
-class MonologSemaphore extends AbstractProcessingHandler {
+class Semaphore extends AbstractProcessingHandler {
 	private $queue;
 	private $file;
 	private $initialized = false;

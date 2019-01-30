@@ -6,7 +6,7 @@ use FreePBX\modules\Filestore\drivers\S3\S3;
 use FreePBX\modules\Filestore\drivers\SSH\SSH;
 use FreePBX\modules\Filestore\drivers\Email\Email;
 use PDO;
-class Servers extends Migration{
+class Servers extends Common {
 	public $servers;
 
 	public function process(){

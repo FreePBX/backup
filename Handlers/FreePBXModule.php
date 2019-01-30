@@ -35,7 +35,7 @@ class FreePBXModule{
 	public function install($module){
 		$install = $this->mf->install($module, 'true');
 		if(is_array($install)){
-			return false;
+			throw new \Exception(sprintf(_('Error installing %s reason(s): %s'),$module,implode(",",$install)));
 		}
 		return true;
 	}
@@ -43,31 +43,9 @@ class FreePBXModule{
 	public function uninstall($module){
 		$uninstall = $this->mf->uninstall($module, 'true');
 		if(is_array($uninstall)){
-			return false;
+			throw new \Exception(sprintf(_('Error uninstalling %s reason(s): %s'),$module,implode(",",$uninstall)));
 		}
 		return true;
-	}
-
-	//future functionality for resetting database and astdb
-
-	public function truncateTables($module){
-		$tables = $this->getTables($module);
-		$stmt = $this->freepbx->Database->prepare('TRUNCATE TABLE :table');
-		foreach($tables as $table){
-			$stmt->execute([':table' => $table]);
-		}
-		return $this;
-	}
-	//future functionality clean data
-	public function cleanAstdb($module){
-		if(!$this->freepbx->astman->connected()){
-			return false;
-		}
-		$keys = $this->getAstdb($module);
-		foreach ($keys as $key) {
-			$this->freepbx->astman->database_deltree($key);
-		}
-		return $this;
 	}
 
 	public function getTables($module){
@@ -87,18 +65,6 @@ class FreePBXModule{
 		return $tables;
 	}
 
-	public function getAstdb($module){
-		$keys = [];
-		$this->loadModuleXML($module);
-		if(!$this->moduleXML){
-			return [];
-		}
-		foreach ($this->moduleXML->astdb->key as $key) {
-			$kname = (string)$table->attributes()->name;
-			$keys[] = $kname;
-		}
-		return $keys;
-	}
 	public function loadModuleXML($module){
 		if($this->ModuleXML){
 			return $this;
@@ -112,6 +78,7 @@ class FreePBXModule{
 		$this->moduleXML = $xml;
 		return $this;
 	}
+
 	public function getModuleVersion($module){
 		$this->loadModuleXML($module);
 		if(!$this->moduleXML){

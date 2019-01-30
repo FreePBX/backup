@@ -3,10 +3,9 @@
 * Copyright Sangoma Technologies, Inc 2018
 * Handle legacy backup files
 */
-namespace FreePBX\modules\Backup\Handlers;
-use FreePBX\modules\Backup\Modules as Module;
+namespace FreePBX\modules\Backup\Handlers\Restore;
 use PDO;
-class Legacy{
+class Legacy extends Common {
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
 			throw new \InvalidArgumentException('Not given a BMO Object');

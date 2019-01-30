@@ -13,31 +13,11 @@ class Backup{
 		'garbage' => []
 	];
 	private $id = null;
+	private $modified = false;
 
-	public function __construct($freepbx = null) {
-		if ($freepbx == null) {
-			throw new \Exception('Not given a FreePBX Object');
-		}
+	public function __construct($freepbx){
 		$this->freepbx = $freepbx;
-		$this->modified = false;
-	}
-
-	public function setBackupId($id){
-		$this->id = $id;
-	}
-
-	public function getBackupId(){
-		return $this->id;
-	}
-
-	public static function getPath($file) {
-		if(isset($file['root']) && !empty($file['root'])){
-			return  $file['root'] . '/' . $file['path'];
-		}
-		if (!empty($file['path']) && !strncmp($file['path'], '/', 1)) {
-			return $file['path'];
-		}
-		return '';
+		$this->FreePBX = $freepbx;
 	}
 
 	public function addGarbage($data){
@@ -52,10 +32,6 @@ class Backup{
 		foreach ($list as $dir) {
 			$this->data['dirs'][] = $dir;
 		}
-	}
-
-	public function getDirs() {
-		return $this->data['dirs'];
 	}
 
 	/*
@@ -79,20 +55,12 @@ class Backup{
 		}
 	}
 
-	public function getFiles() {
-		return $this->data['files'];
-	}
-
 	public function addConfigs($settings){
 		if (empty($settings)) {
 			return;
 		}
 		$this->modified = true;
-		$this->data['configs'][] = $settings;
-	}
-
-	public function getConfigs(){
-		return $this->data['configs'];
+		$this->data['configs'] = $settings;
 	}
 
 	public function addDependency($dependency){
@@ -100,13 +68,6 @@ class Backup{
 		$this->data['dependencies'][] = $dependency;
 	}
 
-	public function getDependencies(){
-		return $this->data['dependencies'];
-	}
-
-	public function getExtraData() {
-		return $this->data['extradata'];
-	}
 	public function getData(){
 		return $this->data;
 	}

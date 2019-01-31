@@ -82,16 +82,18 @@ class Backup extends Command {
 			return;
 		}
 
-		$jobid = $transaction?$transaction:$this->freepbx->Backup->generateID();
+		$transactionid = $transaction?$transaction:$this->freepbx->Backup->generateID();
 
 		switch (true) {
 			case $backupsingle:
 				$saveto = $input->getOption('singlesaveto')?$input->getOption('singlesaveto'):'';
-				$job = new Handler\SingleBackup($this->freepbx, $backupsingle, $saveto, $jobid);
+				$saveto = !empty($saveto) ? $saveto : rtrim(getcwd());
+				$job = new Handler\Backup\Single($this->freepbx, $saveto, $transactionid, posix_getpid());
+				$job->setModule($backupsingle);
 				return $job->process();
 			break;
 			case $restoresingle:
-				$job = new Handler\SingleRestore($this->freepbx, $restoresingle, $jobid);
+				$job = new Handler\Restore\Single($this->freepbx, $restoresingle, $transactionid, posix_getpid());
 				return $job->process();
 			break;
 			case $list:
@@ -99,12 +101,11 @@ class Backup extends Command {
 			break;
 			case $backup:
 				$buid = $input->getOption('backup');
-				$output->writeln(sprintf('Starting backup job with ID: %s',$jobid));
 				if ($warmspare) {
-					$ws = new Handler\Warmspare($this->freepbx, $buid, $jobid, posix_getpid());
+					$ws = new Handler\Backup\Warmspare($this->freepbx, $buid, $transactionid, posix_getpid());
 					return $ws->process();
 				}
-				$backupHandler = new Handler\Backup($this->freepbx, $buid, $jobid, posix_getpid());
+				$backupHandler = new Handler\Backup\Multiple($this->freepbx, $buid, $transactionid, posix_getpid());
 				$errors = $backupHandler->process();
 			break;
 			case $restore:

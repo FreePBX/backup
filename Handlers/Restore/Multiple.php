@@ -10,15 +10,7 @@ use splitbrain\PHPArchive\Tar;
 use function FreePBX\modules\Backup\Json\json_decode;
 use function FreePBX\modules\Backup\Json\json_encode;
 class Multiple extends Common {
-	public function __construct($freepbx, $file, $transactionId, $pid = null) {
-		$this->freepbx = $freepbx;
-		$this->Backup = $freepbx->Backup;
-		$this->webroot = $this->freepbx->Config->get('AMPWEBROOT');
-		$this->backuptmpdir = $this->freepbx->Config->get('ASTSPOOLDIR').'/tmp';
-		$this->transactionId = $transactionId;
-		$this->restoreFile = $file;
-		$this->pid = !empty($pid) ? $pid : posix_getpid();
-	}
+
 
 
 	public function process($warmspare = false) {

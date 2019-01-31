@@ -4,34 +4,12 @@
  */
 namespace FreePBX\modules\Backup\Models;
 
-class Backup{
-	private $data = [
-		'dirs' => [],
-		'files' => [],
-		'configs' => [],
-		'dependencies' => [],
-		'garbage' => []
-	];
-	private $id = null;
+class Backup extends ModelBase {
+
 	private $modified = false;
 
-	public function __construct($freepbx){
-		$this->freepbx = $freepbx;
-		$this->FreePBX = $freepbx;
-	}
-
-	public function addGarbage($data){
-		$this->data['garbage'][] = $data;
-	}
-
-	public function addDirs($list) {
-		if (empty($list)) {
-			return;
-		}
-		$this->modified = true;
-		foreach ($list as $dir) {
-			$this->data['dirs'][] = $dir;
-		}
+	final public function __construct($freepbx, $backupModVer) {
+		parent::__construct($freepbx, $backupModVer);
 	}
 
 	/*
@@ -68,10 +46,21 @@ class Backup{
 		$this->data['dependencies'][] = $dependency;
 	}
 
-	public function getData(){
-		return $this->data;
+	public function addGarbage($data){
+		$this->data['garbage'][] = $data;
 	}
-	public function getModified(){
+
+	public function addDirectories($list) {
+		if (empty($list)) {
+			return;
+		}
+		$this->modified = true;
+		foreach ($list as $dir) {
+			$this->data['dirs'][] = $dir;
+		}
+	}
+
+	public function getModified() {
 		return $this->modified;
 	}
 }

@@ -10,15 +10,13 @@ use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use function FreePBX\modules\Backup\Json\json_decode;
 use function FreePBX\modules\Backup\Json\json_encode;
+use Monolog\Handler\StreamHandler;
+use Monolog\Formatter;
 class Multiple extends Common {
-
-	private $dependencies = [];
-	private $freepbx;
-	private $Backup;
 	private $id;
-	private $transactionId;
 	private $external = false;
 	private $base64Backup;
+	private $dependencies = [];
 
 	/**
 	 * Constructor
@@ -28,12 +26,19 @@ class Multiple extends Common {
 	 * @param string $transactionId
 	 * @param integer $pid
 	 */
-	public function __construct($freepbx, $id, $transactionId, $pid = null) {
-		$this->freepbx = $freepbx;
-		$this->Backup = $freepbx->Backup;
-		$this->pid = !empty($pid) ? $pid : posix_getpid();
+	public function __construct($freepbx, $id, $transactionId, $pid) {
+		$filePath = sys_get_temp_dir().'/backup/'.$id.'/'.$transactionId;
+		parent::__construct($freepbx, $filePath, $transactionId, $pid);
 		$this->id = $id;
-		$this->transactionId = $transactionId;
+	}
+
+	protected function setupLogger() {
+		parent::setupLogger();
+		$handler = new StreamHandler("php://stdout",\Monolog\Logger::DEBUG);
+		$output = "%message%\n";
+		$formatter = new Formatter\LineFormatter($output);
+		$handler->setFormatter($formatter);
+		$this->logger->pushHandler($handler);
 	}
 
 	public function __get($var) {
@@ -61,51 +66,45 @@ class Multiple extends Common {
 		if(empty($this->id)){
 			throw new \Exception("Backup id not provided", 500);
 		}
+
 		$errors = [];
 		$warnings = [];
+
 		$spooldir = $this->freepbx->Config->get("ASTSPOOLDIR");
 		$serverName = str_replace(' ', '_',$this->freepbx->Config->get('FREEPBX_SYSTEM_IDENT'));
 
-		$this->Backup->log($this->transactionId,sprintf(_("Running Backup ID: %s"),$this->id),'DEBUG');
-		$this->Backup->log($this->transactionId,sprintf(_("Transaction: %s"),$this->transactionId),'DEBUG');
+		$this->log(sprintf(_("Running Backup ID: %s"),$this->id),'DEBUG');
+		$this->log(sprintf(_("Transaction: %s"),$this->transactionId),'DEBUG');
 
-		$this->Backup->log($this->transactionId,_("Running pre backup hooks"));
+		$this->log(_("Running pre backup hooks"));
 		$this->preHooks($errors);
-		$this->Backup->log($this->transactionId,_("Finished running pre backup hooks"));
+		$this->log(_("Finished running pre backup hooks"));
 
 		$underscoreName = str_replace(' ', '_', $this->backupInfo['backup_name']);
 
 		$this->Backup->attachEmail($this->backupInfo);
 
-		$this->Backup->log($this->transactionId,sprintf(_("Starting backup %s"),$underscoreName),'DEBUG');
+		$this->log(sprintf(_("Starting backup %s"),$underscoreName),'DEBUG');
 
 		$localPath = sprintf('%s/backup/%s',$spooldir,$underscoreName);
-		$this->Backup->fs->mkdir($localPath);
+		$this->fs->mkdir($localPath);
 
 		$remotePath =  sprintf('/%s/%s',$serverName,$underscoreName);
 
 		$tmpdir = sprintf('%s/backup/%s',$spooldir.'/tmp',$underscoreName);
+
 		//reset tmp directories
-		$this->Backup->fs->remove($tmpdir);
-		$this->Backup->fs->mkdir($tmpdir);
+		$this->fs->remove($tmpdir);
+		$this->fs->mkdir($tmpdir);
 
 		//Use Legacy backup naming
 		$tarfilename = sprintf('%s%s-%s-%s',date("Ymd-His-"),time(),getVersion(),rand());
 		$tarnamebase = sprintf('%s/%s',$localPath,$tarfilename);
 		$targzname = sprintf('%s.tar.gz',$tarnamebase);
-		$this->Backup->log($this->transactionId,_("This backup will be stored locally and is subject to maintenance settings"),'DEBUG');
-		$this->Backup->log($this->transactionId,sprintf(_("Storage Location: %s"),$targzname));
-
-		//Open the tarball
-		$tar = new Tar();
-		$tar->setCompression(9, Tar::COMPRESS_GZIP);
-		$tar->create($targzname);
-		$this->Backup->fs->mkdir($tmpdir . '/modulejson');
-		$this->Backup->fs->mkdir($tmpdir . '/files');
-
-		//add diles
-		$tar->addFile($tmpdir . '/modulejson', 'modulejson');
-		$tar->addFile($tmpdir . '/files', 'files');
+		$this->log(_("This backup will be stored locally and is subject to maintenance settings"),'DEBUG');
+		$this->log(sprintf(_("Storage Location: %s"),$targzname));
+		$this->setFilename($tarfilename);
+		$this->openFile();
 
 		//Setup the process queue
 		$processQueue = new \SplQueue();
@@ -126,26 +125,47 @@ class Multiple extends Common {
 			$backupItems = $this->backupInfo['backup_items'];
 		}
 		$selectedmods = is_array($backupItems)?array_keys($backupItems):[];
+		$selectedmods = array_map('strtolower', $selectedmods);
 		foreach($selectedmods as $mod) {
-			$raw = \strtolower($mod);
-			$this->sortDepends($raw,false,true);
 			if(!in_array($mod, $validmods)){
-				$err = sprintf(_("Could not backup module %s, it may not be installed or enabled"),$mod);
-				$warnings[] = $err;
-				$manifest['skipped'][] = $mod;
-				$this->Backup->log($this->transactionId,$err,'DEBUG');
+				$manifest['skipped'][] = ucfirst($mod);
+				$this->log(sprintf(_("Could not backup module %s, it may not be installed or enabled"),$mod),'DEBUG');
 				continue;
 			}
-			$mod = $this->freepbx->Modules->getInfo($raw);
-			$processQueue->enqueue(['name' => $mod[$raw]['rawname']]);
-		}
-
-		if(!$this->external){
-			$maint = new Module\Maintenance($this->freepbx,$this->id);
+			$this->sortDepends($raw,false,true);
+			$processQueue->enqueue(['name' => $mod]);
 		}
 
 		//Process the Queue
 		foreach($processQueue as $mod) {
+			$moddata = $this->processModule($mod['name']);
+			if(!empty($moddata['dependencies'])) {
+				$moddeps = array_map('strtolower', $moddata['dependencies']);
+				foreach($moddeps as $depend){
+					if($depend === 'framework') {
+						$this->log("\t".sprintf(_("Skpping %s which %s depends on because it is a system requirement"),$depend, $mod['name']),'DEBUG');
+						continue;
+					}
+					if(!in_array($depend, $validmods)) {
+						$manifest['skipped'][] = ucfirst($depend);
+						$this->log("\t".sprintf(_("Could not backup module %s which %s depends on, it may not be installed or enabled"),$depend, $mod['name']),'DEBUG');
+						continue;
+					}
+					//If we are already backing up the module we don't need to put it in the queue If we haven't implimented backup it won't be there anyway
+					if(in_array($depend, $selectedmods)){
+						continue;
+					}
+					// Add the dependency to the top of the lineup
+					if(in_array($depend, $validmods)){
+						$this->log("\t".sprintf(_("Adding module %s which %s depends on"),$depend, $mod['name']),'DEBUG');
+						$mod = $this->freepbx->Modules->getInfo($depend);
+						$this->sortDepends($mod[$depend]['rawname'],$mod[$depend]['version']);
+						$selectedmods[] = $depend;
+						$processQueue->enqueue(['name' => $mod[$depend]['rawname']]);
+					}
+				}
+			}
+			/*
 			$backup = new Models\Backup($this->freepbx);
 			$backup->setBackupId($this->id);
 			$mod = is_array($mod)?$mod['name']:$mod;
@@ -172,23 +192,7 @@ class Multiple extends Common {
 				continue;
 			}
 			$dependencies = $backup->getDependencies();
-			foreach($dependencies as $depend){
-				/** If we are already backing up the module we don't need to put it in the queue
-				 * If we haven't implimented backup it won't be there anyway
-				 */
-				if(in_array($depend, $selectedmods) || !in_array($depend, $validmods)){
-					continue;
-				}
-				/** Add the dependency to the top of the lineup */
-				if(in_array($depend, $validmods)){
-					$raw = \strtolower($depend);
-					$mod = $this->freepbx->Modules->getInfo($raw);
-					$this->sortDepends($mod[$raw]['rawname'],$mod[$raw]['version']);
-					if(!empty($depend)){
-						$processQueue->enqueue($depend);
-					}
-				}
-			}
+
 			$moduleinfo = $this->freepbx->Modules->getInfo($rawname);
 			$manifest['modules'][] = ['module' => $rawname, 'version' => $moduleinfo[$rawname]['version']];
 			$moddata = $backup->getData();
@@ -219,8 +223,12 @@ class Multiple extends Common {
 			$tar->addFile($modjson,'modulejson/'.$mod.'.json');
 			$data[$mod] = $moddata;
 			$cleanup[$mod] = $moddata['garbage'];
+			*/
 		}
 
+		echo "end";
+
+		/*
 		foreach ($dirs as $dir) {
 			$this->Backup->fs->mkdir($tmpdir . '/' . $dir);
 			$tar->addFile($tmpdir . '/' . $dir, $dir);
@@ -293,6 +301,7 @@ class Multiple extends Common {
 		$this->Backup->log($this->transactionId,_("Backup completed successfully"));
 		$this->Backup->processNotifications($this->id, $this->transactionId, [], $this->backupInfo['backup_name']);
 		return $signatures;
+		*/
 	}
 
 	/**
@@ -350,7 +359,7 @@ class Multiple extends Common {
 		foreach ($amodules as $module) {
 			$bufile = $webrootpath . '/admin/modules/' . $module['rawname'].'/Backup.php';
 			if(file_exists($bufile)){
-				$validmods[] = ucfirst($module['rawname']);
+				$validmods[] = $module['rawname'];
 			}
 		}
 		return $validmods;

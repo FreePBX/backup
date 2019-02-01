@@ -27,13 +27,13 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		return $data;
 	}
 
-	public function getUnderscoreClass($freepbx,$module){
+	public function getUnderscoreClass($module){
 		$module = ucfirst($module);
-		$namespace = get_class($freepbx->$module);
+		$namespace = get_class($this->FreePBX->$module);
 		return str_replace('\\','_',$namespace);
 	}
 
-	public function transformLegacyKV($pdo, $module, $freepbx){
+	public function transformLegacyKV($pdo, $module){
 		$oldkv = NULL;
 		$module = ucfirst($module);
 		$kvsql = "SELECT * FROM kvstore WHERE `module` = :module";
@@ -47,13 +47,13 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 			}
 		}
 		(!isset($oldkv) || !is_array($oldkv)) ? : $oldkv = [];
-		$this->insertKV($freepbx, $module, $oldkv);
+		$this->insertKV($module, $oldkv);
 		return $this;
 	}
 
-	public function transformNamespacedKV($pdo, $module, $freepbx){
+	public function transformNamespacedKV($pdo, $module){
 		$module = ucfirst($module);
-		$newkvsql = "SELECT * FROM " . $this->getUnderscoreClass($freepbx, $module);
+		$newkvsql = "SELECT * FROM " . $this->getUnderscoreClass($module);
 		try {
 			$stmt = $pdo->prepare($newkvsql);
 			$stmt->execute();
@@ -64,13 +64,13 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 			}
 		}
 		(!isset($newkv) || !is_array($newkv)) ? : $newkv = [];
-		$this->insertKV($freepbx, $module, $newkv);
+		$this->insertKV($module, $newkv);
 		return $this;
 	}
 
-	public function insertKV($freepbx, $module, $data){
+	public function insertKV($module, $data){
 		$module = ucfirst($module);
-		if ($freepbx->Modules->checkStatus(strtolower($module))) {
+		if ($this->FreePBX->Modules->checkStatus(strtolower($module))) {
 			return $this;
 		}
 		if (!is_null($data) ) {
@@ -78,7 +78,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 				if ($entry['type'] === 'json-arr') {
 					$entry['val'] = json_decode($entry['val'], true);
 				}
-				$freepbx->$module->setConfig($entry['key'], $entry['val'], $entry['id']);
+				$this->FreePBX->$module->setConfig($entry['key'], $entry['val'], $entry['id']);
 			}
 		}
 		return $this;
@@ -94,7 +94,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 			$results = $loadedTables->fetchAll(\PDO::FETCH_ASSOC);
 			foreach ($results as $key => $value) {
 				$truncate = "TRUNCATE TABLE $table";
-				$this->freepbx->Database->query($truncate);
+				$this->FreePBX->Database->query($truncate);
 				$first = $results[0];
 				$params = $columns = array_keys($first);
 				array_walk($params, function(&$v, $k) {
@@ -113,7 +113,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 					$sql .= "`$table`";
 				}
 				$sql .= " (`".implode('`,`',$columns)."`) VALUES (".implode(',',$params).")";
-				$sth = $this->freepbx->Database->prepare($sql);
+				$sth = $this->FreePBX->Database->prepare($sql);
 				foreach($results as $row) {
 				$insertable = [];
 				foreach($row as $k => $v) {
@@ -130,13 +130,13 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		$oldData = "SELECT * FROM $table";
 		$truncate = "TRUNCATE TABLE $table";
 		try{
-			$stmnt = $this->freepbx->Database->query($oldData)->fetchAll(\PDO::FETCH_ASSOC);
+			$stmnt = $this->FreePBX->Database->query($oldData)->fetchAll(\PDO::FETCH_ASSOC);
 			$before = count($stmnt);
 		}catch (\Exception $e) {
 			dbug("Cannot execute the after SELECT query.");
 		}
 		try{
-			$this->freepbx->Database->query($truncate);
+			$this->FreePBX->Database->query($truncate);
 		}catch (\Exception $e) {
 			if ($e->getCode() != '42S02') {
 				throw $e;
@@ -160,7 +160,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 			}
 			$sql .= " (`".implode('`,`',$columns)."`) VALUES (".implode(',',$params).")";
 			try{
-				$sth = $this->freepbx->Database->prepare($sql);
+				$sth = $this->FreePBX->Database->prepare($sql);
 				$sth->execute($insertable);
 			}catch (\Exception $e) {
 				if ($e->getCode() != '42S02') {
@@ -169,7 +169,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 			}
 		}
 		try {
-			$sth = $this->freepbx->Database->prepare("SELECT count(*) as total FROM $table");
+			$sth = $this->FreePBX->Database->prepare("SELECT count(*) as total FROM $table");
 			$sth->execute();
 			$after = $sth->fetch(\PDO::FETCH_ASSOC);
 			$infotables = "$table had $before rows, now it has {$after['total']} rows.\n";

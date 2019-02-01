@@ -3,40 +3,37 @@
 * Copyright Sangoma Technologies, Inc 2018
 */
 namespace FreePBX\modules\Backup\Handlers;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class FreePBXModule{
 	public $moduleXML = false;
-	public function __construct($freepbx = null) {
-		if ($freepbx == null) {
-			throw new \Exception('Not given a FreePBX Object');
-		}
+	public function __construct($freepbx) {
 		$this->freepbx = $freepbx;
 		$this->mf = \module_functions::create();
 	}
 	public function reset($module,$version){
 		$developer = $this->freepbx->Config->get('DEVEL');
 		$module = \strtolower($module);
+		$uninstall = $this->uninstall($module);
 		if($this->getModuleVersion($module) !== $version && !$developer){
 			$xml = $this->mf->getModuleDownloadByModuleNameAndVersion($module, $version);
-			$this->processRemote($xml);
+			$process = new Process(['fwconsole', 'ma', 'download', $module, '--tag',$version, '--quiet']);
+			$process->mustRun();
 		}
-		$uninstall = $this->uninstall($module);
 		$install = $this->install($module);
 		return $this;
 	}
-	public function processRemote($xml){
-		$module = $xml['rawname'];
-		$download =  $this->mf->handledownload($xml['downloadurl']);
-		if(is_array($download)){
-			return false;
-		}
-		return true;
-	}
+
 	public function install($module){
 		$install = $this->mf->install($module, 'true');
 		if(is_array($install)){
 			throw new \Exception(sprintf(_('Error installing %s reason(s): %s'),$module,implode(",",$install)));
 		}
+		/*
+		$process = new Process(['fwconsole', 'ma', 'install', $module, '--force']);
+		$process->mustRun();
+		*/
 		return true;
 	}
 
@@ -45,6 +42,10 @@ class FreePBXModule{
 		if(is_array($uninstall)){
 			throw new \Exception(sprintf(_('Error uninstalling %s reason(s): %s'),$module,implode(",",$uninstall)));
 		}
+		/*
+		$process = new Process(['fwconsole', 'ma', 'uninstall', $module, '--force']);
+		$process->mustRun();
+		*/
 		return true;
 	}
 

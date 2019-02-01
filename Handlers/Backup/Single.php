@@ -6,27 +6,11 @@ namespace FreePBX\modules\Backup\Handlers\Backup;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use function FreePBX\modules\Backup\Json\json_decode;
 use function FreePBX\modules\Backup\Json\json_encode;
-use Monolog\Handler\StreamHandler;
 use Monolog\Formatter;
 /**
  * Class used for Single Module Backup
  */
 class Single extends Common {
-
-	/**
-	 * Override the common logger removing the transaction id
-	 * since we are in single mode theres no need to see that
-	 *
-	 * @return void
-	 */
-	protected function setupLogger() {
-		parent::setupLogger();
-		$handler = new StreamHandler("php://stdout",\Monolog\Logger::DEBUG);
-		$output = "%message%\n";
-		$formatter = new Formatter\LineFormatter($output);
-		$handler->setFormatter($formatter);
-		$this->logger->pushHandler($handler);
-	}
 
 	public function setModule($module) {
 		$this->module = $module;
@@ -50,7 +34,7 @@ class Single extends Common {
 		$tar = $this->openFile();
 
 		$this->log(sprintf(_("Processing %s"),$this->module));
-		$moddata = $this->processModule($this->module);
+		$moddata = $this->processModule(['rawname' => $this->module, 'ucfirst' => ucfirst($this->module)]);
 
 		if(!empty($moddata['dependencies'])) {
 			$this->log("***"._("In single restores mode dependencies are NOT processed")."***",'WARNING');
@@ -65,23 +49,19 @@ class Single extends Common {
 
 		$this->closeFile();
 
+		if(!empty($moddata['garbage'])) {
+			$this->log(_("Cleaning up"));
+			foreach($moddata['garbage'] as $item) {
+				$this->log("\t".sprintf(_("Removing %s"),$item),'DEBUG');
+				$this->fs->remove($item);
+			}
+			$this->log(_("Finished Cleaning up"));
+		} else {
+			$this->log(_("There was nothing to cleanup"));
+		}
 
-		exit(sprintf("Your backup can be found at: %s".PHP_EOL, $this->getFile()));
-
-		die();
-
-
-
-
-
-
-
-
-
-
-
-
-
+		$this->log(sprintf(_("Finished created backup file: %s"),$this->getFile()));
+		return $this->getFile();
 	}
 
 }

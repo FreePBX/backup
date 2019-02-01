@@ -4,78 +4,65 @@
 * Handle legacy backup files
 */
 namespace FreePBX\modules\Backup\Handlers\Restore;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 use PDO;
+use FreePBX\modules\Backup\Handlers\FreePBXModule;
 class Legacy extends Common {
-	public function __construct($freepbx = null) {
-		if ($freepbx == null) {
-			throw new \InvalidArgumentException('Not given a BMO Object');
-		}
-		$this->freepbx = $freepbx;
-		$this->Backup = $freepbx->Backup;
-		$webrootpath = $this->freepbx->Config->get('AMPWEBROOT');
-		$webrootpath = (isset($webrootpath) && !empty($webrootpath)) ? $webrootpath : '/var/www/html';
-		$this->data = [];
+	private $data;
 
-		define('WEBROOT', $webrootpath);
-		define('BACKUPTMPDIR', '/var/spool/asterisk/tmp');
-	}
-	public function process($restore, $job, $warmspare){
-		$this->extractFile($restore);
+	public function process(){
+		$this->extractFile();
 		$this->buildData($restore);
 		$this->parseSQL();
 	}
-	public function getModuleTables(){
-		$moduleManager = new FreePBXModule($this->freepbx);
-		$amodules = $this->freepbx->Modules->getActiveModules();
-		foreach ($amodules as $mod => $data) {
-			$modTables = $moduleManager->getTables($mod);
-			foreach ($modTables as $table) {
-				$this->moduleData['tables'][$table] = $mod;
-			}
-		}
-		return $this->moduleData['tables'];
+
+	protected function extractFile(){
+		//remove backup tmp dir for extraction
+		$this->fs->remove($this->tmp);
+
+		//add tmp dir back
+		$this->fs->mkdir($this->tmp);
+		//We have to go the exec route because legacy backups root is ./ which breaks things
+		$this->Backup->log(sprintf(_("Extracting: %s... This may take a moment depending on the backup size"), $this->file));
+		$process = new Process(['tar', $this->file, '-C '.$this->tmp]);
+		$process->mustRun();
+		$this->Backup->log(sprintf(_("File extracted to %s. These files will remain until a new restore is run or until cleaned manually."),$this->tmp));
 	}
-	public function buildData(){
+
+	/**
+	 * Build out Manifest
+	 *
+	 * @return void
+	 */
+	private function buildData(){
 		$this->data['manifest'] = [];
 		$this->data['astdb'] = [];
 		if(file_exists(BACKUPTMPDIR . '/manifest')){
-			$this->Backup->log('',_("Loading manifest to memory").PHP_EOL);
-			$this->data['manifest'] = unserialize(file_get_contents(BACKUPTMPDIR.'/manifest'));
+			$this->Backup->log(_("Loading manifest to memory"));
+			$this->data['manifest'] = unserialize(file_get_contents($this->tmp.'/manifest'));
 		}
 		if(file_exists(BACKUPTMPDIR . '/astdb')){
-			$this->Backup->log('',_("Loading astdb to memory").PHP_EOL);
-			$this->data['astdb'] = unserialize(file_get_contents(BACKUPTMPDIR.'/astdb'));
+			$this->Backup->log(_("Loading astdb to memory"));
+			$this->data['astdb'] = unserialize(file_get_contents($this->tmp.'/astdb'));
 		}
 	}
 
-	public function extractFile($filepath){
-		$this->Backup->log('',_("Cleaning up old data from the temp directory".PHP_EOL));
-		$this->Backup->fs->remove(BACKUPTMPDIR);
-		$this->Backup->fs->mkdir(BACKUPTMPDIR);
-		//We have to go the exec route because legacy backups root is ./ which breaks things
-		$this->Backup->log('',sprintf(_("Extracting: %s... This may take a moment depending on the backup size").PHP_EOL, $filepath));
-		exec('tar -xzvf '.$filepath.' -C '.BACKUPTMPDIR, $out, $ret);
-		if($ret == 0){
-			$this->Backup->log('',sprintf(_("File extracted to %s. These files will remain until a new restore is run or until cleaned manually.").PHP_EOL,BACKUPTMPDIR));
-		}
-		return $ret;
-	}
-
-	public function parseSQL(){
-		$this->Backup->log('',_("Parsing out SQL tables. This may take a moment depending on backup size.").PHP_EOL);
+	private function parseSQL(){
+		$this->Backup->log(_("Parsing out SQL tables. This may take a moment depending on backup size."));
 		$tables = $this->getModuleTables();
 		$files = [];
 		$final = ['unknown' => []];
-		foreach (glob(BACKUPTMPDIR."/*.sql.gz") as $filename) {
+		foreach (glob($this->tmp."/*.sql.gz") as $filename) {
 			$files[] = $filename;
 		}
 		$amodules = $this->freepbx->Modules->getActiveModules();
 		foreach ($amodules as $key => $value) {
 			$final[$key] = [];
 		}
-		sprintf(_("Found %s database files in the backup.").PHP_EOL,count($files));
+		$this->Backup->log(sprintf(_("Found %s database files in the backup."),count($files)));
 		foreach($files as $file){
-			$this->Backup->log('',_("File named: ".$file.PHP_EOL));
+			$this->Backup->log(sprintf(_("File named: %s"),$file));
 			$pdo = $this->setupTempDb($file);
 			$loadedTables = $pdo->query("SHOW TABLES");
 			while ($current = $loadedTables->fetch(PDO::FETCH_COLUMN)) {
@@ -98,6 +85,19 @@ class Legacy extends Common {
 			}
 		}
 	}
+
+	private function getModuleTables(){
+		$moduleManager = new FreePBXModule($this->freepbx);
+		$amodules = $this->freepbx->Modules->getActiveModules();
+		foreach ($amodules as $mod => $data) {
+			$modTables = $moduleManager->getTables($mod);
+			foreach ($modTables as $table) {
+				$this->moduleData['tables'][$table] = $mod;
+			}
+		}
+		return $this->moduleData['tables'];
+	}
+
 	public function setupTempDb($file){
 		sprintf(_("Loading supplied database file %s").PHP_EOL, $file);
 		exec('mysqladmin -f DROP asterisktemp', $out, $ret);

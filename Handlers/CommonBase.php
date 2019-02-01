@@ -1,18 +1,21 @@
 <?php
 namespace FreePBX\modules\Backup\Handlers;
 use Symfony\Component\Filesystem\Filesystem;
+use FreePBX\modules\Backup\Monolog\ConsoleOutput;
+use Monolog\Formatter as Formatter;
 abstract class CommonBase {
 	protected $freepbx;
 	protected $Backup;
 	protected $logpath;
 	protected $logger;
 	protected $backupModVer;
-	protected $file;
 	protected $pid;
 	protected $fs;
 	protected $tmp;
+	protected $errors = [];
+	protected $warnings = [];
 
-	public function __construct($freepbx, $file, $transactionId, $pid) {
+	public function __construct($freepbx, $transactionId, $pid) {
 		$this->freepbx = $freepbx;
 		$this->Backup = $freepbx->Backup;
 		$this->logpath = $this->Backup->getConfig('logpath');
@@ -21,9 +24,24 @@ abstract class CommonBase {
 		$this->backupModVer = (string)$this->freepbx->Modules->getInfo('backup')['backup']['version'];
 		$this->transactionId = $transactionId;
 		$this->fs = new Filesystem;
-		$this->file = $file;
 		$this->pid = $pid;
-		$this->tmp = sys_get_temp_dir().'/backup/'.time();
+		$this->tmp = sys_get_temp_dir().'/backup/'.$this->transactionId;
+	}
+
+	protected function addError($message) {
+		$this->errors[] = $message;
+	}
+
+	protected function addWarning($message) {
+		$this->warnings[] = $message;
+	}
+
+	public function getErrors() {
+		return $this->errors;
+	}
+
+	public function getWarnings() {
+		return $this->warnings;
 	}
 
 	/**
@@ -33,6 +51,16 @@ abstract class CommonBase {
 	 */
 	protected function setupLogger() {
 		$this->logger = $this->freepbx->Logger->createLogDriver('backup', $this->logpath, \Monolog\Logger::DEBUG);
+		if(php_sapi_name() == 'cli' || php_sapi_name() == 'phpdbg'){
+			$handler = new ConsoleOutput(\Monolog\Logger::DEBUG);
+
+			$dateFormat = "Y-M-d H:i:s";
+			$output = "%message%";
+			$formatter = new Formatter\LineFormatter($output, $dateFormat, true);
+
+			$handler->setFormatter($formatter);
+			$this->logger->pushHandler($handler);
+		}
 	}
 
 	/**
@@ -47,7 +75,7 @@ abstract class CommonBase {
 			$this->setupLogger();
 		}
 		$logger = $this->logger->withName($this->transactionId);
-		switch ($logLevel) {
+		switch ($level) {
 			case 'DEBUG':
 				return $logger->debug($message);
 			case 'NOTICE':

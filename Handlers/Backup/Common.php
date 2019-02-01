@@ -10,7 +10,7 @@ use function FreePBX\modules\Backup\Json\json_encode;
 use splitbrain\PHPArchive\Tar;
 use FreePBX\modules\Backup\Handlers\FreePBXModule;
 use modgettext;
-abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonBase {
+abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	protected $tar;
 	protected $filename;
 
@@ -33,6 +33,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonBase {
 	}
 
 	protected function openFile() {
+		$this->fs->mkdir(dirname($this->file));
 		//setup and clean out the singlebackup folder
 		$this->fs->remove($this->tmp);
 		$this->fs->mkdir($this->tmp);
@@ -52,11 +53,13 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonBase {
 	}
 
 	protected function processModule($module) {
-		$this->log(sprintf(_("Working with %s module"), $module));
+		$this->log(sprintf(_("Working with %s module"), $module['rawname']));
 		//check to make sure the module supports backup
-		$class = sprintf('\\FreePBX\\modules\\%s\\Backup', ucfirst($module));
+		$class = sprintf('\\FreePBX\\modules\\%s\\Backup', $module['ucfirst']);
 		if(!class_exists($class)){
-			$this->log("\t".sprintf(_("The module %s doesn't seem to support Backup, no backup created"), $module));
+			$msg = sprintf(_("The module %s doesn't seem to support Backup, no backup created"),$module['rawname']);
+			$this->log("\t".$msg,'WARNING');
+			$this->addWarning($msg);
 			return [];
 		}
 
@@ -65,7 +68,9 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonBase {
 
 		$class->runBackup($this->transactionId, 'tarnamebase');
 		if ($class->getModified() === false) {
-			$this->log("\t".sprintf(_("The module %s returned no data, No backup created"), $module));
+			$msg = sprintf(_("The module %s returned no data, No backup created"),$module['rawname']);
+			$this->log("\t".$msg,'WARNING');
+			$this->addWarning($msg);
 			return [];
 		}
 
@@ -74,7 +79,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonBase {
 				continue;
 			}
 			$fdir = $this->Backup->getPath('/' . ltrim($dir, '/'));
-			$this->log("\t".sprintf(_('Adding directory to tar: %s'),$fdir));
+			$this->log("\t".sprintf(_('Adding directory to tar: %s'),$fdir),'DEBUG');
 			$this->fs->mkdir($this->tmp . '/' . $fdir);
 			$this->tar->addFile($this->tmp . '/' . $fdir, $fdir);
 		}
@@ -88,14 +93,14 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonBase {
 			$destpath = $this->Backup->getPath('files/' . ltrim($file['pathto'], '/'));
 			$destfile = $destpath .'/'. $file['filename'];
 			$files[$srcfile] = $destfile;
-			$this->log("\t".sprintf(_('Adding file to tar: %s'),$destfile));
+			$this->log("\t".sprintf(_('Adding file to tar: %s'),$destfile),'DEBUG');
 			$this->tar->addFile($srcfile, $destfile);
 		}
 
-		$modjson = $this->tmp . '/modulejson/' . ucfirst($module) . '.json';
+		$modjson = $this->tmp . '/modulejson/' . $module['ucfirst'] . '.json';
 		file_put_contents($modjson, json_encode($class->getData(), JSON_PRETTY_PRINT));
-		$this->log("\t".sprintf(_('Adding module manifest for %s'),$module));
-		$this->tar->addFile($modjson, 'modulejson/' . ucfirst($module) . '.json');
+		$this->log("\t".sprintf(_('Adding module manifest for %s'),$module['rawname']),'DEBUG');
+		$this->tar->addFile($modjson, 'modulejson/' . $module['ucfirst'] . '.json');
 
 		return $class->getData();
 	}
@@ -104,5 +109,6 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonBase {
 		$this->tar->close();
 		unset($this->tar);
 		$this->fs->rename($this->tmp .'/'. $this->filename, $this->file);
+		$this->fs->remove($this->tmp);
 	}
 }

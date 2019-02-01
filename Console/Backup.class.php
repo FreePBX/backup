@@ -43,6 +43,7 @@ class Backup extends Command {
 	}
 	protected function execute(InputInterface $input, OutputInterface $output){
 		$this->freepbx = \FreePBX::Create();
+		$this->Backup = $this->freepbx->Backup;
 
 		if(posix_getuid() === 0) {
 			$AMPASTERISKWEBUSER = $this->freepbx->Config->get('AMPASTERISKWEBUSER');
@@ -88,25 +89,58 @@ class Backup extends Command {
 			case $backupsingle:
 				$saveto = $input->getOption('singlesaveto')?$input->getOption('singlesaveto'):'';
 				$saveto = !empty($saveto) ? $saveto : rtrim(getcwd());
-				$job = new Handler\Backup\Single($this->freepbx, $saveto, $transactionid, posix_getpid());
-				$job->setModule($backupsingle);
-				return $job->process();
+				$backupHandler = new Handler\Backup\Single($this->freepbx, $saveto, $transactionid, posix_getpid());
+				$backupHandler->setModule($backupsingle);
+				$backupHandler->process();
+				$errors = $backupHandler->getErrors();
+				if(empty($errors)) {
+					$this->Backup->log($this->transactionId,_("Backup completed successfully"));
+				} else {
+					$this->Backup->log($this->transactionId,_("There were errors during the backup process"));
+				}
+				return;
 			break;
 			case $restoresingle:
-				$job = new Handler\Restore\Single($this->freepbx, $restoresingle, $transactionid, posix_getpid());
-				return $job->process();
+				$restoreHandler = new Handler\Restore\Single($this->freepbx, $restoresingle, $transactionid, posix_getpid());
+				$restoreHandler->process();
+				$errors = $restoreHandler->getErrors();
+				if(empty($errors)) {
+					$this->Backup->log($this->transactionId,_("Restore completed successfully"));
+				} else {
+					$this->Backup->log($this->transactionId,_("There were errors during the restore process"));
+				}
 			break;
 			case $list:
 				$this->listBackups();
+				return;
 			break;
 			case $backup:
 				$buid = $input->getOption('backup');
-				if ($warmspare) {
-					$ws = new Handler\Backup\Warmspare($this->freepbx, $buid, $transactionid, posix_getpid());
-					return $ws->process();
-				}
+
 				$backupHandler = new Handler\Backup\Multiple($this->freepbx, $buid, $transactionid, posix_getpid());
-				$errors = $backupHandler->process();
+				$backupHandler->process();
+
+				$maintenanceHandler = new Handler\Backup\Maintenance($this->freepbx, $buid, $transactionid, posix_getpid());
+				$output->writeln(_("Performing Local Maintenance"));
+				$maintenanceHandler->processLocal();
+				$output->writeln(_("Finished Local Maintenance"));
+				$output->writeln(_("Performing Remote Maintenance"));
+				$maintenanceHandler->processRemote();
+				$output->writeln(_("Finished Remote Maintenance"));
+
+				$storageHandler = new Handler\Storage($this->freepbx, $buid, $transactionid, posix_getpid(), $backupHandler->getFile());
+				$storageHandler->process();
+
+				$errors = array_merge($backupHandler->getErrors(),$maintenanceHandler->getErrors(),$storageHandler->getErrors());
+
+				$this->Backup->processNotifications($id, $transactionId, $errors);
+
+				if(empty($errors)) {
+					$this->Backup->log($this->transactionId,_("Backup completed successfully"));
+				} else {
+					$this->Backup->log($this->transactionId,_("There were errors during the backup process"));
+				}
+				return;
 			break;
 			case $restore:
 				$backupType = $this->freepbx->Backup->determineBackupFileType($restore);
@@ -115,13 +149,13 @@ class Backup extends Command {
 				}
 				$pid = posix_getpid();
 				if($backupType === 'current'){
-					$restoreHandler = new Handler\Restore($this->freepbx,$restore,$job);
+					$restoreHandler = new Handler\Restore\Multiple($this->freepbx,$restore,$transactionid, posix_getpid());
 				}
 				if($backupType === 'legacy'){
-					$restoreHandler = new Handler\Legacy($this->freepbx,$restore,$job);
+					$restoreHandler = new Handler\Restore\Legacy($this->freepbx,$restore, $transactionid, posix_getpid());
 				}
 				$output->writeln(sprintf('Starting restore job with file: %s',$restore));
-				$errors = $restoreHandler->process($warmspare);
+				$errors = $restoreHandler->process();
 				$output->writeln(sprintf('Finished restore job with file: %s',$restore));
 			break;
 			case $dumpextern:

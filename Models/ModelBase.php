@@ -57,10 +57,6 @@ class ModelBase {
 	 * @return array
 	 */
 	public function getConfigs($options = []){
-		//old formatting
-		if(is_array($this->data['configs']) && count($this->data['configs']) === 1 && isset($this->data['configs'][0])) {
-			return $this->data['configs'][0];
-		}
 		return $this->data['configs'];
 	}
 

@@ -12,8 +12,6 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Monolog\Handler\SwiftMailerHandler;
 use Monolog\Handler\BufferHandler;
-use Monolog\Handler\StreamHandler;
-use Monolog\Formatter as Formatter;
 use FreePBX\modules\Backup\Modules\Backupjobs;
 use FreePBX\modules\Backup\Modules\Servers;
 use Symfony\Component\HttpFoundation\Request;
@@ -80,24 +78,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 			case 'mf':
 				$this->mf = \module_functions::create();
 				return $this->mf;
-			break;
-			case 'logger':
-				$this->logger = $this->freepbx->Logger->createLogDriver('backup', $this->logpath, \Monolog\Logger::DEBUG);
-				if(php_sapi_name() == 'cli' || php_sapi_name() == 'phpdbg'){
-					$handler = new StreamHandler("php://stdout",\Monolog\Logger::DEBUG);
-
-					$output = "%message%\n";
-					$formatter = new Formatter\LineFormatter($output);
-
-					$handler->setFormatter($formatter);
-					$this->logger->pushHandler($handler);
-				}
-				return $this->logger;
-			break;
-			case 'logpath':
-				$this->logpath = $this->getConfig('logpath');
-				$this->logpath = !empty($this->logpath)?$this->logpath:$this->freepbx->Config->get('ASTLOGDIR').'/backup.log';
-				return $this->logpath;
 			break;
 		}
 	}
@@ -704,44 +684,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 		return is_array($storage)?$storage: [];
 	}
 
-	public function attachEmail($backupInfo){
-		$envto      = getenv('BACKUPEMAILTO');
-		if(!empty($envto)){
-			$backupInfo['backup_email'] = $envto;
-		}
-		if(!isset($backupInfo['backup_email']) || empty($backupInfo['backup_email'])){
-			return false;
-		}
-		if(!isset($backupInfo['backup_emailtype']) || empty($backupInfo['backup_emailtype'])){
-			return false;
-		}
-
-		$serverName   = $this->freepbx->Config->get('FREEPBX_SYSTEM_IDENT');
-		$emailSubject = sprintf(_("The backup %s did not set a status and may have had an error"), $backupInfo['backup_name']);
-
-		$from    = $this->getConfig('fromemail');
-		$envfrom = getenv('BACKUPEMAILFROM');
-		if(!empty($envfrom)){
-			$from = $envfrom;
-		}
-		if(empty($from)){
-			return;
-		}
-
-		$transport = \Swift_MailTransport::newInstance();
-		$this->swiftmsg = \Swift_Message::newInstance();
-		$this->swiftmsg->setContentType("text/html");
-		$swift = \Swift_Mailer::newInstance($transport);
-		$formatter = new Formatter\HtmlFormatter();
-		$this->swiftmsg->setFrom($from);
-		$this->swiftmsg->setSubject($emailSubject);
-		$this->swiftmsg->setTo($backupInfo['backup_email']);
-		$this->handler = new BufferHandler(new MonologSwift($swift, $this->swiftmsg, \Monolog\Logger::INFO, true, $backupInfo['backup_emailtype']), 0, \Monolog\Logger::INFO);
-		$this->handler->SetFormatter($formatter);
-		$this->logger->pushHandler($this->handler);
-
-	}
-
 	/**
 	 * Gets the appropriate filesystem types to pass to filestore.
 	 * @return mixed if hooks are present it will present an array, otherwise a string
@@ -1015,36 +957,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 	}
 
 	/**
-	 * Logger: logs via monolog
-	 *
-	 * @param string $transactionId running transaction
-	 * @param string $message message to log
-	 * @return void
-	 */
-	public function log($transactionId = '', $message = '',$level = 'INFO'){
-		$logger = $this->logger->withName($transactionId);
-		switch ($logLevel) {
-			case 'DEBUG':
-				return $logger->debug($message);
-			case 'NOTICE':
-				return $logger->notice($message);
-			case 'WARNING':
-				return $logger->warning($message);
-			case 'ERROR':
-				return $logger->error($message);
-			case 'CRITICAL':
-				return $logger->critical($message);
-			case 'ALERT':
-				return $logger->alert($message);
-			case 'EMERGENCY':
-				return $logger->emergency($message);
-			case 'INFO':
-			default:
-				return $logger->info($message);
-		}
-	}
-
-	/**
 	 * Process Notifications, emails etc
 	 *
 	 * @param string $id Backup id
@@ -1052,7 +964,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 * @param array $errors
 	 * @return void
 	 */
-	public function processNotifications($id, $transactionId, $errors, $backupName){
+	public function processNotifications($id, $transactionId, $errors){
+		$backupInfo = $this->getBackup($id);
+		$backupName = $backupInfo['name'];
 		$serverName = str_replace(' ', '_', $this->freepbx->Config->get('FREEPBX_SYSTEM_IDENT'));
 		$serverfilename = str_replace(' ','-',$serverName);
 		$filename       = sprintf('%s-%s-backup.log',$serverfilename,time());

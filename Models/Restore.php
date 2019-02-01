@@ -3,9 +3,12 @@
  * Copyright Sangoma Technologies, Inc 2017
  */
 namespace FreePBX\modules\Backup\Models;
-use FreePBX\modules\Backup\Models\SplFileInfo;
+use FreePBX\modules\Backup\Models\SplFileInfo as BackupFileSplFileInfo;
 use Exception;
-class Restore extends ModelBase {
+use FreePBX\modules\Backup\Handlers\FreePBXModule;
+abstract class Restore extends ModelBase {
+	protected $moduleHandler;
+
 	/**
 	 * Constructor, do not allow overridding this
 	 *
@@ -18,6 +21,8 @@ class Restore extends ModelBase {
 		parent::__construct($freepbx, $backupModVer);
 		$this->FreePBX = $freepbx;
 		$this->tmpdir = $backupTmpDir;
+		//Load the FreePBX Module Handler
+		$this->moduleHandler = new FreePBXModule($freepbx);
 
 		foreach($this->data as $key => $data) {
 			if(!isset($modData[$key])) {
@@ -28,12 +33,33 @@ class Restore extends ModelBase {
 		$this->data = $modData;
 
 		foreach($this->data['files'] as &$file) {
-			$file = new SplFileInfo(
+			$file = new BackupFileSplFileInfo(
 				$this->tmpdir.'/files'.$file['pathto'].'/'.$file['filename'],
 				$file['type'],
 				$file['pathto'],
 				$file['base']
 			);
 		}
+
+		foreach($this->data['dirs'] as &$file) {
+			$file = new BackupFileSplFileInfo(
+				$this->tmpdir.'/files'.$file,
+				'dir',
+				$file,
+				''
+			);
+		}
+	}
+
+	public function runRestore() {
+		throw new \Exception("Restore is not implemented");
+	}
+
+	public function processLegacy($pdo, $data, $tables, $unknownTables, $tmpfiledir) {
+		throw new \Exception("Legacy Restore is not implemented");
+	}
+
+	public function reset() {
+		$this->moduleHandler->reset($this->data['module'], $this->data['version']);
 	}
 }

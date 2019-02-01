@@ -6,19 +6,14 @@ namespace FreePBX\modules\Backup\Handlers\Restore;
 use function FreePBX\modules\Backup\Json\json_decode;
 use function FreePBX\modules\Backup\Json\json_encode;
 use splitbrain\PHPArchive\Tar;
-use FreePBX\modules\Backup\Handlers\FreePBXModule;
 use modgettext;
-abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonBase {
+abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	protected $webroot;
-	protected $modulehandler;
 
 	public function __construct($freepbx, $file, $transactionId, $pid) {
 		parent::__construct($freepbx, $file, $transactionId, $pid);
 
 		$this->webroot = $this->freepbx->Config->get('AMPWEBROOT');
-
-		//Load the FreePBX Module Handler
-		$this->modulehandler = new FreePBXModule($this->freepbx);
 	}
 
 	/**
@@ -56,6 +51,8 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonBase {
 	 */
 	protected function processModule($module, $version) {
 		$modData = $this->getModuleManifest($module);
+		$modData['module'] = $module;
+		$modData['version'] = $version;
 		$class = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($module));
 		$class = new $class($this->freepbx, $this->backupModVer, $modData, $this->tmp);
 		if(!method_exists($class, 'runRestore')) {
@@ -65,13 +62,21 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonBase {
 		//Change the Text Domain
 		$this->log(sprintf(_('Resetting %s module data'),$module));
 		modgettext::push_textdomain($module);
-		$this->modulehandler->reset($module, $version);
+		$class->reset();
+		$this->log(modgettext::_('Restoring Data...','backup'));
+		$this->runRestore($class);
+		$this->log(modgettext::_('Done','backup'));
 		modgettext::pop_textdomain();
-		$this->log(_('Restoring Data...'));
-		modgettext::push_textdomain($module);
-		$this->log(_('Done'));
+	}
+
+	/**
+	 * Allows one to override the called module restore function
+	 *
+	 * @param object $class
+	 * @return void
+	 */
+	protected function runRestore($class) {
 		$class->runRestore($this->transactionId);
-		modgettext::pop_textdomain();
 	}
 
 	/**

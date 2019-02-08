@@ -73,7 +73,7 @@ $(document).ready(function () {
 				function(){
 					var id = e.currentTarget.id;
 					$.ajax({
-						url: ajaxurl,
+						url: FreePBX.ajaxurl,
 						method: "GET",
 						data: {
 							module: 'backup',
@@ -101,7 +101,7 @@ $(document).ready(function () {
 
 	if($('#uploadrestore').length){
 		var dz = new Dropzone("#uploadrestore",{
-			url: `${ajaxurl}?module=backup&command=uploadrestore`,
+			url: `${FreePBX.ajaxurl}?module=backup&command=uploadrestore`,
 			chunking: true,
 			forceChunking: true,
 			maxFiles: 1,
@@ -140,7 +140,7 @@ if ($("#backup_storage").length) {
 		enableLazyLoad: true
 	});
 	//get items
-	$.getJSON(`${ajaxurl}?module=backup&command=getJSON&jdata=backupStorage&id=${$("#id").val()}`)
+	$.getJSON(`${FreePBX.ajaxurl}?module=backup&command=getJSON&jdata=backupStorage&id=${$("#id").val()}`)
 		.done(
 			function (data) {
 				$('#backup_storage').multiselect('dataprovider', data);
@@ -190,7 +190,7 @@ $("#run_backup").on('click', function (e) {
 
 function runRestore(id,title) {
 	$.ajax({
-		url: ajaxurl,
+		url: FreePBX.ajaxurl,
 		data: {
 			module: 'backup',
 			command: 'runRestore',
@@ -209,7 +209,7 @@ function runRestore(id,title) {
 
 function runBackup(id,title) {
 	$.ajax({
-		url: ajaxurl,
+		url: FreePBX.ajaxurl,
 		data: {
 			module: 'backup',
 			command: 'runBackup',

@@ -15,9 +15,11 @@ class ModelBase {
 		'garbage' => []
 	];
 
-	public function __construct($freepbx, $backupModVer){
+	public function __construct($freepbx, $backupModVer, $logger, $transactionId){
 		$this->FreePBX = $freepbx;
 		$this->backupModVer = $backupModVer;
+		$this->logger = $logger;
+		$this->transactionId = $transactionId;
 	}
 
 	/**
@@ -87,5 +89,38 @@ class ModelBase {
 	 */
 	public function getData(){
 		return $this->data;
+	}
+
+	/**
+	 * Logging functionality
+	 *
+	 * @param string $message
+	 * @param string $level
+	 * @return void
+	 */
+	protected function log($message = '',$level = 'INFO'){
+		if(!$this->logger) {
+			$this->setupLogger();
+		}
+		$logger = $this->logger->withName($this->transactionId);
+		switch ($level) {
+			case 'DEBUG':
+				return $logger->debug($message);
+			case 'NOTICE':
+				return $logger->notice($message);
+			case 'WARNING':
+				return $logger->warning($message);
+			case 'ERROR':
+				return $logger->error($message);
+			case 'CRITICAL':
+				return $logger->critical($message);
+			case 'ALERT':
+				return $logger->alert($message);
+			case 'EMERGENCY':
+				return $logger->emergency($message);
+			case 'INFO':
+			default:
+				return $logger->info($message);
+		}
 	}
 }

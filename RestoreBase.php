@@ -8,7 +8,7 @@ use Exception;
 class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 
 	public function getAMPConf($database){
-		$sql = "select keyword, value from freepbx_settings";
+		$sql = "SELECT keyword, value FROM freepbx_settings";
 		try{
 			return $database->query($sql)->fetchAll(PDO::FETCH_KEY_PAIR);
 		} catch (Exception $e){

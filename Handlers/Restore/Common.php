@@ -37,7 +37,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		//Get module specific manifest
 		$modJsonPath = $this->tmp . '/modulejson/' . ucfirst($module) . '.json';
 		if(!file_exists($modJsonPath)){
-			throw new \Exception(sprintf(_("Can't find the module data for %s"),$module));
+			return [];
 		}
 		return json_decode(file_get_contents($modJsonPath), true);
 	}
@@ -51,12 +51,18 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	 */
 	protected function processModule($module, $version) {
 		$modData = $this->getModuleManifest($module);
+		if(empty($modData)) {
+			$msg = sprintf(_("Can't find the module data for %s"),$module);
+			$this->log($msg,'WARNING');
+			$this->addWarning($msg);
+			return;
+		}
 		$modData['module'] = $module;
 		$modData['version'] = $version;
 		$class = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($module));
-		$class = new $class($this->freepbx, $this->backupModVer, $modData, $this->tmp);
+		$class = new $class($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp);
 		if(!method_exists($class, 'runRestore')) {
-			$this->log('runRestore method does not exist in '.$class);
+			$this->log('runRestore method does not exist in '.$class,'ERROR');
 			return;
 		}
 		//Change the Text Domain

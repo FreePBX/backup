@@ -42,8 +42,6 @@ class Multiple extends Common {
 			throw new \Exception("Backup id not provided", 500);
 		}
 
-		$errors = [];
-
 		$this->log(sprintf(_("Running Backup ID: %s"),$this->id),'DEBUG');
 		$this->log(sprintf(_("Transaction: %s"),$this->transactionId),'DEBUG');
 
@@ -115,7 +113,7 @@ class Multiple extends Common {
 						continue;
 					}
 
-					$this->log("\t".sprintf(_("Adding module %s which %s depends on"),$depend, $mod['name']),'DEBUG');
+					$this->log("\t".sprintf(_("Adding module %s which %s depends on"),$depend, $mod['rawname']),'DEBUG');
 					$selectedmods[] = $depend;
 					$processQueue->enqueue(['rawname' => $validMods[$depend]['rawname'], 'ucfirst' => ucfirst($validMods[$depend]['rawname'])]);
 				}

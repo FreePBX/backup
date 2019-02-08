@@ -13,7 +13,7 @@ class Legacy extends Common {
 
 	public function process(){
 		$this->extractFile();
-		$this->buildData($restore);
+		$this->buildData();
 		$this->parseSQL();
 	}
 
@@ -24,10 +24,10 @@ class Legacy extends Common {
 		//add tmp dir back
 		$this->fs->mkdir($this->tmp);
 		//We have to go the exec route because legacy backups root is ./ which breaks things
-		$this->Backup->log(sprintf(_("Extracting: %s... This may take a moment depending on the backup size"), $this->file));
+		$this->log(sprintf(_("Extracting: %s... This may take a moment depending on the backup size"), $this->file));
 		$process = new Process(['tar', $this->file, '-C '.$this->tmp]);
 		$process->mustRun();
-		$this->Backup->log(sprintf(_("File extracted to %s. These files will remain until a new restore is run or until cleaned manually."),$this->tmp));
+		$this-log(sprintf(_("File extracted to %s. These files will remain until a new restore is run or until cleaned manually."),$this->tmp));
 	}
 
 	/**
@@ -38,18 +38,18 @@ class Legacy extends Common {
 	private function buildData(){
 		$this->data['manifest'] = [];
 		$this->data['astdb'] = [];
-		if(file_exists(BACKUPTMPDIR . '/manifest')){
-			$this->Backup->log(_("Loading manifest to memory"));
+		if(file_exists($this->tmp . '/manifest')){
+			$this->log(_("Loading manifest to memory"));
 			$this->data['manifest'] = unserialize(file_get_contents($this->tmp.'/manifest'));
 		}
-		if(file_exists(BACKUPTMPDIR . '/astdb')){
-			$this->Backup->log(_("Loading astdb to memory"));
+		if(file_exists($this->tmp . '/astdb')){
+			$this->log(_("Loading astdb to memory"));
 			$this->data['astdb'] = unserialize(file_get_contents($this->tmp.'/astdb'));
 		}
 	}
 
 	private function parseSQL(){
-		$this->Backup->log(_("Parsing out SQL tables. This may take a moment depending on backup size."));
+		$this->log(_("Parsing out SQL tables. This may take a moment depending on backup size."));
 		$tables = $this->getModuleTables();
 		$files = [];
 		$final = ['unknown' => []];
@@ -60,9 +60,9 @@ class Legacy extends Common {
 		foreach ($amodules as $key => $value) {
 			$final[$key] = [];
 		}
-		$this->Backup->log(sprintf(_("Found %s database files in the backup."),count($files)));
+		$this->log(sprintf(_("Found %s database files in the backup."),count($files)));
 		foreach($files as $file){
-			$this->Backup->log(sprintf(_("File named: %s"),$file));
+			$this->log(sprintf(_("File named: %s"),$file));
 			$pdo = $this->setupTempDb($file);
 			$loadedTables = $pdo->query("SHOW TABLES");
 			while ($current = $loadedTables->fetch(PDO::FETCH_COLUMN)) {
@@ -99,13 +99,13 @@ class Legacy extends Common {
 	}
 
 	public function setupTempDb($file){
-		sprintf(_("Loading supplied database file %s").PHP_EOL, $file);
+		$this->log(sprintf(_("Loading supplied database file %s"), $file));
 		exec('mysqladmin -f DROP asterisktemp', $out, $ret);
 		exec('mysqladmin CREATE asterisktemp', $out, $ret);
-		$this->Backup->log('',_("Temporary DB asterisktemp CREATED".PHP_EOL));
-		$this->Backup->log('',_("Loading content to asterisktemp".PHP_EOL));
+		$this->log(_("Temporary DB asterisktemp CREATED"));
+		$this->log(_("Loading content to asterisktemp".PHP_EOL));
 		system('pv '.$file.' | gunzip | mysql asterisktemp', $out);
-		$this->Backup->log('',_("Temporary DB asteriskcdrdb loaded with ".$file." data.".PHP_EOL));
+		$this->Backup->log(sprintf(_("Temporary DB asteriskcdrdb loaded with %s data."),$file));
 		$host = '127.0.0.1';
 		$db = 'asterisktemp';
 		$user = 'root';
@@ -129,14 +129,14 @@ class Legacy extends Common {
 					sprintf(_("Couldn't find %s").PHP_EOL,$namespace);
 					continue;
 				}
-				$class = new $namespace(null,$this->freepbx, BACKUPTMPDIR);
+				$class = new $namespace(null,$this->freepbx, $this->tmp);
 				if(method_exists($class,'processLegacy')){
-					$this->Backup->log('',sprintf(_("Calling legacy restore on module %s".PHP_EOL),$key));
-					$class->processLegacy($info['pdo'], $this->data, $value, $info['final']['unknown'],BACKUPTMPDIR);
+					$this->log(sprintf(_("Calling legacy restore on module %s"),$key));
+					$class->processLegacy($info['pdo'], $this->data, $value, $info['final']['unknown'],$this->tmp);
 					unset($class);
 					continue;
 				}
-				$this->Backup->log('',sprintf(_("The module %s does not seem to support legacy restores." . PHP_EOL), $key));
+				$this->log(sprintf(_("The module %s does not seem to support legacy restores."), $key));
 			}else{
 				continue;
 			}
@@ -149,17 +149,17 @@ class Legacy extends Common {
 			}
 			$namespace = '\\FreePBX\\modules\\'.ucfirst($key).'\\Restore';
 			if(!class_exists($namespace)){
-				sprintf(_("Couldn't find %s").PHP_EOL,$namespace);
+				$this->log(sprintf(_("Couldn't find %s"),$namespace));
 				continue;
 			}
-			$class = new $namespace(null,$this->freepbx, BACKUPTMPDIR);
+			$class = new $namespace(null,$this->freepbx, $this->tmp);
 			if(method_exists($class,'processLegacy')){
-				$this->Backup->log('',sprintf(_("Calling legacy restore on module %s".PHP_EOL),$key));
-				$class->processLegacy($info['pdo'], $this->data, $value, $info['final']['unknown'],BACKUPTMPDIR);
+				$this->log(sprintf(_("Calling legacy restore on module %s"),$key));
+				$class->processLegacy($info['pdo'], $this->data, $value, $info['final']['unknown'],$this->tmp);
 				unset($class);
 				continue;
 			}
-			$this->Backup->log('',sprintf(_("The module %s does not seem to support legacy restores." . PHP_EOL), $key));
+			$this->log(sprintf(_("The module %s does not seem to support legacy restores."), $key));
 		}
 	}
 }

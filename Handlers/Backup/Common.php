@@ -64,7 +64,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		}
 
 		//Ask the module for data
-		$class = new $class($this->freepbx, $this->backupModVer);
+		$class = new $class($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId);
 
 		$class->runBackup($this->transactionId, 'tarnamebase');
 		if ($class->getModified() === false) {

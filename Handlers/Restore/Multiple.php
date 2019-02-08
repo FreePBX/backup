@@ -11,6 +11,17 @@ use function FreePBX\modules\Backup\Json\json_decode;
 use function FreePBX\modules\Backup\Json\json_encode;
 class Multiple extends Common {
 	private $restoreModules;
+	private $specificRestores;
+
+	/**
+	 * Set this to a module to restore only that module from the backup
+	 *
+	 * @param string $module
+	 * @return void
+	 */
+	public function setSpecificRestore($modules) {
+		$this->specificRestores = $modules;
+	}
 
 	public function process() {
 		if(!file_exists($this->file)) {
@@ -39,17 +50,27 @@ class Multiple extends Common {
 			$restoreModules = $remapedRestoreModules;
 		}
 
+		if(!is_null($this->specificRestores)) {
+			$this->log(sprintf(_("Only Restoring %s"),implode(",",$this->specificRestores)),'WARNING');
+			$restoreModules = array_filter($restoreModules, function($arr){
+				return in_array($arr['module'],$this->specificRestores);
+			});
+		}
+
 		foreach($restoreModules as $mod) {
 			if($mod['module'] === 'backup') {
 				continue;
 			}
+			$this->log(sprintf(_("Processing %s"),$mod['module']),'INFO');
 			try {
 				$this->processModule($mod['module'],$mod['version']);
 			} catch(\Exception $e) {
 				$this->log($e->getMessage(). ' on line '.$e->getLine().' of file '.$e->getFile(),'ERROR');
 				$this->log($e->getTraceAsString());
+				$this->addError($e->getMessage(). ' on line '.$e->getLine().' of file '.$e->getFile());
 				continue;
 			}
+			$this->log("",'INFO');
 
 		}
 		$this->log(_('Finished'));

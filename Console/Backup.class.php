@@ -26,6 +26,7 @@ class Backup extends Command {
 				new InputOption('warmspare', '', InputOption::VALUE_NONE, 'Set the warmspare flag'),
 				new InputOption('implemented', '', InputOption::VALUE_NONE, ''),
 				new InputOption('restore', '', InputOption::VALUE_REQUIRED, 'Restore File'),
+				new InputOption('modules', '', InputOption::VALUE_REQUIRED, 'Specific Modules to restore from using --restore, separate each module by a comma'),
 				new InputOption('restoresingle', '', InputOption::VALUE_REQUIRED, 'Module backup to restore'),
 				new InputOption('backupsingle', '', InputOption::VALUE_REQUIRED, 'Module to backup'),
 				new InputOption('singlesaveto', '', InputOption::VALUE_REQUIRED, 'Where to save the single module backup.'),
@@ -70,8 +71,8 @@ class Backup extends Command {
 		$remote = $input->getOption('externbackup');
 		$dumpextern = $input->getOption('dumpextern');
 		$transaction = $input->getOption('transaction');
-        $backupsingle = $input->getOption('backupsingle');
-        $restoresingle = $input->getOption('restoresingle');
+		$backupsingle = $input->getOption('backupsingle');
+		$restoresingle = $input->getOption('restoresingle');
 		$b64import = $input->getOption('b64import');
 		if($b64import){
 			return $this->addBackupByString($b64import);
@@ -93,10 +94,22 @@ class Backup extends Command {
 				$backupHandler->setModule($backupsingle);
 				$backupHandler->process();
 				$errors = $backupHandler->getErrors();
-				if(empty($errors)) {
-					$this->Backup->log($this->transactionId,_("Backup completed successfully"));
+				$warnings = $backupHandler->getWarnings();
+				if(empty($errors) && empty($warnings)) {
+					$output->writeln(_("Backup completed successfully"));
 				} else {
-					$this->Backup->log($this->transactionId,_("There were errors during the backup process"));
+					if(!empty($errors)) {
+						$output->writeln(_("There were errors during the backup process"));
+						foreach($errors as $error) {
+							$output->writeln("\t<error>".$error."</error>");
+						}
+					}
+					if(!empty($warnings)) {
+						$output->writeln(_("There were warnings during the backup process"));
+						foreach($warnings as $warning) {
+							$output->writeln("\t<comment>".$warning."</comment>");
+						}
+					}
 				}
 				return;
 			break;
@@ -104,10 +117,22 @@ class Backup extends Command {
 				$restoreHandler = new Handler\Restore\Single($this->freepbx, $restoresingle, $transactionid, posix_getpid());
 				$restoreHandler->process();
 				$errors = $restoreHandler->getErrors();
-				if(empty($errors)) {
-					$this->Backup->log($this->transactionId,_("Restore completed successfully"));
+				$warnings = $restoreHandler->getWarnings();
+				if(empty($errors) && empty($warnings)) {
+					$output->writeln(_("Restore completed successfully"));
 				} else {
-					$this->Backup->log($this->transactionId,_("There were errors during the restore process"));
+					if(!empty($errors)) {
+						$output->writeln(_("There were errors during the restore process"));
+						foreach($errors as $error) {
+							$output->writeln("\t<error>".$error."</error>");
+						}
+					}
+					if(!empty($warnings)) {
+						$output->writeln(_("There were warnings during the restore process"));
+						foreach($warnings as $warning) {
+							$output->writeln("\t<comment>".$warning."</comment>");
+						}
+					}
 				}
 			break;
 			case $list:
@@ -132,13 +157,25 @@ class Backup extends Command {
 				$storageHandler->process();
 
 				$errors = array_merge($backupHandler->getErrors(),$maintenanceHandler->getErrors(),$storageHandler->getErrors());
+				$warnings = array_merge($backupHandler->getWarnings(),$maintenanceHandler->getWarnings(),$storageHandler->getWarnings());
 
 				$this->Backup->processNotifications($id, $transactionId, $errors);
 
-				if(empty($errors)) {
-					$this->Backup->log($this->transactionId,_("Backup completed successfully"));
+				if(empty($errors) && empty($warnings)) {
+					$output->writeln(_("Backup completed successfully"));
 				} else {
-					$this->Backup->log($this->transactionId,_("There were errors during the backup process"));
+					if(!empty($errors)) {
+						$output->writeln(_("There were errors during the backup process"));
+						foreach($errors as $error) {
+							$output->writeln("\t<error>".$error."</error>");
+						}
+					}
+					if(!empty($warnings)) {
+						$output->writeln(_("There were warnings during the backup process"));
+						foreach($warnings as $warning) {
+							$output->writeln("\t<comment>".$warning."</comment>");
+						}
+					}
 				}
 				return;
 			break;
@@ -150,13 +187,34 @@ class Backup extends Command {
 				$pid = posix_getpid();
 				if($backupType === 'current'){
 					$restoreHandler = new Handler\Restore\Multiple($this->freepbx,$restore,$transactionid, posix_getpid());
+					if($input->getOption('modules')) {
+						$restoreHandler->setSpecificRestore(explode(",",$input->getOption('modules')));
+					}
 				}
 				if($backupType === 'legacy'){
 					$restoreHandler = new Handler\Restore\Legacy($this->freepbx,$restore, $transactionid, posix_getpid());
 				}
 				$output->writeln(sprintf('Starting restore job with file: %s',$restore));
-				$errors = $restoreHandler->process();
-				$output->writeln(sprintf('Finished restore job with file: %s',$restore));
+				$restoreHandler->process();
+
+				$errors = $restoreHandler->getErrors();
+				$warnings = $restoreHandler->getWarnings();
+				if(empty($errors) && empty($warnings)) {
+					$output->writeln(_("Restore completed successfully"));
+				} else {
+					if(!empty($errors)) {
+						$output->writeln(_("There were errors during the restore process"));
+						foreach($errors as $error) {
+							$output->writeln("\t<error>".$error."</error>");
+						}
+					}
+					if(!empty($warnings)) {
+						$output->writeln(_("There were warnings during the restore process"));
+						foreach($warnings as $warning) {
+							$output->writeln("\t<comment>".$warning."</comment>");
+						}
+					}
+				}
 			break;
 			case $dumpextern:
 				$backupdata = $this->freepbx->Backup->getBackup($input->getOption('dumpextern'));
@@ -177,9 +235,6 @@ class Backup extends Command {
 			default:
 				$output->writeln($this->getHelp());
 			break;
-		}
-		if(!empty($errors) && OutputInterface::VERBOSITY_VERY_VERBOSE){
-			$output->writeln(implode(PHP_EOL,$errors));
 		}
 
 	}

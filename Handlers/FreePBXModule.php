@@ -15,7 +15,11 @@ class FreePBXModule{
 	public function reset($module,$version){
 		$developer = $this->freepbx->Config->get('DEVEL');
 		$module = \strtolower($module);
-		$uninstall = $this->uninstall($module);
+		$info = $this->mf->getInfo($module, false, true);
+		if(!empty($info[$module]) && ($info[$module]['status'] === MODULE_STATUS_ENABLED)) {
+			$uninstall = $this->uninstall($module);
+		}
+
 		if($this->getModuleVersion($module) !== $version && !$developer){
 			$xml = $this->mf->getModuleDownloadByModuleNameAndVersion($module, $version);
 			$process = new Process(['fwconsole', 'ma', 'download', $module, '--tag',$version, '--quiet']);

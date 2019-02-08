@@ -5,7 +5,7 @@
 namespace FreePBX\modules;
 use FreePBX\modules\Backup\Handlers as Handler;
 use FreePBX\modules\Filestore\Modules\Remote as FilestoreRemote;
-use FreePBX\modules\Backup\Models\BackupFile;
+use FreePBX\modules\Backup\Models\BackupSplFileInfo;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Filesystem\Filesystem;
@@ -310,7 +310,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 					}
 					$filemd5 = md5($finalname);
 					$this->setConfig($filemd5, $finalname, 'localfilepaths');
-					$backupFile = new BackupFile($finalname);
+					$backupFile = new BackupSplFileInfo($finalname);
 					$meta = $backupFile->getMetadata();
 					$this->setConfig('meta', $meta, $filemd5);
 					header("HTTP/1.1 200 Ok");
@@ -569,7 +569,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 							return load_view(__DIR__.'/views/restore/landing.php',['error' => _("Couldn't find your file, please try submitting your file again.")]);
 						}
 						if($path){
-							$fileClass = new BackupFile($path);
+							$fileClass = new BackupSplFileInfo($path);
 							$manifest = $fileClass->getMetadata($path);
 
 						}
@@ -744,7 +744,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			$path       = $v->getPathInfo()->getRealPath();
 			$buname     = $v->getPathInfo()->getBasename();
 			$buname     = str_replace('_',' ',$buname);
-			$backupFile = new BackupFile($k);
+			$backupFile = new BackupSplFileInfo($k);
 			$backupinfo = $backupFile->backupData();
 			if(empty($backupinfo)){
 				continue;
@@ -1051,7 +1051,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 					if($file['type'] == 'dir'){
 						continue;
 					}
-					$backupFile = new BackupFile($file['path']);
+					$backupFile = new BackupSplFileInfo($file['path']);
 					$info = $backupFile->backupData();
 					if($info['isCheckSum']){
 						continue;

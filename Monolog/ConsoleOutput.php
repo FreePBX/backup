@@ -26,7 +26,7 @@ class ConsoleOutput extends AbstractProcessingHandler {
 			break;
 			case Logger::WARNING:
 			case Logger::NOTICE:
-				$this->output->writeln('<comment>'.$record['formatted'].'<comment>');
+				$this->output->writeln('<comment>'.$record['formatted'].'</comment>');
 			break;
 			case Logger::INFO:
 			case Logger::DEBUG:

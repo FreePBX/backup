@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 20:53-0400\n"
+"POT-Creation-Date: 2019-02-19 11:35+0530\n"
 "PO-Revision-Date: 2018-10-15 02:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/backup/de/>\n"
@@ -222,6 +222,10 @@ msgstr "Sicherungsfehler (Softlimit überschritten)"
 #: views/backup/backups.php:49
 msgid "Backup Frequency"
 msgstr "Sicherungshäufigkeit"
+
+#: Console/Backup.class.php:20
+msgid "Backup History"
+msgstr ""
 
 #: views/backup/backups.php:58
 msgid "Backup Items"
@@ -562,6 +566,10 @@ msgstr ""
 "Geben Sie eine E-Mail Adresse ein, um eine Statusmeldung zu senden, wenn die "
 "Aufgabe ausgeführt wird"
 
+#: Console/Backup.class.php:47
+msgid "End"
+msgstr ""
+
 #: functions.inc/class.backup.php:471 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
@@ -691,6 +699,10 @@ msgstr "Februar"
 msgid "File"
 msgstr "Datei"
 
+#: Console/Backup.class.php:47
+msgid "File Count"
+msgstr ""
+
 #: functions.inc/restore.php:424
 msgid "File not found! "
 msgstr "Datei nicht gefunden! "
@@ -753,7 +765,8 @@ msgstr ""
 msgid "Hooks"
 msgstr "Anhänge"
 
-#: views/servers/ftp.php:46 views/servers/mysql.php:64 views/servers/ssh.php:64
+#: Console/Backup.class.php:47 views/servers/ftp.php:46
+#: views/servers/mysql.php:64 views/servers/ssh.php:64
 msgid "Hostname"
 msgstr "Hostname"
 
@@ -847,6 +860,14 @@ msgstr "Elemente"
 msgid "January"
 msgstr "Januar"
 
+#: Console/Backup.class.php:47
+msgid "Job ID"
+msgstr ""
+
+#: Console/Backup.class.php:47
+msgid "Job Name"
+msgstr ""
+
 #: views/cron.php:50
 msgid "July"
 msgstr "Juli"
@@ -884,6 +905,10 @@ msgstr "MB"
 #: views/backup/backup.php:505
 msgid "Maintenance"
 msgstr "Erhaltungsdauer"
+
+#: Console/Backup.class.php:17
+msgid "Manage Backup jobs"
+msgstr ""
 
 #: views/cron.php:46
 msgid "March"
@@ -1046,6 +1071,10 @@ msgstr ""
 #: views/restore/backup_list.php:37
 msgid "Other MySQL databases"
 msgstr "Andere MySQL-Datenbanken"
+
+#: Console/Backup.class.php:19
+msgid "Output in JSON"
+msgstr ""
 
 #: functions.inc/templates.php:259
 msgid "PATTERNs, one per line"
@@ -1494,6 +1523,10 @@ msgstr "Lasse maschinenspezifische DNS-Einstellungen aus"
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr ""
 "Bei der Verbindung zum Remoteserver ist ein Fehler aufgetreten. Abgebrochen!"
+
+#: Console/Backup.class.php:47
+msgid "Start"
+msgstr ""
 
 #: views/backup/backup.php:65 views/backup/backups.php:291
 msgid "Status Email"

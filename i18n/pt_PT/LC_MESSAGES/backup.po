@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 20:53-0400\n"
+"POT-Creation-Date: 2019-02-19 11:35+0530\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -215,6 +215,10 @@ msgstr ""
 
 #: views/backup/backups.php:49
 msgid "Backup Frequency"
+msgstr ""
+
+#: Console/Backup.class.php:20
+msgid "Backup History"
 msgstr ""
 
 #: views/backup/backups.php:58
@@ -551,6 +555,10 @@ msgid "Email to send status messages to when this task is run"
 msgstr ""
 "Email para onde enviar mensagens de estado quando esta tarefa for executada"
 
+#: Console/Backup.class.php:47
+msgid "End"
+msgstr ""
+
 #: functions.inc/class.backup.php:471 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
@@ -670,6 +678,10 @@ msgstr "Fevreiro"
 msgid "File"
 msgstr "Ficheiro"
 
+#: Console/Backup.class.php:47
+msgid "File Count"
+msgstr ""
+
 #: functions.inc/restore.php:424
 msgid "File not found! "
 msgstr "Ficheiro não encontrado! "
@@ -733,7 +745,8 @@ msgstr ""
 msgid "Hooks"
 msgstr "Ganchos"
 
-#: views/servers/ftp.php:46 views/servers/mysql.php:64 views/servers/ssh.php:64
+#: Console/Backup.class.php:47 views/servers/ftp.php:46
+#: views/servers/mysql.php:64 views/servers/ssh.php:64
 msgid "Hostname"
 msgstr "Nome do Host"
 
@@ -821,6 +834,14 @@ msgstr "Itens"
 msgid "January"
 msgstr "Janeiro"
 
+#: Console/Backup.class.php:47
+msgid "Job ID"
+msgstr ""
+
+#: Console/Backup.class.php:47
+msgid "Job Name"
+msgstr ""
+
 #: views/cron.php:50
 msgid "July"
 msgstr "Julho"
@@ -856,6 +877,10 @@ msgstr ""
 #: views/backup/backup.php:505
 msgid "Maintenance"
 msgstr "Manutenção"
+
+#: Console/Backup.class.php:17
+msgid "Manage Backup jobs"
+msgstr ""
 
 #: views/cron.php:46
 msgid "March"
@@ -1016,6 +1041,10 @@ msgstr ""
 
 #: views/restore/backup_list.php:37
 msgid "Other MySQL databases"
+msgstr ""
+
+#: Console/Backup.class.php:19
+msgid "Output in JSON"
 msgstr ""
 
 #: functions.inc/templates.php:259
@@ -1453,6 +1482,10 @@ msgstr ""
 #: bin/backup.php:107
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr "Algo correu mal ao conectar ao servidor remoto. Abortando!"
+
+#: Console/Backup.class.php:47
+msgid "Start"
+msgstr ""
 
 #: views/backup/backup.php:65 views/backup/backups.php:291
 msgid "Status Email"

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 20:53-0400\n"
+"POT-Creation-Date: 2019-02-19 11:35+0530\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -225,6 +225,10 @@ msgstr ""
 #: views/backup/backups.php:49
 msgid "Backup Frequency"
 msgstr "Периодичност на Архивиране"
+
+#: Console/Backup.class.php:20
+msgid "Backup History"
+msgstr ""
 
 #: views/backup/backups.php:58
 msgid "Backup Items"
@@ -550,6 +554,10 @@ msgstr ""
 msgid "Email to send status messages to when this task is run"
 msgstr ""
 
+#: Console/Backup.class.php:47
+msgid "End"
+msgstr ""
+
 #: functions.inc/class.backup.php:471 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
@@ -665,6 +673,10 @@ msgstr "Февруари"
 msgid "File"
 msgstr "Файл"
 
+#: Console/Backup.class.php:47
+msgid "File Count"
+msgstr ""
+
 #: functions.inc/restore.php:424
 msgid "File not found! "
 msgstr "Файлът не е намерен! "
@@ -726,7 +738,8 @@ msgstr ""
 msgid "Hooks"
 msgstr ""
 
-#: views/servers/ftp.php:46 views/servers/mysql.php:64 views/servers/ssh.php:64
+#: Console/Backup.class.php:47 views/servers/ftp.php:46
+#: views/servers/mysql.php:64 views/servers/ssh.php:64
 msgid "Hostname"
 msgstr "Име на хост"
 
@@ -814,6 +827,14 @@ msgstr "Елементи"
 msgid "January"
 msgstr "Януари"
 
+#: Console/Backup.class.php:47
+msgid "Job ID"
+msgstr ""
+
+#: Console/Backup.class.php:47
+msgid "Job Name"
+msgstr ""
+
 #: views/cron.php:50
 msgid "July"
 msgstr "Юли"
@@ -850,6 +871,10 @@ msgstr "MB"
 #: views/backup/backup.php:505
 msgid "Maintenance"
 msgstr "Поддръжка"
+
+#: Console/Backup.class.php:17
+msgid "Manage Backup jobs"
+msgstr ""
 
 #: views/cron.php:46
 msgid "March"
@@ -1010,6 +1035,10 @@ msgstr ""
 
 #: views/restore/backup_list.php:37
 msgid "Other MySQL databases"
+msgstr ""
+
+#: Console/Backup.class.php:19
+msgid "Output in JSON"
 msgstr ""
 
 #: functions.inc/templates.php:259
@@ -1443,6 +1472,10 @@ msgstr ""
 
 #: bin/backup.php:107
 msgid "Something went wrong when connecting to remote server. Aborting!"
+msgstr ""
+
+#: Console/Backup.class.php:47
+msgid "Start"
 msgstr ""
 
 #: views/backup/backup.php:65 views/backup/backups.php:291

@@ -10,16 +10,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-27 20:53-0400\n"
-"PO-Revision-Date: 2016-07-22 06:45+0200\n"
-"Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
-"backup/fa_IR/>\n"
+"PO-Revision-Date: 2019-01-25 06:16+0000\n"
+"Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
+"Language-Team: Persian <http://*/projects/freepbx/backup/fa/>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: views/backup/backups.php:23
 #, php-format
@@ -106,7 +105,7 @@ msgstr ""
 
 #: views/cron.php:27 views/cron.php:43 views/cron.php:65
 msgid "All"
-msgstr ""
+msgstr "همه"
 
 #: views/backup/backups.php:171
 msgid ""
@@ -141,7 +140,7 @@ msgstr "آوریل"
 
 #: bin/restore.php:124
 msgid "Archive coorect."
-msgstr ""
+msgstr "بایگانی صحیح."
 
 #: views/restore/browseserver.php:21
 msgid "AstDB's"
@@ -284,7 +283,7 @@ msgstr "فایل پشتیبان یافت نشد! بی نتیجه."
 
 #: functions.inc/class.backup.php:499
 msgid "Backup file uploaded to the remote server"
-msgstr ""
+msgstr "فایل پشتیبان در سرور ریموت بارگذاری شده"
 
 #: bin/backup.php:12
 msgid "Backup module not found or is disabled. Aborting!"
@@ -312,7 +311,7 @@ msgstr "مسیردهی"
 
 #: page.backup_restore.php:184
 msgid "Browser reconnected realtime updates are unavailable."
-msgstr ""
+msgstr "به دلیل ریکانکت شدن مرورگر آپدیت دردسترس نیست."
 
 #: views/servers/awss3.php:14
 msgid "Bucket Name"
@@ -365,7 +364,7 @@ msgstr "اتصال به سرور دور دست..."
 #: functions.inc/class.backup.php:841
 #, php-format
 msgid "Could not find %s on the remote system"
-msgstr ""
+msgstr "s1% در سیستم راه دور یافت نشد"
 
 #: functions.inc/class.backup.php:398 views/restore/browseserver.php:18
 msgid "Created"
@@ -494,7 +493,7 @@ msgstr "غیرفعال کردن ترانک های رجیستر شده"
 
 #: bin/backup.php:191
 msgid "Disabling registered trunks... "
-msgstr ""
+msgstr "غیر فعال شدن ترانک های رجیستر شده... "
 
 #: bin/restore.php:548
 msgid "Done!"
@@ -577,7 +576,7 @@ msgstr "به جز"
 
 #: views/backup/backup.php:380
 msgid "Exclude BIND address"
-msgstr ""
+msgstr "به جز آدرس BIND"
 
 #: install.php:180
 msgid ""
@@ -589,7 +588,7 @@ msgstr ""
 
 #: views/backup/backup.php:409
 msgid "Exclude DNS"
-msgstr ""
+msgstr "به جز DNS"
 
 #: views/backup/backup.php:353
 msgid "Exclude NAT settings"
@@ -600,12 +599,16 @@ msgid ""
 "Explicitly exclude any machine-specific Bindaddres. This allows you to have "
 "a warm-spare machine with a different IP address."
 msgstr ""
+"به طور صریح هر Bindaddres خاص دستگاه را حذف کنید. این به شما اجازه می دهد یک "
+"دستگاه یدکی گرم با یک آدرس IP متفاوت داشته باشید."
 
 #: views/backup/backup.php:424
 msgid ""
 "Explicitly exclude any machine-specific DNS. This allows you to have a warm-"
 "spare machine with a different DNS."
 msgstr ""
+"به طور صریح هر DNS اختصاصی خاص را حذف کنید. این اجازه می دهد تا شما یک ماشین "
+"گرم با یک DNS متفاوت داشته باشید."
 
 #: views/backup/backup.php:368
 msgid ""
@@ -703,7 +706,7 @@ msgstr "مرکزتماس رایگان"
 #: bin/restore.php:119
 #, php-format
 msgid "Freepbx version %s, Archive version %s"
-msgstr ""
+msgstr "نسخه برنامه s1% نسخه بایگانی s2%"
 
 #: views/cron.php:33 assets/js/backup.js:83
 msgid "Friday"
@@ -1027,7 +1030,7 @@ msgstr "توضیحات در خصوص این قالب پشتیبان."
 
 #: views/restore/backup_list.php:37
 msgid "Other MySQL databases"
-msgstr ""
+msgstr "دیگر دیتابیس های MySQL"
 
 #: functions.inc/templates.php:259
 msgid "PATTERNs, one per line"
@@ -1065,6 +1068,9 @@ msgid ""
 "example, <tt>/home/backups/freepbx</tt>. A path without a leading slash will "
 "not work, and will behave in unexpected ways."
 msgstr ""
+"Path on remote server. This must be a COMPLETE PATH, starting with a / - for "
+"example, <tt>1/home/backups/freepbx</tt>2. A path without a leading slash "
+"will not work, and will behave in unexpected ways."
 
 #: views/backup/backups.php:557
 msgid "Path to ssh key, example /home/asterisk/.ssh/id_rsa"
@@ -1077,7 +1083,7 @@ msgstr "مسیر/دیتابیس"
 #: functions.inc/class.backup.php:837 functions.inc/class.backup.php:838
 #, php-format
 msgid "Path: %s"
-msgstr ""
+msgstr "مسیر s1%"
 
 #: assets/js/backup.js:150
 msgid "Please wait"
@@ -1109,11 +1115,11 @@ msgstr "تله پیش از اجرای بازیابی"
 
 #: bin/restore.php:349
 msgid "Preserving local Bind address"
-msgstr ""
+msgstr "حفظ آدرس محلی Bind"
 
 #: bin/restore.php:342
 msgid "Preserving local DNS settings"
-msgstr ""
+msgstr "حفظ تنظیمات محلی DNS"
 
 #: bin/restore.php:328
 msgid "Preserving local NAT settings"
@@ -1196,7 +1202,7 @@ msgstr "بازنشانی"
 
 #: bin/restore.php:121
 msgid "Restoration canceled."
-msgstr ""
+msgstr "عملیات بازیابی لغو شده."
 
 #: page.backup_restore.php:201 views/restore/backup_list.php:46
 #: views/restore/browseserver.php:4 views/restore/restore.php:34
@@ -1214,7 +1220,7 @@ msgstr "بازیابی در اینجا"
 
 #: views/restore/backup_list.php:37
 msgid "Restore MySQL databases stored in the backup"
-msgstr ""
+msgstr "بازیابی دیتابیس MySQL در پشتیبان ذخیره شد"
 
 #: views/restore/backup_list.php:22
 msgid "Restore all setting stored in the database"
@@ -1234,7 +1240,7 @@ msgstr "دیتابیس بازیابی شد"
 
 #: bin/restore.php:455
 msgid "Restoring Bindaddres Settings"
-msgstr ""
+msgstr "بازیابی تنظیمات Bindaddres"
 
 #: bin/restore.php:282
 msgid "Restoring CDRs complete"
@@ -1246,7 +1252,7 @@ msgstr "بازیابی CDR ها…"
 
 #: bin/restore.php:449
 msgid "Restoring DNS settings"
-msgstr ""
+msgstr "بازیابی تنظیمات DNS"
 
 #: bin/restore.php:384
 msgid "Restoring Database..."
@@ -1314,7 +1320,7 @@ msgstr "یک مرتبه در هر ساعت اجرا شود، در ابتدای �
 
 #: functions.inc/class.backup.php:500
 msgid "Running maintenance.."
-msgstr ""
+msgstr "نگهداری درحال اجرا.."
 
 #: bin/restore.php:491
 msgid "Running post restore script..."
@@ -1396,7 +1402,7 @@ msgstr "روش زمانبندی تهیه این پشتیبان را انتخاب
 
 #: views/restore/backup_list.php:7
 msgid "Select items to restore"
-msgstr ""
+msgstr "گزینه های بازیابی را انتخاب کنید"
 
 #: views/backup/backup.php:281
 msgid ""
@@ -1449,19 +1455,19 @@ msgstr "سرورها"
 
 #: bin/backup.php:185
 msgid "Skip Bindaddrss is Enabled... "
-msgstr ""
+msgstr "پرش آدرس باند فعال شده است ... "
 
 #: bin/backup.php:197
 msgid "Skip DNS is Enabled... "
-msgstr ""
+msgstr "پرش DNS فعال است ... "
 
 #: bin/restore.php:73
 msgid "Skipping host-specific Bind address"
-msgstr ""
+msgstr "رها کردن آدرس Bind خاص میزبان"
 
 #: bin/restore.php:79
 msgid "Skipping host-specific DNS"
-msgstr ""
+msgstr "پرش DNS اختصاصی میزبان"
 
 #: bin/backup.php:107
 msgid "Something went wrong when connecting to remote server. Aborting!"
@@ -1532,16 +1538,16 @@ msgstr ""
 
 #: page.backup_restore.php:191
 msgid "The Restore script Finished You can close this window"
-msgstr ""
+msgstr "اسکریپت بازگردانی تمام شد شما می توانید این پنجره را ببندید"
 
 #: page.backup_restore.php:188
 msgid "The Restore script is still running"
-msgstr ""
+msgstr "اسکریپت بازگردانی هنوز در حال اجرا است"
 
 #: bin/restore.php:120
 #, php-format
 msgid "The archive must be come from a release like this: %s.%s"
-msgstr ""
+msgstr "The archive must be come from a release like this: %s1.%s2"
 
 #: functions.inc/class.backup.php:411
 msgid ""
@@ -1576,7 +1582,7 @@ msgstr ""
 
 #: bin/restore.php:118
 msgid "This archive cannot be used, because the version is not correct!!!"
-msgstr ""
+msgstr "این آرشیو نمیتواند استفاده شود، زیرا این نسخه درست نیست!"
 
 #: views/servers/ftp.php:166
 msgid ""
@@ -1620,7 +1626,7 @@ msgstr "نوع انتقال"
 #: functions.inc/class.backup.php:493
 #, php-format
 msgid "Trying to upload %s to %s"
-msgstr ""
+msgstr "Trying to upload %s1 to %s2"
 
 #: views/cron.php:30 assets/js/backup.js:83
 msgid "Tuesday"

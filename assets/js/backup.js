@@ -1,104 +1,6 @@
 //put all document ready stuff here... One listener to rule them all
 $(document).ready(function () {
 	toggle_warmspare();
-
-	$("#backup_backup").on('post-body.bs.table', function () {
-		$("#backup_backup .delete").click(function() {
-			if(confirm(_('Are you sure you want to delete this item?'))) {
-				var id = $(this).data('item');
-				$.post(
-					FreePBX.ajaxurl,
-					{
-						module: "backup",
-						command: "deleteBackup",
-						id: id
-					}
-				).done(function(data) {
-					if(data.status) {
-						$('#backup_backup').bootstrapTable('remove', {field: "id", values: [id]})
-					} else {
-						fpbxToast(data.message,'','error')
-					}
-
-				});
-			}
-		});
-		$("#backup_backup .run").click(function() {
-			var id = $(this).data('item');
-			runBackup(id,'Running Backup');
-		});
-	});
-
-	$("#restoreFiles").on("post-body.bs.table", function () {
-		$('#restoreFiles .remoteDelete').on('click', e => {
-			e.preventDefault();
-			document.body.style.overflowY = "auto";
-			fpbxConfirm(
-				_("Are you sure you wish to delete this file? This cannot be undone"),
-				_("Delete"), _("Cancel"),
-				function () {
-					var id = e.currentTarget.dataset.id;
-					var file = e.currentTarget.dataset.file;
-					$.ajax({
-						url: ajaxurl,
-						method: "GET",
-						data: {
-							module: 'backup',
-							command: 'deleteRemote',
-							id: id,
-							file: file,
-						}
-					})
-					.then(data => {
-						if (data.status) {
-							$("#restoreFiles").bootstrapTable('refresh', {
-								silent: true
-							});
-						}
-						fpbxToast(data.message);
-					});
-				}
-			);
-		});
-	});
-
-	$("#localrestorefiles").on("post-body.bs.table", function () {
-		$('#localrestorefiles .localDelete').on('click', e =>{
-			e.preventDefault();
-			document.body.style.overflowY = "auto";
-
-			fpbxConfirm(
-				_("Are you sure you wish to delete this file? This cannot be undone"),
-				_("Delete"),_("Cancel"),
-				function(){
-					var id = e.currentTarget.id;
-					$.ajax({
-						url: FreePBX.ajaxurl,
-						method: "GET",
-						data: {
-							module: 'backup',
-							command: 'deleteLocal',
-							id: id
-						}
-					})
-					.then(data => {
-						if(data.status){
-							$("#localrestorefiles").bootstrapTable('refresh',{silent:true});
-						}
-						fpbxToast(data.message);
-					})
-					.always(function() {
-						document.body.style.overflowY = "auto";
-					});
-				}
-			);
-		});
-		$("#localrestorefiles .run").click(function() {
-			var id = $(this).data('id');
-			runRestore(id,'Running Restore');
-		});
-	});
-
 	if($('#uploadrestore').length){
 		var dz = new Dropzone("#uploadrestore",{
 			url: `${FreePBX.ajaxurl}?module=backup&command=uploadrestore`,
@@ -108,21 +10,168 @@ $(document).ready(function () {
 			maxFilesize: null,
 			previewsContainer: false
 		});
+		dz.on("sending",function() {
+			$("#uploadrestore").html(_("Uploading...")+'<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>')
+		})
 		dz.on('success', function(file){
 			var ret = file.xhr.response || "{}";
 			var jres = JSON.parse(ret);
 			if(jres.md5.length){
-				window.location = `?display=backup_restore&view=processrestore&type=local&fileid=${jres.md5}`;
+				window.location = `?display=backup&view=processrestore&type=local&fileid=${jres.md5}`;
+			}
+		});
+		dz.on('processing', function() {
+			$("#uploadrestore").html(_("Processing...")+'<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>')
+		})
+		dz.on('uploadprogress', function(event,progress,total){
+			if(progress < 100) {
+				$("#uploadrestore").html(sprintf(_("Uploading %s/100"),parseInt(progress))+'<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>')
+			} else {
+				$("#uploadrestore").html(_("Processing...")+'<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>')
 			}
 
-		});
-		dz.on('uploadprogress', function(event,progress,total){
-			var current = event.upload.progress ? event.upload.progress:0;
-			$("#uploadprogress").css('width', `${current}%`);
+			$("#uploadprogress").css('width', `${progress}%`);
 		});
 	}
+
+	$("#runrestore").click(function(e) {
+		e.stopPropagation();
+		e.preventDefault();
+		runRestore(fileid,'Running Restore');
+	});
 });
 //end ready
+
+var deletables = {}
+$("table").on('check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table', function () {
+	var toolbar = $(this).data("toolbar"),
+			id = $(this).prop("id"),
+			type = $(this).data("type");
+	$("#remove-"+type).prop('disabled', !$("#"+id).bootstrapTable('getSelections').length);
+	deletables[type] = $.map($("#"+id).bootstrapTable('getSelections'), function (row) {
+		return {
+			'id': row.id,
+			'file': row.file ? row.file : null
+		};
+	});
+});
+
+$(".btn-remove").click(function() {
+	$(this).prop("disabled",true);
+	var type = $(this).data("type");
+	$.post(
+		FreePBX.ajaxurl,
+		{
+			module: "backup",
+			command: "deleteMultipleRestores",
+			type: type,
+			files: deletables[type]
+		}
+	).done(function(data) {
+		if(data.status) {
+			$('#'+type).bootstrapTable('remove', {field: "id", values: data.ids})
+		} else {
+			fpbxToast(data.message,'','error')
+		}
+		$(this).prop("disabled",false);
+	});
+})
+
+$("#backup_backup").on('post-body.bs.table', function () {
+	$("#backup_backup .delete").click(function() {
+		if(confirm(_('Are you sure you want to delete this item?'))) {
+			var id = $(this).data('item');
+			$.post(
+				FreePBX.ajaxurl,
+				{
+					module: "backup",
+					command: "deleteBackup",
+					id: id
+				}
+			).done(function(data) {
+				if(data.status) {
+					$('#backup_backup').bootstrapTable('remove', {field: "id", values: [id]})
+				} else {
+					fpbxToast(data.message,'','error')
+				}
+
+			});
+		}
+	});
+	$("#backup_backup .run").click(function() {
+		var id = $(this).data('item');
+		runBackup(id,'Running Backup');
+	});
+});
+
+$("#restoreFiles").on("post-body.bs.table", function () {
+	$('#restoreFiles .remoteDelete').on('click', e => {
+		e.preventDefault();
+		document.body.style.overflowY = "auto";
+		fpbxConfirm(
+			_("Are you sure you wish to delete this file? This cannot be undone"),
+			_("Delete"), _("Cancel"),
+			function () {
+				var id = e.currentTarget.dataset.id;
+				var file = e.currentTarget.dataset.file;
+				$.ajax({
+					url: ajaxurl,
+					method: "GET",
+					data: {
+						module: 'backup',
+						command: 'deleteRemote',
+						id: id,
+						file: file,
+					}
+				})
+				.then(data => {
+					if (data.status) {
+						$('#restoreFiles').bootstrapTable('remove', {field: "id", values: [data.id]})
+					}
+					fpbxToast(data.message);
+				});
+			}
+		);
+	});
+});
+
+$("#localrestorefiles").on("post-body.bs.table", function () {
+	$('#localrestorefiles .localDelete').on('click', e =>{
+		e.preventDefault();
+		document.body.style.overflowY = "auto";
+
+		fpbxConfirm(
+			_("Are you sure you wish to delete this file? This cannot be undone"),
+			_("Delete"),_("Cancel"),
+			function(){
+				var id = e.currentTarget.id;
+				$.ajax({
+					url: FreePBX.ajaxurl,
+					method: "GET",
+					data: {
+						module: 'backup',
+						command: 'deleteLocal',
+						id: id
+					}
+				})
+				.then(data => {
+					if(data.status){
+						$("#localrestorefiles").bootstrapTable('refresh',{silent:true});
+						$("#restoreFiles").bootstrapTable('refresh',{silent:true});
+					}
+					fpbxToast(data.message);
+				})
+				.always(function() {
+					document.body.style.overflowY = "auto";
+				});
+			}
+		);
+	});
+	$("#localrestorefiles .run").click(function() {
+		var id = $(this).data('id');
+		runRestore(id,'Running Restore');
+	});
+});
 
 if(sessionStorage.getItem("runBackup")) {
 	runBackup(sessionStorage.getItem("runBackup"),'Running Backup');
@@ -140,7 +189,7 @@ if ($("#backup_storage").length) {
 		enableLazyLoad: true
 	});
 	//get items
-	$.getJSON(`${FreePBX.ajaxurl}?module=backup&command=getJSON&jdata=backupStorage&id=${$("#id").val()}`)
+	$.getJSON(`${FreePBX.ajaxurl}?module=backup&command=backupStorage&id=${$("#id").val()}`)
 		.done(
 			function (data) {
 				$('#backup_storage').multiselect('dataprovider', data);
@@ -310,11 +359,15 @@ function linkFormatter(value, row, index) {
 	return html;
 }
 
-function moduleSettingFormatter(value, row, index) {
+function moduleSettingFilter(index, row) {
+	return (row.settingdisplay);
+}
+
+function moduleSettingFormatter(index, row, element) {
 	if (row.settingdisplay) {
 		return `<div class = "settingdisplay">${row.settingdisplay}</div>`;
 	} else {
-		return _("This module has no settings");
+		return '';
 	}
 }
 /** End formatters */
@@ -343,3 +396,8 @@ function remoteFormatter(value, row, index) {
 function timestampFormatter(value, row, index) {
 	return moment.unix(value).format(datetimeformat)
 }
+
+
+$("#backup-side").on("click-row.bs.table", function(event, row) {
+	window.location = "?display=backup&view=editbackup&id="+row.id;
+});

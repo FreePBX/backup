@@ -44,7 +44,7 @@ abstract class CommonBase {
 		return $this->warnings;
 	}
 
-	protected function getLogger() {
+	public function getLogger() {
 		if(!$this->logger) {
 			$this->setupLogger();
 		}

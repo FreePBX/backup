@@ -14,6 +14,9 @@ use Monolog\Formatter;
 class Multiple extends Common {
 	private $id;
 	private $dependencies = [];
+	static $validModulesCache = [];
+
+	use Email;
 
 	/**
 	 * Constructor
@@ -42,6 +45,8 @@ class Multiple extends Common {
 			throw new \Exception("Backup id not provided", 500);
 		}
 
+		$this->attachEmailHandler();
+
 		$this->log(sprintf(_("Running Backup ID: %s"),$this->id),'DEBUG');
 		$this->log(sprintf(_("Transaction: %s"),$this->transactionId),'DEBUG');
 
@@ -68,7 +73,7 @@ class Multiple extends Common {
 			'date' => time(),
 			'backupInfo' => $this->backupInfo,
 		];
-		$validMods = $this->getModules();
+		$validMods = $this->Backup->getModules();
 		$backupItems = $this->Backup->getAll('modules_'.$this->id);
 		$selectedmods = is_array($backupItems)?array_keys($backupItems):[];
 		$selectedmods = array_map('strtolower', $selectedmods);
@@ -152,26 +157,6 @@ class Multiple extends Common {
 		$this->log(sprintf(_("Finished created backup file: %s"),$this->getFile()));
 
 		return $this->getFile();
-	}
-
-	/**
-	 * Get a list of modules that implement the backup method
-	 * @return array list of modules
-	 */
-	private function getModules(){
-		//All modules impliment the "backup" method so it is a horrible way to know
-		//which modules are valid. With the autoloader we can do this magic :)
-		$webrootpath = $this->freepbx->Config->get('AMPWEBROOT');
-		$moduleInfo = $this->freepbx->Modules->getInfo(false,MODULE_STATUS_ENABLED);
-		$validmods = [];
-		foreach ($moduleInfo as $rawname => $data) {
-			$bufile = $webrootpath . '/admin/modules/' . $rawname.'/Backup.php';
-			if(file_exists($bufile)){
-				$validmods[$rawname] = $data;
-			}
-		}
-
-		return $validmods;
 	}
 
 	/**

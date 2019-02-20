@@ -128,6 +128,41 @@
 								<div class="row">
 									<div class="form-group">
 										<div class="col-md-3">
+											<label class="control-label" for="backup_emailinline">
+												<?php echo _("Inline Logs") ?>
+											</label>
+											<i class="fa fa-question-circle fpbx-help-icon" data-for="backup_emailinline"></i>
+										</div>
+										<div class="col-md-9">
+											<span class="radioset">
+												<?php $backup_emailinline = isset($backup_emailinline)?$backup_emailinline:'no';?>
+												<input type="radio" name="backup_emailinline" id="backup_emailinline_success" value="yes" <?php echo ($backup_emailinline === 'yes'
+													? "CHECKED": "") ?>>
+												<label for="backup_emailinline_success">
+													<?php echo _("Yes");?>
+												</label>
+												<input type="radio" name="backup_emailinline" id="backup_emailinline_failure" value="no" <?php echo ($backup_emailinline === 'no'
+													? "CHECKED": "") ?>>
+												<label for="backup_emailinline_failure">
+													<?php echo _("No");?>
+												</label>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<span id="backup_emailinline-help" class="help-block fpbx-help-block">
+											<?php echo _("When set to Yes logs will be added to the body of the email, when set to No logs will be added as an attachment")?>
+										</span>
+									</div>
+								</div>
+							</div>
+							<!--Notification Email-->
+							<div class="element-container">
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-3">
 											<label class="control-label" for="backup_emailtype">
 												<?php echo _("Email Type") ?>
 											</label>
@@ -135,7 +170,7 @@
 										</div>
 										<div class="col-md-9">
 											<span class="radioset">
-												<?php $backup_emailtype = isset($backup_emailtype)?$backup_emailtype:both;?>
+												<?php $backup_emailtype = isset($backup_emailtype)?$backup_emailtype:'both';?>
 												<input type="radio" name="backup_emailtype" id="backup_emailtype_success" value="success" <?php echo ($backup_emailtype=="success"
 													? "CHECKED": "") ?>>
 												<label for="backup_emailtype_success">
@@ -353,50 +388,6 @@
 						<!--END Delete After Days-->
 						<?php echo $warmspare ?>
 					</form>
-
-					<div class="modal fade" tabindex="-99" id="itemsModal" role="dialog">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-									<h4 class="modal-title">
-										<?php echo _("Modules to Backup")?>
-									</h4>
-								</div>
-								<div class="modal-body">
-									<?php
-									$dataurl = "ajax.php?module=backup&command=getJSON&jdata=backupItems&id=".$id;
-									?>
-										<table id="backupmodules" data-url="<?php echo $dataurl?>" data-toggle="table" data-search="true" data-id-field="modulename"
-											data-detail-view="true" data-detail-formatter="moduleSettingFormatter" data-maintain-selected="true" class="table table-striped">
-											<thead>
-												<tr>
-													<th data-field="selected" data-checkbox='true'>
-														<?php echo _("Selected")?>
-													</th>
-													<th data-field="modulename">
-														<?php echo _("Module")?>
-													</th>
-												</tr>
-											</thead>
-										</table>
-								</div>
-								<div class="modal-footer">
-									<a class="btn btn-default" id="itemsReset">
-										<?php echo _("Reset")?>
-									</a>
-									<a class="btn btn-default" data-dismiss="modal">
-										<?php echo _("Close")?>
-									</a>
-									<a class="btn btn-primary" id="itemsSave">
-										<?php echo _("Save Changes")?>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -414,3 +405,47 @@
 		$('option[value="minute"]').hide();
 	});
 </script>
+
+<div class="modal fade" tabindex="-99" id="itemsModal" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">
+					<?php echo _("Modules to Backup")?>
+				</h4>
+			</div>
+			<div class="modal-body">
+				<?php
+				$dataurl = "ajax.php?module=backup&command=backupItems&id=".$id;
+				?>
+					<table id="backupmodules" data-url="<?php echo $dataurl?>" data-toggle="table" data-search="true" data-id-field="modulename"
+						data-detail-view="true" data-detail-formatter="moduleSettingFormatter" data-detail-filter="moduleSettingFilter" data-maintain-selected="true" class="table table-striped">
+						<thead>
+							<tr>
+								<th data-field="selected" data-checkbox='true'>
+									<?php echo _("Selected")?>
+								</th>
+								<th data-field="display">
+									<?php echo _("Module")?>
+								</th>
+							</tr>
+						</thead>
+					</table>
+			</div>
+			<div class="modal-footer">
+				<a class="btn btn-default" id="itemsReset">
+					<?php echo _("Reset")?>
+				</a>
+				<a class="btn btn-default" data-dismiss="modal">
+					<?php echo _("Close")?>
+				</a>
+				<a class="btn btn-primary" id="itemsSave">
+					<?php echo _("Save Changes")?>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

@@ -60,6 +60,10 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		$modData['module'] = $module;
 		$modData['version'] = $version;
 		$class = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($module));
+		if(!class_exists($class)) {
+			$this->log(sprintf(_("The module %s does not seem to support restores."), $module));
+			return;
+		}
 		$class = new $class($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp);
 		if(!method_exists($class, 'runRestore')) {
 			$this->log('runRestore method does not exist in '.$class,'ERROR');
@@ -102,6 +106,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		$tar->open($this->file);
 		$tar->extract($this->tmp);
 		$tar->close();
+		$this->log(sprintf(_("File extracted to %s. These files will remain until a new restore is run or until cleaned manually."),$this->tmp));
 	}
 
 	/**

@@ -18,11 +18,11 @@ if(isset($error) && !empty($error)){
 					</div>
 					<div class="col-md-9">
 						<div id="uploadrestore" class="alert alert-info">
-							<i class="fa fa-upload"></i> Click to upload a backup file.
+							<i class="fa fa-upload"></i> <?php echo _('Click to upload a backup file.')?>
 						</div>
 						<div class="progress">
   							<div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" data-last="0" aria-valuemax="100" id="uploadprogress">
-    							<span class="sr-only" id="filelabel">Processing</span>
+    							<span class="sr-only" id="filelabel"><?php echo _('Processing')?></span>
   							</div>
 						</div>
 
@@ -44,11 +44,15 @@ if(isset($error) && !empty($error)){
 		<h3 class="panel-title"><?php echo _("Restore from local cache")?></h3>
 	</div>
 	<div class="panel-body">
-		<?php
-			$localdataurl = "ajax.php?module=backup&command=localRestoreFiles";
-		?>
+		<div id="toolbar-localrestorefiles">
+			<button id="remove-localrestorefiles" class="btn btn-danger btn-remove" data-type="localrestorefiles" disabled>
+				<i class="fa fa-user-times"></i> <span><?php echo _('Delete')?></span>
+			</button>
+		</div>
 		<table id="localrestorefiles"
-			data-url="<?php echo $localdataurl?>"
+			data-type="localrestorefiles"
+			data-toolbar="#toolbar-localrestorefiles"
+			data-url="ajax.php?module=backup&command=localRestoreFiles"
 			data-cache="false"
 			data-maintain-selected="true"
 			data-show-columns="true"
@@ -58,9 +62,11 @@ if(isset($error) && !empty($error)){
 			data-sort-name="timestamp"
 			data-pagination="true"
 			data-search="true"
+			data-unique-id="id"
 			class="table table-striped">
 			<thead>
 				<tr>
+					<th data-checkbox="true"></th>
 					<th data-field="name"><?php echo _("Backup Name")?></th>
 					<th data-field="timestamp" data-formatter="timestampFormatter"><?php echo _("Backup Date")?></th>
 					<th data-field="framework"><?php echo _("Framework")?></th>
@@ -81,8 +87,14 @@ if(isset($error) && !empty($error)){
 		<?php
 			$dataurl = "ajax.php?module=backup&command=restoreFiles";
 		?>
-
+		<div id="toolbar-restoreFiles">
+			<button id="remove-restoreFiles" class="btn btn-danger btn-remove" data-type="restoreFiles" disabled>
+				<i class="fa fa-user-times"></i> <span><?php echo _('Delete')?></span>
+			</button>
+		</div>
 		<table id="restoreFiles"
+			data-type="restoreFiles"
+			data-toolbar="#toolbar-restoreFiles"
 			data-url="<?php echo $dataurl?>"
 			data-cache="false"
 			data-maintain-selected="true"
@@ -93,9 +105,11 @@ if(isset($error) && !empty($error)){
 			data-toggle="table"
 			data-pagination="true"
 			data-search="true"
+			data-unique-id="id"
 			class="table table-striped">
 			<thead>
 				<tr>
+					<th data-checkbox="true"></th>
 					<th data-field="name"><?php echo _("Backup Name")?></th>
 					<th data-field="timestamp" data-formatter="timestampFormatter"><?php echo _("Backup Date")?></th>
 					<th data-field="type"><?php echo _("Backup Type")?></th>

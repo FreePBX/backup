@@ -17,19 +17,6 @@ class Legacy extends Common {
 		$this->parseSQL();
 	}
 
-	protected function extractFile(){
-		//remove backup tmp dir for extraction
-		$this->fs->remove($this->tmp);
-
-		//add tmp dir back
-		$this->fs->mkdir($this->tmp);
-		//We have to go the exec route because legacy backups root is ./ which breaks things
-		$this->log(sprintf(_("Extracting: %s... This may take a moment depending on the backup size"), $this->file));
-		$process = new Process(['tar', $this->file, '-C '.$this->tmp]);
-		$process->mustRun();
-		$this-log(sprintf(_("File extracted to %s. These files will remain until a new restore is run or until cleaned manually."),$this->tmp));
-	}
-
 	/**
 	 * Build out Manifest
 	 *
@@ -52,36 +39,32 @@ class Legacy extends Common {
 		$this->log(_("Parsing out SQL tables. This may take a moment depending on backup size."));
 		$tables = $this->getModuleTables();
 		$files = [];
-		$final = ['unknown' => []];
+		$tableMap = ['unknown' => []];
 		foreach (glob($this->tmp."/*.sql.gz") as $filename) {
 			$files[] = $filename;
 		}
 		$amodules = $this->freepbx->Modules->getActiveModules();
 		foreach ($amodules as $key => $value) {
-			$final[$key] = [];
+			$tableMap[$key] = [];
 		}
 		$this->log(sprintf(_("Found %s database files in the backup."),count($files)));
 		foreach($files as $file){
 			$this->log(sprintf(_("File named: %s"),$file));
-			$pdo = $this->setupTempDb($file);
-			$loadedTables = $pdo->query("SHOW TABLES");
+			$dbh = $this->setupTempDb($file);
+			$loadedTables = $dbh->query("SELECT name FROM sqlite_master WHERE type='table'");
 			while ($current = $loadedTables->fetch(PDO::FETCH_COLUMN)) {
 				if(!isset($tables[$current])){
-					$final['unknown'][] = $current;
+					$tableMap['unknown'][] = $current;
 					continue;
 				}
-				$final[$tables[$current]][] = $current;
+				$tableMap[$tables[$current]][] = $current;
 			}
 			$dt = $this->data['manifest']['fpbx_cdrdb'];
 			$scndCndtn = preg_match("/$dt/i",$file);
-			$data = [
-					'final' => $final,
-					'pdo' => $pdo,
-			];
 			if(!empty($dt) && $scndCndtn){
-				$this->processLegacyCdr($data);
+				//$this->processLegacyCdr($data);
 			}else{
-				$this->processLegacyNormal($data);
+				$this->processLegacyNormal($dbh, $tableMap);
 			}
 		}
 	}
@@ -99,27 +82,19 @@ class Legacy extends Common {
 	}
 
 	public function setupTempDb($file){
-		$this->log(sprintf(_("Loading supplied database file %s"), $file));
-		exec('mysqladmin -f DROP asterisktemp', $out, $ret);
-		exec('mysqladmin CREATE asterisktemp', $out, $ret);
-		$this->log(_("Temporary DB asterisktemp CREATED"));
-		$this->log(_("Loading content to asterisktemp".PHP_EOL));
-		system('pv '.$file.' | gunzip | mysql asterisktemp', $out);
-		$this->Backup->log(sprintf(_("Temporary DB asteriskcdrdb loaded with %s data."),$file));
-		$host = '127.0.0.1';
-		$db = 'asterisktemp';
-		$user = 'root';
-		$pass = '';
-		$charset = 'utf8mb4';
+		$info = new \SplFileInfo($file);
 
-		$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-		$opt = [
-			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-			PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-			PDO::ATTR_EMULATE_PREPARES => false,
-		];
-		$this->tempDB = new PDO($dsn, $user, $pass, $opt);
-		return $this->tempDB;
+		$this->log(sprintf(_("Extracting supplied database file %s"), $info->getBasename()));
+		$process = new Process(['gunzip', $file]);
+		$process->mustRun();
+
+		$extracted = $info->getPath().'/'.$info->getBasename('.' . $info->getExtension());
+
+		$this->log(sprintf(_("Loading supplied database file %s"), $info->getBasename('.' . $info->getExtension())));
+		$tempDB = $this->mysql2sqlite($extracted);
+		$this->log(sprintf(_("%s is now loaded into memory"), $info->getBasename('.' . $info->getExtension())));
+
+		return $tempDB;
 	}
 	public function processLegacyCdr($info){
 		foreach ($info['final'] as $key => $value) {
@@ -142,24 +117,172 @@ class Legacy extends Common {
 			}
 		}
 	}
-	public function processLegacyNormal($info){
-		foreach ($info['final'] as $key => $value) {
-			if($key === 'unknown' || $key === 'framework' || $key === 'cdr' || $key === 'cel' || $key === 'queuelog'){
-				continue;
-			}
-			$namespace = '\\FreePBX\\modules\\'.ucfirst($key).'\\Restore';
-			if(!class_exists($namespace)){
-				$this->log(sprintf(_("Couldn't find %s"),$namespace));
-				continue;
-			}
-			$class = new $namespace(null,$this->freepbx, $this->tmp);
-			if(method_exists($class,'processLegacy')){
-				$this->log(sprintf(_("Calling legacy restore on module %s"),$key));
-				$class->processLegacy($info['pdo'], $this->data, $value, $info['final']['unknown'],$this->tmp);
-				unset($class);
-				continue;
-			}
-			$this->log(sprintf(_("The module %s does not seem to support legacy restores."), $key));
+
+	public function processLegacyModule($module, $dbh, $tables, $tableMap) {
+		$mod = $this->freepbx->Modules->getInfo($module);
+		if(empty($mod[$module]) || $mod[$module]['status'] !== 2) {
+			$this->log(sprintf(_("The module %s is not installed."), $module));
+			return;
 		}
+
+		$class = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($module));
+		if(!class_exists($class)) {
+			$this->log(sprintf(_("The module %s does not seem to support legacy restores."), $module));
+			return;
+		}
+		$modData = [
+			'module' => $module,
+			'version' => $mod[$module]['version']
+		];
+		$class = new $class($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp);
+		if(!method_exists($class,'processLegacy')){
+			$this->log(sprintf(_("The module %s does not seem to support legacy restores."), $key));
+			return;
+		}
+
+		$class->reset();
+		$class->processLegacy($dbh, $this->data, $tables, $tableMap['unknown']);
+	}
+
+	public function processLegacyNormal($dbh, $tableMap){
+		foreach ($tableMap as $module => $tables) {
+			if($module === 'unknown' || $module === 'framework' || $module === 'cdr' || $module === 'cel' || $module === 'queuelog'){
+				continue;
+			}
+			if($module === 'backup') {
+				continue;
+			}
+			$this->log(sprintf(_("Processing %s"),$module),'INFO');
+			try {
+				$this->processLegacyModule($module, $dbh, $tables, $tableMap);
+			} catch(\Exception $e) {
+				$this->log($e->getMessage(). ' on line '.$e->getLine().' of file '.$e->getFile(),'ERROR');
+				$this->log($e->getTraceAsString());
+				$this->addError($e->getMessage(). ' on line '.$e->getLine().' of file '.$e->getFile());
+				continue;
+			}
+			$this->log("",'INFO');
+		}
+	}
+
+	private function mysql2sqlite($file, $delimiter = ';') {
+		$db = new PDO('sqlite::memory:');
+		//$db = new PDO('sqlite:/tmp/fixdb.db');
+		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		set_time_limit(0);
+
+		if (is_file($file) === true) {
+			$file = fopen($file, 'r');
+
+			if (is_resource($file) === true) {
+				$query = array();
+
+				while (feof($file) === false) {
+					$query[] = fgets($file);
+
+					if (preg_match('~' . preg_quote($delimiter, '~') . '\s*$~iS', end($query)) === 1) {
+						$query = trim(implode('', $query));
+
+						if(preg_match('/^DROP TABLE/',$query) || preg_match('/^\/\*.*\*\/;$/',$query)) {
+							$query = array();
+							continue;
+						}
+
+						$aInc = false;
+
+						if(preg_match('/CREATE TABLE `([^`]*)` \(/',$query, $matches1)) {
+							$oquery = $query;
+							//create table
+							if(preg_match('/[^"`]AUTO_INCREMENT|auto_increment[^"`]/',$query)) {
+								$aInc = true;
+								$query = preg_replace("/AUTO_INCREMENT|auto_increment/", "",$query);
+							}
+
+							//discard keys we dont need them for this
+							$query = preg_replace('/((?:PRIMARY|UNIQUE)?\s+KEY .*),?/', "", $query);
+							$query = preg_replace('/(CHARACTER SET|character set) [^ ]+[ ,]/', "",$query);
+							$query = preg_replace("/(ON|on) (UPDATE|update) (CURRENT_TIMESTAMP|current_timestamp)(\(\))?/", "",$query);
+							$query = preg_replace("/(DEFAULT|default) (CURRENT_TIMESTAMP|current_timestamp)(\(\))?/", "DEFAULT current_timestamp",$query);
+							$query = preg_replace("/(COLLATE|collate) [a-z0-9_]*/", "" ,$query);
+							$query = preg_replace("/\s+(ENUM|enum)[^)]+\)/", "text " ,$query);
+							$query = preg_replace("/(SET|set)\([^)]+\)/", "text " ,$query);
+							$query = preg_replace("/UNSIGNED|unsigned/", "" ,$query);
+							$query = preg_replace("/` [^ ]*(INT|int|BIT|bit)[^ ]*/", "` integer" ,$query);
+							$query = preg_replace('/" [^ ]*(INT|int|BIT|bit)[^ ]*/', "\" integer" ,$query);
+							$ere_bit_field = "[bB]'[10]+'";
+							if(preg_match('/'.$ere_bit_field.'/', $query)) {
+								throw new \Exception("Ere_bit_field");
+							}
+							$query = preg_replace('/ (COMMENT|comment).+$/', "",$query);
+							$query = preg_replace('/\)\s*ENGINE=.*;/', ');', $query);
+							$query = preg_replace('/,\s*\n\);/', "\n);", $query);
+							try {
+								$db->query($query);
+							} catch(\Exception $e) {
+								print_r($e->getMessage());
+								die();
+							}
+
+						} elseif(preg_match('/INSERT INTO `([^`]*)` VALUES (.*)/',$query)) {
+							//$query = preg_replace('/\\\\/', "\\_", $query);
+
+							# single quotes are escaped by another single quote
+							$query = preg_replace("/\\\'/", "\\\''", $query);
+							$query = preg_replace('/\\"/', "\"", $query);
+							$query = preg_replace('/\\n/', "\n", $query);
+							$query = preg_replace('/\\r/', "\r", $query);
+							//$query = preg_replace('/\\r/', "\r" );
+							//$query = preg_replace('/\\"/', "\"", $query);
+							//$query = preg_replace('/\\\032/', "\032" );  # substitute char
+
+							//$query = preg_replace('/\\_/', "\\", $query);
+							//insert
+
+							preg_match('/INSERT INTO `([^`]*)` VALUES (.*)/',$query, $matches1);
+
+							$splits = preg_split('/(\),\()/',$matches1[2]);
+							if(count($splits) > 400) {
+								$offset = 0;
+								$amount = 1;
+								while($rows = array_slice($splits, $offset, $amount)) {
+									$values = array();
+									foreach($rows as $row) {
+										$row = preg_replace('/(^\(|\);$)/', '', $row);
+										$values[] = '('.$row.')';
+									}
+									$insert = 'INSERT INTO `'.$matches1[1].'` VALUES '.implode(",",$values).";";
+									try {
+										$db->query($insert);
+									} catch(\Exception $e) {
+										print_r($insert);
+										print_r($e->getMessage());
+										die();
+									}
+									$offset = $offset + $amount;
+								}
+
+							} else {
+								try {
+									$db->query($query);
+								} catch(\Exception $e) {
+									print_r($query);
+									print_r($e->getMessage());
+									die();
+								}
+							}
+						}
+					}
+
+					if (is_string($query) === true) {
+						$query = array();
+					}
+				}
+
+				return $db;
+			}
+		}
+
+		return $db;
 	}
 }

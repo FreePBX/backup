@@ -159,8 +159,6 @@ class Backup extends Command {
 				$errors = array_merge($backupHandler->getErrors(),$maintenanceHandler->getErrors(),$storageHandler->getErrors());
 				$warnings = array_merge($backupHandler->getWarnings(),$maintenanceHandler->getWarnings(),$storageHandler->getWarnings());
 
-				$this->Backup->processNotifications($id, $transactionId, $errors);
-
 				if(empty($errors) && empty($warnings)) {
 					$output->writeln(_("Backup completed successfully"));
 				} else {

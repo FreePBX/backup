@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-19 11:35+0530\n"
-"PO-Revision-Date: 2018-10-15 02:00+0000\n"
-"Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
+"PO-Revision-Date: 2019-02-20 10:42+0000\n"
+"Last-Translator: hammer125 <auswertung@mariner.at>\n"
 "Language-Team: German <http://*/projects/freepbx/backup/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
@@ -225,7 +225,7 @@ msgstr "Sicherungshäufigkeit"
 
 #: Console/Backup.class.php:20
 msgid "Backup History"
-msgstr ""
+msgstr "vergangene Sicherungen"
 
 #: views/backup/backups.php:58
 msgid "Backup Items"
@@ -568,7 +568,7 @@ msgstr ""
 
 #: Console/Backup.class.php:47
 msgid "End"
-msgstr ""
+msgstr "Ende"
 
 #: functions.inc/class.backup.php:471 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
@@ -701,7 +701,7 @@ msgstr "Datei"
 
 #: Console/Backup.class.php:47
 msgid "File Count"
-msgstr ""
+msgstr "Dateizähler"
 
 #: functions.inc/restore.php:424
 msgid "File not found! "
@@ -805,6 +805,11 @@ msgid ""
 "possible). Please note: randomized schedules will be rescheduled (randomly) "
 "every time ANY backup is saved"
 msgstr ""
+"Wenn willkürlich anordnen ausgewählt ist, wir die gleiche Häufigkeit "
+"verwendet, nur die exakten Termine werden willkürlich gewählt (um "
+"Höchstwerte zu Geschäftszeiten nach Möglichkeite zu vermeiden). Beachte: "
+"willkürliche gewählte Zeitpläne werden JEDESMAL, wenn eine Sicherung "
+"gespeichert wird, (zufällig) neu geplant"
 
 #: views/cron.php:108
 msgid ""
@@ -862,11 +867,11 @@ msgstr "Januar"
 
 #: Console/Backup.class.php:47
 msgid "Job ID"
-msgstr ""
+msgstr "AuftragsID"
 
 #: Console/Backup.class.php:47
 msgid "Job Name"
-msgstr ""
+msgstr "Auftragsname"
 
 #: views/cron.php:50
 msgid "July"
@@ -908,7 +913,7 @@ msgstr "Erhaltungsdauer"
 
 #: Console/Backup.class.php:17
 msgid "Manage Backup jobs"
-msgstr ""
+msgstr "Sicherungsaufträge verwalten"
 
 #: views/cron.php:46
 msgid "March"
@@ -1074,7 +1079,7 @@ msgstr "Andere MySQL-Datenbanken"
 
 #: Console/Backup.class.php:19
 msgid "Output in JSON"
-msgstr ""
+msgstr "Ausgabe in JSON"
 
 #: functions.inc/templates.php:259
 msgid "PATTERNs, one per line"
@@ -1526,7 +1531,7 @@ msgstr ""
 
 #: Console/Backup.class.php:47
 msgid "Start"
-msgstr ""
+msgstr "Starten"
 
 #: views/backup/backup.php:65 views/backup/backups.php:291
 msgid "Status Email"
@@ -1748,6 +1753,8 @@ msgstr "Achtung!"
 #: bin/restore.php:289
 msgid "Web Root restore not detected, not restoring module table"
 msgstr ""
+"Web Root Wiederherstellung nicht gefunden, Modultabelle wird nicht "
+"wiederhergestellt"
 
 #: views/cron.php:31 assets/js/backup.js:83
 msgid "Wednesday"

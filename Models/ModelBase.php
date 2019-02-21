@@ -8,6 +8,9 @@ class ModelBase {
 	protected $FreePBX;
 	protected $backupModVer;
 	protected $data = [
+		'version' => null,
+		'module' => null,
+		'pbx_version' => null,
 		'dirs' => [],
 		'files' => [],
 		'configs' => [],
@@ -89,6 +92,15 @@ class ModelBase {
 	 */
 	public function getData(){
 		return $this->data;
+	}
+
+	/**
+	 * Get Module Version
+	 *
+	 * @return string
+	 */
+	public function getVersion() {
+		return $this->data['version'];
 	}
 
 	/**

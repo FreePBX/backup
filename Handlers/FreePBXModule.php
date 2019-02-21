@@ -19,12 +19,6 @@ class FreePBXModule{
 		if(!empty($info[$module]) && ($info[$module]['status'] === MODULE_STATUS_ENABLED)) {
 			$uninstall = $this->uninstall($module);
 		}
-
-		if($this->getModuleVersion($module) !== $version && !$developer){
-			$xml = $this->mf->getModuleDownloadByModuleNameAndVersion($module, $version);
-			$process = new Process(['fwconsole', 'ma', 'download', $module, '--tag',$version, '--quiet']);
-			$process->mustRun();
-		}
 		$install = $this->install($module);
 		return $this;
 	}

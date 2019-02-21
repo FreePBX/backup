@@ -55,7 +55,7 @@ abstract class Restore extends ModelBase {
 		throw new \Exception("Restore is not implemented");
 	}
 
-	public function processLegacy($pdo, $data, $tables, $unknownTables, $tmpfiledir) {
+	public function processLegacy($pdo, $data, $tables, $unknownTables) {
 		throw new \Exception("Legacy Restore is not implemented");
 	}
 

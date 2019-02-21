@@ -11,17 +11,6 @@ use function FreePBX\modules\Backup\Json\json_decode;
 use function FreePBX\modules\Backup\Json\json_encode;
 class Multiple extends Common {
 	private $restoreModules;
-	private $specificRestores;
-
-	/**
-	 * Set this to a module to restore only that module from the backup
-	 *
-	 * @param string $module
-	 * @return void
-	 */
-	public function setSpecificRestore($modules) {
-		$this->specificRestores = $modules;
-	}
 
 	public function process() {
 		if(!file_exists($this->file)) {

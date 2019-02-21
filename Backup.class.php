@@ -438,7 +438,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			case 'restorestatus':
 			case 'backupstatus':
 				session_write_close();
-				ob_end_flush();
+				@ob_end_flush();
 				header_remove();
 				header('Content-Type: text/event-stream');
 				header('Cache-Control: no-cache');

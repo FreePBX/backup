@@ -10,6 +10,7 @@ use PDO;
 use FreePBX\modules\Backup\Handlers\FreePBXModule;
 class Legacy extends Common {
 	private $data;
+	private $inMemory = false; //use in memory sqlite (much faster)
 
 	public function process(){
 		$this->extractFile();
@@ -52,6 +53,7 @@ class Legacy extends Common {
 			$this->log(sprintf(_("File named: %s"),$file));
 			$dbh = $this->setupTempDb($file);
 			$loadedTables = $dbh->query("SELECT name FROM sqlite_master WHERE type='table'");
+			$versions = $dbh->query("SELECT modulename, version FROM modules")->fetchAll(\PDO::FETCH_KEY_PAIR);
 			while ($current = $loadedTables->fetch(PDO::FETCH_COLUMN)) {
 				if(!isset($tables[$current])){
 					$tableMap['unknown'][] = $current;
@@ -64,7 +66,7 @@ class Legacy extends Common {
 			if(!empty($dt) && $scndCndtn){
 				//$this->processLegacyCdr($data);
 			}else{
-				$this->processLegacyNormal($dbh, $tableMap);
+				$this->processLegacyNormal($dbh, $tableMap, $versions);
 			}
 		}
 	}
@@ -118,21 +120,20 @@ class Legacy extends Common {
 		}
 	}
 
-	public function processLegacyModule($module, $dbh, $tables, $tableMap) {
-		$mod = $this->freepbx->Modules->getInfo($module);
-		if(empty($mod[$module]) || $mod[$module]['status'] !== 2) {
-			$this->log(sprintf(_("The module %s is not installed."), $module));
-			return;
-		}
-
+	public function processLegacyModule($module, $version, $dbh, $tables, $tableMap) {
 		$class = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($module));
 		if(!class_exists($class)) {
 			$this->log(sprintf(_("The module %s does not seem to support legacy restores."), $module));
 			return;
 		}
+
 		$modData = [
 			'module' => $module,
-			'version' => $mod[$module]['version']
+			'version' => $version,
+			'pbx_version' => $this->data['manifest']['pbx_version'],
+			'configs' => [
+				'settings' => $dbh->query("SELECT `keyword`, `value` FROM freepbx_settings WHERE module = ".$dbh->quote($module))->fetchAll(PDO::FETCH_KEY_PAIR)
+			]
 		];
 		$class = new $class($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp);
 		if(!method_exists($class,'processLegacy')){
@@ -144,8 +145,17 @@ class Legacy extends Common {
 		$class->processLegacy($dbh, $this->data, $tables, $tableMap['unknown']);
 	}
 
-	public function processLegacyNormal($dbh, $tableMap){
-		foreach ($tableMap as $module => $tables) {
+	public function processLegacyNormal($dbh, $tableMap, $versions){
+		$this->data['settings'] = $dbh->query("SELECT `keyword`, `value` FROM freepbx_settings")->fetchAll(PDO::FETCH_KEY_PAIR);
+
+		$moduleList = $tableMap;
+		if(!is_null($this->specificRestores)) {
+			$this->log(sprintf(_("Only Restoring %s"),implode(",",$this->specificRestores)),'WARNING');
+			$moduleList = array_filter($moduleList, function($m){
+				return in_array($m,$this->specificRestores);
+			}, ARRAY_FILTER_USE_KEY);
+		}
+		foreach ($moduleList as $module => $tables) {
 			if($module === 'unknown' || $module === 'framework' || $module === 'cdr' || $module === 'cel' || $module === 'queuelog'){
 				continue;
 			}
@@ -154,7 +164,7 @@ class Legacy extends Common {
 			}
 			$this->log(sprintf(_("Processing %s"),$module),'INFO');
 			try {
-				$this->processLegacyModule($module, $dbh, $tables, $tableMap);
+				$this->processLegacyModule($module, $versions[$module], $dbh, $tables, $tableMap);
 			} catch(\Exception $e) {
 				$this->log($e->getMessage(). ' on line '.$e->getLine().' of file '.$e->getFile(),'ERROR');
 				$this->log($e->getTraceAsString());
@@ -166,8 +176,21 @@ class Legacy extends Common {
 	}
 
 	private function mysql2sqlite($file, $delimiter = ';') {
-		$db = new PDO('sqlite::memory:');
-		//$db = new PDO('sqlite:/tmp/fixdb.db');
+		if($this->inMemory) {
+			$db = new PDO('sqlite::memory:');
+		} else {
+			$f = pathinfo($file,PATHINFO_FILENAME);
+			$dbpath = '/tmp/'.$this->transactionId.'.db';
+			if(file_exists($dbpath)) {
+				$this->log(sprintf(_('Utilizing cached based sqlite at %s. The data might be stale!'),$dbpath),'WARNING');
+				$db = new PDO('sqlite:'.$dbpath);
+				return $db;
+			} else {
+				$this->log(sprintf(_('Utilizing file based sqlite at %s, This is SLOW'),$dbpath),'WARNING');
+				$db = new PDO('sqlite:'.$dbpath);
+			}
+		}
+
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		set_time_limit(0);
@@ -232,8 +255,6 @@ class Legacy extends Common {
 							$query = preg_replace('/\\"/', "\"", $query);
 							$query = preg_replace('/\\n/', "\n", $query);
 							$query = preg_replace('/\\r/', "\r", $query);
-							//$query = preg_replace('/\\r/', "\r" );
-							//$query = preg_replace('/\\"/', "\"", $query);
 							//$query = preg_replace('/\\\032/', "\032" );  # substitute char
 
 							//$query = preg_replace('/\\_/', "\\", $query);

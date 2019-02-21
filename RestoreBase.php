@@ -7,175 +7,156 @@ use Exception;
  */
 class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 
-	public function getAMPConf($database){
-		$sql = "SELECT keyword, value FROM freepbx_settings";
-		try{
-			return $database->query($sql)->fetchAll(PDO::FETCH_KEY_PAIR);
-		} catch (Exception $e){
-			return [];
+	/**
+	 * Restores databases and kvstore based on present XML tables and backup KVStore
+	 *
+	 * @param \PDO $pdo remote PDO object
+	 * @return void
+	 */
+	public function restoreLegacyDatabaseKvstore(\PDO $pdo) {
+		$module = strtolower($this->data['module']);
+		$dir = $this->FreePBX->Config->get('AMPWEBROOT').'/admin/modules/'.$module;
+		if(!file_exists($dir.'/module.xml')) {
+			$this->log(sprintf(_('Unable to run restoreBaseLegacy on %s because module.xml was not found'),$module),'WARNING');
+			return;
+		}
+		$xml = simplexml_load_file($dir.'/module.xml');
+		if(empty($xml->database)) {
+			$this->log(sprintf(_('Unable to run restoreBaseLegacy on %s because there are no database definitions in module.xml. Perhaps you want to use restoreLegacyKvstore instead'),$module),'WARNING');
+			return;
+		}
+
+		$this->log(sprintf(_("Importing Databases from %s"), $module));
+		$tables = [];
+		foreach($xml->database->table as $table) {
+			$tname = (string)$table->attributes()->name;
+			$sth = $pdo->query("SELECT * FROM $tname",\PDO::FETCH_ASSOC);
+			$res = $sth->fetchAll();
+			$this->log(sprintf(_("Importing %s from %s"),$tname, $module));
+			$this->addDataToTableFromArray($tname, $res);
+		}
+
+		$this->restoreLegacyKvstore($pdo);
+	}
+
+	/**
+	 * Restores kvstore based on backup KVStore
+	 *
+	 * @param \PDO $pdo remote PDO object
+	 * @return void
+	 */
+	public function restoreLegacyKvstore(\PDO $pdo) {
+		$data = $this->getLegacyKVStore($pdo);
+		if(!empty($data)) {
+			$this->log(sprintf(_("Importing KVStore from %s"), strtolower($this->data['module'])));
+			$module = ucfirst(strtolower($this->data['module']));
+			foreach($data as $id => $kv) {
+				$this->FreePBX->$module->setMultiConfig($kv, $id);
+			}
 		}
 	}
 
-	public function getAstDb($path){
-		if(!file_exists($path)){
-			return [];
-		}
-		$data = @unserialize(file_get_contents($path));
-		if($data === false){
-			return [];
-		}
-		return $data;
-	}
-
-	public function getUnderscoreClass($module){
-		$module = ucfirst($module);
+	/**
+	 * Get Underscored FreePBX Module
+	 *
+	 * @param string $module The module rawname
+	 * @return srring
+	 */
+	public function getNamespace() {
+		$module = ucfirst(strtolower($this->data['module']));
 		$namespace = get_class($this->FreePBX->$module);
-		return str_replace('\\','_',$namespace);
+		return $namespace;
 	}
 
-	public function transformLegacyKV($pdo, $module){
-		$oldkv = NULL;
-		$module = ucfirst($module);
-		$kvsql = "SELECT * FROM kvstore WHERE `module` = :module";
-		try {
-			$stmt = $pdo->prepare($kvsql);
-			$stmt->execute([':module' => $module]);
-			$oldkv = $stmt->fetchAll(PDO::FETCH_ASSOC);
-		} catch (\Exception $e) {
-			if ($e->getCode() != '42S02') {
-				throw $e;
-			}
+	/**
+	 * Legacy import KVStore into memory
+	 *
+	 * @param \PDO $pdo The remote PDO connection (Not our local one)
+	 * @return array
+	 */
+	public function getLegacyKVStore(\PDO $pdo) {
+		if(version_compare_freepbx($this->data['pbx_version'],"12","lt")) {
+			return [];
 		}
-		(!isset($oldkv) || !is_array($oldkv)) ? : $oldkv = [];
-		$this->insertKV($module, $oldkv);
-		return $this;
-	}
+		if(version_compare_freepbx($this->data['pbx_version'],"14","lt")) {
+			$res = $pdo->query('SELECT `id`, `key`, `val`, `type` FROM kvstore WHERE `module` = '.$pdo->quote($this->getNamespace()))->fetchAll(\PDO::FETCH_ASSOC);
+		} else {
+			$res = $pdo->query('SELECT `id`, `key`, `val`, `type` FROM kvstore_'.str_replace('\\','_',$this->getNamespace()))->fetchAll(\PDO::FETCH_ASSOC);
+		}
 
-	public function transformNamespacedKV($pdo, $module){
-		$module = ucfirst($module);
-		$newkvsql = "SELECT * FROM " . $this->getUnderscoreClass($module);
-		try {
-			$stmt = $pdo->prepare($newkvsql);
-			$stmt->execute();
-			$newkv = $stmt->fetchAll(PDO::FETCH_ASSOC);
-		} catch (\Exception $e) {
-			if ($e->getCode() != '42S02') {
-				throw $e;
-			}
+		if(empty($res)) {
+			return [];
 		}
-		(!isset($newkv) || !is_array($newkv)) ? : $newkv = [];
-		$this->insertKV($module, $newkv);
-		return $this;
-	}
 
-	public function insertKV($module, $data){
-		$module = ucfirst($module);
-		if ($this->FreePBX->Modules->checkStatus(strtolower($module))) {
-			return $this;
-		}
-		if (!is_null($data) ) {
-			foreach ($data as $entry) {
-				if ($entry['type'] === 'json-arr') {
-					$entry['val'] = json_decode($entry['val'], true);
+		$final = [];
+		foreach($res as $r) {
+			if($r['type'] === 'blob') {
+				$b = $pdo->query('SELECT `type`, `content` FROM `kvblobstore` WHERE `uuid`='.$pdo->quote($r['val']))->fetch(\PDO::FETCH_ASSOC);
+				if(empty($b)) {
+					continue;
 				}
-				$this->FreePBX->$module->setConfig($entry['key'], $entry['val'], $entry['id']);
+				$r['type'] = $b['type'];
+				$r['val'] = $b['val'];
 			}
+			switch($r['type']) {
+				case 'json-obj':
+					$val = json_decode($val);
+				break;
+				case 'json-arr':
+					$val = json_decode($val, true);
+				break;
+				default:
+					$val = $r['val'];
+				break;
+			}
+			$final[$r['id']][$r['key']] = $val;
 		}
-		return $this;
+		return $final;
 	}
 
-	public function addDataDB($data){
-		foreach( $data['tables'] as $table){
-			try{
-				$loadedTables = $data['pdo']->query("SELECT * FROM $table");
-			}catch(\Exception $e){
+	/**
+	 * Dynamically add data from an array to a table
+	 *
+	 * This uses doctrine to see the column names and types to match them up
+	 *
+	 * @param string $table The table name
+	 * @param array $data The data to import
+	 * @param boolean $delete If set to true then delete everything from the table before inserting
+	 * @return void
+	 */
+	public function addDataToTableFromArray($table, $data, $delete = true) {
+		$dc = $this->FreePBX->Database->getDoctrineConnection();
+		$sm = $dc->getSchemaManager();
+
+		$columns = [];
+		foreach($sm->listTableColumns($table) as $c) {
+			$columns[$c->getName()] = $c->getType()->getBindingType();
+		}
+
+		if($delete) {
+			$this->FreePBX->Database->query("DELETE FROM $table");
+		}
+
+		foreach($data as $row) {
+			$row = array_filter($row, function($key) use($columns){
+				if(!isset($columns[$key])) {
+					$this->log(sprintf(_('Column %s does not exist in %s, skipping'), $key, $table),'WARNING');
+					return false;
+				}
+				return true;
+			}, ARRAY_FILTER_USE_KEY);
+
+			foreach($row as $col => &$data) {
+				$data = $dc->quote($data, $columns[$col]);
+			}
+
+			try {
+				$dc->insert($table, $row);
+			} catch(\Exception $e) {
+				$this->log($e->getMessage(),'ERROR');
 				continue;
 			}
-			$results = $loadedTables->fetchAll(\PDO::FETCH_ASSOC);
-			foreach ($results as $key => $value) {
-				$truncate = "TRUNCATE TABLE $table";
-				$this->FreePBX->Database->query($truncate);
-				$first = $results[0];
-				$params = $columns = array_keys($first);
-				array_walk($params, function(&$v, $k) {
-				$v = ':'.preg_replace("/[^a-z0-9]/i", "", $v);
-				});
-				$dbCdr = "asteriskcdrdb.";
-				if( ($data['case'] == "insert") || (!isset($data['case'])) ){
-					$sqlstm = "INSERT";
-				}elseif($data['case'] == "replace"){
-					$sqlstm = "REPLACE";
-				}
-				$sql = "$sqlstm INTO ";
-				if(preg_match("/^$dbCdr/i",$table)){
-					$sql .= "$table";
-				}else{
-					$sql .= "`$table`";
-				}
-				$sql .= " (`".implode('`,`',$columns)."`) VALUES (".implode(',',$params).")";
-				$sth = $this->FreePBX->Database->prepare($sql);
-				foreach($results as $row) {
-				$insertable = [];
-				foreach($row as $k => $v) {
-					$k = preg_replace("/[^a-z0-9]/i", "", $k);
-					$insertable[':'.$k] = $v;
-				}
-				$sth->execute($insertable);
-				}
-			}
-			}
-	}
 
-	public function loadDbentries($table, $data){
-		$oldData = "SELECT * FROM $table";
-		$truncate = "TRUNCATE TABLE $table";
-		try{
-			$stmnt = $this->FreePBX->Database->query($oldData)->fetchAll(\PDO::FETCH_ASSOC);
-			$before = count($stmnt);
-		}catch (\Exception $e) {
-			dbug("Cannot execute the after SELECT query.");
-		}
-		try{
-			$this->FreePBX->Database->query($truncate);
-		}catch (\Exception $e) {
-			if ($e->getCode() != '42S02') {
-				throw $e;
-			}
-		}
-		foreach($data as $value){
-			$params = $columns = array_keys($value);
-			array_walk($params, function(&$v, $k) {
-				$v = ':'.preg_replace("/[^a-z0-9]/i", "", $v);
-			});
-			foreach($value as $k => $v){
-				$k = preg_replace("/[^a-z0-9]/i", "", $k);
-				$insertable[':'.$k] = $v;
-			}
-			$dbCdr = "asteriskcdrdb.";
-			$sql = "INSERT INTO ";
-			if(preg_match("/^$dbCdr/i",$table)){
-				$sql .= "$table";
-			}else{
-				$sql .= "`$table`";
-			}
-			$sql .= " (`".implode('`,`',$columns)."`) VALUES (".implode(',',$params).")";
-			try{
-				$sth = $this->FreePBX->Database->prepare($sql);
-				$sth->execute($insertable);
-			}catch (\Exception $e) {
-				if ($e->getCode() != '42S02') {
-					throw $e;
-				}
-			}
-		}
-		try {
-			$sth = $this->FreePBX->Database->prepare("SELECT count(*) as total FROM $table");
-			$sth->execute();
-			$after = $sth->fetch(\PDO::FETCH_ASSOC);
-			$infotables = "$table had $before rows, now it has {$after['total']} rows.\n";
-			return $infotables;
-		}catch (\Exception $e) {
-			dbug("Cannot execute the before SELECT query.");
 		}
 	}
 }

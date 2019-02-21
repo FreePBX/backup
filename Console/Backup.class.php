@@ -185,12 +185,12 @@ class Backup extends Command {
 				$pid = posix_getpid();
 				if($backupType === 'current'){
 					$restoreHandler = new Handler\Restore\Multiple($this->freepbx,$restore,$transactionid, posix_getpid());
-					if($input->getOption('modules')) {
-						$restoreHandler->setSpecificRestore(explode(",",$input->getOption('modules')));
-					}
 				}
 				if($backupType === 'legacy'){
 					$restoreHandler = new Handler\Restore\Legacy($this->freepbx,$restore, $transactionid, posix_getpid());
+				}
+				if($input->getOption('modules')) {
+					$restoreHandler->setSpecificRestore(explode(",",$input->getOption('modules')));
 				}
 				$output->writeln(sprintf('Starting restore job with file: %s',$restore));
 				$restoreHandler->process();

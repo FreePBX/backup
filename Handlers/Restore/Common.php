@@ -9,11 +9,22 @@ use splitbrain\PHPArchive\Tar;
 use modgettext;
 abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	protected $webroot;
+	protected $specificRestores;
 
 	public function __construct($freepbx, $file, $transactionId, $pid) {
 		parent::__construct($freepbx, $file, $transactionId, $pid);
 
 		$this->webroot = $this->freepbx->Config->get('AMPWEBROOT');
+	}
+
+	/**
+	 * Set this to a module to restore only that module from the backup
+	 *
+	 * @param string $module
+	 * @return void
+	 */
+	public function setSpecificRestore($modules) {
+		$this->specificRestores = $modules;
 	}
 
 	/**
@@ -59,6 +70,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		}
 		$modData['module'] = $module;
 		$modData['version'] = $version;
+		$modData['pbx_version'] = null;
 		$class = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($module));
 		if(!class_exists($class)) {
 			$this->log(sprintf(_("The module %s does not seem to support restores."), $module));

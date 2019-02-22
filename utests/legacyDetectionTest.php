@@ -5,7 +5,7 @@ use splitbrain\PHPArchive\Tar;
 /**
  * https://blogs.kent.ac.uk/webdev/2011/07/14/phpunit-and-unserialized-pdo-instances/
  * @backupGlobals disabled
- * @coversDefaultClass \FreePBX\modules\Backup\Models\BackupFile
+ * @coversDefaultClass \FreePBX\modules\Backup\Models\BackupSplFileInfo
  */
 
 class legacyDetectionTest extends PHPUnit_Framework_TestCase{
@@ -40,7 +40,7 @@ class legacyDetectionTest extends PHPUnit_Framework_TestCase{
         $this->assertEquals('current', self::$o->determineBackupFileType('/tmp/unittest/current.tar.gz'));
         $this->assertFalse(file_exists('/tmp/unittest/current.zip'));
     }
-    /** 
+    /**
      * @attribution http://php.net/manual/en/function.rmdir.php#117354
      */
     static function rrmdir($dir){

@@ -1,13 +1,13 @@
 <?php
 namespace FreePBX\modules\Backup\utests;
 use PHPUnit_Framework_TestCase;
-use FreePBX\modules\Backup\Models\BackupFile;
+use FreePBX\modules\Backup\Models\BackupSplFileInfo;
 use splitbrain\PHPArchive\Tar;
-include __DIR__.'/../Models/BackupFile.php';
+include __DIR__.'/../Models/BackupSplFileInfo.php';
 /**
  * https://blogs.kent.ac.uk/webdev/2011/07/14/phpunit-and-unserialized-pdo-instances/
  * @backupGlobals disabled
- * @coversDefaultClass \FreePBX\modules\Backup\Models\BackupFile
+ * @coversDefaultClass \FreePBX\modules\Backup\Models\BackupSplFileInfo
  */
 
 class fooAddTest extends PHPUnit_Framework_TestCase{
@@ -29,7 +29,7 @@ class fooAddTest extends PHPUnit_Framework_TestCase{
      * @covers ::backupData
      */
     public function testBackupData(){
-        $file = new BackupFile('/tmp/20180501-155236-1525215156-15.0.1alpha2-2097601499.tar.gz');
+        $file = new BackupSplFileInfo('/tmp/20180501-155236-1525215156-15.0.1alpha2-2097601499.tar.gz');
         $parsed = $file->backupData();
         $this->assertEquals('20180501', $parsed['datestring']);
         $this->assertEquals('155236', $parsed['timestring']);
@@ -38,20 +38,20 @@ class fooAddTest extends PHPUnit_Framework_TestCase{
         $this->assertFalse($parsed['isCheckSum']);
     }
     public function testBackupChecksum(){
-        $file = new BackupFile('/tmp/20180501-155236-1525215156-15.0.1alpha2-2097601499.tar.gz');
+        $file = new BackupSplFileInfo('/tmp/20180501-155236-1525215156-15.0.1alpha2-2097601499.tar.gz');
         $parsed = $file->backupData();
         $this->assertFalse($parsed['isCheckSum']);
-        $file = new BackupFile('/tmp/20180501-155236-1525215156-15.0.1alpha2-2097601499.tar.gz.sha256sum');
+        $file = new BackupSplFileInfo('/tmp/20180501-155236-1525215156-15.0.1alpha2-2097601499.tar.gz.sha256sum');
         $parsed = $file->backupData();
         $this->assertTrue($parsed['isCheckSum']);
     }
     public function testBackupDataBadFile(){
-        $file = new BackupFile('/tmp/somethingelse.tar.gz');
+        $file = new BackupSplFileInfo('/tmp/somethingelse.tar.gz');
         $parsed = $file->backupData();
         $this->assertFalse($parsed);
     }
     public function testMetadata(){
-        $file = new BackupFile('/tmp/20180501-155236-1525215156-15.0.1alpha2-2097601499.tar.gz');
+        $file = new BackupSplFileInfo('/tmp/20180501-155236-1525215156-15.0.1alpha2-2097601499.tar.gz');
         $data = $file->getMetadata();
         $this->assertEquals($data['backupInfo']['backup_description'],'YOLO');
     }

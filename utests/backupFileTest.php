@@ -3,6 +3,7 @@ namespace FreePBX\modules\Backup\utests;
 use PHPUnit_Framework_TestCase;
 use FreePBX\modules\Backup\Models\BackupSplFileInfo;
 use splitbrain\PHPArchive\Tar;
+include __DIR__.'/../vendor/autoload.php';
 include __DIR__.'/../Models/BackupSplFileInfo.php';
 /**
  * https://blogs.kent.ac.uk/webdev/2011/07/14/phpunit-and-unserialized-pdo-instances/

@@ -18,11 +18,19 @@ class ModelBase {
 		'garbage' => []
 	];
 
-	public function __construct($freepbx, $backupModVer, $logger, $transactionId){
+	public function __construct($freepbx, $backupModVer, $logger, $transactionId, $modData){
 		$this->FreePBX = $freepbx;
 		$this->backupModVer = $backupModVer;
 		$this->logger = $logger;
 		$this->transactionId = $transactionId;
+
+		foreach($this->data as $key => $data) {
+			if(!isset($modData[$key])) {
+				$modData[$key] = $data;
+			}
+		}
+
+		$this->data = $modData;
 	}
 
 	/**

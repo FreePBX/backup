@@ -71,21 +71,17 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		$modData['module'] = $module;
 		$modData['version'] = $version;
 		$modData['pbx_version'] = null;
-		$class = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($module));
-		if(!class_exists($class)) {
+		$className = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($module));
+		if(!class_exists($className)) {
 			$this->log(sprintf(_("The module %s does not seem to support restores."), $module));
 			return;
 		}
-		$class = new $class($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp);
-		if(!method_exists($class, 'runRestore')) {
-			$this->log('runRestore method does not exist in '.$class,'ERROR');
-			return;
-		}
+		$class = new $className($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp);
 		//Change the Text Domain
 		$this->log(sprintf(_('Resetting %s module data'),$module));
 		modgettext::push_textdomain($module);
 		$class->reset();
-		$this->log(modgettext::_('Restoring Data...','backup'));
+		$this->log(sprintf(_("Restoring from %s [%s]"), $module, get_class($class)));
 		$this->runRestore($class);
 		$this->log(modgettext::_('Done','backup'));
 		modgettext::pop_textdomain();

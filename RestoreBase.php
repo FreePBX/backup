@@ -8,12 +8,65 @@ use Exception;
 class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 
 	/**
+	 * Import Asterisk Database from a multidimensional array
+	 *
+	 * @param array $families
+	 * @return void
+	 */
+	public function importAstDB($families) {
+		foreach($families as $family => $children) {
+			foreach($children as $key => $val) {
+				$this->FreePBX->astman->database_put($family,$key,$val);
+			}
+		}
+	}
+
+	/**
+	 * Import Tables from a multidimensional array
+	 *
+	 * @param array $tables
+	 * @return void
+	 */
+	public function importTables($tables) {
+		foreach($tables as $table => $rows) {
+			$this->addDataToTableFromArray($table, $rows);
+		}
+	}
+	/**
+	 * Import KVStore from a multidimensional array
+	 *
+	 * @param array $store
+	 * @return void
+	 */
+	public function importKVStore($store) {
+		$module = ucfirst(strtolower($this->data['module']));
+		if(!is_subclass_of($this->FreePBX->$module,'FreePBX\DB_Helper')) {
+			$this->log(sprintf(_("%s does not implement KVStore"), $module),'WARNING');
+			return;
+		}
+		foreach($store as $id => $kv) {
+			$this->FreePBX->$module->setMultiConfig($kv, $id);
+		}
+	}
+
+	/**
 	 * Restores databases and kvstore based on present XML tables and backup KVStore
 	 *
 	 * @param \PDO $pdo remote PDO object
 	 * @return void
 	 */
 	public function restoreLegacyDatabaseKvstore(\PDO $pdo) {
+		$this->restoreLegacyDatabase($pdo);
+		$this->restoreLegacyKvstore($pdo);
+	}
+
+	/**
+	 * Restores database based on present XML tables and backup database
+	 *
+	 * @param \PDO $pdo
+	 * @return void
+	 */
+	public function restoreLegacyDatabase(\PDO $pdo) {
 		$module = strtolower($this->data['module']);
 		$dir = $this->FreePBX->Config->get('AMPWEBROOT').'/admin/modules/'.$module;
 		if(!file_exists($dir.'/module.xml')) {
@@ -32,11 +85,9 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 			$tname = (string)$table->attributes()->name;
 			$sth = $pdo->query("SELECT * FROM $tname",\PDO::FETCH_ASSOC);
 			$res = $sth->fetchAll();
-			$this->log(sprintf(_("Importing %s from %s"),$tname, $module));
+			$this->log(sprintf(_("Importing table '%s' from legacy %s"),$tname, $module));
 			$this->addDataToTableFromArray($tname, $res);
 		}
-
-		$this->restoreLegacyKvstore($pdo);
 	}
 
 	/**
@@ -46,13 +97,16 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	 * @return void
 	 */
 	public function restoreLegacyKvstore(\PDO $pdo) {
+		$module = ucfirst(strtolower($this->data['module']));
+		if(!is_subclass_of($this->FreePBX->$module,'FreePBX\DB_Helper')) {
+			$this->log(sprintf(_("%s does not implement KVStore"), $module),'WARNING');
+			return;
+		}
+
 		$data = $this->getLegacyKVStore($pdo);
 		if(!empty($data)) {
 			$this->log(sprintf(_("Importing KVStore from %s"), strtolower($this->data['module'])));
-			$module = ucfirst(strtolower($this->data['module']));
-			foreach($data as $id => $kv) {
-				$this->FreePBX->$module->setMultiConfig($kv, $id);
-			}
+			$this->importKVStore($data);
 		}
 	}
 
@@ -118,6 +172,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	 * Dynamically add data from an array to a table
 	 *
 	 * This uses doctrine to see the column names and types to match them up
+	 * and quote them correctly, if any columns are missing then a warning is displayed
 	 *
 	 * @param string $table The table name
 	 * @param array $data The data to import
@@ -129,6 +184,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		$sm = $dc->getSchemaManager();
 
 		$columns = [];
+		//list columns and set the binding type (used for quoting)
 		foreach($sm->listTableColumns($table) as $c) {
 			$columns[$c->getName()] = $c->getType()->getBindingType();
 		}
@@ -138,20 +194,23 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		}
 
 		foreach($data as $row) {
+			//Filter out missing columns
 			$row = array_filter($row, function($key) use($columns){
 				if(!isset($columns[$key])) {
-					$this->log(sprintf(_('Column %s does not exist in %s, skipping'), $key, $table),'WARNING');
+					$this->log(sprintf(_("Column '%s' does not exist in %s, skipping"), $key, $table),'WARNING');
 					return false;
 				}
 				return true;
 			}, ARRAY_FILTER_USE_KEY);
 
-			foreach($row as $col => &$data) {
-				$data = $dc->quote($data, $columns[$col]);
+			//Correctly quote before inserting
+			$final = [];
+			foreach($row as $col => $data) {
+				$final['`'.$col.'`'] = $data;
 			}
 
 			try {
-				$dc->insert($table, $row);
+				$dc->insert($table, $final);
 			} catch(\Exception $e) {
 				$this->log($e->getMessage(),'ERROR');
 				continue;

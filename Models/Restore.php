@@ -18,19 +18,11 @@ abstract class Restore extends ModelBase {
 	 * @param string $backupTmpDir The Backup Temporary file location
 	 */
 	final public function __construct($freepbx, $backupModVer, $logger, $transactionId, $modData, $backupTmpDir) {
-		parent::__construct($freepbx, $backupModVer, $logger, $transactionId);
+		parent::__construct($freepbx, $backupModVer, $logger, $transactionId, $modData);
 		$this->FreePBX = $freepbx;
 		$this->tmpdir = $backupTmpDir;
 		//Load the FreePBX Module Handler
 		$this->moduleHandler = new FreePBXModule($freepbx);
-
-		foreach($this->data as $key => $data) {
-			if(!isset($modData[$key])) {
-				$modData[$key] = $data;
-			}
-		}
-
-		$this->data = $modData;
 
 		foreach($this->data['files'] as &$file) {
 			$file = new BackupFileSplFileInfo(
@@ -56,7 +48,7 @@ abstract class Restore extends ModelBase {
 	}
 
 	public function processLegacy($pdo, $data, $tables, $unknownTables) {
-		throw new \Exception("Legacy Restore is not implemented");
+		$this->log(sprintf(_('Legacy Restore in %s is not implemented'),$this->data['module']),'WARNING');
 	}
 
 	public function reset() {

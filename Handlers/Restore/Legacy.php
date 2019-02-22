@@ -107,13 +107,9 @@ class Legacy extends Common {
 					continue;
 				}
 				$class = new $namespace(null,$this->freepbx, $this->tmp);
-				if(method_exists($class,'processLegacy')){
-					$this->log(sprintf(_("Calling legacy restore on module %s"),$key));
-					$class->processLegacy($info['pdo'], $this->data, $value, $info['final']['unknown'],$this->tmp);
-					unset($class);
-					continue;
-				}
-				$this->log(sprintf(_("The module %s does not seem to support legacy restores."), $key));
+				$this->log(sprintf(_("Calling legacy restore on module %s"),$key));
+				$class->reset();
+				$class->processLegacy($info['pdo'], $this->data, $value, $info['final']['unknown'],$this->tmp);
 			}else{
 				continue;
 			}
@@ -121,9 +117,9 @@ class Legacy extends Common {
 	}
 
 	public function processLegacyModule($module, $version, $dbh, $tables, $tableMap) {
-		$class = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($module));
-		if(!class_exists($class)) {
-			$this->log(sprintf(_("The module %s does not seem to support legacy restores."), $module));
+		$className = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($module));
+		if(!class_exists($className)) {
+			$this->log(sprintf(_("The module %s does not seem to support restores."), $module),'WARNING');
 			return;
 		}
 
@@ -135,14 +131,12 @@ class Legacy extends Common {
 				'settings' => $dbh->query("SELECT `keyword`, `value` FROM freepbx_settings WHERE module = ".$dbh->quote($module))->fetchAll(PDO::FETCH_KEY_PAIR)
 			]
 		];
-		$class = new $class($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp);
-		if(!method_exists($class,'processLegacy')){
-			$this->log(sprintf(_("The module %s does not seem to support legacy restores."), $key));
-			return;
-		}
-
+		$class = new $className($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp);
+		$this->log(sprintf(_("Resetting %s"), $module));
 		$class->reset();
+		$this->log(sprintf(_("Restoring from %s [%s]"), $module, get_class($class)));
 		$class->processLegacy($dbh, $this->data, $tables, $tableMap['unknown']);
+		$this->log(_("Done"));
 	}
 
 	public function processLegacyNormal($dbh, $tableMap, $versions){
@@ -156,10 +150,15 @@ class Legacy extends Common {
 			}, ARRAY_FILTER_USE_KEY);
 		}
 		foreach ($moduleList as $module => $tables) {
-			if($module === 'unknown' || $module === 'framework' || $module === 'cdr' || $module === 'cel' || $module === 'queuelog'){
+			if($module === 'unknown' || $module === 'cdr' || $module === 'cel' || $module === 'queuelog'){
+				continue;
+			}
+			if($module === 'framework') {
+				$this->log(_('Skipping Framework'),'WARNING');
 				continue;
 			}
 			if($module === 'backup') {
+				$this->log(_('Skipping backup'),'WARNING');
 				continue;
 			}
 			$this->log(sprintf(_("Processing %s"),$module),'INFO');
@@ -167,8 +166,8 @@ class Legacy extends Common {
 				$this->processLegacyModule($module, $versions[$module], $dbh, $tables, $tableMap);
 			} catch(\Exception $e) {
 				$this->log($e->getMessage(). ' on line '.$e->getLine().' of file '.$e->getFile(),'ERROR');
-				$this->log($e->getTraceAsString());
-				$this->addError($e->getMessage(). ' on line '.$e->getLine().' of file '.$e->getFile());
+				$this->log($e->getTraceAsString(),'ERROR');
+				$this->addError($e->getMessage(). ' on line '.$e->getLine().' of file '.$e->getFile(),'ERROR');
 				continue;
 			}
 			$this->log("",'INFO');

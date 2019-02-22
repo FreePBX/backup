@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-22 00:19-0500\n"
+"POT-Creation-Date: 2019-02-22 00:22-0500\n"
 "PO-Revision-Date: 2016-02-05 11:17+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -423,7 +423,7 @@ msgstr ""
 msgid "File reached the server but could not be processed"
 msgstr ""
 
-#: Handlers/Restore/Multiple.php:65 Handlers/Restore/Single.php:34
+#: Handlers/Restore/Multiple.php:66 Handlers/Restore/Single.php:34
 msgid "Finished"
 msgstr ""
 
@@ -651,7 +651,7 @@ msgid "Processing"
 msgstr ""
 
 #: Handlers/Backup/Single.php:36 Handlers/Restore/Legacy.php:164
-#: Handlers/Restore/Multiple.php:53
+#: Handlers/Restore/Multiple.php:54
 #, php-format
 msgid "Processing %s"
 msgstr ""

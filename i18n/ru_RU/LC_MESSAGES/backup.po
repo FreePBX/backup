@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-22 00:19-0500\n"
+"POT-Creation-Date: 2019-02-22 00:22-0500\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -432,7 +432,7 @@ msgstr ""
 msgid "File reached the server but could not be processed"
 msgstr ""
 
-#: Handlers/Restore/Multiple.php:65 Handlers/Restore/Single.php:34
+#: Handlers/Restore/Multiple.php:66 Handlers/Restore/Single.php:34
 msgid "Finished"
 msgstr ""
 
@@ -660,7 +660,7 @@ msgid "Processing"
 msgstr ""
 
 #: Handlers/Backup/Single.php:36 Handlers/Restore/Legacy.php:164
-#: Handlers/Restore/Multiple.php:53
+#: Handlers/Restore/Multiple.php:54
 #, php-format
 msgid "Processing %s"
 msgstr ""

@@ -48,6 +48,7 @@ class Multiple extends Common {
 
 		foreach($restoreModules as $mod) {
 			if($mod['module'] === 'backup') {
+				$this->log("Skipping backup",'WARNING');
 				continue;
 			}
 			$this->log(sprintf(_("Processing %s"),$mod['module']),'INFO');

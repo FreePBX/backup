@@ -95,7 +95,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 		if($dbexist === 1){
 			out(_("Migrating legacy backupjobs"));
 			out(_("Moving servers to filestore"));
-			$servers = Backup\Migration\Servers($this->freepbx);
+			$servers = new Backup\Migration\Servers($this->freepbx);
 			$servers->process();
 			out(_("Migrating legacy backups to the new backup"));
 			$jobs = new Backup\Migration\Backupjobs($this->freepbx);

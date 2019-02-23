@@ -288,7 +288,7 @@ class Backupjobs extends Common{
 		if($this->ModuleXML){
 			return $this;
 		}
-		$dir = $this->FreePBX->Config->get('AMPWEBROOT') . '/admin/modules/' . $module;
+		$dir = $this->freepbx->Config->get('AMPWEBROOT') . '/admin/modules/' . $module;
 		if(!file_exists($dir.'/module.xml')){
 			$this->moduleXML = false;
 			return $this;

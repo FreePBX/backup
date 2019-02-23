@@ -1,5 +1,5 @@
 <?php
-namespace FreePBX\modules\Backup\Modules;
+namespace FreePBX\modules\Backup\Migration;
 use FreePBX\modules\Filestore\drivers\FTP\FTP;
 use FreePBX\modules\Filestore\drivers\Local\Local;
 use FreePBX\modules\Filestore\drivers\S3\S3;

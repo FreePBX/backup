@@ -46,43 +46,4 @@ class FreePBXModule{
 		*/
 		return true;
 	}
-
-	public function getTables($module){
-		$tables = [];
-		$this->loadModuleXML($module);
-		if (!$this->moduleXML) {
-			return [];
-		}
-		$moduleTables = $this->moduleXML->database->table;
-		if(!$moduleTables){
-			return [];
-		}
-		foreach ($moduleTables as $table) {
-			$tname = (string)$table->attributes()->name;
-			$tables[] = $tname;
-		}
-		return $tables;
-	}
-
-	public function loadModuleXML($module){
-		if($this->ModuleXML){
-			return $this;
-		}
-		$dir = $this->freepbx->Config->get('AMPWEBROOT') . '/admin/modules/' . $module;
-		if(!file_exists($dir.'/module.xml')){
-			$this->moduleXML = false;
-			return $this;
-		}
-		$xml = simplexml_load_file($dir . '/module.xml');
-		$this->moduleXML = $xml;
-		return $this;
-	}
-
-	public function getModuleVersion($module){
-		$this->loadModuleXML($module);
-		if(!$this->moduleXML){
-			return '';
-		}
-		return (string)$this->moduleXML->attributes()->version;
-	}
 }

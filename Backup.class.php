@@ -12,8 +12,6 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Monolog\Handler\SwiftMailerHandler;
 use Monolog\Handler\BufferHandler;
-use FreePBX\modules\Backup\Modules\Backupjobs;
-use FreePBX\modules\Backup\Modules\Servers;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FreePBX_Helpers;
@@ -97,10 +95,10 @@ class Backup extends FreePBX_Helpers implements BMO {
 		if($dbexist === 1){
 			out(_("Migrating legacy backupjobs"));
 			out(_("Moving servers to filestore"));
-			$servers = new Servers($this->freepbx);
+			$servers = Backup\Migration\Servers($this->freepbx);
 			$servers->process();
 			out(_("Migrating legacy backups to the new backup"));
-			$jobs = new Backupjobs($this->freepbx);
+			$jobs = new Backup\Migration\Backupjobs($this->freepbx);
 			$jobs->process();
 
 			out(_("Cleaning up old data"));

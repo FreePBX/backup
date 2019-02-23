@@ -1,9 +1,7 @@
 <?php
-namespace FreePBX\modules\Backup\Modules;
-use FreePBX\modules\Backup\Modules\Migration;
+namespace FreePBX\modules\Backup\Migration;
 use PDO;
-use FreePBX\modules\Backup\Handlers\FreePBXModule;
-class Backupjobs extends Migration{
+class Backupjobs extends Common{
 	public $backupJobs = [];
 	public $moduleData = [];
 
@@ -14,7 +12,6 @@ class Backupjobs extends Migration{
 	}
 
 	public function process(){
-		$this->moduleManager = new FreePBXModule($this->freepbx);
 		return $this->getLegacyBackups()
 			 ->migrate();
 
@@ -256,7 +253,7 @@ class Backupjobs extends Migration{
 		$amodules = $this->freepbx->Modules->getActiveModules();
 		$this->moduleData['modules'] = $amodules;
 		foreach($amodules as $mod){
-			$modTables = $this->moduleManager->getTables($mod['rawname']);
+			$modTables = $this->getTables($mod['rawname']);
 			foreach($modTables as $table){
 				$this->moduleData['tables'][$table] = $mod['rawname'];
 			}
@@ -268,5 +265,22 @@ class Backupjobs extends Migration{
 		$this->Backup->delById('migratedbackups');
 		$this->Backup->delById('migratedservers');
 		return $this;
+	}
+
+	public function getTables($module){
+		$tables = [];
+		$this->loadModuleXML($module);
+		if (!$this->moduleXML) {
+			return [];
+		}
+		$moduleTables = $this->moduleXML->database->table;
+		if(!$moduleTables){
+			return [];
+		}
+		foreach ($moduleTables as $table) {
+			$tname = (string)$table->attributes()->name;
+			$tables[] = $tname;
+		}
+		return $tables;
 	}
 }

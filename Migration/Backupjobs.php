@@ -283,4 +283,18 @@ class Backupjobs extends Common{
 		}
 		return $tables;
 	}
+
+	public function loadModuleXML($module){
+		if($this->ModuleXML){
+			return $this;
+		}
+		$dir = $this->FreePBX->Config->get('AMPWEBROOT') . '/admin/modules/' . $module;
+		if(!file_exists($dir.'/module.xml')){
+			$this->moduleXML = false;
+			return $this;
+		}
+		$xml = simplexml_load_file($dir . '/module.xml');
+		$this->moduleXML = $xml;
+		return $this;
+	}
 }

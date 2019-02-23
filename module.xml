@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.4.1</version>
+	<version>15.0.4.2</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,6 +18,7 @@
 
 	</depends>
 	<changelog>
+		*15.0.4.2* Add back migration
 		*15.0.4.1* Add Additional warning
 		*15.0.3beta7* FREEPBX-18886  Fix long polling on backup log
 		*15.0.3beta6* Set the debug flag to false which will clean up old data db data

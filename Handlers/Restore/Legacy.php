@@ -10,7 +10,7 @@ use PDO;
 use FreePBX\modules\Backup\Handlers\FreePBXModule;
 class Legacy extends Common {
 	private $data;
-	private $inMemory = false; //use in memory sqlite (much faster)
+	private $inMemory = true; //use in memory sqlite (much faster)
 
 	public function process(){
 		$this->extractFile();
@@ -72,10 +72,9 @@ class Legacy extends Common {
 	}
 
 	private function getModuleTables(){
-		$moduleManager = new FreePBXModule($this->freepbx);
 		$amodules = $this->freepbx->Modules->getActiveModules();
 		foreach ($amodules as $mod => $data) {
-			$modTables = $moduleManager->getTables($mod);
+			$modTables = $this->parseModuleTables($mod);
 			foreach ($modTables as $table) {
 				$this->moduleData['tables'][$table] = $mod;
 			}
@@ -304,5 +303,46 @@ class Legacy extends Common {
 		}
 
 		return $db;
+	}
+
+	/**
+	 * Extract the module tables from module.xml
+	 *
+	 * @param string $module
+	 * @return array
+	 */
+	public function parseModuleTables($module){
+		$tables = [];
+		$xml = $this->loadModuleXML($module);
+		if (!$xml) {
+			return [];
+		}
+		$moduleTables = $xml->database->table;
+		if(!$moduleTables){
+			return [];
+		}
+		foreach ($moduleTables as $table) {
+			$tname = (string)$table->attributes()->name;
+			$tables[] = $tname;
+		}
+		return $tables;
+	}
+
+	/**
+	 * Load module XML
+	 *
+	 * @param string $module
+	 * @return SimpleXML
+	 */
+	public function loadModuleXML($module){
+		if($this->ModuleXML){
+			return $this;
+		}
+		$dir = $this->freepbx->Config->get('AMPWEBROOT') . '/admin/modules/' . $module;
+		if(!file_exists($dir.'/module.xml')){
+			$this->moduleXML = false;
+			return $this;
+		}
+		return simplexml_load_file($dir . '/module.xml');
 	}
 }

@@ -84,7 +84,12 @@ class Backup extends Command {
 			return;
 		}
 
-		$transactionid = $transaction?$transaction:$this->freepbx->Backup->generateID();
+		if($transaction) {
+			$transactionid = $transaction;
+		} else {
+			$transactionid = $this->freepbx->Backup->generateID();
+			$output->writeln(sprintf(_("Transaction ID is: %s"),$transactionid));
+		}
 
 		switch (true) {
 			case $backupsingle:
@@ -178,10 +183,12 @@ class Backup extends Command {
 				return;
 			break;
 			case $restore:
+				$output->write(_("Determining backup file type..."));
 				$backupType = $this->freepbx->Backup->determineBackupFileType($restore);
 				if($backupType === false){
 					throw new \Exception('Unknown file type');
 				}
+				$output->writeln(sprintf(_("type is %s"),$backupType));
 				$pid = posix_getpid();
 				if($backupType === 'current'){
 					$restoreHandler = new Handler\Restore\Multiple($this->freepbx,$restore,$transactionid, posix_getpid());

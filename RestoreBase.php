@@ -85,8 +85,13 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 			$tname = (string)$table->attributes()->name;
 			$sth = $pdo->query("SELECT * FROM $tname",\PDO::FETCH_ASSOC);
 			$res = $sth->fetchAll();
-			$this->log(sprintf(_("Importing table '%s' from legacy %s"),$tname, $module));
-			$this->addDataToTableFromArray($tname, $res);
+			if(!empty($res)) {
+				$this->log(sprintf(_("Importing table '%s' from legacy %s"),$tname, $module));
+				$this->addDataToTableFromArray($tname, $res);
+			} else {
+				$this->log(sprintf(_("Table '%s' is empty from legacy %s, skipping"),$tname, $module));
+			}
+
 		}
 	}
 

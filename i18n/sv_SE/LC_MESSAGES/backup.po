@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-04 18:56-0500\n"
+"POT-Creation-Date: 2019-03-04 20:14-0500\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -53,7 +53,7 @@ msgstr ""
 msgid "%s does not exist"
 msgstr ""
 
-#: BackupBase.php:43 RestoreBase.php:44 RestoreBase.php:102
+#: BackupBase.php:43 RestoreBase.php:44 RestoreBase.php:107
 #, php-format
 msgid "%s does not implement KVStore"
 msgstr ""
@@ -253,7 +253,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: RestoreBase.php:200
+#: RestoreBase.php:205
 #, php-format
 msgid "Column '%s' does not exist in %s, skipping"
 msgstr ""
@@ -503,12 +503,12 @@ msgstr ""
 msgid "Importing Databases from %s"
 msgstr ""
 
-#: RestoreBase.php:108
+#: RestoreBase.php:113
 #, php-format
 msgid "Importing KVStore from %s"
 msgstr ""
 
-#: RestoreBase.php:88
+#: RestoreBase.php:89
 #, php-format
 msgid "Importing table '%s' from legacy %s"
 msgstr ""
@@ -876,6 +876,11 @@ msgstr ""
 
 #: Backup.class.php:547
 msgid "System Transfer"
+msgstr ""
+
+#: RestoreBase.php:92
+#, php-format
+msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
 
 #: views/backup/warmspare.php:214

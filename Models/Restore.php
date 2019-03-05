@@ -43,14 +43,6 @@ abstract class Restore extends ModelBase {
 		}
 	}
 
-	public function runRestore() {
-		throw new \Exception("Restore is not implemented");
-	}
-
-	public function processLegacy($pdo, $data, $tables, $unknownTables) {
-		$this->log(sprintf(_('Legacy Restore in %s is not implemented'),$this->data['module']),'WARNING');
-	}
-
 	public function reset() {
 		$this->moduleHandler->reset($this->data['module'], $this->data['version']);
 	}

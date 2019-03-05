@@ -13,10 +13,21 @@ use modgettext;
 abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	protected $tar;
 	protected $filename;
+	protected $defaultFallback = false;
 
 	public function __construct($freepbx, $filePath, $transactionId, $pid){
 		parent::__construct($freepbx, $filePath, $transactionId, $pid);
 		$this->filePath = $filePath;
+	}
+
+	/**
+	 * Set default Fallback flag
+	 *
+	 * @param boolean $value
+	 * @return void
+	 */
+	public function setDefaultFallback($value) {
+		$this->defaultFallback = !empty($value);
 	}
 
 	public function setFilename($filename) {
@@ -57,10 +68,14 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		//check to make sure the module supports backup
 		$class = sprintf('\\FreePBX\\modules\\%s\\Backup', $module['ucfirst']);
 		if(!class_exists($class)){
-			$msg = sprintf(_("The module %s doesn't seem to support Backup, no backup created"),$module['rawname']);
-			$this->log("\t".$msg,'WARNING');
+			$msg = sprintf(_("The module %s doesn't seem to support Backup"),$module['rawname']);
+			$this->log($msg,'WARNING');
 			$this->addWarning($msg);
-			return [];
+			if(!$this->defaultFallback) {
+				return [];
+			}
+			$this->log(_("Using default restore strategy"),'WARNING');
+			$className = 'FreePBX\modules\Backup\BackupBase';
 		}
 
 		$modData = [

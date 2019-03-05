@@ -10,11 +10,22 @@ use modgettext;
 abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	protected $webroot;
 	protected $specificRestores;
+	protected $defaultFallback = false;
 
 	public function __construct($freepbx, $file, $transactionId, $pid) {
 		parent::__construct($freepbx, $file, $transactionId, $pid);
 
 		$this->webroot = $this->freepbx->Config->get('AMPWEBROOT');
+	}
+
+	/**
+	 * Set default Fallback flag
+	 *
+	 * @param boolean $value
+	 * @return void
+	 */
+	public function setDefaultFallback($value) {
+		$this->defaultFallback = !empty($value);
 	}
 
 	/**
@@ -74,7 +85,11 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		$className = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($module));
 		if(!class_exists($className)) {
 			$this->log(sprintf(_("The module %s does not seem to support restores."), $module));
-			return;
+			if(!$this->defaultFallback) {
+				return;
+			}
+			$this->log(_("Using default restore strategy"),'WARNING');
+			$className = 'FreePBX\modules\Backup\RestoreBase';
 		}
 		$class = new $className($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp);
 		//Change the Text Domain

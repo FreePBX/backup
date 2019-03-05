@@ -36,6 +36,11 @@ class Legacy extends Common {
 		}
 	}
 
+	/**
+	 * Parse MySQL
+	 *
+	 * @return void
+	 */
 	private function parseSQL(){
 		$this->log(_("Parsing out SQL tables. This may take a moment depending on backup size."));
 		$tables = $this->getModuleTables();
@@ -71,6 +76,11 @@ class Legacy extends Common {
 		}
 	}
 
+	/**
+	 * Get Module Tables from XML
+	 *
+	 * @return array
+	 */
 	private function getModuleTables(){
 		$amodules = $this->freepbx->Modules->getActiveModules();
 		foreach ($amodules as $mod => $data) {
@@ -82,6 +92,12 @@ class Legacy extends Common {
 		return $this->moduleData['tables'];
 	}
 
+	/**
+	 * Setup SQLite Tables
+	 *
+	 * @param string $file
+	 * @return PDO
+	 */
 	public function setupTempDb($file){
 		$info = new \SplFileInfo($file);
 
@@ -97,6 +113,13 @@ class Legacy extends Common {
 
 		return $tempDB;
 	}
+
+	/**
+	 * Process Legacy CDR
+	 *
+	 * @param array $info
+	 * @return void
+	 */
 	public function processLegacyCdr($info){
 		foreach ($info['final'] as $key => $value) {
 			if($key === 'cdr' || $key === 'cel' || $key === 'queuelog'){
@@ -115,11 +138,25 @@ class Legacy extends Common {
 		}
 	}
 
+	/**
+	 * Process Legacy Module
+	 *
+	 * @param string $module
+	 * @param string $version
+	 * @param PDO $dbh
+	 * @param array $tables
+	 * @param array $tableMap
+	 * @return void
+	 */
 	public function processLegacyModule($module, $version, $dbh, $tables, $tableMap) {
 		$className = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($module));
 		if(!class_exists($className)) {
-			$this->log(sprintf(_("The module %s does not seem to support restores."), $module),'WARNING');
-			return;
+			$this->log(sprintf(_("The module %s does not support restores"), $module),'WARNING');
+			if(!$this->defaultFallback) {
+				return;
+			}
+			$this->log(_("Using default restore strategy"),'WARNING');
+			$className = 'FreePBX\modules\Backup\RestoreBase';
 		}
 
 		$modData = [
@@ -127,7 +164,8 @@ class Legacy extends Common {
 			'version' => $version,
 			'pbx_version' => $this->data['manifest']['pbx_version'],
 			'configs' => [
-				'settings' => $dbh->query("SELECT `keyword`, `value` FROM freepbx_settings WHERE module = ".$dbh->quote($module))->fetchAll(PDO::FETCH_KEY_PAIR)
+				'settings' => $dbh->query("SELECT `keyword`, `value` FROM freepbx_settings WHERE module = ".$dbh->quote($module))->fetchAll(PDO::FETCH_KEY_PAIR),
+				'features' => $dbh->query("SELECT `featurename`, `customcode`, `enabled` FROM featurecodes WHERE modulename = ".$dbh->quote($module))->fetchAll(\PDO::FETCH_GROUP|\PDO::FETCH_ASSOC|\PDO::FETCH_UNIQUE)
 			]
 		];
 		$class = new $className($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp);
@@ -138,8 +176,17 @@ class Legacy extends Common {
 		$this->log(_("Done"));
 	}
 
+	/**
+	 * Process Legacy Normal
+	 *
+	 * @param PDO $dbh
+	 * @param array $tableMap
+	 * @param array $versions
+	 * @return void
+	 */
 	public function processLegacyNormal($dbh, $tableMap, $versions){
 		$this->data['settings'] = $dbh->query("SELECT `keyword`, `value` FROM freepbx_settings")->fetchAll(PDO::FETCH_KEY_PAIR);
+		$this->data['features'] = $dbh->query("SELECT `featurename`, `customcode`, `enabled` FROM featurecodes")->fetchAll(\PDO::FETCH_GROUP|\PDO::FETCH_ASSOC|\PDO::FETCH_UNIQUE);
 
 		$moduleList = $tableMap;
 		if(!is_null($this->specificRestores)) {
@@ -173,6 +220,13 @@ class Legacy extends Common {
 		}
 	}
 
+	/**
+	 * Convert a MySQL Dump to SQLite
+	 *
+	 * @param string $file
+	 * @param string $delimiter
+	 * @return void
+	 */
 	private function mysql2sqlite($file, $delimiter = ';') {
 		if($this->inMemory) {
 			$db = new PDO('sqlite::memory:');

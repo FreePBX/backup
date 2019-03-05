@@ -63,8 +63,4 @@ class Backup extends ModelBase {
 	public function getModified() {
 		return $this->modified;
 	}
-
-	public function runBackup($id,$transaction) {
-		throw new \Exception("Restore is not implemented");
-	}
 }

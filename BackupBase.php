@@ -7,24 +7,78 @@ use FreePBX\modules\Backup\Models as Model;
 class BackupBase extends Model\Backup{
 
 	/**
+	 * Run Backup method. This is implemented by other modules
+	 *
+	 * If it's not implemented then it will export defaults by guessing
+	 *
+	 * @param [type] $id
+	 * @param [type] $transaction
+	 * @return void
+	 */
+	public function runBackup($id,$transaction) {
+		$this->log(sprintf(_("RunBackup method is not implemented in %s, using defaults"), $module),'WARNING');
+		$this->addConfigs(array_merge($this->dumpAll(),["default" => true]));
+	}
+
+	/**
+	 * Dump all relevant settings into an array
+	 *
+	 * @return array
+	 */
+	public function dumpAll() {
+		return [
+			"settings" => $this->dumpAdvancedSettings(),
+			"features" => $this->dumpFeatureCodes(),
+			"tables" => $this->dumpTables(),
+			"kvstore" => $this->dumpKVStore()
+		];
+	}
+
+	/**
+	 * Dump all known advanced settings
+	 *
+	 * @return array
+	 */
+	public function dumpAdvancedSettings() {
+		$module = strtolower($this->data['module']);
+		$this->log(sprintf(_("Exporting Advanced settings from %s"), $module));
+		$sql = "SELECT `keyword`, `value` FROM freepbx_settings WHERE module= :name";
+		$sth = $this->FreePBX->Database->prepare($sql);
+		$sth->execute([":name" => $module]);
+		return $sth->fetchAll(\PDO::FETCH_KEY_PAIR);
+	}
+
+	/**
+	 * Dump all known feature codes
+	 *
+	 * @return array
+	 */
+	public function dumpFeatureCodes() {
+		$module = strtolower($this->data['module']);
+		$this->log(sprintf(_("Exporting Feature Codes from %s"), $module));
+		$sql = "SELECT `featurename`, `customcode`, `enabled` FROM featurecodes WHERE modulename = :name";
+		$sth = $this->FreePBX->Database->prepare($sql);
+		$sth->execute([":name" => $module]);
+		return $sth->fetchAll(\PDO::FETCH_GROUP|\PDO::FETCH_ASSOC|\PDO::FETCH_UNIQUE);
+	}
+
+	/**
 	 * Dump all known databases from said module
 	 *
 	 * @return array
 	 */
 	public function dumpTables() {
 		$module = strtolower($this->data['module']);
+		$this->log(sprintf(_("Exporting Databases from %s"), $module));
 		$dir = $this->FreePBX->Config->get('AMPWEBROOT').'/admin/modules/'.$module;
 		if(!file_exists($dir.'/module.xml')) {
-			$this->log(sprintf(_('Unable to run restoreBaseLegacy on %s because module.xml was not found'),$module),'WARNING');
-			return;
+			return [];
 		}
 		$xml = simplexml_load_file($dir.'/module.xml');
 		if(empty($xml->database)) {
-			$this->log(sprintf(_('Unable to run restoreBaseLegacy on %s because there are no database definitions in module.xml. Perhaps you want to use restoreLegacyKvstore instead'),$module),'WARNING');
-			return;
+			return [];
 		}
 
-		$this->log(sprintf(_("Exporting Databases from %s"), $module));
 		$tables = [];
 		foreach($xml->database->table as $table) {
 			$tname = (string)$table->attributes()->name;
@@ -39,8 +93,8 @@ class BackupBase extends Model\Backup{
 	 */
 	public function dumpKVStore() {
 		$module = ucfirst(strtolower($this->data['module']));
+		$this->log(sprintf(_("Exporting KVStore from %s"), $module));
 		if(!is_subclass_of($this->FreePBX->$module,'FreePBX\DB_Helper')) {
-			$this->log(sprintf(_("%s does not implement KVStore"), $module),'WARNING');
 			return [];
 		}
 

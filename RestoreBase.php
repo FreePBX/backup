@@ -8,6 +8,101 @@ use Exception;
 class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 
 	/**
+	 * Run Restore Method used by other modules
+	 *
+	 * @return void
+	 */
+	public function runRestore() {
+		$configs = $this->getConfigs();
+		if(!empty($configs['default'])) {
+			$this->log(sprintf(_('RunRestore method is not implemented in %s, using defaults'),$this->data['module']),'WARNING');
+			$this->importAll($configs);
+		} else {
+			$this->log(sprintf(_('RunRestore method is not implemented in %s, nothing to do'),$this->data['module']),'WARNING');
+		}
+	}
+
+	/**
+	 * Process Legacy Method used by other modules
+	 *
+	 * @param PDO $pdo
+	 * @param array $data
+	 * @param array $tables
+	 * @param array $unknownTables
+	 * @return void
+	 */
+	public function processLegacy($pdo, $data, $tables, $unknownTables) {
+		$this->log(sprintf(_('Legacy Restore in %s is not implemented, using defaults'),$this->data['module']),'WARNING');
+		$this->restoreLegacyAll($pdo);
+	}
+
+	/**
+	 * Import all from a multidimensional array
+	 *
+	 * @param [type] $data
+	 * @return void
+	 */
+	public function importAll($data) {
+		if(!empty($data['settings']) && is_array($data['settings'])) {
+			$this->importAdvancedSettings($data['settings']);
+		}
+
+		if(!empty($data['codes']) && is_array($data['codes'])) {
+			$this->importFeatureCodes($data['codes']);
+		}
+
+		if(!empty($data['astdb']) && is_array($data['astdb'])) {
+			$this->importAstDB($data['astdb']);
+		}
+
+		if(!empty($data['tables']) && is_array($data['tables'])) {
+			$this->importTables($data['tables']);
+		}
+
+		if(!empty($data['kvstore']) && is_array($data['kvstore'])) {
+			$this->importKVStore($data['kvstore']);
+		}
+	}
+
+	/**
+	 * Import advanced settings from a multidimensional array
+	 *
+	 * @param array $settings
+	 * @return void
+	 */
+	public function importAdvancedSettings($settings) {
+		$module = ucfirst(strtolower($this->data['module']));
+		$sql = "UPDATE IGNORE freepbx_settings SET `value` = :value WHERE `keyword` = :keyword AND `module` = :module";
+		$sth = $this->FreePBX->Database->prepare($sql);
+		foreach($settings as $keyword => $value) {
+			$sth->execute([
+				":keyword" => $keyword,
+				":value" => $value
+			]);
+		}
+	}
+
+	/**
+	 * Import Feature codes from a multidimensional array
+	 *
+	 * @param array $codes
+	 * @return void
+	 */
+	public function importFeatureCodes($codes) {
+		$module = ucfirst(strtolower($this->data['module']));
+		$sql = "UPDATE IGNORE featurecodes SET `customcode` = :customcode, `enabled` = :enabled WHERE `featurename` = :featurename AND `modulename` = :modulename";
+		$sth = $this->FreePBX->Database->prepare($sql);
+		foreach($codes as $key => $data) {
+			$sth->execute([
+				":customcode" => $data['customcode'],
+				":enabled" => $data['enabled'],
+				":featurename" => $key,
+				":modulename" => $module
+			]);
+		}
+	}
+
+	/**
 	 * Import Asterisk Database from a multidimensional array
 	 *
 	 * @param array $families
@@ -47,6 +142,13 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		foreach($store as $id => $kv) {
 			$this->FreePBX->$module->setMultiConfig($kv, $id);
 		}
+	}
+
+	public function restoreLegacyAll(\PDO $pdo) {
+		$this->restoreLegacyDatabase($pdo);
+		$this->restoreLegacyKvstore($pdo);
+		$this->restoreLegacyFeatureCodes($pdo);
+		$this->restoreLegacySettings($pdo);
 	}
 
 	/**
@@ -89,9 +191,60 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 				$this->log(sprintf(_("Importing table '%s' from legacy %s"),$tname, $module));
 				$this->addDataToTableFromArray($tname, $res);
 			} else {
-				$this->log(sprintf(_("Table '%s' is empty from legacy %s, skipping"),$tname, $module));
+				$this->log(sprintf(_("Table '%s' is empty from legacy %s, skipping"),$tname, $module), 'WARNING');
 			}
 
+		}
+	}
+
+	/**
+	 * Restore Legacy Feature Codes
+	 *
+	 * @param \PDO $pdo
+	 * @return void
+	 */
+	public function restoreLegacyFeatureCodes(\PDO $pdo) {
+		$module = strtolower($this->data['module']);
+		$sql = "SELECT `featurename`, `customcode`, `enabled` FROM featurecodes WHERE modulename = :name";
+		$sth = $pdo->prepare($sql);
+		$sth->execute([":name" => $module]);
+		$res = $sth->fetchAll(\PDO::FETCH_ASSOC);
+
+		$sql = "UPDATE IGNORE featurecodes SET `customcode` = :customcode, `enabled` = :enabled WHERE `featurename` = :featurename AND `modulename` = :modulename";
+		$usth = $this->FreePBX->Database->prepare($sql);
+
+		foreach($res as $data) {
+			$usth->execute([
+				":customcode" => $data['customcode'],
+				":enabled" => $data['enabled'],
+				":featurename" => $data['featurename'],
+				":modulename" => $module
+			]);
+		}
+	}
+
+	/**
+	 * Restore Legacy Advanced Settings
+	 *
+	 * @param \PDO $pdo
+	 * @return void
+	 */
+	public function restoreLegacySettings(\PDO $pdo) {
+		$module = strtolower($this->data['module']);
+		$sql = "SELECT `keyword`, `value` FROM freepbx_settings WHERE module= :name";
+		$sth = $pdo->prepare($sql);
+		$sth->execute([":name" => $module]);
+		$res = $sth->fetchAll(\PDO::FETCH_ASSOC);
+
+		$sql = "UPDATE IGNORE freepbx_settings SET `value` = :value WHERE `keyword` = :keyword AND `module` = :module";
+		$usth = $this->FreePBX->Database->prepare($sql);
+
+		foreach($res as $data) {
+			$usth->execute([
+				":keyword" => $data['keyword'],
+				":value" => $data['value'],
+				":module" => $data['module']
+			]);
 		}
 	}
 
@@ -137,10 +290,15 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		if(version_compare_freepbx($this->data['pbx_version'],"12","lt")) {
 			return [];
 		}
-		if(version_compare_freepbx($this->data['pbx_version'],"14","lt")) {
-			$res = $pdo->query('SELECT `id`, `key`, `val`, `type` FROM kvstore WHERE `module` = '.$pdo->quote($this->getNamespace()))->fetchAll(\PDO::FETCH_ASSOC);
-		} else {
-			$res = $pdo->query('SELECT `id`, `key`, `val`, `type` FROM kvstore_'.str_replace('\\','_',$this->getNamespace()))->fetchAll(\PDO::FETCH_ASSOC);
+
+		try {
+			if(version_compare_freepbx($this->data['pbx_version'],"14","lt")) {
+				$res = $pdo->query('SELECT `id`, `key`, `val`, `type` FROM kvstore WHERE `module` = '.$pdo->quote($this->getNamespace()))->fetchAll(\PDO::FETCH_ASSOC);
+			} else {
+				$res = $pdo->query('SELECT `id`, `key`, `val`, `type` FROM kvstore_'.str_replace('\\','_',$this->getNamespace()))->fetchAll(\PDO::FETCH_ASSOC);
+			}
+		} catch(\Exception $e) {
+			return [];
 		}
 
 		if(empty($res)) {

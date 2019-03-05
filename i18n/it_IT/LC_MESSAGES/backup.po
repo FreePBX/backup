@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-05 14:54-0500\n"
+"POT-Creation-Date: 2019-03-05 18:39-0500\n"
 "PO-Revision-Date: 2010-01-23 14:24+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -84,12 +84,12 @@ msgstr ""
 msgid "Add a description for your backup"
 msgstr ""
 
-#: Handlers/Backup/Common.php:102
+#: Handlers/Backup/Common.php:108
 #, php-format
 msgid "Adding directory to tar: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:116
+#: Handlers/Backup/Common.php:122
 #, php-format
 msgid "Adding file to tar: %s"
 msgstr ""
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Adding module %s which %s depends on"
 msgstr ""
 
-#: Handlers/Backup/Common.php:122
+#: Handlers/Backup/Common.php:128
 #, php-format
 msgid "Adding module manifest for %s"
 msgstr ""
@@ -120,7 +120,7 @@ msgstr ""
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
 
-#: Backup.class.php:1143
+#: Backup.class.php:1147
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -131,7 +131,7 @@ msgstr ""
 msgid "Backup"
 msgstr ""
 
-#: Backup.class.php:905
+#: Backup.class.php:909
 #, php-format
 msgid "Backup %s"
 msgstr ""
@@ -199,7 +199,7 @@ msgstr ""
 msgid "Backup completed successfully"
 msgstr ""
 
-#: Handlers/Restore/Common.php:133
+#: Handlers/Restore/Common.php:138
 #, php-format
 msgid ""
 "Backup extracted to %s. These files will remain until a new restore is run "
@@ -274,7 +274,7 @@ msgstr ""
 msgid "Could not find a file for the id supplied"
 msgstr ""
 
-#: Handlers/Restore/Common.php:145
+#: Handlers/Restore/Common.php:150
 msgid "Could not locate the manifest for this file"
 msgstr ""
 
@@ -309,7 +309,7 @@ msgstr ""
 msgid "Determining backup file type..."
 msgstr ""
 
-#: Handlers/Restore/Common.php:101 Handlers/Restore/Legacy.php:176
+#: Handlers/Restore/Common.php:106 Handlers/Restore/Legacy.php:180
 msgid "Done"
 msgstr ""
 
@@ -341,7 +341,7 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1046 views/backup/form.php:250
+#: Backup.class.php:1050 views/backup/form.php:250
 msgid "Enabled"
 msgstr ""
 
@@ -419,7 +419,7 @@ msgstr ""
 msgid "Extracting Backup"
 msgstr ""
 
-#: Handlers/Restore/Common.php:121
+#: Handlers/Restore/Common.php:126
 msgid "Extracting backup..."
 msgstr ""
 
@@ -499,11 +499,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1128
+#: Backup.class.php:1132
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1134
+#: Backup.class.php:1138
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -675,7 +675,7 @@ msgstr ""
 msgid "Notifications"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:193 Handlers/Restore/Multiple.php:43
+#: Handlers/Restore/Legacy.php:197 Handlers/Restore/Multiple.php:43
 #, php-format
 msgid "Only Restoring %s"
 msgstr ""
@@ -741,12 +741,12 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:172
+#: Handlers/Restore/Legacy.php:176
 #, php-format
 msgid "Resetting %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:96
+#: Handlers/Restore/Common.php:101
 #, php-format
 msgid "Resetting %s module data"
 msgstr ""
@@ -780,7 +780,7 @@ msgstr ""
 msgid "Restoring %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:99 Handlers/Restore/Legacy.php:174
+#: Handlers/Restore/Common.php:104 Handlers/Restore/Legacy.php:178
 #, php-format
 msgid "Restoring from %s [%s]"
 msgstr ""
@@ -892,10 +892,6 @@ msgstr ""
 msgid "Should the warm spare feature be enabled"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:203
-msgid "Skipping Framework"
-msgstr ""
-
 #: Handlers/Restore/Legacy.php:207
 msgid "Skipping backup"
 msgstr ""
@@ -961,22 +957,22 @@ msgstr ""
 msgid "The backup %s did not set a status and may have had an error"
 msgstr ""
 
-#: Handlers/Restore/Common.php:87
+#: Handlers/Restore/Common.php:92
 #, php-format
 msgid "The module %s does not seem to support restores."
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:154
+#: Handlers/Restore/Legacy.php:158
 #, php-format
 msgid "The module %s does not support restores"
 msgstr ""
 
-#: Handlers/Backup/Common.php:71
+#: Handlers/Backup/Common.php:76
 #, php-format
 msgid "The module %s doesn't seem to support Backup"
 msgstr ""
 
-#: Handlers/Backup/Common.php:91
+#: Handlers/Backup/Common.php:97
 #, php-format
 msgid "The module %s returned no data, No backup created"
 msgstr ""
@@ -1058,7 +1054,7 @@ msgid ""
 "definitions in module.xml"
 msgstr ""
 
-#: Backup.class.php:1046
+#: Backup.class.php:1050
 msgid "Uninstalled or Disabled"
 msgstr ""
 
@@ -1092,15 +1088,15 @@ msgstr ""
 msgid "User on remote system with proper permissions, usually root."
 msgstr ""
 
-#: Handlers/Backup/Common.php:77
+#: Handlers/Backup/Common.php:82
 msgid "Using default backup strategy"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:158
+#: Handlers/Restore/Legacy.php:162
 msgid "Using default restore strategy"
 msgstr ""
 
-#: Handlers/Restore/Common.php:91
+#: Handlers/Restore/Common.php:96
 msgid "Using fallback restore strategy"
 msgstr ""
 

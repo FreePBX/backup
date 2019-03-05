@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-04 20:14-0500\n"
+"POT-Creation-Date: 2019-03-05 14:54-0500\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -44,12 +44,12 @@ msgstr ""
 msgid "%s does not exist"
 msgstr ""
 
-#: BackupBase.php:43 RestoreBase.php:44 RestoreBase.php:107
+#: RestoreBase.php:164 RestoreBase.php:297
 #, php-format
 msgid "%s does not implement KVStore"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:96
+#: Handlers/Restore/Legacy.php:112
 #, php-format
 msgid "%s is now loaded into memory"
 msgstr ""
@@ -75,12 +75,12 @@ msgstr ""
 msgid "Add a description for your backup"
 msgstr ""
 
-#: Handlers/Backup/Common.php:87
+#: Handlers/Backup/Common.php:102
 #, php-format
 msgid "Adding directory to tar: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:101
+#: Handlers/Backup/Common.php:116
 #, php-format
 msgid "Adding file to tar: %s"
 msgstr ""
@@ -90,7 +90,7 @@ msgstr ""
 msgid "Adding module %s which %s depends on"
 msgstr ""
 
-#: Handlers/Backup/Common.php:107
+#: Handlers/Backup/Common.php:122
 #, php-format
 msgid "Adding module manifest for %s"
 msgstr ""
@@ -186,11 +186,11 @@ msgstr ""
 msgid "Backup Wizard"
 msgstr "Sao lưu Wizard"
 
-#: Console/Backup.class.php:104 Console/Backup.class.php:168
+#: Console/Backup.class.php:108 Console/Backup.class.php:178
 msgid "Backup completed successfully"
 msgstr ""
 
-#: Handlers/Restore/Common.php:118
+#: Handlers/Restore/Common.php:133
 #, php-format
 msgid ""
 "Backup extracted to %s. These files will remain until a new restore is run "
@@ -209,12 +209,12 @@ msgstr "Thông tin cơ bản"
 msgid "Both"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:109
+#: Handlers/Restore/Legacy.php:132
 #, php-format
 msgid "Calling legacy restore on module %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:66
+#: Handlers/Restore/Common.php:77
 #, php-format
 msgid "Can't find the module data for %s"
 msgstr ""
@@ -244,7 +244,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: RestoreBase.php:205
+#: RestoreBase.php:400
 #, php-format
 msgid "Column '%s' does not exist in %s, skipping"
 msgstr ""
@@ -265,11 +265,11 @@ msgstr ""
 msgid "Could not find a file for the id supplied"
 msgstr ""
 
-#: Handlers/Restore/Common.php:130
+#: Handlers/Restore/Common.php:145
 msgid "Could not locate the manifest for this file"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:105
+#: Handlers/Restore/Legacy.php:128
 #, php-format
 msgid "Couldn't find %s"
 msgstr ""
@@ -296,11 +296,11 @@ msgstr ""
 msgid "Description"
 msgstr "Mô tả"
 
-#: Console/Backup.class.php:186
+#: Console/Backup.class.php:196
 msgid "Determining backup file type..."
 msgstr ""
 
-#: Handlers/Restore/Common.php:86 Handlers/Restore/Legacy.php:138
+#: Handlers/Restore/Common.php:101 Handlers/Restore/Legacy.php:176
 msgid "Done"
 msgstr ""
 
@@ -392,20 +392,35 @@ msgstr ""
 "Loại trừ dứt khoát bất cứ các cài đặt IP theo máy. Điều này cho phép bạn có "
 "một máy dự phòng nóng với một địa chỉ IP khác."
 
-#: BackupBase.php:27
+#: BackupBase.php:48
+#, php-format
+msgid "Exporting Advanced settings from %s"
+msgstr ""
+
+#: BackupBase.php:76
 #, php-format
 msgid "Exporting Databases from %s"
+msgstr ""
+
+#: BackupBase.php:62
+#, php-format
+msgid "Exporting Feature Codes from %s"
+msgstr ""
+
+#: BackupBase.php:100
+#, php-format
+msgid "Exporting KVStore from %s"
 msgstr ""
 
 #: Handlers/Restore/Multiple.php:20
 msgid "Extracting Backup"
 msgstr ""
 
-#: Handlers/Restore/Common.php:106
+#: Handlers/Restore/Common.php:121
 msgid "Extracting backup..."
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:88
+#: Handlers/Restore/Legacy.php:104
 #, php-format
 msgid "Extracting supplied database file %s"
 msgstr ""
@@ -418,7 +433,7 @@ msgstr ""
 msgid "File Deleted"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:53
+#: Handlers/Restore/Legacy.php:58
 #, php-format
 msgid "File named: %s"
 msgstr ""
@@ -435,11 +450,11 @@ msgstr ""
 msgid "Finished Cleaning up"
 msgstr ""
 
-#: Console/Backup.class.php:156
+#: Console/Backup.class.php:166
 msgid "Finished Local Maintenance"
 msgstr ""
 
-#: Console/Backup.class.php:159
+#: Console/Backup.class.php:169
 msgid "Finished Remote Maintenance"
 msgstr ""
 
@@ -452,7 +467,7 @@ msgstr ""
 msgid "Finished created backup file: %s"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:51
+#: Handlers/Restore/Legacy.php:56
 #, php-format
 msgid "Found %s database files in the backup."
 msgstr ""
@@ -495,17 +510,37 @@ msgstr ""
 msgid "ID From the donor machine"
 msgstr ""
 
-#: RestoreBase.php:82
+#: RestoreBase.php:83 RestoreBase.php:272
+#, php-format
+msgid "Importing Advanced Settings from %s"
+msgstr ""
+
+#: RestoreBase.php:130
+#, php-format
+msgid "Importing AstDB family %s from %s"
+msgstr ""
+
+#: RestoreBase.php:216
 #, php-format
 msgid "Importing Databases from %s"
 msgstr ""
 
-#: RestoreBase.php:113
+#: RestoreBase.php:105
+#, php-format
+msgid "Importing Feature Codes from %s"
+msgstr ""
+
+#: RestoreBase.php:167 RestoreBase.php:303
 #, php-format
 msgid "Importing KVStore from %s"
 msgstr ""
 
-#: RestoreBase.php:89
+#: RestoreBase.php:148
+#, php-format
+msgid "Importing Table %s from %s"
+msgstr ""
+
+#: RestoreBase.php:223
 #, php-format
 msgid "Importing table '%s' from legacy %s"
 msgstr ""
@@ -534,9 +569,14 @@ msgstr ""
 msgid "Legacy Restore"
 msgstr ""
 
-#: Models/Restore.php:51
+#: RestoreBase.php:41
 #, php-format
 msgid "Legacy Restore in %s is not implemented"
+msgstr ""
+
+#: RestoreBase.php:38
+#, php-format
+msgid "Legacy Restore in %s is not implemented, using default fallback"
 msgstr ""
 
 #: views/rnav.php:2
@@ -555,7 +595,7 @@ msgstr ""
 msgid "Loading manifest to memory"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:94
+#: Handlers/Restore/Legacy.php:110
 #, php-format
 msgid "Loading supplied database file %s"
 msgstr ""
@@ -632,21 +672,21 @@ msgstr ""
 msgid "Notifications"
 msgstr "Các thông báo"
 
-#: Handlers/Restore/Legacy.php:146 Handlers/Restore/Multiple.php:43
+#: Handlers/Restore/Legacy.php:193 Handlers/Restore/Multiple.php:43
 #, php-format
 msgid "Only Restoring %s"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:40
+#: Handlers/Restore/Legacy.php:45
 msgid ""
 "Parsing out SQL tables. This may take a moment depending on backup size."
 msgstr ""
 
-#: Console/Backup.class.php:154
+#: Console/Backup.class.php:164
 msgid "Performing Local Maintenance"
 msgstr ""
 
-#: Console/Backup.class.php:157
+#: Console/Backup.class.php:167
 msgid "Performing Remote Maintenance"
 msgstr ""
 
@@ -654,7 +694,7 @@ msgstr ""
 msgid "Processing"
 msgstr ""
 
-#: Handlers/Backup/Single.php:36 Handlers/Restore/Legacy.php:163
+#: Handlers/Backup/Single.php:36 Handlers/Restore/Legacy.php:210
 #: Handlers/Restore/Multiple.php:54
 #, php-format
 msgid "Processing %s"
@@ -698,12 +738,12 @@ msgstr ""
 msgid "Reset"
 msgstr "Cài đặt lại"
 
-#: Handlers/Restore/Legacy.php:134
+#: Handlers/Restore/Legacy.php:172
 #, php-format
 msgid "Resetting %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:81
+#: Handlers/Restore/Common.php:96
 #, php-format
 msgid "Resetting %s module data"
 msgstr ""
@@ -716,7 +756,7 @@ msgstr "Khôi phục"
 msgid "Restore Information"
 msgstr ""
 
-#: Console/Backup.class.php:127 Console/Backup.class.php:208
+#: Console/Backup.class.php:134 Console/Backup.class.php:221
 msgid "Restore completed successfully"
 msgstr ""
 
@@ -737,7 +777,7 @@ msgstr ""
 msgid "Restoring %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:84 Handlers/Restore/Legacy.php:136
+#: Handlers/Restore/Common.php:99 Handlers/Restore/Legacy.php:174
 #, php-format
 msgid "Restoring from %s [%s]"
 msgstr ""
@@ -752,6 +792,35 @@ msgstr ""
 
 #: assets/js/backup.js:378
 msgid "Run the following in the CLI"
+msgstr ""
+
+#: BackupBase.php:23
+#, php-format
+msgid "RunBackup method is not implemented in %s"
+msgstr ""
+
+#: BackupBase.php:20
+#, php-format
+msgid "RunBackup method is not implemented in %s, using default fallback"
+msgstr ""
+
+#: RestoreBase.php:18
+#, php-format
+msgid ""
+"RunRestore method is not implemented in %s, but was backed up using default "
+"backup fallback, using default fallback"
+msgstr ""
+
+#: RestoreBase.php:21
+#, php-format
+msgid ""
+"RunRestore method is not implemented in %s, however there is default falback "
+"data, nothing to do"
+msgstr ""
+
+#: RestoreBase.php:23
+#, php-format
+msgid "RunRestore method is not implemented in %s, nothing to do"
 msgstr ""
 
 #: Handlers/Backup/Multiple.php:50
@@ -820,11 +889,11 @@ msgstr ""
 msgid "Should the warm spare feature be enabled"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:156
+#: Handlers/Restore/Legacy.php:203
 msgid "Skipping Framework"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:160
+#: Handlers/Restore/Legacy.php:207
 msgid "Skipping backup"
 msgstr ""
 
@@ -875,7 +944,7 @@ msgstr ""
 msgid "System Transfer"
 msgstr ""
 
-#: RestoreBase.php:92
+#: RestoreBase.php:226
 #, php-format
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
@@ -889,17 +958,22 @@ msgstr ""
 msgid "The backup %s did not set a status and may have had an error"
 msgstr ""
 
-#: Handlers/Restore/Common.php:76 Handlers/Restore/Legacy.php:121
+#: Handlers/Restore/Common.php:87
 #, php-format
 msgid "The module %s does not seem to support restores."
 msgstr ""
 
-#: Handlers/Backup/Common.php:60
+#: Handlers/Restore/Legacy.php:154
 #, php-format
-msgid "The module %s doesn't seem to support Backup, no backup created"
+msgid "The module %s does not support restores"
 msgstr ""
 
-#: Handlers/Backup/Common.php:76
+#: Handlers/Backup/Common.php:71
+#, php-format
+msgid "The module %s doesn't seem to support Backup"
+msgstr ""
+
+#: Handlers/Backup/Common.php:91
 #, php-format
 msgid "The module %s returned no data, No backup created"
 msgstr ""
@@ -913,19 +987,19 @@ msgstr ""
 msgid "There was nothing to cleanup"
 msgstr ""
 
-#: Console/Backup.class.php:107 Console/Backup.class.php:171
+#: Console/Backup.class.php:111 Console/Backup.class.php:181
 msgid "There were errors during the backup process"
 msgstr ""
 
-#: Console/Backup.class.php:130 Console/Backup.class.php:211
+#: Console/Backup.class.php:137 Console/Backup.class.php:224
 msgid "There were errors during the restore process"
 msgstr ""
 
-#: Console/Backup.class.php:113 Console/Backup.class.php:177
+#: Console/Backup.class.php:117 Console/Backup.class.php:187
 msgid "There were warnings during the backup process"
 msgstr ""
 
-#: Console/Backup.class.php:136 Console/Backup.class.php:217
+#: Console/Backup.class.php:143 Console/Backup.class.php:230
 msgid "There were warnings during the restore process"
 msgstr ""
 
@@ -954,7 +1028,7 @@ msgstr ""
 msgid "This table will be empty on backups created prior to version 15"
 msgstr ""
 
-#: Console/Backup.class.php:91
+#: Console/Backup.class.php:92
 #, php-format
 msgid "Transaction ID is: %s"
 msgstr ""
@@ -968,17 +1042,17 @@ msgstr ""
 msgid "Transfer Id"
 msgstr ""
 
-#: BackupBase.php:18 RestoreBase.php:73
-#, php-format
-msgid "Unable to run restoreBaseLegacy on %s because module.xml was not found"
-msgstr ""
-
-#: BackupBase.php:23 RestoreBase.php:78
+#: RestoreBase.php:207
 #, php-format
 msgid ""
-"Unable to run restoreBaseLegacy on %s because there are no database "
-"definitions in module.xml. Perhaps you want to use restoreLegacyKvstore "
-"instead"
+"Unable to run restoreLegacyDatabase on %s because module.xml was not found"
+msgstr ""
+
+#: RestoreBase.php:212
+#, php-format
+msgid ""
+"Unable to run restoreLegacyDatabase on %s because there are no database "
+"definitions in module.xml"
 msgstr ""
 
 #: Backup.class.php:1046
@@ -1015,12 +1089,24 @@ msgstr ""
 msgid "User on remote system with proper permissions, usually root."
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:183
+#: Handlers/Backup/Common.php:77
+msgid "Using default backup strategy"
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:158
+msgid "Using default restore strategy"
+msgstr ""
+
+#: Handlers/Restore/Common.php:91
+msgid "Using fallback restore strategy"
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:237
 #, php-format
 msgid "Utilizing cached based sqlite at %s. The data might be stale!"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:187
+#: Handlers/Restore/Legacy.php:241
 #, php-format
 msgid "Utilizing file based sqlite at %s, This is SLOW"
 msgstr ""
@@ -1055,7 +1141,7 @@ msgstr ""
 msgid "When to email"
 msgstr ""
 
-#: Handlers/Backup/Common.php:56
+#: Handlers/Backup/Common.php:67
 #, php-format
 msgid "Working with %s module"
 msgstr ""
@@ -1072,7 +1158,7 @@ msgstr "Có"
 msgid "Your %s has finished"
 msgstr ""
 
-#: Console/Backup.class.php:191
+#: Console/Backup.class.php:201
 #, php-format
 msgid "type is %s"
 msgstr ""

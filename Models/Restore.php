@@ -17,8 +17,8 @@ abstract class Restore extends ModelBase {
 	 * @param string $backupModVer The Backup Module's Version
 	 * @param string $backupTmpDir The Backup Temporary file location
 	 */
-	final public function __construct($freepbx, $backupModVer, $logger, $transactionId, $modData, $backupTmpDir) {
-		parent::__construct($freepbx, $backupModVer, $logger, $transactionId, $modData);
+	final public function __construct($freepbx, $backupModVer, $logger, $transactionId, $modData, $backupTmpDir, $defaultFallback) {
+		parent::__construct($freepbx, $backupModVer, $logger, $transactionId, $modData, $defaultFallback);
 		$this->FreePBX = $freepbx;
 		$this->tmpdir = $backupTmpDir;
 		//Load the FreePBX Module Handler

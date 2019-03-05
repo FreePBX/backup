@@ -14,9 +14,11 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	 */
 	public function runRestore() {
 		$configs = $this->getConfigs();
-		if(!empty($configs['default'])) {
-			$this->log(sprintf(_('RunRestore method is not implemented in %s, using defaults'),$this->data['module']),'WARNING');
+		if(!empty($configs['defaultFallback']) && $this->defaultFallback) {
+			$this->log(sprintf(_('RunRestore method is not implemented in %s, but was backed up using default backup fallback, using default fallback'),$this->data['module']),'WARNING');
 			$this->importAll($configs);
+		} elseif(!empty($configs['defaultFallback']) && !$this->defaultFallback) {
+			$this->log(sprintf(_('RunRestore method is not implemented in %s, however there is default falback data, nothing to do'),$this->data['module']),'WARNING');
 		} else {
 			$this->log(sprintf(_('RunRestore method is not implemented in %s, nothing to do'),$this->data['module']),'WARNING');
 		}
@@ -32,8 +34,12 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	 * @return void
 	 */
 	public function processLegacy($pdo, $data, $tables, $unknownTables) {
-		$this->log(sprintf(_('Legacy Restore in %s is not implemented, using defaults'),$this->data['module']),'WARNING');
-		$this->restoreLegacyAll($pdo);
+		if($this->defaultFallback) {
+			$this->log(sprintf(_('Legacy Restore in %s is not implemented, using default fallback'),$this->data['module']),'WARNING');
+			$this->restoreLegacyAll($pdo);
+		} else {
+			$this->log(sprintf(_('Legacy Restore in %s is not implemented'),$this->data['module']),'WARNING');
+		}
 	}
 
 	/**
@@ -71,6 +77,10 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	 * @return void
 	 */
 	public function importAdvancedSettings($settings) {
+		if(empty($settings)) {
+			return;
+		}
+		$this->log(sprintf(_('Importing Advanced Settings from %s'),$this->data['module']));
 		$module = ucfirst(strtolower($this->data['module']));
 		$sql = "UPDATE IGNORE freepbx_settings SET `value` = :value WHERE `keyword` = :keyword AND `module` = :module";
 		$sth = $this->FreePBX->Database->prepare($sql);
@@ -89,6 +99,10 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	 * @return void
 	 */
 	public function importFeatureCodes($codes) {
+		if(empty($codes)) {
+			return;
+		}
+		$this->log(sprintf(_('Importing Feature Codes from %s'),$this->data['module']));
 		$module = ucfirst(strtolower($this->data['module']));
 		$sql = "UPDATE IGNORE featurecodes SET `customcode` = :customcode, `enabled` = :enabled WHERE `featurename` = :featurename AND `modulename` = :modulename";
 		$sth = $this->FreePBX->Database->prepare($sql);
@@ -109,7 +123,11 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	 * @return void
 	 */
 	public function importAstDB($families) {
+		if(empty($families)) {
+			return;
+		}
 		foreach($families as $family => $children) {
+			$this->log(sprintf(_('Importing AstDB family %s from %s'),$family,$this->data['module']));
 			foreach($children as $key => $val) {
 				$this->FreePBX->astman->database_put($family,$key,$val);
 			}
@@ -123,7 +141,11 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	 * @return void
 	 */
 	public function importTables($tables) {
+		if(empty($tables)) {
+			return;
+		}
 		foreach($tables as $table => $rows) {
+			$this->log(sprintf(_('Importing Table %s from %s'),$table,$this->data['module']));
 			$this->addDataToTableFromArray($table, $rows);
 		}
 	}
@@ -134,16 +156,26 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	 * @return void
 	 */
 	public function importKVStore($store) {
+		if(empty($store)) {
+			return;
+		}
 		$module = ucfirst(strtolower($this->data['module']));
 		if(!is_subclass_of($this->FreePBX->$module,'FreePBX\DB_Helper')) {
 			$this->log(sprintf(_("%s does not implement KVStore"), $module),'WARNING');
 			return;
 		}
+		$this->log(sprintf(_('Importing KVStore from %s'),$this->data['module']));
 		foreach($store as $id => $kv) {
 			$this->FreePBX->$module->setMultiConfig($kv, $id);
 		}
 	}
 
+	/**
+	 * Restore Legacy from All storage locations
+	 *
+	 * @param \PDO $pdo
+	 * @return void
+	 */
 	public function restoreLegacyAll(\PDO $pdo) {
 		$this->restoreLegacyDatabase($pdo);
 		$this->restoreLegacyKvstore($pdo);
@@ -172,12 +204,12 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		$module = strtolower($this->data['module']);
 		$dir = $this->FreePBX->Config->get('AMPWEBROOT').'/admin/modules/'.$module;
 		if(!file_exists($dir.'/module.xml')) {
-			$this->log(sprintf(_('Unable to run restoreBaseLegacy on %s because module.xml was not found'),$module),'WARNING');
+			$this->log(sprintf(_('Unable to run restoreLegacyDatabase on %s because module.xml was not found'),$module),'WARNING');
 			return;
 		}
 		$xml = simplexml_load_file($dir.'/module.xml');
 		if(empty($xml->database)) {
-			$this->log(sprintf(_('Unable to run restoreBaseLegacy on %s because there are no database definitions in module.xml. Perhaps you want to use restoreLegacyKvstore instead'),$module),'WARNING');
+			$this->log(sprintf(_('Unable to run restoreLegacyDatabase on %s because there are no database definitions in module.xml'),$module),'WARNING');
 			return;
 		}
 
@@ -236,16 +268,21 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		$sth->execute([":name" => $module]);
 		$res = $sth->fetchAll(\PDO::FETCH_ASSOC);
 
-		$sql = "UPDATE IGNORE freepbx_settings SET `value` = :value WHERE `keyword` = :keyword AND `module` = :module";
-		$usth = $this->FreePBX->Database->prepare($sql);
+		if(!empty($res)) {
+			$this->log(sprintf(_("Importing Advanced Settings from %s"), $module));
+			$sql = "UPDATE IGNORE freepbx_settings SET `value` = :value WHERE `keyword` = :keyword AND `module` = :module";
+			$usth = $this->FreePBX->Database->prepare($sql);
 
-		foreach($res as $data) {
-			$usth->execute([
-				":keyword" => $data['keyword'],
-				":value" => $data['value'],
-				":module" => $data['module']
-			]);
+			foreach($res as $data) {
+				$usth->execute([
+					":keyword" => $data['keyword'],
+					":value" => $data['value'],
+					":module" => $data['module']
+				]);
+			}
 		}
+
+
 	}
 
 	/**
@@ -263,7 +300,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 
 		$data = $this->getLegacyKVStore($pdo);
 		if(!empty($data)) {
-			$this->log(sprintf(_("Importing KVStore from %s"), strtolower($this->data['module'])));
+			$this->log(sprintf(_("Importing KVStore from %s"), $module));
 			$this->importKVStore($data);
 		}
 	}

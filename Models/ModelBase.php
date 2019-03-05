@@ -17,12 +17,14 @@ class ModelBase {
 		'dependencies' => [],
 		'garbage' => []
 	];
+	protected $defaultFallback = false;
 
-	public function __construct($freepbx, $backupModVer, $logger, $transactionId, $modData){
+	public function __construct($freepbx, $backupModVer, $logger, $transactionId, $modData, $defaultFallback){
 		$this->FreePBX = $freepbx;
 		$this->backupModVer = $backupModVer;
 		$this->logger = $logger;
 		$this->transactionId = $transactionId;
+		$this->defaultFallback = $defaultFallback;
 
 		foreach($this->data as $key => $data) {
 			if(!isset($modData[$key])) {

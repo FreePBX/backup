@@ -16,8 +16,12 @@ class BackupBase extends Model\Backup{
 	 * @return void
 	 */
 	public function runBackup($id,$transaction) {
-		$this->log(sprintf(_("RunBackup method is not implemented in %s, using defaults"), $module),'WARNING');
-		$this->addConfigs(array_merge($this->dumpAll(),["default" => true]));
+		if($this->defaultFallback) {
+			$this->log(sprintf(_("RunBackup method is not implemented in %s, using default fallback"), $module),'WARNING');
+			$this->addConfigs(array_merge($this->dumpAll(),["defaultFallback" => true]));
+		} else {
+			$this->log(sprintf(_("RunBackup method is not implemented in %s"), $module),'WARNING');
+		}
 	}
 
 	/**

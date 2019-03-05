@@ -168,7 +168,7 @@ class Legacy extends Common {
 				'features' => $dbh->query("SELECT `featurename`, `customcode`, `enabled` FROM featurecodes WHERE modulename = ".$dbh->quote($module))->fetchAll(\PDO::FETCH_GROUP|\PDO::FETCH_ASSOC|\PDO::FETCH_UNIQUE)
 			]
 		];
-		$class = new $className($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp);
+		$class = new $className($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp, $this->defaultFallback);
 		$this->log(sprintf(_("Resetting %s"), $module));
 		$class->reset();
 		$this->log(sprintf(_("Restoring from %s [%s]"), $module, get_class($class)));

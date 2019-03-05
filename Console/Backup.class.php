@@ -31,6 +31,7 @@ class Backup extends Command {
 				new InputOption('backupsingle', '', InputOption::VALUE_REQUIRED, 'Module to backup'),
 				new InputOption('singlesaveto', '', InputOption::VALUE_REQUIRED, 'Where to save the single module backup.'),
 				new InputOption('b64import', '', InputOption::VALUE_REQUIRED, ''),
+				new InputOption('fallback', '', InputOption::VALUE_NONE, ''),
 		))
 		->setHelp('Run a backup: fwconsole backup --backup [backup-id]'.PHP_EOL
 		.'Run a restore: fwconsole backup --restore [/path/to/restore-xxxxxx.tar.gz]'.PHP_EOL
@@ -96,6 +97,9 @@ class Backup extends Command {
 				$saveto = $input->getOption('singlesaveto')?$input->getOption('singlesaveto'):'';
 				$saveto = !empty($saveto) ? $saveto : rtrim(getcwd());
 				$backupHandler = new Handler\Backup\Single($this->freepbx, $saveto, $transactionid, posix_getpid());
+				if($input->getOption('fallback')){
+					$backupHandler->setDefaultFallback(true);
+				}
 				$backupHandler->setModule($backupsingle);
 				$backupHandler->process();
 				$errors = $backupHandler->getErrors();
@@ -120,6 +124,9 @@ class Backup extends Command {
 			break;
 			case $restoresingle:
 				$restoreHandler = new Handler\Restore\Single($this->freepbx, $restoresingle, $transactionid, posix_getpid());
+				if($input->getOption('fallback')){
+					$restoreHandler->setDefaultFallback(true);
+				}
 				$restoreHandler->process();
 				$errors = $restoreHandler->getErrors();
 				$warnings = $restoreHandler->getWarnings();
@@ -148,6 +155,9 @@ class Backup extends Command {
 				$buid = $input->getOption('backup');
 
 				$backupHandler = new Handler\Backup\Multiple($this->freepbx, $buid, $transactionid, posix_getpid());
+				if($input->getOption('fallback')){
+					$backupHandler->setDefaultFallback(true);
+				}
 				$backupHandler->process();
 
 				$maintenanceHandler = new Handler\Backup\Maintenance($this->freepbx, $buid, $transactionid, posix_getpid());
@@ -195,6 +205,9 @@ class Backup extends Command {
 				}
 				if($backupType === 'legacy'){
 					$restoreHandler = new Handler\Restore\Legacy($this->freepbx,$restore, $transactionid, posix_getpid());
+				}
+				if($input->getOption('fallback')){
+					$restoreHandler->setDefaultFallback(true);
 				}
 				if($input->getOption('modules')) {
 					$restoreHandler->setSpecificRestore(explode(",",$input->getOption('modules')));

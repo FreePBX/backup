@@ -8,8 +8,8 @@ class Backup extends ModelBase {
 
 	private $modified = false;
 
-	final public function __construct($freepbx, $backupModVer, $logger, $transactionId, $modData) {
-		parent::__construct($freepbx, $backupModVer, $logger, $transactionId, $modData);
+	final public function __construct($freepbx, $backupModVer, $logger, $transactionId, $modData, $defaultFallback) {
+		parent::__construct($freepbx, $backupModVer, $logger, $transactionId, $modData, $defaultFallback);
 	}
 
 	/*

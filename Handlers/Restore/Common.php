@@ -88,10 +88,10 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 			if(!$this->defaultFallback) {
 				return;
 			}
-			$this->log(_("Using default restore strategy"),'WARNING');
+			$this->log(_("Using fallback restore strategy"),'WARNING');
 			$className = 'FreePBX\modules\Backup\RestoreBase';
 		}
-		$class = new $className($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp);
+		$class = new $className($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp, $this->defaultFallback);
 		//Change the Text Domain
 		$this->log(sprintf(_('Resetting %s module data'),$module));
 		modgettext::push_textdomain($module);

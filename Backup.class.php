@@ -809,6 +809,10 @@ class Backup extends FreePBX_Helpers implements BMO {
 		$moduleInfo = \FreePBX::Modules()->getInfo(false,MODULE_STATUS_ENABLED);
 		$validmods = [];
 		foreach ($moduleInfo as $rawname => $data) {
+			if($rawname === 'framework') {
+				$validmods[$rawname] = $data;
+				continue;
+			}
 			$bufile = $webrootpath . '/admin/modules/' . $rawname.'/Backup.php';
 			if(file_exists($bufile)){
 				$validmods[$rawname] = $data;

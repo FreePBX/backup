@@ -82,10 +82,15 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		$modData['module'] = $module;
 		$modData['version'] = $version;
 		$modData['pbx_version'] = null;
-		$className = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($module));
+		if(strtolower($module) === 'framework') {
+			$className = 'FreePBX\Builtin\Restore';
+		} else {
+			$className = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($module));
+		}
+
 		if(!class_exists($className)) {
 			$this->log(sprintf(_("The module %s does not seem to support restores."), $module));
-			if(!$this->defaultFallback) {
+			if($module === 'framework' || !$this->defaultFallback) {
 				return;
 			}
 			$this->log(_("Using fallback restore strategy"),'WARNING');

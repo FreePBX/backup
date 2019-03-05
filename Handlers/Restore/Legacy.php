@@ -149,10 +149,14 @@ class Legacy extends Common {
 	 * @return void
 	 */
 	public function processLegacyModule($module, $version, $dbh, $tables, $tableMap) {
-		$className = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($module));
+		if(strtolower($module) === 'framework') {
+			$className = 'FreePBX\Builtin\Restore';
+		} else {
+			$className = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($module));
+		}
 		if(!class_exists($className)) {
 			$this->log(sprintf(_("The module %s does not support restores"), $module),'WARNING');
-			if(!$this->defaultFallback) {
+			if($module === 'framework' || !$this->defaultFallback) {
 				return;
 			}
 			$this->log(_("Using default restore strategy"),'WARNING');
@@ -197,10 +201,6 @@ class Legacy extends Common {
 		}
 		foreach ($moduleList as $module => $tables) {
 			if($module === 'unknown' || $module === 'cdr' || $module === 'cel' || $module === 'queuelog'){
-				continue;
-			}
-			if($module === 'framework') {
-				$this->log(_('Skipping Framework'),'WARNING');
 				continue;
 			}
 			if($module === 'backup') {

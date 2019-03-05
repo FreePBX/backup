@@ -66,7 +66,12 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	protected function processModule($module) {
 		$this->log(sprintf(_("Working with %s module"), $module['rawname']));
 		//check to make sure the module supports backup
-		$class = sprintf('\\FreePBX\\modules\\%s\\Backup', $module['ucfirst']);
+		if($module['rawname'] === 'framework') {
+			$class = 'FreePBX\Builtin\Backup';
+		} else {
+			$class = sprintf('\\FreePBX\\modules\\%s\\Backup', $module['ucfirst']);
+		}
+
 		if(!class_exists($class)){
 			$msg = sprintf(_("The module %s doesn't seem to support Backup"),$module['rawname']);
 			$this->log($msg,'WARNING');
@@ -77,6 +82,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 			$this->log(_("Using default backup strategy"),'WARNING');
 			$class = 'FreePBX\modules\Backup\BackupBase';
 		}
+
 
 		$modData = [
 			"module" => $module['rawname'],

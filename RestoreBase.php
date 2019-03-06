@@ -255,6 +255,10 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		}
 	}
 
+	public function restoreLegacyAdvancedSettings(\PDO $pdo) {
+		return $this->restoreLegacySettings($pdo);
+	}
+
 	/**
 	 * Restore Legacy Advanced Settings
 	 *

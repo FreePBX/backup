@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-05 18:39-0500\n"
+"POT-Creation-Date: 2019-03-06 18:26-0500\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -44,7 +44,7 @@ msgstr ""
 msgid "%s does not exist"
 msgstr ""
 
-#: RestoreBase.php:164 RestoreBase.php:297
+#: RestoreBase.php:164 RestoreBase.php:301
 #, php-format
 msgid "%s does not implement KVStore"
 msgstr ""
@@ -244,7 +244,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: RestoreBase.php:400
+#: RestoreBase.php:404
 #, php-format
 msgid "Column '%s' does not exist in %s, skipping"
 msgstr ""
@@ -390,22 +390,22 @@ msgstr ""
 "به استثناء تنظیمات مربوط به سیستم به خصوص تنظیمات شبکه. این گزینه برای شما "
 "امکان راه اندازی سیستم جدید با آدرس IP متفاوت را فراهم می کند."
 
-#: BackupBase.php:48
+#: BackupBase.php:53
 #, php-format
 msgid "Exporting Advanced settings from %s"
 msgstr ""
 
-#: BackupBase.php:76
+#: BackupBase.php:81
 #, php-format
 msgid "Exporting Databases from %s"
 msgstr ""
 
-#: BackupBase.php:62
+#: BackupBase.php:67
 #, php-format
 msgid "Exporting Feature Codes from %s"
 msgstr ""
 
-#: BackupBase.php:100
+#: BackupBase.php:106
 #, php-format
 msgid "Exporting KVStore from %s"
 msgstr ""
@@ -508,7 +508,7 @@ msgstr ""
 msgid "ID From the donor machine"
 msgstr ""
 
-#: RestoreBase.php:83 RestoreBase.php:272
+#: RestoreBase.php:83 RestoreBase.php:276
 #, php-format
 msgid "Importing Advanced Settings from %s"
 msgstr ""
@@ -528,7 +528,7 @@ msgstr ""
 msgid "Importing Feature Codes from %s"
 msgstr ""
 
-#: RestoreBase.php:167 RestoreBase.php:303
+#: RestoreBase.php:167 RestoreBase.php:307
 #, php-format
 msgid "Importing KVStore from %s"
 msgstr ""

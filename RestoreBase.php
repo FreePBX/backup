@@ -27,10 +27,10 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	/**
 	 * Process Legacy Method used by other modules
 	 *
-	 * @param PDO $pdo
-	 * @param array $data
-	 * @param array $tables
-	 * @param array $unknownTables
+	 * @param PDO $pdo The pdo connection for the temporary database
+	 * @param array $data An array with 'manifest', 'astdb', 'settings', 'features' as arrays
+	 * @param array $tables is a list of tables we determined belong to the module
+	 * @param array $unknownTables is an array of tables we don't have an owner for
 	 * @return void
 	 */
 	public function processLegacy($pdo, $data, $tables, $unknownTables) {
@@ -173,7 +173,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	/**
 	 * Restore Legacy from All storage locations
 	 *
-	 * @param \PDO $pdo
+	 * @param \PDO $pdo The pdo connection for the temporary database
 	 * @return void
 	 */
 	public function restoreLegacyAll(\PDO $pdo) {
@@ -186,7 +186,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	/**
 	 * Restores databases and kvstore based on present XML tables and backup KVStore
 	 *
-	 * @param \PDO $pdo remote PDO object
+	 * @param \PDO $pdo The pdo connection for the temporary database
 	 * @return void
 	 */
 	public function restoreLegacyDatabaseKvstore(\PDO $pdo) {
@@ -197,7 +197,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	/**
 	 * Restores database based on present XML tables and backup database
 	 *
-	 * @param \PDO $pdo
+	 * @param \PDO $pdo The pdo connection for the temporary database
 	 * @return void
 	 */
 	public function restoreLegacyDatabase(\PDO $pdo) {
@@ -232,7 +232,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	/**
 	 * Restore Legacy Feature Codes
 	 *
-	 * @param \PDO $pdo
+	 * @param \PDO $pdo The pdo connection for the temporary database
 	 * @return void
 	 */
 	public function restoreLegacyFeatureCodes(\PDO $pdo) {
@@ -258,7 +258,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	/**
 	 * Restore Legacy Advanced Settings
 	 *
-	 * @param \PDO $pdo
+	 * @param \PDO $pdo The pdo connection for the temporary database
 	 * @return void
 	 */
 	public function restoreLegacySettings(\PDO $pdo) {
@@ -288,7 +288,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	/**
 	 * Restores kvstore based on backup KVStore
 	 *
-	 * @param \PDO $pdo remote PDO object
+	 * @param \PDO $pdo The pdo connection for the temporary database
 	 * @return void
 	 */
 	public function restoreLegacyKvstore(\PDO $pdo) {
@@ -320,7 +320,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	/**
 	 * Legacy import KVStore into memory
 	 *
-	 * @param \PDO $pdo The remote PDO connection (Not our local one)
+	 * @param \PDO $pdo The pdo connection for the temporary database
 	 * @return array
 	 */
 	public function getLegacyKVStore(\PDO $pdo) {

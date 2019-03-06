@@ -43,6 +43,15 @@ abstract class Restore extends ModelBase {
 		}
 	}
 
+	/**
+	 * The reset method is run right before the restore method is executed
+	 *
+	 * You can override this and add custom code here
+	 *
+	 * Example. Framework skips this method by overwriting it and doing nothing
+	 *
+	 * @return void
+	 */
 	public function reset() {
 		$this->moduleHandler->reset($this->data['module'], $this->data['version']);
 	}

@@ -27,6 +27,11 @@ class BackupBase extends Model\Backup{
 	/**
 	 * Dump all relevant settings into an array
 	 *
+	 * Advanced Settings
+	 * Feature Codes
+	 * Module Tables
+	 * Key Value Store
+	 *
 	 * @return array
 	 */
 	public function dumpAll() {
@@ -90,6 +95,7 @@ class BackupBase extends Model\Backup{
 		}
 		return $tables;
 	}
+
 	/**
 	 * Dump KVStore to a multidimensional array
 	 *
@@ -109,28 +115,5 @@ class BackupBase extends Model\Backup{
 			$final[$id] = $this->FreePBX->$module->getAll($id);
 		}
 		return $final;
-	}
-
-	/**
-	 * Add Single Sile to Files List
-	 *
-	 * @param string $filename The file name
-	 * @param string $path The Path to the file
-	 * @param string $base Base Directory to extract to
-	 * @param string $type The file Type
-	 * @return void
-	 */
-	public function addFile($filename,$path,$base,$type = "file"){
-		parent::addFiles([['type' => $type, 'filename' => $filename, 'pathto' => $path,'base' => $base]]);
-	}
-
-	/**
-	 * Utilizes SplFileInfo to add a file
-	 *
-	 * @param \SplFileInfo $file
-	 * @return void
-	 */
-	public function addSplFile(\SplFileInfo $file){
-		parent::addFiles([['type' => $file->getExtension(), 'filename' => $file->getBasename(), 'pathto' => $file->getPath(),'base' => '']]);
 	}
 }

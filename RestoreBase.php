@@ -45,7 +45,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	/**
 	 * Import all from a multidimensional array
 	 *
-	 * @param [type] $data
+	 * @param array $data
 	 * @return void
 	 */
 	public function importAll($data) {

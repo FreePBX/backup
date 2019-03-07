@@ -304,7 +304,6 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 
 		$data = $this->getLegacyKVStore($pdo);
 		if(!empty($data)) {
-			$this->log(sprintf(_("Importing KVStore from %s"), $module));
 			$this->importKVStore($data);
 		}
 	}

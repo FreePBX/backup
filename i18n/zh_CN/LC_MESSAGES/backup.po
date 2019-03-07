@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-06 18:26-0500\n"
+"POT-Creation-Date: 2019-03-07 16:50-0500\n"
 "PO-Revision-Date: 2015-11-17 12:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -244,7 +244,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: RestoreBase.php:404
+#: RestoreBase.php:403
 #, php-format
 msgid "Column '%s' does not exist in %s, skipping"
 msgstr ""
@@ -524,7 +524,7 @@ msgstr ""
 msgid "Importing Feature Codes from %s"
 msgstr ""
 
-#: RestoreBase.php:167 RestoreBase.php:307
+#: RestoreBase.php:167
 #, php-format
 msgid "Importing KVStore from %s"
 msgstr ""

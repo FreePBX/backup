@@ -91,7 +91,7 @@ class Multiple extends Common {
 
 		//Process the Queue
 		foreach($processQueue as $mod) {
-			$moddata = $this->processModule($mod);
+			$moddata = $this->processModule($this->id, $mod);
 			if(empty($moddata)) {
 				$manifest['skipped'][] = $mod['ucfirst'];
 			}

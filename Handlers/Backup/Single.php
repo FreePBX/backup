@@ -34,7 +34,7 @@ class Single extends Common {
 		$tar = $this->openFile();
 
 		$this->log(sprintf(_("Processing %s"),$this->module));
-		$moddata = $this->processModule(['rawname' => $this->module, 'ucfirst' => ucfirst($this->module)]);
+		$moddata = $this->processModule('singlebackup', ['rawname' => $this->module, 'ucfirst' => ucfirst($this->module)]);
 
 		if(!empty($moddata['dependencies'])) {
 			$this->log("***"._("In single restores mode dependencies are NOT processed")."***",'WARNING');

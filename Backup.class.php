@@ -628,20 +628,13 @@ class Backup extends FreePBX_Helpers implements BMO {
 		}
 	}
 
-	public function getBackupSettingsDisplay($module,$id = ''){
-		$module = ucfirst($module);
-		if($module === 'Backup'){
-			return;
+	public function getBackupSettingsDisplay($id = ''){
+		$modules = $this->freepbx->Hooks->processHooks($id);
+		foreach($modules as $module => &$data) {
+			$data = '<form id="modulesetting_'.strtolower($module).'">'. $data.'</form>';
 		}
-		$class = $this->freepbx->$module;
-		if( method_exists($class, 'getBackupSettingsDisplay')){
-			return '<div class="hooksetting">'. $class->getBackupSettingsDisplay($id).'</div>';
-		}
-		return;
+		return $modules;
 	}
-
-	//Getters
-
 
 	/**
 	 * Sets hooks for external files in to a queue
@@ -830,6 +823,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 * @return array   list of module data
 	 */
 	public function moduleItemsByBackupID($id = ''){
+
+		$settingdisplays = $this->getBackupSettingsDisplay($id);
+
 		$modules  = $this->getModules();
 		if(!empty($id)) {
 			$selected = $this->getAll('modules_'.$id);
@@ -845,6 +841,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 				'selected'   => empty($id) || in_array($module['rawname'], $selected),
 				'display' => $module['name']
 			];
+			if(isset($settingdisplays[ucfirst(strtolower($module['rawname']))])) {
+				$item['settingdisplay'] = $settingdisplays[ucfirst(strtolower($module['rawname']))];
+			}
 			$ret[] = $item;
 		}
 		return $ret;
@@ -908,26 +907,39 @@ class Backup extends FreePBX_Helpers implements BMO {
 		}
 		$description = $this->getReq('backup_description',sprintf(_('Backup %s'),$this->getReq('backup_name')));
 		$this->setConfig($data['id'],array('id' => $data['id'], 'name' => $this->getReq('backup_name',''), 'description' => $description),'backupList');
-		if($this->getReq('backup_items','unchanged') !== 'unchanged'){
-			$backup_items = json_decode(html_entity_decode($this->getReq('backup_items',[])),true);
-			$this->setModulesById($data['id'], $backup_items);
-		}
 		//We expect this to be JSON so we don't sanitize it.
-		$data['backup_items_settings'] = $this->getReqUnsafe('backup_items_settings', 'unchanged');
-		if($data['backup_items_settings'] !== 'unchanged' ){
-			$this->processBackupSettings($data['id'], json_decode($data['backup_items_settings'],true));
+		$data['backup_items'] = $this->getReqUnsafe('backup_items', 'unchanged');
+
+		if($data['backup_items'] !== 'unchanged') {
+			$processibleSettings = [];
+			$backup_items = json_decode(html_entity_decode($this->getReq('backup_items',[])),true);
+			foreach($backup_items as &$item) {
+				if(isset($item['settings'])) {
+					$processibleSettings[$item['modulename']] = $item['settings'];
+					unset($item['settings']);
+				}
+			}
+			$this->setModulesById($data['id'], $backup_items);
+			$this->processBackupSettings($data['id'], $processibleSettings);
 		}
+
 		$this->scheduleJobs($id);
 		return $id;
 	}
 
 	public function processBackupSettings($id = '', $data = []){
-		$modules = $this->freepbx->Modules->getModulesByMethod('processBackupSettings');
-		foreach ($modules as $module) {
-			if($module === 'Backup'){
+		$hooks = $this->freepbx->Hooks->returnHooksByClassMethod('FreePBX\modules\Backup', 'processBackupSettings');
+		foreach($hooks as $hook) {
+			$module = $hook['module'];
+			if(empty($data[strtolower($module)])) {
 				continue;
 			}
-			$this->freepbx->$module->processBackupSettings($id, $data);
+			$tmp = [];
+			foreach($data[strtolower($module)] as $item) {
+				$tmp[$item['name']] = $item['value'];
+			}
+			$method = $hook['method'];
+			$this->freepbx->$module->$method($id, $tmp);
 		}
 	}
 
@@ -966,6 +978,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 		$this->delById($id);
 		//This should return an empty array if successful.
 		$this->scheduleJobs('all');
+		$htis->FreePBX->Hooks->processHooks($id);
 		return empty($this->getBackup($id));
 	}
 

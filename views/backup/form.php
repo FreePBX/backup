@@ -8,7 +8,6 @@
 						role="form">
 						<input type="hidden" id="id" name="id" value="<?php echo $id ?>">
 						<input type="hidden" id="backup_items" name="backup_items" value='unchanged'>
-						<input type="hidden" id="backup_items_settings" name="backup_items_settings" value='unchanged'>
 						<input type="hidden" id="backup_schedule" name="backup_schedule" value="<?php echo $backup_schedule ?>">
 						<div class="section-title" data-for="backup-basic">
 							<h3>
@@ -421,8 +420,17 @@
 				<?php
 				$dataurl = "ajax.php?module=backup&command=backupItems&id=".$id;
 				?>
-					<table id="backupmodules" data-url="<?php echo $dataurl?>" data-toggle="table" data-search="true" data-id-field="modulename"
-						data-detail-view="true" data-detail-formatter="moduleSettingFormatter" data-detail-filter="moduleSettingFilter" data-maintain-selected="true" class="table table-striped">
+					<table id="backupmodules"
+						data-url="<?php echo $dataurl?>"
+						data-toggle="table"
+						data-search="true"
+						data-id-field="modulename"
+						data-detail-view="true"
+						data-detail-formatter="moduleSettingFormatter"
+						data-detail-filter="moduleSettingFilter"
+						data-maintain-selected="true"
+						class="table table-striped"
+					>
 						<thead>
 							<tr>
 								<th data-field="selected" data-checkbox='true'>

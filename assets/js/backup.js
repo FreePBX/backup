@@ -215,20 +215,6 @@ $('#itemsReset').on('click', function (e) {
 	e.preventDefault();
 	$('#backupmodules').bootstrapTable('refresh',{silent: true});
 })
-$('#backupmodules').on('expand-row.bs.table', function (i, r) {
-	/** Delay for dynamic contenet so we don't miss the bind on expand. */
-	setTimeout(function(){
-		$('.hooksetting :input').on('change', function (e) {
-			var obj = $(this).serializeArray()[0];
-			if(obj){
-				modulesettings[obj.name] = obj.value;
-			}else{
-				modulesettings[e.currentTarget.name] = '';
-			}
-			$('#backup_items_settings').val(JSON.stringify(modulesettings));
-		});
-	},400);
-});
 $('[name="warmspareenabled"]').change(function () {
 	toggle_warmspare();
 });
@@ -346,6 +332,7 @@ function processItems() {
 	$.each(selected, function (i, v) {
 		if (v.hasOwnProperty('settingdisplay')) {
 			delete v.settingdisplay;
+			v.settings = $("#modulesetting_"+v.modulename).serializeArray();
 		}
 	});
 	return selected;

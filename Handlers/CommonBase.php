@@ -59,6 +59,12 @@ abstract class CommonBase {
 	protected function setupLogger() {
 		$this->logger = $this->freepbx->Logger->createLogDriver('backup', $this->logpath, \Monolog\Logger::DEBUG);
 		if(php_sapi_name() == 'cli' || php_sapi_name() == 'phpdbg'){
+			foreach($this->logger->getHandlers() as $handler) {
+				if(is_a($handler, 'FreePBX\modules\Backup\Monolog\ConsoleOutput')) {
+					//its already there
+					return;
+				}
+			}
 			$handler = new ConsoleOutput(\Monolog\Logger::DEBUG);
 
 			$dateFormat = "Y-M-d H:i:s";

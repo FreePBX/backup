@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.5.4</version>
+	<version>15.0.6</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -13,12 +13,11 @@
 		<backup_restore hidden="true" needsenginedb="yes">Backup &amp; Restore - Restore</backup_restore>
 	</menuitems>
 	<depends>
-		<module>filestore</module>
-		<version>15.0.1.33</version>
-
+		<module>filestore ge 15.0.2</module>
+		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
-		*15.0.5.4* Backup
+		*15.0.6* Rework functions from filestore
 		*15.0.5.3* Remove duplicated log message
 		*15.0.5.1* Allow framework to be backed up
 		*15.0.5* implement default fallback for unimplemented modules using --fallback cli option

@@ -133,6 +133,11 @@ $("#restoreFiles").on("post-body.bs.table", function () {
 			}
 		);
 	});
+	$("#restoreFiles .run").click(function() {
+		var id = $(this).data('id');
+		var filepath = $(this).data('filepath');
+		runRestore(id,'Running Remote Restore',filepath);
+	});
 });
 
 $("#localrestorefiles").on("post-body.bs.table", function () {
@@ -169,7 +174,7 @@ $("#localrestorefiles").on("post-body.bs.table", function () {
 	});
 	$("#localrestorefiles .run").click(function() {
 		var id = $(this).data('id');
-		runRestore(id,'Running Restore');
+		runRestore(id,'Running Local Restore');
 	});
 });
 
@@ -223,13 +228,14 @@ $("#run_backup").on('click', function (e) {
 	$('.fpbx-submit').submit();
 });
 
-function runRestore(id,title) {
+function runRestore(id,title,filepath) {
 	$.ajax({
 		url: FreePBX.ajaxurl,
 		data: {
 			module: 'backup',
 			command: 'runRestore',
-			fileid: id
+			fileid: id,
+			filepath
 		},
 	})
 	.then(data => {
@@ -367,14 +373,14 @@ $(document).on('click', '.clicmd', function (e) {
 
 function localLinkFormatter(value, row, index) {
 	var html = '<a class="clickable run" data-id="' + row.id + '"><i class="fa fa-play"></i></a>';
-	html += '<a href="/admin/api/backup/localdownload?id=' + row.id + '" class="localdownload" target="_blank"><i class="fa fa-download"></i></a>';
+	html += '<a href="/admin/api/backup/localdownload?id=' + row.id + '" class="localdownload"><i class="fa fa-download"></i></a>';
 	html += '&nbsp;<a href="#" id="' + row.id + '" class="localDelete"><i class="fa fa-trash"></i></a>';
 	return html;
 }
 
 function remoteFormatter(value, row, index) {
-	var html = `<a href="/admin/api/backup/remotedownload?id=${row.id}&filepath=${row.file}" class="remotedownload" target="_blank"><i class="fa fa-download"></i></a>`;
-	html += `<a href="?display=backup_restore&view=processrestore&type=remote&fileid=${row.id}&filepath=${row.file}"><i class="fa fa-play"></i></a>`;
+	var html = '<a class="clickable run" data-id="' + row.id + '" data-filepath="' + row.file + '"><i class="fa fa-play"></i></a>';
+	html += `<a href="/admin/api/backup/remotedownload?id=${row.id}&filepath=${row.file}" class="remotedownload"><i class="fa fa-download"></i></a>`;
 	html += `<a href="#" data-id = "${row.id}" data-file = "${row.file}" class="remoteDelete delitem"><i class = "fa fa-trash"></i></a>`;
 
 	return html;

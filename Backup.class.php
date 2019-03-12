@@ -249,11 +249,10 @@ class Backup extends FreePBX_Helpers implements BMO {
 					break;
 					case 'restoreFiles':
 						foreach($files as $f) {
-							dbug($f);
 							$server = $f['id'];
 							$file = $f['file'];
 							$server = explode('_', $server);
-							if(!$this->deleteRemote($server[0], $server[1], $file)){
+							if(!$this->deleteRemote($server[1], $file)){
 								return ['status' => false, "message" => _("Something failed, The file may need to be removed manually.")];
 							}
 							$deletes[] = $f['id'];
@@ -360,14 +359,26 @@ class Backup extends FreePBX_Helpers implements BMO {
 				return $this->getAllRemote();
 			case 'runRestore':
 				$ruid = $_GET['fileid'];
-				$file = $this->pathFromId($ruid);
-				if(!$file){
-					return ['status' => false, 'message' => _("Could not find a file for the id supplied")];
+				if(isset($_GET['filepath'])) {
+					//filestore
+					$parts = explode("_",$_GET['fileid']);
+					$info = $this->freepbx->Filestore->getItemById($parts[1]);
+					if(empty($info)) {
+						return ['status' => false, 'message' => _("Could not find a file for the id supplied")];
+					} else {
+						$args = '--filestore='.escapeshellarg($parts[1]).' --restore='.escapeshellarg($_GET['filepath']);
+					}
+				} else {
+					//local
+					$file = $this->pathFromId($ruid);
+					if(!$file){
+						return ['status' => false, 'message' => _("Could not find a file for the id supplied")];
+					}
+					$args = '--restore='.escapeshellarg($file);
 				}
-
 				$jobid   = $this->generateId();
 				$location = $this->freepbx->Config->get('ASTLOGDIR');
-				$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup --restore='.escapeshellarg($file).' --transaction='.escapeshellarg($jobid);
+				$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup '.$args.' --transaction='.escapeshellarg($jobid);
 				file_put_contents($location.'/restore_'.$jobid.'_out.log','Running with: '.$command.PHP_EOL);
 				$process = new Process($command.' >> '.$location.'/restore_'.$jobid.'_out.log 2> '.$location.'/restore_'.$jobid.'_err.log & echo $!');
 				$process->mustRun();
@@ -1070,14 +1081,13 @@ class Backup extends FreePBX_Helpers implements BMO {
 		return json_encode($return);
 	}
 
-	public function deleteRemote($driver, $id, $path){
-		return $this->freepbx->Filestore->delete($driver, $id, $path);
+	public function deleteRemote($id, $path){
+		return $this->freepbx->Filestore->delete($id, $path);
 	}
 
 	public function getAllRemote(){
 		$final = [];
-		$serverName = str_replace(' ', '_',$this->freepbx->Config->get('FREEPBX_SYSTEM_IDENT'));
-		$ret = $this->freepbx->Filestore->listAllFilesByPath($serverName);
+		$ret = $this->freepbx->Filestore->listAllFiles();
 		foreach($ret as $dname => $driver){
 			foreach($driver as $id => $location){
 				if(!isset($location['results'])){
@@ -1089,8 +1099,8 @@ class Backup extends FreePBX_Helpers implements BMO {
 					}
 					$backupFile = new BackupSplFileInfo($file['path']);
 					$info = $backupFile->backupData();
-					if($info['isCheckSum']){
-						continue;
+					if($info === false) {
+						continue; //not a backup file
 					}
 					$final[] = [
 						'id' => $dname.'_'.$id.'_'.sha1($file['path']),
@@ -1098,7 +1108,8 @@ class Backup extends FreePBX_Helpers implements BMO {
 						'file' => $file['path'],
 						'framework' => $info['framework'],
 						'timestamp' => $info['timestamp'],
-						'name' => str_replace('_',' ',explode('/',$file['dirname'])[1]),
+						'name' => $file['basename'],
+						'instancename' => $location['name']
 					];
 				}
 			}
@@ -1107,14 +1118,13 @@ class Backup extends FreePBX_Helpers implements BMO {
 	}
 	public function remoteToLocal($location,$file){
 		$parts = explode('_',$location);
+		$info = $this->freepbx->Filestore->getItemById($parts[1]);
 		$fileparts = array_slice(explode('/',$file),-2);
 		$spooldir = $this->freepbx->Config->get("ASTSPOOLDIR");
-		$localpath = sprintf('%s/backup/%s/%s',$spooldir,$fileparts[0],$fileparts[1]);
+		$localpath = sprintf('%s/backup/%s/%s',$spooldir,$info['name'],basename($file));
+
 		if(!file_exists($localpath)){
-			$this->freepbx->Filestore->get($parts[0],$parts[1],$file,$localpath);
-		}
-		if(!file_exists($localpath)){
-			return '';
+			$this->freepbx->Filestore->download($parts[1],$file,$localpath);
 		}
 		$this->setConfig(md5($localpath),$localpath,'localfilepaths');
 

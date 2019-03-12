@@ -25,6 +25,7 @@ class Backup extends Command {
 				new InputOption('list', '', InputOption::VALUE_NONE, 'List backups'),
 				new InputOption('warmspare', '', InputOption::VALUE_NONE, 'Set the warmspare flag'),
 				new InputOption('implemented', '', InputOption::VALUE_NONE, ''),
+				new InputOption('filestore', '', InputOption::VALUE_REQUIRED, 'Use filestore ID to restore a file'),
 				new InputOption('restore', '', InputOption::VALUE_REQUIRED, 'Restore File'),
 				new InputOption('modules', '', InputOption::VALUE_REQUIRED, 'Specific Modules to restore from using --restore, separate each module by a comma'),
 				new InputOption('restoresingle', '', InputOption::VALUE_REQUIRED, 'Module backup to restore'),
@@ -68,6 +69,7 @@ class Backup extends Command {
 		$list = $input->getOption('list');
 		$warmspare = $input->getOption('warmspare');
 		$backup = $input->getOption('backup');
+		$filestore = $input->getOption('filestore');
 		$restore = $input->getOption('restore');
 		$remote = $input->getOption('externbackup');
 		$dumpextern = $input->getOption('dumpextern');
@@ -192,6 +194,16 @@ class Backup extends Command {
 				}
 				return;
 			break;
+			case $filestore:
+				$info = $this->freepbx->Filestore->getItemById($filestore);
+				if(empty($info)) {
+					throw new \Exception('Invalid filestore id');
+				}
+				$output->write(sprintf(_("Retrieving %s from %s:%s..."),basename($restore), $info['driver'],$info['name']));
+				$path = sys_get_temp_dir().'/backup/'.basename($restore);
+				$this->freepbx->Filestore->download($filestore,$restore,$path);
+				$output->writeln(_('Done'));
+				$restore = $path;
 			case $restore:
 				$output->write(_("Determining backup file type..."));
 				$backupType = $this->freepbx->Backup->determineBackupFileType($restore);

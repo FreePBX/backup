@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-11 15:15-0400\n"
+"POT-Creation-Date: 2019-03-12 19:07-0400\n"
 "PO-Revision-Date: 2015-11-17 12:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -59,7 +59,7 @@ msgid "A name used to identify your backups"
 msgstr ""
 
 #: views/backup/grid.php:25 views/restore/landing.php:73
-#: views/restore/landing.php:116
+#: views/restore/landing.php:117
 msgid "Actions"
 msgstr "命令"
 
@@ -107,11 +107,11 @@ msgstr ""
 msgid "Apply Configs"
 msgstr ""
 
-#: assets/js/backup.js:112 assets/js/backup.js:144
+#: assets/js/backup.js:112 assets/js/backup.js:149
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
 
-#: Backup.class.php:1160
+#: Backup.class.php:1170
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -122,7 +122,7 @@ msgstr ""
 msgid "Backup"
 msgstr ""
 
-#: Backup.class.php:908
+#: Backup.class.php:919
 #, php-format
 msgid "Backup %s"
 msgstr ""
@@ -153,7 +153,7 @@ msgstr "备份还原FreePBX 环境文件"
 msgid "Backup Date"
 msgstr ""
 
-#: Backup.class.php:271
+#: Backup.class.php:270
 msgid "Backup Deleted"
 msgstr ""
 
@@ -167,6 +167,10 @@ msgstr ""
 
 #: views/restore/processRestore.php:11
 msgid "Backup Info"
+msgstr ""
+
+#: views/restore/landing.php:116
+msgid "Backup Instance"
 msgstr ""
 
 #: views/backup/form.php:73
@@ -186,7 +190,7 @@ msgstr ""
 msgid "Backup Wizard"
 msgstr "备份向导"
 
-#: Console/Backup.class.php:108 Console/Backup.class.php:178
+#: Console/Backup.class.php:110 Console/Backup.class.php:180
 msgid "Backup completed successfully"
 msgstr ""
 
@@ -197,7 +201,7 @@ msgid ""
 "or until cleaned manually."
 msgstr ""
 
-#: Backup.class.php:392
+#: Backup.class.php:403
 msgid "Backup running"
 msgstr ""
 
@@ -219,7 +223,7 @@ msgstr ""
 msgid "Can't find the module data for %s"
 msgstr ""
 
-#: assets/js/backup.js:113 assets/js/backup.js:145
+#: assets/js/backup.js:113 assets/js/backup.js:150
 msgid "Cancel"
 msgstr ""
 
@@ -261,7 +265,7 @@ msgstr ""
 msgid "Could not backup module %s, it may not be installed or enabled"
 msgstr ""
 
-#: Backup.class.php:365
+#: Backup.class.php:367 Backup.class.php:375
 msgid "Could not find a file for the id supplied"
 msgstr ""
 
@@ -274,12 +278,12 @@ msgstr ""
 msgid "Couldn't find %s"
 msgstr ""
 
-#: Backup.class.php:564
+#: Backup.class.php:575
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
 #: Backup.class.php:175 views/restore/landing.php:49
-#: views/restore/landing.php:92 assets/js/backup.js:113 assets/js/backup.js:145
+#: views/restore/landing.php:92 assets/js/backup.js:113 assets/js/backup.js:150
 msgid "Delete"
 msgstr "删除"
 
@@ -296,11 +300,12 @@ msgstr ""
 msgid "Description"
 msgstr "描述"
 
-#: Console/Backup.class.php:196
+#: Console/Backup.class.php:208
 msgid "Determining backup file type..."
 msgstr ""
 
-#: Handlers/Restore/Common.php:106 Handlers/Restore/Legacy.php:180
+#: Console/Backup.class.php:205 Handlers/Restore/Common.php:106
+#: Handlers/Restore/Legacy.php:180
 msgid "Done"
 msgstr ""
 
@@ -332,7 +337,7 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1063 views/backup/form.php:249
+#: Backup.class.php:1074 views/backup/form.php:249
 msgid "Enabled"
 msgstr ""
 
@@ -342,7 +347,7 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: assets/js/backup.js:240 assets/js/backup.js:259 assets/js/backup.js:309
+#: assets/js/backup.js:246 assets/js/backup.js:265 assets/js/backup.js:315
 msgid "Error"
 msgstr ""
 
@@ -423,7 +428,7 @@ msgstr ""
 msgid "Failure"
 msgstr ""
 
-#: Backup.class.php:280
+#: Backup.class.php:279
 msgid "File Deleted"
 msgstr ""
 
@@ -432,7 +437,7 @@ msgstr ""
 msgid "File named: %s"
 msgstr ""
 
-#: Backup.class.php:308
+#: Backup.class.php:307
 msgid "File reached the server but could not be processed"
 msgstr ""
 
@@ -444,15 +449,15 @@ msgstr ""
 msgid "Finished Cleaning up"
 msgstr ""
 
-#: Console/Backup.class.php:166
+#: Console/Backup.class.php:168
 msgid "Finished Local Maintenance"
 msgstr ""
 
-#: Console/Backup.class.php:169
+#: Console/Backup.class.php:171
 msgid "Finished Remote Maintenance"
 msgstr ""
 
-#: Handlers/Storage.php:46
+#: Handlers/Storage.php:49
 msgid "Finished Saving to selected Filestore locations"
 msgstr ""
 
@@ -490,11 +495,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1145
+#: Backup.class.php:1155
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1151
+#: Backup.class.php:1161
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -547,12 +552,16 @@ msgstr ""
 msgid "Inline Logs"
 msgstr ""
 
-#: Backup.class.php:516
+#: Backup.class.php:527
 msgid "Invalid Backup ID"
 msgstr ""
 
-#: Backup.class.php:237 Backup.class.php:286
+#: Backup.class.php:237 Backup.class.php:285
 msgid "Invalid ID Provided"
+msgstr ""
+
+#: Handlers/Backup/Maintenance.php:78 Handlers/Storage.php:39
+msgid "Invalid filestore location"
 msgstr ""
 
 #: views/backup/transfer.php:39
@@ -577,7 +586,7 @@ msgstr ""
 msgid "List Backups"
 msgstr ""
 
-#: assets/js/backup.js:270
+#: assets/js/backup.js:276
 msgid "Loading Please Wait"
 msgstr ""
 
@@ -606,7 +615,7 @@ msgstr ""
 msgid "Migrating legacy backups to the new backup"
 msgstr ""
 
-#: Backup.class.php:448
+#: Backup.class.php:459
 msgid "Missing id or transaction or pid"
 msgstr ""
 
@@ -642,19 +651,19 @@ msgstr "名称"
 msgid "No"
 msgstr ""
 
-#: assets/js/backup.js:185
+#: assets/js/backup.js:190
 msgid "No Storage Locations"
 msgstr ""
 
-#: Backup.class.php:378
+#: Backup.class.php:389
 msgid "No backup id provided"
 msgstr ""
 
-#: Backup.class.php:305
+#: Backup.class.php:304
 msgid "No file provided"
 msgstr ""
 
-#: Backup.class.php:553
+#: Backup.class.php:564
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
@@ -676,11 +685,11 @@ msgid ""
 "Parsing out SQL tables. This may take a moment depending on backup size."
 msgstr ""
 
-#: Console/Backup.class.php:164
+#: Console/Backup.class.php:166
 msgid "Performing Local Maintenance"
 msgstr ""
 
-#: Console/Backup.class.php:167
+#: Console/Backup.class.php:169
 msgid "Performing Remote Maintenance"
 msgstr ""
 
@@ -718,6 +727,7 @@ msgstr ""
 msgid "Remote User"
 msgstr ""
 
+#: Handlers/Backup/Maintenance.php:99 Handlers/Backup/Maintenance.php:117
 #: Handlers/Backup/Multiple.php:150 Handlers/Backup/Single.php:55
 #, php-format
 msgid "Removing %s"
@@ -750,7 +760,7 @@ msgstr ""
 msgid "Restore Information"
 msgstr ""
 
-#: Console/Backup.class.php:134 Console/Backup.class.php:221
+#: Console/Backup.class.php:136 Console/Backup.class.php:233
 msgid "Restore completed successfully"
 msgstr ""
 
@@ -762,7 +772,7 @@ msgstr ""
 msgid "Restore from the cloud"
 msgstr ""
 
-#: Backup.class.php:375
+#: Backup.class.php:386
 msgid "Restore running"
 msgstr ""
 
@@ -776,6 +786,11 @@ msgstr ""
 msgid "Restoring from %s [%s]"
 msgstr ""
 
+#: Console/Backup.class.php:202
+#, php-format
+msgid "Retrieving %s from %s:%s..."
+msgstr ""
+
 #: views/restore/processRestore.php:16
 msgid "Run Date"
 msgstr ""
@@ -784,7 +799,7 @@ msgstr ""
 msgid "Run Restore"
 msgstr ""
 
-#: assets/js/backup.js:365
+#: assets/js/backup.js:371
 msgid "Run the following in the CLI"
 msgstr ""
 
@@ -838,13 +853,13 @@ msgstr ""
 msgid "Save and Run"
 msgstr "保存运行"
 
-#: Handlers/Storage.php:32
+#: Handlers/Storage.php:30
 msgid "Saving to selected Filestore locations"
 msgstr ""
 
-#: Handlers/Storage.php:40
+#: Handlers/Storage.php:43
 #, php-format
-msgid "Saving to: %s instance"
+msgid "Saving to: %s:'%s' instance"
 msgstr ""
 
 #: views/backup/form.php:239
@@ -892,11 +907,11 @@ msgstr ""
 msgid "Skpping %s which %s depends on because it is a system requirement"
 msgstr ""
 
-#: Backup.class.php:257 Backup.class.php:282
+#: Backup.class.php:256 Backup.class.php:281
 msgid "Something failed, The file may need to be removed manually."
 msgstr ""
 
-#: Backup.class.php:273
+#: Backup.class.php:272
 msgid "Something failed."
 msgstr ""
 
@@ -930,7 +945,7 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: Backup.class.php:547
+#: Backup.class.php:558
 msgid "System Transfer"
 msgstr ""
 
@@ -968,7 +983,7 @@ msgstr ""
 msgid "The module %s returned no data, No backup created"
 msgstr ""
 
-#: assets/js/backup.js:309
+#: assets/js/backup.js:315
 #, perl-format
 msgid "There was an error during %s"
 msgstr ""
@@ -977,19 +992,19 @@ msgstr ""
 msgid "There was nothing to cleanup"
 msgstr ""
 
-#: Console/Backup.class.php:111 Console/Backup.class.php:181
+#: Console/Backup.class.php:113 Console/Backup.class.php:183
 msgid "There were errors during the backup process"
 msgstr ""
 
-#: Console/Backup.class.php:137 Console/Backup.class.php:224
+#: Console/Backup.class.php:139 Console/Backup.class.php:236
 msgid "There were errors during the restore process"
 msgstr ""
 
-#: Console/Backup.class.php:117 Console/Backup.class.php:187
+#: Console/Backup.class.php:119 Console/Backup.class.php:189
 msgid "There were warnings during the backup process"
 msgstr ""
 
-#: Console/Backup.class.php:143 Console/Backup.class.php:230
+#: Console/Backup.class.php:145 Console/Backup.class.php:242
 msgid "There were warnings during the restore process"
 msgstr ""
 
@@ -1018,7 +1033,7 @@ msgstr ""
 msgid "This table will be empty on backups created prior to version 15"
 msgstr ""
 
-#: Console/Backup.class.php:92
+#: Console/Backup.class.php:94
 #, php-format
 msgid "Transaction ID is: %s"
 msgstr ""
@@ -1045,7 +1060,7 @@ msgid ""
 "definitions in module.xml"
 msgstr ""
 
-#: Backup.class.php:1063
+#: Backup.class.php:1074
 msgid "Uninstalled or Disabled"
 msgstr ""
 
@@ -1109,11 +1124,11 @@ msgstr ""
 msgid "Warm Spare"
 msgstr ""
 
-#: Backup.class.php:244 Backup.class.php:295
+#: Backup.class.php:244 Backup.class.php:294
 msgid "We can't seem to delete the chosen file"
 msgstr ""
 
-#: Backup.class.php:241 Backup.class.php:290
+#: Backup.class.php:241 Backup.class.php:289
 msgid "We don't have permissions to this file"
 msgstr ""
 
@@ -1143,12 +1158,12 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: assets/js/backup.js:306
+#: assets/js/backup.js:312
 #, perl-format
 msgid "Your %s has finished"
 msgstr ""
 
-#: Console/Backup.class.php:201
+#: Console/Backup.class.php:213
 #, php-format
 msgid "type is %s"
 msgstr ""

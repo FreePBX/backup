@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-12 19:07-0400\n"
+"POT-Creation-Date: 2019-03-12 19:41-0400\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -57,12 +57,12 @@ msgstr ""
 msgid "%s does not exist"
 msgstr ""
 
-#: RestoreBase.php:164 RestoreBase.php:301
+#: RestoreBase.php:164 RestoreBase.php:304
 #, php-format
 msgid "%s does not implement KVStore"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:112
+#: Handlers/Restore/Legacy.php:118
 #, php-format
 msgid "%s is now loaded into memory"
 msgstr ""
@@ -226,7 +226,7 @@ msgstr "Основна Информация"
 msgid "Both"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:132
+#: Handlers/Restore/Legacy.php:138
 #, php-format
 msgid "Calling legacy restore on module %s"
 msgstr ""
@@ -261,7 +261,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: RestoreBase.php:403
+#: RestoreBase.php:406
 #, php-format
 msgid "Column '%s' does not exist in %s, skipping"
 msgstr ""
@@ -286,7 +286,7 @@ msgstr ""
 msgid "Could not locate the manifest for this file"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:128
+#: Handlers/Restore/Legacy.php:134
 #, php-format
 msgid "Couldn't find %s"
 msgstr ""
@@ -318,7 +318,7 @@ msgid "Determining backup file type..."
 msgstr ""
 
 #: Console/Backup.class.php:205 Handlers/Restore/Common.php:106
-#: Handlers/Restore/Legacy.php:180
+#: Handlers/Restore/Legacy.php:186
 msgid "Done"
 msgstr ""
 
@@ -432,7 +432,7 @@ msgstr ""
 msgid "Extracting backup..."
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:104
+#: Handlers/Restore/Legacy.php:108
 #, php-format
 msgid "Extracting supplied database file %s"
 msgstr ""
@@ -445,7 +445,7 @@ msgstr ""
 msgid "File Deleted"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:58
+#: Handlers/Restore/Legacy.php:61
 #, php-format
 msgid "File named: %s"
 msgstr ""
@@ -479,7 +479,7 @@ msgstr ""
 msgid "Finished created backup file: %s"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:56
+#: Handlers/Restore/Legacy.php:59
 #, php-format
 msgid "Found %s database files in the backup."
 msgstr ""
@@ -522,7 +522,7 @@ msgstr ""
 msgid "ID From the donor machine"
 msgstr ""
 
-#: RestoreBase.php:83 RestoreBase.php:276
+#: RestoreBase.php:83 RestoreBase.php:279
 #, php-format
 msgid "Importing Advanced Settings from %s"
 msgstr ""
@@ -552,7 +552,7 @@ msgstr ""
 msgid "Importing Table %s from %s"
 msgstr ""
 
-#: RestoreBase.php:223
+#: RestoreBase.php:224
 #, php-format
 msgid "Importing table '%s' from legacy %s"
 msgstr ""
@@ -611,7 +611,7 @@ msgstr ""
 msgid "Loading manifest to memory"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:110
+#: Handlers/Restore/Legacy.php:116
 #, php-format
 msgid "Loading supplied database file %s"
 msgstr ""
@@ -688,7 +688,7 @@ msgstr ""
 msgid "Notifications"
 msgstr "Известия"
 
-#: Handlers/Restore/Legacy.php:197 Handlers/Restore/Multiple.php:43
+#: Handlers/Restore/Legacy.php:203 Handlers/Restore/Multiple.php:43
 #, php-format
 msgid "Only Restoring %s"
 msgstr ""
@@ -710,7 +710,7 @@ msgstr ""
 msgid "Processing"
 msgstr ""
 
-#: Handlers/Backup/Single.php:36 Handlers/Restore/Legacy.php:210
+#: Handlers/Backup/Single.php:36 Handlers/Restore/Legacy.php:216
 #: Handlers/Restore/Multiple.php:54
 #, php-format
 msgid "Processing %s"
@@ -755,7 +755,7 @@ msgstr ""
 msgid "Reset"
 msgstr "Изчисти"
 
-#: Handlers/Restore/Legacy.php:176
+#: Handlers/Restore/Legacy.php:182
 #, php-format
 msgid "Resetting %s"
 msgstr ""
@@ -794,7 +794,7 @@ msgstr ""
 msgid "Restoring %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:104 Handlers/Restore/Legacy.php:178
+#: Handlers/Restore/Common.php:104 Handlers/Restore/Legacy.php:184
 #, php-format
 msgid "Restoring from %s [%s]"
 msgstr ""
@@ -911,7 +911,7 @@ msgstr ""
 msgid "Should the warm spare feature be enabled"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:207
+#: Handlers/Restore/Legacy.php:213
 msgid "Skipping backup"
 msgstr ""
 
@@ -962,7 +962,12 @@ msgstr ""
 msgid "System Transfer"
 msgstr ""
 
-#: RestoreBase.php:226
+#: RestoreBase.php:230
+#, php-format
+msgid "Table '%s' does not exist in legacy %s, skipping"
+msgstr ""
+
+#: RestoreBase.php:227
 #, php-format
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
@@ -981,7 +986,7 @@ msgstr ""
 msgid "The module %s does not seem to support restores."
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:158
+#: Handlers/Restore/Legacy.php:164
 #, php-format
 msgid "The module %s does not support restores"
 msgstr ""
@@ -1111,7 +1116,7 @@ msgstr ""
 msgid "Using default backup strategy"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:162
+#: Handlers/Restore/Legacy.php:168
 msgid "Using default restore strategy"
 msgstr ""
 
@@ -1119,12 +1124,12 @@ msgstr ""
 msgid "Using fallback restore strategy"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:237
+#: Handlers/Restore/Legacy.php:243
 #, php-format
 msgid "Utilizing cached based sqlite at %s. The data might be stale!"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:241
+#: Handlers/Restore/Legacy.php:247
 #, php-format
 msgid "Utilizing file based sqlite at %s, This is SLOW"
 msgstr ""

@@ -49,6 +49,9 @@ class Legacy extends Common {
 		foreach (glob($this->tmp."/*.sql.gz") as $filename) {
 			$files[] = $filename;
 		}
+		foreach (glob($this->tmp."/*.sql") as $filename) {
+			$files[] = $filename;
+		}
 		$amodules = $this->freepbx->Modules->getActiveModules();
 		foreach ($amodules as $key => $value) {
 			$tableMap[$key] = [];

@@ -104,11 +104,14 @@ class Legacy extends Common {
 	public function setupTempDb($file){
 		$info = new \SplFileInfo($file);
 
-		$this->log(sprintf(_("Extracting supplied database file %s"), $info->getBasename()));
-		$process = new Process(['gunzip', $file]);
-		$process->mustRun();
-
-		$extracted = $info->getPath().'/'.$info->getBasename('.' . $info->getExtension());
+		if($info->getExtension() === 'gz') {
+			$this->log(sprintf(_("Extracting supplied database file %s"), $info->getBasename()));
+			$process = new Process(['gunzip', $file]);
+			$process->mustRun();
+			$extracted = $info->getPath().'/'.$info->getBasename('.' . $info->getExtension());
+		} else {
+			$extracted = $file;
+		}
 
 		$this->log(sprintf(_("Loading supplied database file %s"), $info->getBasename('.' . $info->getExtension())));
 		$tempDB = $this->mysql2sqlite($extracted);

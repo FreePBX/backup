@@ -989,7 +989,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 		$this->delById($id);
 		//This should return an empty array if successful.
 		$this->scheduleJobs('all');
-		$htis->FreePBX->Hooks->processHooks($id);
+		$this->FreePBX->Hooks->processHooks($id);
 		return empty($this->getBackup($id));
 	}
 

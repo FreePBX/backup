@@ -87,7 +87,8 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		foreach($settings as $keyword => $value) {
 			$sth->execute([
 				":keyword" => $keyword,
-				":value" => $value
+				":value" => $value,
+				":module" => strtolower($this->data['module'])
 			]);
 		}
 	}
@@ -111,7 +112,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 				":customcode" => $data['customcode'],
 				":enabled" => $data['enabled'],
 				":featurename" => $key,
-				":modulename" => $module
+				":modulename" => strtolower($this->data['module'])
 			]);
 		}
 	}

@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-12 19:41-0400\n"
+"POT-Creation-Date: 2019-03-13 18:49-0400\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -59,7 +59,7 @@ msgstr ""
 msgid "%s does not exist"
 msgstr ""
 
-#: RestoreBase.php:164 RestoreBase.php:304
+#: RestoreBase.php:165 RestoreBase.php:305
 #, php-format
 msgid "%s does not implement KVStore"
 msgstr ""
@@ -263,7 +263,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: RestoreBase.php:406
+#: RestoreBase.php:407
 #, php-format
 msgid "Column '%s' does not exist in %s, skipping"
 msgstr ""
@@ -528,37 +528,37 @@ msgstr ""
 msgid "ID From the donor machine"
 msgstr ""
 
-#: RestoreBase.php:83 RestoreBase.php:279
+#: RestoreBase.php:83 RestoreBase.php:280
 #, php-format
 msgid "Importing Advanced Settings from %s"
 msgstr ""
 
-#: RestoreBase.php:130
+#: RestoreBase.php:131
 #, php-format
 msgid "Importing AstDB family %s from %s"
 msgstr ""
 
-#: RestoreBase.php:216
+#: RestoreBase.php:217
 #, php-format
 msgid "Importing Databases from %s"
 msgstr ""
 
-#: RestoreBase.php:105
+#: RestoreBase.php:106
 #, php-format
 msgid "Importing Feature Codes from %s"
 msgstr ""
 
-#: RestoreBase.php:167
+#: RestoreBase.php:168
 #, php-format
 msgid "Importing KVStore from %s"
 msgstr ""
 
-#: RestoreBase.php:148
+#: RestoreBase.php:149
 #, php-format
 msgid "Importing Table %s from %s"
 msgstr ""
 
-#: RestoreBase.php:224
+#: RestoreBase.php:225
 #, php-format
 msgid "Importing table '%s' from legacy %s"
 msgstr ""
@@ -968,12 +968,12 @@ msgstr ""
 msgid "System Transfer"
 msgstr ""
 
-#: RestoreBase.php:230
+#: RestoreBase.php:231
 #, php-format
 msgid "Table '%s' does not exist in legacy %s, skipping"
 msgstr ""
 
-#: RestoreBase.php:227
+#: RestoreBase.php:228
 #, php-format
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
@@ -1071,13 +1071,13 @@ msgstr ""
 msgid "Transfer Id"
 msgstr ""
 
-#: RestoreBase.php:207
+#: RestoreBase.php:208
 #, php-format
 msgid ""
 "Unable to run restoreLegacyDatabase on %s because module.xml was not found"
 msgstr ""
 
-#: RestoreBase.php:212
+#: RestoreBase.php:213
 #, php-format
 msgid ""
 "Unable to run restoreLegacyDatabase on %s because there are no database "

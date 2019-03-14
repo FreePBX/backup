@@ -1,10 +1,5 @@
 <?php
 namespace FreePBX\modules\Backup\Migration;
-use FreePBX\modules\Filestore\drivers\FTP\FTP;
-use FreePBX\modules\Filestore\drivers\Local\Local;
-use FreePBX\modules\Filestore\drivers\S3\S3;
-use FreePBX\modules\Filestore\drivers\SSH\SSH;
-use FreePBX\modules\Filestore\drivers\Email\Email;
 use PDO;
 class Servers extends Common {
 	public $servers;
@@ -97,29 +92,23 @@ class Servers extends Common {
 	}
 
 	public function handleFTP($data){
-		$ftp = new FTP($this->freepbx);
-		$ftp->addItem($data);
-		return $this;
+		$this->freepbx->Filestore->addItem('FTP',$data);
 	}
 	public function handleSSH($data){
-		$ssh = new SSH($this->freepbx);
-		$ssh->addItem($data);
+		$this->freepbx->Filestore->addItem('SSH',$data);
 	}
 	public function handleMySQL($data){
 
 	}
 	public function handleEmail($data){
-		$email = new Email($this->freepbx);
-		$email->addItem($data);
+		$this->freepbx->Filestore->addItem('Email',$data);
 	}
 
 	public function handleLocal($data){
-		$local = new Local($this->freepbx);
-		$local->addItem($data);
+		$this->freepbx->Filestore->addItem('Local',$data);
 	}
 	public function handleS3($data){
-		$S3 = new S3($this->freepbx);
-		$S3->addItem($data);
+		$this->freepbx->Filestore->addItem('S3',$data);
 	}
 }
 

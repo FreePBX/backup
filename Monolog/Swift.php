@@ -56,7 +56,13 @@ class Swift extends MailHandler {
 
 		$this->messageTemplate->setSubject($subject);
 
-		$this->mailer->send($this->buildMessage($content, $records));
+		try {
+			$this->mailer->send($this->buildMessage($content, $records));
+		} catch(\Exception $e) {
+			$nt = \FreePBX::Notifications();
+			$nt->add_error('backup', 'EMAIL', _('Unable to send backup email!'), $e->getMessage(), "", true, true);
+		}
+
 	}
 
 	/**

@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-13 18:49-0400\n"
+"POT-Creation-Date: 2019-03-14 15:28-0400\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -889,7 +889,7 @@ msgstr ""
 msgid "Scheduling"
 msgstr ""
 
-#: Monolog/Swift.php:100
+#: Monolog/Swift.php:106
 msgid "See attachment"
 msgstr ""
 
@@ -1082,6 +1082,10 @@ msgstr ""
 msgid ""
 "Unable to run restoreLegacyDatabase on %s because there are no database "
 "definitions in module.xml"
+msgstr ""
+
+#: Monolog/Swift.php:63
+msgid "Unable to send backup email!"
 msgstr ""
 
 #: Backup.class.php:1074

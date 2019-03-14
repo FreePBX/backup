@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8</version>
+	<version>15.0.8.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.1* FREEPBX-19634 Unable to send backup email
 		*15.0.8* Fix backup issues
 		*15.0.7* Handle restores from 12 or lower (scary)
 		*15.0.6* Rework functions from filestore

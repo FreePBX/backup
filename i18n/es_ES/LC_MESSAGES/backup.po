@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-13 18:49-0400\n"
+"POT-Creation-Date: 2019-03-14 15:28-0400\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -888,7 +888,7 @@ msgstr ""
 msgid "Scheduling"
 msgstr ""
 
-#: Monolog/Swift.php:100
+#: Monolog/Swift.php:106
 msgid "See attachment"
 msgstr ""
 
@@ -1081,6 +1081,10 @@ msgstr ""
 msgid ""
 "Unable to run restoreLegacyDatabase on %s because there are no database "
 "definitions in module.xml"
+msgstr ""
+
+#: Monolog/Swift.php:63
+msgid "Unable to send backup email!"
 msgstr ""
 
 #: Backup.class.php:1074

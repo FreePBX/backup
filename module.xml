@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>14.0.10.2</version>
+	<version>14.0.10.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -19,6 +19,7 @@
 		<version>13.0.5</version>
 	</depends>
 	<changelog>
+		*14.0.10.3* FREEPBX-19416 
 		*14.0.10.2* Fixing FREEPBX-19491 Add backup fwconsole command to get status of jobs 
 		*14.0.10.1* Minor PHP 7.2 compatibilty fix
 		*14.0.10* Fixing FREEPBX-17783 Removing applyconfigs option 

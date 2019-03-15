@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-15 16:41+0530\n"
+"POT-Creation-Date: 2019-03-15 16:45+0530\n"
 "PO-Revision-Date: 2017-03-08 21:01+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -58,14 +58,6 @@ msgstr ""
 msgid "A name used to identify your backups"
 msgstr ""
 
-#: views/servers/awss3.php:41
-msgid "AWS Access Key"
-msgstr "Chave de Acesso AWS"
-
-#: views/servers/awss3.php:58
-msgid "AWS Secret"
-msgstr "Segredo AWS"
-
 #: views/backup/grid.php:25 views/restore/landing.php:73
 #: views/restore/landing.php:117
 msgid "Actions"
@@ -111,10 +103,6 @@ msgstr "Admin"
 msgid "After the restore you should reload with the apply config button"
 msgstr ""
 
-#: views/servers/awss3.php:4
-msgid "Amazon S3&trade; Server"
-msgstr "Servidor S3&trade; Amazon"
-
 #: views/backup/warmspare.php:171
 msgid "Apply Configs"
 msgstr "Aplicar Configurações"
@@ -129,10 +117,6 @@ msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
 "Aborting"
 msgstr ""
-
-#: views/servers/email.php:99
-msgid "B"
-msgstr "B"
 
 #: views/landing.php:13
 msgid "Backup"
@@ -233,10 +217,6 @@ msgstr "Informação Básica"
 msgid "Both"
 msgstr ""
 
-#: views/servers/awss3.php:14
-msgid "Bucket Name"
-msgstr "Nome do Bucket"
-
 #: Handlers/Restore/Legacy.php:138
 #, php-format
 msgid "Calling legacy restore on module %s"
@@ -306,10 +286,6 @@ msgstr ""
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
-#: views/servers/mysql.php:160
-msgid "DB Name"
-msgstr "Nome do DB"
-
 #: Backup.class.php:175 views/restore/landing.php:49
 #: views/restore/landing.php:92 assets/js/backup.js:113 assets/js/backup.js:150
 msgid "Delete"
@@ -324,16 +300,9 @@ msgid "Delete After Runs"
 msgstr ""
 
 #: views/backup/grid.php:24 views/restore/processRestore.php:15
-#: views/rnav.php:9 views/servers/awss3.php:27 views/servers/email.php:40
-#: views/servers/local.php:40 views/servers/mysql.php:40
-#: views/servers/ssh.php:40
+#: views/rnav.php:9
 msgid "Description"
 msgstr "Descrição"
-
-#: views/servers/email.php:52 views/servers/local.php:52
-#: views/servers/mysql.php:52 views/servers/ssh.php:52
-msgid "Description or notes for this server"
-msgstr "Descrição ou comentários para este servidor"
 
 #: Console/Backup.class.php:208
 msgid "Determining backup file type..."
@@ -356,14 +325,6 @@ msgstr ""
 msgid "Email "
 msgstr "Email "
 
-#: views/servers/email.php:64
-msgid "Email Address"
-msgstr "Endereço de Email"
-
-#: views/servers/email.php:4
-msgid "Email Server"
-msgstr "Servidor de Email"
-
 #: views/backup/form.php:166
 msgid "Email Type"
 msgstr ""
@@ -371,10 +332,6 @@ msgstr ""
 #: views/backup/form.php:119
 msgid "Email address to send notifications to."
 msgstr ""
-
-#: views/servers/email.php:76
-msgid "Email address where backups should be emailed to"
-msgstr "Endereço de e-mail onde os backups deverão ser enviados"
 
 #: views/backup/warmspare.php:14
 msgid "Enable"
@@ -480,14 +437,6 @@ msgstr ""
 msgid "Extracting supplied database file %s"
 msgstr ""
 
-#: views/servers/mysql.php:148
-msgid "FTP Password"
-msgstr "Senha FTP"
-
-#: views/servers/mysql.php:124
-msgid "FTP Username"
-msgstr "Nome de Usuário FTP"
-
 #: views/backup/form.php:181
 msgid "Failure"
 msgstr ""
@@ -547,10 +496,6 @@ msgstr ""
 msgid "Global Settings"
 msgstr ""
 
-#: views/servers/mysql.php:64 views/servers/ssh.php:64
-msgid "Hostname"
-msgstr "Nome do Host"
-
 #: views/backup/form.php:381
 msgid ""
 "How long to maintain backups. Example 30 will delete anything older than 30 "
@@ -576,14 +521,6 @@ msgstr ""
 #: views/backup/transfer.php:16
 msgid "ID From the donor machine"
 msgstr ""
-
-#: views/servers/ssh.php:76
-msgid "IP address or FQDN of remote SSH server"
-msgstr "Endereço IP ou FQDN de um servidor SSH remoto"
-
-#: views/servers/mysql.php:76
-msgid "IP address or FQDN of remote mysql host"
-msgstr "Endereço IP ou FQDN de um host mysql remoto"
 
 #: RestoreBase.php:83 RestoreBase.php:280
 #, php-format
@@ -644,14 +581,6 @@ msgstr ""
 msgid "Is this the donor machine or the recipient"
 msgstr ""
 
-#: views/servers/email.php:101
-msgid "KB"
-msgstr "KB"
-
-#: views/servers/ssh.php:136
-msgid "Key"
-msgstr "Chave"
-
 #: Models/BackupSplFileInfo.php:72
 msgid "Legacy Restore"
 msgstr ""
@@ -687,25 +616,9 @@ msgstr ""
 msgid "Loading supplied database file %s"
 msgstr ""
 
-#: views/servers/local.php:4
-msgid "Local Server"
-msgstr "Servidor Local"
-
-#: views/servers/ssh.php:148
-msgid "Location of ssh private key to be used when connecting to a host"
-msgstr "Localização da chave privada ssh a ser usada ao se conectar a um host"
-
-#: views/servers/email.php:103
-msgid "MB"
-msgstr "MB"
-
 #: views/backup/form.php:304
 msgid "Maintinence"
 msgstr ""
-
-#: views/servers/email.php:88
-msgid "Max Email Size"
-msgstr "Tamanho Máximo do Email"
 
 #: Backup.class.php:96
 msgid "Migrating legacy backupjobs"
@@ -739,18 +652,10 @@ msgstr ""
 msgid "Moving servers to filestore"
 msgstr ""
 
-#: views/servers/mysql.php:4
-msgid "MySQL Server"
-msgstr "Servidor MySQL"
-
 #: views/backup/grid.php:23 views/restore/processRestore.php:14
 #: views/rnav.php:8
 msgid "Name"
 msgstr "Nome"
-
-#: views/servers/email.php:28
-msgid "Name this Server"
-msgstr "Nome deste Servidor"
 
 #: views/backup/form.php:146 views/backup/form.php:262
 #: views/backup/warmspare.php:25 views/backup/warmspare.php:56
@@ -793,18 +698,6 @@ msgid ""
 "Parsing out SQL tables. This may take a moment depending on backup size."
 msgstr ""
 
-#: views/servers/mysql.php:136
-msgid "Password"
-msgstr "Senha"
-
-#: views/servers/local.php:64 views/servers/ssh.php:160
-msgid "Path"
-msgstr "Caminho"
-
-#: views/servers/local.php:76 views/servers/ssh.php:172
-msgid "Path on remote server"
-msgstr "Caminho no servidor remoto"
-
 #: Console/Backup.class.php:166
 msgid "Performing Local Maintenance"
 msgstr ""
@@ -812,10 +705,6 @@ msgstr ""
 #: Console/Backup.class.php:169
 msgid "Performing Remote Maintenance"
 msgstr ""
-
-#: views/servers/mysql.php:88 views/servers/ssh.php:88
-msgid "Port"
-msgstr "Porta"
 
 #: views/restore/landing.php:25
 msgid "Processing"
@@ -831,10 +720,6 @@ msgstr ""
 msgid "Processing..."
 msgstr ""
 
-#: views/servers/local.php:28 views/servers/ssh.php:28
-msgid "Provide the name for this server"
-msgstr "Forneça o nome para este servidor"
-
 #: views/backup/settings.php:6
 msgid "Public Key"
 msgstr ""
@@ -847,21 +732,9 @@ msgstr ""
 msgid "Recipient"
 msgstr ""
 
-#: views/servers/mysql.php:172
-msgid "Remote Database Name"
-msgstr "Nome do Banco de Dados Remoto"
-
 #: views/backup/warmspare.php:202
 msgid "Remote IP"
 msgstr ""
-
-#: views/servers/mysql.php:100
-msgid "Remote MySQL Port"
-msgstr "Porta do MySQL Remoto"
-
-#: views/servers/ssh.php:100
-msgid "Remote SSH Port"
-msgstr "Porta do SSH Remoto"
 
 #: views/backup/warmspare.php:226
 msgid "Remote User"
@@ -981,14 +854,6 @@ msgstr ""
 msgid "Running a restore will overwrite current data. This cannot be undone!"
 msgstr ""
 
-#: views/servers/ssh.php:4
-msgid "SSH Server"
-msgstr "Servidor SSH"
-
-#: views/servers/ssh.php:124
-msgid "SSH Username"
-msgstr "Nome de Usuário SSH"
-
 #: Backup.class.php:165
 msgid "Save"
 msgstr "Salvar"
@@ -1037,11 +902,6 @@ msgstr ""
 #: views/backup/transfer.php:26
 msgid "Server Mode"
 msgstr ""
-
-#: views/servers/email.php:16 views/servers/local.php:16
-#: views/servers/mysql.php:16 views/servers/ssh.php:16
-msgid "Server Name"
-msgstr "Nome do Servidor"
 
 #: views/backup/warmspare.php:64
 msgid "Should the remote trunks be enabled"
@@ -1098,10 +958,6 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: views/servers/mysql.php:28
-msgid "Supply a server name"
-msgstr "Fornecer um nome de servidor"
-
 #: Backup.class.php:558
 msgid "System Transfer"
 msgstr ""
@@ -1128,16 +984,6 @@ msgstr ""
 #, php-format
 msgid "The backup %s did not set a status and may have had an error"
 msgstr ""
-
-#: views/servers/email.php:113
-msgid ""
-"The maximum size a backup can be and still be emailed. Some email servers "
-"limit the size of email attachments, this will make sure that files larger "
-"than the max size are not sent."
-msgstr ""
-"O tamanho máximo que um backup poderá ser enviado por e-mail. Alguns "
-"servidores de e-mail limitam o tamanho dos anexos de e-mail, isso garantirá "
-"que os arquivos maiores que o tamanho máximo não sejam enviados."
 
 #: Handlers/Restore/Common.php:92
 #, php-format
@@ -1194,10 +1040,6 @@ msgid ""
 "This feature requires filestore be setup and may not be availible on a clean "
 "install"
 msgstr ""
-
-#: views/servers/email.php:118
-msgid "This has a maximum size of 25MB."
-msgstr "Este tem um tamanho máximo de 25MB."
 
 #: views/restore/processRestore.php:27
 msgid ""
@@ -1274,17 +1116,9 @@ msgstr ""
 msgid "Uploading..."
 msgstr ""
 
-#: views/servers/mysql.php:112
-msgid "User Name"
-msgstr "Nome de Usuário"
-
 #: views/backup/warmspare.php:238
 msgid "User on remote system with proper permissions, usually root."
 msgstr ""
-
-#: views/servers/ssh.php:112
-msgid "Username"
-msgstr "Nome de Usuário"
 
 #: Handlers/Backup/Common.php:82
 msgid "Using default backup strategy"
@@ -1324,10 +1158,6 @@ msgstr ""
 msgid "We don't have permissions to this file"
 msgstr ""
 
-#: views/servers/awss3.php:46 views/servers/awss3.php:63
-msgid "What's this?"
-msgstr "O que é isso?"
-
 #: views/backup/form.php:155
 msgid ""
 "When set to Yes logs will be added to the body of the email, when set to No "
@@ -1363,6 +1193,133 @@ msgstr ""
 #, php-format
 msgid "type is %s"
 msgstr ""
+
+#~ msgid "AWS Access Key"
+#~ msgstr "Chave de Acesso AWS"
+
+#~ msgid "AWS Secret"
+#~ msgstr "Segredo AWS"
+
+#~ msgid "Amazon S3&trade; Server"
+#~ msgstr "Servidor S3&trade; Amazon"
+
+#~ msgid "B"
+#~ msgstr "B"
+
+#~ msgid "Bucket Name"
+#~ msgstr "Nome do Bucket"
+
+#~ msgid "DB Name"
+#~ msgstr "Nome do DB"
+
+#~ msgid "Description or notes for this server"
+#~ msgstr "Descrição ou comentários para este servidor"
+
+#~ msgid "Email Address"
+#~ msgstr "Endereço de Email"
+
+#~ msgid "Email Server"
+#~ msgstr "Servidor de Email"
+
+#~ msgid "Email address where backups should be emailed to"
+#~ msgstr "Endereço de e-mail onde os backups deverão ser enviados"
+
+#~ msgid "FTP Password"
+#~ msgstr "Senha FTP"
+
+#~ msgid "FTP Username"
+#~ msgstr "Nome de Usuário FTP"
+
+#~ msgid "Hostname"
+#~ msgstr "Nome do Host"
+
+#~ msgid "IP address or FQDN of remote SSH server"
+#~ msgstr "Endereço IP ou FQDN de um servidor SSH remoto"
+
+#~ msgid "IP address or FQDN of remote mysql host"
+#~ msgstr "Endereço IP ou FQDN de um host mysql remoto"
+
+#~ msgid "KB"
+#~ msgstr "KB"
+
+#~ msgid "Key"
+#~ msgstr "Chave"
+
+#~ msgid "Local Server"
+#~ msgstr "Servidor Local"
+
+#~ msgid "Location of ssh private key to be used when connecting to a host"
+#~ msgstr ""
+#~ "Localização da chave privada ssh a ser usada ao se conectar a um host"
+
+#~ msgid "MB"
+#~ msgstr "MB"
+
+#~ msgid "Max Email Size"
+#~ msgstr "Tamanho Máximo do Email"
+
+#~ msgid "MySQL Server"
+#~ msgstr "Servidor MySQL"
+
+#~ msgid "Name this Server"
+#~ msgstr "Nome deste Servidor"
+
+#~ msgid "Password"
+#~ msgstr "Senha"
+
+#~ msgid "Path"
+#~ msgstr "Caminho"
+
+#~ msgid "Path on remote server"
+#~ msgstr "Caminho no servidor remoto"
+
+#~ msgid "Port"
+#~ msgstr "Porta"
+
+#~ msgid "Provide the name for this server"
+#~ msgstr "Forneça o nome para este servidor"
+
+#~ msgid "Remote Database Name"
+#~ msgstr "Nome do Banco de Dados Remoto"
+
+#~ msgid "Remote MySQL Port"
+#~ msgstr "Porta do MySQL Remoto"
+
+#~ msgid "Remote SSH Port"
+#~ msgstr "Porta do SSH Remoto"
+
+#~ msgid "SSH Server"
+#~ msgstr "Servidor SSH"
+
+#~ msgid "SSH Username"
+#~ msgstr "Nome de Usuário SSH"
+
+#~ msgid "Server Name"
+#~ msgstr "Nome do Servidor"
+
+#~ msgid "Supply a server name"
+#~ msgstr "Fornecer um nome de servidor"
+
+#~ msgid ""
+#~ "The maximum size a backup can be and still be emailed. Some email servers "
+#~ "limit the size of email attachments, this will make sure that files "
+#~ "larger than the max size are not sent."
+#~ msgstr ""
+#~ "O tamanho máximo que um backup poderá ser enviado por e-mail. Alguns "
+#~ "servidores de e-mail limitam o tamanho dos anexos de e-mail, isso "
+#~ "garantirá que os arquivos maiores que o tamanho máximo não sejam enviados."
+
+#~ msgid "This has a maximum size of 25MB."
+#~ msgstr "Este tem um tamanho máximo de 25MB."
+
+#~ msgid "User Name"
+#~ msgstr "Nome de Usuário"
+
+#~ msgid "Username"
+#~ msgstr "Nome de Usuário"
+
+#~ msgid "What's this?"
+#~ msgstr "O que é isso?"
 
 #~ msgid "Download"
 #~ msgstr "Baixar"

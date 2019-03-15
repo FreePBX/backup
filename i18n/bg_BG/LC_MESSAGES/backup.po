@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-15 16:41+0530\n"
+"POT-Creation-Date: 2019-03-15 16:45+0530\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -71,14 +71,6 @@ msgstr ""
 msgid "A name used to identify your backups"
 msgstr ""
 
-#: views/servers/awss3.php:41
-msgid "AWS Access Key"
-msgstr "AWS Ключ за Достъп"
-
-#: views/servers/awss3.php:58
-msgid "AWS Secret"
-msgstr "AWS Парола"
-
 #: views/backup/grid.php:25 views/restore/landing.php:73
 #: views/restore/landing.php:117
 msgid "Actions"
@@ -124,10 +116,6 @@ msgstr "Админ"
 msgid "After the restore you should reload with the apply config button"
 msgstr ""
 
-#: views/servers/awss3.php:4
-msgid "Amazon S3&trade; Server"
-msgstr "Amazon S3&trade; Сървър"
-
 #: views/backup/warmspare.php:171
 msgid "Apply Configs"
 msgstr "Приложи Настройки"
@@ -142,10 +130,6 @@ msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
 "Aborting"
 msgstr ""
-
-#: views/servers/email.php:99
-msgid "B"
-msgstr "B"
 
 #: views/landing.php:13
 msgid "Backup"
@@ -246,10 +230,6 @@ msgstr "Основна Информация"
 msgid "Both"
 msgstr ""
 
-#: views/servers/awss3.php:14
-msgid "Bucket Name"
-msgstr "Име"
-
 #: Handlers/Restore/Legacy.php:138
 #, php-format
 msgid "Calling legacy restore on module %s"
@@ -319,10 +299,6 @@ msgstr ""
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
-#: views/servers/mysql.php:160
-msgid "DB Name"
-msgstr "Име на База Данни"
-
 #: Backup.class.php:175 views/restore/landing.php:49
 #: views/restore/landing.php:92 assets/js/backup.js:113 assets/js/backup.js:150
 msgid "Delete"
@@ -337,16 +313,9 @@ msgid "Delete After Runs"
 msgstr ""
 
 #: views/backup/grid.php:24 views/restore/processRestore.php:15
-#: views/rnav.php:9 views/servers/awss3.php:27 views/servers/email.php:40
-#: views/servers/local.php:40 views/servers/mysql.php:40
-#: views/servers/ssh.php:40
+#: views/rnav.php:9
 msgid "Description"
 msgstr "Описание"
-
-#: views/servers/email.php:52 views/servers/local.php:52
-#: views/servers/mysql.php:52 views/servers/ssh.php:52
-msgid "Description or notes for this server"
-msgstr "Описание или бележки за този сървър"
 
 #: Console/Backup.class.php:208
 msgid "Determining backup file type..."
@@ -369,14 +338,6 @@ msgstr ""
 msgid "Email "
 msgstr "Email "
 
-#: views/servers/email.php:64
-msgid "Email Address"
-msgstr "Email Адрес"
-
-#: views/servers/email.php:4
-msgid "Email Server"
-msgstr "Email Сървър"
-
 #: views/backup/form.php:166
 msgid "Email Type"
 msgstr ""
@@ -384,10 +345,6 @@ msgstr ""
 #: views/backup/form.php:119
 msgid "Email address to send notifications to."
 msgstr ""
-
-#: views/servers/email.php:76
-msgid "Email address where backups should be emailed to"
-msgstr "Email адрес на който да се изпрати архива"
 
 #: views/backup/warmspare.php:14
 msgid "Enable"
@@ -488,14 +445,6 @@ msgstr ""
 msgid "Extracting supplied database file %s"
 msgstr ""
 
-#: views/servers/mysql.php:148
-msgid "FTP Password"
-msgstr "FTP Парола"
-
-#: views/servers/mysql.php:124
-msgid "FTP Username"
-msgstr "FTP Потребителско Име"
-
 #: views/backup/form.php:181
 msgid "Failure"
 msgstr ""
@@ -555,10 +504,6 @@ msgstr ""
 msgid "Global Settings"
 msgstr ""
 
-#: views/servers/mysql.php:64 views/servers/ssh.php:64
-msgid "Hostname"
-msgstr "Име на хост"
-
 #: views/backup/form.php:381
 msgid ""
 "How long to maintain backups. Example 30 will delete anything older than 30 "
@@ -584,14 +529,6 @@ msgstr ""
 #: views/backup/transfer.php:16
 msgid "ID From the donor machine"
 msgstr ""
-
-#: views/servers/ssh.php:76
-msgid "IP address or FQDN of remote SSH server"
-msgstr "IP адрес или FQDN на отдалечения SSH сървър"
-
-#: views/servers/mysql.php:76
-msgid "IP address or FQDN of remote mysql host"
-msgstr "IP адрес или FQDN на отдалечения mysql хост"
 
 #: RestoreBase.php:83 RestoreBase.php:280
 #, php-format
@@ -652,14 +589,6 @@ msgstr ""
 msgid "Is this the donor machine or the recipient"
 msgstr ""
 
-#: views/servers/email.php:101
-msgid "KB"
-msgstr "KB"
-
-#: views/servers/ssh.php:136
-msgid "Key"
-msgstr "Ключ"
-
 #: Models/BackupSplFileInfo.php:72
 msgid "Legacy Restore"
 msgstr ""
@@ -695,26 +624,9 @@ msgstr ""
 msgid "Loading supplied database file %s"
 msgstr ""
 
-#: views/servers/local.php:4
-msgid "Local Server"
-msgstr "Локален Сървър"
-
-#: views/servers/ssh.php:148
-msgid "Location of ssh private key to be used when connecting to a host"
-msgstr ""
-"Местонахождение на ssh private key, който да се използва при свързване с хост"
-
-#: views/servers/email.php:103
-msgid "MB"
-msgstr "MB"
-
 #: views/backup/form.php:304
 msgid "Maintinence"
 msgstr ""
-
-#: views/servers/email.php:88
-msgid "Max Email Size"
-msgstr "Макс. Размер на Email"
 
 #: Backup.class.php:96
 msgid "Migrating legacy backupjobs"
@@ -748,18 +660,10 @@ msgstr ""
 msgid "Moving servers to filestore"
 msgstr ""
 
-#: views/servers/mysql.php:4
-msgid "MySQL Server"
-msgstr "Mysql Сървър"
-
 #: views/backup/grid.php:23 views/restore/processRestore.php:14
 #: views/rnav.php:8
 msgid "Name"
 msgstr "Име"
-
-#: views/servers/email.php:28
-msgid "Name this Server"
-msgstr "Име на този Сървър"
 
 #: views/backup/form.php:146 views/backup/form.php:262
 #: views/backup/warmspare.php:25 views/backup/warmspare.php:56
@@ -802,18 +706,6 @@ msgid ""
 "Parsing out SQL tables. This may take a moment depending on backup size."
 msgstr ""
 
-#: views/servers/mysql.php:136
-msgid "Password"
-msgstr "Парола"
-
-#: views/servers/local.php:64 views/servers/ssh.php:160
-msgid "Path"
-msgstr "Път"
-
-#: views/servers/local.php:76 views/servers/ssh.php:172
-msgid "Path on remote server"
-msgstr "Път към отдалечен сървър"
-
 #: Console/Backup.class.php:166
 msgid "Performing Local Maintenance"
 msgstr ""
@@ -821,10 +713,6 @@ msgstr ""
 #: Console/Backup.class.php:169
 msgid "Performing Remote Maintenance"
 msgstr ""
-
-#: views/servers/mysql.php:88 views/servers/ssh.php:88
-msgid "Port"
-msgstr "Порт"
 
 #: views/restore/landing.php:25
 msgid "Processing"
@@ -840,10 +728,6 @@ msgstr ""
 msgid "Processing..."
 msgstr ""
 
-#: views/servers/local.php:28 views/servers/ssh.php:28
-msgid "Provide the name for this server"
-msgstr ""
-
 #: views/backup/settings.php:6
 msgid "Public Key"
 msgstr ""
@@ -856,21 +740,9 @@ msgstr ""
 msgid "Recipient"
 msgstr ""
 
-#: views/servers/mysql.php:172
-msgid "Remote Database Name"
-msgstr "Име на База Данни"
-
 #: views/backup/warmspare.php:202
 msgid "Remote IP"
 msgstr ""
-
-#: views/servers/mysql.php:100
-msgid "Remote MySQL Port"
-msgstr "Порт на MySQL"
-
-#: views/servers/ssh.php:100
-msgid "Remote SSH Port"
-msgstr "SSH Порт"
 
 #: views/backup/warmspare.php:226
 msgid "Remote User"
@@ -990,14 +862,6 @@ msgstr ""
 msgid "Running a restore will overwrite current data. This cannot be undone!"
 msgstr ""
 
-#: views/servers/ssh.php:4
-msgid "SSH Server"
-msgstr "SSH Сървър"
-
-#: views/servers/ssh.php:124
-msgid "SSH Username"
-msgstr "SSH Потребителско Име"
-
 #: Backup.class.php:165
 msgid "Save"
 msgstr "Запиши"
@@ -1046,11 +910,6 @@ msgstr "Избрани"
 #: views/backup/transfer.php:26
 msgid "Server Mode"
 msgstr ""
-
-#: views/servers/email.php:16 views/servers/local.php:16
-#: views/servers/mysql.php:16 views/servers/ssh.php:16
-msgid "Server Name"
-msgstr "Име на Сървър"
 
 #: views/backup/warmspare.php:64
 msgid "Should the remote trunks be enabled"
@@ -1107,10 +966,6 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: views/servers/mysql.php:28
-msgid "Supply a server name"
-msgstr "Въведете име на сървъра"
-
 #: Backup.class.php:558
 msgid "System Transfer"
 msgstr ""
@@ -1136,13 +991,6 @@ msgstr ""
 #: Handlers/Backup/Multiple.php:185
 #, php-format
 msgid "The backup %s did not set a status and may have had an error"
-msgstr ""
-
-#: views/servers/email.php:113
-msgid ""
-"The maximum size a backup can be and still be emailed. Some email servers "
-"limit the size of email attachments, this will make sure that files larger "
-"than the max size are not sent."
 msgstr ""
 
 #: Handlers/Restore/Common.php:92
@@ -1199,10 +1047,6 @@ msgstr ""
 msgid ""
 "This feature requires filestore be setup and may not be availible on a clean "
 "install"
-msgstr ""
-
-#: views/servers/email.php:118
-msgid "This has a maximum size of 25MB."
 msgstr ""
 
 #: views/restore/processRestore.php:27
@@ -1280,17 +1124,9 @@ msgstr ""
 msgid "Uploading..."
 msgstr ""
 
-#: views/servers/mysql.php:112
-msgid "User Name"
-msgstr "Потребителско Име"
-
 #: views/backup/warmspare.php:238
 msgid "User on remote system with proper permissions, usually root."
 msgstr ""
-
-#: views/servers/ssh.php:112
-msgid "Username"
-msgstr "Потребителско Име"
 
 #: Handlers/Backup/Common.php:82
 msgid "Using default backup strategy"
@@ -1330,10 +1166,6 @@ msgstr ""
 msgid "We don't have permissions to this file"
 msgstr ""
 
-#: views/servers/awss3.php:46 views/servers/awss3.php:63
-msgid "What's this?"
-msgstr "Какво е това?"
-
 #: views/backup/form.php:155
 msgid ""
 "When set to Yes logs will be added to the body of the email, when set to No "
@@ -1369,6 +1201,119 @@ msgstr ""
 #, php-format
 msgid "type is %s"
 msgstr ""
+
+#~ msgid "AWS Access Key"
+#~ msgstr "AWS Ключ за Достъп"
+
+#~ msgid "AWS Secret"
+#~ msgstr "AWS Парола"
+
+#~ msgid "Amazon S3&trade; Server"
+#~ msgstr "Amazon S3&trade; Сървър"
+
+#~ msgid "B"
+#~ msgstr "B"
+
+#~ msgid "Bucket Name"
+#~ msgstr "Име"
+
+#~ msgid "DB Name"
+#~ msgstr "Име на База Данни"
+
+#~ msgid "Description or notes for this server"
+#~ msgstr "Описание или бележки за този сървър"
+
+#~ msgid "Email Address"
+#~ msgstr "Email Адрес"
+
+#~ msgid "Email Server"
+#~ msgstr "Email Сървър"
+
+#~ msgid "Email address where backups should be emailed to"
+#~ msgstr "Email адрес на който да се изпрати архива"
+
+#~ msgid "FTP Password"
+#~ msgstr "FTP Парола"
+
+#~ msgid "FTP Username"
+#~ msgstr "FTP Потребителско Име"
+
+#~ msgid "Hostname"
+#~ msgstr "Име на хост"
+
+#~ msgid "IP address or FQDN of remote SSH server"
+#~ msgstr "IP адрес или FQDN на отдалечения SSH сървър"
+
+#~ msgid "IP address or FQDN of remote mysql host"
+#~ msgstr "IP адрес или FQDN на отдалечения mysql хост"
+
+#~ msgid "KB"
+#~ msgstr "KB"
+
+#~ msgid "Key"
+#~ msgstr "Ключ"
+
+#~ msgid "Local Server"
+#~ msgstr "Локален Сървър"
+
+#~ msgid "Location of ssh private key to be used when connecting to a host"
+#~ msgstr ""
+#~ "Местонахождение на ssh private key, който да се използва при свързване с "
+#~ "хост"
+
+#~ msgid "MB"
+#~ msgstr "MB"
+
+#~ msgid "Max Email Size"
+#~ msgstr "Макс. Размер на Email"
+
+#~ msgid "MySQL Server"
+#~ msgstr "Mysql Сървър"
+
+#~ msgid "Name this Server"
+#~ msgstr "Име на този Сървър"
+
+#~ msgid "Password"
+#~ msgstr "Парола"
+
+#~ msgid "Path"
+#~ msgstr "Път"
+
+#~ msgid "Path on remote server"
+#~ msgstr "Път към отдалечен сървър"
+
+#~ msgid "Port"
+#~ msgstr "Порт"
+
+#~ msgid "Remote Database Name"
+#~ msgstr "Име на База Данни"
+
+#~ msgid "Remote MySQL Port"
+#~ msgstr "Порт на MySQL"
+
+#~ msgid "Remote SSH Port"
+#~ msgstr "SSH Порт"
+
+#~ msgid "SSH Server"
+#~ msgstr "SSH Сървър"
+
+#~ msgid "SSH Username"
+#~ msgstr "SSH Потребителско Име"
+
+#~ msgid "Server Name"
+#~ msgstr "Име на Сървър"
+
+#~ msgid "Supply a server name"
+#~ msgstr "Въведете име на сървъра"
+
+#~ msgid "User Name"
+#~ msgstr "Потребителско Име"
+
+#~ msgid "Username"
+#~ msgstr "Потребителско Име"
+
+#~ msgid "What's this?"
+#~ msgstr "Какво е това?"
 
 #~ msgid "Download"
 #~ msgstr "Изтегли"

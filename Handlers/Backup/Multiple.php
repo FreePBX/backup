@@ -80,7 +80,7 @@ class Multiple extends Common {
 		foreach($selectedmods as $mod) {
 			if(!isset($validMods[$mod])){
 				$manifest['skipped'][] = ucfirst($mod);
-				$msg = sprintf(_("Could not backup module %s, it may not be installed or enabled"),$mod);
+				$msg = sprintf(_("Could not backup module %s because it is not enabled"),$mod);
 				$this->log($msg,'WARNING');
 				$this->addError($msg);
 				continue;
@@ -98,14 +98,19 @@ class Multiple extends Common {
 			if(!empty($moddata['dependencies'])) {
 				$moddeps = array_map('strtolower', $moddata['dependencies']);
 				foreach($moddeps as $depend){
+					if(empty($depend)) {
+						$msg = sprintf(_("Depend field was blank for %s. Skipping because not sure what to do"), $mod['rawname']);
+						$this->log("\t".$msg,'WARNING');
+						continue;
+					}
 					if($depend === 'framework') {
-						$msg = sprintf(_("Skpping %s which %s depends on because it is a system requirement"),$depend, $mod['rawname']);
+						$msg = sprintf(_("Skpping %s which depends on framework because framework is a system requirement. Framework should be removed as a dependency"), $mod['rawname']);
 						$this->log("\t".$msg,'WARNING');
 						continue;
 					}
 					if(!isset($validMods[$depend])) {
 						$manifest['skipped'][] = ucfirst($depend);
-						$msg = sprintf(_("Could not backup module %s which %s depends on, it may not be installed or enabled"),$depend, $mod['rawname']);
+						$msg = sprintf(_("Could not backup module %s because it depends on %s which is not enabled. Please enable %s"),$mod['rawname'], $depend, $depend);
 						$this->log("\t".$msg,'WARNING');
 						$this->addWarning($msg);
 						continue;
@@ -118,7 +123,7 @@ class Multiple extends Common {
 						continue;
 					}
 
-					$this->log("\t".sprintf(_("Adding module %s which %s depends on"),$depend, $mod['rawname']),'DEBUG');
+					$this->log("\t".sprintf(_("Adding module %s to queue because %s depends on it"),$depend, $mod['rawname']),'DEBUG');
 					$selectedmods[] = $depend;
 					$processQueue->enqueue(['rawname' => $validMods[$depend]['rawname'], 'ucfirst' => ucfirst($validMods[$depend]['rawname'])]);
 				}

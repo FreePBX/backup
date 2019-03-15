@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-14 15:28-0400\n"
+"POT-Creation-Date: 2019-03-15 16:41+0530\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -58,6 +58,14 @@ msgstr ""
 msgid "A name used to identify your backups"
 msgstr ""
 
+#: views/servers/awss3.php:41
+msgid "AWS Access Key"
+msgstr "Khóa truy nhập AWS (  Các dịch vụ Web Amazon)"
+
+#: views/servers/awss3.php:58
+msgid "AWS Secret"
+msgstr "Bảo mật AWS ( Các dịch vụ Web Amazon)"
+
 #: views/backup/grid.php:25 views/restore/landing.php:73
 #: views/restore/landing.php:117
 msgid "Actions"
@@ -103,6 +111,10 @@ msgstr "Quản trị viên"
 msgid "After the restore you should reload with the apply config button"
 msgstr ""
 
+#: views/servers/awss3.php:4
+msgid "Amazon S3&trade; Server"
+msgstr "Amazon S3&trade; Máy chủ"
+
 #: views/backup/warmspare.php:171
 msgid "Apply Configs"
 msgstr "Áp dụng các cấu hình"
@@ -117,6 +129,10 @@ msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
 "Aborting"
 msgstr ""
+
+#: views/servers/email.php:99
+msgid "B"
+msgstr "B"
 
 #: views/landing.php:13
 msgid "Backup"
@@ -177,6 +193,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Sao lưu các mục tin"
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "Sao lưu Mô đun"
+
 #: views/backup/form.php:25 views/restore/landing.php:70
 #: views/restore/landing.php:113
 msgid "Backup Name"
@@ -212,6 +232,10 @@ msgstr "Thông tin cơ bản"
 #: views/backup/form.php:186
 msgid "Both"
 msgstr ""
+
+#: views/servers/awss3.php:14
+msgid "Bucket Name"
+msgstr "Tên bộ chứa"
 
 #: Handlers/Restore/Legacy.php:138
 #, php-format
@@ -282,6 +306,10 @@ msgstr ""
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
+#: views/servers/mysql.php:160
+msgid "DB Name"
+msgstr "Tên cơ sở dữ liệu"
+
 #: Backup.class.php:175 views/restore/landing.php:49
 #: views/restore/landing.php:92 assets/js/backup.js:113 assets/js/backup.js:150
 msgid "Delete"
@@ -296,9 +324,16 @@ msgid "Delete After Runs"
 msgstr ""
 
 #: views/backup/grid.php:24 views/restore/processRestore.php:15
-#: views/rnav.php:9
+#: views/rnav.php:9 views/servers/awss3.php:27 views/servers/email.php:40
+#: views/servers/local.php:40 views/servers/mysql.php:40
+#: views/servers/ssh.php:40
 msgid "Description"
 msgstr "Mô tả"
+
+#: views/servers/email.php:52 views/servers/local.php:52
+#: views/servers/mysql.php:52 views/servers/ssh.php:52
+msgid "Description or notes for this server"
+msgstr "Mô tả hoặc các lưu ý cho máy chủ này"
 
 #: Console/Backup.class.php:208
 msgid "Determining backup file type..."
@@ -317,6 +352,18 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
+#: backup.i18n.php:14
+msgid "Email "
+msgstr "Thư điện tử "
+
+#: views/servers/email.php:64
+msgid "Email Address"
+msgstr "Địa chỉ Thư điện tử"
+
+#: views/servers/email.php:4
+msgid "Email Server"
+msgstr "Máy chủ Thư điện tử"
+
 #: views/backup/form.php:166
 msgid "Email Type"
 msgstr ""
@@ -324,6 +371,10 @@ msgstr ""
 #: views/backup/form.php:119
 msgid "Email address to send notifications to."
 msgstr ""
+
+#: views/servers/email.php:76
+msgid "Email address where backups should be emailed to"
+msgstr "Địa chỉ Thư điện tử nơi các sao lưu nên được gửi qua email tới"
 
 #: views/backup/warmspare.php:14
 msgid "Enable"
@@ -430,6 +481,14 @@ msgstr ""
 msgid "Extracting supplied database file %s"
 msgstr ""
 
+#: views/servers/mysql.php:148
+msgid "FTP Password"
+msgstr "Mật khẩu của Giao thức truyền tập tin"
+
+#: views/servers/mysql.php:124
+msgid "FTP Username"
+msgstr "Tên người dùng Giao thức truyền tập tin"
+
 #: views/backup/form.php:181
 msgid "Failure"
 msgstr ""
@@ -489,6 +548,10 @@ msgstr ""
 msgid "Global Settings"
 msgstr ""
 
+#: views/servers/mysql.php:64 views/servers/ssh.php:64
+msgid "Hostname"
+msgstr "Tên host"
+
 #: views/backup/form.php:381
 msgid ""
 "How long to maintain backups. Example 30 will delete anything older than 30 "
@@ -514,6 +577,14 @@ msgstr ""
 #: views/backup/transfer.php:16
 msgid "ID From the donor machine"
 msgstr ""
+
+#: views/servers/ssh.php:76
+msgid "IP address or FQDN of remote SSH server"
+msgstr "Địa chỉ IP của FQDN của máy chủ SSH từ xa"
+
+#: views/servers/mysql.php:76
+msgid "IP address or FQDN of remote mysql host"
+msgstr "Địa chỉ IP hoặc FQDN của host mysql từ xa"
 
 #: RestoreBase.php:83 RestoreBase.php:280
 #, php-format
@@ -574,6 +645,14 @@ msgstr ""
 msgid "Is this the donor machine or the recipient"
 msgstr ""
 
+#: views/servers/email.php:101
+msgid "KB"
+msgstr "Kilobyte"
+
+#: views/servers/ssh.php:136
+msgid "Key"
+msgstr "Khóa"
+
 #: Models/BackupSplFileInfo.php:72
 msgid "Legacy Restore"
 msgstr ""
@@ -609,9 +688,25 @@ msgstr ""
 msgid "Loading supplied database file %s"
 msgstr ""
 
+#: views/servers/local.php:4
+msgid "Local Server"
+msgstr "Máy chủ tại chỗ"
+
+#: views/servers/ssh.php:148
+msgid "Location of ssh private key to be used when connecting to a host"
+msgstr "Vị trí của khóa cá nhân ssh được sử dụng khi kết nối với một host"
+
+#: views/servers/email.php:103
+msgid "MB"
+msgstr "Megabyte"
+
 #: views/backup/form.php:304
 msgid "Maintinence"
 msgstr ""
+
+#: views/servers/email.php:88
+msgid "Max Email Size"
+msgstr "Kich cỡ Thư điện tử lớn nhất"
 
 #: Backup.class.php:96
 msgid "Migrating legacy backupjobs"
@@ -645,10 +740,18 @@ msgstr ""
 msgid "Moving servers to filestore"
 msgstr ""
 
+#: views/servers/mysql.php:4
+msgid "MySQL Server"
+msgstr "Máy chủ MySQL"
+
 #: views/backup/grid.php:23 views/restore/processRestore.php:14
 #: views/rnav.php:8
 msgid "Name"
 msgstr "Tên"
+
+#: views/servers/email.php:28
+msgid "Name this Server"
+msgstr "Tên máy chủ này"
 
 #: views/backup/form.php:146 views/backup/form.php:262
 #: views/backup/warmspare.php:25 views/backup/warmspare.php:56
@@ -691,6 +794,18 @@ msgid ""
 "Parsing out SQL tables. This may take a moment depending on backup size."
 msgstr ""
 
+#: views/servers/mysql.php:136
+msgid "Password"
+msgstr "Mật khẩu"
+
+#: views/servers/local.php:64 views/servers/ssh.php:160
+msgid "Path"
+msgstr "Đường dẫn"
+
+#: views/servers/local.php:76 views/servers/ssh.php:172
+msgid "Path on remote server"
+msgstr "Đường dẫn trên máy chủ từ xa"
+
 #: Console/Backup.class.php:166
 msgid "Performing Local Maintenance"
 msgstr ""
@@ -698,6 +813,10 @@ msgstr ""
 #: Console/Backup.class.php:169
 msgid "Performing Remote Maintenance"
 msgstr ""
+
+#: views/servers/mysql.php:88 views/servers/ssh.php:88
+msgid "Port"
+msgstr "Cổng giao tiếp"
 
 #: views/restore/landing.php:25
 msgid "Processing"
@@ -713,6 +832,10 @@ msgstr ""
 msgid "Processing..."
 msgstr ""
 
+#: views/servers/local.php:28 views/servers/ssh.php:28
+msgid "Provide the name for this server"
+msgstr "Cung cấp tên cho máy chủ này"
+
 #: views/backup/settings.php:6
 msgid "Public Key"
 msgstr ""
@@ -725,9 +848,21 @@ msgstr ""
 msgid "Recipient"
 msgstr ""
 
+#: views/servers/mysql.php:172
+msgid "Remote Database Name"
+msgstr "Tên cơ sở dữ liệu từ xa"
+
 #: views/backup/warmspare.php:202
 msgid "Remote IP"
 msgstr ""
+
+#: views/servers/mysql.php:100
+msgid "Remote MySQL Port"
+msgstr "Cổng giao tiếp MySQL từ xa"
+
+#: views/servers/ssh.php:100
+msgid "Remote SSH Port"
+msgstr "Cổng giao tiếp SSH từ xa"
 
 #: views/backup/warmspare.php:226
 msgid "Remote User"
@@ -847,6 +982,14 @@ msgstr ""
 msgid "Running a restore will overwrite current data. This cannot be undone!"
 msgstr ""
 
+#: views/servers/ssh.php:4
+msgid "SSH Server"
+msgstr "Máy chủ SSH"
+
+#: views/servers/ssh.php:124
+msgid "SSH Username"
+msgstr "Tên người dùng SSH"
+
 #: Backup.class.php:165
 msgid "Save"
 msgstr "Lưu"
@@ -895,6 +1038,11 @@ msgstr ""
 #: views/backup/transfer.php:26
 msgid "Server Mode"
 msgstr ""
+
+#: views/servers/email.php:16 views/servers/local.php:16
+#: views/servers/mysql.php:16 views/servers/ssh.php:16
+msgid "Server Name"
+msgstr "Tên máy chủ"
 
 #: views/backup/warmspare.php:64
 msgid "Should the remote trunks be enabled"
@@ -951,6 +1099,10 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
+#: views/servers/mysql.php:28
+msgid "Supply a server name"
+msgstr "Cung cấp một tên máy chủ"
+
 #: Backup.class.php:558
 msgid "System Transfer"
 msgstr ""
@@ -965,6 +1117,12 @@ msgstr ""
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr ""
+"The From: Trường cho các thư điện tử khi sử dụng đặc tính sao lưu Thư điện "
+"tử."
+
 #: views/backup/warmspare.php:214
 msgid "The address of the remote server."
 msgstr ""
@@ -973,6 +1131,16 @@ msgstr ""
 #, php-format
 msgid "The backup %s did not set a status and may have had an error"
 msgstr ""
+
+#: views/servers/email.php:113
+msgid ""
+"The maximum size a backup can be and still be emailed. Some email servers "
+"limit the size of email attachments, this will make sure that files larger "
+"than the max size are not sent."
+msgstr ""
+"Kích cỡ tối đã của một sao lưu có thể vẫn được gửi qua thư điện tử. Một số "
+"máy chủ thư điện tử giới hạn kích cỡ của các tệp đính kèm, điều này nhằm đảm "
+"bảo các tệp có kích cỡ lớn hơn kích cỡ tối đa sẽ không được gửi đi."
 
 #: Handlers/Restore/Common.php:92
 #, php-format
@@ -1029,6 +1197,10 @@ msgid ""
 "This feature requires filestore be setup and may not be availible on a clean "
 "install"
 msgstr ""
+
+#: views/servers/email.php:118
+msgid "This has a maximum size of 25MB."
+msgstr "Cái này có kích cỡ tối đa là 25MB."
 
 #: views/restore/processRestore.php:27
 msgid ""
@@ -1105,9 +1277,17 @@ msgstr ""
 msgid "Uploading..."
 msgstr ""
 
+#: views/servers/mysql.php:112
+msgid "User Name"
+msgstr "Tên người dùng"
+
 #: views/backup/warmspare.php:238
 msgid "User on remote system with proper permissions, usually root."
 msgstr ""
+
+#: views/servers/ssh.php:112
+msgid "Username"
+msgstr "Tên người dùng"
 
 #: Handlers/Backup/Common.php:82
 msgid "Using default backup strategy"
@@ -1147,6 +1327,10 @@ msgstr ""
 msgid "We don't have permissions to this file"
 msgstr ""
 
+#: views/servers/awss3.php:46 views/servers/awss3.php:63
+msgid "What's this?"
+msgstr "Đây là cái gì?"
+
 #: views/backup/form.php:155
 msgid ""
 "When set to Yes logs will be added to the body of the email, when set to No "
@@ -1182,17 +1366,6 @@ msgstr ""
 #, php-format
 msgid "type is %s"
 msgstr ""
-
-#~ msgid "Backup Module"
-#~ msgstr "Sao lưu Mô đun"
-
-#~ msgid "Email "
-#~ msgstr "Thư điện tử "
-
-#~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr ""
-#~ "The From: Trường cho các thư điện tử khi sử dụng đặc tính sao lưu Thư "
-#~ "điện tử."
 
 #~ msgid "Download"
 #~ msgstr "Tải về"
@@ -1234,14 +1407,8 @@ msgstr ""
 #~ msgid "AT"
 #~ msgstr "AT"
 
-#~ msgid "AWS Access Key"
-#~ msgstr "Khóa truy nhập AWS (  Các dịch vụ Web Amazon)"
-
 #~ msgid "AWS S3 Server "
 #~ msgstr "Máy chủ AWS S3 "
-
-#~ msgid "AWS Secret"
-#~ msgstr "Bảo mật AWS ( Các dịch vụ Web Amazon)"
 
 #~ msgid "Active"
 #~ msgstr "Hoạt động"
@@ -1278,9 +1445,6 @@ msgstr ""
 #~ msgid "Amazon S3 Server "
 #~ msgstr "Máy chủ Amazon S3 "
 
-#~ msgid "Amazon S3&trade; Server"
-#~ msgstr "Amazon S3&trade; Máy chủ"
-
 #~ msgid "Annually"
 #~ msgstr "Hằng năm"
 
@@ -1301,9 +1465,6 @@ msgstr ""
 
 #~ msgid "Available Servers"
 #~ msgstr "Các máy chủ khả dụng"
-
-#~ msgid "B"
-#~ msgstr "B"
 
 #~ msgid "BACKUP LOG ATTACHED"
 #~ msgstr "SAO LƯU NHẬT KÝ ĐÍNH KÈM"
@@ -1378,9 +1539,6 @@ msgstr ""
 #~ msgid "Browser reconnected realtime updates are unavailable."
 #~ msgstr "Các cập nhật thời gian thực ngắt kết nối không khả dụng."
 
-#~ msgid "Bucket Name"
-#~ msgstr "Tên bộ chứa"
-
 #~ msgid "Building manifest..."
 #~ msgstr "Đang xây dựng kê khai..."
 
@@ -1428,9 +1586,6 @@ msgstr ""
 
 #~ msgid "Custom"
 #~ msgstr "Tùy chỉnh"
-
-#~ msgid "DB Name"
-#~ msgstr "Tên cơ sở dữ liệu"
 
 #~ msgid "Daily"
 #~ msgstr "Hằng ngày"
@@ -1485,9 +1640,6 @@ msgstr ""
 #~ msgid "Description or notes for this backup"
 #~ msgstr "Mô tả hoặc các lưu ý cho sao lưu này"
 
-#~ msgid "Description or notes for this server"
-#~ msgstr "Mô tả hoặc các lưu ý cho máy chủ này"
-
 #~ msgid "Destination"
 #~ msgstr "Điểm đến"
 
@@ -1518,20 +1670,11 @@ msgstr ""
 #~ msgid "Drop Here"
 #~ msgstr "Thả tại đây"
 
-#~ msgid "Email Address"
-#~ msgstr "Địa chỉ Thư điện tử"
-
 #~ msgid "Email Notifications"
 #~ msgstr "Các thông báo Thư điện tử"
 
-#~ msgid "Email Server"
-#~ msgstr "Máy chủ Thư điện tử"
-
 #~ msgid "Email Server "
 #~ msgstr "Máy chủ thư điện tử "
-
-#~ msgid "Email address where backups should be emailed to"
-#~ msgstr "Địa chỉ Thư điện tử nơi các sao lưu nên được gửi qua email tới"
 
 #~ msgid "Email notifications are set to Yes but no email provided"
 #~ msgstr ""
@@ -1572,9 +1715,6 @@ msgstr ""
 #~ msgid "FTP"
 #~ msgstr "Giao thức truyền tập tin- File Transfer Protocol"
 
-#~ msgid "FTP Password"
-#~ msgstr "Mật khẩu của Giao thức truyền tập tin"
-
 #~ msgid "FTP Server"
 #~ msgstr "Máy chủ Giao thức truyền tập tin"
 
@@ -1583,9 +1723,6 @@ msgstr ""
 
 #~ msgid "FTP Transfer type"
 #~ msgstr "Kiểu truyền của Giao thức truyền tập tin"
-
-#~ msgid "FTP Username"
-#~ msgstr "Tên người dùng Giao thức truyền tập tin"
 
 #~ msgid ""
 #~ "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql "
@@ -1656,9 +1793,6 @@ msgstr ""
 #~ msgid "Hooks"
 #~ msgstr "Các điểm neo"
 
-#~ msgid "Hostname"
-#~ msgstr "Tên host"
-
 #~ msgid "Hourly"
 #~ msgstr "Hằng giờ"
 
@@ -1671,14 +1805,8 @@ msgstr ""
 #~ msgid "IP Address or FQDN of your server"
 #~ msgstr "Địa chỉ IP hoặc FQDN của máy chủ của bạn"
 
-#~ msgid "IP address or FQDN of remote SSH server"
-#~ msgstr "Địa chỉ IP của FQDN của máy chủ SSH từ xa"
-
 #~ msgid "IP address or FQDN of remote ftp host"
 #~ msgstr "Địa chỉ IP hoặc FQDN của host ftp từ xa"
-
-#~ msgid "IP address or FQDN of remote mysql host"
-#~ msgstr "Địa chỉ IP hoặc FQDN của host mysql từ xa"
 
 #~ msgid ""
 #~ "If Randomize is selected, a similar frequency will be followed, only the "
@@ -1741,32 +1869,14 @@ msgstr ""
 #~ msgid "June"
 #~ msgstr "Tháng sáu"
 
-#~ msgid "KB"
-#~ msgstr "Kilobyte"
-
-#~ msgid "Key"
-#~ msgstr "Khóa"
-
-#~ msgid "Local Server"
-#~ msgstr "Máy chủ tại chỗ"
-
 #~ msgid "Local Server "
 #~ msgstr "Máy chủ tại chỗ "
-
-#~ msgid "Location of ssh private key to be used when connecting to a host"
-#~ msgstr "Vị trí của khóa cá nhân ssh được sử dụng khi kết nối với một host"
-
-#~ msgid "MB"
-#~ msgstr "Megabyte"
 
 #~ msgid "Maintenance"
 #~ msgstr "Bảo dưỡng"
 
 #~ msgid "March"
 #~ msgstr "Tháng ba"
-
-#~ msgid "Max Email Size"
-#~ msgstr "Kich cỡ Thư điện tử lớn nhất"
 
 #~ msgid "May"
 #~ msgstr "Tháng năm"
@@ -1783,9 +1893,6 @@ msgstr ""
 #~ msgid "Months"
 #~ msgstr "Tháng"
 
-#~ msgid "MySQL Server"
-#~ msgstr "Máy chủ MySQL"
-
 #~ msgid "Mysql"
 #~ msgstr "Hệ quản trị dữ liệu Mysql"
 
@@ -1797,9 +1904,6 @@ msgstr ""
 
 #~ msgid "Mysql Server "
 #~ msgstr "Máy chủ Mysql "
-
-#~ msgid "Name this Server"
-#~ msgstr "Tên máy chủ này"
 
 #~ msgid "Name this backup"
 #~ msgstr "Tên sao lưu này"
@@ -1879,15 +1983,6 @@ msgstr ""
 #~ msgid "Passive"
 #~ msgstr "Bị động"
 
-#~ msgid "Password"
-#~ msgstr "Mật khẩu"
-
-#~ msgid "Path"
-#~ msgstr "Đường dẫn"
-
-#~ msgid "Path on remote server"
-#~ msgstr "Đường dẫn trên máy chủ từ xa"
-
 #~ msgid ""
 #~ "Path on remote server. This must be a COMPLETE PATH, starting with a / - "
 #~ "for example, <tt>/home/backups/freepbx</tt>. A path without a leading "
@@ -1909,9 +2004,6 @@ msgstr ""
 
 #~ msgid "Please wait, loading..."
 #~ msgstr "Vui lòng đơi, đang tải..."
-
-#~ msgid "Port"
-#~ msgstr "Cổng giao tiếp"
 
 #~ msgid "Post-Backup Hook"
 #~ msgstr "Hook sau sao lưu"
@@ -1940,9 +2032,6 @@ msgstr ""
 #~ msgid "Processing received file..."
 #~ msgstr "Đang xử lý tệp đã nhận..."
 
-#~ msgid "Provide the name for this server"
-#~ msgstr "Cung cấp tên cho máy chủ này"
-
 #~ msgid "Randomize"
 #~ msgstr "Ngẫu nhiên hóa"
 
@@ -1952,17 +2041,8 @@ msgstr ""
 #~ msgid "Reloading..."
 #~ msgstr "Đang tải lại..."
 
-#~ msgid "Remote Database Name"
-#~ msgstr "Tên cơ sở dữ liệu từ xa"
-
-#~ msgid "Remote MySQL Port"
-#~ msgstr "Cổng giao tiếp MySQL từ xa"
-
 #~ msgid "Remote Path"
 #~ msgstr "Đường dẫn từ xa"
-
-#~ msgid "Remote SSH Port"
-#~ msgstr "Cổng giao tiếp SSH từ xa"
 
 #~ msgid "Remote Save"
 #~ msgstr "Lưu từ xa"
@@ -2089,14 +2169,8 @@ msgstr ""
 #~ msgid "SSH Key Path"
 #~ msgstr "Đường dẫn khóa SSH"
 
-#~ msgid "SSH Server"
-#~ msgstr "Máy chủ SSH"
-
 #~ msgid "SSH Server "
 #~ msgstr "Máy chủ SSH "
-
-#~ msgid "SSH Username"
-#~ msgstr "Tên người dùng SSH"
 
 #~ msgid "Saturday"
 #~ msgstr "Thứ Bảy"
@@ -2130,9 +2204,6 @@ msgstr ""
 
 #~ msgid "Server Address"
 #~ msgstr "Địa chỉ máy chủ"
-
-#~ msgid "Server Name"
-#~ msgstr "Tên máy chủ"
 
 #~ msgid "Server Name can not be blank"
 #~ msgstr "Tê máy chủ không được để trống"
@@ -2191,9 +2262,6 @@ msgstr ""
 #~ msgid "Sunday"
 #~ msgstr "Chủ nhật"
 
-#~ msgid "Supply a server name"
-#~ msgstr "Cung cấp một tên máy chủ"
-
 #~ msgid "Template Name"
 #~ msgstr "Tên mẫu"
 
@@ -2231,16 +2299,6 @@ msgstr ""
 #~ "sử dụng cách để truyền sao lưu."
 
 #~ msgid ""
-#~ "The maximum size a backup can be and still be emailed. Some email servers "
-#~ "limit the size of email attachments, this will make sure that files "
-#~ "larger than the max size are not sent."
-#~ msgstr ""
-#~ "Kích cỡ tối đã của một sao lưu có thể vẫn được gửi qua thư điện tử. Một "
-#~ "số máy chủ thư điện tử giới hạn kích cỡ của các tệp đính kèm, điều này "
-#~ "nhằm đảm bảo các tệp có kích cỡ lớn hơn kích cỡ tối đa sẽ không được gửi "
-#~ "đi."
-
-#~ msgid ""
 #~ "This defaults to 'Passive'. If your FTP server is behind a seperate NAT "
 #~ "or Firewall to this VoIP server, you should select 'Active'. In 'Active' "
 #~ "mode, the FTP server establishes a connection back to the VoIP server to "
@@ -2252,9 +2310,6 @@ msgstr ""
 #~ "chế độ \" Chủ động\" máy chủ FTP sẽ thiết lập một kết nối trở lại máy chủ "
 #~ "VoLP để nhận dữ liệu. Ở chế độ \" Bị động\", máy chủ VoIP kết nối với máy "
 #~ "chủ FTP để gửi dữ liệu."
-
-#~ msgid "This has a maximum size of 25MB."
-#~ msgstr "Cái này có kích cỡ tối đa là 25MB."
 
 #~ msgid "This server"
 #~ msgstr "Máy chủ này"
@@ -2298,12 +2353,6 @@ msgstr ""
 #~ msgid "Upload File"
 #~ msgstr "Tải tệp lên"
 
-#~ msgid "User Name"
-#~ msgstr "Tên người dùng"
-
-#~ msgid "Username"
-#~ msgstr "Tên người dùng"
-
 #~ msgid "Verifying received file..."
 #~ msgstr "Đang xác nhận tệp đã nhận..."
 
@@ -2337,9 +2386,6 @@ msgstr ""
 
 #~ msgid "What should we backup?"
 #~ msgstr "Chúng ta nên sao lưu những gì?"
-
-#~ msgid "What's this?"
-#~ msgstr "Đây là cái gì?"
 
 #~ msgid "Where should status emails for this job be sent?"
 #~ msgstr "Các trạng thái thư điện tử cho công việc này nên được gửi đến đâu?"

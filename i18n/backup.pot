@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-14 18:00-0400\n"
+"POT-Creation-Date: 2019-03-15 16:41+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,6 +60,14 @@ msgstr ""
 msgid "A name used to identify your backups"
 msgstr ""
 
+#: views/servers/awss3.php:41
+msgid "AWS Access Key"
+msgstr ""
+
+#: views/servers/awss3.php:58
+msgid "AWS Secret"
+msgstr ""
+
 #: views/backup/grid.php:25
 #: views/restore/landing.php:73
 #: views/restore/landing.php:117
@@ -107,6 +115,10 @@ msgstr ""
 msgid "After the restore you should reload with the apply config button"
 msgstr ""
 
+#: views/servers/awss3.php:4
+msgid "Amazon S3&trade; Server"
+msgstr ""
+
 #: views/backup/warmspare.php:171
 msgid "Apply Configs"
 msgstr ""
@@ -121,6 +133,10 @@ msgstr ""
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
 "Aborting"
+msgstr ""
+
+#: views/servers/email.php:99
+msgid "B"
 msgstr ""
 
 #: views/landing.php:13
@@ -185,6 +201,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr ""
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr ""
+
 #: views/backup/form.php:25
 #: views/restore/landing.php:70
 #: views/restore/landing.php:113
@@ -221,6 +241,10 @@ msgstr ""
 
 #: views/backup/form.php:186
 msgid "Both"
+msgstr ""
+
+#: views/servers/awss3.php:14
+msgid "Bucket Name"
 msgstr ""
 
 #: Handlers/Restore/Legacy.php:138
@@ -295,6 +319,10 @@ msgstr ""
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
+#: views/servers/mysql.php:160
+msgid "DB Name"
+msgstr ""
+
 #: Backup.class.php:175
 #: views/restore/landing.php:49
 #: views/restore/landing.php:92
@@ -314,7 +342,19 @@ msgstr ""
 #: views/backup/grid.php:24
 #: views/restore/processRestore.php:15
 #: views/rnav.php:9
+#: views/servers/awss3.php:27
+#: views/servers/email.php:40
+#: views/servers/local.php:40
+#: views/servers/mysql.php:40
+#: views/servers/ssh.php:40
 msgid "Description"
+msgstr ""
+
+#: views/servers/email.php:52
+#: views/servers/local.php:52
+#: views/servers/mysql.php:52
+#: views/servers/ssh.php:52
+msgid "Description or notes for this server"
 msgstr ""
 
 #: Console/Backup.class.php:208
@@ -335,12 +375,28 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
+#: backup.i18n.php:14
+msgid "Email "
+msgstr ""
+
+#: views/servers/email.php:64
+msgid "Email Address"
+msgstr ""
+
+#: views/servers/email.php:4
+msgid "Email Server"
+msgstr ""
+
 #: views/backup/form.php:166
 msgid "Email Type"
 msgstr ""
 
 #: views/backup/form.php:119
 msgid "Email address to send notifications to."
+msgstr ""
+
+#: views/servers/email.php:76
+msgid "Email address where backups should be emailed to"
 msgstr ""
 
 #: views/backup/warmspare.php:14
@@ -445,6 +501,14 @@ msgstr ""
 msgid "Extracting supplied database file %s"
 msgstr ""
 
+#: views/servers/mysql.php:148
+msgid "FTP Password"
+msgstr ""
+
+#: views/servers/mysql.php:124
+msgid "FTP Username"
+msgstr ""
+
 #: views/backup/form.php:181
 msgid "Failure"
 msgstr ""
@@ -507,6 +571,11 @@ msgstr ""
 msgid "Global Settings"
 msgstr ""
 
+#: views/servers/mysql.php:64
+#: views/servers/ssh.php:64
+msgid "Hostname"
+msgstr ""
+
 #: views/backup/form.php:381
 msgid ""
 "How long to maintain backups. Example 30 will delete anything older than 30 "
@@ -531,6 +600,14 @@ msgstr ""
 
 #: views/backup/transfer.php:16
 msgid "ID From the donor machine"
+msgstr ""
+
+#: views/servers/ssh.php:76
+msgid "IP address or FQDN of remote SSH server"
+msgstr ""
+
+#: views/servers/mysql.php:76
+msgid "IP address or FQDN of remote mysql host"
 msgstr ""
 
 #: RestoreBase.php:83
@@ -596,6 +673,14 @@ msgstr ""
 msgid "Is this the donor machine or the recipient"
 msgstr ""
 
+#: views/servers/email.php:101
+msgid "KB"
+msgstr ""
+
+#: views/servers/ssh.php:136
+msgid "Key"
+msgstr ""
+
 #: Models/BackupSplFileInfo.php:72
 msgid "Legacy Restore"
 msgstr ""
@@ -631,8 +716,24 @@ msgstr ""
 msgid "Loading supplied database file %s"
 msgstr ""
 
+#: views/servers/local.php:4
+msgid "Local Server"
+msgstr ""
+
+#: views/servers/ssh.php:148
+msgid "Location of ssh private key to be used when connecting to a host"
+msgstr ""
+
+#: views/servers/email.php:103
+msgid "MB"
+msgstr ""
+
 #: views/backup/form.php:304
 msgid "Maintinence"
+msgstr ""
+
+#: views/servers/email.php:88
+msgid "Max Email Size"
 msgstr ""
 
 #: Backup.class.php:96
@@ -668,10 +769,18 @@ msgstr ""
 msgid "Moving servers to filestore"
 msgstr ""
 
+#: views/servers/mysql.php:4
+msgid "MySQL Server"
+msgstr ""
+
 #: views/backup/grid.php:23
 #: views/restore/processRestore.php:14
 #: views/rnav.php:8
 msgid "Name"
+msgstr ""
+
+#: views/servers/email.php:28
+msgid "Name this Server"
 msgstr ""
 
 #: views/backup/form.php:146
@@ -720,12 +829,31 @@ msgid ""
 "Parsing out SQL tables. This may take a moment depending on backup size."
 msgstr ""
 
+#: views/servers/mysql.php:136
+msgid "Password"
+msgstr ""
+
+#: views/servers/local.php:64
+#: views/servers/ssh.php:160
+msgid "Path"
+msgstr ""
+
+#: views/servers/local.php:76
+#: views/servers/ssh.php:172
+msgid "Path on remote server"
+msgstr ""
+
 #: Console/Backup.class.php:166
 msgid "Performing Local Maintenance"
 msgstr ""
 
 #: Console/Backup.class.php:169
 msgid "Performing Remote Maintenance"
+msgstr ""
+
+#: views/servers/mysql.php:88
+#: views/servers/ssh.php:88
+msgid "Port"
 msgstr ""
 
 #: views/restore/landing.php:25
@@ -744,6 +872,11 @@ msgstr ""
 msgid "Processing..."
 msgstr ""
 
+#: views/servers/local.php:28
+#: views/servers/ssh.php:28
+msgid "Provide the name for this server"
+msgstr ""
+
 #: views/backup/settings.php:6
 msgid "Public Key"
 msgstr ""
@@ -756,8 +889,20 @@ msgstr ""
 msgid "Recipient"
 msgstr ""
 
+#: views/servers/mysql.php:172
+msgid "Remote Database Name"
+msgstr ""
+
 #: views/backup/warmspare.php:202
 msgid "Remote IP"
+msgstr ""
+
+#: views/servers/mysql.php:100
+msgid "Remote MySQL Port"
+msgstr ""
+
+#: views/servers/ssh.php:100
+msgid "Remote SSH Port"
 msgstr ""
 
 #: views/backup/warmspare.php:226
@@ -883,6 +1028,14 @@ msgstr ""
 msgid "Running a restore will overwrite current data. This cannot be undone!"
 msgstr ""
 
+#: views/servers/ssh.php:4
+msgid "SSH Server"
+msgstr ""
+
+#: views/servers/ssh.php:124
+msgid "SSH Username"
+msgstr ""
+
 #: Backup.class.php:165
 msgid "Save"
 msgstr ""
@@ -930,6 +1083,13 @@ msgstr ""
 
 #: views/backup/transfer.php:26
 msgid "Server Mode"
+msgstr ""
+
+#: views/servers/email.php:16
+#: views/servers/local.php:16
+#: views/servers/mysql.php:16
+#: views/servers/ssh.php:16
+msgid "Server Name"
 msgstr ""
 
 #: views/backup/warmspare.php:64
@@ -988,6 +1148,10 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
+#: views/servers/mysql.php:28
+msgid "Supply a server name"
+msgstr ""
+
 #: Backup.class.php:558
 msgid "System Transfer"
 msgstr ""
@@ -1002,6 +1166,10 @@ msgstr ""
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr ""
+
 #: views/backup/warmspare.php:214
 msgid "The address of the remote server."
 msgstr ""
@@ -1009,6 +1177,13 @@ msgstr ""
 #: Handlers/Backup/Multiple.php:185
 #, php-format
 msgid "The backup %s did not set a status and may have had an error"
+msgstr ""
+
+#: views/servers/email.php:113
+msgid ""
+"The maximum size a backup can be and still be emailed. Some email servers "
+"limit the size of email attachments, this will make sure that files larger "
+"than the max size are not sent."
 msgstr ""
 
 #: Handlers/Restore/Common.php:92
@@ -1069,6 +1244,10 @@ msgstr ""
 msgid ""
 "This feature requires filestore be setup and may not be availible on a clean "
 "install"
+msgstr ""
+
+#: views/servers/email.php:118
+msgid "This has a maximum size of 25MB."
 msgstr ""
 
 #: views/restore/processRestore.php:27
@@ -1146,8 +1325,16 @@ msgstr ""
 msgid "Uploading..."
 msgstr ""
 
+#: views/servers/mysql.php:112
+msgid "User Name"
+msgstr ""
+
 #: views/backup/warmspare.php:238
 msgid "User on remote system with proper permissions, usually root."
+msgstr ""
+
+#: views/servers/ssh.php:112
+msgid "Username"
 msgstr ""
 
 #: Handlers/Backup/Common.php:82
@@ -1188,6 +1375,11 @@ msgstr ""
 #: Backup.class.php:241
 #: Backup.class.php:289
 msgid "We don't have permissions to this file"
+msgstr ""
+
+#: views/servers/awss3.php:46
+#: views/servers/awss3.php:63
+msgid "What's this?"
 msgstr ""
 
 #: views/backup/form.php:155

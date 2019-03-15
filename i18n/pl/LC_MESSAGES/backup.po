@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-14 15:28-0400\n"
+"POT-Creation-Date: 2019-03-15 16:41+0530\n"
 "PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/backup/pl/"
@@ -55,6 +55,14 @@ msgstr ""
 msgid "A name used to identify your backups"
 msgstr ""
 
+#: views/servers/awss3.php:41
+msgid "AWS Access Key"
+msgstr "Klucz dostępu AWS"
+
+#: views/servers/awss3.php:58
+msgid "AWS Secret"
+msgstr "AWS ukryty"
+
 #: views/backup/grid.php:25 views/restore/landing.php:73
 #: views/restore/landing.php:117
 msgid "Actions"
@@ -100,6 +108,10 @@ msgstr "Administrator"
 msgid "After the restore you should reload with the apply config button"
 msgstr ""
 
+#: views/servers/awss3.php:4
+msgid "Amazon S3&trade; Server"
+msgstr "Serwer Amazon S3&trade"
+
 #: views/backup/warmspare.php:171
 msgid "Apply Configs"
 msgstr "Zastosuj konfiguracje"
@@ -114,6 +126,10 @@ msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
 "Aborting"
 msgstr ""
+
+#: views/servers/email.php:99
+msgid "B"
+msgstr "B"
 
 #: views/landing.php:13
 msgid "Backup"
@@ -174,6 +190,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Obiekty kopii zapasowej"
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "Moduł kopii zapasowej"
+
 #: views/backup/form.php:25 views/restore/landing.php:70
 #: views/restore/landing.php:113
 msgid "Backup Name"
@@ -209,6 +229,11 @@ msgstr "Podstawowe informacje"
 #: views/backup/form.php:186
 msgid "Both"
 msgstr ""
+
+#: views/servers/awss3.php:14
+#, fuzzy
+msgid "Bucket Name"
+msgstr "Bucket Name"
 
 #: Handlers/Restore/Legacy.php:138
 #, php-format
@@ -279,6 +304,10 @@ msgstr ""
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
+#: views/servers/mysql.php:160
+msgid "DB Name"
+msgstr "Nazwa DB"
+
 #: Backup.class.php:175 views/restore/landing.php:49
 #: views/restore/landing.php:92 assets/js/backup.js:113 assets/js/backup.js:150
 msgid "Delete"
@@ -293,9 +322,16 @@ msgid "Delete After Runs"
 msgstr ""
 
 #: views/backup/grid.php:24 views/restore/processRestore.php:15
-#: views/rnav.php:9
+#: views/rnav.php:9 views/servers/awss3.php:27 views/servers/email.php:40
+#: views/servers/local.php:40 views/servers/mysql.php:40
+#: views/servers/ssh.php:40
 msgid "Description"
 msgstr "Opis"
+
+#: views/servers/email.php:52 views/servers/local.php:52
+#: views/servers/mysql.php:52 views/servers/ssh.php:52
+msgid "Description or notes for this server"
+msgstr "Opis lub notatka dla tego serwera"
 
 #: Console/Backup.class.php:208
 msgid "Determining backup file type..."
@@ -314,6 +350,18 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
+#: backup.i18n.php:14
+msgid "Email "
+msgstr "Email "
+
+#: views/servers/email.php:64
+msgid "Email Address"
+msgstr "Adres email"
+
+#: views/servers/email.php:4
+msgid "Email Server"
+msgstr "Serwer email"
+
 #: views/backup/form.php:166
 msgid "Email Type"
 msgstr ""
@@ -321,6 +369,10 @@ msgstr ""
 #: views/backup/form.php:119
 msgid "Email address to send notifications to."
 msgstr ""
+
+#: views/servers/email.php:76
+msgid "Email address where backups should be emailed to"
+msgstr "Adres email na który powinna zostać wysłana kopia zapasowa"
 
 #: views/backup/warmspare.php:14
 msgid "Enable"
@@ -421,6 +473,14 @@ msgstr ""
 msgid "Extracting supplied database file %s"
 msgstr ""
 
+#: views/servers/mysql.php:148
+msgid "FTP Password"
+msgstr "Hasło FTP"
+
+#: views/servers/mysql.php:124
+msgid "FTP Username"
+msgstr "Nazwa użytkownika FTP"
+
 #: views/backup/form.php:181
 msgid "Failure"
 msgstr ""
@@ -480,6 +540,10 @@ msgstr ""
 msgid "Global Settings"
 msgstr ""
 
+#: views/servers/mysql.php:64 views/servers/ssh.php:64
+msgid "Hostname"
+msgstr "Nazwa hosta"
+
 #: views/backup/form.php:381
 msgid ""
 "How long to maintain backups. Example 30 will delete anything older than 30 "
@@ -505,6 +569,14 @@ msgstr ""
 #: views/backup/transfer.php:16
 msgid "ID From the donor machine"
 msgstr ""
+
+#: views/servers/ssh.php:76
+msgid "IP address or FQDN of remote SSH server"
+msgstr "Adres IP lub FQDN lub zdalny serwer SSH"
+
+#: views/servers/mysql.php:76
+msgid "IP address or FQDN of remote mysql host"
+msgstr "Adres IP lub FQDN dla zdalnego hosta mysql"
 
 #: RestoreBase.php:83 RestoreBase.php:280
 #, php-format
@@ -565,6 +637,14 @@ msgstr ""
 msgid "Is this the donor machine or the recipient"
 msgstr ""
 
+#: views/servers/email.php:101
+msgid "KB"
+msgstr "KB"
+
+#: views/servers/ssh.php:136
+msgid "Key"
+msgstr "Klucz"
+
 #: Models/BackupSplFileInfo.php:72
 msgid "Legacy Restore"
 msgstr ""
@@ -600,9 +680,26 @@ msgstr ""
 msgid "Loading supplied database file %s"
 msgstr ""
 
+#: views/servers/local.php:4
+msgid "Local Server"
+msgstr "Serwer lokalny"
+
+#: views/servers/ssh.php:148
+msgid "Location of ssh private key to be used when connecting to a host"
+msgstr ""
+"Lokalizacja prywatnego klucza do wykorzystania podczas łączenia z hostem"
+
+#: views/servers/email.php:103
+msgid "MB"
+msgstr "MB"
+
 #: views/backup/form.php:304
 msgid "Maintinence"
 msgstr ""
+
+#: views/servers/email.php:88
+msgid "Max Email Size"
+msgstr "Maksymalny rozmiar maila"
 
 #: Backup.class.php:96
 msgid "Migrating legacy backupjobs"
@@ -636,10 +733,18 @@ msgstr ""
 msgid "Moving servers to filestore"
 msgstr ""
 
+#: views/servers/mysql.php:4
+msgid "MySQL Server"
+msgstr "Serwer MySQL"
+
 #: views/backup/grid.php:23 views/restore/processRestore.php:14
 #: views/rnav.php:8
 msgid "Name"
 msgstr "Nazwa"
+
+#: views/servers/email.php:28
+msgid "Name this Server"
+msgstr "Nazwa tego serwera"
 
 #: views/backup/form.php:146 views/backup/form.php:262
 #: views/backup/warmspare.php:25 views/backup/warmspare.php:56
@@ -682,6 +787,18 @@ msgid ""
 "Parsing out SQL tables. This may take a moment depending on backup size."
 msgstr ""
 
+#: views/servers/mysql.php:136
+msgid "Password"
+msgstr "Hasło"
+
+#: views/servers/local.php:64 views/servers/ssh.php:160
+msgid "Path"
+msgstr "Ścieżka"
+
+#: views/servers/local.php:76 views/servers/ssh.php:172
+msgid "Path on remote server"
+msgstr "Ścieżka dostępu na zdalnym serwerze"
+
 #: Console/Backup.class.php:166
 msgid "Performing Local Maintenance"
 msgstr ""
@@ -689,6 +806,10 @@ msgstr ""
 #: Console/Backup.class.php:169
 msgid "Performing Remote Maintenance"
 msgstr ""
+
+#: views/servers/mysql.php:88 views/servers/ssh.php:88
+msgid "Port"
+msgstr "Port"
 
 #: views/restore/landing.php:25
 msgid "Processing"
@@ -704,6 +825,10 @@ msgstr ""
 msgid "Processing..."
 msgstr ""
 
+#: views/servers/local.php:28 views/servers/ssh.php:28
+msgid "Provide the name for this server"
+msgstr "Podaj nazwę dla tego serwera"
+
 #: views/backup/settings.php:6
 msgid "Public Key"
 msgstr ""
@@ -716,9 +841,21 @@ msgstr ""
 msgid "Recipient"
 msgstr ""
 
+#: views/servers/mysql.php:172
+msgid "Remote Database Name"
+msgstr "Zdalna nazwa bazy danych"
+
 #: views/backup/warmspare.php:202
 msgid "Remote IP"
 msgstr ""
+
+#: views/servers/mysql.php:100
+msgid "Remote MySQL Port"
+msgstr "Zdalny port MySQL"
+
+#: views/servers/ssh.php:100
+msgid "Remote SSH Port"
+msgstr "Zdalny port SSH"
 
 #: views/backup/warmspare.php:226
 msgid "Remote User"
@@ -838,6 +975,14 @@ msgstr ""
 msgid "Running a restore will overwrite current data. This cannot be undone!"
 msgstr ""
 
+#: views/servers/ssh.php:4
+msgid "SSH Server"
+msgstr "Serwer SSH"
+
+#: views/servers/ssh.php:124
+msgid "SSH Username"
+msgstr "Nazwa użytkownika SSH"
+
 #: Backup.class.php:165
 msgid "Save"
 msgstr "Zapisz"
@@ -886,6 +1031,11 @@ msgstr ""
 #: views/backup/transfer.php:26
 msgid "Server Mode"
 msgstr ""
+
+#: views/servers/email.php:16 views/servers/local.php:16
+#: views/servers/mysql.php:16 views/servers/ssh.php:16
+msgid "Server Name"
+msgstr "Nazwa Serwera"
 
 #: views/backup/warmspare.php:64
 msgid "Should the remote trunks be enabled"
@@ -942,6 +1092,10 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
+#: views/servers/mysql.php:28
+msgid "Supply a server name"
+msgstr "Podaj nazwę serwera"
+
 #: Backup.class.php:558
 msgid "System Transfer"
 msgstr ""
@@ -956,6 +1110,12 @@ msgstr ""
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr ""
+"Pole od: dla wiadomości e-mail podczas korzystania z funkcji tworzenia kopii "
+"zapasowej poczty e-mail."
+
 #: views/backup/warmspare.php:214
 msgid "The address of the remote server."
 msgstr ""
@@ -964,6 +1124,17 @@ msgstr ""
 #, php-format
 msgid "The backup %s did not set a status and may have had an error"
 msgstr ""
+
+#: views/servers/email.php:113
+msgid ""
+"The maximum size a backup can be and still be emailed. Some email servers "
+"limit the size of email attachments, this will make sure that files larger "
+"than the max size are not sent."
+msgstr ""
+"Maksymalny rozmiar kopii zapasowej może być i nadal  będą wysyłane pocztą "
+"elektroniczną. Niektóre serwery poczty elektronicznej ograniczają rozmiar "
+"załączników e-mail, co sprawi, że pliki większe niż maksymalny rozmiar nie "
+"zostaną wysłane."
 
 #: Handlers/Restore/Common.php:92
 #, php-format
@@ -1020,6 +1191,10 @@ msgid ""
 "This feature requires filestore be setup and may not be availible on a clean "
 "install"
 msgstr ""
+
+#: views/servers/email.php:118
+msgid "This has a maximum size of 25MB."
+msgstr "To ma maksymalny rozmiar 25MB."
 
 #: views/restore/processRestore.php:27
 msgid ""
@@ -1096,9 +1271,17 @@ msgstr ""
 msgid "Uploading..."
 msgstr ""
 
+#: views/servers/mysql.php:112
+msgid "User Name"
+msgstr "Nazwa użytkownika"
+
 #: views/backup/warmspare.php:238
 msgid "User on remote system with proper permissions, usually root."
 msgstr ""
+
+#: views/servers/ssh.php:112
+msgid "Username"
+msgstr "Nazwa użytkownika"
 
 #: Handlers/Backup/Common.php:82
 msgid "Using default backup strategy"
@@ -1138,6 +1321,10 @@ msgstr ""
 msgid "We don't have permissions to this file"
 msgstr ""
 
+#: views/servers/awss3.php:46 views/servers/awss3.php:63
+msgid "What's this?"
+msgstr "Co to jest?"
+
 #: views/backup/form.php:155
 msgid ""
 "When set to Yes logs will be added to the body of the email, when set to No "
@@ -1173,17 +1360,6 @@ msgstr ""
 #, php-format
 msgid "type is %s"
 msgstr ""
-
-#~ msgid "Backup Module"
-#~ msgstr "Moduł kopii zapasowej"
-
-#~ msgid "Email "
-#~ msgstr "Email "
-
-#~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr ""
-#~ "Pole od: dla wiadomości e-mail podczas korzystania z funkcji tworzenia "
-#~ "kopii zapasowej poczty e-mail."
 
 #~ msgid "Download"
 #~ msgstr "Pobieranie"
@@ -1227,14 +1403,8 @@ msgstr ""
 #~ msgid "AT"
 #~ msgstr "AT"
 
-#~ msgid "AWS Access Key"
-#~ msgstr "Klucz dostępu AWS"
-
 #~ msgid "AWS S3 Server "
 #~ msgstr "Serwer AWS S3 "
-
-#~ msgid "AWS Secret"
-#~ msgstr "AWS ukryty"
 
 #~ msgid "Active"
 #~ msgstr "Aktywny"
@@ -1247,9 +1417,6 @@ msgstr ""
 
 #~ msgid "Amazon S3 Server "
 #~ msgstr "Serwer Amazon S3 "
-
-#~ msgid "Amazon S3&trade; Server"
-#~ msgstr "Serwer Amazon S3&trade"
 
 #~ msgid "Annually"
 #~ msgstr "Rocznie"
@@ -1273,9 +1440,6 @@ msgstr ""
 
 #~ msgid "Available Servers"
 #~ msgstr "Dostępne serwery"
-
-#~ msgid "B"
-#~ msgstr "B"
 
 #~ msgid "BACKUP LOG ATTACHED"
 #~ msgstr "LOG KOPII ZAPASOWEJ DOŁĄCZONY"
@@ -1350,10 +1514,6 @@ msgstr ""
 #~ "Przeglądarka odświeżona, aktualizacje w czasie rzeczywistym nie są "
 #~ "możliwe."
 
-#, fuzzy
-#~ msgid "Bucket Name"
-#~ msgstr "Bucket Name"
-
 #~ msgid "Building manifest..."
 #~ msgstr "Budowanie manifestu..."
 
@@ -1398,9 +1558,6 @@ msgstr ""
 
 #~ msgid "Custom"
 #~ msgstr "Zwyczajny"
-
-#~ msgid "DB Name"
-#~ msgstr "Nazwa DB"
 
 #~ msgid "Daily"
 #~ msgstr "Codziennie"
@@ -1455,9 +1612,6 @@ msgstr ""
 #~ msgid "Description or notes for this backup"
 #~ msgstr "Opis lub notatka dla tej kopii zapasowej"
 
-#~ msgid "Description or notes for this server"
-#~ msgstr "Opis lub notatka dla tego serwera"
-
 #~ msgid "Destination"
 #~ msgstr "Miejsce docelowe"
 
@@ -1480,20 +1634,11 @@ msgstr ""
 #~ msgid "Drop Here"
 #~ msgstr "Upuść tutaj"
 
-#~ msgid "Email Address"
-#~ msgstr "Adres email"
-
 #~ msgid "Email Notifications"
 #~ msgstr "Zgłoszenia email"
 
-#~ msgid "Email Server"
-#~ msgstr "Serwer email"
-
 #~ msgid "Email Server "
 #~ msgstr "Serwer email "
-
-#~ msgid "Email address where backups should be emailed to"
-#~ msgstr "Adres email na który powinna zostać wysłana kopia zapasowa"
 
 #~ msgid "Email to send status messages to when this task is run"
 #~ msgstr ""
@@ -1525,9 +1670,6 @@ msgstr ""
 #~ msgid "FTP"
 #~ msgstr "FTP"
 
-#~ msgid "FTP Password"
-#~ msgstr "Hasło FTP"
-
 #~ msgid "FTP Server"
 #~ msgstr "Serwer FTP"
 
@@ -1536,9 +1678,6 @@ msgstr ""
 
 #~ msgid "FTP Transfer type"
 #~ msgstr "Typ transferu FTP"
-
-#~ msgid "FTP Username"
-#~ msgstr "Nazwa użytkownika FTP"
 
 #~ msgid "Failed to retrieve file from server!"
 #~ msgstr "Odzyskiwanie pliku z serwera nie powiodło się!"
@@ -1581,9 +1720,6 @@ msgstr ""
 #~ msgstr ""
 #~ "To jest kilka pierwszych wersów pliku wysłanych przez serwer zdalny:"
 
-#~ msgid "Hostname"
-#~ msgstr "Nazwa hosta"
-
 #~ msgid "Hourly"
 #~ msgstr "Cogodzinny"
 
@@ -1596,14 +1732,8 @@ msgstr ""
 #~ msgid "IP Address or FQDN of your server"
 #~ msgstr "Adres IP lub FQDN dla serwera"
 
-#~ msgid "IP address or FQDN of remote SSH server"
-#~ msgstr "Adres IP lub FQDN lub zdalny serwer SSH"
-
 #~ msgid "IP address or FQDN of remote ftp host"
 #~ msgstr "Adres IP lub FQDN dla zdalnego hosta ftp"
-
-#~ msgid "IP address or FQDN of remote mysql host"
-#~ msgstr "Adres IP lub FQDN dla zdalnego hosta mysql"
 
 #~ msgid "Import"
 #~ msgstr "Import"
@@ -1639,30 +1769,11 @@ msgstr ""
 #~ msgid "June"
 #~ msgstr "Czerwiec"
 
-#~ msgid "KB"
-#~ msgstr "KB"
-
-#~ msgid "Key"
-#~ msgstr "Klucz"
-
-#~ msgid "Local Server"
-#~ msgstr "Serwer lokalny"
-
 #~ msgid "Local Server "
 #~ msgstr "Serwer lokalny "
 
-#~ msgid "Location of ssh private key to be used when connecting to a host"
-#~ msgstr ""
-#~ "Lokalizacja prywatnego klucza do wykorzystania podczas łączenia z hostem"
-
-#~ msgid "MB"
-#~ msgstr "MB"
-
 #~ msgid "March"
 #~ msgstr "Marzec"
-
-#~ msgid "Max Email Size"
-#~ msgstr "Maksymalny rozmiar maila"
 
 #~ msgid "May"
 #~ msgstr "Maj"
@@ -1679,9 +1790,6 @@ msgstr ""
 #~ msgid "Months"
 #~ msgstr "Miesiące"
 
-#~ msgid "MySQL Server"
-#~ msgstr "Serwer MySQL"
-
 #~ msgid "Mysql"
 #~ msgstr "Mysql"
 
@@ -1693,9 +1801,6 @@ msgstr ""
 
 #~ msgid "Mysql Server "
 #~ msgstr "Serwer Mysql "
-
-#~ msgid "Name this Server"
-#~ msgstr "Nazwa tego serwera"
 
 #~ msgid "Name this backup"
 #~ msgstr "Nazwa tej kopii zapasowej"
@@ -1769,15 +1874,6 @@ msgstr ""
 #~ msgid "Passive"
 #~ msgstr "Pasywny"
 
-#~ msgid "Password"
-#~ msgstr "Hasło"
-
-#~ msgid "Path"
-#~ msgstr "Ścieżka"
-
-#~ msgid "Path on remote server"
-#~ msgstr "Ścieżka dostępu na zdalnym serwerze"
-
 #~ msgid ""
 #~ "Path on remote server. This must be a COMPLETE PATH, starting with a / - "
 #~ "for example, <tt>/home/backups/freepbx</tt>. A path without a leading "
@@ -1800,17 +1896,11 @@ msgstr ""
 #~ msgid "Please wait, loading..."
 #~ msgstr "Proszę czekać, ładowanie..."
 
-#~ msgid "Port"
-#~ msgstr "Port"
-
 #~ msgid "Preserving local NAT settings"
 #~ msgstr "Zachowanie ustawień lokalnych NAT"
 
 #~ msgid "Processing received file..."
 #~ msgstr "Przetwarzanie otrzymanego pliku..."
-
-#~ msgid "Provide the name for this server"
-#~ msgstr "Podaj nazwę dla tego serwera"
 
 #~ msgid "Randomize"
 #~ msgstr "Losowy"
@@ -1821,17 +1911,8 @@ msgstr ""
 #~ msgid "Reloading..."
 #~ msgstr "Ponowne ładowanie..."
 
-#~ msgid "Remote Database Name"
-#~ msgstr "Zdalna nazwa bazy danych"
-
-#~ msgid "Remote MySQL Port"
-#~ msgstr "Zdalny port MySQL"
-
 #~ msgid "Remote Path"
 #~ msgstr "Zdalna ścieżka"
-
-#~ msgid "Remote SSH Port"
-#~ msgstr "Zdalny port SSH"
 
 #~ msgid "Remote Save"
 #~ msgstr "Zdalny zapis"
@@ -1928,14 +2009,8 @@ msgstr ""
 #~ msgid "SSH"
 #~ msgstr "SSH"
 
-#~ msgid "SSH Server"
-#~ msgstr "Serwer SSH"
-
 #~ msgid "SSH Server "
 #~ msgstr "Serwer SSH "
-
-#~ msgid "SSH Username"
-#~ msgstr "Nazwa użytkownika SSH"
 
 #~ msgid "Saturday"
 #~ msgstr "Sobota"
@@ -1968,9 +2043,6 @@ msgstr ""
 
 #~ msgid "Server Address"
 #~ msgstr "Adres serwera"
-
-#~ msgid "Server Name"
-#~ msgstr "Nazwa Serwera"
 
 #~ msgid "Server Name can not be blank"
 #~ msgstr "Nazwa serwera nie może być pusta"
@@ -2023,9 +2095,6 @@ msgstr ""
 #~ msgid "Sunday"
 #~ msgstr "Niedziela"
 
-#~ msgid "Supply a server name"
-#~ msgstr "Podaj nazwę serwera"
-
 #~ msgid "Template Name"
 #~ msgstr "Nazwa szablonu"
 
@@ -2061,19 +2130,6 @@ msgstr ""
 #~ "Plik kopii zapasowej przekroczył limit miękki w konfiguracji SMTP (%s "
 #~ "bajtów). Nie próbowano go wysłać. Proszę zmniejszyć kopię zapasową lub "
 #~ "użyć innej metody przenoszenia kopii zapasowej."
-
-#~ msgid ""
-#~ "The maximum size a backup can be and still be emailed. Some email servers "
-#~ "limit the size of email attachments, this will make sure that files "
-#~ "larger than the max size are not sent."
-#~ msgstr ""
-#~ "Maksymalny rozmiar kopii zapasowej może być i nadal  będą wysyłane pocztą "
-#~ "elektroniczną. Niektóre serwery poczty elektronicznej ograniczają rozmiar "
-#~ "załączników e-mail, co sprawi, że pliki większe niż maksymalny rozmiar "
-#~ "nie zostaną wysłane."
-
-#~ msgid "This has a maximum size of 25MB."
-#~ msgstr "To ma maksymalny rozmiar 25MB."
 
 #~ msgid "This server"
 #~ msgstr "Ten serwer"
@@ -2113,12 +2169,6 @@ msgstr ""
 #~ msgid "Upload File"
 #~ msgstr "Przesyłanie pliku"
 
-#~ msgid "User Name"
-#~ msgstr "Nazwa użytkownika"
-
-#~ msgid "Username"
-#~ msgstr "Nazwa użytkownika"
-
 #~ msgid "Verifying received file..."
 #~ msgstr "Weryfikacja otrzymanego pliku..."
 
@@ -2148,9 +2198,6 @@ msgstr ""
 
 #~ msgid "What should we backup?"
 #~ msgstr "Czego kopię zapasową utworzyć?"
-
-#~ msgid "What's this?"
-#~ msgstr "Co to jest?"
 
 #~ msgid "Where should status emails for this job be sent?"
 #~ msgstr ""

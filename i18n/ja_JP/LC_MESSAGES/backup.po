@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-14 15:28-0400\n"
+"POT-Creation-Date: 2019-03-15 16:41+0530\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -86,6 +86,14 @@ msgstr ""
 msgid "A name used to identify your backups"
 msgstr ""
 
+#: views/servers/awss3.php:41
+msgid "AWS Access Key"
+msgstr ""
+
+#: views/servers/awss3.php:58
+msgid "AWS Secret"
+msgstr ""
+
 #: views/backup/grid.php:25 views/restore/landing.php:73
 #: views/restore/landing.php:117
 msgid "Actions"
@@ -131,6 +139,10 @@ msgstr "アドミン"
 msgid "After the restore you should reload with the apply config button"
 msgstr ""
 
+#: views/servers/awss3.php:4
+msgid "Amazon S3&trade; Server"
+msgstr ""
+
 #: views/backup/warmspare.php:171
 msgid "Apply Configs"
 msgstr "変更を適用"
@@ -144,6 +156,10 @@ msgstr ""
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
 "Aborting"
+msgstr ""
+
+#: views/servers/email.php:99
+msgid "B"
 msgstr ""
 
 #: views/landing.php:13
@@ -205,6 +221,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr "バックアップ アイテム"
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "バックアップモジュール"
+
 #: views/backup/form.php:25 views/restore/landing.php:70
 #: views/restore/landing.php:113
 msgid "Backup Name"
@@ -239,6 +259,10 @@ msgstr ""
 
 #: views/backup/form.php:186
 msgid "Both"
+msgstr ""
+
+#: views/servers/awss3.php:14
+msgid "Bucket Name"
 msgstr ""
 
 #: Handlers/Restore/Legacy.php:138
@@ -310,6 +334,10 @@ msgstr ""
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
+#: views/servers/mysql.php:160
+msgid "DB Name"
+msgstr "データベース名"
+
 #: Backup.class.php:175 views/restore/landing.php:49
 #: views/restore/landing.php:92 assets/js/backup.js:113 assets/js/backup.js:150
 msgid "Delete"
@@ -324,9 +352,16 @@ msgid "Delete After Runs"
 msgstr ""
 
 #: views/backup/grid.php:24 views/restore/processRestore.php:15
-#: views/rnav.php:9
+#: views/rnav.php:9 views/servers/awss3.php:27 views/servers/email.php:40
+#: views/servers/local.php:40 views/servers/mysql.php:40
+#: views/servers/ssh.php:40
 msgid "Description"
 msgstr "説明"
+
+#: views/servers/email.php:52 views/servers/local.php:52
+#: views/servers/mysql.php:52 views/servers/ssh.php:52
+msgid "Description or notes for this server"
+msgstr "このサーバーの説明やメモ。"
 
 #: Console/Backup.class.php:208
 msgid "Determining backup file type..."
@@ -345,6 +380,18 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
+#: backup.i18n.php:14
+msgid "Email "
+msgstr ""
+
+#: views/servers/email.php:64
+msgid "Email Address"
+msgstr "Eメールアドレス"
+
+#: views/servers/email.php:4
+msgid "Email Server"
+msgstr ""
+
 #: views/backup/form.php:166
 msgid "Email Type"
 msgstr ""
@@ -352,6 +399,10 @@ msgstr ""
 #: views/backup/form.php:119
 msgid "Email address to send notifications to."
 msgstr ""
+
+#: views/servers/email.php:76
+msgid "Email address where backups should be emailed to"
+msgstr "バックアップを送信するEメールアドレス。"
 
 #: views/backup/warmspare.php:14
 msgid "Enable"
@@ -452,6 +503,14 @@ msgstr ""
 msgid "Extracting supplied database file %s"
 msgstr ""
 
+#: views/servers/mysql.php:148
+msgid "FTP Password"
+msgstr ""
+
+#: views/servers/mysql.php:124
+msgid "FTP Username"
+msgstr ""
+
 #: views/backup/form.php:181
 msgid "Failure"
 msgstr ""
@@ -511,6 +570,10 @@ msgstr ""
 msgid "Global Settings"
 msgstr ""
 
+#: views/servers/mysql.php:64 views/servers/ssh.php:64
+msgid "Hostname"
+msgstr "ホスト名"
+
 #: views/backup/form.php:381
 msgid ""
 "How long to maintain backups. Example 30 will delete anything older than 30 "
@@ -536,6 +599,14 @@ msgstr ""
 #: views/backup/transfer.php:16
 msgid "ID From the donor machine"
 msgstr ""
+
+#: views/servers/ssh.php:76
+msgid "IP address or FQDN of remote SSH server"
+msgstr ""
+
+#: views/servers/mysql.php:76
+msgid "IP address or FQDN of remote mysql host"
+msgstr "リモートMySQLホストのIPアドレス、またはFQDN"
 
 #: RestoreBase.php:83 RestoreBase.php:280
 #, php-format
@@ -596,6 +667,14 @@ msgstr ""
 msgid "Is this the donor machine or the recipient"
 msgstr ""
 
+#: views/servers/email.php:101
+msgid "KB"
+msgstr ""
+
+#: views/servers/ssh.php:136
+msgid "Key"
+msgstr "キー"
+
 #: Models/BackupSplFileInfo.php:72
 msgid "Legacy Restore"
 msgstr ""
@@ -631,9 +710,25 @@ msgstr ""
 msgid "Loading supplied database file %s"
 msgstr ""
 
+#: views/servers/local.php:4
+msgid "Local Server"
+msgstr ""
+
+#: views/servers/ssh.php:148
+msgid "Location of ssh private key to be used when connecting to a host"
+msgstr "ホストに接続する際に使用するSSHプライベートキーの保存先。"
+
+#: views/servers/email.php:103
+msgid "MB"
+msgstr ""
+
 #: views/backup/form.php:304
 msgid "Maintinence"
 msgstr ""
+
+#: views/servers/email.php:88
+msgid "Max Email Size"
+msgstr "最大Eメールサイズ"
 
 #: Backup.class.php:96
 msgid "Migrating legacy backupjobs"
@@ -667,10 +762,18 @@ msgstr ""
 msgid "Moving servers to filestore"
 msgstr ""
 
+#: views/servers/mysql.php:4
+msgid "MySQL Server"
+msgstr ""
+
 #: views/backup/grid.php:23 views/restore/processRestore.php:14
 #: views/rnav.php:8
 msgid "Name"
 msgstr "名前"
+
+#: views/servers/email.php:28
+msgid "Name this Server"
+msgstr ""
 
 #: views/backup/form.php:146 views/backup/form.php:262
 #: views/backup/warmspare.php:25 views/backup/warmspare.php:56
@@ -713,6 +816,18 @@ msgid ""
 "Parsing out SQL tables. This may take a moment depending on backup size."
 msgstr ""
 
+#: views/servers/mysql.php:136
+msgid "Password"
+msgstr "パスワード"
+
+#: views/servers/local.php:64 views/servers/ssh.php:160
+msgid "Path"
+msgstr "パス"
+
+#: views/servers/local.php:76 views/servers/ssh.php:172
+msgid "Path on remote server"
+msgstr ""
+
 #: Console/Backup.class.php:166
 msgid "Performing Local Maintenance"
 msgstr ""
@@ -720,6 +835,10 @@ msgstr ""
 #: Console/Backup.class.php:169
 msgid "Performing Remote Maintenance"
 msgstr ""
+
+#: views/servers/mysql.php:88 views/servers/ssh.php:88
+msgid "Port"
+msgstr "ポート"
 
 #: views/restore/landing.php:25
 msgid "Processing"
@@ -735,6 +854,10 @@ msgstr ""
 msgid "Processing..."
 msgstr ""
 
+#: views/servers/local.php:28 views/servers/ssh.php:28
+msgid "Provide the name for this server"
+msgstr ""
+
 #: views/backup/settings.php:6
 msgid "Public Key"
 msgstr ""
@@ -747,8 +870,20 @@ msgstr ""
 msgid "Recipient"
 msgstr ""
 
+#: views/servers/mysql.php:172
+msgid "Remote Database Name"
+msgstr ""
+
 #: views/backup/warmspare.php:202
 msgid "Remote IP"
+msgstr ""
+
+#: views/servers/mysql.php:100
+msgid "Remote MySQL Port"
+msgstr ""
+
+#: views/servers/ssh.php:100
+msgid "Remote SSH Port"
 msgstr ""
 
 #: views/backup/warmspare.php:226
@@ -869,6 +1004,14 @@ msgstr ""
 msgid "Running a restore will overwrite current data. This cannot be undone!"
 msgstr ""
 
+#: views/servers/ssh.php:4
+msgid "SSH Server"
+msgstr ""
+
+#: views/servers/ssh.php:124
+msgid "SSH Username"
+msgstr ""
+
 #: Backup.class.php:165
 msgid "Save"
 msgstr "保存"
@@ -917,6 +1060,11 @@ msgstr ""
 #: views/backup/transfer.php:26
 msgid "Server Mode"
 msgstr ""
+
+#: views/servers/email.php:16 views/servers/local.php:16
+#: views/servers/mysql.php:16 views/servers/ssh.php:16
+msgid "Server Name"
+msgstr "サーバー名"
 
 #: views/backup/warmspare.php:64
 msgid "Should the remote trunks be enabled"
@@ -973,6 +1121,10 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
+#: views/servers/mysql.php:28
+msgid "Supply a server name"
+msgstr ""
+
 #: Backup.class.php:558
 msgid "System Transfer"
 msgstr ""
@@ -987,6 +1139,10 @@ msgstr ""
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr "バックアップEメール機能使用時のFrom:フィールド。"
+
 #: views/backup/warmspare.php:214
 msgid "The address of the remote server."
 msgstr ""
@@ -995,6 +1151,16 @@ msgstr ""
 #, php-format
 msgid "The backup %s did not set a status and may have had an error"
 msgstr ""
+
+#: views/servers/email.php:113
+msgid ""
+"The maximum size a backup can be and still be emailed. Some email servers "
+"limit the size of email attachments, this will make sure that files larger "
+"than the max size are not sent."
+msgstr ""
+"Eメールで送信できる最大のバックアップサイズ。添付ファイルのサイズを制限する"
+"サーバーを使用する場合に、この設定を使うと制限を越えるファイルを送らないよう"
+"にできます。"
 
 #: Handlers/Restore/Common.php:92
 #, php-format
@@ -1050,6 +1216,10 @@ msgstr ""
 msgid ""
 "This feature requires filestore be setup and may not be availible on a clean "
 "install"
+msgstr ""
+
+#: views/servers/email.php:118
+msgid "This has a maximum size of 25MB."
 msgstr ""
 
 #: views/restore/processRestore.php:27
@@ -1127,8 +1297,16 @@ msgstr ""
 msgid "Uploading..."
 msgstr ""
 
+#: views/servers/mysql.php:112
+msgid "User Name"
+msgstr "ユーザー名"
+
 #: views/backup/warmspare.php:238
 msgid "User on remote system with proper permissions, usually root."
+msgstr ""
+
+#: views/servers/ssh.php:112
+msgid "Username"
 msgstr ""
 
 #: Handlers/Backup/Common.php:82
@@ -1169,6 +1347,10 @@ msgstr ""
 msgid "We don't have permissions to this file"
 msgstr ""
 
+#: views/servers/awss3.php:46 views/servers/awss3.php:63
+msgid "What's this?"
+msgstr ""
+
 #: views/backup/form.php:155
 msgid ""
 "When set to Yes logs will be added to the body of the email, when set to No "
@@ -1204,12 +1386,6 @@ msgstr ""
 #, php-format
 msgid "type is %s"
 msgstr ""
-
-#~ msgid "Backup Module"
-#~ msgstr "バックアップモジュール"
-
-#~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr "バックアップEメール機能使用時のFrom:フィールド。"
 
 #~ msgid "Download"
 #~ msgstr "ダウンロード"
@@ -1348,9 +1524,6 @@ msgstr ""
 #~ msgid "Custom"
 #~ msgstr "カスタム"
 
-#~ msgid "DB Name"
-#~ msgstr "データベース名"
-
 #~ msgid "Daily"
 #~ msgstr "毎日"
 
@@ -1389,9 +1562,6 @@ msgstr ""
 #~ msgid "Description or notes for this backup"
 #~ msgstr "このバックアップの説明・メモなど"
 
-#~ msgid "Description or notes for this server"
-#~ msgstr "このサーバーの説明やメモ。"
-
 #~ msgid "Directory"
 #~ msgstr "ディレクトリ"
 
@@ -1408,14 +1578,8 @@ msgstr ""
 #~ "テンプレートアイテムをテーブルに追加するには、テンプレートをドラッグして、"
 #~ "アイテムのテーブルにドロップしてください。"
 
-#~ msgid "Email Address"
-#~ msgstr "Eメールアドレス"
-
 #~ msgid "Email Server "
 #~ msgstr "Eメールサーバー "
-
-#~ msgid "Email address where backups should be emailed to"
-#~ msgstr "バックアップを送信するEメールアドレス。"
 
 #~ msgid "Email to send status messages to when this task is run"
 #~ msgstr ""
@@ -1491,9 +1655,6 @@ msgstr ""
 #~ msgid "Hooks"
 #~ msgstr "フック"
 
-#~ msgid "Hostname"
-#~ msgstr "ホスト名"
-
 #~ msgid "Hourly"
 #~ msgstr "毎時"
 
@@ -1502,9 +1663,6 @@ msgstr ""
 
 #~ msgid "IP address or FQDN of remote ftp host"
 #~ msgstr "リモートFTPホストのIPアドレス、またはFQDN。"
-
-#~ msgid "IP address or FQDN of remote mysql host"
-#~ msgstr "リモートMySQLホストのIPアドレス、またはFQDN"
 
 #~ msgid "Invalid backup for or undefined error"
 #~ msgstr "不正なバックアップまたは不明なエラー"
@@ -1521,23 +1679,14 @@ msgstr ""
 #~ msgid "June"
 #~ msgstr "6月"
 
-#~ msgid "Key"
-#~ msgstr "キー"
-
 #~ msgid "Local Server "
 #~ msgstr "ローカルサーバー "
-
-#~ msgid "Location of ssh private key to be used when connecting to a host"
-#~ msgstr "ホストに接続する際に使用するSSHプライベートキーの保存先。"
 
 #~ msgid "Maintenance"
 #~ msgstr "メンテナンス"
 
 #~ msgid "March"
 #~ msgstr "3月"
-
-#~ msgid "Max Email Size"
-#~ msgstr "最大Eメールサイズ"
 
 #~ msgid "May"
 #~ msgstr "5月"
@@ -1611,17 +1760,8 @@ msgstr ""
 #~ msgid "PBX config server, generally a local database server"
 #~ msgstr "PBX設定サーバー。通常はローカル DB サーバーです。"
 
-#~ msgid "Password"
-#~ msgstr "パスワード"
-
-#~ msgid "Path"
-#~ msgstr "パス"
-
 #~ msgid "Path/DB"
 #~ msgstr "パス/データベース"
-
-#~ msgid "Port"
-#~ msgstr "ポート"
 
 #~ msgid "Preserving local NAT settings"
 #~ msgstr "ローカルNAT設定は維持します"
@@ -1722,9 +1862,6 @@ msgstr ""
 #~ msgid "September"
 #~ msgstr "9月"
 
-#~ msgid "Server Name"
-#~ msgstr "サーバー名"
-
 #~ msgid "Servers"
 #~ msgstr "サーバー"
 
@@ -1752,15 +1889,6 @@ msgstr ""
 #~ msgid "Templates"
 #~ msgstr "テンプレート"
 
-#~ msgid ""
-#~ "The maximum size a backup can be and still be emailed. Some email servers "
-#~ "limit the size of email attachments, this will make sure that files "
-#~ "larger than the max size are not sent."
-#~ msgstr ""
-#~ "Eメールで送信できる最大のバックアップサイズ。添付ファイルのサイズを制限す"
-#~ "るサーバーを使用する場合に、この設定を使うと制限を越えるファイルを送らない"
-#~ "ようにできます。"
-
 #~ msgid "This server"
 #~ msgstr "このサーバー"
 
@@ -1775,9 +1903,6 @@ msgstr ""
 
 #~ msgid "Type"
 #~ msgstr "タイプ"
-
-#~ msgid "User Name"
-#~ msgstr "ユーザー名"
 
 #~ msgid "Verifying received file..."
 #~ msgstr "受信したファイルを検証中…"

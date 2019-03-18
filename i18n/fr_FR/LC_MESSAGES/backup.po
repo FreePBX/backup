@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-14 15:28-0400\n"
+"POT-Creation-Date: 2019-03-15 16:45+0530\n"
 "PO-Revision-Date: 2016-02-05 11:17+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -187,6 +187,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr ""
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "Modele de copie de sauvegarde"
+
 #: views/backup/form.php:25 views/restore/landing.php:70
 #: views/restore/landing.php:113
 msgid "Backup Name"
@@ -325,6 +329,10 @@ msgstr ""
 
 #: views/backup/form.php:2
 msgid "Edit"
+msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
 msgstr ""
 
 #: views/backup/form.php:166
@@ -969,6 +977,10 @@ msgstr ""
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr ""
+
 #: views/backup/warmspare.php:214
 msgid "The address of the remote server."
 msgstr ""
@@ -1187,8 +1199,32 @@ msgstr ""
 msgid "type is %s"
 msgstr ""
 
-#~ msgid "Backup Module"
-#~ msgstr "Modele de copie de sauvegarde"
+#~ msgid "AWS Access Key"
+#~ msgstr "Clé d'accès AWS"
+
+#~ msgid "AWS Secret"
+#~ msgstr "Secret AWS"
+
+#~ msgid "Amazon S3&trade; Server"
+#~ msgstr "Serveur Amazon S3&trade;"
+
+#~ msgid "B"
+#~ msgstr "o"
+
+#~ msgid "DB Name"
+#~ msgstr "Nom de la base de données"
+
+#~ msgid "Description or notes for this server"
+#~ msgstr "Description ou notes pour ce serveur"
+
+#~ msgid "Password"
+#~ msgstr "Mot de passe"
+
+#~ msgid "Path"
+#~ msgstr "Chemin"
+
+#~ msgid "Path on remote server"
+#~ msgstr "Chemin sur le serveur distant"
 
 #~ msgid "Backup & Restore - Servers"
 #~ msgstr "Sauvegarder et restaurer - Serveurs"
@@ -1210,14 +1246,8 @@ msgstr ""
 #~ msgid "A script to be run BEFORE a backup is started."
 #~ msgstr "Un script à exécuter AVANT que la copie de sauvegarde soit débutée."
 
-#~ msgid "AWS Access Key"
-#~ msgstr "Clé d'accès AWS"
-
 #~ msgid "AWS S3 Server "
 #~ msgstr "Serveur S3 AWS "
-
-#~ msgid "AWS Secret"
-#~ msgstr "Secret AWS"
 
 #~ msgid "Active"
 #~ msgstr "Actif"
@@ -1227,9 +1257,6 @@ msgstr ""
 
 #~ msgid "Amazon S3 Server "
 #~ msgstr "Serveur Amazon S3 "
-
-#~ msgid "Amazon S3&trade; Server"
-#~ msgstr "Serveur Amazon S3&trade;"
 
 #~ msgid "Annually"
 #~ msgstr "Annuellement"
@@ -1248,9 +1275,6 @@ msgstr ""
 
 #~ msgid "Available Servers"
 #~ msgstr "Serveurs disponibles"
-
-#~ msgid "B"
-#~ msgstr "o"
 
 #~ msgid "Backup ERROR (exceeded SMTP limits)"
 #~ msgstr "ERREUR de copie de sauvegarde (dépassement des limites SMTP)"
@@ -1297,9 +1321,6 @@ msgstr ""
 #~ msgid "Creating backup..."
 #~ msgstr "Création de la copie de sauvegarde..."
 
-#~ msgid "DB Name"
-#~ msgstr "Nom de la base de données"
-
 #~ msgid "Daily"
 #~ msgstr "Journalier"
 
@@ -1326,9 +1347,6 @@ msgstr ""
 
 #~ msgid "Description or notes for this backup"
 #~ msgstr "Description ou notes pour cette copie de sauvegarde"
-
-#~ msgid "Description or notes for this server"
-#~ msgstr "Description ou notes pour ce serveur"
 
 #~ msgid "Destination"
 #~ msgstr "Destination"
@@ -1374,15 +1392,6 @@ msgstr ""
 
 #~ msgid "October"
 #~ msgstr "Octobre"
-
-#~ msgid "Password"
-#~ msgstr "Mot de passe"
-
-#~ msgid "Path"
-#~ msgstr "Chemin"
-
-#~ msgid "Path on remote server"
-#~ msgstr "Chemin sur le serveur distant"
 
 #~ msgid "Saturday"
 #~ msgstr "Samedi"

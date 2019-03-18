@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-14 15:28-0400\n"
+"POT-Creation-Date: 2019-03-15 16:45+0530\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -177,6 +177,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr "انتخاب موارد جهت تهیه پشتیبان"
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "ماژول پشتیبان گیری"
+
 #: views/backup/form.php:25 views/restore/landing.php:70
 #: views/restore/landing.php:113
 msgid "Backup Name"
@@ -316,6 +320,10 @@ msgstr ""
 #: views/backup/form.php:2
 msgid "Edit"
 msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
+msgstr "ایمیل "
 
 #: views/backup/form.php:166
 msgid "Email Type"
@@ -963,6 +971,11 @@ msgstr ""
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr ""
+"از طرف: فیلد مبدا ایمیل ها وقتی از قابلیت ارسال ایمیل پشتیبان استفاده می شود."
+
 #: views/backup/warmspare.php:214
 msgid "The address of the remote server."
 msgstr ""
@@ -1181,16 +1194,131 @@ msgstr ""
 msgid "type is %s"
 msgstr ""
 
-#~ msgid "Backup Module"
-#~ msgstr "ماژول پشتیبان گیری"
+#~ msgid "AWS Access Key"
+#~ msgstr "کلید دسترسی AWS"
 
-#~ msgid "Email "
-#~ msgstr "ایمیل "
+#~ msgid "AWS Secret"
+#~ msgstr "رمز عبور AWS"
 
-#~ msgid "The From: field for emails when using the backup email feature."
+#~ msgid "Amazon S3&trade; Server"
+#~ msgstr "Amazon S3&trade; سرور"
+
+#~ msgid "B"
+#~ msgstr "B"
+
+#~ msgid "Bucket Name"
+#~ msgstr "نام Bucket"
+
+#~ msgid "DB Name"
+#~ msgstr "نام دیتابیس"
+
+#~ msgid "Description or notes for this server"
+#~ msgstr "توضیحات یا یادداشت برای این سرور"
+
+#~ msgid "Email Address"
+#~ msgstr "آدرس ایمیل"
+
+#~ msgid "Email Server"
+#~ msgstr "سرور ایمیل"
+
+#~ msgid "Email address where backups should be emailed to"
+#~ msgstr "آدرس ایمیلی که پشتیبان ها به آن ارسال خواهند شد"
+
+#~ msgid "FTP Password"
+#~ msgstr "رمز عبور FTP"
+
+#~ msgid "FTP Username"
+#~ msgstr "نام کاربری FTP"
+
+#~ msgid "Hostname"
+#~ msgstr "نام میزبان"
+
+#~ msgid "IP address or FQDN of remote SSH server"
+#~ msgstr "آدرس IP یا FQDN سرور SSH راه دور"
+
+#~ msgid "IP address or FQDN of remote mysql host"
+#~ msgstr "آدرس IP یا FQDN سرور mysql راه دور"
+
+#~ msgid "KB"
+#~ msgstr "کیلوبایت"
+
+#~ msgid "Key"
+#~ msgstr "کلید"
+
+#~ msgid "Local Server"
+#~ msgstr "سرور محلی"
+
+#~ msgid "Location of ssh private key to be used when connecting to a host"
+#~ msgstr "محل کلید خصوصی SSH که برای اتصال به میزبان از آن استفاده می شود"
+
+#~ msgid "MB"
+#~ msgstr "مگابایت"
+
+#~ msgid "Max Email Size"
+#~ msgstr "حداکثراندازه ایمیل"
+
+#~ msgid "MySQL Server"
+#~ msgstr "سرور MySQL"
+
+#~ msgid "Name this Server"
+#~ msgstr "نام این سرور"
+
+#~ msgid "Password"
+#~ msgstr "رمز عبور"
+
+#~ msgid "Path"
+#~ msgstr "مسیر"
+
+#~ msgid "Path on remote server"
+#~ msgstr "مسیر در سرور راه دور"
+
+#~ msgid "Port"
+#~ msgstr "پورت"
+
+#~ msgid "Provide the name for this server"
+#~ msgstr "برای این سرور یک نام  تعریف کنید"
+
+#~ msgid "Remote Database Name"
+#~ msgstr "نام دیتابیس راه دور"
+
+#~ msgid "Remote MySQL Port"
+#~ msgstr "پورت MySQL راه دور"
+
+#~ msgid "Remote SSH Port"
+#~ msgstr "پورت SSH سرور راه دور"
+
+#~ msgid "SSH Server"
+#~ msgstr "سرور SSH"
+
+#~ msgid "SSH Username"
+#~ msgstr "نام کاربری SSH"
+
+#~ msgid "Server Name"
+#~ msgstr "نام سرور"
+
+#~ msgid "Supply a server name"
+#~ msgstr "یک نام برای سرور انتخاب نمایید"
+
+#~ msgid ""
+#~ "The maximum size a backup can be and still be emailed. Some email servers "
+#~ "limit the size of email attachments, this will make sure that files "
+#~ "larger than the max size are not sent."
 #~ msgstr ""
-#~ "از طرف: فیلد مبدا ایمیل ها وقتی از قابلیت ارسال ایمیل پشتیبان استفاده می "
-#~ "شود."
+#~ "حداکثر اندازه ای که یک پشتیبان می تواند داشته باشد تا ایمیل گردد. برخی از "
+#~ "ایمیل سرور ها سایز فایل های ضمیمه شده را محدود می کنند. لذا از این طریق "
+#~ "می توان از ارسال فایل های بزرگ جلوگیری کرد."
+
+#~ msgid "This has a maximum size of 25MB."
+#~ msgstr "حداکثر اندازه 25 مگابایت می باشد."
+
+#~ msgid "User Name"
+#~ msgstr "نام کاربری"
+
+#~ msgid "Username"
+#~ msgstr "نام کاربری"
+
+#~ msgid "What's this?"
+#~ msgstr "این چیست؟"
 
 #~ msgid "Download"
 #~ msgstr "دانلود"
@@ -1232,14 +1360,8 @@ msgstr ""
 #~ msgid "AT"
 #~ msgstr "در"
 
-#~ msgid "AWS Access Key"
-#~ msgstr "کلید دسترسی AWS"
-
 #~ msgid "AWS S3 Server "
 #~ msgstr "سرور AWS S3 "
-
-#~ msgid "AWS Secret"
-#~ msgstr "رمز عبور AWS"
 
 #~ msgid "Active"
 #~ msgstr "فعال"
@@ -1275,9 +1397,6 @@ msgstr ""
 #~ msgid "Amazon S3 Server "
 #~ msgstr "سرور Amazon S3 "
 
-#~ msgid "Amazon S3&trade; Server"
-#~ msgstr "Amazon S3&trade; سرور"
-
 #~ msgid "Annually"
 #~ msgstr "سالیانه"
 
@@ -1298,9 +1417,6 @@ msgstr ""
 
 #~ msgid "Available Servers"
 #~ msgstr "سرور های در دسترس"
-
-#~ msgid "B"
-#~ msgstr "B"
 
 #~ msgid "BACKUP LOG ATTACHED"
 #~ msgstr "لاگ پشتیبان ضمیمه شده"
@@ -1371,9 +1487,6 @@ msgstr ""
 #~ msgid "Browse"
 #~ msgstr "مسیردهی"
 
-#~ msgid "Bucket Name"
-#~ msgstr "نام Bucket"
-
 #~ msgid "Building manifest..."
 #~ msgstr "ساختن ظاهر..."
 
@@ -1418,9 +1531,6 @@ msgstr ""
 
 #~ msgid "Custom"
 #~ msgstr "سفارشی"
-
-#~ msgid "DB Name"
-#~ msgstr "نام دیتابیس"
 
 #~ msgid "Daily"
 #~ msgstr "روزانه"
@@ -1476,9 +1586,6 @@ msgstr ""
 #~ msgid "Description or notes for this backup"
 #~ msgstr "توضیحات یا یادداشت برای این پشتیبان"
 
-#~ msgid "Description or notes for this server"
-#~ msgstr "توضیحات یا یادداشت برای این سرور"
-
 #~ msgid "Destination"
 #~ msgstr "مقصد"
 
@@ -1510,20 +1617,11 @@ msgstr ""
 #~ msgid "Drop Here"
 #~ msgstr "اینجا بیندازید"
 
-#~ msgid "Email Address"
-#~ msgstr "آدرس ایمیل"
-
 #~ msgid "Email Notifications"
 #~ msgstr "اطلاع رسانی از طریق ایمیل"
 
-#~ msgid "Email Server"
-#~ msgstr "سرور ایمیل"
-
 #~ msgid "Email Server "
 #~ msgstr "سرور ایمیل "
-
-#~ msgid "Email address where backups should be emailed to"
-#~ msgstr "آدرس ایمیلی که پشتیبان ها به آن ارسال خواهند شد"
 
 #~ msgid "Email notifications are set to Yes but no email provided"
 #~ msgstr ""
@@ -1560,9 +1658,6 @@ msgstr ""
 #~ msgid "FTP"
 #~ msgstr "FTP"
 
-#~ msgid "FTP Password"
-#~ msgstr "رمز عبور FTP"
-
 #~ msgid "FTP Server"
 #~ msgstr "سرور FTP"
 
@@ -1571,9 +1666,6 @@ msgstr ""
 
 #~ msgid "FTP Transfer type"
 #~ msgstr "نوع تبادل FTP"
-
-#~ msgid "FTP Username"
-#~ msgstr "نام کاربری FTP"
 
 #~ msgid ""
 #~ "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql "
@@ -1644,9 +1736,6 @@ msgstr ""
 #~ msgid "Hooks"
 #~ msgstr "تله ها"
 
-#~ msgid "Hostname"
-#~ msgstr "نام میزبان"
-
 #~ msgid "Hourly"
 #~ msgstr "ساعتی"
 
@@ -1659,14 +1748,8 @@ msgstr ""
 #~ msgid "IP Address or FQDN of your server"
 #~ msgstr "آدرس IP یا FQDN سرور شما"
 
-#~ msgid "IP address or FQDN of remote SSH server"
-#~ msgstr "آدرس IP یا FQDN سرور SSH راه دور"
-
 #~ msgid "IP address or FQDN of remote ftp host"
 #~ msgstr "آدرس IP یا FQDN سرور FTP راه دور"
-
-#~ msgid "IP address or FQDN of remote mysql host"
-#~ msgstr "آدرس IP یا FQDN سرور mysql راه دور"
 
 #~ msgid ""
 #~ "If Randomize is selected, a similar frequency will be followed, only the "
@@ -1725,32 +1808,14 @@ msgstr ""
 #~ msgid "June"
 #~ msgstr "ژوئن"
 
-#~ msgid "KB"
-#~ msgstr "کیلوبایت"
-
-#~ msgid "Key"
-#~ msgstr "کلید"
-
-#~ msgid "Local Server"
-#~ msgstr "سرور محلی"
-
 #~ msgid "Local Server "
 #~ msgstr "سرور محلی "
-
-#~ msgid "Location of ssh private key to be used when connecting to a host"
-#~ msgstr "محل کلید خصوصی SSH که برای اتصال به میزبان از آن استفاده می شود"
-
-#~ msgid "MB"
-#~ msgstr "مگابایت"
 
 #~ msgid "Maintenance"
 #~ msgstr "نگهداری"
 
 #~ msgid "March"
 #~ msgstr "مارس"
-
-#~ msgid "Max Email Size"
-#~ msgstr "حداکثراندازه ایمیل"
 
 #~ msgid "May"
 #~ msgstr "می"
@@ -1767,9 +1832,6 @@ msgstr ""
 #~ msgid "Months"
 #~ msgstr "ماه"
 
-#~ msgid "MySQL Server"
-#~ msgstr "سرور MySQL"
-
 #~ msgid "Mysql"
 #~ msgstr "MySQL"
 
@@ -1781,9 +1843,6 @@ msgstr ""
 
 #~ msgid "Mysql Server "
 #~ msgstr "سرور MySQL "
-
-#~ msgid "Name this Server"
-#~ msgstr "نام این سرور"
 
 #~ msgid "Name this backup"
 #~ msgstr "نام این پشتیبان"
@@ -1863,15 +1922,6 @@ msgstr ""
 #~ msgid "Passive"
 #~ msgstr "غیرفعال"
 
-#~ msgid "Password"
-#~ msgstr "رمز عبور"
-
-#~ msgid "Path"
-#~ msgstr "مسیر"
-
-#~ msgid "Path on remote server"
-#~ msgstr "مسیر در سرور راه دور"
-
 #~ msgid "Path to ssh key, example /home/asterisk/.ssh/id_rsa"
 #~ msgstr "مسیر کلید SSH، به عنوان مثال home/asterisk/.ssh/id_rsa/"
 
@@ -1883,9 +1933,6 @@ msgstr ""
 
 #~ msgid "Please wait, loading..."
 #~ msgstr "لطفا منتظر بمانید، در حال بارگذاری..."
-
-#~ msgid "Port"
-#~ msgstr "پورت"
 
 #~ msgid "Post-Backup Hook"
 #~ msgstr "تله بعد از اجرای پشتیبان"
@@ -1911,9 +1958,6 @@ msgstr ""
 #~ msgid "Processing received file..."
 #~ msgstr "پردازش فایل دریافتی..."
 
-#~ msgid "Provide the name for this server"
-#~ msgstr "برای این سرور یک نام  تعریف کنید"
-
 #~ msgid "Randomize"
 #~ msgstr "تصادفی"
 
@@ -1923,17 +1967,8 @@ msgstr ""
 #~ msgid "Reloading..."
 #~ msgstr "بارگذاری..."
 
-#~ msgid "Remote Database Name"
-#~ msgstr "نام دیتابیس راه دور"
-
-#~ msgid "Remote MySQL Port"
-#~ msgstr "پورت MySQL راه دور"
-
 #~ msgid "Remote Path"
 #~ msgstr "مسیر سرور راه دور"
-
-#~ msgid "Remote SSH Port"
-#~ msgstr "پورت SSH سرور راه دور"
 
 #~ msgid "Remote Save"
 #~ msgstr "ذخیره در سرور راه دور"
@@ -2055,14 +2090,8 @@ msgstr ""
 #~ msgid "SSH Key Path"
 #~ msgstr "مسیر کلید SSH"
 
-#~ msgid "SSH Server"
-#~ msgstr "سرور SSH"
-
 #~ msgid "SSH Server "
 #~ msgstr "سرور SSH "
-
-#~ msgid "SSH Username"
-#~ msgstr "نام کاربری SSH"
 
 #~ msgid "Saturday"
 #~ msgstr "شنبه"
@@ -2095,9 +2124,6 @@ msgstr ""
 
 #~ msgid "Server Address"
 #~ msgstr "آدرس سرور"
-
-#~ msgid "Server Name"
-#~ msgstr "نام سرور"
 
 #~ msgid "Server Name can not be blank"
 #~ msgstr "نام سرور نمی تواند خالی باشد"
@@ -2151,9 +2177,6 @@ msgstr ""
 #~ msgid "Sunday"
 #~ msgstr "یک شنبه"
 
-#~ msgid "Supply a server name"
-#~ msgstr "یک نام برای سرور انتخاب نمایید"
-
 #~ msgid "Template Name"
 #~ msgstr "نام قالب"
 
@@ -2184,15 +2207,6 @@ msgstr ""
 #~ "روش های دیگر برای انتقال آن استفاده نمایید."
 
 #~ msgid ""
-#~ "The maximum size a backup can be and still be emailed. Some email servers "
-#~ "limit the size of email attachments, this will make sure that files "
-#~ "larger than the max size are not sent."
-#~ msgstr ""
-#~ "حداکثر اندازه ای که یک پشتیبان می تواند داشته باشد تا ایمیل گردد. برخی از "
-#~ "ایمیل سرور ها سایز فایل های ضمیمه شده را محدود می کنند. لذا از این طریق "
-#~ "می توان از ارسال فایل های بزرگ جلوگیری کرد."
-
-#~ msgid ""
 #~ "This defaults to 'Passive'. If your FTP server is behind a seperate NAT "
 #~ "or Firewall to this VoIP server, you should select 'Active'. In 'Active' "
 #~ "mode, the FTP server establishes a connection back to the VoIP server to "
@@ -2203,9 +2217,6 @@ msgstr ""
 #~ "قرار دارد شما باید حالت اکتیو را انتخاب نمایید. در حالت اکتیو، فایل سرور "
 #~ "یک اتصال با سرور تلفنی برای دریافت داده ها برقرار می کند؛ در صورتی که در "
 #~ "حالت پسیو سرور تلفنی برای ارسال داده ها به فایل سرور متصل می شود."
-
-#~ msgid "This has a maximum size of 25MB."
-#~ msgstr "حداکثر اندازه 25 مگابایت می باشد."
 
 #~ msgid "This server"
 #~ msgstr "این سرور"
@@ -2245,12 +2256,6 @@ msgstr ""
 #~ msgid "Upload File"
 #~ msgstr "بارگذاری فایل"
 
-#~ msgid "User Name"
-#~ msgstr "نام کاربری"
-
-#~ msgid "Username"
-#~ msgstr "نام کاربری"
-
 #~ msgid "Verifying received file..."
 #~ msgstr "بازبینی فایل دریافتی..."
 
@@ -2283,9 +2288,6 @@ msgstr ""
 
 #~ msgid "What should we backup?"
 #~ msgstr "از چه چیز می خواهید پشتیبان بگیرید؟"
-
-#~ msgid "What's this?"
-#~ msgstr "این چیست؟"
 
 #~ msgid "Where should status emails for this job be sent?"
 #~ msgstr "ایمیل وضعیت باید به کجا ارسال شود؟"

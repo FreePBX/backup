@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-14 15:28-0400\n"
+"POT-Creation-Date: 2019-03-15 16:45+0530\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -192,6 +192,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Пункты бекапа"
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "Модуль резервного копирования"
+
 #: views/backup/form.php:25 views/restore/landing.php:70
 #: views/restore/landing.php:113
 msgid "Backup Name"
@@ -331,6 +335,10 @@ msgstr ""
 #: views/backup/form.php:2
 msgid "Edit"
 msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
+msgstr "E-mail "
 
 #: views/backup/form.php:166
 msgid "Email Type"
@@ -978,6 +986,10 @@ msgstr ""
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr "Форма: поле для e-mail's, когда используется функция backup e-mail."
+
 #: views/backup/warmspare.php:214
 msgid "The address of the remote server."
 msgstr ""
@@ -1196,14 +1208,132 @@ msgstr ""
 msgid "type is %s"
 msgstr ""
 
-#~ msgid "Backup Module"
-#~ msgstr "Модуль резервного копирования"
+#~ msgid "AWS Access Key"
+#~ msgstr "Ключ доступа к AWS"
 
-#~ msgid "Email "
-#~ msgstr "E-mail "
+#~ msgid "AWS Secret"
+#~ msgstr "Пароль AWS"
 
-#~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr "Форма: поле для e-mail's, когда используется функция backup e-mail."
+#~ msgid "Amazon S3&trade; Server"
+#~ msgstr "Amazon S3&trade; Сервер"
+
+#~ msgid "B"
+#~ msgstr "B"
+
+#~ msgid "Bucket Name"
+#~ msgstr "Имя хранилища"
+
+#~ msgid "DB Name"
+#~ msgstr "Имя БД"
+
+#~ msgid "Description or notes for this server"
+#~ msgstr "Описание или примечание для этого сервера"
+
+#~ msgid "Email Address"
+#~ msgstr "Адрес эл. почты"
+
+#~ msgid "Email Server"
+#~ msgstr "Email сервер"
+
+#~ msgid "Email address where backups should be emailed to"
+#~ msgstr "E-mail, куда отправить сделанные бекапы"
+
+#~ msgid "FTP Password"
+#~ msgstr "Пароль FTP"
+
+#~ msgid "FTP Username"
+#~ msgstr "Имя пользователя FTP"
+
+#~ msgid "Hostname"
+#~ msgstr "Имя хоста"
+
+#~ msgid "IP address or FQDN of remote SSH server"
+#~ msgstr "IP адрес или FQDN удалённого SSH сервера"
+
+#~ msgid "IP address or FQDN of remote mysql host"
+#~ msgstr "IP адрес или FQDN удаленного mysql хоста"
+
+#~ msgid "KB"
+#~ msgstr "Кб"
+
+#~ msgid "Key"
+#~ msgstr "Ключ"
+
+#~ msgid "Local Server"
+#~ msgstr "Локальный сервер"
+
+#~ msgid "Location of ssh private key to be used when connecting to a host"
+#~ msgstr ""
+#~ "Расположение приватного ssh-ключа , используемого для подключения   к "
+#~ "хосту"
+
+#~ msgid "MB"
+#~ msgstr "Мб"
+
+#~ msgid "Max Email Size"
+#~ msgstr "Максимальный размер Email"
+
+#~ msgid "MySQL Server"
+#~ msgstr "MySQL Server"
+
+#~ msgid "Name this Server"
+#~ msgstr "Имя этого сервера"
+
+#~ msgid "Password"
+#~ msgstr "Пароль"
+
+#~ msgid "Path"
+#~ msgstr "Путь"
+
+#~ msgid "Path on remote server"
+#~ msgstr "Путь на удалённом сервере"
+
+#~ msgid "Port"
+#~ msgstr "Порт"
+
+#~ msgid "Provide the name for this server"
+#~ msgstr "Укажите имя для этого сервера"
+
+#~ msgid "Remote Database Name"
+#~ msgstr "Имя удалённой базы данных"
+
+#~ msgid "Remote MySQL Port"
+#~ msgstr "Удалённый порт MySQL"
+
+#~ msgid "Remote SSH Port"
+#~ msgstr "Удалённый SSH-порт"
+
+#~ msgid "SSH Server"
+#~ msgstr "SSH сервер"
+
+#~ msgid "SSH Username"
+#~ msgstr "SSH имя пользователя"
+
+#~ msgid "Server Name"
+#~ msgstr "Имя сервера"
+
+#~ msgid "Supply a server name"
+#~ msgstr "Укажите имя сервера"
+
+#~ msgid ""
+#~ "The maximum size a backup can be and still be emailed. Some email servers "
+#~ "limit the size of email attachments, this will make sure that files "
+#~ "larger than the max size are not sent."
+#~ msgstr ""
+#~ "Максимальный размер резервной копии  ограничен размером  email-сообщения, "
+#~ "допускаемым для обработки email-сервером."
+
+#~ msgid "This has a maximum size of 25MB."
+#~ msgstr "Максимальный размер 25 МБ."
+
+#~ msgid "User Name"
+#~ msgstr "Имя пользователя"
+
+#~ msgid "Username"
+#~ msgstr "Имя пользователя"
+
+#~ msgid "What's this?"
+#~ msgstr "Что это?"
 
 #~ msgid "Download"
 #~ msgstr "Загрузить "
@@ -1245,14 +1375,8 @@ msgstr ""
 #~ msgid "AT"
 #~ msgstr "АТ"
 
-#~ msgid "AWS Access Key"
-#~ msgstr "Ключ доступа к AWS"
-
 #~ msgid "AWS S3 Server "
 #~ msgstr "Сервер AWS S3 "
-
-#~ msgid "AWS Secret"
-#~ msgstr "Пароль AWS"
 
 #~ msgid "Active"
 #~ msgstr "Активно"
@@ -1290,9 +1414,6 @@ msgstr ""
 #~ msgid "Amazon S3 Server "
 #~ msgstr "Amazon S3 сервер "
 
-#~ msgid "Amazon S3&trade; Server"
-#~ msgstr "Amazon S3&trade; Сервер"
-
 #~ msgid "Annually"
 #~ msgstr "Ежегодно"
 
@@ -1310,9 +1431,6 @@ msgstr ""
 
 #~ msgid "Available Servers"
 #~ msgstr "Доступные серверы"
-
-#~ msgid "B"
-#~ msgstr "B"
 
 #~ msgid "BACKUP LOG ATTACHED"
 #~ msgstr "Журнал копирования приложен"
@@ -1382,9 +1500,6 @@ msgstr ""
 #~ msgid "Browse"
 #~ msgstr "Просмотр"
 
-#~ msgid "Bucket Name"
-#~ msgstr "Имя хранилища"
-
 #~ msgid "Building manifest..."
 #~ msgstr "Генерируется манифест..."
 
@@ -1426,9 +1541,6 @@ msgstr ""
 
 #~ msgid "Custom"
 #~ msgstr "Особое"
-
-#~ msgid "DB Name"
-#~ msgstr "Имя БД"
 
 #~ msgid "Daily"
 #~ msgstr "Ежедневно"
@@ -1484,9 +1596,6 @@ msgstr ""
 #~ msgid "Description or notes for this backup"
 #~ msgstr "Описание или примечание для этого бекапа"
 
-#~ msgid "Description or notes for this server"
-#~ msgstr "Описание или примечание для этого сервера"
-
 #~ msgid "Destination"
 #~ msgstr "Назначение"
 
@@ -1516,20 +1625,11 @@ msgstr ""
 #~ msgid "Drop Here"
 #~ msgstr "Бросить здесь"
 
-#~ msgid "Email Address"
-#~ msgstr "Адрес эл. почты"
-
 #~ msgid "Email Notifications"
 #~ msgstr "Уведомления по Email"
 
-#~ msgid "Email Server"
-#~ msgstr "Email сервер"
-
 #~ msgid "Email Server "
 #~ msgstr "Сервер эл. почты "
-
-#~ msgid "Email address where backups should be emailed to"
-#~ msgstr "E-mail, куда отправить сделанные бекапы"
 
 #~ msgid "Email notifications are set to Yes but no email provided"
 #~ msgstr ""
@@ -1561,9 +1661,6 @@ msgstr ""
 #~ msgid "FTP"
 #~ msgstr "FTP"
 
-#~ msgid "FTP Password"
-#~ msgstr "Пароль FTP"
-
 #~ msgid "FTP Server"
 #~ msgstr "FTP сервер"
 
@@ -1572,9 +1669,6 @@ msgstr ""
 
 #~ msgid "FTP Transfer type"
 #~ msgstr "Тип передачи FTP"
-
-#~ msgid "FTP Username"
-#~ msgstr "Имя пользователя FTP"
 
 #~ msgid ""
 #~ "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql "
@@ -1642,9 +1736,6 @@ msgstr ""
 #~ msgid "Hooks"
 #~ msgstr "Зацепки"
 
-#~ msgid "Hostname"
-#~ msgstr "Имя хоста"
-
 #~ msgid "Hourly"
 #~ msgstr "Ежечасно"
 
@@ -1657,14 +1748,8 @@ msgstr ""
 #~ msgid "IP Address or FQDN of your server"
 #~ msgstr "IP адрес или FQDN-имя вашего сервера"
 
-#~ msgid "IP address or FQDN of remote SSH server"
-#~ msgstr "IP адрес или FQDN удалённого SSH сервера"
-
 #~ msgid "IP address or FQDN of remote ftp host"
 #~ msgstr "IP адрес или FQDN удаленного ftp хоста"
-
-#~ msgid "IP address or FQDN of remote mysql host"
-#~ msgstr "IP адрес или FQDN удаленного mysql хоста"
 
 #~ msgid ""
 #~ "If Randomize is selected, a similar frequency will be followed, only the "
@@ -1725,34 +1810,14 @@ msgstr ""
 #~ msgid "June"
 #~ msgstr "Июнь"
 
-#~ msgid "KB"
-#~ msgstr "Кб"
-
-#~ msgid "Key"
-#~ msgstr "Ключ"
-
-#~ msgid "Local Server"
-#~ msgstr "Локальный сервер"
-
 #~ msgid "Local Server "
 #~ msgstr "Локальный сервер "
-
-#~ msgid "Location of ssh private key to be used when connecting to a host"
-#~ msgstr ""
-#~ "Расположение приватного ssh-ключа , используемого для подключения   к "
-#~ "хосту"
-
-#~ msgid "MB"
-#~ msgstr "Мб"
 
 #~ msgid "Maintenance"
 #~ msgstr "Сопровождение"
 
 #~ msgid "March"
 #~ msgstr "Март"
-
-#~ msgid "Max Email Size"
-#~ msgstr "Максимальный размер Email"
 
 #~ msgid "May"
 #~ msgstr "Май"
@@ -1769,9 +1834,6 @@ msgstr ""
 #~ msgid "Months"
 #~ msgstr "Месяцы"
 
-#~ msgid "MySQL Server"
-#~ msgstr "MySQL Server"
-
 #~ msgid "Mysql"
 #~ msgstr "MySQL"
 
@@ -1783,9 +1845,6 @@ msgstr ""
 
 #~ msgid "Mysql Server "
 #~ msgstr "MySQL Server "
-
-#~ msgid "Name this Server"
-#~ msgstr "Имя этого сервера"
 
 #~ msgid "Name this backup"
 #~ msgstr "Имя этой  резервной копии"
@@ -1860,15 +1919,6 @@ msgstr ""
 #~ msgid "Passive"
 #~ msgstr "Пассивный"
 
-#~ msgid "Password"
-#~ msgstr "Пароль"
-
-#~ msgid "Path"
-#~ msgstr "Путь"
-
-#~ msgid "Path on remote server"
-#~ msgstr "Путь на удалённом сервере"
-
 #~ msgid "Path to ssh key, example /home/asterisk/.ssh/id_rsa"
 #~ msgstr "Путь к ключу ssh, например  /home/asterisk/.ssh/id_rsa"
 
@@ -1880,9 +1930,6 @@ msgstr ""
 
 #~ msgid "Please wait, loading..."
 #~ msgstr "Пожалуйста подождите,загрузка..."
-
-#~ msgid "Port"
-#~ msgstr "Порт"
 
 #~ msgid "Post-Backup Hook"
 #~ msgstr "Обработчик после завершения резервного копирования"
@@ -1908,9 +1955,6 @@ msgstr ""
 #~ msgid "Processing received file..."
 #~ msgstr "Обработка принятого файла..."
 
-#~ msgid "Provide the name for this server"
-#~ msgstr "Укажите имя для этого сервера"
-
 #~ msgid "Randomize"
 #~ msgstr "Случайный"
 
@@ -1920,17 +1964,8 @@ msgstr ""
 #~ msgid "Reloading..."
 #~ msgstr "Перезагрузка..."
 
-#~ msgid "Remote Database Name"
-#~ msgstr "Имя удалённой базы данных"
-
-#~ msgid "Remote MySQL Port"
-#~ msgstr "Удалённый порт MySQL"
-
 #~ msgid "Remote Path"
 #~ msgstr "Удалённый путь"
-
-#~ msgid "Remote SSH Port"
-#~ msgstr "Удалённый SSH-порт"
 
 #~ msgid "Remote Save"
 #~ msgstr "Удалённое сохранение"
@@ -2056,14 +2091,8 @@ msgstr ""
 #~ msgid "SSH Key Path"
 #~ msgstr "Путь к ключам SSH"
 
-#~ msgid "SSH Server"
-#~ msgstr "SSH сервер"
-
 #~ msgid "SSH Server "
 #~ msgstr "SSH сервер "
-
-#~ msgid "SSH Username"
-#~ msgstr "SSH имя пользователя"
 
 #~ msgid "Saturday"
 #~ msgstr "Суббота"
@@ -2090,9 +2119,6 @@ msgstr ""
 
 #~ msgid "Server Address"
 #~ msgstr "Адрес сервера"
-
-#~ msgid "Server Name"
-#~ msgstr "Имя сервера"
 
 #~ msgid "Server Name can not be blank"
 #~ msgstr "Имя сервера не может быть пустым"
@@ -2146,9 +2172,6 @@ msgstr ""
 #~ msgid "Sunday"
 #~ msgstr "Воскресенье"
 
-#~ msgid "Supply a server name"
-#~ msgstr "Укажите имя сервера"
-
 #~ msgid "Template Name"
 #~ msgstr "Образец имени"
 
@@ -2176,14 +2199,6 @@ msgstr ""
 #~ "копии."
 
 #~ msgid ""
-#~ "The maximum size a backup can be and still be emailed. Some email servers "
-#~ "limit the size of email attachments, this will make sure that files "
-#~ "larger than the max size are not sent."
-#~ msgstr ""
-#~ "Максимальный размер резервной копии  ограничен размером  email-сообщения, "
-#~ "допускаемым для обработки email-сервером."
-
-#~ msgid ""
 #~ "This defaults to 'Passive'. If your FTP server is behind a seperate NAT "
 #~ "or Firewall to this VoIP server, you should select 'Active'. In 'Active' "
 #~ "mode, the FTP server establishes a connection back to the VoIP server to "
@@ -2195,9 +2210,6 @@ msgstr ""
 #~ "\"Активный\"  режим.  В этом режиме  FTP-сервер устанавливает соединение "
 #~ "с VoIP-сервером для получения данных. В режиме \"Пассивный\" VoIP сервер "
 #~ "подключается к FTP-серверу для передачи данных."
-
-#~ msgid "This has a maximum size of 25MB."
-#~ msgstr "Максимальный размер 25 МБ."
 
 #~ msgid "This server"
 #~ msgstr "Этот сервер"
@@ -2229,12 +2241,6 @@ msgstr ""
 
 #~ msgid "Updated System Recordings template"
 #~ msgstr "Обновлённый шаблон системных записей"
-
-#~ msgid "User Name"
-#~ msgstr "Имя пользователя"
-
-#~ msgid "Username"
-#~ msgstr "Имя пользователя"
 
 #~ msgid "Verifying received file..."
 #~ msgstr "Проверка принятого файла..."
@@ -2270,9 +2276,6 @@ msgstr ""
 
 #~ msgid "What should we backup?"
 #~ msgstr "Для чего  будем  делать резервную копию ?"
-
-#~ msgid "What's this?"
-#~ msgstr "Что это?"
 
 #~ msgid "Where should status emails for this job be sent?"
 #~ msgstr "Куда отправить email с сообщением о статусе этого задания?"

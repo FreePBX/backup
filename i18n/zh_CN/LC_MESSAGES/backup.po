@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-14 15:28-0400\n"
+"POT-Creation-Date: 2019-03-15 16:45+0530\n"
 "PO-Revision-Date: 2015-11-17 12:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -177,6 +177,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr ""
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr ""
+
 #: views/backup/form.php:25 views/restore/landing.php:70
 #: views/restore/landing.php:113
 msgid "Backup Name"
@@ -315,6 +319,10 @@ msgstr ""
 
 #: views/backup/form.php:2
 msgid "Edit"
+msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
 msgstr ""
 
 #: views/backup/form.php:166
@@ -959,6 +967,10 @@ msgstr ""
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr ""
+
 #: views/backup/warmspare.php:214
 msgid "The address of the remote server."
 msgstr ""
@@ -1177,6 +1189,60 @@ msgstr ""
 msgid "type is %s"
 msgstr ""
 
+#~ msgid "AWS Access Key"
+#~ msgstr "AWS 访问密钥"
+
+#~ msgid "AWS Secret"
+#~ msgstr "AWS 密码"
+
+#~ msgid "DB Name"
+#~ msgstr "数据库名称"
+
+#~ msgid "Email Address"
+#~ msgstr "邮箱地址"
+
+#~ msgid "Email Server"
+#~ msgstr "邮件服务器"
+
+#~ msgid "Email address where backups should be emailed to"
+#~ msgstr "备份文件将发送到邮箱地址"
+
+#~ msgid "FTP Password"
+#~ msgstr "FTP密码"
+
+#~ msgid "Hostname"
+#~ msgstr "主机名"
+
+#~ msgid "Local Server"
+#~ msgstr "本地服务器"
+
+#~ msgid "Name this Server"
+#~ msgstr "设置服务器名称"
+
+#~ msgid "Password"
+#~ msgstr "密码"
+
+#~ msgid "Path"
+#~ msgstr "路径"
+
+#~ msgid "Port"
+#~ msgstr "端口"
+
+#~ msgid "SSH Server"
+#~ msgstr "SSH服务器"
+
+#~ msgid "SSH Username"
+#~ msgstr "SSH用户名"
+
+#~ msgid "Server Name"
+#~ msgstr "服务器名称"
+
+#~ msgid "Supply a server name"
+#~ msgstr "提供服务器名称"
+
+#~ msgid "User Name"
+#~ msgstr "用户名"
+
 #~ msgid "%s Backup Wizard"
 #~ msgstr "%s 备份向导"
 
@@ -1193,12 +1259,6 @@ msgstr ""
 
 #~ msgid "A script to be run BEFORE a backup is restored."
 #~ msgstr "备份还原后执行脚本。"
-
-#~ msgid "AWS Access Key"
-#~ msgstr "AWS 访问密钥"
-
-#~ msgid "AWS Secret"
-#~ msgstr "AWS 密码"
 
 #~ msgid "Active"
 #~ msgstr "活动"
@@ -1266,9 +1326,6 @@ msgstr ""
 #~ msgid "Custom"
 #~ msgstr "自定义"
 
-#~ msgid "DB Name"
-#~ msgstr "数据库名称"
-
 #~ msgid "Daily"
 #~ msgstr "每天"
 
@@ -1296,23 +1353,11 @@ msgstr ""
 #~ msgid "Disable Registered Trunks"
 #~ msgstr "关闭已注册中继"
 
-#~ msgid "Email Address"
-#~ msgstr "邮箱地址"
-
 #~ msgid "Email Notifications"
 #~ msgstr "邮件提示"
 
-#~ msgid "Email Server"
-#~ msgstr "邮件服务器"
-
 #~ msgid "Email Server "
 #~ msgstr "邮件服务器。。。 "
-
-#~ msgid "Email address where backups should be emailed to"
-#~ msgstr "备份文件将发送到邮箱地址"
-
-#~ msgid "FTP Password"
-#~ msgstr "FTP密码"
 
 #~ msgid "FTP Server"
 #~ msgstr "FTP服务器"
@@ -1344,9 +1389,6 @@ msgstr ""
 #~ msgid "Friday"
 #~ msgstr "星期五"
 
-#~ msgid "Hostname"
-#~ msgstr "主机名"
-
 #~ msgid "Hours"
 #~ msgstr "小时"
 
@@ -1371,9 +1413,6 @@ msgstr ""
 #~ msgid "June"
 #~ msgstr "六月"
 
-#~ msgid "Local Server"
-#~ msgstr "本地服务器"
-
 #~ msgid "Local Server "
 #~ msgstr "本地服务器。 "
 
@@ -1391,9 +1430,6 @@ msgstr ""
 
 #~ msgid "Months"
 #~ msgstr "月"
-
-#~ msgid "Name this Server"
-#~ msgstr "设置服务器名称"
 
 #~ msgid "Name this backup"
 #~ msgstr "设置备份名称"
@@ -1413,26 +1449,11 @@ msgstr ""
 #~ msgid "PBX Settings"
 #~ msgstr "PBX设置"
 
-#~ msgid "Password"
-#~ msgstr "密码"
-
-#~ msgid "Path"
-#~ msgstr "路径"
-
-#~ msgid "Port"
-#~ msgstr "端口"
-
 #~ msgid "Runs"
 #~ msgstr "运行"
 
-#~ msgid "SSH Server"
-#~ msgstr "SSH服务器"
-
 #~ msgid "SSH Server "
 #~ msgstr "SSH服务器。 "
-
-#~ msgid "SSH Username"
-#~ msgstr "SSH用户名"
 
 #~ msgid "Saturday"
 #~ msgstr "星期六"
@@ -1442,9 +1463,6 @@ msgstr ""
 
 #~ msgid "Server Address"
 #~ msgstr "服务器地址"
-
-#~ msgid "Server Name"
-#~ msgstr "服务器名称"
 
 #~ msgid "Server Name can not be blank"
 #~ msgstr "服务器名称不能为空"
@@ -1488,9 +1506,6 @@ msgstr ""
 #~ msgid "Sunday"
 #~ msgstr "Domingo"
 
-#~ msgid "Supply a server name"
-#~ msgstr "提供服务器名称"
-
 #~ msgid "Template Name"
 #~ msgstr "模板名称"
 
@@ -1508,9 +1523,6 @@ msgstr ""
 
 #~ msgid "Tuesday"
 #~ msgstr "星期二"
-
-#~ msgid "User Name"
-#~ msgstr "用户名"
 
 #~ msgid "Wednesday"
 #~ msgstr "星期三"

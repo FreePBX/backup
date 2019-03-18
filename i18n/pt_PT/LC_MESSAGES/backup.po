@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-14 15:28-0400\n"
+"POT-Creation-Date: 2019-03-15 16:45+0530\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -177,6 +177,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Itens da Cópia de Segurança"
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "Módulo de Cópia de Segurança"
+
 #: views/backup/form.php:25 views/restore/landing.php:70
 #: views/restore/landing.php:113
 msgid "Backup Name"
@@ -316,6 +320,10 @@ msgstr ""
 #: views/backup/form.php:2
 msgid "Edit"
 msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
+msgstr "Email "
 
 #: views/backup/form.php:166
 msgid "Email Type"
@@ -959,6 +967,12 @@ msgstr ""
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr ""
+"O campo De: para os emails ao usar a funcionalidade email de cópia de "
+"segurança."
+
 #: views/backup/warmspare.php:214
 msgid "The address of the remote server."
 msgstr ""
@@ -1177,16 +1191,48 @@ msgstr ""
 msgid "type is %s"
 msgstr ""
 
-#~ msgid "Backup Module"
-#~ msgstr "Módulo de Cópia de Segurança"
+#~ msgid "DB Name"
+#~ msgstr "Nome da BD"
 
-#~ msgid "Email "
-#~ msgstr "Email "
+#~ msgid "Description or notes for this server"
+#~ msgstr "Descrição ou notas para este servidor"
 
-#~ msgid "The From: field for emails when using the backup email feature."
+#~ msgid "Email Address"
+#~ msgstr "Endereço Email"
+
+#~ msgid "Email address where backups should be emailed to"
 #~ msgstr ""
-#~ "O campo De: para os emails ao usar a funcionalidade email de cópia de "
-#~ "segurança."
+#~ "Endereço email para onde deverão ser enviadas as cópias de segurança"
+
+#~ msgid "Hostname"
+#~ msgstr "Nome do Host"
+
+#~ msgid "IP address or FQDN of remote mysql host"
+#~ msgstr "Endereço IP ou FQDN do host mysql remoto"
+
+#~ msgid "Key"
+#~ msgstr "Chave"
+
+#~ msgid "Location of ssh private key to be used when connecting to a host"
+#~ msgstr "Localização da chave privada ssh a ser usada ao conectar ao host"
+
+#~ msgid "Max Email Size"
+#~ msgstr "Tamanho Máx do Email"
+
+#~ msgid "Password"
+#~ msgstr "Password"
+
+#~ msgid "Path"
+#~ msgstr "Caminho"
+
+#~ msgid "Port"
+#~ msgstr "Porta"
+
+#~ msgid "Server Name"
+#~ msgstr "Nome do Servidor"
+
+#~ msgid "User Name"
+#~ msgstr "Nome do Utilizador"
 
 #~ msgid "Download"
 #~ msgstr "Transferir"
@@ -1323,9 +1369,6 @@ msgstr ""
 #~ msgid "Custom"
 #~ msgstr "Personalizar"
 
-#~ msgid "DB Name"
-#~ msgstr "Nome da BD"
-
 #~ msgid "Daily"
 #~ msgstr "Diário"
 
@@ -1365,9 +1408,6 @@ msgstr ""
 #~ msgid "Description or notes for this backup"
 #~ msgstr "Descrição ou notas para esta cópia de segurança"
 
-#~ msgid "Description or notes for this server"
-#~ msgstr "Descrição ou notas para este servidor"
-
 #~ msgid "Directory"
 #~ msgstr "Diretório"
 
@@ -1384,15 +1424,8 @@ msgstr ""
 #~ "Arraste os modelos e coloque-os na tabela de itens para adicionar os "
 #~ "itens à tabela"
 
-#~ msgid "Email Address"
-#~ msgstr "Endereço Email"
-
 #~ msgid "Email Server "
 #~ msgstr "Servidor de Email "
-
-#~ msgid "Email address where backups should be emailed to"
-#~ msgstr ""
-#~ "Endereço email para onde deverão ser enviadas as cópias de segurança"
 
 #~ msgid "Email to send status messages to when this task is run"
 #~ msgstr ""
@@ -1470,9 +1503,6 @@ msgstr ""
 #~ msgid "Hooks"
 #~ msgstr "Ganchos"
 
-#~ msgid "Hostname"
-#~ msgstr "Nome do Host"
-
 #~ msgid "Hourly"
 #~ msgstr "Cada Hora"
 
@@ -1481,9 +1511,6 @@ msgstr ""
 
 #~ msgid "IP address or FQDN of remote ftp host"
 #~ msgstr "Endereço IP ou FQDN do host ftp remoto"
-
-#~ msgid "IP address or FQDN of remote mysql host"
-#~ msgstr "Endereço IP ou FQDN do host mysql remoto"
 
 #~ msgid "Invalid backup for or undefined error"
 #~ msgstr "Cópia de Segurança inválida ou erro indefinido"
@@ -1500,23 +1527,14 @@ msgstr ""
 #~ msgid "June"
 #~ msgstr "Junho"
 
-#~ msgid "Key"
-#~ msgstr "Chave"
-
 #~ msgid "Local Server "
 #~ msgstr "Servidor Local "
-
-#~ msgid "Location of ssh private key to be used when connecting to a host"
-#~ msgstr "Localização da chave privada ssh a ser usada ao conectar ao host"
 
 #~ msgid "Maintenance"
 #~ msgstr "Manutenção"
 
 #~ msgid "March"
 #~ msgstr "Março"
-
-#~ msgid "Max Email Size"
-#~ msgstr "Tamanho Máx do Email"
 
 #~ msgid "May"
 #~ msgstr "Maio"
@@ -1591,17 +1609,8 @@ msgstr ""
 #~ msgstr ""
 #~ "Servidor de config do PBX, geralmente um servidor de base de dados local"
 
-#~ msgid "Password"
-#~ msgstr "Password"
-
-#~ msgid "Path"
-#~ msgstr "Caminho"
-
 #~ msgid "Path/DB"
 #~ msgstr "Caminho/BD"
-
-#~ msgid "Port"
-#~ msgstr "Porta"
 
 #~ msgid "Preserving local NAT settings"
 #~ msgstr "Mantendo configurações NAT locais"
@@ -1708,9 +1717,6 @@ msgstr ""
 #~ msgid "September"
 #~ msgstr "Setembro"
 
-#~ msgid "Server Name"
-#~ msgstr "Nome do Servidor"
-
 #~ msgid "Servers"
 #~ msgstr "Servidores"
 
@@ -1752,9 +1758,6 @@ msgstr ""
 
 #~ msgid "Type"
 #~ msgstr "Tipo"
-
-#~ msgid "User Name"
-#~ msgstr "Nome do Utilizador"
 
 #~ msgid "Verifying received file..."
 #~ msgstr "Verificando ficheiro recebido..."

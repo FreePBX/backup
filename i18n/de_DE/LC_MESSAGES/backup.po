@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-14 15:28-0400\n"
+"POT-Creation-Date: 2019-03-15 16:45+0530\n"
 "PO-Revision-Date: 2017-03-06 03:04+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -177,6 +177,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Sicherungselemente"
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "Sicherungsmodule"
+
 #: views/backup/form.php:25 views/restore/landing.php:70
 #: views/restore/landing.php:113
 msgid "Backup Name"
@@ -316,6 +320,10 @@ msgstr ""
 #: views/backup/form.php:2
 msgid "Edit"
 msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
+msgstr "E-Mail "
 
 #: views/backup/form.php:166
 msgid "Email Type"
@@ -961,6 +969,10 @@ msgstr ""
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr "Von: Ein Feld für E-Mails, wenn Sie das E-Mail-Feature verwenden."
+
 #: views/backup/warmspare.php:214
 msgid "The address of the remote server."
 msgstr ""
@@ -1179,14 +1191,134 @@ msgstr ""
 msgid "type is %s"
 msgstr ""
 
-#~ msgid "Backup Module"
-#~ msgstr "Sicherungsmodule"
+#~ msgid "AWS Access Key"
+#~ msgstr "AWS Zugriffsschlüssel"
 
-#~ msgid "Email "
-#~ msgstr "E-Mail "
+#~ msgid "AWS Secret"
+#~ msgstr "AWS Secret (geheime Prase)"
 
-#~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr "Von: Ein Feld für E-Mails, wenn Sie das E-Mail-Feature verwenden."
+#~ msgid "Amazon S3&trade; Server"
+#~ msgstr "Amazon S3 & Handel; Server"
+
+#~ msgid "B"
+#~ msgstr "B"
+
+#~ msgid "Bucket Name"
+#~ msgstr "Bucket-Name"
+
+#~ msgid "DB Name"
+#~ msgstr "DB Name"
+
+#~ msgid "Description or notes for this server"
+#~ msgstr "Erstellen Sie eine aussagekräftige Beschreibung für diesen Server"
+
+#~ msgid "Email Address"
+#~ msgstr "E-Mail Adresse"
+
+#~ msgid "Email Server"
+#~ msgstr "E-Mail Server"
+
+#~ msgid "Email address where backups should be emailed to"
+#~ msgstr "E-Mail-Adresse, an die Backups gesendet werden sollen"
+
+#~ msgid "FTP Password"
+#~ msgstr "FTP Passwort"
+
+#~ msgid "FTP Username"
+#~ msgstr "FTP Benutzername"
+
+#~ msgid "Hostname"
+#~ msgstr "Hostname"
+
+#~ msgid "IP address or FQDN of remote SSH server"
+#~ msgstr "IP Adresse oder FQDN des Remote SSH-Server"
+
+#~ msgid "IP address or FQDN of remote mysql host"
+#~ msgstr "IP Adresse oder FQDN des Remote MySQL-Host"
+
+#~ msgid "KB"
+#~ msgstr "KB"
+
+#~ msgid "Key"
+#~ msgstr "Schlüssel"
+
+#~ msgid "Local Server"
+#~ msgstr "Lokaler Server"
+
+#~ msgid "Location of ssh private key to be used when connecting to a host"
+#~ msgstr ""
+#~ "Der Ort des privaten SSH-Schlüssels wird verwendet, wenn mit dem Host "
+#~ "verbunden wird"
+
+#~ msgid "MB"
+#~ msgstr "MB"
+
+#~ msgid "Max Email Size"
+#~ msgstr "Maximale E-Mail größe"
+
+#~ msgid "MySQL Server"
+#~ msgstr "MySQL Server"
+
+#~ msgid "Name this Server"
+#~ msgstr "Name des Server"
+
+#~ msgid "Password"
+#~ msgstr "Passwort"
+
+#~ msgid "Path"
+#~ msgstr "Pfad"
+
+#~ msgid "Path on remote server"
+#~ msgstr "Pfad auf dem Remote Server"
+
+#~ msgid "Port"
+#~ msgstr "Port"
+
+#~ msgid "Provide the name for this server"
+#~ msgstr "Geben Sie den Namen für diesen Server an"
+
+#~ msgid "Remote Database Name"
+#~ msgstr "Name der remote Datenbank"
+
+#~ msgid "Remote MySQL Port"
+#~ msgstr "Remote MySQL-Port"
+
+#~ msgid "Remote SSH Port"
+#~ msgstr "Remote SSH-Port"
+
+#~ msgid "SSH Server"
+#~ msgstr "SSH-Server"
+
+#~ msgid "SSH Username"
+#~ msgstr "SSH Benutzername"
+
+#~ msgid "Server Name"
+#~ msgstr "Server-Name"
+
+#~ msgid "Supply a server name"
+#~ msgstr "Geben Sie einen Server-Name ein"
+
+#~ msgid ""
+#~ "The maximum size a backup can be and still be emailed. Some email servers "
+#~ "limit the size of email attachments, this will make sure that files "
+#~ "larger than the max size are not sent."
+#~ msgstr ""
+#~ "Die maximale Größe einer Sicherung die noch per E-Mail gesendet werden "
+#~ "kann. Einige E-Mail-Server beschränken die Größe von E-Mail-Anhängen, "
+#~ "dies stellt sicher, dass Dateien die größer als die maximale Größe sind, "
+#~ "nicht gesendet werden."
+
+#~ msgid "This has a maximum size of 25MB."
+#~ msgstr "Dies hat eine maximale Größe von 25MB."
+
+#~ msgid "User Name"
+#~ msgstr "Benutzername"
+
+#~ msgid "Username"
+#~ msgstr "Benutzername"
+
+#~ msgid "What's this?"
+#~ msgstr "Was ist das?"
 
 #~ msgid "Download"
 #~ msgstr "Herunterladen"
@@ -1227,14 +1359,8 @@ msgstr ""
 #~ msgid "A script to be run BEFORE a backup is started."
 #~ msgstr "Ein Script, dass VOR der Durchführung einer Sicherung startet."
 
-#~ msgid "AWS Access Key"
-#~ msgstr "AWS Zugriffsschlüssel"
-
 #~ msgid "AWS S3 Server "
 #~ msgstr "AWS S3-Server "
-
-#~ msgid "AWS Secret"
-#~ msgstr "AWS Secret (geheime Prase)"
 
 #~ msgid "Active"
 #~ msgstr "Aktive"
@@ -1272,9 +1398,6 @@ msgstr ""
 #~ msgid "Amazon S3 Server "
 #~ msgstr "Amazon S3 Server "
 
-#~ msgid "Amazon S3&trade; Server"
-#~ msgstr "Amazon S3 & Handel; Server"
-
 #~ msgid "Annually"
 #~ msgstr "Jährlich"
 
@@ -1295,9 +1418,6 @@ msgstr ""
 
 #~ msgid "Available Servers"
 #~ msgstr "Verfügbare Server"
-
-#~ msgid "B"
-#~ msgstr "B"
 
 #~ msgid "BACKUP LOG ATTACHED"
 #~ msgstr "Sicherungsprotokoll angehängt"
@@ -1369,9 +1489,6 @@ msgstr ""
 #~ msgid "Browser reconnected realtime updates are unavailable."
 #~ msgstr "Browser Echtzeitaktualisierungen sind nicht verfügbar."
 
-#~ msgid "Bucket Name"
-#~ msgstr "Bucket-Name"
-
 #~ msgid "CDR and Call Log Data"
 #~ msgstr "CDR und Anrufprotokolldaten"
 
@@ -1413,9 +1530,6 @@ msgstr ""
 
 #~ msgid "Custom"
 #~ msgstr "Benutzerdefiniert"
-
-#~ msgid "DB Name"
-#~ msgstr "DB Name"
 
 #~ msgid "Daily"
 #~ msgstr "Täglich"
@@ -1472,9 +1586,6 @@ msgstr ""
 #~ msgid "Description or notes for this backup"
 #~ msgstr "Erstellen Sie eine aussagekräftige Beschreibung der Sicherung"
 
-#~ msgid "Description or notes for this server"
-#~ msgstr "Erstellen Sie eine aussagekräftige Beschreibung für diesen Server"
-
 #~ msgid "Destination"
 #~ msgstr "Ziel"
 
@@ -1508,20 +1619,11 @@ msgstr ""
 #~ msgid "Drop Here"
 #~ msgstr "Hier reinziehen"
 
-#~ msgid "Email Address"
-#~ msgstr "E-Mail Adresse"
-
 #~ msgid "Email Notifications"
 #~ msgstr "E-Mail Benachrichtigung"
 
-#~ msgid "Email Server"
-#~ msgstr "E-Mail Server"
-
 #~ msgid "Email Server "
 #~ msgstr "E-Mail Server "
-
-#~ msgid "Email address where backups should be emailed to"
-#~ msgstr "E-Mail-Adresse, an die Backups gesendet werden sollen"
 
 #~ msgid "Email notifications are set to Yes but no email provided"
 #~ msgstr ""
@@ -1561,9 +1663,6 @@ msgstr ""
 #~ msgid "FTP"
 #~ msgstr "FTP"
 
-#~ msgid "FTP Password"
-#~ msgstr "FTP Passwort"
-
 #~ msgid "FTP Server"
 #~ msgstr "FTP-Server"
 
@@ -1572,9 +1671,6 @@ msgstr ""
 
 #~ msgid "FTP Transfer type"
 #~ msgstr "FTP-Übertragungstyp"
-
-#~ msgid "FTP Username"
-#~ msgstr "FTP Benutzername"
 
 #~ msgid ""
 #~ "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
@@ -1640,9 +1736,6 @@ msgstr ""
 #~ msgid "Hooks"
 #~ msgstr "Anhänge"
 
-#~ msgid "Hostname"
-#~ msgstr "Hostname"
-
 #~ msgid "Hourly"
 #~ msgstr "Stündlich"
 
@@ -1655,14 +1748,8 @@ msgstr ""
 #~ msgid "IP Address or FQDN of your server"
 #~ msgstr "IP Adresse oder FQDN des Server"
 
-#~ msgid "IP address or FQDN of remote SSH server"
-#~ msgstr "IP Adresse oder FQDN des Remote SSH-Server"
-
 #~ msgid "IP address or FQDN of remote ftp host"
 #~ msgstr "IP Adresse oder FQDN des Remote ftp-Server"
-
-#~ msgid "IP address or FQDN of remote mysql host"
-#~ msgstr "IP Adresse oder FQDN des Remote MySQL-Host"
 
 #~ msgid ""
 #~ "If a custom schedule is selected, any section not specified will be "
@@ -1713,34 +1800,14 @@ msgstr ""
 #~ msgid "June"
 #~ msgstr "Juni"
 
-#~ msgid "KB"
-#~ msgstr "KB"
-
-#~ msgid "Key"
-#~ msgstr "Schlüssel"
-
-#~ msgid "Local Server"
-#~ msgstr "Lokaler Server"
-
 #~ msgid "Local Server "
 #~ msgstr "Lokaler Server "
-
-#~ msgid "Location of ssh private key to be used when connecting to a host"
-#~ msgstr ""
-#~ "Der Ort des privaten SSH-Schlüssels wird verwendet, wenn mit dem Host "
-#~ "verbunden wird"
-
-#~ msgid "MB"
-#~ msgstr "MB"
 
 #~ msgid "Maintenance"
 #~ msgstr "Erhaltungsdauer"
 
 #~ msgid "March"
 #~ msgstr "März"
-
-#~ msgid "Max Email Size"
-#~ msgstr "Maximale E-Mail größe"
 
 #~ msgid "May"
 #~ msgstr "Mai"
@@ -1757,9 +1824,6 @@ msgstr ""
 #~ msgid "Months"
 #~ msgstr "Monat(e)"
 
-#~ msgid "MySQL Server"
-#~ msgstr "MySQL Server"
-
 #~ msgid "Mysql"
 #~ msgstr "MySQL"
 
@@ -1771,9 +1835,6 @@ msgstr ""
 
 #~ msgid "Mysql Server "
 #~ msgstr "MySQL Server "
-
-#~ msgid "Name this Server"
-#~ msgstr "Name des Server"
 
 #~ msgid "Name this backup"
 #~ msgstr "Beschriften Sie die Sicherung"
@@ -1856,15 +1917,6 @@ msgstr ""
 #~ msgid "Passive"
 #~ msgstr "Passiv"
 
-#~ msgid "Password"
-#~ msgstr "Passwort"
-
-#~ msgid "Path"
-#~ msgstr "Pfad"
-
-#~ msgid "Path on remote server"
-#~ msgstr "Pfad auf dem Remote Server"
-
 #~ msgid ""
 #~ "Path on remote server. This must be a COMPLETE PATH, starting with a / - "
 #~ "for example, <tt>/home/backups/freepbx</tt>. A path without a leading "
@@ -1886,9 +1938,6 @@ msgstr ""
 
 #~ msgid "Please wait, loading..."
 #~ msgstr "Bitte warten, lade..."
-
-#~ msgid "Port"
-#~ msgstr "Port"
 
 #~ msgid "Post-Backup Hook"
 #~ msgstr "Sicherung-Nach-Skript"
@@ -1914,9 +1963,6 @@ msgstr ""
 #~ msgid "Processing received file..."
 #~ msgstr "Verarbeitung der empfangenen Datei ..."
 
-#~ msgid "Provide the name for this server"
-#~ msgstr "Geben Sie den Namen für diesen Server an"
-
 #~ msgid "Randomize"
 #~ msgstr "Zufällig"
 
@@ -1926,17 +1972,8 @@ msgstr ""
 #~ msgid "Reloading..."
 #~ msgstr "Neu laden..."
 
-#~ msgid "Remote Database Name"
-#~ msgstr "Name der remote Datenbank"
-
-#~ msgid "Remote MySQL Port"
-#~ msgstr "Remote MySQL-Port"
-
 #~ msgid "Remote Path"
 #~ msgstr "Remote Pfad"
-
-#~ msgid "Remote SSH Port"
-#~ msgstr "Remote SSH-Port"
 
 #~ msgid "Remote Save"
 #~ msgstr "Remote speichern"
@@ -2060,14 +2097,8 @@ msgstr ""
 #~ msgid "SSH Key Path"
 #~ msgstr "SSH-Schlüsselpfad"
 
-#~ msgid "SSH Server"
-#~ msgstr "SSH-Server"
-
 #~ msgid "SSH Server "
 #~ msgstr "SSH-Server "
-
-#~ msgid "SSH Username"
-#~ msgstr "SSH Benutzername"
 
 #~ msgid "Saturday"
 #~ msgstr "Samstag"
@@ -2102,9 +2133,6 @@ msgstr ""
 
 #~ msgid "Server Address"
 #~ msgstr "Server-Adresse"
-
-#~ msgid "Server Name"
-#~ msgstr "Server-Name"
 
 #~ msgid "Server Name can not be blank"
 #~ msgstr "Server-Name darf nicht leer sein"
@@ -2159,9 +2187,6 @@ msgstr ""
 #~ msgid "Sunday"
 #~ msgstr "Sonntag"
 
-#~ msgid "Supply a server name"
-#~ msgstr "Geben Sie einen Server-Name ein"
-
 #~ msgid "Template Name"
 #~ msgstr "Vorlagenname"
 
@@ -2200,19 +2225,6 @@ msgstr ""
 #~ "Konfiguration (%s Bytes). Es wurde nicht versucht zu senden. Bitte "
 #~ "verkleinern Sie Ihre Sicherung oder verwenden Sie eine andere Methode die "
 #~ "Sicherung zu übertragen."
-
-#~ msgid ""
-#~ "The maximum size a backup can be and still be emailed. Some email servers "
-#~ "limit the size of email attachments, this will make sure that files "
-#~ "larger than the max size are not sent."
-#~ msgstr ""
-#~ "Die maximale Größe einer Sicherung die noch per E-Mail gesendet werden "
-#~ "kann. Einige E-Mail-Server beschränken die Größe von E-Mail-Anhängen, "
-#~ "dies stellt sicher, dass Dateien die größer als die maximale Größe sind, "
-#~ "nicht gesendet werden."
-
-#~ msgid "This has a maximum size of 25MB."
-#~ msgstr "Dies hat eine maximale Größe von 25MB."
 
 #~ msgid "This server"
 #~ msgstr "Dieser Server"
@@ -2254,12 +2266,6 @@ msgstr ""
 #~ msgid "Upload File"
 #~ msgstr "Datei hochladen"
 
-#~ msgid "User Name"
-#~ msgstr "Benutzername"
-
-#~ msgid "Username"
-#~ msgstr "Benutzername"
-
 #~ msgid "Verifying received file..."
 #~ msgstr "Überprüfen der empfangenen Datei ..."
 
@@ -2289,9 +2295,6 @@ msgstr ""
 
 #~ msgid "What should we backup?"
 #~ msgstr "Was soll gesichert werden?"
-
-#~ msgid "What's this?"
-#~ msgstr "Was ist das?"
 
 #~ msgid "Where should status emails for this job be sent?"
 #~ msgstr "Wohin soll die Statusmeldung für diese Aufgabe gesendet werden?"

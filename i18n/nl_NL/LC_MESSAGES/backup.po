@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-14 15:28-0400\n"
+"POT-Creation-Date: 2019-03-15 16:45+0530\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -177,6 +177,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Reservekopie onderdelen"
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "Reservekopie module"
+
 #: views/backup/form.php:25 views/restore/landing.php:70
 #: views/restore/landing.php:113
 msgid "Backup Name"
@@ -316,6 +320,10 @@ msgstr ""
 #: views/backup/form.php:2
 msgid "Edit"
 msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
+msgstr "e-mail: "
 
 #: views/backup/form.php:166
 msgid "Email Type"
@@ -959,6 +967,12 @@ msgstr ""
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr ""
+"Het Van: veld voor e-mails wanneer gebruik wordt gemaakt van de reservekopie "
+"e-mail functie."
+
 #: views/backup/warmspare.php:214
 msgid "The address of the remote server."
 msgstr ""
@@ -1177,16 +1191,59 @@ msgstr ""
 msgid "type is %s"
 msgstr ""
 
-#~ msgid "Backup Module"
-#~ msgstr "Reservekopie module"
+#~ msgid "DB Name"
+#~ msgstr "DB naam"
 
-#~ msgid "Email "
-#~ msgstr "e-mail: "
+#~ msgid "Description or notes for this server"
+#~ msgstr "Omschrijving of notities voor deze server"
 
-#~ msgid "The From: field for emails when using the backup email feature."
+#~ msgid "Email Address"
+#~ msgstr "e-mail adres"
+
+#~ msgid "Email address where backups should be emailed to"
+#~ msgstr "e-mail adres waar reservekopieën naar toegestuurd moeten worden"
+
+#~ msgid "Hostname"
+#~ msgstr "Servernaam"
+
+#~ msgid "IP address or FQDN of remote mysql host"
+#~ msgstr "IP-adres of volledige naam (FQDN) van andere MySQL server"
+
+#~ msgid "Key"
+#~ msgstr "Sleutel"
+
+#~ msgid "Location of ssh private key to be used when connecting to a host"
 #~ msgstr ""
-#~ "Het Van: veld voor e-mails wanneer gebruik wordt gemaakt van de "
-#~ "reservekopie e-mail functie."
+#~ "Locatie van SSH privé-sleutel welke gebruikt wordt om te verbinden met "
+#~ "een server"
+
+#~ msgid "Max Email Size"
+#~ msgstr "Max. e-mail grootte"
+
+#~ msgid "Password"
+#~ msgstr "Wachtwoord"
+
+#~ msgid "Path"
+#~ msgstr "Pad"
+
+#~ msgid "Port"
+#~ msgstr "Poort"
+
+#~ msgid "Server Name"
+#~ msgstr "Server naam"
+
+#~ msgid ""
+#~ "The maximum size a backup can be and still be emailed. Some email servers "
+#~ "limit the size of email attachments, this will make sure that files "
+#~ "larger than the max size are not sent."
+#~ msgstr ""
+#~ "De maximum grootte van een reservekopie welke verstuurd kan worden. "
+#~ "Sommige e-mail servers hebben een limiet voor e-mail grootte, deze "
+#~ "instelling zorgt dat bestanden groter dan deze instelling niet verzonden "
+#~ "worden."
+
+#~ msgid "User Name"
+#~ msgstr "Gebruikersnaam"
 
 #~ msgid "Download"
 #~ msgstr "Download"
@@ -1324,9 +1381,6 @@ msgstr ""
 #~ msgid "Custom"
 #~ msgstr "Aangepast"
 
-#~ msgid "DB Name"
-#~ msgstr "DB naam"
-
 #~ msgid "Daily"
 #~ msgstr "Dagelijks"
 
@@ -1367,9 +1421,6 @@ msgstr ""
 #~ msgid "Description or notes for this backup"
 #~ msgstr "Omschrijving of notities van deze reservekopie"
 
-#~ msgid "Description or notes for this server"
-#~ msgstr "Omschrijving of notities voor deze server"
-
 #~ msgid "Directory"
 #~ msgstr "Map"
 
@@ -1386,14 +1437,8 @@ msgstr ""
 #~ "Sleep sjablonen naar de onderdelen tabel om het sjabloon aan de tabel toe "
 #~ "te voegen"
 
-#~ msgid "Email Address"
-#~ msgstr "e-mail adres"
-
 #~ msgid "Email Server "
 #~ msgstr "e-mail server "
-
-#~ msgid "Email address where backups should be emailed to"
-#~ msgstr "e-mail adres waar reservekopieën naar toegestuurd moeten worden"
 
 #~ msgid "Email to send status messages to when this task is run"
 #~ msgstr ""
@@ -1473,9 +1518,6 @@ msgstr ""
 #~ msgid "Hooks"
 #~ msgstr "Haken"
 
-#~ msgid "Hostname"
-#~ msgstr "Servernaam"
-
 #~ msgid "Hourly"
 #~ msgstr "Elk uur"
 
@@ -1484,9 +1526,6 @@ msgstr ""
 
 #~ msgid "IP address or FQDN of remote ftp host"
 #~ msgstr "IP-adres of volledige naam (FQDN) van andere FTP server"
-
-#~ msgid "IP address or FQDN of remote mysql host"
-#~ msgstr "IP-adres of volledige naam (FQDN) van andere MySQL server"
 
 #~ msgid "Invalid backup for or undefined error"
 #~ msgstr "Ongeldige reservekopie of ongedefinieerde fout"
@@ -1503,25 +1542,14 @@ msgstr ""
 #~ msgid "June"
 #~ msgstr "Juni"
 
-#~ msgid "Key"
-#~ msgstr "Sleutel"
-
 #~ msgid "Local Server "
 #~ msgstr "Lokale server "
-
-#~ msgid "Location of ssh private key to be used when connecting to a host"
-#~ msgstr ""
-#~ "Locatie van SSH privé-sleutel welke gebruikt wordt om te verbinden met "
-#~ "een server"
 
 #~ msgid "Maintenance"
 #~ msgstr "Onderhoud"
 
 #~ msgid "March"
 #~ msgstr "Maart"
-
-#~ msgid "Max Email Size"
-#~ msgstr "Max. e-mail grootte"
 
 #~ msgid "May"
 #~ msgstr "Mei"
@@ -1595,17 +1623,8 @@ msgstr ""
 #~ msgid "PBX config server, generally a local database server"
 #~ msgstr "PBX configuratieserver, meestal een lokale database server"
 
-#~ msgid "Password"
-#~ msgstr "Wachtwoord"
-
-#~ msgid "Path"
-#~ msgstr "Pad"
-
 #~ msgid "Path/DB"
 #~ msgstr "Pad/DB"
-
-#~ msgid "Port"
-#~ msgstr "Poort"
 
 #~ msgid "Preserving local NAT settings"
 #~ msgstr "Lokale NAT instellingen bewaren"
@@ -1706,9 +1725,6 @@ msgstr ""
 #~ msgid "September"
 #~ msgstr "September"
 
-#~ msgid "Server Name"
-#~ msgstr "Server naam"
-
 #~ msgid "Servers"
 #~ msgstr "Servers"
 
@@ -1738,16 +1754,6 @@ msgstr ""
 #~ msgid "Templates"
 #~ msgstr "Sjablonen"
 
-#~ msgid ""
-#~ "The maximum size a backup can be and still be emailed. Some email servers "
-#~ "limit the size of email attachments, this will make sure that files "
-#~ "larger than the max size are not sent."
-#~ msgstr ""
-#~ "De maximum grootte van een reservekopie welke verstuurd kan worden. "
-#~ "Sommige e-mail servers hebben een limiet voor e-mail grootte, deze "
-#~ "instelling zorgt dat bestanden groter dan deze instelling niet verzonden "
-#~ "worden."
-
 #~ msgid "This server"
 #~ msgstr "Deze server"
 
@@ -1762,9 +1768,6 @@ msgstr ""
 
 #~ msgid "Type"
 #~ msgstr "Type"
-
-#~ msgid "User Name"
-#~ msgstr "Gebruikersnaam"
 
 #~ msgid "Verifying received file..."
 #~ msgstr "Controleren ontvangen bestand..."

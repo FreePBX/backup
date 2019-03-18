@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-14 15:28-0400\n"
+"POT-Creation-Date: 2019-03-15 16:45+0530\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -190,6 +190,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Елементи на Архива"
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "Модул за Архиви"
+
 #: views/backup/form.php:25 views/restore/landing.php:70
 #: views/restore/landing.php:113
 msgid "Backup Name"
@@ -329,6 +333,10 @@ msgstr ""
 #: views/backup/form.php:2
 msgid "Edit"
 msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
+msgstr "Email "
 
 #: views/backup/form.php:166
 msgid "Email Type"
@@ -972,6 +980,10 @@ msgstr ""
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr "Поле От: за  email-и когато използвате услугата архив към  email."
+
 #: views/backup/warmspare.php:214
 msgid "The address of the remote server."
 msgstr ""
@@ -1190,14 +1202,118 @@ msgstr ""
 msgid "type is %s"
 msgstr ""
 
-#~ msgid "Backup Module"
-#~ msgstr "Модул за Архиви"
+#~ msgid "AWS Access Key"
+#~ msgstr "AWS Ключ за Достъп"
 
-#~ msgid "Email "
-#~ msgstr "Email "
+#~ msgid "AWS Secret"
+#~ msgstr "AWS Парола"
 
-#~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr "Поле От: за  email-и когато използвате услугата архив към  email."
+#~ msgid "Amazon S3&trade; Server"
+#~ msgstr "Amazon S3&trade; Сървър"
+
+#~ msgid "B"
+#~ msgstr "B"
+
+#~ msgid "Bucket Name"
+#~ msgstr "Име"
+
+#~ msgid "DB Name"
+#~ msgstr "Име на База Данни"
+
+#~ msgid "Description or notes for this server"
+#~ msgstr "Описание или бележки за този сървър"
+
+#~ msgid "Email Address"
+#~ msgstr "Email Адрес"
+
+#~ msgid "Email Server"
+#~ msgstr "Email Сървър"
+
+#~ msgid "Email address where backups should be emailed to"
+#~ msgstr "Email адрес на който да се изпрати архива"
+
+#~ msgid "FTP Password"
+#~ msgstr "FTP Парола"
+
+#~ msgid "FTP Username"
+#~ msgstr "FTP Потребителско Име"
+
+#~ msgid "Hostname"
+#~ msgstr "Име на хост"
+
+#~ msgid "IP address or FQDN of remote SSH server"
+#~ msgstr "IP адрес или FQDN на отдалечения SSH сървър"
+
+#~ msgid "IP address or FQDN of remote mysql host"
+#~ msgstr "IP адрес или FQDN на отдалечения mysql хост"
+
+#~ msgid "KB"
+#~ msgstr "KB"
+
+#~ msgid "Key"
+#~ msgstr "Ключ"
+
+#~ msgid "Local Server"
+#~ msgstr "Локален Сървър"
+
+#~ msgid "Location of ssh private key to be used when connecting to a host"
+#~ msgstr ""
+#~ "Местонахождение на ssh private key, който да се използва при свързване с "
+#~ "хост"
+
+#~ msgid "MB"
+#~ msgstr "MB"
+
+#~ msgid "Max Email Size"
+#~ msgstr "Макс. Размер на Email"
+
+#~ msgid "MySQL Server"
+#~ msgstr "Mysql Сървър"
+
+#~ msgid "Name this Server"
+#~ msgstr "Име на този Сървър"
+
+#~ msgid "Password"
+#~ msgstr "Парола"
+
+#~ msgid "Path"
+#~ msgstr "Път"
+
+#~ msgid "Path on remote server"
+#~ msgstr "Път към отдалечен сървър"
+
+#~ msgid "Port"
+#~ msgstr "Порт"
+
+#~ msgid "Remote Database Name"
+#~ msgstr "Име на База Данни"
+
+#~ msgid "Remote MySQL Port"
+#~ msgstr "Порт на MySQL"
+
+#~ msgid "Remote SSH Port"
+#~ msgstr "SSH Порт"
+
+#~ msgid "SSH Server"
+#~ msgstr "SSH Сървър"
+
+#~ msgid "SSH Username"
+#~ msgstr "SSH Потребителско Име"
+
+#~ msgid "Server Name"
+#~ msgstr "Име на Сървър"
+
+#~ msgid "Supply a server name"
+#~ msgstr "Въведете име на сървъра"
+
+#~ msgid "User Name"
+#~ msgstr "Потребителско Име"
+
+#~ msgid "Username"
+#~ msgstr "Потребителско Име"
+
+#~ msgid "What's this?"
+#~ msgstr "Какво е това?"
 
 #~ msgid "Download"
 #~ msgstr "Изтегли"
@@ -1220,14 +1336,8 @@ msgstr ""
 #~ msgid "AT"
 #~ msgstr "АТ"
 
-#~ msgid "AWS Access Key"
-#~ msgstr "AWS Ключ за Достъп"
-
 #~ msgid "AWS S3 Server "
 #~ msgstr "AWS S3 Сървър "
-
-#~ msgid "AWS Secret"
-#~ msgstr "AWS Парола"
 
 #~ msgid "Active"
 #~ msgstr "Активен"
@@ -1240,9 +1350,6 @@ msgstr ""
 
 #~ msgid "Amazon S3 Server "
 #~ msgstr "Amazon S3 Сървър "
-
-#~ msgid "Amazon S3&trade; Server"
-#~ msgstr "Amazon S3&trade; Сървър"
 
 #~ msgid "Annually"
 #~ msgstr "Всяка Година"
@@ -1261,9 +1368,6 @@ msgstr ""
 
 #~ msgid "Available Servers"
 #~ msgstr "Налични Сървъри"
-
-#~ msgid "B"
-#~ msgstr "B"
 
 #~ msgid "BACKUP LOG ATTACHED"
 #~ msgstr "ЛОГА НА АРХИВА Е ПРИКАЧЕН"
@@ -1313,9 +1417,6 @@ msgstr ""
 #~ msgid "Browse"
 #~ msgstr "Избиране"
 
-#~ msgid "Bucket Name"
-#~ msgstr "Име"
-
 #~ msgid "CDR and Call Log Data"
 #~ msgstr "Данни на CDR и Лог на Разговори"
 
@@ -1355,9 +1456,6 @@ msgstr ""
 #~ msgid "Custom"
 #~ msgstr "Персонално"
 
-#~ msgid "DB Name"
-#~ msgstr "Име на База Данни"
-
 #~ msgid "Daily"
 #~ msgstr "Ежедневно"
 
@@ -1396,9 +1494,6 @@ msgstr ""
 #~ msgid "Description or notes for this backup"
 #~ msgstr "Описание или бележки за този архив"
 
-#~ msgid "Description or notes for this server"
-#~ msgstr "Описание или бележки за този сървър"
-
 #~ msgid "Destination"
 #~ msgstr "Направление"
 
@@ -1414,20 +1509,11 @@ msgstr ""
 #~ msgid "Drop Here"
 #~ msgstr "Пуснете Тук"
 
-#~ msgid "Email Address"
-#~ msgstr "Email Адрес"
-
 #~ msgid "Email Notifications"
 #~ msgstr "Email Известия"
 
-#~ msgid "Email Server"
-#~ msgstr "Email Сървър"
-
 #~ msgid "Email Server "
 #~ msgstr "Email Сървър "
-
-#~ msgid "Email address where backups should be emailed to"
-#~ msgstr "Email адрес на който да се изпрати архива"
 
 #~ msgid "Error uploading file!"
 #~ msgstr "Грешка при качване на файл!"
@@ -1441,9 +1527,6 @@ msgstr ""
 #~ msgid "FTP"
 #~ msgstr "FTP"
 
-#~ msgid "FTP Password"
-#~ msgstr "FTP Парола"
-
 #~ msgid "FTP Server"
 #~ msgstr "FTP Сървър"
 
@@ -1452,9 +1535,6 @@ msgstr ""
 
 #~ msgid "FTP Transfer type"
 #~ msgstr "FTP Вид на Трансфера"
-
-#~ msgid "FTP Username"
-#~ msgstr "FTP Потребителско Име"
 
 #~ msgid "February"
 #~ msgstr "Февруари"
@@ -1495,9 +1575,6 @@ msgstr ""
 #~ msgid "Go!"
 #~ msgstr "Напред!"
 
-#~ msgid "Hostname"
-#~ msgstr "Име на хост"
-
 #~ msgid "Hourly"
 #~ msgstr "Всеки Час"
 
@@ -1510,14 +1587,8 @@ msgstr ""
 #~ msgid "IP Address or FQDN of your server"
 #~ msgstr "IP Адрес или FQDN на вашия сървър"
 
-#~ msgid "IP address or FQDN of remote SSH server"
-#~ msgstr "IP адрес или FQDN на отдалечения SSH сървър"
-
 #~ msgid "IP address or FQDN of remote ftp host"
 #~ msgstr "IP адрес или FQDN на отдалечения ftp хост"
-
-#~ msgid "IP address or FQDN of remote mysql host"
-#~ msgstr "IP адрес или FQDN на отдалечения mysql хост"
 
 #~ msgid "Initializing Backup"
 #~ msgstr "Инициализиране на Архив"
@@ -1549,34 +1620,14 @@ msgstr ""
 #~ msgid "June"
 #~ msgstr "Юни"
 
-#~ msgid "KB"
-#~ msgstr "KB"
-
-#~ msgid "Key"
-#~ msgstr "Ключ"
-
-#~ msgid "Local Server"
-#~ msgstr "Локален Сървър"
-
 #~ msgid "Local Server "
 #~ msgstr "Локален Сървър "
-
-#~ msgid "Location of ssh private key to be used when connecting to a host"
-#~ msgstr ""
-#~ "Местонахождение на ssh private key, който да се използва при свързване с "
-#~ "хост"
-
-#~ msgid "MB"
-#~ msgstr "MB"
 
 #~ msgid "Maintenance"
 #~ msgstr "Поддръжка"
 
 #~ msgid "March"
 #~ msgstr "Март"
-
-#~ msgid "Max Email Size"
-#~ msgstr "Макс. Размер на Email"
 
 #~ msgid "May"
 #~ msgstr "Май"
@@ -1593,9 +1644,6 @@ msgstr ""
 #~ msgid "Months"
 #~ msgstr "Месеца"
 
-#~ msgid "MySQL Server"
-#~ msgstr "Mysql Сървър"
-
 #~ msgid "Mysql"
 #~ msgstr "MySQL"
 
@@ -1607,9 +1655,6 @@ msgstr ""
 
 #~ msgid "Mysql Server "
 #~ msgstr "Mysql Сървър "
-
-#~ msgid "Name this Server"
-#~ msgstr "Име на този Сървър"
 
 #~ msgid "Name this backup"
 #~ msgstr "Име на този архив"
@@ -1668,15 +1713,6 @@ msgstr ""
 #~ msgid "Passive"
 #~ msgstr "Пасивен"
 
-#~ msgid "Password"
-#~ msgstr "Парола"
-
-#~ msgid "Path"
-#~ msgstr "Път"
-
-#~ msgid "Path on remote server"
-#~ msgstr "Път към отдалечен сървър"
-
 #~ msgid "Path/DB"
 #~ msgstr "Път/БД"
 
@@ -1686,26 +1722,14 @@ msgstr ""
 #~ msgid "Please wait, loading..."
 #~ msgstr "Моля изчакайте, зареждам..."
 
-#~ msgid "Port"
-#~ msgstr "Порт"
-
 #~ msgid "Reboot"
 #~ msgstr "След Рестарт"
 
 #~ msgid "Reloading..."
 #~ msgstr "Презареждам..."
 
-#~ msgid "Remote Database Name"
-#~ msgstr "Име на База Данни"
-
-#~ msgid "Remote MySQL Port"
-#~ msgstr "Порт на MySQL"
-
 #~ msgid "Remote Path"
 #~ msgstr "Път към Отдалечен Сървър"
-
-#~ msgid "Remote SSH Port"
-#~ msgstr "SSH Порт"
 
 #~ msgid "Restore Here"
 #~ msgstr "Възстанови Тук"
@@ -1725,14 +1749,8 @@ msgstr ""
 #~ msgid "SSH Key Path"
 #~ msgstr "Път към SSH Ключ"
 
-#~ msgid "SSH Server"
-#~ msgstr "SSH Сървър"
-
 #~ msgid "SSH Server "
 #~ msgstr "SSH Сървър "
-
-#~ msgid "SSH Username"
-#~ msgstr "SSH Потребителско Име"
 
 #~ msgid "Saturday"
 #~ msgstr "Събота"
@@ -1748,9 +1766,6 @@ msgstr ""
 
 #~ msgid "Server Address"
 #~ msgstr "Адрес на Сървър"
-
-#~ msgid "Server Name"
-#~ msgstr "Име на Сървър"
 
 #~ msgid "Server Name can not be blank"
 #~ msgstr "Име на сървър не може да е празно"
@@ -1800,9 +1815,6 @@ msgstr ""
 #~ msgid "Sunday"
 #~ msgstr "Неделя"
 
-#~ msgid "Supply a server name"
-#~ msgstr "Въведете име на сървъра"
-
 #~ msgid "Template Name"
 #~ msgstr "Име на Шаблон"
 
@@ -1827,12 +1839,6 @@ msgstr ""
 #~ msgid "Type"
 #~ msgstr "Тип"
 
-#~ msgid "User Name"
-#~ msgstr "Потребителско Име"
-
-#~ msgid "Username"
-#~ msgstr "Потребителско Име"
-
 #~ msgid "Voice Mail Storage"
 #~ msgstr "Архив Гласова Поща"
 
@@ -1856,9 +1862,6 @@ msgstr ""
 
 #~ msgid "Welcome to the Backup Wizard"
 #~ msgstr "Добре Дошли в Помощника за Архивиране"
-
-#~ msgid "What's this?"
-#~ msgstr "Какво е това?"
 
 #~ msgid "Years"
 #~ msgstr "Години"

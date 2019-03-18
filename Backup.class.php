@@ -446,8 +446,10 @@ class Backup extends FreePBX_Helpers implements BMO {
 		switch($_REQUEST['command']){
 			case 'restorestatus':
 			case 'backupstatus':
+				if(function_exists("apache_setenv")) {
+					apache_setenv('no-gzip', '1');
+				}
 				session_write_close();
-				@ob_end_flush();
 				header_remove();
 				header('Content-Type: text/event-stream');
 				header('Cache-Control: no-cache');

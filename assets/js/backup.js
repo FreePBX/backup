@@ -290,16 +290,35 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 	}
 })
 
+var reconnects = 0;
+var maxReconnects = 10;
+
 function getRestoreStatus(id, transaction, pid) {
+	reconnects = 0;
 	getStatus('restore', id, transaction, pid)
 }
 
 function getBackupStatus(id, transaction, pid) {
+	reconnects = 0;
 	getStatus('backup', id, transaction, pid)
 }
 
 function getStatus(type, id, transaction, pid) {
 	var source = new EventSource(FreePBX.ajaxurl+"?module=backup&command="+type+"status&id="+id+"&transaction="+transaction+"&pid="+pid, {withCredentials:true});
+	source.onerror = function(e) {
+		console.warn(e);
+		source.close();
+		$("#runModal .modal-body pre").append('NETWORK ERROR...see console log for more details');
+		if(reconnects > maxReconnects) {
+			$("#runModal .modal-body").animate({scrollTop:$(".modal-body")[0].scrollHeight}, 1000);
+			$("#runModal .btn-close").prop("disabled",false);
+			$("#runModal .modal-body").css("overflow-y","auto")
+		} else {
+			reconnects++;
+			$("#runModal .modal-body pre").append("\nAttempting reconnection...");
+			getStatus(type, id, transaction, pid);
+		}
+	};
 	source.addEventListener("new-msgs", function(event){
 		var data = JSON.parse(event.data);
 

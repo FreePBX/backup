@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-18 20:21-0400\n"
+"POT-Creation-Date: 2019-03-18 20:56-0400\n"
 "PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/backup/pl/"
@@ -104,11 +104,11 @@ msgstr ""
 msgid "Apply Configs"
 msgstr "Zastosuj konfiguracje"
 
-#: assets/js/backup.js:111 assets/js/backup.js:148
+#: assets/js/backup.js:110 assets/js/backup.js:147
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
 
-#: Backup.class.php:1174
+#: Backup.class.php:1167
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -119,7 +119,7 @@ msgstr ""
 msgid "Backup"
 msgstr "Kopa zapasowa"
 
-#: Backup.class.php:923
+#: Backup.class.php:916
 #, php-format
 msgid "Backup %s"
 msgstr ""
@@ -198,7 +198,7 @@ msgid ""
 "or until cleaned manually."
 msgstr ""
 
-#: Backup.class.php:403
+#: Backup.class.php:399
 msgid "Backup running"
 msgstr ""
 
@@ -220,7 +220,7 @@ msgstr ""
 msgid "Can't find the module data for %s"
 msgstr ""
 
-#: assets/js/backup.js:112 assets/js/backup.js:149
+#: assets/js/backup.js:111 assets/js/backup.js:148
 msgid "Cancel"
 msgstr ""
 
@@ -262,7 +262,7 @@ msgstr ""
 msgid "Could not backup module %s because it is not enabled"
 msgstr ""
 
-#: Backup.class.php:367 Backup.class.php:375
+#: Backup.class.php:363 Backup.class.php:371
 msgid "Could not find a file for the id supplied"
 msgstr ""
 
@@ -275,12 +275,12 @@ msgstr ""
 msgid "Couldn't find %s"
 msgstr ""
 
-#: Backup.class.php:579
+#: Backup.class.php:575
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
 #: Backup.class.php:175 views/restore/landing.php:49
-#: views/restore/landing.php:92 assets/js/backup.js:112 assets/js/backup.js:149
+#: views/restore/landing.php:92 assets/js/backup.js:111 assets/js/backup.js:148
 msgid "Delete"
 msgstr "Skasuj"
 
@@ -339,7 +339,7 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1078 views/backup/form.php:249
+#: Backup.class.php:1071 views/backup/form.php:249
 msgid "Enabled"
 msgstr ""
 
@@ -349,7 +349,7 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: assets/js/backup.js:245 assets/js/backup.js:264 assets/js/backup.js:333
+#: assets/js/backup.js:244 assets/js/backup.js:263 assets/js/backup.js:332
 msgid "Error"
 msgstr ""
 
@@ -497,11 +497,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1159
+#: Backup.class.php:1152
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1165
+#: Backup.class.php:1158
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -554,7 +554,7 @@ msgstr ""
 msgid "Inline Logs"
 msgstr ""
 
-#: Backup.class.php:531
+#: Backup.class.php:527
 msgid "Invalid Backup ID"
 msgstr ""
 
@@ -588,7 +588,7 @@ msgstr ""
 msgid "List Backups"
 msgstr ""
 
-#: assets/js/backup.js:275
+#: assets/js/backup.js:274
 msgid "Loading Please Wait"
 msgstr ""
 
@@ -617,7 +617,7 @@ msgstr ""
 msgid "Migrating legacy backups to the new backup"
 msgstr ""
 
-#: Backup.class.php:463
+#: Backup.class.php:459
 msgid "Missing id or transaction or pid"
 msgstr ""
 
@@ -653,11 +653,11 @@ msgstr "Nazwa"
 msgid "No"
 msgstr "Nie"
 
-#: assets/js/backup.js:189
+#: assets/js/backup.js:188
 msgid "No Storage Locations"
 msgstr ""
 
-#: Backup.class.php:389
+#: Backup.class.php:385
 msgid "No backup id provided"
 msgstr ""
 
@@ -665,7 +665,7 @@ msgstr ""
 msgid "No file provided"
 msgstr ""
 
-#: Backup.class.php:568
+#: Backup.class.php:564
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
@@ -770,7 +770,7 @@ msgstr ""
 msgid "Restore from the cloud"
 msgstr ""
 
-#: Backup.class.php:386
+#: Backup.class.php:382
 msgid "Restore running"
 msgstr ""
 
@@ -797,7 +797,7 @@ msgstr ""
 msgid "Run Restore"
 msgstr ""
 
-#: assets/js/backup.js:389
+#: assets/js/backup.js:388
 msgid "Run the following in the CLI"
 msgstr ""
 
@@ -945,7 +945,7 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: Backup.class.php:562
+#: Backup.class.php:558
 msgid "System Transfer"
 msgstr ""
 
@@ -988,7 +988,7 @@ msgstr ""
 msgid "The module %s returned no data, No backup created"
 msgstr ""
 
-#: assets/js/backup.js:333
+#: assets/js/backup.js:332
 #, perl-format
 msgid "There was an error during %s"
 msgstr ""
@@ -1069,7 +1069,7 @@ msgstr ""
 msgid "Unable to send backup email!"
 msgstr ""
 
-#: Backup.class.php:1078
+#: Backup.class.php:1071
 msgid "Uninstalled or Disabled"
 msgstr ""
 
@@ -1162,7 +1162,7 @@ msgstr ""
 msgid "Yes"
 msgstr "Tak"
 
-#: assets/js/backup.js:330
+#: assets/js/backup.js:329
 #, perl-format
 msgid "Your %s has finished"
 msgstr ""

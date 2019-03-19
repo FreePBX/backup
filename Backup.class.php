@@ -341,9 +341,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 					}
 					$filemd5 = md5($finalname);
 					$this->setConfig($filemd5, $finalname, 'localfilepaths');
-					$backupFile = new BackupSplFileInfo($finalname);
-					$meta = $backupFile->getMetadata();
-					$this->setConfig('meta', $meta, $filemd5);
 					header("HTTP/1.1 200 Ok");
 					return ['status' => true, 'md5' => $filemd5];
 				}
@@ -351,7 +348,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 					header("HTTP/1.1 201 Created");
 					break;
 				}
-
 				break;
 			case 'localRestoreFiles':
 				return $this->getLocalFiles();
@@ -578,11 +574,8 @@ class Backup extends FreePBX_Helpers implements BMO {
 				if(empty($path)){
 					return load_view(__DIR__.'/views/restore/landing.php',['error' => _("Couldn't find your file, please try submitting your file again.")]);
 				}
-				if($path){
-					$fileClass = new BackupSplFileInfo($path);
-					$manifest = $fileClass->getMetadata($path);
-
-				}
+				$fileClass = new BackupSplFileInfo($path);
+				$manifest = $fileClass->getMetadata($path);
 				$vars['meta']     = $manifest;
 				$vars['timestamp']     = $manifest['date'];
 				$vars['jsondata'] = $this->moduleJSONFromManifest($manifest);

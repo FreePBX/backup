@@ -25,7 +25,6 @@ $(document).ready(function () {
 			$("#uploadrestore").html(_("Processing...")+'<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>')
 		})
 		dz.on('uploadprogress', function(event,progress,total){
-			console.log(progress);
 			if(progress < 100) {
 				$("#uploadprogress").text(progress.toFixed(2)+'%');
 				$("#uploadprogress").css('width', `${progress}%`);

@@ -4,6 +4,7 @@ use PDO;
 class Backupjobs extends Common{
 	public $backupJobs = [];
 	public $moduleData = [];
+	private $storageMapping = [];
 
 	public function __construct($freepbx = ''){
 		$this->freepbx = $freepbx;
@@ -11,9 +12,9 @@ class Backupjobs extends Common{
 		$this->Backup = $freepbx->Backup;
 	}
 
-	public function process(){
-		return $this->getLegacyBackups()
-			 ->migrate();
+	public function process($mapping=[]){
+		$this->storageMapping = $mapping;
+		return $this->getLegacyBackups()->migrate();
 
 	}
 	public function getLegacyBackups(){
@@ -45,9 +46,9 @@ class Backupjobs extends Common{
 		$this->backupJobs = $final;
 		return $this;
 	}
-	public function migrate(){
+	public function migrate($mapping=[]){
 		$this->buildModuleData();
-		$migrated = $this->Backup->getAll('migrationcompleted');
+		//$migrated = $this->Backup->getAll('migrationcompleted');
 		$migrated = !$migrated?[]:array_column($migrated,'id');
 		foreach($this->backupJobs as $key => $backup){
 			if(!isset($backup['id']) && in_array($backup['id'], $migrated)){
@@ -68,9 +69,10 @@ class Backupjobs extends Common{
 			$this->Backup->setModulesById($backup['uuid'],$items);
 
 			$backup['data']['storage_servers']  = is_array($backup['data']['storage_servers'])?$backup['data']['storage_servers']:[$backup['data']['storage_servers']];
+
 			foreach($backup['data']['storage_servers'] as $server){
 				$lookup = $this->getStorageId($server);
-				if($lookup === false){
+				if(empty($lookup)){
 					//$this->freepbx->Logger->getDriver('default')->debug("couldn't find a migration path for server $server");
 					continue;
 				}
@@ -82,6 +84,7 @@ class Backupjobs extends Common{
 				$this->Backup->setConfig('backup_name', $backup['name'],$backup['uuid']);
 				$this->Backup->setConfig('backup_description', $backup['description'],$backup['uuid']);
 				$this->Backup->setConfig('backup_email', $backup['email'],$backup['uuid']);
+				$this->Backup->setConfig('backup_emailinline', 'no');
 				foreach($backup['data'] as $key => $value){
 					if($key === 'name'){
 						$key = 'backup_name';
@@ -92,12 +95,13 @@ class Backupjobs extends Common{
 					if($key === 'storage_servers'){
 						continue;
 					}
+					if($key === 'delete_time_type'){
+						continue;
+					}
 					if(substr($key,0,4) === 'cron'){
 						continue;
 					}
-					if(substr($key,0,6) === 'delete'){
-						continue;
-					}
+
 					if($key === 'emailfailonly'){
 						$key = 'backup_emailtype';
 						if($value){
@@ -108,8 +112,27 @@ class Backupjobs extends Common{
 						}
 					}
 					if($key === 'delete_time'){
+						$timeType = $backup['data']['delete_time_type'];
+						$value = (int)$value;
+						switch($timeType) {
+							case 'minutes':
+								$value = $value * 0.000694444;
+							break;
+							case 'hours':
+								$value = $value * 0.0416667;
+							break;
+							case 'weeks':
+								$value = $value * 7;
+							break;
+							case 'months':
+								$value = $value * 30.4167;
+							break;
+							case 'years':
+								$value = $value * 365;
+							break;
+						}
 						$key = 'maintage';
-						if ($value == 0) {
+						if ($value === 0) {
 							continue;
 						}
 						if ($value < 8){
@@ -143,9 +166,8 @@ class Backupjobs extends Common{
 					}
 					if($key === 'bu_server'){
 						$storageId = $this->getStorageId($value);
-						$tmp = explode('_',$storageId);
-						$storageItem = $this->freepbx->Filestore->getAll($tmp[1]);
-						if(is_array($storageItem)){
+						$storageItem = $this->freepbx->Filestore->getItemById($storageId);
+						if(!empty($storageItem)){
 							$this->Backup->updateBackupSetting($backup['uuid'], 'warmspare_remoteip', $storageItem['host']);
 							$this->Backup->updateBackupSetting($backup['uuid'], 'warmspare_user', $storageItem['user']);
 						}
@@ -231,21 +253,9 @@ class Backupjobs extends Common{
 	}
 
 	public function getStorageId($oldId){
-		$oldId = (string)$oldId;
-		$servers = $this->getMigratedServers();
-		$id = isset($servers['server_'.$oldId]['uuid'])? $servers['server_' . $oldId]['uuid']:false;
-		$type = isset($servers['server_'.$oldId]['server']['type'])? $servers['server_' . $oldId]['server']['type']:false;
-
-		if(!$id || !$type){
-			return false;
-		}
-		$type = ucfirst($type);
-		if($type == 'Ssh' || $type == 'Ftp'){
-			$type = strtoupper($type);
-		}
-		return sprintf('%s_%s',$type,$id);
-
+		return isset($this->storageMapping[$oldId]) ? $this->storageMapping[$oldId] : null;
 	}
+
 	public function buildModuleData(){
 		if(!empty($this->moduleData)){
 			return $this;

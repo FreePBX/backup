@@ -6,13 +6,11 @@ class Servers extends Common {
 
 	public function process(){
 		$this->servers = [];
-		$this->getLegacyServers()
-			->migrate();
-		return $this;
+		$this->getLegacyServers();
+		return $this->migrate();
 	}
 
-	public function getLegacyServers()
-	{
+	public function getLegacyServers() {
 		$this->servers = [];
 
 		$sql = 'SELECT * FROM backup_servers';
@@ -25,7 +23,7 @@ class Servers extends Common {
 		$sql = 'SELECT * FROM backup_server_details';
 		$serverDetails = $this->Database->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 		$final = [];
-		$migrated = $this->Backup->getAll('migratedservers');
+		//$migrated = $this->Backup->getAll('migratedservers');
 		$migrated = is_array($migrated) ? $migrated : [];
 		foreach ($servers as $server) {
 			if (isset($migrated['server_' . $server['id']])) {
@@ -38,7 +36,6 @@ class Servers extends Common {
 				$server['data'] = unserialize($server['data']);
 			}
 			$final['server_' . $server['id']]['server'] = $server;
-			$final['server_' . $server['id']]['uuid'] = $this->Backup->generateId();
 
 		}
 		foreach ($serverDetails as $data) {
@@ -47,7 +44,6 @@ class Servers extends Common {
 		}
 		$this->Backup->setMultiConfig($final, 'migratedservers');
 		$this->servers = $final;
-		return $this;
 	}
 
 	public function processValue($value){
@@ -66,49 +62,57 @@ class Servers extends Common {
 	}
 
 	public function migrate(){
+		$mapping = [];
 		foreach ($this->servers as $item) {
 			$server = $item['server'];
-			$server['id'] = $item['uuid'];
-			if($server['type'] === 'ftp'){
-				$this->handleFTP($server);
+			$uuid = null;
+			switch($server['type']) {
+				case 'ftp':
+					$uuid = $this->handleFTP($server);
+				break;
+				case 'email':
+					$uuid = $this->handleEmail($server);
+				break;
+				case 'local':
+					$uuid = $this->handleLocal($server);
+				break;
+				case 'ssh':
+					$uuid = $this->handleSSH($server);
+				break;
+				case 'awss3':
+					$uuid = $this->handleS3($server);;
+				break;
+				default:
+					out(sprintf(_("Unable to map '%s' of type '%s"),$server['name'],$server['type']));
+					//unknown type!
+				break;
 			}
-			if($server['type'] === 'mysql'){
-				$this->handleMySql($server);
-			}
-			if($server['type'] === 'email'){
-				$this->handleEmail($server);
-			}
-			if($server['type'] === 'local'){
-				$this->handleLocal($server);
-			}
-			if($server['type'] === 'ssh'){
-				$this->handleSSH($server);
-			}
-			if($server['type'] === 'awss3'){
-				$this->handleS3($server);
+			if(!empty($uuid)) {
+				$item = $this->freepbx->Filestore->getItemById($uuid);
+				$mapping[$server['id']] = $item['driver'].'_'.$uuid;
 			}
 		}
-		return $this;
+		return $mapping;
 	}
 
 	public function handleFTP($data){
-		$this->freepbx->Filestore->addItem('FTP',$data);
+		return $this->freepbx->Filestore->addItem('FTP',$data);
 	}
-	public function handleSSH($data){
-		$this->freepbx->Filestore->addItem('SSH',$data);
-	}
-	public function handleMySQL($data){
 
+	public function handleSSH($data){
+		return $this->freepbx->Filestore->addItem('SSH',$data);
 	}
+
 	public function handleEmail($data){
-		$this->freepbx->Filestore->addItem('Email',$data);
+		return $this->freepbx->Filestore->addItem('Email',$data);
 	}
 
 	public function handleLocal($data){
-		$this->freepbx->Filestore->addItem('Local',$data);
+		return $this->freepbx->Filestore->addItem('Local',$data);
 	}
+
 	public function handleS3($data){
-		$this->freepbx->Filestore->addItem('S3',$data);
+		return $this->freepbx->Filestore->addItem('S3',$data);
 	}
 }
 

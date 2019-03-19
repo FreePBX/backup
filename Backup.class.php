@@ -96,10 +96,11 @@ class Backup extends FreePBX_Helpers implements BMO {
 			out(_("Migrating legacy backupjobs"));
 			out(_("Moving servers to filestore"));
 			$servers = new Backup\Migration\Servers($this->freepbx);
-			$servers->process();
+			$mapping = $servers->process();
+
 			out(_("Migrating legacy backups to the new backup"));
 			$jobs = new Backup\Migration\Backupjobs($this->freepbx);
-			$jobs->process();
+			$jobs->process($mapping);
 
 			out(_("Cleaning up old data"));
 			$tables = [
@@ -115,6 +116,12 @@ class Backup extends FreePBX_Helpers implements BMO {
 			foreach ($tables as $table) {
 				out(sprintf(_("Removing table %s."),$table));
 				$this->db->query("DROP TABLE $table");
+			}
+			$crons = $this->freepbx->Cron->getAll();
+			foreach($crons as $c) {
+				if(preg_match('/backup\.php/',$c,$matches)) {
+					$this->freepbx->Cron->remove($c);
+				}
 			}
 		}
 	}

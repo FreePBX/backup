@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.7</version>
+	<version>15.0.8.8</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,7 +17,8 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
-		*15.0.8.6* Dont store metadata about backups
+		*15.0.8.8* FREEPBX-19651
+		*15.0.8.7* Dont store metadata about backups
 		*15.0.8.6* FREEPBX-19660 and network connectivity issues
 		*15.0.8.4* FREEI-429 
 		*15.0.8.3* FREEI-429 

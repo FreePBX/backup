@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-19 16:01-0400\n"
+"POT-Creation-Date: 2019-03-19 17:41-0400\n"
 "PO-Revision-Date: 2016-02-05 11:17+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -117,11 +117,11 @@ msgstr ""
 msgid "Apply Configs"
 msgstr "Appliquer la configuration"
 
-#: assets/js/backup.js:110 assets/js/backup.js:147
+#: assets/js/backup.js:125 assets/js/backup.js:162
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
 
-#: Backup.class.php:1174
+#: Backup.class.php:1204
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -132,7 +132,7 @@ msgstr ""
 msgid "Backup"
 msgstr "Copie de sauvegarde"
 
-#: Backup.class.php:923
+#: Backup.class.php:953
 #, php-format
 msgid "Backup %s"
 msgstr ""
@@ -200,7 +200,7 @@ msgstr ""
 msgid "Backup Wizard"
 msgstr ""
 
-#: Console/Backup.class.php:110 Console/Backup.class.php:180
+#: Console/Backup.class.php:110 Console/Backup.class.php:191
 msgid "Backup completed successfully"
 msgstr ""
 
@@ -233,7 +233,7 @@ msgstr ""
 msgid "Can't find the module data for %s"
 msgstr ""
 
-#: assets/js/backup.js:111 assets/js/backup.js:148
+#: assets/js/backup.js:126 assets/js/backup.js:163
 msgid "Cancel"
 msgstr ""
 
@@ -288,12 +288,12 @@ msgstr ""
 msgid "Couldn't find %s"
 msgstr ""
 
-#: Backup.class.php:582
+#: Backup.class.php:590 Backup.class.php:656
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
 #: Backup.class.php:182 views/restore/landing.php:49
-#: views/restore/landing.php:92 assets/js/backup.js:111 assets/js/backup.js:148
+#: views/restore/landing.php:92 assets/js/backup.js:126 assets/js/backup.js:163
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -315,11 +315,11 @@ msgstr ""
 msgid "Description"
 msgstr "Description"
 
-#: Console/Backup.class.php:208
+#: Console/Backup.class.php:232
 msgid "Determining backup file type..."
 msgstr ""
 
-#: Console/Backup.class.php:205 Handlers/Restore/Common.php:106
+#: Console/Backup.class.php:218 Handlers/Restore/Common.php:106
 #: Handlers/Restore/Legacy.php:186
 msgid "Done"
 msgstr ""
@@ -352,7 +352,7 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1078 views/backup/form.php:249
+#: Backup.class.php:1108 views/backup/form.php:249
 msgid "Enabled"
 msgstr ""
 
@@ -362,7 +362,7 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: assets/js/backup.js:244 assets/js/backup.js:263 assets/js/backup.js:332
+#: assets/js/backup.js:259 assets/js/backup.js:278 assets/js/backup.js:349
 msgid "Error"
 msgstr ""
 
@@ -464,11 +464,11 @@ msgstr ""
 msgid "Finished Cleaning up"
 msgstr ""
 
-#: Console/Backup.class.php:168
+#: Console/Backup.class.php:179
 msgid "Finished Local Maintenance"
 msgstr ""
 
-#: Console/Backup.class.php:171
+#: Console/Backup.class.php:182
 msgid "Finished Remote Maintenance"
 msgstr ""
 
@@ -510,11 +510,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1159
+#: Backup.class.php:1189
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1165
+#: Backup.class.php:1195
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -567,7 +567,7 @@ msgstr ""
 msgid "Inline Logs"
 msgstr ""
 
-#: Backup.class.php:534
+#: Backup.class.php:542
 msgid "Invalid Backup ID"
 msgstr ""
 
@@ -583,7 +583,7 @@ msgstr ""
 msgid "Is this the donor machine or the recipient"
 msgstr ""
 
-#: Models/BackupSplFileInfo.php:72
+#: Models/BackupSplFileInfo.php:66
 msgid "Legacy Restore"
 msgstr ""
 
@@ -601,7 +601,7 @@ msgstr ""
 msgid "List Backups"
 msgstr ""
 
-#: assets/js/backup.js:274
+#: assets/js/backup.js:289
 msgid "Loading Please Wait"
 msgstr ""
 
@@ -616,6 +616,10 @@ msgstr ""
 #: Handlers/Restore/Legacy.php:116
 #, php-format
 msgid "Loading supplied database file %s"
+msgstr ""
+
+#: Backup.class.php:479
+msgid "Log file is missing but process is still running!"
 msgstr ""
 
 #: views/backup/form.php:304
@@ -666,7 +670,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: assets/js/backup.js:188
+#: assets/js/backup.js:203
 msgid "No Storage Locations"
 msgstr ""
 
@@ -678,7 +682,7 @@ msgstr ""
 msgid "No file provided"
 msgstr ""
 
-#: Backup.class.php:571
+#: Backup.class.php:579
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
@@ -700,12 +704,16 @@ msgid ""
 "Parsing out SQL tables. This may take a moment depending on backup size."
 msgstr ""
 
-#: Console/Backup.class.php:166
+#: Console/Backup.class.php:177
 msgid "Performing Local Maintenance"
 msgstr ""
 
-#: Console/Backup.class.php:169
+#: Console/Backup.class.php:180
 msgid "Performing Remote Maintenance"
+msgstr ""
+
+#: Backup.class.php:481
+msgid "Process is no longer running"
 msgstr ""
 
 #: Handlers/Backup/Single.php:36 Handlers/Restore/Legacy.php:216
@@ -771,7 +779,7 @@ msgstr ""
 msgid "Restore Information"
 msgstr ""
 
-#: Console/Backup.class.php:136 Console/Backup.class.php:233
+#: Console/Backup.class.php:136 Console/Backup.class.php:257
 msgid "Restore completed successfully"
 msgstr ""
 
@@ -797,7 +805,7 @@ msgstr ""
 msgid "Restoring from %s [%s]"
 msgstr ""
 
-#: Console/Backup.class.php:202
+#: Console/Backup.class.php:215
 #, php-format
 msgid "Retrieving %s from %s:%s..."
 msgstr ""
@@ -810,7 +818,7 @@ msgstr ""
 msgid "Run Restore"
 msgstr ""
 
-#: assets/js/backup.js:388
+#: assets/js/backup.js:409
 msgid "Run the following in the CLI"
 msgstr ""
 
@@ -958,7 +966,7 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: Backup.class.php:565
+#: Backup.class.php:573
 msgid "System Transfer"
 msgstr ""
 
@@ -1001,7 +1009,7 @@ msgstr ""
 msgid "The module %s returned no data, No backup created"
 msgstr ""
 
-#: assets/js/backup.js:332
+#: assets/js/backup.js:349
 #, perl-format
 msgid "There was an error during %s"
 msgstr ""
@@ -1010,19 +1018,19 @@ msgstr ""
 msgid "There was nothing to cleanup"
 msgstr ""
 
-#: Console/Backup.class.php:113 Console/Backup.class.php:183
+#: Console/Backup.class.php:113 Console/Backup.class.php:194
 msgid "There were errors during the backup process"
 msgstr ""
 
-#: Console/Backup.class.php:139 Console/Backup.class.php:236
+#: Console/Backup.class.php:139 Console/Backup.class.php:260
 msgid "There were errors during the restore process"
 msgstr ""
 
-#: Console/Backup.class.php:119 Console/Backup.class.php:189
+#: Console/Backup.class.php:119 Console/Backup.class.php:200
 msgid "There were warnings during the backup process"
 msgstr ""
 
-#: Console/Backup.class.php:145 Console/Backup.class.php:242
+#: Console/Backup.class.php:145 Console/Backup.class.php:266
 msgid "There were warnings during the restore process"
 msgstr ""
 
@@ -1087,7 +1095,7 @@ msgstr ""
 msgid "Unable to send backup email!"
 msgstr ""
 
-#: Backup.class.php:1078
+#: Backup.class.php:1108
 msgid "Uninstalled or Disabled"
 msgstr ""
 
@@ -1105,7 +1113,7 @@ msgid "Upload a valid backup.tar.gz"
 msgstr ""
 
 #: views/restore/landing.php:8
-msgid "Upload your restore file"
+msgid "Upload your restore filess"
 msgstr ""
 
 #: assets/js/backup.js:15
@@ -1140,6 +1148,14 @@ msgstr ""
 
 #: views/restore/processRestore.php:49
 msgid "Version in Backup"
+msgstr ""
+
+#: assets/js/backup.js:113
+msgid "View backup log"
+msgstr ""
+
+#: assets/js/backup.js:42
+msgid "View running restore"
 msgstr ""
 
 #: views/backup/warmspare.php:4
@@ -1180,12 +1196,12 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: assets/js/backup.js:329
+#: assets/js/backup.js:346
 #, perl-format
 msgid "Your %s has finished"
 msgstr ""
 
-#: Console/Backup.class.php:213
+#: Console/Backup.class.php:237
 #, php-format
 msgid "type is %s"
 msgstr ""

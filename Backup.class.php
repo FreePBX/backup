@@ -454,6 +454,8 @@ class Backup extends FreePBX_Helpers implements BMO {
 				header('Content-Type: text/event-stream');
 				header('Cache-Control: no-cache');
 				header('Connection: keep-alive');
+				header("Access-Control-Allow-Origin: *");
+				header('Access-Control-Allow-Credentials: true');
 				header('X-Accel-Buffering: no');//Nginx: unbuffered responses suitable for Comet and HTTP streaming applications
 				$location = $this->freepbx->Config->get('ASTLOGDIR');
 				(new SSE())->start(new Update(function () use ($location) {

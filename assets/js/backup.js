@@ -11,6 +11,7 @@ $(document).ready(function () {
 			previewsContainer: false
 		});
 		dz.on("sending",function() {
+			$("#uploadprogress").addClass('active');
 			$("#uploadrestore").html(_("Uploading...")+'<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>')
 		})
 		dz.on('success', function(file){
@@ -24,13 +25,11 @@ $(document).ready(function () {
 			$("#uploadrestore").html(_("Processing...")+'<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>')
 		})
 		dz.on('uploadprogress', function(event,progress,total){
+			console.log(progress);
 			if(progress < 100) {
-				$("#uploadrestore").html(sprintf(_("Uploading %s/100"),parseInt(progress))+'<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>')
-			} else {
-				$("#uploadrestore").html(_("Processing...")+'<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>')
+				$("#uploadprogress").text(progress.toFixed(2)+'%');
+				$("#uploadprogress").css('width', `${progress}%`);
 			}
-
-			$("#uploadprogress").css('width', `${progress}%`);
 		});
 	}
 

@@ -21,8 +21,8 @@ if(isset($error) && !empty($error)){
 							<i class="fa fa-upload"></i> <?php echo _('Click to upload a backup file.')?>
 						</div>
 						<div class="progress">
-  							<div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" data-last="0" aria-valuemax="100" id="uploadprogress">
-    							<span class="sr-only" id="filelabel"><?php echo _('Processing')?></span>
+  							<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuemin="0" data-last="0" aria-valuemax="100" id="uploadprogress" style="min-width: 3em;">
+    							0.00%
   							</div>
 						</div>
 

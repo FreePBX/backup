@@ -5,7 +5,7 @@ if(isset($error) && !empty($error)){
 ?>
 <div class="panel panel-primary">
 	<div class="panel-heading">
-		<h3 class="panel-title"><?php echo _("Upload your restore file")?></h3>
+		<h3 class="panel-title"><?php echo _("Upload your restore filess")?></h3>
 	</div>
 	<div class="panel-body">
 		<!--Backup File-->
@@ -120,3 +120,4 @@ if(isset($error) && !empty($error)){
 		</table>
 	</div>
 </div>
+<script>var runningRestore = <?php echo json_encode($runningRestore); ?>;</script>

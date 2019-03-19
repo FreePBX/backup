@@ -474,6 +474,14 @@ class Backup extends FreePBX_Helpers implements BMO {
 					$outFile = $location.'/'.$type.'_'.$job.'_out.log';
 					$errorFile = $location.'/'.$type.'_'.$job.'_err.log';
 
+					if(!file_exists($outFile)) {
+						if(posix_getpgid($pid) !== false) {
+							return json_encode(['status' => 'errored', 'log' => _("Log file is missing but process is still running!")]);
+						} else {
+							return json_encode(['status' => 'stopped', 'log' => _("Process is no longer running")]);
+						}
+
+					}
 					$log = file_get_contents($outFile);
 
 					if(posix_getpgid($pid) !== false) {
@@ -582,13 +590,14 @@ class Backup extends FreePBX_Helpers implements BMO {
 					return load_view(__DIR__.'/views/restore/landing.php',['error' => _("Couldn't find your file, please try submitting your file again.")]);
 				}
 				$fileClass = new BackupSplFileInfo($path);
-				$manifest = $fileClass->getMetadata($path);
+				$manifest = $fileClass->getMetadata();
 				$vars['meta']     = $manifest;
 				$vars['timestamp']     = $manifest['date'];
 				$vars['jsondata'] = $this->moduleJSONFromManifest($manifest);
 				$vars['id']       = $_GET['id'];
 				$vars['fileid']   = $fileid;
 				$vars['fileinfo'] = $fileClass;
+				$vars['runningRestore'] = null;
 				return load_view(__DIR__.'/views/restore/processRestore.php',$vars);
 			break;
 			default:
@@ -624,20 +633,41 @@ class Backup extends FreePBX_Helpers implements BMO {
 				if(isset($_GET['view']) && $_GET['view'] == 'transfer'){
 					return load_view(__DIR__.'/views/backup/transfer.php');
 				}
-				return load_view(__DIR__.'/views/backup/grid.php');
-			case  'restore'                           :
-			$view = isset($_GET['view'])?$_GET['view']: 'default';
-				switch ($view) {
-					case 'processrestore':
-
-					case 'restorerunning':
-						$vars['job']       = $_GET['id'];
-						$vars['proc']       = $_GET['proc'];
-					return load_view(__DIR__.'/views/restore/status.php',$vars);
-					break;
-					default:
-						return load_view(__DIR__.'/views/restore/landing.php');
+				$runningList = $this->freepbx->Backup->getAll("runningBackupJobs");
+				$runningList = is_array($runningList) ? $runningList : [];
+				$finalList = [];
+				foreach($runningList as $buid => $info) {
+					if(!posix_getpgid($info['pid'])) {
+						$this->freepbx->Backup->delConfig($buid,"runningBackupJobs");
+						continue;
+					}
+					$finalList[$buid] = $info;
 				}
+				return load_view(__DIR__.'/views/backup/grid.php',['runningBackups' => $finalList]);
+			case 'restore':
+				$view = isset($_GET['view'])?$_GET['view']: 'default';
+				$running = $this->freepbx->Backup->getConfig("runningRestoreJob");
+				if(!empty($running) && !posix_getpgid($running['pid'])) {
+					$this->freepbx->Backup->delConfig("runningRestoreJob");
+					return load_view(__DIR__.'/views/restore/landing.php');
+				} else {
+					$path = $this->pathFromId($running['fileid']);
+					if(empty($path)){
+						return load_view(__DIR__.'/views/restore/landing.php',['error' => _("Couldn't find your file, please try submitting your file again.")]);
+					}
+					$fileClass = new BackupSplFileInfo($path);
+					$manifest = $fileClass->getMetadata();
+					$vars['meta']     = $manifest;
+					$vars['timestamp']     = $manifest['date'];
+					$vars['jsondata'] = $this->moduleJSONFromManifest($manifest);
+					$vars['id']       = $_GET['id'];
+					$vars['fileid']   = $fileid;
+					$vars['fileinfo'] = $fileClass;
+					$vars['runningRestore'] = $running;
+					return load_view(__DIR__.'/views/restore/processRestore.php',$vars);
+				}
+
+
 			default:
 				return load_view(__DIR__.'/views/backup/grid.php');
 		}

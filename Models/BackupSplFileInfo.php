@@ -40,15 +40,9 @@ class BackupSplFileInfo extends SplFileInfo{
 	*
 	* @return array manifest
 	*/
-	public function getMetadata($cleanslate = true){
-		//define('BACKUPTMPDIR', '/var/spool/asterisk/tmp');
-		$backuptmpdir = '/var/spool/asterisk/tmp';
+	public function getMetadata(){
+		$backuptmpdir = sys_get_temp_dir().'/'.time();
 		$fileSystem = new Filesystem();
-
-		if(file_exists($backuptmpdir) && $cleanslate){
-
-			$fileSystem->remove(array($backuptmpdir));
-		}
 
 		$fileSystem->mkdir($backuptmpdir, 0755);
 

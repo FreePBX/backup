@@ -57,6 +57,7 @@
 	</div>
 </div>
 <script>
+var runningRestore = <?php echo json_encode($runningRestore); ?>;
 var fileid = "<?php echo $fileid?>";
 var thing = {data: <?php echo $jsondata?>}
 	$(document).ready(() => {

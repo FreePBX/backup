@@ -37,6 +37,11 @@ $(document).ready(function () {
 		e.preventDefault();
 		runRestore(fileid,'Running Restore');
 	});
+
+	if(runningRestore) {
+		showStatusModal(_('View running restore'))
+		getRestoreStatus(runningRestore.fileid, runningRestore.transaction, runningRestore.pid);
+	}
 });
 //end ready
 
@@ -100,6 +105,16 @@ $("#backup_backup").on('post-body.bs.table', function () {
 		var id = $(this).data('item');
 		runBackup(id,'Running Backup');
 	});
+
+	$("#backup_backup .view").click(function() {
+		var id = $(this).data('item');
+		var transaction = $(this).data('transactionId');
+		var pid = $(this).data('pid');
+		showStatusModal(_('View backup log'))
+		getBackupStatus(id, transaction, pid);
+	});
+
+
 });
 
 $("#restoreFiles").on("post-body.bs.table", function () {
@@ -320,6 +335,8 @@ function getStatus(type, id, transaction, pid) {
 	source.addEventListener("new-msgs", function(event){
 		var data = JSON.parse(event.data);
 
+		console.log(data);
+
 		if(data.log.length) {
 			$("#runModal .modal-body").html('<pre>'+data.log+'</pre>');
 		}
@@ -363,7 +380,11 @@ function processItems() {
 /** bootstrap tables formatters */
 function linkFormatter(value, row, index) {
 	let html = `<a href="?display=backup&view=editbackup&id=${value}"><i class="fa fa-pencil"></i></a>`;
-	html += `&nbsp;<a class="clickable run" data-item="${value}"><i class="fa fa-play"></i></a>`;
+	if(runningBackupJobs[row.id]) {
+		html += `&nbsp;<a class="clickable view" data-item="${value}" data-transaction-id="${runningBackupJobs[row.id].transaction}" data-pid="${runningBackupJobs[row.id].pid}"><i class="fa fa-eye"></i></a>`;
+	} else {
+		html += `&nbsp;<a class="clickable run" data-item="${value}"><i class="fa fa-play"></i></a>`;
+	}
 	html += `&nbsp;<a data-item="${value}" class="clicmd clickable"><i class="fa fa-terminal"></i></a>`;
 	html += `&nbsp;<a data-item="${value}" data-index="${index}" class="clickable delete"><i class="fa fa-trash"></i></a>`;
 	return html;

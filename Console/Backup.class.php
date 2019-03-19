@@ -155,6 +155,17 @@ class Backup extends Command {
 			break;
 			case $backup:
 				$buid = $input->getOption('backup');
+				$item = $this->freepbx->Backup->getBackup($buid);
+				if(empty($item)) {
+					throw new \Exception("Invalid backup id!");
+				}
+
+				$running = $this->freepbx->Backup->getConfig($buid,"runningBackupJobs");
+				if(!empty($running) && posix_getpgid($running['pid']) !== false) {
+					throw new \Exception("This backup is already running!");
+				}
+
+				$this->freepbx->Backup->setConfig($buid,["pid" => posix_getpid(), "transaction" => $transactionid],"runningBackupJobs");
 
 				$backupHandler = new Handler\Backup\Multiple($this->freepbx, $buid, $transactionid, posix_getpid());
 				if($input->getOption('fallback')){
@@ -192,6 +203,8 @@ class Backup extends Command {
 						}
 					}
 				}
+
+				$this->freepbx->Backup->delConfig($buid,"runningBackupJobs");
 				return;
 			break;
 			case $filestore:
@@ -205,6 +218,17 @@ class Backup extends Command {
 				$output->writeln(_('Done'));
 				$restore = $path;
 			case $restore:
+				if(!file_exists($restore)) {
+					throw new \Exception("File $restore does not exist or can not be found!");
+				}
+
+				$running = $this->freepbx->Backup->getConfig("runningRestoreJob");
+				if(!empty($running) && posix_getpgid($running['pid']) !== false) {
+					throw new \Exception("There is a restore already running!");
+				}
+
+				$this->freepbx->Backup->setConfig("runningRestoreJob",["pid" => posix_getpid(), "transaction" => $transactionid, "fileid" => md5($restore)]);
+
 				$output->write(_("Determining backup file type..."));
 				$backupType = $this->freepbx->Backup->determineBackupFileType($restore);
 				if($backupType === false){
@@ -245,6 +269,7 @@ class Backup extends Command {
 						}
 					}
 				}
+				$this->freepbx->Backup->delConfig("runningRestoreJob");
 			break;
 			case $dumpextern:
 				$backupdata = $this->freepbx->Backup->getBackup($input->getOption('dumpextern'));

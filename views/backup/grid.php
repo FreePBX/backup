@@ -26,3 +26,4 @@
         </tr>
     </thead>
 </table>
+<script>var runningBackupJobs = <?php echo json_encode($runningBackups)?>;</script>

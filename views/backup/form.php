@@ -226,7 +226,7 @@
 								<div class="row">
 									<div class="col-md-12">
 										<span id="backup_storage-help" class="help-block fpbx-help-block">
-											<?php echo _("Select one or more storage locations")?>
+											<?php echo _("Select one or more storage locations. Storage locations can be added/configured with the Filestore module")?>
 										</span>
 									</div>
 								</div>

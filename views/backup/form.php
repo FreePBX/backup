@@ -84,7 +84,7 @@
 								<div class="row">
 									<div class="col-md-12">
 										<span id="backup_items-help" class="help-block fpbx-help-block">
-											<?php echo _("Select items to backup, create new items in the Filestore module")?>
+											<?php echo _("Select items to backup")?>
 										</span>
 									</div>
 								</div>

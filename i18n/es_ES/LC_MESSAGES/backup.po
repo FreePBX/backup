@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-20 12:19-0400\n"
+"POT-Creation-Date: 2019-03-20 12:34-0400\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -906,7 +906,9 @@ msgid "Select items to backup, create new items in the Filestore module"
 msgstr ""
 
 #: views/backup/form.php:229
-msgid "Select one or more storage locations"
+msgid ""
+"Select one or more storage locations. Storage locations can be added/"
+"configured with the Filestore module"
 msgstr ""
 
 #: views/backup/form.php:437

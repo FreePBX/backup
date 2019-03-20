@@ -648,7 +648,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 				$view = isset($_GET['view'])?$_GET['view']: 'default';
 				$running = $this->freepbx->Backup->getConfig("runningRestoreJob");
 				if(empty($running) || !posix_getpgid($running['pid'])) {
-					$this->freepbx->Backup->delConfig("runningRestoreJob");
+					if(!empty($running) && !posix_getpgid($running['pid'])) {
+						$this->freepbx->Backup->delConfig("runningRestoreJob");
+					}
 					return load_view(__DIR__.'/views/restore/landing.php');
 				} else {
 					$path = $this->pathFromId($running['fileid']);

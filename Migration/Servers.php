@@ -80,7 +80,7 @@ class Servers extends Common {
 					$uuid = $this->handleSSH($server);
 				break;
 				case 'awss3':
-					$uuid = $this->handleS3($server);;
+					$uuid = $this->handleS3($server);
 				break;
 				default:
 					out(sprintf(_("Unable to map '%s' of type '%s"),$server['name'],$server['type']));

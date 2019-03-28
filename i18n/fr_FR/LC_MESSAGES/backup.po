@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-19 11:35+0530\n"
-"PO-Revision-Date: 2019-03-28 16:59+0000\n"
+"PO-Revision-Date: 2019-03-29 18:00+0000\n"
 "Last-Translator: jeremie cattan <freepbx@famillecattan.com>\n"
 "Language-Team: French <http://*/projects/freepbx/backup/fr/>\n"
 "Language: fr_FR\n"
@@ -1646,7 +1646,7 @@ msgstr ""
 #: bin/restore.php:118
 msgid "This archive cannot be used, because the version is not correct!!!"
 msgstr ""
-"Cette archive ne peut pas être utilisée car la version n'est pas correcte!!!"
+"Cette archive ne peut pas être utilisée car la version n'est pas correcte !!!"
 
 #: views/servers/ftp.php:166
 msgid ""

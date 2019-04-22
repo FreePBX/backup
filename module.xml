@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>14.0.10.4</version>
+	<version>14.0.10.5</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -19,6 +19,7 @@
 		<version>13.0.5</version>
 	</depends>
 	<changelog>
+		*14.0.10.5* FREEPBX-18571 
 		*14.0.10.4* FREEPBX-17567 
 		*14.0.10.3* FREEPBX-19416 
 		*14.0.10.2* Fixing FREEPBX-19491 Add backup fwconsole command to get status of jobs 

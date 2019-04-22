@@ -20,7 +20,7 @@ for($i = 0; $i < 60; $i++) {
 }
 $cron_hour_opts='';
 for($i = 0; $i < 24; $i++) {
-	$checked =  in_array($i, $cron_hour) ? 'SELECTED' : '';
+	$checked =  in_array("$i", $cron_hour) ? 'SELECTED' : '';
 	$cron_hour_opts .= '<option value='.$i.' '.$checked.'>'.sprintf("%02d", $i).'</option>';
 }
 $doy = array(
@@ -35,7 +35,7 @@ $doy = array(
 );
 $cron_dow_opts='';
 foreach ($doy as $k => $v) {
-	$checked = in_array($k, $cron_dow,true) ? 'SELECTED' : '';
+	$checked = in_array("$k", $cron_dow,true) ? 'SELECTED' : '';
 	$cron_dow_opts .= '<option value='.$k.' '.$checked.'>'.$v.'</option>';
 }
 //month
@@ -56,7 +56,7 @@ $moy = array(
 );
 $cron_month_opts='';
 foreach ($moy as $k => $v) {
-	$checked = in_array($k, $cron_month) ? 'SELECTED' : '';
+	$checked = in_array("$k", $cron_month) ? 'SELECTED' : '';
 	$cron_month_opts .= '<option value='.$k.' '.$checked.'>'.$v.'</option>';
 }
 //day of month

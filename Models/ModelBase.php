@@ -114,6 +114,15 @@ class ModelBase {
 	}
 
 	/**
+	 * Get PBX Version
+	 *
+	 * @return string
+	 */
+	public function getPBXVersion() {
+		return $this->data['pbx_version'];
+	}
+
+	/**
 	 * Logging functionality
 	 *
 	 * @param string $message

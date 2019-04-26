@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-26 16:40-0400\n"
+"POT-Creation-Date: 2019-04-26 16:48-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -378,6 +378,11 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
+#: Handlers/Backup/Multiple.php:159
+#, php-format
+msgid "Error Removing %s, %s"
+msgstr ""
+
 #: Handlers/FreePBXModule.php:29
 #, php-format
 msgid "Error installing %s reason(s): %s"
@@ -473,7 +478,7 @@ msgstr ""
 msgid "Finished"
 msgstr ""
 
-#: Handlers/Backup/Multiple.php:160
+#: Handlers/Backup/Multiple.php:164
 #: Handlers/Backup/Single.php:58
 msgid "Finished Cleaning up"
 msgstr ""
@@ -490,7 +495,7 @@ msgstr ""
 msgid "Finished Saving to selected Filestore locations"
 msgstr ""
 
-#: Handlers/Backup/Multiple.php:162
+#: Handlers/Backup/Multiple.php:166
 #: Handlers/Backup/Single.php:63
 #, php-format
 msgid "Finished created backup file: %s"
@@ -1019,7 +1024,7 @@ msgstr ""
 msgid "The address of the remote server."
 msgstr ""
 
-#: Handlers/Backup/Multiple.php:190
+#: Handlers/Backup/Multiple.php:194
 #, php-format
 msgid "The backup %s did not set a status and may have had an error"
 msgstr ""

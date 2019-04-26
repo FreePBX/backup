@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.12</version>
+	<version>15.0.8.13</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.13* Catch errors during cleanup but dont abort
 		*15.0.8.12* FREEPBX-19882
 		*15.0.8.11* FREEPBX-19679
 		*15.0.8.10* FREEPBX-19675

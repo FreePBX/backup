@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-20 12:34-0400\n"
+"POT-Creation-Date: 2019-04-26 16:40-0400\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -903,7 +903,7 @@ msgid "See attachment"
 msgstr ""
 
 #: views/backup/form.php:87
-msgid "Select items to backup, create new items in the Filestore module"
+msgid "Select items to backup"
 msgstr ""
 
 #: views/backup/form.php:229

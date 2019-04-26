@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-20 12:34-0400\n"
+"POT-Creation-Date: 2019-04-26 16:40-0400\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -912,7 +912,7 @@ msgid "See attachment"
 msgstr ""
 
 #: views/backup/form.php:87
-msgid "Select items to backup, create new items in the Filestore module"
+msgid "Select items to backup"
 msgstr ""
 
 #: views/backup/form.php:229

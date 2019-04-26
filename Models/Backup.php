@@ -80,8 +80,36 @@ class Backup extends ModelBase {
 		$this->data['dependencies'][] = $dependency;
 	}
 
-	public function addGarbage($data){
-		$this->data['garbage'][] = $data;
+	/**
+	 * Add Garbage that is cleaned up last
+	 *
+	 * deletes files, directories and symlinks
+	 *
+	 * @param string $file deletes files, directories and symlinks
+	 * @return void
+	 */
+	public function addGarbage($file){
+		$this->data['garbage'][] = $file;
+		$this->data['garbage'] = array_unique($this->data['garbage']);
+	}
+
+	/**
+	 * Add multiple files to the garabage list
+	 *
+	 * deletes files, directories and symlinks
+	 *
+	 * @param array $list deletes files, directories and symlinks
+	 * @return void
+	 */
+	public function addGarbages($list) {
+		if (empty($list)) {
+			return;
+		}
+		$this->modified = true;
+		foreach ($list as $file) {
+			$this->data['garbage'][] = $file;
+		}
+		$this->data['garbage'] = array_unique($this->data['garbage']);
 	}
 
 	/**

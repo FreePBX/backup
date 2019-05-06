@@ -137,7 +137,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 			}
 			/** Update Backup */
 			if(isset($_POST['backup_name'])){
-				$this->importRequest();
 				return $this->updateBackup();
 			}
 		}
@@ -1004,6 +1003,12 @@ class Backup extends FreePBX_Helpers implements BMO {
 			$this->scheduleJobs($id);
 		}
 	}
+
+
+	public function setConfig($setting = null, $value = false, $id = 'noid') {
+		return parent::setConfig($setting, $value, $id);
+	}
+
 	/**
 	 * Get individual backup setting
 	 *

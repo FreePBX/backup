@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-26 16:48-0400\n"
+"POT-Creation-Date: 2019-05-06 19:12-0400\n"
 "PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/backup/pl/"
@@ -108,7 +108,7 @@ msgstr "Zastosuj konfiguracje"
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
 
-#: Backup.class.php:1206
+#: Backup.class.php:1211
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -119,7 +119,7 @@ msgstr ""
 msgid "Backup"
 msgstr "Kopa zapasowa"
 
-#: Backup.class.php:955
+#: Backup.class.php:954
 #, php-format
 msgid "Backup %s"
 msgstr ""
@@ -150,7 +150,7 @@ msgstr "Kopia zapasowa & Przywracanie otoczenia FreePBX"
 msgid "Backup Date"
 msgstr ""
 
-#: Backup.class.php:277
+#: Backup.class.php:276
 msgid "Backup Deleted"
 msgstr ""
 
@@ -198,7 +198,7 @@ msgid ""
 "or until cleaned manually."
 msgstr ""
 
-#: Backup.class.php:406
+#: Backup.class.php:405
 msgid "Backup running"
 msgstr ""
 
@@ -262,7 +262,7 @@ msgstr ""
 msgid "Could not backup module %s because it is not enabled"
 msgstr ""
 
-#: Backup.class.php:370 Backup.class.php:378
+#: Backup.class.php:369 Backup.class.php:377
 msgid "Could not find a file for the id supplied"
 msgstr ""
 
@@ -275,11 +275,11 @@ msgstr ""
 msgid "Couldn't find %s"
 msgstr ""
 
-#: Backup.class.php:590 Backup.class.php:658
+#: Backup.class.php:589 Backup.class.php:657
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
-#: Backup.class.php:182 views/restore/landing.php:49
+#: Backup.class.php:181 views/restore/landing.php:49
 #: views/restore/landing.php:92 assets/js/backup.js:126 assets/js/backup.js:163
 msgid "Delete"
 msgstr "Skasuj"
@@ -339,7 +339,7 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1110 views/backup/form.php:249
+#: Backup.class.php:1115 views/backup/form.php:249
 msgid "Enabled"
 msgstr ""
 
@@ -435,7 +435,7 @@ msgstr ""
 msgid "Failure"
 msgstr ""
 
-#: Backup.class.php:286
+#: Backup.class.php:285
 msgid "File Deleted"
 msgstr ""
 
@@ -444,7 +444,7 @@ msgstr ""
 msgid "File named: %s"
 msgstr ""
 
-#: Backup.class.php:314
+#: Backup.class.php:313
 msgid "File reached the server but could not be processed"
 msgstr ""
 
@@ -502,11 +502,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1191
+#: Backup.class.php:1196
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1197
+#: Backup.class.php:1202
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -559,11 +559,11 @@ msgstr ""
 msgid "Inline Logs"
 msgstr ""
 
-#: Backup.class.php:542
+#: Backup.class.php:541
 msgid "Invalid Backup ID"
 msgstr ""
 
-#: Backup.class.php:244 Backup.class.php:292
+#: Backup.class.php:243 Backup.class.php:291
 msgid "Invalid ID Provided"
 msgstr ""
 
@@ -610,7 +610,7 @@ msgstr ""
 msgid "Loading supplied database file %s"
 msgstr ""
 
-#: Backup.class.php:479
+#: Backup.class.php:478
 msgid "Log file is missing but process is still running!"
 msgstr ""
 
@@ -626,7 +626,7 @@ msgstr ""
 msgid "Migrating legacy backups to the new backup"
 msgstr ""
 
-#: Backup.class.php:466
+#: Backup.class.php:465
 msgid "Missing id or transaction or pid"
 msgstr ""
 
@@ -666,15 +666,15 @@ msgstr "Nie"
 msgid "No Storage Locations"
 msgstr ""
 
-#: Backup.class.php:392
+#: Backup.class.php:391
 msgid "No backup id provided"
 msgstr ""
 
-#: Backup.class.php:311
+#: Backup.class.php:310
 msgid "No file provided"
 msgstr ""
 
-#: Backup.class.php:579
+#: Backup.class.php:578
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
@@ -704,7 +704,7 @@ msgstr ""
 msgid "Performing Remote Maintenance"
 msgstr ""
 
-#: Backup.class.php:481
+#: Backup.class.php:480
 msgid "Process is no longer running"
 msgstr ""
 
@@ -749,7 +749,7 @@ msgstr ""
 msgid "Removing table %s."
 msgstr ""
 
-#: Backup.class.php:167 views/backup/form.php:448
+#: Backup.class.php:166 views/backup/form.php:448
 msgid "Reset"
 msgstr ""
 
@@ -783,7 +783,7 @@ msgstr ""
 msgid "Restore from the cloud"
 msgstr ""
 
-#: Backup.class.php:389
+#: Backup.class.php:388
 msgid "Restore running"
 msgstr ""
 
@@ -806,7 +806,7 @@ msgstr ""
 msgid "Run Date"
 msgstr ""
 
-#: Backup.class.php:158
+#: Backup.class.php:157
 msgid "Run Restore"
 msgstr ""
 
@@ -852,7 +852,7 @@ msgstr ""
 msgid "Running a restore will overwrite current data. This cannot be undone!"
 msgstr ""
 
-#: Backup.class.php:172
+#: Backup.class.php:171
 msgid "Save"
 msgstr "Zapisz"
 
@@ -860,7 +860,7 @@ msgstr "Zapisz"
 msgid "Save Changes"
 msgstr ""
 
-#: Backup.class.php:177
+#: Backup.class.php:176
 msgid "Save and Run"
 msgstr "Zapisz i uruchom"
 
@@ -922,11 +922,11 @@ msgid ""
 "requirement. Framework should be removed as a dependency"
 msgstr ""
 
-#: Backup.class.php:263 Backup.class.php:288
+#: Backup.class.php:262 Backup.class.php:287
 msgid "Something failed, The file may need to be removed manually."
 msgstr ""
 
-#: Backup.class.php:279
+#: Backup.class.php:278
 msgid "Something failed."
 msgstr ""
 
@@ -960,7 +960,7 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: Backup.class.php:573
+#: Backup.class.php:572
 msgid "System Transfer"
 msgstr ""
 
@@ -1089,7 +1089,7 @@ msgstr ""
 msgid "Unable to send backup email!"
 msgstr ""
 
-#: Backup.class.php:1110
+#: Backup.class.php:1115
 msgid "Uninstalled or Disabled"
 msgstr ""
 
@@ -1156,11 +1156,11 @@ msgstr ""
 msgid "Warm Spare"
 msgstr ""
 
-#: Backup.class.php:251 Backup.class.php:301
+#: Backup.class.php:250 Backup.class.php:300
 msgid "We can't seem to delete the chosen file"
 msgstr ""
 
-#: Backup.class.php:248 Backup.class.php:296
+#: Backup.class.php:247 Backup.class.php:295
 msgid "We don't have permissions to this file"
 msgstr ""
 

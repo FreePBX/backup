@@ -5,7 +5,7 @@ if(isset($error) && !empty($error)){
 ?>
 <div class="panel panel-primary">
 	<div class="panel-heading">
-		<h3 class="panel-title"><?php echo _("Upload your restore filess")?></h3>
+		<h3 class="panel-title"><?php echo _("Upload your restore files")?></h3>
 	</div>
 	<div class="panel-body">
 		<!--Backup File-->

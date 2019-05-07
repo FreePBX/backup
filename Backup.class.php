@@ -610,7 +610,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			case 'settings':
 				$vars = [];
 				$hdir = $this->getAsteriskUserHomeDir();
-				$file = $hdir.'/.ssh/id_rsa.pub';
+				$file = $hdir.'/.ssh/id_rsa';
 				if (!file_exists($file)) {
 					$ssh = new FilestoreRemote();
 					$ssh->generateKey($hdir.'/.ssh');

@@ -30,8 +30,8 @@ class Multiple extends Common {
 		$this->id = $id;
 		$spooldir = $freepbx->Config->get("ASTSPOOLDIR");
 		$this->backupInfo = $freepbx->Backup->getBackup($this->id);
-		$underscoreName = str_replace(' ', '_', $this->backupInfo['backup_name']);
-		$filePath = sprintf('%s/backup/%s',$spooldir,$underscoreName);
+		$this->underscoreName = str_replace(' ', '_', $this->backupInfo['backup_name']);
+		$filePath = sprintf('%s/backup/%s',$spooldir,$this->underscoreName);
 		parent::__construct($freepbx, $filePath, $transactionId, $pid);
 	}
 
@@ -129,7 +129,9 @@ class Multiple extends Common {
 				}
 			}
 
-			$cleanup[$mod['ucfirst']] = $moddata['garbage'];
+			if(!empty($moddata['garbage'])) {
+				$cleanup[$mod['ucfirst']] = $moddata['garbage'];
+			}
 			$modInfo = $this->freepbx->Modules->getInfo($mod['rawname']);
 			$manifest['modules'][] = ['module' => $mod['rawname'], 'version' => $modInfo[$mod['rawname']]['version']];
 		}

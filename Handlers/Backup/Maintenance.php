@@ -41,7 +41,7 @@ class Maintenance extends \FreePBX\modules\Backup\Handlers\CommonBase {
 			}
 			$backupDate = Carbon::createFromTimestamp($parsed['timestamp'], 'UTC');
 			if(isset($this->backupInfo['maintage']) && $this->backupInfo['maintage'] > 1){
-				if($backupDate->diffInDays() > $backupInfo['maintage']){
+				if($backupDate->diffInDays() > $this->backupInfo['maintage']){
 					$this->log(sprintf("Removing %s/%s",$file->getPath(),$file->getBasename().'.tar.gz'),'DEBUG');
 					if($this->dryrun){
 						continue;
@@ -94,7 +94,7 @@ class Maintenance extends \FreePBX\modules\Backup\Handlers\CommonBase {
 				}
 				$backupDate = Carbon::createFromTimestamp($parsed['timestamp'], 'UTC');
 				if(isset($this->backupInfo['maintage']) && $this->backupInfo['maintage'] > 1){
-					if($backupDate->diffInDays() > $backupInfo['maintage']){
+					if($backupDate->diffInDays() > $this->backupInfo['maintage']){
 						try {
 							$this->log("\t".sprintf(_("Removing %s"),$file['path']),'DEBUG');
 							if($this->dryrun){

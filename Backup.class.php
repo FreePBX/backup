@@ -521,6 +521,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 	}
 
 	public function getRightNav($request) {
+		if (!isset($request['view'])) {
+			return false;
+		}
 		switch($request['view']) {
 			case 'addbackup':
 			case 'editbackup':
@@ -574,6 +577,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 				return load_view(__DIR__.'/views/backup/form.php',$vars);
 			break;
 			case 'processrestore':
+				$vars['runningRestore'] = null;
 				if(!isset($_GET['fileid']) || empty($_GET['fileid'])){
 					return load_view(__DIR__.'/views/restore/landing.php',['error' => _("No id was specified to process. Please try submitting your file again.")]);
 				}
@@ -596,7 +600,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 				$vars['id']       = $_GET['id'];
 				$vars['fileid']   = $fileid;
 				$vars['fileinfo'] = $fileClass;
-				$vars['runningRestore'] = null;
 				return load_view(__DIR__.'/views/restore/processRestore.php',$vars);
 			break;
 			default:

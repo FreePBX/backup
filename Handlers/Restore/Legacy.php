@@ -59,21 +59,23 @@ class Legacy extends Common {
 		$this->log(sprintf(_("Found %s database files in the backup."),count($files)));
 		foreach($files as $file){
 			$this->log(sprintf(_("File named: %s"),$file));
-			$dbh = $this->setupTempDb($file);
-			$loadedTables = $dbh->query("SELECT name FROM sqlite_master WHERE type='table'");
-			$versions = $dbh->query("SELECT modulename, version FROM modules")->fetchAll(\PDO::FETCH_KEY_PAIR);
-			while ($current = $loadedTables->fetch(PDO::FETCH_COLUMN)) {
-				if(!isset($tables[$current])){
-					$tableMap['unknown'][] = $current;
-					continue;
-				}
-				$tableMap[$tables[$current]][] = $current;
-			}
 			$dt = $this->data['manifest']['fpbx_cdrdb'];
 			$scndCndtn = preg_match("/$dt/i",$file);
 			if(!empty($dt) && $scndCndtn){
 				//$this->processLegacyCdr($data);
+				$this->log(sprintf(_("Detected file %s as legacy CDR which are not supported at this time. You will have to manually restore it"),$file));
 			}else{
+				$this->log(sprintf(_("Detected file %s as the PBX (Asterisk) database. Attempting restore"),$file));
+				$dbh = $this->setupTempDb($file);
+				$loadedTables = $dbh->query("SELECT name FROM sqlite_master WHERE type='table'");
+				$versions = $dbh->query("SELECT modulename, version FROM modules")->fetchAll(\PDO::FETCH_KEY_PAIR);
+				while ($current = $loadedTables->fetch(PDO::FETCH_COLUMN)) {
+					if(!isset($tables[$current])){
+						$tableMap['unknown'][] = $current;
+						continue;
+					}
+					$tableMap[$tables[$current]][] = $current;
+				}
 				$this->processLegacyNormal($dbh, $tableMap, $versions);
 			}
 		}
@@ -129,15 +131,7 @@ class Legacy extends Common {
 	public function processLegacyCdr($info){
 		foreach ($info['final'] as $key => $value) {
 			if($key === 'cdr' || $key === 'cel' || $key === 'queuelog'){
-				$namespace = '\\FreePBX\\modules\\'.ucfirst($key).'\\Restore';
-				if(!class_exists($namespace)){
-					sprintf(_("Couldn't find %s").PHP_EOL,$namespace);
-					continue;
-				}
-				$class = new $namespace(null,$this->freepbx, $this->tmp);
-				$this->log(sprintf(_("Calling legacy restore on module %s"),$key));
-				$class->reset();
-				$class->processLegacy($info['pdo'], $this->data, $value, $info['final']['unknown'],$this->tmp);
+
 			}else{
 				continue;
 			}

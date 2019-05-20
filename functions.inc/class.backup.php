@@ -823,7 +823,7 @@ class Backup {
 		foreach($delete as $key => $file) {
 			switch($type) {
 				case 'local':
-					unlink(backup__($data['path']) . '/' . $this->b['_dirname'] . '/' . $file);
+					@unlink(backup__($data['path']) . '/' . $this->b['_dirname'] . '/' . $file);
 					unset($delete[$key]);
 					break;
 				case 'ftp':

@@ -132,7 +132,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 	public function doConfigPageInit($page) {
 		if($page == 'backup'){
 			/** Delete Backup */
-			if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'delete'){
+			if(isset($_REQUEST['action']) && (($_REQUEST['action'] == 'delete') || ($_REQUEST['action'] == 'del'))) {
 				return $this->deleteBackup($_REQUEST['id']);
 			}
 			/** Update Backup */

@@ -1,5 +1,6 @@
 <script>
 var backup_jobs = [];
+var runningRestore=false;
 <?php
 $bkjobs = FreePBX::Backup()->listBackups();
 if (!empty($bkjobs)) {
@@ -7,7 +8,6 @@ if (!empty($bkjobs)) {
 		$tmp_name_list[] = $bk['name'];
 	}
 	echo "bkjob_names = " . json_encode($tmp_name_list) . ";";
-	echo "runningRestore = false";
 }
 ?>
 </script>

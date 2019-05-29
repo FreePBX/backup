@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-17 14:18-0400\n"
+"POT-Creation-Date: 2019-05-29 13:36+0530\n"
 "PO-Revision-Date: 2017-03-06 03:04+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -21,20 +21,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: views/backup/form.php:2
+#: views/backup/form.php:16
 #, php-format
 msgid "%s Backup %s"
 msgstr ""
 
-#: views/backup/form.php:348 views/backup/form.php:351
-#: views/backup/form.php:354 views/backup/form.php:357
+#: views/backup/form.php:362 views/backup/form.php:365
+#: views/backup/form.php:368 views/backup/form.php:371
 #, php-format
 msgid "%s Days"
 msgstr ""
 
-#: views/backup/form.php:360 views/backup/form.php:363
-#: views/backup/form.php:366 views/backup/form.php:369
-#: views/backup/form.php:372
+#: views/backup/form.php:374 views/backup/form.php:377
+#: views/backup/form.php:380 views/backup/form.php:383
+#: views/backup/form.php:386
 #, php-format
 msgid "%s Days (%s Months)"
 msgstr ""
@@ -54,7 +54,7 @@ msgstr ""
 msgid "%s is now loaded into memory"
 msgstr ""
 
-#: views/backup/form.php:37
+#: views/backup/form.php:51
 msgid "A name used to identify your backups"
 msgstr ""
 
@@ -63,7 +63,7 @@ msgstr ""
 msgid "Actions"
 msgstr "Aktionen"
 
-#: views/backup/form.php:2
+#: views/backup/form.php:16
 msgid "Add"
 msgstr ""
 
@@ -71,7 +71,7 @@ msgstr ""
 msgid "Add Backup"
 msgstr ""
 
-#: views/backup/form.php:61
+#: views/backup/form.php:75
 msgid "Add a description for your backup"
 msgstr ""
 
@@ -107,7 +107,7 @@ msgstr ""
 msgid "Apply Configs"
 msgstr "Konfigurationen anwenden"
 
-#: assets/js/backup.js:125 assets/js/backup.js:162
+#: assets/js/backup.js:139 assets/js/backup.js:176
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
 
@@ -118,7 +118,11 @@ msgid ""
 "Aborting"
 msgstr ""
 
-#: views/landing.php:13
+#: functions.inc/class.backup.php:411 functions.inc/class.backup.php:414
+msgid "BACKUP NOT ATTACHED"
+msgstr "Sicherung nicht angehängt"
+
+#: functions.inc/class.backup.php:405 views/landing.php:13
 msgid "Backup"
 msgstr "Sicherung"
 
@@ -157,9 +161,17 @@ msgstr ""
 msgid "Backup Deleted"
 msgstr ""
 
-#: views/backup/form.php:49
+#: views/backup/form.php:63
 msgid "Backup Description"
 msgstr "Sicherungsbeschreibung"
+
+#: functions.inc/class.backup.php:410
+msgid "Backup ERROR (exceeded SMTP limits)"
+msgstr "Sicherungsfehler (überschrittene SMTP-Grenzwerte)"
+
+#: functions.inc/class.backup.php:413
+msgid "Backup ERROR (exceeded soft limit)"
+msgstr "Sicherungsfehler (Softlimit überschritten)"
 
 #: views/restore/landing.php:16
 msgid "Backup File"
@@ -173,11 +185,15 @@ msgstr ""
 msgid "Backup Instance"
 msgstr ""
 
-#: views/backup/form.php:73
+#: views/backup/form.php:87
 msgid "Backup Items"
 msgstr "Sicherungselemente"
 
-#: views/backup/form.php:25 views/restore/landing.php:70
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "Sicherungsmodule"
+
+#: views/backup/form.php:39 views/restore/landing.php:70
 #: views/restore/landing.php:113
 msgid "Backup Name"
 msgstr "Sicherungsname"
@@ -201,15 +217,28 @@ msgid ""
 "or until cleaned manually."
 msgstr ""
 
+#: functions.inc/class.backup.php:296
+#, php-format
+msgid ""
+"Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
+"backup from server [%s]."
+msgstr ""
+"Backup der SQL-Datenbank [%s] in die Datei [%s] nicht erfolgreich, Sie haben "
+"ein fehlerhaftes Backup vom Server [%s]."
+
+#: functions.inc/class.backup.php:499
+msgid "Backup file uploaded to the remote server"
+msgstr ""
+
 #: Backup.class.php:405
 msgid "Backup running"
 msgstr ""
 
-#: views/backup/form.php:15
+#: views/backup/form.php:29
 msgid "Basic Information"
 msgstr "Grundlegende Information"
 
-#: views/backup/form.php:186
+#: views/backup/form.php:200
 msgid "Both"
 msgstr ""
 
@@ -218,7 +247,7 @@ msgstr ""
 msgid "Can't find the module data for %s"
 msgstr ""
 
-#: assets/js/backup.js:126 assets/js/backup.js:163
+#: assets/js/backup.js:140 assets/js/backup.js:177
 msgid "Cancel"
 msgstr ""
 
@@ -239,7 +268,7 @@ msgstr ""
 msgid "Click to upload a backup file."
 msgstr ""
 
-#: views/backup/form.php:451 views/runModal.php:12
+#: views/backup/form.php:465 views/runModal.php:12
 msgid "Close"
 msgstr ""
 
@@ -260,6 +289,11 @@ msgstr ""
 msgid "Could not backup module %s because it is not enabled"
 msgstr ""
 
+#: functions.inc/class.backup.php:841
+#, php-format
+msgid "Could not find %s on the remote system"
+msgstr ""
+
 #: Backup.class.php:369 Backup.class.php:377
 msgid "Could not find a file for the id supplied"
 msgstr ""
@@ -272,16 +306,25 @@ msgstr ""
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
+#: functions.inc/class.backup.php:398
+msgid "Created"
+msgstr "Erstellt"
+
+#: functions.inc/class.backup.php:477
+#, php-format
+msgid "Creating directory '%s'"
+msgstr "Erstelle Verzeichnis '%s'"
+
 #: Backup.class.php:181 views/restore/landing.php:49
-#: views/restore/landing.php:92 assets/js/backup.js:126 assets/js/backup.js:163
+#: views/restore/landing.php:92 assets/js/backup.js:140 assets/js/backup.js:177
 msgid "Delete"
 msgstr "Löschen"
 
-#: views/backup/form.php:338
+#: views/backup/form.php:352
 msgid "Delete After Days"
 msgstr ""
 
-#: views/backup/form.php:314
+#: views/backup/form.php:328
 msgid "Delete After Runs"
 msgstr ""
 
@@ -311,6 +354,12 @@ msgstr ""
 msgid "Determining backup file type..."
 msgstr ""
 
+#: functions.inc/class.backup.php:481
+#, php-format
+msgid "Directory '%s' did not exist and we could not create it"
+msgstr ""
+"Das Verzeichnis '%s' existiert nicht und es konnte nicht erstellt werden"
+
 #: Console/Backup.class.php:218 Handlers/Restore/Common.php:106
 #: Handlers/Restore/Legacy.php:180
 msgid "Done"
@@ -320,15 +369,19 @@ msgstr ""
 msgid "Donor"
 msgstr ""
 
-#: views/backup/form.php:2
+#: views/backup/form.php:16
 msgid "Edit"
 msgstr ""
 
-#: views/backup/form.php:166
+#: backup.i18n.php:14
+msgid "Email "
+msgstr "E-Mail "
+
+#: views/backup/form.php:180
 msgid "Email Type"
 msgstr ""
 
-#: views/backup/form.php:119
+#: views/backup/form.php:133
 msgid "Email address to send notifications to."
 msgstr ""
 
@@ -340,11 +393,11 @@ msgstr ""
 msgid "Enable Remote Trunks"
 msgstr ""
 
-#: views/backup/form.php:270
+#: views/backup/form.php:284
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1118 views/backup/form.php:249
+#: Backup.class.php:1118 views/backup/form.php:263
 msgid "Enabled"
 msgstr ""
 
@@ -356,7 +409,7 @@ msgstr ""
 "Das Gleiche, wie auf den Roten Button zu drücken, passiert automatisch nach "
 "einer Wiederherstellung (restore) auf einem Standby-System"
 
-#: assets/js/backup.js:259 assets/js/backup.js:278 assets/js/backup.js:349
+#: assets/js/backup.js:273 assets/js/backup.js:292 assets/js/backup.js:363
 msgid "Error"
 msgstr ""
 
@@ -364,6 +417,15 @@ msgstr ""
 #, php-format
 msgid "Error Removing %s, %s"
 msgstr ""
+
+#: functions.inc/class.backup.php:471
+msgid "Error creating the FTP object"
+msgstr "Fehler beim Erstellen des FTP-Objekts"
+
+#: functions.inc/class.backup.php:848
+#, php-format
+msgid "Error deleting %s"
+msgstr "Fehler %s löschen"
 
 #: Handlers/FreePBXModule.php:29
 #, php-format
@@ -438,7 +500,7 @@ msgstr ""
 msgid "Extracting supplied database file %s"
 msgstr ""
 
-#: views/backup/form.php:181
+#: views/backup/form.php:195
 msgid "Failure"
 msgstr ""
 
@@ -454,6 +516,10 @@ msgstr ""
 #: Backup.class.php:313
 msgid "File reached the server but could not be processed"
 msgstr ""
+
+#: functions.inc/class.backup.php:399
+msgid "Files"
+msgstr "Dateien"
 
 #: Handlers/Restore/Multiple.php:66 Handlers/Restore/Single.php:34
 msgid "Finished"
@@ -497,13 +563,13 @@ msgstr ""
 msgid "Global Settings"
 msgstr ""
 
-#: views/backup/form.php:381
+#: views/backup/form.php:395
 msgid ""
 "How long to maintain backups. Example 30 will delete anything older than 30 "
 "days."
 msgstr ""
 
-#: views/backup/form.php:326
+#: views/backup/form.php:340
 msgid ""
 "How many updates to keep. If this number is 3, the last 3 will be kept. 0 is "
 "unlimited"
@@ -562,7 +628,7 @@ msgstr ""
 msgid "In single restores mode dependencies are NOT processed"
 msgstr ""
 
-#: views/backup/form.php:131
+#: views/backup/form.php:145
 msgid "Inline Logs"
 msgstr ""
 
@@ -600,7 +666,7 @@ msgstr ""
 msgid "List Backups"
 msgstr ""
 
-#: assets/js/backup.js:289
+#: assets/js/backup.js:303
 msgid "Loading Please Wait"
 msgstr ""
 
@@ -621,7 +687,7 @@ msgstr ""
 msgid "Log file is missing but process is still running!"
 msgstr ""
 
-#: views/backup/form.php:304
+#: views/backup/form.php:318
 msgid "Maintinence"
 msgstr ""
 
@@ -637,11 +703,11 @@ msgstr ""
 msgid "Missing id or transaction or pid"
 msgstr ""
 
-#: views/backup/form.php:440 views/restore/processRestore.php:48
+#: views/backup/form.php:454 views/restore/processRestore.php:48
 msgid "Module"
 msgstr ""
 
-#: views/backup/form.php:79
+#: views/backup/form.php:93
 msgid "Modules"
 msgstr ""
 
@@ -649,7 +715,7 @@ msgstr ""
 msgid "Modules in this backup"
 msgstr ""
 
-#: views/backup/form.php:416
+#: views/backup/form.php:430
 msgid "Modules to Backup"
 msgstr ""
 
@@ -657,19 +723,23 @@ msgstr ""
 msgid "Moving servers to filestore"
 msgstr ""
 
-#: views/backup/grid.php:23 views/restore/processRestore.php:14
-#: views/rnav.php:8
+#: functions.inc/class.backup.php:400
+msgid "Mysql Db's"
+msgstr "MySQL DB's"
+
+#: functions.inc/class.backup.php:397 views/backup/grid.php:23
+#: views/restore/processRestore.php:14 views/rnav.php:8
 msgid "Name"
 msgstr "Name"
 
-#: views/backup/form.php:146 views/backup/form.php:262
+#: views/backup/form.php:160 views/backup/form.php:276
 #: views/backup/warmspare.php:25 views/backup/warmspare.php:56
 #: views/backup/warmspare.php:87 views/backup/warmspare.php:120
 #: views/backup/warmspare.php:151 views/backup/warmspare.php:182
 msgid "No"
 msgstr "Nein"
 
-#: assets/js/backup.js:203
+#: assets/js/backup.js:217
 msgid "No Storage Locations"
 msgstr ""
 
@@ -685,11 +755,11 @@ msgstr ""
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
-#: views/backup/form.php:107
+#: views/backup/form.php:121
 msgid "Notification Email"
 msgstr ""
 
-#: views/backup/form.php:97
+#: views/backup/form.php:111
 msgid "Notifications"
 msgstr "Benachrichtigungen"
 
@@ -701,6 +771,11 @@ msgstr ""
 #: Handlers/Restore/Legacy.php:45
 msgid ""
 "Parsing out SQL tables. This may take a moment depending on backup size."
+msgstr ""
+
+#: functions.inc/class.backup.php:837 functions.inc/class.backup.php:838
+#, php-format
+msgid "Path: %s"
 msgstr ""
 
 #: Console/Backup.class.php:177
@@ -756,7 +831,7 @@ msgstr ""
 msgid "Removing table %s."
 msgstr ""
 
-#: Backup.class.php:166 views/backup/form.php:448
+#: Backup.class.php:166 views/backup/form.php:462
 msgid "Reset"
 msgstr "Zurücksetzen"
 
@@ -817,7 +892,7 @@ msgstr ""
 msgid "Run Restore"
 msgstr ""
 
-#: assets/js/backup.js:409
+#: assets/js/backup.js:423
 msgid "Run the following in the CLI"
 msgstr ""
 
@@ -859,17 +934,25 @@ msgstr ""
 msgid "Running a restore will overwrite current data. This cannot be undone!"
 msgstr ""
 
+#: functions.inc/class.backup.php:500
+msgid "Running maintenance.."
+msgstr ""
+
 #: Backup.class.php:171
 msgid "Save"
 msgstr "Speichern"
 
-#: views/backup/form.php:454
+#: views/backup/form.php:468
 msgid "Save Changes"
 msgstr ""
 
 #: Backup.class.php:176
 msgid "Save and Run"
 msgstr "Speichern und Starten"
+
+#: functions.inc/class.backup.php:488
+msgid "Saving file to remote ftp"
+msgstr "Datei auf FTP-Server speichern"
 
 #: Handlers/Storage.php:30
 msgid "Saving to selected Filestore locations"
@@ -880,11 +963,11 @@ msgstr ""
 msgid "Saving to: %s:'%s' instance"
 msgstr ""
 
-#: views/backup/form.php:239
+#: views/backup/form.php:253
 msgid "Schedule and Maintinence"
 msgstr ""
 
-#: views/backup/form.php:282
+#: views/backup/form.php:296
 msgid "Scheduling"
 msgstr ""
 
@@ -892,17 +975,17 @@ msgstr ""
 msgid "See attachment"
 msgstr ""
 
-#: views/backup/form.php:87
+#: views/backup/form.php:101
 msgid "Select items to backup"
 msgstr ""
 
-#: views/backup/form.php:229
+#: views/backup/form.php:243
 msgid ""
 "Select one or more storage locations. Storage locations can be added/"
 "configured with the Filestore module"
 msgstr ""
 
-#: views/backup/form.php:437
+#: views/backup/form.php:451
 msgid "Selected"
 msgstr ""
 
@@ -950,11 +1033,11 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: views/backup/form.php:205
+#: views/backup/form.php:219
 msgid "Storage"
 msgstr ""
 
-#: views/backup/form.php:215
+#: views/backup/form.php:229
 msgid "Storage Location"
 msgstr ""
 
@@ -963,7 +1046,7 @@ msgstr ""
 msgid "Storage Location: %s"
 msgstr ""
 
-#: views/backup/form.php:176
+#: views/backup/form.php:190
 msgid "Success"
 msgstr ""
 
@@ -981,6 +1064,15 @@ msgstr ""
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
 
+#: assets/js/backup.js:53
+#, perl-format
+msgid "The Backup job name %s is already in used, please use a different name."
+msgstr ""
+
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr "Von: Ein Feld für E-Mails, wenn Sie das E-Mail-Feature verwenden."
+
 #: views/backup/warmspare.php:214
 msgid "The address of the remote server."
 msgstr ""
@@ -989,6 +1081,28 @@ msgstr ""
 #, php-format
 msgid "The backup %s did not set a status and may have had an error"
 msgstr ""
+
+#: functions.inc/class.backup.php:411
+msgid ""
+"The backup file exceeded the maximum SMTP limits of 25MB. It was not "
+"attempted to be sent. Please shrink your backup, or use a different method "
+"of transferring your backup."
+msgstr ""
+"Die Sicherungsdatei überschritt die maximalen SMTP-Grenzwerte von 25 MB. Es "
+"wurde nicht versucht zu senden. Bitte verkleinern Sie Ihre Sicherung oder "
+"verwenden Sie eine andere Methode die Sicherung zu übertragen."
+
+#: functions.inc/class.backup.php:414
+#, php-format
+msgid ""
+"The backup file exceeded the soft limit set in SMTP configuration (%s "
+"bytes). It was not attempted to be sent. Please shrink your backup, or use a "
+"different method of transferring your backup."
+msgstr ""
+"Die Sicherungsdatei überschritt die Soft-Limit-Einstellung in der SMTP-"
+"Konfiguration (%s Bytes). Es wurde nicht versucht zu senden. Bitte "
+"verkleinern Sie Ihre Sicherung oder verwenden Sie eine andere Methode die "
+"Sicherung zu übertragen."
 
 #: Handlers/Restore/Common.php:92
 #, php-format
@@ -1010,7 +1124,7 @@ msgstr ""
 msgid "The module %s returned no data, No backup created"
 msgstr ""
 
-#: assets/js/backup.js:349
+#: assets/js/backup.js:363
 #, perl-format
 msgid "There was an error during %s"
 msgstr ""
@@ -1074,6 +1188,11 @@ msgstr ""
 msgid "Transfer Id"
 msgstr ""
 
+#: functions.inc/class.backup.php:493
+#, php-format
+msgid "Trying to upload %s to %s"
+msgstr ""
+
 #: Migration/Servers.php:86
 #, php-format
 msgid "Unable to map '%s' of type '%s"
@@ -1096,6 +1215,10 @@ msgstr ""
 msgid "Unable to send backup email!"
 msgstr ""
 
+#: functions.inc/class.backup.php:491
+msgid "Unable to upload file to the remote server"
+msgstr "Die Datei kann nicht auf dem Remoteserver hochgeladen werden"
+
 #: Backup.class.php:1118
 msgid "Uninstalled or Disabled"
 msgstr ""
@@ -1105,7 +1228,7 @@ msgstr ""
 msgid "Unknown module %s"
 msgstr ""
 
-#: views/backup/form.php:345
+#: views/backup/form.php:359
 msgid "Unlimited"
 msgstr ""
 
@@ -1151,7 +1274,7 @@ msgstr ""
 msgid "Version in Backup"
 msgstr ""
 
-#: assets/js/backup.js:113
+#: assets/js/backup.js:127
 msgid "View backup log"
 msgstr ""
 
@@ -1171,17 +1294,17 @@ msgstr ""
 msgid "We don't have permissions to this file"
 msgstr ""
 
-#: views/backup/form.php:155
+#: views/backup/form.php:169
 msgid ""
 "When set to Yes logs will be added to the body of the email, when set to No "
 "logs will be added as an attachment"
 msgstr ""
 
-#: views/backup/form.php:294
+#: views/backup/form.php:308
 msgid "When should this backup run"
 msgstr ""
 
-#: views/backup/form.php:195
+#: views/backup/form.php:209
 msgid "When to email"
 msgstr ""
 
@@ -1190,31 +1313,30 @@ msgstr ""
 msgid "Working with %s module"
 msgstr ""
 
-#: views/backup/form.php:141 views/backup/form.php:257
+#: views/backup/form.php:155 views/backup/form.php:271
 #: views/backup/warmspare.php:21 views/backup/warmspare.php:52
 #: views/backup/warmspare.php:83 views/backup/warmspare.php:115
 #: views/backup/warmspare.php:147 views/backup/warmspare.php:178
 msgid "Yes"
 msgstr "Ja"
 
-#: assets/js/backup.js:346
+#: assets/js/backup.js:50
+msgid "You must set a valid job name for this backup"
+msgstr ""
+
+#: assets/js/backup.js:360
 #, perl-format
 msgid "Your %s has finished"
 msgstr ""
+
+#: functions.inc/class.backup.php:401
+msgid "astDb's"
+msgstr "ast-Db's"
 
 #: Console/Backup.class.php:237
 #, php-format
 msgid "type is %s"
 msgstr ""
-
-#~ msgid "Backup Module"
-#~ msgstr "Sicherungsmodule"
-
-#~ msgid "Email "
-#~ msgstr "E-Mail "
-
-#~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr "Von: Ein Feld für E-Mails, wenn Sie das E-Mail-Feature verwenden."
 
 #~ msgid "AWS Access Key"
 #~ msgstr "AWS Zugriffsschlüssel"
@@ -1447,17 +1569,8 @@ msgstr ""
 #~ msgid "BACKUP LOG ATTACHED"
 #~ msgstr "Sicherungsprotokoll angehängt"
 
-#~ msgid "BACKUP NOT ATTACHED"
-#~ msgstr "Sicherung nicht angehängt"
-
 #~ msgid "Backup CDR and call record data?"
 #~ msgstr "Anruferdatensätze und Aufzeichnungsdaten Sichern?"
-
-#~ msgid "Backup ERROR (exceeded SMTP limits)"
-#~ msgstr "Sicherungsfehler (überschrittene SMTP-Grenzwerte)"
-
-#~ msgid "Backup ERROR (exceeded soft limit)"
-#~ msgstr "Sicherungsfehler (Softlimit überschritten)"
 
 #~ msgid "Backup Frequency"
 #~ msgstr "Sicherungshäufigkeit"
@@ -1485,13 +1598,6 @@ msgstr ""
 
 #~ msgid "Backup completed with errors!"
 #~ msgstr "Sicherung mit Fehler beendet!"
-
-#~ msgid ""
-#~ "Backup failed dumping SQL database [%s] to file [%s], you have a "
-#~ "corrupted backup from server [%s]."
-#~ msgstr ""
-#~ "Backup der SQL-Datenbank [%s] in die Datei [%s] nicht erfolgreich, Sie "
-#~ "haben ein fehlerhaftes Backup vom Server [%s]."
 
 #~ msgid "Backup file not found! Aborting."
 #~ msgstr "Sicherungsdatei nicht gefunden! Abbrechen."
@@ -1544,14 +1650,8 @@ msgstr ""
 #~ msgid "Connecting to remote server..."
 #~ msgstr "Verbindung zum Remote-Server ..."
 
-#~ msgid "Created"
-#~ msgstr "Erstellt"
-
 #~ msgid "Creating backup..."
 #~ msgstr "Erstelle Sicherung..."
-
-#~ msgid "Creating directory '%s'"
-#~ msgstr "Erstelle Verzeichnis '%s'"
 
 #~ msgid "Custom"
 #~ msgstr "Benutzerdefiniert"
@@ -1617,10 +1717,6 @@ msgstr ""
 #~ msgid "Directory"
 #~ msgstr "Verzeichnis"
 
-#~ msgid "Directory '%s' did not exist and we could not create it"
-#~ msgstr ""
-#~ "Das Verzeichnis '%s' existiert nicht und es konnte nicht erstellt werden"
-
 #~ msgid "Disable Registered Trunks"
 #~ msgstr "Deaktivieren Sie registrierte Hauptleitungen"
 
@@ -1659,12 +1755,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Geben Sie eine E-Mail Adresse ein, um eine Statusmeldung zu senden, wenn "
 #~ "die Aufgabe ausgeführt wird"
-
-#~ msgid "Error creating the FTP object"
-#~ msgstr "Fehler beim Erstellen des FTP-Objekts"
-
-#~ msgid "Error deleting %s"
-#~ msgstr "Fehler %s löschen"
 
 #~ msgid "Error uploading file!"
 #~ msgstr "Fehler beim Hochladen der Datei!"
@@ -1724,9 +1814,6 @@ msgstr ""
 
 #~ msgid "File verification failed. "
 #~ msgstr "Dateiüberprüfung fehlgeschlagen. "
-
-#~ msgid "Files"
-#~ msgstr "Dateien"
 
 #~ msgid "Filesystem Type"
 #~ msgstr "Dateisystemtyp"
@@ -1853,9 +1940,6 @@ msgstr ""
 #~ msgstr "MySQL"
 
 #~ msgid "Mysql DB's"
-#~ msgstr "MySQL DB's"
-
-#~ msgid "Mysql Db's"
 #~ msgstr "MySQL DB's"
 
 #~ msgid "Mysql Server "
@@ -2128,9 +2212,6 @@ msgstr ""
 #~ msgid "Saturday"
 #~ msgstr "Samstag"
 
-#~ msgid "Saving file to remote ftp"
-#~ msgstr "Datei auf FTP-Server speichern"
-
 #~ msgid "Schedule Help"
 #~ msgstr "Hilfe"
 
@@ -2232,25 +2313,6 @@ msgstr ""
 #~ msgid "The Restore script is still running"
 #~ msgstr "Das Wiederherstellungsskript wird weiterhin ausgeführt"
 
-#~ msgid ""
-#~ "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
-#~ "attempted to be sent. Please shrink your backup, or use a different "
-#~ "method of transferring your backup."
-#~ msgstr ""
-#~ "Die Sicherungsdatei überschritt die maximalen SMTP-Grenzwerte von 25 MB. "
-#~ "Es wurde nicht versucht zu senden. Bitte verkleinern Sie Ihre Sicherung "
-#~ "oder verwenden Sie eine andere Methode die Sicherung zu übertragen."
-
-#~ msgid ""
-#~ "The backup file exceeded the soft limit set in SMTP configuration (%s "
-#~ "bytes). It was not attempted to be sent. Please shrink your backup, or "
-#~ "use a different method of transferring your backup."
-#~ msgstr ""
-#~ "Die Sicherungsdatei überschritt die Soft-Limit-Einstellung in der SMTP-"
-#~ "Konfiguration (%s Bytes). Es wurde nicht versucht zu senden. Bitte "
-#~ "verkleinern Sie Ihre Sicherung oder verwenden Sie eine andere Methode die "
-#~ "Sicherung zu übertragen."
-
 #~ msgid "This server"
 #~ msgstr "Dieser Server"
 
@@ -2274,9 +2336,6 @@ msgstr ""
 
 #~ msgid "Type"
 #~ msgstr "Typ"
-
-#~ msgid "Unable to upload file to the remote server"
-#~ msgstr "Die Datei kann nicht auf dem Remoteserver hochgeladen werden"
 
 #~ msgid "Unix/Linux"
 #~ msgstr "Unix/Linux"
@@ -2366,9 +2425,6 @@ msgstr ""
 
 #~ msgid "added default backup templates"
 #~ msgstr "Standard-Sicherungsvorlagen hinzugefügt"
-
-#~ msgid "astDb's"
-#~ msgstr "ast-Db's"
 
 #~ msgid "chose"
 #~ msgstr "wähle"

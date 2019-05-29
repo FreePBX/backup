@@ -1,10 +1,24 @@
+<script>
+var backup_jobs = [];
+<?php
+$bkjobs = FreePBX::Backup()->listBackups();
+if (!empty($bkjobs)) {
+	foreach ($bkjobs as $bk) {
+		$tmp_name_list[] = $bk['name'];
+	}
+	echo "bkjob_names = " . json_encode($tmp_name_list) . ";";
+	echo "runningRestore = false";
+}
+?>
+</script>
+
 <div class="container-fluid">
 	<h1><?php echo sprintf(_("%s Backup %s"),(!empty($id) ? _('Edit') : _('Add')),(!empty($id) ? '"'.$backup_name.'"' : ''))?></h1>
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="fpbx-container">
 				<div class="display full-border">
-					<form class="fpbx-submit" name="frm_extensions" action="?display=backup" method="post" data-fpbx-delete="config.php?display=backup&type=backup&amp;id=<?php echo $id?>&amp;action=del"
+					<form name="addBackupJob" class="fpbx-submit" name="frm_extensions" action="?display=backup" method="post" data-fpbx-delete="config.php?display=backup&type=backup&amp;id=<?php echo $id?>&amp;action=del"
 						role="form">
 						<input type="hidden" id="id" name="id" value="<?php echo $id ?>">
 						<input type="hidden" id="backup_items" name="backup_items" value='unchanged'>

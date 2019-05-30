@@ -1,6 +1,7 @@
 <script>
 var backup_jobs = [];
 var runningRestore=false;
+var bkjob_names=[];
 <?php
 $bkjobs = FreePBX::Backup()->listBackups();
 if (!empty($bkjobs)) {

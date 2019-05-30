@@ -220,11 +220,11 @@ class Backupjobs extends Common{
 							$cronjob = sprintf('* * * * *', rand(0, 23));
 							break;
 						case 'custom':
-							$minute = isset($backup['data']['cron_minute']) ? $backup['data']['cron_minute'] : '*';
-							$dom = isset($backup['data']['cron_dom']) ? $backup['data']['cron_dom'] : '*';
-							$dow = isset($backup['data']['cron_dow']) ? $backup['data']['cron_dow'] : '*';
-							$hour = isset($backup['data']['cron_hour']) ? $backup['data']['cron_hour'] : '*';
-							$month = isset($backup['data']['cron_month']) ? $backup['data']['cron_month'] : '*';
+							$minute = isset($backup['data']['cron_minute']) && strlen($backup['data']['cron_minute'] > 0) ? $backup['data']['cron_minute'] : '*';
+							$dom = isset($backup['data']['cron_dom']) && strlen($backup['data']['cron_dom'] > 0) ? $backup['data']['cron_dom'] : '*';
+							$dow = isset($backup['data']['cron_dow']) && strlen($backup['data']['cron_dow'] > 0) ? $backup['data']['cron_dow'] : '*';
+							$hour = isset($backup['data']['cron_hour']) && strlen($backup['data']['cron_hour'] > 0)? $backup['data']['cron_hour'] : '*';
+							$month = isset($backup['data']['cron_month']) && strlen($backup['data']['cron_month'] > 0) ? $backup['data']['cron_month'] : '*';
 							$cronjob = sprintf('%s %s %s %s %s', $minute, $hour, $dom, $month, $dow);
 							break;
 						default:

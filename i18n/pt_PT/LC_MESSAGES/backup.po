@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-29 13:36+0530\n"
+"POT-Creation-Date: 2019-05-30 12:09+0530\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -21,20 +21,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: views/backup/form.php:16
+#: views/backup/form.php:17
 #, php-format
 msgid "%s Backup %s"
 msgstr ""
 
-#: views/backup/form.php:362 views/backup/form.php:365
-#: views/backup/form.php:368 views/backup/form.php:371
+#: views/backup/form.php:363 views/backup/form.php:366
+#: views/backup/form.php:369 views/backup/form.php:372
 #, php-format
 msgid "%s Days"
 msgstr ""
 
-#: views/backup/form.php:374 views/backup/form.php:377
-#: views/backup/form.php:380 views/backup/form.php:383
-#: views/backup/form.php:386
+#: views/backup/form.php:375 views/backup/form.php:378
+#: views/backup/form.php:381 views/backup/form.php:384
+#: views/backup/form.php:387
 #, php-format
 msgid "%s Days (%s Months)"
 msgstr ""
@@ -54,7 +54,7 @@ msgstr ""
 msgid "%s is now loaded into memory"
 msgstr ""
 
-#: views/backup/form.php:51
+#: views/backup/form.php:52
 msgid "A name used to identify your backups"
 msgstr ""
 
@@ -63,7 +63,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: views/backup/form.php:16
+#: views/backup/form.php:17
 msgid "Add"
 msgstr ""
 
@@ -71,7 +71,7 @@ msgstr ""
 msgid "Add Backup"
 msgstr ""
 
-#: views/backup/form.php:75
+#: views/backup/form.php:76
 msgid "Add a description for your backup"
 msgstr ""
 
@@ -107,7 +107,7 @@ msgstr ""
 msgid "Apply Configs"
 msgstr "Aplicar Configs"
 
-#: assets/js/backup.js:139 assets/js/backup.js:176
+#: assets/js/backup.js:143 assets/js/backup.js:180
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
 
@@ -161,7 +161,7 @@ msgstr ""
 msgid "Backup Deleted"
 msgstr ""
 
-#: views/backup/form.php:63
+#: views/backup/form.php:64
 msgid "Backup Description"
 msgstr ""
 
@@ -185,7 +185,7 @@ msgstr ""
 msgid "Backup Instance"
 msgstr ""
 
-#: views/backup/form.php:87
+#: views/backup/form.php:88
 msgid "Backup Items"
 msgstr "Itens da Cópia de Segurança"
 
@@ -193,7 +193,7 @@ msgstr "Itens da Cópia de Segurança"
 msgid "Backup Module"
 msgstr "Módulo de Cópia de Segurança"
 
-#: views/backup/form.php:39 views/restore/landing.php:70
+#: views/backup/form.php:40 views/restore/landing.php:70
 #: views/restore/landing.php:113
 msgid "Backup Name"
 msgstr "Nome da Cópia de Segurança"
@@ -234,11 +234,11 @@ msgstr ""
 msgid "Backup running"
 msgstr ""
 
-#: views/backup/form.php:29
+#: views/backup/form.php:30
 msgid "Basic Information"
 msgstr ""
 
-#: views/backup/form.php:200
+#: views/backup/form.php:201
 msgid "Both"
 msgstr ""
 
@@ -247,7 +247,7 @@ msgstr ""
 msgid "Can't find the module data for %s"
 msgstr ""
 
-#: assets/js/backup.js:140 assets/js/backup.js:177
+#: assets/js/backup.js:144 assets/js/backup.js:181
 msgid "Cancel"
 msgstr ""
 
@@ -268,7 +268,7 @@ msgstr ""
 msgid "Click to upload a backup file."
 msgstr ""
 
-#: views/backup/form.php:465 views/runModal.php:12
+#: views/backup/form.php:466 views/runModal.php:12
 msgid "Close"
 msgstr ""
 
@@ -316,15 +316,15 @@ msgid "Creating directory '%s'"
 msgstr ""
 
 #: Backup.class.php:181 views/restore/landing.php:49
-#: views/restore/landing.php:92 assets/js/backup.js:140 assets/js/backup.js:177
+#: views/restore/landing.php:92 assets/js/backup.js:144 assets/js/backup.js:181
 msgid "Delete"
 msgstr "Eliminar"
 
-#: views/backup/form.php:352
+#: views/backup/form.php:353
 msgid "Delete After Days"
 msgstr ""
 
-#: views/backup/form.php:328
+#: views/backup/form.php:329
 msgid "Delete After Runs"
 msgstr ""
 
@@ -368,7 +368,7 @@ msgstr ""
 msgid "Donor"
 msgstr ""
 
-#: views/backup/form.php:16
+#: views/backup/form.php:17
 msgid "Edit"
 msgstr ""
 
@@ -376,11 +376,11 @@ msgstr ""
 msgid "Email "
 msgstr "Email "
 
-#: views/backup/form.php:180
+#: views/backup/form.php:181
 msgid "Email Type"
 msgstr ""
 
-#: views/backup/form.php:133
+#: views/backup/form.php:134
 msgid "Email address to send notifications to."
 msgstr ""
 
@@ -392,11 +392,11 @@ msgstr ""
 msgid "Enable Remote Trunks"
 msgstr ""
 
-#: views/backup/form.php:284
+#: views/backup/form.php:285
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1118 views/backup/form.php:263
+#: Backup.class.php:1118 views/backup/form.php:264
 msgid "Enabled"
 msgstr ""
 
@@ -406,7 +406,7 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: assets/js/backup.js:273 assets/js/backup.js:292 assets/js/backup.js:363
+#: assets/js/backup.js:277 assets/js/backup.js:296 assets/js/backup.js:367
 msgid "Error"
 msgstr ""
 
@@ -497,7 +497,7 @@ msgstr ""
 msgid "Extracting supplied database file %s"
 msgstr ""
 
-#: views/backup/form.php:195
+#: views/backup/form.php:196
 msgid "Failure"
 msgstr ""
 
@@ -560,13 +560,13 @@ msgstr ""
 msgid "Global Settings"
 msgstr ""
 
-#: views/backup/form.php:395
+#: views/backup/form.php:396
 msgid ""
 "How long to maintain backups. Example 30 will delete anything older than 30 "
 "days."
 msgstr ""
 
-#: views/backup/form.php:340
+#: views/backup/form.php:341
 msgid ""
 "How many updates to keep. If this number is 3, the last 3 will be kept. 0 is "
 "unlimited"
@@ -625,7 +625,7 @@ msgstr ""
 msgid "In single restores mode dependencies are NOT processed"
 msgstr ""
 
-#: views/backup/form.php:145
+#: views/backup/form.php:146
 msgid "Inline Logs"
 msgstr ""
 
@@ -663,7 +663,7 @@ msgstr ""
 msgid "List Backups"
 msgstr ""
 
-#: assets/js/backup.js:303
+#: assets/js/backup.js:307
 msgid "Loading Please Wait"
 msgstr ""
 
@@ -684,7 +684,7 @@ msgstr ""
 msgid "Log file is missing but process is still running!"
 msgstr ""
 
-#: views/backup/form.php:318
+#: views/backup/form.php:319
 msgid "Maintinence"
 msgstr ""
 
@@ -700,11 +700,11 @@ msgstr ""
 msgid "Missing id or transaction or pid"
 msgstr ""
 
-#: views/backup/form.php:454 views/restore/processRestore.php:48
+#: views/backup/form.php:455 views/restore/processRestore.php:48
 msgid "Module"
 msgstr ""
 
-#: views/backup/form.php:93
+#: views/backup/form.php:94
 msgid "Modules"
 msgstr ""
 
@@ -712,7 +712,7 @@ msgstr ""
 msgid "Modules in this backup"
 msgstr ""
 
-#: views/backup/form.php:430
+#: views/backup/form.php:431
 msgid "Modules to Backup"
 msgstr ""
 
@@ -729,14 +729,14 @@ msgstr "Bds Mysql"
 msgid "Name"
 msgstr "Nome"
 
-#: views/backup/form.php:160 views/backup/form.php:276
+#: views/backup/form.php:161 views/backup/form.php:277
 #: views/backup/warmspare.php:25 views/backup/warmspare.php:56
 #: views/backup/warmspare.php:87 views/backup/warmspare.php:120
 #: views/backup/warmspare.php:151 views/backup/warmspare.php:182
 msgid "No"
 msgstr ""
 
-#: assets/js/backup.js:217
+#: assets/js/backup.js:221
 msgid "No Storage Locations"
 msgstr ""
 
@@ -752,11 +752,11 @@ msgstr ""
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
-#: views/backup/form.php:121
+#: views/backup/form.php:122
 msgid "Notification Email"
 msgstr ""
 
-#: views/backup/form.php:111
+#: views/backup/form.php:112
 msgid "Notifications"
 msgstr ""
 
@@ -828,7 +828,7 @@ msgstr ""
 msgid "Removing table %s."
 msgstr ""
 
-#: Backup.class.php:166 views/backup/form.php:462
+#: Backup.class.php:166 views/backup/form.php:463
 msgid "Reset"
 msgstr ""
 
@@ -889,7 +889,7 @@ msgstr ""
 msgid "Run Restore"
 msgstr ""
 
-#: assets/js/backup.js:423
+#: assets/js/backup.js:427
 msgid "Run the following in the CLI"
 msgstr ""
 
@@ -939,7 +939,7 @@ msgstr ""
 msgid "Save"
 msgstr "Guardar"
 
-#: views/backup/form.php:468
+#: views/backup/form.php:469
 msgid "Save Changes"
 msgstr ""
 
@@ -960,11 +960,11 @@ msgstr ""
 msgid "Saving to: %s:'%s' instance"
 msgstr ""
 
-#: views/backup/form.php:253
+#: views/backup/form.php:254
 msgid "Schedule and Maintinence"
 msgstr ""
 
-#: views/backup/form.php:296
+#: views/backup/form.php:297
 msgid "Scheduling"
 msgstr ""
 
@@ -972,17 +972,17 @@ msgstr ""
 msgid "See attachment"
 msgstr ""
 
-#: views/backup/form.php:101
+#: views/backup/form.php:102
 msgid "Select items to backup"
 msgstr ""
 
-#: views/backup/form.php:243
+#: views/backup/form.php:244
 msgid ""
 "Select one or more storage locations. Storage locations can be added/"
 "configured with the Filestore module"
 msgstr ""
 
-#: views/backup/form.php:451
+#: views/backup/form.php:452
 msgid "Selected"
 msgstr ""
 
@@ -1030,11 +1030,11 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: views/backup/form.php:219
+#: views/backup/form.php:220
 msgid "Storage"
 msgstr ""
 
-#: views/backup/form.php:229
+#: views/backup/form.php:230
 msgid "Storage Location"
 msgstr ""
 
@@ -1043,7 +1043,7 @@ msgstr ""
 msgid "Storage Location: %s"
 msgstr ""
 
-#: views/backup/form.php:190
+#: views/backup/form.php:191
 msgid "Success"
 msgstr ""
 
@@ -1061,7 +1061,7 @@ msgstr ""
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
 
-#: assets/js/backup.js:53
+#: assets/js/backup.js:57
 #, perl-format
 msgid "The Backup job name %s is already in used, please use a different name."
 msgstr ""
@@ -1116,7 +1116,7 @@ msgstr ""
 msgid "The module %s returned no data, No backup created"
 msgstr ""
 
-#: assets/js/backup.js:363
+#: assets/js/backup.js:367
 #, perl-format
 msgid "There was an error during %s"
 msgstr ""
@@ -1220,7 +1220,7 @@ msgstr ""
 msgid "Unknown module %s"
 msgstr ""
 
-#: views/backup/form.php:359
+#: views/backup/form.php:360
 msgid "Unlimited"
 msgstr ""
 
@@ -1266,7 +1266,7 @@ msgstr ""
 msgid "Version in Backup"
 msgstr ""
 
-#: assets/js/backup.js:127
+#: assets/js/backup.js:131
 msgid "View backup log"
 msgstr ""
 
@@ -1286,17 +1286,17 @@ msgstr ""
 msgid "We don't have permissions to this file"
 msgstr ""
 
-#: views/backup/form.php:169
+#: views/backup/form.php:170
 msgid ""
 "When set to Yes logs will be added to the body of the email, when set to No "
 "logs will be added as an attachment"
 msgstr ""
 
-#: views/backup/form.php:308
+#: views/backup/form.php:309
 msgid "When should this backup run"
 msgstr ""
 
-#: views/backup/form.php:209
+#: views/backup/form.php:210
 msgid "When to email"
 msgstr ""
 
@@ -1305,7 +1305,7 @@ msgstr ""
 msgid "Working with %s module"
 msgstr ""
 
-#: views/backup/form.php:155 views/backup/form.php:271
+#: views/backup/form.php:156 views/backup/form.php:272
 #: views/backup/warmspare.php:21 views/backup/warmspare.php:52
 #: views/backup/warmspare.php:83 views/backup/warmspare.php:115
 #: views/backup/warmspare.php:147 views/backup/warmspare.php:178
@@ -1316,7 +1316,7 @@ msgstr ""
 msgid "You must set a valid job name for this backup"
 msgstr ""
 
-#: assets/js/backup.js:360
+#: assets/js/backup.js:364
 #, perl-format
 msgid "Your %s has finished"
 msgstr ""

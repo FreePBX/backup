@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.20</version>
+	<version>15.0.8.21</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.21* FREEPBX-20017 Can't install latest Backup &amp;amp; Restore module due to Cutom Cron entry 
 		*15.0.8.20* bump 
 		*15.0.8.19* Fixing Backup allows to create Empty and Duplicate entries.
 		*15.0.8.18* Fixing FREEPBX-20028 Delete issue from edit section 

@@ -43,18 +43,22 @@ $(document).ready(function () {
 		getRestoreStatus(runningRestore.fileid, runningRestore.transaction, runningRestore.pid);
 	}
 
-	$('form[name=addBackupJob]').submit(function() {
-		var bkjob_name = $("#backup_name").val().trim();
-		if(bkjob_name === "") {
-			$("#backup_name").focus();
-				return warnInvalid($("#backup_name"),_("You must set a valid job name for this backup"));
-			} else {
-				if ($.inArray(bkjob_name, bkjob_names) != -1) {
-					alert(sprintf(_("The Backup job name %s is already in used, please use a different name."), bkjob_name));
-					return false;
-			           }
-			}
-	});
+        $('form[name=addBackupJob]').submit(function() {
+                var bkjob_name = $("#backup_name").val().trim();
+                if(bkjob_name === "") {
+                        $("#backup_name").focus();
+                        return warnInvalid($("#backup_name"),_("You must set a valid job name for this backup"));
+                }
+        });
+
+        $("#backup_name").on('input', function() {
+                var bkjob_name = $("#backup_name").val().trim();
+                if ($.inArray(bkjob_name, bkjob_names) != -1) {
+                        alert(sprintf(_("The Backup job name %s is already in used, please use a different name."), bkjob_name));
+                        return false;
+                }
+        });
+
 
 });
 //end ready

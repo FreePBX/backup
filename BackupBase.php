@@ -71,6 +71,17 @@ class BackupBase extends Model\Backup{
 		return $sth->fetchAll(\PDO::FETCH_GROUP|\PDO::FETCH_ASSOC|\PDO::FETCH_UNIQUE);
 	}
 
+	public function dumpDBTables($modename) {
+		$query = "SELECT table_name FROM information_schema.tables WHERE table_name LIKE '".$modename."%'";
+		$tables = $this->FreePBX->Database->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+		$ret = [];
+		foreach($tables as $table) {
+			$tname = (string)$table['table_name'];
+			$ret[$tname] = $this->FreePBX->Database->query("SELECT * FROM $tname")->fetchAll(\PDO::FETCH_ASSOC);
+		}
+		return $ret;
+	}
+
 	/**
 	 * Dump all known databases from said module
 	 *
@@ -85,7 +96,8 @@ class BackupBase extends Model\Backup{
 		}
 		$xml = simplexml_load_file($dir.'/module.xml');
 		if(empty($xml->database)) {
-			return [];
+			// module.xml is empty ..now look for DB tables as many modules does not have db in module.xml
+			return $this->dumpDBTables($module);
 		}
 
 		$tables = [];

@@ -47,7 +47,7 @@ class Backup extends Command {
 	protected function execute(InputInterface $input, OutputInterface $output){
 		$this->freepbx = \FreePBX::Create();
 		$this->Backup = $this->freepbx->Backup;
-
+		$this->tmpDir = $this->freepbx->Config->get("ASTSPOOLDIR").'/tmp';
 		if(posix_getuid() === 0) {
 			$AMPASTERISKWEBUSER = $this->freepbx->Config->get('AMPASTERISKWEBUSER');
 			$info = posix_getpwnam($AMPASTERISKWEBUSER);
@@ -213,7 +213,7 @@ class Backup extends Command {
 					throw new \Exception('Invalid filestore id');
 				}
 				$output->write(sprintf(_("Retrieving %s from %s:%s..."),basename($restore), $info['driver'],$info['name']));
-				$path = sys_get_temp_dir().'/backup/'.basename($restore);
+				$path = $this->tmpDir.'/backup/'.basename($restore);
 				$this->freepbx->Filestore->download($filestore,$restore,$path);
 				$output->writeln(_('Done'));
 				$restore = $path;

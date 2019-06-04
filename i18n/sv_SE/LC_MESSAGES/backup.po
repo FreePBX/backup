@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-30 12:09+0530\n"
+"POT-Creation-Date: 2019-06-03 11:52+0530\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -476,7 +476,7 @@ msgstr ""
 msgid "Exporting Advanced settings from %s"
 msgstr ""
 
-#: BackupBase.php:81
+#: BackupBase.php:92
 #, php-format
 msgid "Exporting Databases from %s"
 msgstr ""
@@ -486,7 +486,7 @@ msgstr ""
 msgid "Exporting Feature Codes from %s"
 msgstr ""
 
-#: BackupBase.php:106
+#: BackupBase.php:118
 #, php-format
 msgid "Exporting KVStore from %s"
 msgstr ""

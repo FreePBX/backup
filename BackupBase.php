@@ -72,7 +72,7 @@ class BackupBase extends Model\Backup{
 	}
 
 	public function dumpDBTables($modename) {
-		$query = "SELECT table_name FROM information_schema.tables WHERE table_name LIKE '".$modename."%'";
+		$query = "SELECT table_name FROM information_schema.tables WHERE table_name LIKE '".$modename."_%'";
 		$tables = $this->FreePBX->Database->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 		$ret = [];
 		foreach($tables as $table) {
@@ -95,15 +95,18 @@ class BackupBase extends Model\Backup{
 			return [];
 		}
 		$xml = simplexml_load_file($dir.'/module.xml');
-		if(empty($xml->database)) {
-			// module.xml is empty ..now look for DB tables as many modules does not have db in module.xml
-			return $this->dumpDBTables($module);
-		}
-
 		$tables = [];
-		foreach($xml->database->table as $table) {
-			$tname = (string)$table->attributes()->name;
-			$tables[$tname] = $this->FreePBX->Database->query("SELECT * FROM $tname")->fetchAll(\PDO::FETCH_ASSOC);
+		$tables = $this->dumpDBTables($module);
+
+		if(is_array($xml->database->table)) {
+			foreach($xml->database->table as $table) {
+				$tname = (string)$table->attributes()->name;
+				if(array_key_exists($tname,$tables)) {
+					continue;
+				} else {
+					$tables[$tname] = $this->FreePBX->Database->query("SELECT * FROM $tname")->fetchAll(\PDO::FETCH_ASSOC);
+				}
+			}
 		}
 		return $tables;
 	}

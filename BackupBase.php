@@ -65,7 +65,7 @@ class BackupBase extends Model\Backup{
 	public function dumpFeatureCodes() {
 		$module = strtolower($this->data['module']);
 		$this->log(sprintf(_("Exporting Feature Codes from %s"), $module));
-		$sql = "SELECT `featurename`, `customcode`, `enabled` FROM featurecodes WHERE modulename = :name";
+		$sql = "SELECT `featurename` , `description` , `helptext` , `defaultcode` , `customcode` , `enabled` , `providedest` FROM featurecodes WHERE modulename = :name";
 		$sth = $this->FreePBX->Database->prepare($sql);
 		$sth->execute([":name" => $module]);
 		return $sth->fetchAll(\PDO::FETCH_GROUP|\PDO::FETCH_ASSOC|\PDO::FETCH_UNIQUE);

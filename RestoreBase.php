@@ -104,15 +104,24 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 			return;
 		}
 		$this->log(sprintf(_('Importing Feature Codes from %s'),$this->data['module']));
-		$module = ucfirst(strtolower($this->data['module']));
-		$sql = "UPDATE IGNORE featurecodes SET `customcode` = :customcode, `enabled` = :enabled WHERE `featurename` = :featurename AND `modulename` = :modulename";
+		$module = strtolower($this->data['module']);
+
+		$sql = "DELETE FROM `featurecodes` WHERE `modulename` = :modulename";
+		$sth = $this->FreePBX->Database->prepare($sql);
+		$sth->execute(array(":modulename" => $module));
+
+		$sql = "INSERT INTO featurecodes (`modulename`, `featurename`, `description`, `helptext`, `defaultcode`, `customcode`, `enabled`, `providedest`) VALUES (:modulename, :featurename, :description, :helptext, :defaultcode, :customcode, :enabled, :providedest)";
 		$sth = $this->FreePBX->Database->prepare($sql);
 		foreach($codes as $key => $data) {
 			$sth->execute([
-				":customcode" => $data['customcode'],
-				":enabled" => $data['enabled'],
-				":featurename" => $key,
-				":modulename" => strtolower($this->data['module'])
+				":description" 	=> $data['description'],
+				":helptext" 	=> $data['helptext'],
+				":defaultcode" 	=> $data['defaultcode'],
+				":providedest" 	=> $data['providedest'],
+				":customcode" 	=> $data['customcode'],
+				":enabled" 		=> $data['enabled'],
+				":featurename" 	=> $key,
+				":modulename" 	=> $module
 			]);
 		}
 	}

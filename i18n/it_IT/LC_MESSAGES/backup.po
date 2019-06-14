@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-03 11:52+0530\n"
+"POT-Creation-Date: 2019-06-14 15:12+0530\n"
 "PO-Revision-Date: 2010-01-23 14:24+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -486,7 +486,7 @@ msgstr ""
 msgid "Exporting Feature Codes from %s"
 msgstr ""
 
-#: BackupBase.php:118
+#: BackupBase.php:121
 #, php-format
 msgid "Exporting KVStore from %s"
 msgstr ""

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-14 15:12+0530\n"
+"POT-Creation-Date: 2019-06-18 11:56+0530\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -44,7 +44,7 @@ msgstr ""
 msgid "%s does not exist"
 msgstr ""
 
-#: RestoreBase.php:165 RestoreBase.php:305
+#: RestoreBase.php:174 RestoreBase.php:314
 #, php-format
 msgid "%s does not implement KVStore"
 msgstr ""
@@ -272,7 +272,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: RestoreBase.php:407
+#: RestoreBase.php:416
 #, php-format
 msgid "Column '%s' does not exist in %s, skipping"
 msgstr ""
@@ -592,17 +592,17 @@ msgstr ""
 msgid "ID From the donor machine"
 msgstr ""
 
-#: RestoreBase.php:83 RestoreBase.php:280
+#: RestoreBase.php:83 RestoreBase.php:289
 #, php-format
 msgid "Importing Advanced Settings from %s"
 msgstr ""
 
-#: RestoreBase.php:131
+#: RestoreBase.php:140
 #, php-format
 msgid "Importing AstDB family %s from %s"
 msgstr ""
 
-#: RestoreBase.php:217
+#: RestoreBase.php:226
 #, php-format
 msgid "Importing Databases from %s"
 msgstr ""
@@ -612,17 +612,17 @@ msgstr ""
 msgid "Importing Feature Codes from %s"
 msgstr ""
 
-#: RestoreBase.php:168
+#: RestoreBase.php:177
 #, php-format
 msgid "Importing KVStore from %s"
 msgstr ""
 
-#: RestoreBase.php:149
+#: RestoreBase.php:158
 #, php-format
 msgid "Importing Table %s from %s"
 msgstr ""
 
-#: RestoreBase.php:225
+#: RestoreBase.php:234
 #, php-format
 msgid "Importing table '%s' from legacy %s"
 msgstr ""
@@ -1057,12 +1057,12 @@ msgstr ""
 msgid "System Transfer"
 msgstr ""
 
-#: RestoreBase.php:231
+#: RestoreBase.php:240
 #, php-format
 msgid "Table '%s' does not exist in legacy %s, skipping"
 msgstr ""
 
-#: RestoreBase.php:228
+#: RestoreBase.php:237
 #, php-format
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
@@ -1201,13 +1201,13 @@ msgstr "Đang cố gắng tải lên %s đến %s"
 msgid "Unable to map '%s' of type '%s"
 msgstr ""
 
-#: RestoreBase.php:208
+#: RestoreBase.php:217
 #, php-format
 msgid ""
 "Unable to run restoreLegacyDatabase on %s because module.xml was not found"
 msgstr ""
 
-#: RestoreBase.php:213
+#: RestoreBase.php:222
 #, php-format
 msgid ""
 "Unable to run restoreLegacyDatabase on %s because there are no database "

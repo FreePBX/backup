@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-18 11:56+0530\n"
+"POT-Creation-Date: 2019-06-19 21:01+0530\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -145,9 +145,17 @@ msgstr ""
 msgid "Backup & Restore"
 msgstr "پشتیبان گیری و بازیابی"
 
-#: backup.i18n.php:12
+#: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
 msgstr "پشتیبان گیری و بازیابی - بازیابی"
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Servers"
+msgstr "پشتیبان گیری و بازیابی - سرورها"
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Templates"
+msgstr "پشتیبان گیری و بازیابی - قالب ها"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -189,7 +197,7 @@ msgstr ""
 msgid "Backup Items"
 msgstr "انتخاب موارد جهت تهیه پشتیبان"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:20
 msgid "Backup Module"
 msgstr "ماژول پشتیبان گیری"
 
@@ -372,7 +380,7 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: backup.i18n.php:14
+#: backup.i18n.php:18
 msgid "Email "
 msgstr "ایمیل "
 
@@ -1070,7 +1078,7 @@ msgstr ""
 msgid "The Backup job name %s is already in used, please use a different name."
 msgstr ""
 
-#: backup.i18n.php:18
+#: backup.i18n.php:22
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "از طرف: فیلد مبدا ایمیل ها وقتی از قابلیت ارسال ایمیل پشتیبان استفاده می شود."
@@ -1467,12 +1475,6 @@ msgstr ""
 
 #~ msgid "Download"
 #~ msgstr "دانلود"
-
-#~ msgid "Backup & Restore - Servers"
-#~ msgstr "پشتیبان گیری و بازیابی - سرورها"
-
-#~ msgid "Backup & Restore - Templates"
-#~ msgstr "پشتیبان گیری و بازیابی - قالب ها"
 
 #~ msgid "%s Backup Wizard"
 #~ msgstr "%s ویزارد پشتیبان گیری"

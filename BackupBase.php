@@ -98,7 +98,7 @@ class BackupBase extends Model\Backup{
 		$tables = [];
 		$tables = $this->dumpDBTables($module);
 
-		if(is_array($xml->database->table)) {
+		if(is_object($xml->database->table)) {
 			foreach($xml->database->table as $table) {
 				$tname = (string)$table->attributes()->name;
 				if(array_key_exists($tname,$tables)) {

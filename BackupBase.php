@@ -70,9 +70,16 @@ class BackupBase extends Model\Backup{
 		$sth->execute([":name" => $module]);
 		return $sth->fetchAll(\PDO::FETCH_GROUP|\PDO::FETCH_ASSOC|\PDO::FETCH_UNIQUE);
 	}
-
-	public function dumpDBTables($modename) {
-		$query = "SELECT table_name FROM information_schema.tables WHERE table_name LIKE '".$modename."_%'";
+	/**
+	*  $modulename
+	*   $under_score = true or false search with like modulename_
+	*/
+	public function dumpDBTables($modename,$under_score=true) {
+		if(!$under_score) {
+			$query = "SELECT table_name FROM information_schema.tables WHERE table_name LIKE '".$modename."%'";
+		} else {
+			$query = "SELECT table_name FROM information_schema.tables WHERE table_name LIKE '".$modename."_%'";
+		}
 		$tables = $this->FreePBX->Database->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 		$ret = [];
 		foreach($tables as $table) {

@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.26</version>
+	<version>15.0.8.27</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.27* FREEPBX-20027  Getting exception error while downloading or deleting 
 		*15.0.8.26* FREEPBX-20067 
 		*15.0.8.25* Bugfix/FREEPBX-20067 featurecodes not restored 
 		*15.0.8.24* FREEPBX-20082 Backup restore module is not restoring Broadcast module entries in secondary system. 

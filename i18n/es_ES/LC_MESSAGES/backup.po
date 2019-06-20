@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-19 21:01+0530\n"
+"POT-Creation-Date: 2019-06-20 10:07+0530\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -124,7 +124,7 @@ msgstr "Aplicar configuraciones"
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
 
-#: Backup.class.php:1214
+#: Backup.class.php:1212
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -158,17 +158,9 @@ msgstr ""
 msgid "Backup & Restore"
 msgstr "Copias de seguridad"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "Respalda & Restaura - Restaura"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "Respalda & Restaura - Servidores"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "Respaldar & Restaurar - Plantillas"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -210,7 +202,7 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Respaldar Elementos"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "Modulo de Respaldo"
 
@@ -393,7 +385,7 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr "Correo "
 
@@ -598,11 +590,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1199
+#: Backup.class.php:1197
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1205
+#: Backup.class.php:1203
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -1092,7 +1084,7 @@ msgstr ""
 msgid "The Backup job name %s is already in used, please use a different name."
 msgstr ""
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "El campo From: para correos cuando se usa la funcionalidad de email del "
@@ -1362,6 +1354,12 @@ msgstr "\"astDb's\""
 #, php-format
 msgid "type is %s"
 msgstr ""
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Respalda & Restaura - Servidores"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Respaldar & Restaurar - Plantillas"
 
 #~ msgid "AWS Access Key"
 #~ msgstr "Llave de Acceso AWS"

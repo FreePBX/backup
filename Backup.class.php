@@ -278,11 +278,11 @@ class Backup extends FreePBX_Helpers implements BMO {
 				return ['status' => false, "message" => _("Something failed.")];
 			break;
 			case 'deleteRemote':
-				$server = $_REQUEST['id'];
+				$server = $id = $_REQUEST['id'];
 				$file = $_REQUEST['file'];
 				$server = explode('_', $server);
-				if($this->deleteRemote($server[0], $server[1], $file)){
-					return ['status' => true, "message" => _("File Deleted"), "id" => $server];
+				if($this->deleteRemote($server[1], $file)){
+					return ['status' => true, "message" => _("File Deleted"), "id" => $id];
 				}
 				return ['status' => false, "message" => _("Something failed, The file may need to be removed manually.")];
 			case 'deleteLocal':
@@ -1164,14 +1164,12 @@ class Backup extends FreePBX_Helpers implements BMO {
 		$parts = explode('_',$location);
 		$info = $this->freepbx->Filestore->getItemById($parts[1]);
 		$fileparts = array_slice(explode('/',$file),-2);
-		$spooldir = $this->freepbx->Config->get("ASTSPOOLDIR");
-		$localpath = sprintf('%s/backup/%s/%s',$spooldir,$info['name'],basename($file));
-
+		$spooldir = $this->freepbx->Config->get("ASTSPOOLDIR").'/tmp';
+		$localpath = sprintf('%s/%s',$spooldir,basename($file));
 		if(!file_exists($localpath)){
 			$this->freepbx->Filestore->download($parts[1],$file,$localpath);
 		}
 		$this->setConfig(md5($localpath),$localpath,'localfilepaths');
-
 		return $localpath;
 	}
 	public function determineBackupFileType($filepath){

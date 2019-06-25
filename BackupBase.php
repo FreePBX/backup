@@ -90,6 +90,32 @@ class BackupBase extends Model\Backup{
 	}
 
 	/**
+	 * dumpAstDB
+	 *
+	 * @param  string $family
+	 *
+	 * @return array()
+	 */
+	public function dumpAstDB($family = ""){
+		if(!is_string($family)){
+			return array();
+		}
+
+		$astdb 	= $this->FreePBX->astman->command("database show $family");
+		$astdb 	= explode("\n",$astdb["data"]);
+		$result = array();
+		foreach($astdb as $line){
+			list($root, $value) = explode(":",$line);
+			if(strpos($root, $family) !== False){
+				$children 	= substr(trim($root),1);
+				$children	= trim(substr(str_replace($family, "", $children),1));
+				$result[] 	= array($family => array($children => trim($value)));
+			}
+		}
+		return $result;
+	}
+  
+	/**
 	 * Dump all known databases from said module
 	 *
 	 * @return array

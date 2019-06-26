@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-20 14:01+0530\n"
+"POT-Creation-Date: 2019-06-26 10:32+0530\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -44,7 +44,7 @@ msgstr ""
 msgid "%s does not exist"
 msgstr ""
 
-#: RestoreBase.php:174 RestoreBase.php:314
+#: RestoreBase.php:186 RestoreBase.php:326
 #, php-format
 msgid "%s does not implement KVStore"
 msgstr ""
@@ -272,7 +272,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: RestoreBase.php:416
+#: RestoreBase.php:428
 #, php-format
 msgid "Column '%s' does not exist in %s, skipping"
 msgstr ""
@@ -469,7 +469,7 @@ msgstr ""
 msgid "Exporting Advanced settings from %s"
 msgstr ""
 
-#: BackupBase.php:99
+#: BackupBase.php:125
 #, php-format
 msgid "Exporting Databases from %s"
 msgstr ""
@@ -479,7 +479,7 @@ msgstr ""
 msgid "Exporting Feature Codes from %s"
 msgstr ""
 
-#: BackupBase.php:128
+#: BackupBase.php:154
 #, php-format
 msgid "Exporting KVStore from %s"
 msgstr ""
@@ -586,17 +586,17 @@ msgstr ""
 msgid "ID From the donor machine"
 msgstr ""
 
-#: RestoreBase.php:83 RestoreBase.php:289
+#: RestoreBase.php:83 RestoreBase.php:301
 #, php-format
 msgid "Importing Advanced Settings from %s"
 msgstr ""
 
-#: RestoreBase.php:140
+#: RestoreBase.php:152
 #, php-format
 msgid "Importing AstDB family %s from %s"
 msgstr ""
 
-#: RestoreBase.php:226
+#: RestoreBase.php:238
 #, php-format
 msgid "Importing Databases from %s"
 msgstr ""
@@ -606,17 +606,17 @@ msgstr ""
 msgid "Importing Feature Codes from %s"
 msgstr ""
 
-#: RestoreBase.php:177
+#: RestoreBase.php:189
 #, php-format
 msgid "Importing KVStore from %s"
 msgstr ""
 
-#: RestoreBase.php:158
+#: RestoreBase.php:170
 #, php-format
 msgid "Importing Table %s from %s"
 msgstr ""
 
-#: RestoreBase.php:234
+#: RestoreBase.php:246
 #, php-format
 msgid "Importing table '%s' from legacy %s"
 msgstr ""
@@ -1051,12 +1051,12 @@ msgstr ""
 msgid "System Transfer"
 msgstr ""
 
-#: RestoreBase.php:240
+#: RestoreBase.php:252
 #, php-format
 msgid "Table '%s' does not exist in legacy %s, skipping"
 msgstr ""
 
-#: RestoreBase.php:237
+#: RestoreBase.php:249
 #, php-format
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
@@ -1190,13 +1190,13 @@ msgstr ""
 msgid "Unable to map '%s' of type '%s"
 msgstr ""
 
-#: RestoreBase.php:217
+#: RestoreBase.php:229
 #, php-format
 msgid ""
 "Unable to run restoreLegacyDatabase on %s because module.xml was not found"
 msgstr ""
 
-#: RestoreBase.php:222
+#: RestoreBase.php:234
 #, php-format
 msgid ""
 "Unable to run restoreLegacyDatabase on %s because there are no database "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 10:32+0530\n"
+"POT-Creation-Date: 2019-07-03 20:35+0530\n"
 "PO-Revision-Date: 2015-11-17 12:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -475,6 +475,11 @@ msgstr ""
 #: BackupBase.php:67
 #, php-format
 msgid "Exporting Feature Codes from %s"
+msgstr ""
+
+#: BackupBase.php:156
+#, php-format
+msgid "Exporting KVStore based on ids  %s"
 msgstr ""
 
 #: BackupBase.php:154

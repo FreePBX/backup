@@ -149,15 +149,19 @@ class BackupBase extends Model\Backup{
 	 *
 	 * @return array
 	 */
-	public function dumpKVStore() {
+	public function dumpKVStore($ids=false) {
 		$module = ucfirst(strtolower($this->data['module']));
 		$this->log(sprintf(_("Exporting KVStore from %s"), $module));
+		if (is_array($ids)) {
+			$this->log(sprintf(_("Exporting KVStore based on ids  %s"), implode(',',$ids)));
+		}
 		if(!is_subclass_of($this->FreePBX->$module,'FreePBX\DB_Helper')) {
 			return [];
 		}
-
-		$ids = $this->FreePBX->$module->getAllids();
-		$ids[] = 'noid';
+		if(!is_array($ids)) {
+			$ids = $this->FreePBX->$module->getAllids();
+			$ids[] = 'noid';
+		}
 		$final = [];
 		foreach($ids as $id) {
 			$final[$id] = $this->FreePBX->$module->getAll($id);

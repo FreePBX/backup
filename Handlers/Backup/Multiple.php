@@ -143,6 +143,21 @@ class Multiple extends Common {
 				'version' => $version
 			];
 		}
+		//FREEPBX-20060 restapps stopping the restore in between, because apache restart
+		//putting restapps to end of the process order
+		$processorder = $manifest['processorder'];
+		unset($manifest['processorder']);
+		foreach ($processorder as $order) {
+			if($order['module'] == 'restapps'){
+				$lastentry = $order;
+			} else {
+				$rearragedorder[] = $order;
+			}
+		}
+		if(isset($lastentry) && is_array($lastentry)) {
+			$rearragedorder[] = $lastentry;
+		}
+		$manifest['processorder'] = $rearragedorder;
 
 
 		$tar->addData('metadata.json', json_encode($manifest,JSON_PRETTY_PRINT));

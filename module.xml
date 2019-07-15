@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.30</version>
+	<version>15.0.8.31</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.31* FREEPBX-20060 Restore stops after restapps  module 
 		*15.0.8.30* FREEPBX-20087 backup fails on queue stats 
 		*15.0.8.29* FREEPBX-20067 Fix parsing astdb data for restore.
 		*15.0.8.28* FREEPBX-20089 dumpDBTables with table name with and without underscore 

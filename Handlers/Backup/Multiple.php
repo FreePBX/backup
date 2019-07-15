@@ -58,6 +58,7 @@ class Multiple extends Common {
 		$this->log(_("This backup will be stored locally and is subject to maintenance settings"),'DEBUG');
 		$this->log(sprintf(_("Storage Location: %s"),$this->filePath.'/'.$targzname));
 		$this->setFilename($targzname);
+		$this->setnametodb($this->transactionId,$this->id,$targzname);
 		$tar = $this->openFile();
 
 		//Setup the process queue

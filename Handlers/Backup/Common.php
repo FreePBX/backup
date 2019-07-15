@@ -20,6 +20,10 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		$this->filePath = $filePath;
 	}
 
+	public function setnametodb($transactionId,$buid,$filename) {
+		$arr = array("backupid"=> $buid,"filename"=> $filename);
+		$this->freepbx->Backup->SetConfig($transactionId,$arr,"filenames");
+	}
 	/**
 	 * Set default Fallback flag
 	 *

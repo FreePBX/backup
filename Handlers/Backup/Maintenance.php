@@ -15,6 +15,7 @@ class Maintenance extends \FreePBX\modules\Backup\Handlers\CommonBase {
 	private $spooldir;
 	private $serverName;
 	private $localPath;
+	private $backupfiles;
 
 	public function __construct($freepbx, $id, $transactionId, $pid) {
 		parent::__construct($freepbx, $transactionId, $pid);
@@ -25,6 +26,15 @@ class Maintenance extends \FreePBX\modules\Backup\Handlers\CommonBase {
 		$this->spooldir = $this->freepbx->Config->get("ASTSPOOLDIR");
 		$this->serverName = str_replace(' ', '_',$this->freepbx->Config->get('FREEPBX_SYSTEM_IDENT'));
 		$this->localPath = sprintf('%s/backup/%s',$this->spooldir,$this->name);
+		$this->getBackupFileBasedonId();
+	}
+	private function getBackupFileBasedonId() {
+		$allbacklist = $this->freepbx->Backup->getAll('filenames');
+		foreach($allbacklist as $key => $list) {
+			if($list['backupid'] == $this->id) {
+				$this->backupfiles[$key] = $list['filename'];
+			}
+		}
 	}
 
 	public function setDryRun($mode){
@@ -86,6 +96,9 @@ class Maintenance extends \FreePBX\modules\Backup\Handlers\CommonBase {
 
 			foreach ($files as $file) {
 				if(!isset($file['path'])){
+					continue;
+				}
+				if(!in_array($file['basename'],$this->backupfiles)) {
 					continue;
 				}
 				$parsed = $this->parseFile($file['basename']);

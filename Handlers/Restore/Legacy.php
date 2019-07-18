@@ -203,10 +203,6 @@ class Legacy extends Common {
 			if($module === 'unknown' || $module === 'cdr' || $module === 'cel' || $module === 'queuelog'){
 				continue;
 			}
-			if($module === 'backup') {
-				$this->log(_('Skipping backup'),'WARNING');
-				continue;
-			}
 			$this->log(sprintf(_("Processing %s"),$module),'INFO');
 			try {
 				$this->processLegacyModule($module, $versions[$module], $dbh, $tables, $tableMap);

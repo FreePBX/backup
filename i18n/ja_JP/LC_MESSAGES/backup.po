@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-17 14:56+0530\n"
+"POT-Creation-Date: 2019-07-22 20:26+0530\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -551,7 +551,7 @@ msgstr ""
 msgid "Files"
 msgstr "ファイル"
 
-#: Handlers/Restore/Multiple.php:66 Handlers/Restore/Single.php:34
+#: Handlers/Restore/Multiple.php:62 Handlers/Restore/Single.php:34
 msgid "Finished"
 msgstr ""
 
@@ -820,8 +820,8 @@ msgstr ""
 msgid "Process is no longer running"
 msgstr ""
 
-#: Handlers/Backup/Single.php:36 Handlers/Restore/Legacy.php:210
-#: Handlers/Restore/Multiple.php:54
+#: Handlers/Backup/Single.php:36 Handlers/Restore/Legacy.php:206
+#: Handlers/Restore/Multiple.php:50
 #, php-format
 msgid "Processing %s"
 msgstr ""
@@ -1029,10 +1029,6 @@ msgstr ""
 
 #: views/backup/warmspare.php:33
 msgid "Should the warm spare feature be enabled"
-msgstr ""
-
-#: Handlers/Restore/Legacy.php:207
-msgid "Skipping backup"
 msgstr ""
 
 #: Handlers/Backup/Multiple.php:108
@@ -1283,12 +1279,12 @@ msgstr ""
 msgid "Using fallback restore strategy"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:237
+#: Handlers/Restore/Legacy.php:233
 #, php-format
 msgid "Utilizing cached based sqlite at %s. The data might be stale!"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:241
+#: Handlers/Restore/Legacy.php:237
 #, php-format
 msgid "Utilizing file based sqlite at %s, This is SLOW"
 msgstr ""

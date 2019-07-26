@@ -142,7 +142,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
      *  ],
 	 */
 	public function importAstDB($data) {
-		if(empty($data)) {
+		if(empty($data) && !is_array($data)) {
 			return;
 		}
 		

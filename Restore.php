@@ -6,8 +6,7 @@ class Restore Extends Base\RestoreBase{
 		$settings = $this->getConfigs();
 		$this->importKVStore($settings['kvstore']);
 	}
-	public function processLegacy($pdo, $data, $tables, $unknownTables, $tmpfiledir){
-		return $this->transformLegacyKV($pdo,'backup', $this->freepbx)
-				->transformNamespacedKV($pdo,'backup', $this->freepbx);
+	public function processLegacy($pdo, $data, $tables, $unknownTables){
+		$this->log('Skipping Legacy Backup module ');
 	}
 }

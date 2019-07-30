@@ -397,6 +397,62 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	}
 
 	/**
+	 * Legacy import KVStore into memory using kvstore ids
+	 *
+	 * @param \PDO $pdo The pdo connection for the temporary database
+	 * @return array
+	 */
+	public function getLegacyKVStoreByIds(\PDO $pdo,$ids = []) {
+		if(version_compare_freepbx($this->data['pbx_version'],"12","lt")) {
+			return [];
+		}
+		if(!is_array($ids) || empty($ids)){
+			return [];
+		}
+		$idsearch =  implode("','",$ids);
+		$idsearch =  "'".$idsearch."'";
+		try {
+			if(version_compare_freepbx($this->data['pbx_version'],"14","lt")) {
+				$res = $pdo->query("SELECT `id`, `key`, `val`, `type` FROM kvstore WHERE `module` = ".$pdo->quote($this->getNamespace())." WHERE `id` IN ($idsearch)")->fetchAll(\PDO::FETCH_ASSOC);
+			} else {
+				$res = $pdo->query("SELECT `id`, `key`, `val`, `type` FROM kvstore_".str_replace('\\','_',$this->getNamespace())." WHERE `id` IN ($idsearch)")->fetchAll(\PDO::FETCH_ASSOC);
+			}
+		} catch(\Exception $e) {
+			return [];
+		}
+
+		if(empty($res)) {
+			return [];
+		}
+
+		$final = [];
+
+		foreach($res as $r) {
+			if($r['type'] === 'blob') {
+				$b = $pdo->query('SELECT `type`, `content` FROM `kvblobstore` WHERE `uuid`='.$pdo->quote($r['val']))->fetch(\PDO::FETCH_ASSOC);
+				if(empty($b)) {
+					continue;
+				}
+				$r['type'] = $b['type'];
+				$r['val'] = $b['val'];
+			}
+			switch($r['type']) {
+				case 'json-obj':
+					$val = json_decode(stripcslashes($r['val']));
+				break;
+				case 'json-arr':
+					$val = json_decode(stripcslashes($r['val']), true);
+				break;
+				default:
+					$val = $r['val'];
+				break;
+			}
+			$final[$r['id']][$r['key']] = $val;
+		}
+		return $final;
+	}
+
+	/**
 	 * Dynamically add data from an array to a table
 	 *
 	 * This uses doctrine to see the column names and types to match them up

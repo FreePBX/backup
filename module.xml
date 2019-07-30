@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.33</version>
+	<version>15.0.8.34</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.34* FREEPBX-20293 Legacy 15 restore stops at queuestats import 
 		*15.0.8.33* FREEPBX-20073 Backup module not restored in the secondary system 
 		*15.0.8.32* FREEPBX-20121 Backup rotation faulty 
 		*15.0.8.31* FREEPBX-20060 Restore stops after restapps  module 

@@ -382,10 +382,10 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 			}
 			switch($r['type']) {
 				case 'json-obj':
-					$val = json_decode($val);
+					$val = json_decode(stripcslashes($r['val']));
 				break;
 				case 'json-arr':
-					$val = json_decode($val, true);
+					$val = json_decode(stripcslashes($r['val']), true);
 				break;
 				default:
 					$val = $r['val'];

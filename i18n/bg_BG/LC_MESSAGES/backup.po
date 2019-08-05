@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-30 15:23+0530\n"
+"POT-Creation-Date: 2019-08-05 15:56+0530\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -534,7 +534,7 @@ msgstr ""
 msgid "Files"
 msgstr "Файлове"
 
-#: Handlers/Restore/Multiple.php:62 Handlers/Restore/Single.php:34
+#: Handlers/Restore/Multiple.php:68 Handlers/Restore/Single.php:34
 msgid "Finished"
 msgstr ""
 
@@ -825,6 +825,14 @@ msgstr ""
 msgid "Recipient"
 msgstr ""
 
+#: Handlers/Restore/Legacy.php:220 Handlers/Restore/Multiple.php:65
+msgid "Reloading......"
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:222 Handlers/Restore/Multiple.php:67
+msgid "Reloading...... DONE"
+msgstr ""
+
 #: views/backup/warmspare.php:202
 msgid "Remote IP"
 msgstr ""
@@ -941,6 +949,14 @@ msgstr ""
 #: Handlers/Backup/Multiple.php:50
 #, php-format
 msgid "Running Backup ID: %s"
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:217 Handlers/Restore/Multiple.php:62
+msgid "Running Post Restore Hooks"
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:219 Handlers/Restore/Multiple.php:64
+msgid "Running Post Restore Hooks DONE"
 msgstr ""
 
 #: views/restore/processRestore.php:26
@@ -1262,12 +1278,12 @@ msgstr ""
 msgid "Using fallback restore strategy"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:233
+#: Handlers/Restore/Legacy.php:239
 #, php-format
 msgid "Utilizing cached based sqlite at %s. The data might be stale!"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:237
+#: Handlers/Restore/Legacy.php:243
 #, php-format
 msgid "Utilizing file based sqlite at %s, This is SLOW"
 msgstr ""

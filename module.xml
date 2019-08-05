@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.37</version>
+	<version>15.0.8.38</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.38* FREEPBX-20341 invalid argument passed in call flow control - daynight) 
 		*15.0.8.37* FREEPBX-20352 Legacy restore stops at restapps if the restore is done through GUI. 
 		*15.0.8.36* FREEPBX-20335 backup restore stops due to restapps and sysadmin port changes 
 		*15.0.8.35* FREEPBX-20324 Getting whoops error while updating sangoma CRM module to edge version in FreePBX 15 

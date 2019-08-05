@@ -76,7 +76,18 @@ class Legacy extends Common {
 					}
 					$tableMap[$tables[$current]][] = $current;
 				}
-				$this->processLegacyNormal($dbh, $tableMap, $versions);
+				$reordertableMap = [];
+				foreach($tableMap as $mod => $table) {
+					if($mod == 'restapps') {
+						$restapps = $table;
+						continue;
+					}
+					$reordertableMap[$mod] = $table;
+				}
+				if(is_array($restapps)) {
+					$reordertableMap['restapps'] = $restapps;
+				}
+				$this->processLegacyNormal($dbh, $reordertableMap, $versions);
 			}
 		}
 	}

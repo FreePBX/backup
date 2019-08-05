@@ -214,6 +214,12 @@ class Legacy extends Common {
 			}
 			$this->log("",'INFO');
 		}
+		$this->log(_('Running Post Restore Hooks'));
+		$this->postRestoreHooks();
+		$this->log(_('Running Post Restore Hooks DONE'));
+		$this->log(_('Reloading......'));
+		do_reload();
+		$this->log(_('Reloading...... DONE'));
 	}
 
 	/**

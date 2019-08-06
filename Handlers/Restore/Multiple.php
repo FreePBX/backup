@@ -59,7 +59,10 @@ class Multiple extends Common {
 			$this->log("",'INFO');
 
 		}
+		//end of all modules restore so unlock it
+		$this->setRestoreEnd();
 		$this->log(_('Running Post Restore Hooks'));
+		$this->displayportschanges();
 		$this->postRestoreHooks();
 		$this->log(_('Running Post Restore Hooks DONE'));
 		$this->log(_('Reloading......'));

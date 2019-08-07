@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-05 17:58+0530\n"
+"POT-Creation-Date: 2019-08-07 15:13+0530\n"
 "PO-Revision-Date: 2016-02-05 11:17+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -111,6 +111,11 @@ msgstr "Admin"
 
 #: views/restore/processRestore.php:29
 msgid "After the restore you should reload with the apply config button"
+msgstr ""
+
+#: Handlers/Restore/Common.php:166
+msgid ""
+"Apache will Restat now... And your GUI may die if the ports are changed !!!!"
 msgstr ""
 
 #: views/backup/warmspare.php:171
@@ -220,7 +225,7 @@ msgstr ""
 msgid "Backup completed successfully"
 msgstr ""
 
-#: Handlers/Restore/Common.php:138
+#: Handlers/Restore/Common.php:144
 #, php-format
 msgid ""
 "Backup extracted to %s. These files will remain until a new restore is run "
@@ -250,7 +255,7 @@ msgstr "Information de base"
 msgid "Both"
 msgstr ""
 
-#: Handlers/Restore/Common.php:77
+#: Handlers/Restore/Common.php:83
 #, php-format
 msgid "Can't find the module data for %s"
 msgstr ""
@@ -306,7 +311,7 @@ msgstr ""
 msgid "Could not find a file for the id supplied"
 msgstr ""
 
-#: Handlers/Restore/Common.php:150
+#: Handlers/Restore/Common.php:156
 msgid "Could not locate the manifest for this file"
 msgstr ""
 
@@ -367,7 +372,7 @@ msgstr ""
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr ""
 
-#: Console/Backup.class.php:218 Handlers/Restore/Common.php:106
+#: Console/Backup.class.php:218 Handlers/Restore/Common.php:112
 #: Handlers/Restore/Legacy.php:191
 msgid "Done"
 msgstr ""
@@ -501,7 +506,7 @@ msgstr ""
 msgid "Extracting Backup"
 msgstr ""
 
-#: Handlers/Restore/Common.php:126
+#: Handlers/Restore/Common.php:132
 msgid "Extracting backup..."
 msgstr ""
 
@@ -531,7 +536,7 @@ msgstr ""
 msgid "Files"
 msgstr ""
 
-#: Handlers/Restore/Multiple.php:68 Handlers/Restore/Single.php:34
+#: Handlers/Restore/Multiple.php:71 Handlers/Restore/Single.php:34
 msgid "Finished"
 msgstr ""
 
@@ -827,11 +832,11 @@ msgstr ""
 msgid "Recipient"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:231 Handlers/Restore/Multiple.php:65
+#: Handlers/Restore/Legacy.php:234 Handlers/Restore/Multiple.php:68
 msgid "Reloading......"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:233 Handlers/Restore/Multiple.php:67
+#: Handlers/Restore/Legacy.php:236 Handlers/Restore/Multiple.php:70
 msgid "Reloading...... DONE"
 msgstr ""
 
@@ -863,7 +868,7 @@ msgstr ""
 msgid "Resetting %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:101
+#: Handlers/Restore/Common.php:107
 #, php-format
 msgid "Resetting %s module data"
 msgstr ""
@@ -897,7 +902,7 @@ msgstr ""
 msgid "Restoring %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:104 Handlers/Restore/Legacy.php:189
+#: Handlers/Restore/Common.php:110 Handlers/Restore/Legacy.php:189
 #, php-format
 msgid "Restoring from %s [%s]"
 msgstr ""
@@ -953,11 +958,11 @@ msgstr ""
 msgid "Running Backup ID: %s"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:228 Handlers/Restore/Multiple.php:62
+#: Handlers/Restore/Legacy.php:230 Handlers/Restore/Multiple.php:64
 msgid "Running Post Restore Hooks"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:230 Handlers/Restore/Multiple.php:64
+#: Handlers/Restore/Legacy.php:233 Handlers/Restore/Multiple.php:67
 msgid "Running Post Restore Hooks DONE"
 msgstr ""
 
@@ -1124,7 +1129,7 @@ msgid ""
 "different method of transferring your backup."
 msgstr ""
 
-#: Handlers/Restore/Common.php:92
+#: Handlers/Restore/Common.php:98
 #, php-format
 msgid "The module %s does not seem to support restores."
 msgstr ""
@@ -1276,16 +1281,16 @@ msgstr ""
 msgid "Using default restore strategy"
 msgstr ""
 
-#: Handlers/Restore/Common.php:96
+#: Handlers/Restore/Common.php:102
 msgid "Using fallback restore strategy"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:250
+#: Handlers/Restore/Legacy.php:253
 #, php-format
 msgid "Utilizing cached based sqlite at %s. The data might be stale!"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:254
+#: Handlers/Restore/Legacy.php:257
 #, php-format
 msgid "Utilizing file based sqlite at %s, This is SLOW"
 msgstr ""

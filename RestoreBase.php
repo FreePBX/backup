@@ -220,6 +220,24 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		$this->restoreLegacyDatabase($pdo);
 		$this->restoreLegacyKvstore($pdo);
 	}
+	/**
+	*  $modulename
+	*   $under_score = true or false search with like modulename_
+	*/
+	public function getModuleTable_names($modename,$under_score=true) {
+		if(!$under_score) {
+			$query = "SELECT table_name FROM information_schema.tables WHERE table_name LIKE '".$modename."%'";
+		} else {
+			$query = "SELECT table_name FROM information_schema.tables WHERE table_name LIKE '".$modename."_%'";
+		}
+		$tables = $this->FreePBX->Database->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+		$ret = [];
+		foreach($tables as $table) {
+			$tname = (string)$table['table_name'];
+			$ret[] = $tname;
+		}
+		return $ret;
+	}
 
 	/**
 	 * Restores database based on present XML tables and backup database
@@ -227,7 +245,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	 * @param \PDO $pdo The pdo connection for the temporary database
 	 * @return void
 	 */
-	public function restoreLegacyDatabase(\PDO $pdo) {
+	public function restoreLegacyDatabase(\PDO $pdo,$tables = []) {
 		$module = strtolower($this->data['module']);
 		$dir = $this->FreePBX->Config->get('AMPWEBROOT').'/admin/modules/'.$module;
 		if(!file_exists($dir.'/module.xml')) {
@@ -239,11 +257,25 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 			$this->log(sprintf(_('Unable to run restoreLegacyDatabase on %s because there are no database definitions in module.xml'),$module),'WARNING');
 			return;
 		}
-
+		// add the missed the tables from FreePBX 15 database schema
+		if(is_array($tables) && count($tables) == 0) {// tables are passed from module/Restore.php
+			$this->log(sprintf(_("Reading Databases Table infromation using module name %s"), $module));
+			$tables = $this->getModuleTable_names($module);
+		}
+		//compaire  with xml and add which are missed
+		if(is_object($xml->database->table)) {
+			foreach($xml->database->table as $table) {
+				$tname = (string)$table->attributes()->name;
+				if(array_key_exists($tname,$tables)) {
+					continue;
+				} else {
+					$tables[] = $tname;
+				}
+			}
+		}
 		$this->log(sprintf(_("Importing Databases from %s"), $module));
-		$tables = [];
-		foreach($xml->database->table as $table) {
-			$tname = (string)$table->attributes()->name;
+		foreach($tables as $table) {
+			$tname = $table;
 			try {
 				$sth = $pdo->query("SELECT * FROM $tname",\PDO::FETCH_ASSOC);
 				$res = $sth->fetchAll();

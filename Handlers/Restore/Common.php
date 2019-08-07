@@ -11,11 +11,17 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	protected $webroot;
 	protected $specificRestores;
 	protected $defaultFallback = false;
+	protected $existingports = [];
+	protected $changedports = [];
+	protected $restorepid = '/var/run/asterisk/restore_running.lock';
 
 	public function __construct($freepbx, $file, $transactionId, $pid) {
 		parent::__construct($freepbx, $file, $transactionId, $pid);
 
 		$this->webroot = $this->freepbx->Config->get('AMPWEBROOT');
+		$this->existingports = $this->freepbx->Sysadmin->getPorts();
+		//acquire the restore lock
+		$this->setRestoreStart();
 	}
 
 	/**
@@ -153,6 +159,35 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		return $restoreData;
 	}
 
+	/**  retrun the ports which were in use before restore**/
+	protected function displayportschanges(){
+		$this->getportschanges();
+		if(is_array($this->changedports) && count($this->changedports)> 0){
+			$this->log(_("Apache will Restat now... And your GUI may die if the ports are changed !!!!"));
+			foreach($this->changedports as $key => $port){
+				if($key == 'acp' || $key == 'sslacp') {
+					if(!strpos($port, 'available')){
+						$this->log("New port for accessing $key = $port ");
+						$this->log($_SERVER['SERVER_ADDR'].":$port/admin/config.php?display=backup ");
+					}
+				}
+			}
+		}
+	}
+
+	/** Get new ports after restoring */
+	protected function getportschanges() {
+		$sysvals = $this->freepbx->Database->query("SELECT * FROM sysadmin_options")->fetchAll();
+		foreach($sysvals as $keyvalue) {
+			$ports[$keyvalue['key']] = $keyvalue['value'];
+		}
+		foreach($this->existingports as $key => $value) {
+			if($ports[$key] != $value) { // port has changed
+				$this->changedports[$key] = $ports[$key];
+			}
+		}
+	}
+
 	/**
 	* run the sysadmin hook post restore 
 	*/
@@ -171,4 +206,27 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 			$this->log('post Restore hooks failed !!!!!');
 		}
 	}
+
+
+	/**
+	 * Create Restore process id
+	 */
+	public function setRestoreStart() {
+		$fh = fopen($this->restorepid, "w+");
+		if ($fh === false) {
+			throw new Exception("Failed to create restore process id file $$this->restorepid");
+		}
+		fclose($fh);
+	}
+
+	/**
+	 * Destroy Restore process id
+	 */
+	public function setRestoreEnd() {
+		if (file_exists($this->restorepid)) {
+			unlink($this->restorepid);
+		}
+	}
+
+
 }

@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.41</version>
+	<version>15.0.8.42</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.42* bump 
 		*15.0.8.41* FREEPBX-20403 FREEPBX-20401 
 		*15.0.8.40* FREEPBX-20347 Legacy backup Restore common issue 
 		*15.0.8.39* FREEPBX-20370 restore issue with apache port 

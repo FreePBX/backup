@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-08 11:34+0530\n"
+"POT-Creation-Date: 2019-08-08 12:04+0530\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -413,7 +413,7 @@ msgstr ""
 "Sự tương đương của việc nhấp vào nút màu đỏ, sẽ xảy ra tự động sau khi khôi "
 "phục trên một hệ thống dự phòng"
 
-#: assets/js/backup.js:283 assets/js/backup.js:302 assets/js/backup.js:373
+#: assets/js/backup.js:295 assets/js/backup.js:314 assets/js/backup.js:385
 msgid "Error"
 msgstr ""
 
@@ -689,7 +689,7 @@ msgstr ""
 msgid "List Backups"
 msgstr ""
 
-#: assets/js/backup.js:313
+#: assets/js/backup.js:325
 msgid "Loading Please Wait"
 msgstr ""
 
@@ -786,6 +786,12 @@ msgstr ""
 msgid ""
 "No module is selected for Backup. Please ensure you are selecting atleast "
 "one module for Backup"
+msgstr ""
+
+#: assets/js/backup.js:266 assets/js/backup.js:273
+msgid ""
+"No storage location selected for Backup. Please select atleast one storage "
+"location to save the backup"
 msgstr ""
 
 #: views/backup/form.php:122
@@ -938,7 +944,7 @@ msgstr ""
 msgid "Run Restore"
 msgstr ""
 
-#: assets/js/backup.js:433
+#: assets/js/backup.js:445
 msgid "Run the following in the CLI"
 msgstr ""
 
@@ -1174,7 +1180,7 @@ msgstr ""
 msgid "The module %s returned no data, No backup created"
 msgstr ""
 
-#: assets/js/backup.js:373
+#: assets/js/backup.js:385
 #, perl-format
 msgid "There was an error during %s"
 msgstr ""
@@ -1374,7 +1380,7 @@ msgstr "Có"
 msgid "You must set a valid job name for this backup"
 msgstr ""
 
-#: assets/js/backup.js:370
+#: assets/js/backup.js:382
 #, perl-format
 msgid "Your %s has finished"
 msgstr ""

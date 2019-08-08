@@ -260,7 +260,19 @@ $('#itemsReset').on('click', function (e) {
 $('[name="warmspareenabled"]').change(function () {
 	toggle_warmspare();
 });
+
+$("#addBackupJob").submit(function( e ) {
+	if (!$("#backup_storage option:selected").val()) {
+	   alert(_("No storage location selected for Backup. Please select atleast one storage location to save the backup"));
+	   return false;
+	}
+});
+
 $("#run_backup").on('click', function (e) {
+	if (!$("#backup_storage option:selected").val()) {
+	   alert(_("No storage location selected for Backup. Please select atleast one storage location to save the backup"));
+	   return false;
+	}
 	sessionStorage.setItem("runBackup", $("#id").val());
 	$('.fpbx-submit').submit();
 });

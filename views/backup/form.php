@@ -19,7 +19,7 @@ if (!empty($bkjobs)) {
 		<div class="col-sm-12">
 			<div class="fpbx-container">
 				<div class="display full-border">
-					<form name="addBackupJob" class="fpbx-submit" name="frm_extensions" action="?display=backup" method="post" data-fpbx-delete="config.php?display=backup&type=backup&amp;id=<?php echo $id?>&amp;action=del"
+					<form id="addBackupJob" name="addBackupJob" class="fpbx-submit" name="frm_extensions" action="?display=backup" method="post" data-fpbx-delete="config.php?display=backup&type=backup&amp;id=<?php echo $id?>&amp;action=del"
 						role="form">
 						<input type="hidden" id="id" name="id" value="<?php echo $id ?>">
 						<input type="hidden" id="backup_items" name="backup_items" value='unchanged'>

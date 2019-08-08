@@ -240,7 +240,13 @@ if ($("#backup_storage").length) {
 modulesettings = {};
 $('#itemsSave').on('click', function (e) {
 	e.preventDefault();
+	if (!$('#backupmodules').bootstrapTable('getSelections').length) {
+		alert(_("No module is selected for Backup. Please ensure you are selecting atleast one module for Backup"));
+		return false;
+	}
 	$('#backup_items').val(JSON.stringify(processItems()));
+	$('#backup_modules').text(_("Modules ("+$('#backupmodules').bootstrapTable('getSelections').length+')'))
+
 	$("#itemsModal").modal('hide');
 });
 $('#itemsModal').on('show.bs.modal', function (e) {

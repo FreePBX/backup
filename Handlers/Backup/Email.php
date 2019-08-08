@@ -34,4 +34,23 @@ trait Email {
 
 		$logger->pushHandler($handler);
 	}
+
+	public function sendEmail($error) {
+		if(!isset($this->backupInfo['backup_email']) || empty($this->backupInfo['backup_email'])){
+			dbug("backup_email not set, hence not sending email..");	
+			return;
+		}
+		if(!isset($this->backupInfo['backup_emailtype']) || empty($this->backupInfo['backup_emailtype'])){
+			dbug("backup_emailtype not set, hence not sending email");	
+			return;
+		}
+		if ($error && ($this->backupInfo['backup_emailtype'] == 'failure') ||
+				($this->backupInfo['backup_emailtype'] == 'both')) {
+			$this->attachEmailHandler();
+			$this->log(sprintf(_("Generated Backup process result email to %s"), $this->backupInfo['backup_email']),'DEBUG');
+		} else if ($this->backupInfo['backup_emailtype'] == 'success') {
+			$this->attachEmailHandler();
+			$this->log(sprintf(_("Generated Backup process result email to %s"), $this->backupInfo['backup_email']),'DEBUG');
+		}
+	}
 }

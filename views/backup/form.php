@@ -90,7 +90,7 @@ if (!empty($bkjobs)) {
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="backup_items"></i>
 										</div>
 										<div class="col-md-9">
-											<a data-toggle="modal" href="#itemsModal" class="btn btn-lg">
+											<a data-toggle="modal" href="#itemsModal" id="backup_modules" name="backup_modules" class="btn btn-lg">
 												<?php echo _("Modules")?>
 											</a>
 										</div>

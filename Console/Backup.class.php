@@ -107,9 +107,11 @@ class Backup extends Command {
 				$errors = $backupHandler->getErrors();
 				$warnings = $backupHandler->getWarnings();
 				if(empty($errors) && empty($warnings)) {
+					$backupHandler->sendEmail(false);
 					$output->writeln(_("Backup completed successfully"));
 				} else {
 					if(!empty($errors)) {
+						$backupHandler->sendEmail(true);
 						$output->writeln(_("There were errors during the backup process"));
 						foreach($errors as $error) {
 							$output->writeln("\t<error>".$error."</error>");
@@ -188,9 +190,11 @@ class Backup extends Command {
 				$warnings = array_merge($backupHandler->getWarnings(),$maintenanceHandler->getWarnings(),$storageHandler->getWarnings());
 
 				if(empty($errors) && empty($warnings)) {
+					$backupHandler->sendEmail(false);
 					$output->writeln(_("Backup completed successfully"));
 				} else {
 					if(!empty($errors)) {
+						$backupHandler->sendEmail(true);
 						$output->writeln(_("There were errors during the backup process"));
 						foreach($errors as $error) {
 							$output->writeln("\t<error>".$error."</error>");

@@ -45,8 +45,6 @@ class Multiple extends Common {
 			throw new \Exception("Backup id not provided", 500);
 		}
 
-		$this->attachEmailHandler();
-
 		$this->log(sprintf(_("Running Backup ID: %s"),$this->id),'DEBUG');
 		$this->log(sprintf(_("Transaction: %s"),$this->transactionId),'DEBUG');
 

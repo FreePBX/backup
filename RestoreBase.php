@@ -527,7 +527,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 			//Correctly quote before inserting
 			$final = [];
 			foreach($row as $col => $data) {
-				$final['`'.$col.'`'] = $data;
+				$final['`'.$col.'`'] = stripslashes($data);
 			}
 
 			try {

@@ -1,6 +1,11 @@
 //put all document ready stuff here... One listener to rule them all
 $(document).ready(function () {
 	toggle_warmspare();
+	setTimeout(function(){
+			$('#backup_items').val(JSON.stringify(processItems()));
+			$('#backup_modules').text(_("Modules ("+$('#backupmodules').bootstrapTable('getSelections').length+')'));
+	}, 1000);
+
 	if($('#uploadrestore').length){
 		var dz = new Dropzone("#uploadrestore",{
 			url: `${FreePBX.ajaxurl}?module=backup&command=uploadrestore`,

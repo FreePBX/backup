@@ -123,8 +123,9 @@ class Maintenance extends \FreePBX\modules\Backup\Handlers\CommonBase {
 				}
 				$maintfiles[$parsed['timestamp']] = $file['path'];
 			}
+			asort($maintfiles,SORT_NUMERIC);
 			if(isset($this->backupInfo['maintruns']) && $this->backupInfo['maintruns'] > 0){
-				$remove = array_slice($maintfiles,$this->backupInfo['maintruns'],null,true);
+				$remove = array_slice($maintfiles,$this->backupInfo['maintruns']-1,null,true);
 				foreach ($remove as $key => $value) {
 					try {
 						$this->log("\t".sprintf(_("Removing %s"),$value),'DEBUG');

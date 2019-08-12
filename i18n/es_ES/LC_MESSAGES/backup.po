@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-09 12:02+0530\n"
+"POT-Creation-Date: 2019-08-12 14:56+0530\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -884,7 +884,7 @@ msgstr ""
 msgid "Remote User"
 msgstr ""
 
-#: Handlers/Backup/Maintenance.php:112 Handlers/Backup/Maintenance.php:130
+#: Handlers/Backup/Maintenance.php:112 Handlers/Backup/Maintenance.php:131
 #: Handlers/Backup/Multiple.php:171 Handlers/Backup/Single.php:55
 #, php-format
 msgid "Removing %s"

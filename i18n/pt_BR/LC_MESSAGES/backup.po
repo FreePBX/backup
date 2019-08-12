@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-09 12:02+0530\n"
+"POT-Creation-Date: 2019-08-12 14:56+0530\n"
 "PO-Revision-Date: 2017-03-08 21:01+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -871,7 +871,7 @@ msgstr ""
 msgid "Remote User"
 msgstr ""
 
-#: Handlers/Backup/Maintenance.php:112 Handlers/Backup/Maintenance.php:130
+#: Handlers/Backup/Maintenance.php:112 Handlers/Backup/Maintenance.php:131
 #: Handlers/Backup/Multiple.php:171 Handlers/Backup/Single.php:55
 #, php-format
 msgid "Removing %s"

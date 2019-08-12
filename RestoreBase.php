@@ -12,7 +12,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	 *
 	 * @return void
 	 */
-	public function runRestore() {
+	public function runRestore($jobid='') {
 		$configs = $this->getConfigs();
 		if(!empty($configs['defaultFallback']) && $this->defaultFallback) {
 			$this->log(sprintf(_('RunRestore method is not implemented in %s, but was backed up using default backup fallback, using default fallback'),$this->data['module']),'WARNING');

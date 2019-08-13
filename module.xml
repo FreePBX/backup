@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.45</version>
+	<version>15.0.8.46</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.46* FREEPBX-20374 Restoring legacy(FreePBX 14) Backup into FreePBX 15 system is not restoring the Feature codes 
 		*15.0.8.45* FREEPBX-20121 Backup rotation faulty 
 		*15.0.8.44* FREEI-672
 		*15.0.8.43* FREEPBX-20411 Getting exception error while editing Qxact Reports Template 

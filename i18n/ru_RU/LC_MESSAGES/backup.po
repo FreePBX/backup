@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-12 14:56+0530\n"
+"POT-Creation-Date: 2019-08-13 18:00+0530\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -35,6 +35,11 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
+
+#: RestoreBase.php:257
+#, php-format
+msgid " %s found no database definitions in module.xml"
+msgstr ""
 
 #: views/backup/form.php:17
 #, php-format
@@ -59,7 +64,7 @@ msgstr ""
 msgid "%s does not exist"
 msgstr ""
 
-#: RestoreBase.php:191 RestoreBase.php:363
+#: RestoreBase.php:191 RestoreBase.php:373
 #, php-format
 msgid "%s does not implement KVStore"
 msgstr ""
@@ -292,7 +297,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: RestoreBase.php:521
+#: RestoreBase.php:531
 #, php-format
 msgid "Column '%s' does not exist in %s, skipping"
 msgstr ""
@@ -620,7 +625,7 @@ msgstr ""
 msgid "ID From the donor machine"
 msgstr ""
 
-#: RestoreBase.php:83 RestoreBase.php:338
+#: RestoreBase.php:83 RestoreBase.php:348
 #, php-format
 msgid "Importing Advanced Settings from %s"
 msgstr ""
@@ -635,7 +640,7 @@ msgstr ""
 msgid "Importing AstDB family %s/%s  : %s"
 msgstr ""
 
-#: RestoreBase.php:276
+#: RestoreBase.php:280
 #, php-format
 msgid "Importing Databases from %s"
 msgstr ""
@@ -655,7 +660,7 @@ msgstr ""
 msgid "Importing Table %s from %s"
 msgstr ""
 
-#: RestoreBase.php:283
+#: RestoreBase.php:287
 #, php-format
 msgid "Importing table '%s' from legacy %s"
 msgstr ""
@@ -860,7 +865,7 @@ msgstr ""
 msgid "Public SSH key to allow other servers to connect"
 msgstr ""
 
-#: RestoreBase.php:262
+#: RestoreBase.php:261
 #, php-format
 msgid "Reading Databases Table infromation using module name %s"
 msgstr ""
@@ -1123,12 +1128,12 @@ msgstr ""
 msgid "System Transfer"
 msgstr ""
 
-#: RestoreBase.php:289
+#: RestoreBase.php:293
 #, php-format
 msgid "Table '%s' does not exist in legacy %s, skipping"
 msgstr ""
 
-#: RestoreBase.php:286
+#: RestoreBase.php:290
 #, php-format
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
@@ -1266,17 +1271,17 @@ msgstr ""
 msgid "Unable to map '%s' of type '%s"
 msgstr ""
 
+#: RestoreBase.php:276
+#, php-format
+msgid ""
+"Unable to run restoreLegacyDatabase on %s because NO Database information "
+"provided"
+msgstr ""
+
 #: RestoreBase.php:252
 #, php-format
 msgid ""
 "Unable to run restoreLegacyDatabase on %s because module.xml was not found"
-msgstr ""
-
-#: RestoreBase.php:257
-#, php-format
-msgid ""
-"Unable to run restoreLegacyDatabase on %s because there are no database "
-"definitions in module.xml"
 msgstr ""
 
 #: Monolog/Swift.php:63

@@ -254,8 +254,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		}
 		$xml = simplexml_load_file($dir.'/module.xml');
 		if(empty($xml->database)) {
-			$this->log(sprintf(_('Unable to run restoreLegacyDatabase on %s because there are no database definitions in module.xml'),$module),'WARNING');
-			return;
+			$this->log(sprintf(_(' %s found no database definitions in module.xml'),$module),'WARNING');
 		}
 		// add the missed the tables from FreePBX 15 database schema
 		if(is_array($tables) && count($tables) == 0) {// tables are passed from module/Restore.php
@@ -273,6 +272,11 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 				}
 			}
 		}
+		if(is_array($tables) && count($tables) == 0) {
+			$this->log(sprintf(_('Unable to run restoreLegacyDatabase on %s because NO Database information provided'),$module),'WARNING');
+			return;
+		}
+
 		$this->log(sprintf(_("Importing Databases from %s"), $module));
 		foreach($tables as $table) {
 			$tname = $table;
@@ -299,20 +303,26 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	 */
 	public function restoreLegacyFeatureCodes(\PDO $pdo) {
 		$module = strtolower($this->data['module']);
-		$sql = "SELECT `featurename`, `customcode`, `enabled` FROM featurecodes WHERE modulename = :name";
+		$sql = "SELECT `featurename`,`description`, `defaultcode`, `customcode`, `enabled`,`helptext` FROM featurecodes WHERE modulename = :name";
 		$sth = $pdo->prepare($sql);
 		$sth->execute([":name" => $module]);
 		$res = $sth->fetchAll(\PDO::FETCH_ASSOC);
 
-		$sql = "UPDATE IGNORE featurecodes SET `customcode` = :customcode, `enabled` = :enabled WHERE `featurename` = :featurename AND `modulename` = :modulename";
-		$usth = $this->FreePBX->Database->prepare($sql);
+		$sql = "DELETE FROM `featurecodes` WHERE `modulename` = :modulename";
+		$sth = $this->FreePBX->Database->prepare($sql);
+		$sth->execute(array(":modulename" => $module));
 
+		$sql = "INSERT INTO featurecodes (`modulename`, `featurename`, `description`, `helptext`, `defaultcode`, `customcode`, `enabled`) VALUES (:modulename, :featurename, :description, :helptext, :defaultcode, :customcode, :enabled)";
+		$sth = $this->FreePBX->Database->prepare($sql);
 		foreach($res as $data) {
-			$usth->execute([
-				":customcode" => $data['customcode'],
-				":enabled" => $data['enabled'],
-				":featurename" => $data['featurename'],
-				":modulename" => $module
+			$sth->execute([
+				":description" 	=> $data['description'],
+				":helptext" 	=> $data['helptext'],
+				":defaultcode" 	=> $data['defaultcode'],
+				":customcode" 	=> $data['customcode'],
+				":enabled" 		=> $data['enabled'],
+				":featurename" 	=> $data['featurename'],
+				":modulename" 	=> $module
 			]);
 		}
 	}

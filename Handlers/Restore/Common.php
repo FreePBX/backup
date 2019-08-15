@@ -120,7 +120,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	 * @return void
 	 */
 	protected function runRestore($class) {
-		$class->runRestore($this->transactionId);
+		$class->runRestore();
 	}
 
 	/**

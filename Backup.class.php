@@ -618,7 +618,8 @@ class Backup extends FreePBX_Helpers implements BMO {
 					$ssh = new FilestoreRemote();
 					$ssh->generateKey($hdir.'/.ssh');
 				}
-				$data = file_get_contents($file);
+            	$file = $hdir.'/.ssh/id_rsa.pub';
+				$data = file_get_contents($filePub);
 				$vars['publickey'] = $data;
 				return load_view(__DIR__.'/views/backup/settings.php',$vars);
 			break;

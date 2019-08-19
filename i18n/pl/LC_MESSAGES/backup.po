@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-13 18:00+0530\n"
+"POT-Creation-Date: 2019-08-19 14:34+0530\n"
 "PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/backup/pl/"
@@ -118,7 +118,7 @@ msgstr "Zastosuj konfiguracje"
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
 
-#: Backup.class.php:1212
+#: Backup.class.php:1213
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -133,7 +133,7 @@ msgstr "KOPIA ZAPASOWA NIE DOŁĄCZONA"
 msgid "Backup"
 msgstr "Kopa zapasowa"
 
-#: Backup.class.php:957
+#: Backup.class.php:958
 #, php-format
 msgid "Backup %s"
 msgstr ""
@@ -309,7 +309,7 @@ msgstr ""
 msgid "Could not locate the manifest for this file"
 msgstr ""
 
-#: Backup.class.php:593 Backup.class.php:660
+#: Backup.class.php:593 Backup.class.php:661
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
@@ -403,7 +403,7 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1118 views/backup/form.php:264
+#: Backup.class.php:1119 views/backup/form.php:264
 msgid "Enabled"
 msgstr ""
 
@@ -589,11 +589,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1197
+#: Backup.class.php:1198
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1203
+#: Backup.class.php:1204
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -1272,7 +1272,7 @@ msgstr ""
 msgid "Unable to upload file to the remote server"
 msgstr "Nie można przesłać pliku na serwer zdalny"
 
-#: Backup.class.php:1118
+#: Backup.class.php:1119
 msgid "Uninstalled or Disabled"
 msgstr ""
 

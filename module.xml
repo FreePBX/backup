@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.49</version>
+	<version>15.0.8.50</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.50* bump 
 		*15.0.8.49* Fixes FREEPBX-20446: read public key instead of private 
 		*15.0.8.48* Fixes FREEPBX-20447: corrected id of span-element 
 		*15.0.8.47* FREEPBX-20397 removed stripslashes for data. 

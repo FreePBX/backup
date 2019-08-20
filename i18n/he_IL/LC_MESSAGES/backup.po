@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-19 14:34+0530\n"
+"POT-Creation-Date: 2019-08-20 15:17+0530\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -60,7 +60,7 @@ msgstr ""
 msgid "%s does not implement KVStore"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:131
+#: Handlers/Restore/Legacy.php:120
 #, php-format
 msgid "%s is now loaded into memory"
 msgstr ""
@@ -375,7 +375,7 @@ msgid "Directory '%s' did not exist and we could not create it"
 msgstr ""
 
 #: Console/Backup.class.php:222 Handlers/Restore/Common.php:112
-#: Handlers/Restore/Legacy.php:191
+#: Handlers/Restore/Legacy.php:180
 msgid "Done"
 msgstr ""
 
@@ -512,7 +512,7 @@ msgstr ""
 msgid "Extracting backup..."
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:121
+#: Handlers/Restore/Legacy.php:110
 #, php-format
 msgid "Extracting supplied database file %s"
 msgstr ""
@@ -538,7 +538,8 @@ msgstr ""
 msgid "Files"
 msgstr ""
 
-#: Handlers/Restore/Multiple.php:71 Handlers/Restore/Single.php:34
+#: Handlers/Restore/Legacy.php:226 Handlers/Restore/Multiple.php:71
+#: Handlers/Restore/Single.php:34
 msgid "Finished"
 msgstr ""
 
@@ -705,7 +706,7 @@ msgstr ""
 msgid "Loading manifest to memory"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:129
+#: Handlers/Restore/Legacy.php:118
 #, php-format
 msgid "Loading supplied database file %s"
 msgstr ""
@@ -806,7 +807,7 @@ msgstr ""
 msgid "Notifications"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:208 Handlers/Restore/Multiple.php:43
+#: Handlers/Restore/Legacy.php:197 Handlers/Restore/Multiple.php:43
 #, php-format
 msgid "Only Restoring %s"
 msgstr ""
@@ -833,7 +834,7 @@ msgstr ""
 msgid "Process is no longer running"
 msgstr ""
 
-#: Handlers/Backup/Single.php:36 Handlers/Restore/Legacy.php:217
+#: Handlers/Backup/Single.php:36 Handlers/Restore/Legacy.php:206
 #: Handlers/Restore/Multiple.php:50
 #, php-format
 msgid "Processing %s"
@@ -860,11 +861,7 @@ msgstr ""
 msgid "Recipient"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:234 Handlers/Restore/Multiple.php:68
-msgid "Reloading......"
-msgstr ""
-
-#: Handlers/Restore/Legacy.php:236 Handlers/Restore/Multiple.php:70
+#: Handlers/Restore/Legacy.php:222 Handlers/Restore/Multiple.php:67
 msgid "Reloading...... DONE"
 msgstr ""
 
@@ -891,7 +888,7 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:187
+#: Handlers/Restore/Legacy.php:176
 #, php-format
 msgid "Resetting %s"
 msgstr ""
@@ -921,6 +918,10 @@ msgstr ""
 msgid "Restore from the cloud"
 msgstr ""
 
+#: Handlers/Restore/Legacy.php:218 Handlers/Restore/Multiple.php:63
+msgid "Restore processing for modules are finished successfully"
+msgstr ""
+
 #: Backup.class.php:388
 msgid "Restore running"
 msgstr ""
@@ -930,7 +931,7 @@ msgstr ""
 msgid "Restoring %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:110 Handlers/Restore/Legacy.php:189
+#: Handlers/Restore/Common.php:110 Handlers/Restore/Legacy.php:178
 #, php-format
 msgid "Restoring from %s [%s]"
 msgstr ""
@@ -986,12 +987,14 @@ msgstr ""
 msgid "Running Backup ID: %s"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:230 Handlers/Restore/Multiple.php:64
-msgid "Running Post Restore Hooks"
+#: Handlers/Restore/Legacy.php:225 Handlers/Restore/Multiple.php:70
+msgid "Running Post Restore Hooks DONE"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:233 Handlers/Restore/Multiple.php:67
-msgid "Running Post Restore Hooks DONE"
+#: Handlers/Restore/Legacy.php:223 Handlers/Restore/Multiple.php:68
+msgid ""
+"Running Post Restore Hooks.. Please note that hook will restart httpd "
+"service so please refresh your page (using new ports) "
 msgstr ""
 
 #: views/restore/processRestore.php:26
@@ -1162,7 +1165,7 @@ msgstr ""
 msgid "The module %s does not seem to support restores."
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:169
+#: Handlers/Restore/Legacy.php:158
 #, php-format
 msgid "The module %s does not support restores"
 msgstr ""
@@ -1305,7 +1308,7 @@ msgstr ""
 msgid "Using default backup strategy"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:173
+#: Handlers/Restore/Legacy.php:162
 msgid "Using default restore strategy"
 msgstr ""
 
@@ -1313,12 +1316,12 @@ msgstr ""
 msgid "Using fallback restore strategy"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:253
+#: Handlers/Restore/Legacy.php:243
 #, php-format
 msgid "Utilizing cached based sqlite at %s. The data might be stale!"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:257
+#: Handlers/Restore/Legacy.php:247
 #, php-format
 msgid "Utilizing file based sqlite at %s, This is SLOW"
 msgstr ""

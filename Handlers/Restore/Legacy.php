@@ -76,18 +76,7 @@ class Legacy extends Common {
 					}
 					$tableMap[$tables[$current]][] = $current;
 				}
-				$reordertableMap = [];
-				foreach($tableMap as $mod => $table) {
-					if($mod == 'restapps') {
-						$restapps = $table;
-						continue;
-					}
-					$reordertableMap[$mod] = $table;
-				}
-				if(is_array($restapps)) {
-					$reordertableMap['restapps'] = $restapps;
-				}
-				$this->processLegacyNormal($dbh, $reordertableMap, $versions);
+				$this->processLegacyNormal($dbh, $tableMap, $versions);
 			}
 		}
 	}
@@ -226,14 +215,15 @@ class Legacy extends Common {
 			$this->log("",'INFO');
 		}
 		//end of all modules so unlock it
+		$this->log(_('Restore processing for modules are finished successfully'));
 		$this->setRestoreEnd();
-		$this->log(_('Running Post Restore Hooks'));
 		$this->displayportschanges();
-		$this->postRestoreHooks();
-		$this->log(_('Running Post Restore Hooks DONE'));
-		$this->log(_('Reloading......'));
 		do_reload();
 		$this->log(_('Reloading...... DONE'));
+		$this->log(_('Running Post Restore Hooks.. Please note that hook will restart httpd service so please refresh your page (using new ports) '));
+		$this->postRestoreHooks();
+		$this->log(_('Running Post Restore Hooks DONE'));
+		$this->log(_('Finished'));
 	}
 
 	/**

@@ -537,7 +537,8 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 			//Correctly quote before inserting
 			$final = [];
 			foreach($row as $col => $data) {
-				$final['`'.$col.'`'] = $data;
+				$data = str_replace('\n', "\n", $data);//new line in any of the column
+				$final['`'.$col.'`'] = str_replace('\"', '"', $data);
 			}
 
 			try {

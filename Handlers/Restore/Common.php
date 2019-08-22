@@ -14,14 +14,16 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	protected $existingports = [];
 	protected $changedports = [];
 	protected $restorepid = '/var/run/asterisk/restore_running.lock';
+	protected $legacycdrrestore = 0;
 
-	public function __construct($freepbx, $file, $transactionId, $pid) {
+	public function __construct($freepbx, $file, $transactionId, $pid,$cdrlegacyrestore = 0) {
 		parent::__construct($freepbx, $file, $transactionId, $pid);
 
 		$this->webroot = $this->freepbx->Config->get('AMPWEBROOT');
 		$this->existingports = $this->freepbx->Sysadmin->getPorts();
 		//acquire the restore lock
 		$this->setRestoreStart();
+		$this->legacycdrrestore = $cdrlegacyrestore;
 	}
 
 	/**
@@ -132,7 +134,6 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		$this->log(_("Extracting backup..."));
 		//remove backup tmp dir for extraction
 		$this->fs->remove($this->tmp);
-
 		//add tmp dir back
 		$this->fs->mkdir($this->tmp);
 

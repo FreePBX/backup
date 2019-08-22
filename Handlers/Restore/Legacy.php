@@ -57,14 +57,24 @@ class Legacy extends Common {
 			$tableMap[$key] = [];
 		}
 		$this->log(sprintf(_("Found %s database files in the backup."),count($files)));
+		//need to process CDR database first otherwise when hooks runs it will kill all process, Thus cdr will not be processed
+		if($this->legacycdrrestore == 1) {
+			foreach($files as $k => $file){
+				$dt = $this->data['manifest']['fpbx_cdrdb'];
+				$scndCndtn = preg_match("/$dt/i",$file);
+				if(!empty($dt) && $scndCndtn){
+					$this->log(sprintf(_("Legacy CDR Restore Opted. we are processing , It may take long time to process %s "),$file));
+					$this->processLegacyCdr($file);
+				}
+			}
+		}	
 		foreach($files as $file){
 			$this->log(sprintf(_("File named: %s"),$file));
 			$dt = $this->data['manifest']['fpbx_cdrdb'];
 			$scndCndtn = preg_match("/$dt/i",$file);
 			if(!empty($dt) && $scndCndtn){
-				//$this->processLegacyCdr($data);
-				$this->log(sprintf(_("Detected file %s as legacy CDR which are not supported at this time. You will have to manually restore it"),$file));
-			}else{
+				//all ready processed
+			} else{
 				$this->log(sprintf(_("Detected file %s as the PBX (Asterisk) database. Attempting restore"),$file));
 				$dbh = $this->setupTempDb($file);
 				$loadedTables = $dbh->query("SELECT name FROM sqlite_master WHERE type='table'");
@@ -128,13 +138,48 @@ class Legacy extends Common {
 	 * @param array $info
 	 * @return void
 	 */
-	public function processLegacyCdr($info){
-		foreach ($info['final'] as $key => $value) {
-			if($key === 'cdr' || $key === 'cel' || $key === 'queuelog'){
-
-			}else{
-				continue;
+	public function processLegacyCdr($sql){
+		global $amp_conf;
+		$module = 'cdr';
+		if (file_exists($sql)) {
+			$fdbuser = $this->freepbx->Config->get('AMPDBUSER')?$this->freepbx->Config->get('AMPDBUSER'):$amp_conf['AMPDBUSER'];
+			$fdbpass = $this->freepbx->Config->get('AMPDBPASS')?$this->freepbx->Config->get('AMPDBPASS'):$amp_conf['AMPDBPASS'];
+			$dbname = $this->freepbx->Config->get('CDRDBNAME') ? $this->freepbx->Config->get('CDRDBNAME') : 'asteriskcdrdb';
+			$command = "zcat $sql | mysql -u $fdbuser -p$fdbpass $dbname";
+			$this->log(sprintf(_("Processing processLegacyCdr ' %s ' Command is Running now "), $command));
+			$process = new Process($command);
+			try {
+				$process->mustRun();
+				$out = $process->getOutput();
+				$this->log(sprintf(_("Processing processLegacyCdr SQL Done....  %s  "), $out));
+			} catch (ProcessFailedException $e) {
+					$this->log(sprintf(_("Processing processLegacyCdr SQL Error....  %s %s %s  "),$out, $process->getOutput(),$process->getErrorOutput()));
+					return;
 			}
+			//lets install cdr and cel to bring back the new table structure
+			$className = 'FreePBX\modules\Backup\RestoreBase';
+			$modData = [
+				'module' => $module,
+				'version' => '',
+				'pbx_version' => $this->data['manifest']['pbx_version'],
+				'configs' => []
+				];
+			$class = new $className($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp, $this->defaultFallback);
+			$this->log(sprintf(_("Installing  %s"), $module));
+			$class->install($module);
+			$this->log(sprintf(_("Restored module %s [%s]"), $module, get_class($class)));
+			//Install CEL
+			$module = 'cel';
+			$modData = [
+				'module' => $module,
+				'version' => '',
+				'pbx_version' => $this->data['manifest']['pbx_version'],
+				'configs' => []
+				];
+			$class = new $className($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp, $this->defaultFallback);
+			$this->log(sprintf(_("Installing  %s"), $module));
+			$class->install($module);
+			$this->log(sprintf(_("Restored module %s [%s]"), $module, get_class($class)));
 		}
 	}
 
@@ -200,7 +245,7 @@ class Legacy extends Common {
 			}, ARRAY_FILTER_USE_KEY);
 		}
 		foreach ($moduleList as $module => $tables) {
-			if($module === 'unknown' || $module === 'cdr' || $module === 'cel' || $module === 'queuelog'){
+			if($module === 'unknown' || $module === 'cdr' || $module === 'cel' || $module === 'queuelog' || $module === 'queuelog'){
 				continue;
 			}
 			$this->log(sprintf(_("Processing %s"),$module),'INFO');

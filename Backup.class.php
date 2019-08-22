@@ -155,6 +155,11 @@ class Backup extends FreePBX_Helpers implements BMO {
 					'name'  => 'runrestore',
 					'id'    => 'runrestore',
 					'value' => _("Run Restore")
+				],
+				'runcdr' => [
+					'name'  => 'runrestorecdr',
+					'id'    => 'runrestorecdr',
+					'value' => _("Run Restore & Legacy CDR ")
 				]
 			];
 		}
@@ -361,6 +366,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 				return $this->getAllRemote();
 			case 'runRestore':
 				$ruid = $_GET['fileid'];
+				$legacycdrenable = isset($_REQUEST['legacycdrenable'])?1:0;
 				if(isset($_GET['filepath'])) {
 					//filestore
 					$parts = explode("_",$_GET['fileid']);
@@ -377,6 +383,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 						return ['status' => false, 'message' => _("Could not find a file for the id supplied")];
 					}
 					$args = '--restore='.escapeshellarg($file);
+				}
+				if($legacycdrenable == 1) {
+					$args = $args. ' --restorelegacycdr';
 				}
 				$jobid   = $this->generateId();
 				$location = $this->freepbx->Config->get('ASTLOGDIR');

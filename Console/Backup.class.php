@@ -27,6 +27,7 @@ class Backup extends Command {
 				new InputOption('implemented', '', InputOption::VALUE_NONE, ''),
 				new InputOption('filestore', '', InputOption::VALUE_REQUIRED, 'Use filestore ID to restore a file'),
 				new InputOption('restore', '', InputOption::VALUE_REQUIRED, 'Restore File'),
+				new InputOption('restorelegacycdr', '', InputOption::VALUE_NONE, 'pass the Option --restorelegacycdr to restore LegacyCDR'),
 				new InputOption('modules', '', InputOption::VALUE_REQUIRED, 'Specific Modules to restore from using --restore, separate each module by a comma'),
 				new InputOption('restoresingle', '', InputOption::VALUE_REQUIRED, 'Module backup to restore'),
 				new InputOption('backupsingle', '', InputOption::VALUE_REQUIRED, 'Module to backup'),
@@ -71,6 +72,7 @@ class Backup extends Command {
 		$backup = $input->getOption('backup');
 		$filestore = $input->getOption('filestore');
 		$restore = $input->getOption('restore');
+		$restorelegacycdr = $input->getOption('restorelegacycdr');
 		$remote = $input->getOption('externbackup');
 		$dumpextern = $input->getOption('dumpextern');
 		$transaction = $input->getOption('transaction');
@@ -244,7 +246,15 @@ class Backup extends Command {
 					$restoreHandler = new Handler\Restore\Multiple($this->freepbx,$restore,$transactionid, posix_getpid());
 				}
 				if($backupType === 'legacy'){
-					$restoreHandler = new Handler\Restore\Legacy($this->freepbx,$restore, $transactionid, posix_getpid());
+					if(isset($restorelegacycdr) && $restorelegacycdr ==1) {
+						$restorelegacycdr = 1;
+						$restorelegacycdrenabled = 'SELECTED';
+					} else {
+						$restorelegacycdr = 0;
+						$restorelegacycdrenabled = 'NOT SELECTED';
+					}
+					$output->writeln("Legacy CDR Restore Option: $restorelegacycdr ");
+					$restoreHandler = new Handler\Restore\Legacy($this->freepbx,$restore, $transactionid, posix_getpid(),$restorelegacycdr);
 				}
 				if($input->getOption('fallback')){
 					$restoreHandler->setDefaultFallback(true);

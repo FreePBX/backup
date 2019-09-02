@@ -20,10 +20,10 @@ class Swift extends MailHandler {
 	private $messageTemplate;
 
 	/**
-	 * @param \Swift_Mailer		   $mailer  The mailer to use
-	 * @param \Swift_Message $message An example message for real messages, only the body will be replaced
-	 * @param int					 $level   The minimum logging level at which this handler will be triggered
-	 * @param Boolean				 $bubble  Whether the messages that are handled can bubble up the stack or not
+	 * @param \Swift_Mailer		$mailer  The mailer to use
+	 * @param \Swift_Message 	$message An example message for real messages, only the body will be replaced
+	 * @param int				$level   The minimum logging level at which this handler will be triggered
+	 * @param Boolean			$bubble  Whether the messages that are handled can bubble up the stack or not
 	 */
 	public function __construct(\Swift_Mailer $mailer, \Swift_Message $message, $level = Logger::DEBUG, $bubble = true, $backupInfo) {
 		parent::__construct($level, $bubble);
@@ -78,11 +78,12 @@ class Swift extends MailHandler {
 	/**
 	 * Creates instance of Swift_Message to be sent
 	 *
-	 * @param  string		 $content formatted email body to be sent
+	 * @param  string		  $content formatted email body to be sent
 	 * @param  array		  $records Log records that formed the content
 	 * @return \Swift_Message
 	 */
 	protected function buildMessage($content, array $records) {
+		$location = \FreePBX::Config()->get('ASTLOGDIR');
 		$message = null;
 
 		$message = clone $this->messageTemplate;
@@ -98,11 +99,11 @@ class Swift extends MailHandler {
 		}
 
 		$inline = (!isset($this->backupInfo['backup_emailinline']) || $this->backupInfo['backup_emailinline'] === 'no') ? false : true;
-
-		if($inline) {
-			$message->setBody($content);
+		$log_content = "\n".file_get_contents($location."/backup.log");
+		if($inline) {			
+			$message->setBody($content.$log_content);
 		} else {
-			$message->attach(new \Swift_Attachment($content, 'backup.log', 'text/plain'));
+			$message->attach(new \Swift_Attachment($content.$log_content, $location.'/backup.log', 'text/plain'));
 			$message->setBody(_('See attachment'));
 		}
 

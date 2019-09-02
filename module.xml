@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.52</version>
+	<version>15.0.8.53</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.53* FREEPBX-20401 Add the content of backup.log, in body or attachment 
 		*15.0.8.52* FREEPBX-20358 Legacy restore adds slashes in front of caller-id name 
 		*15.0.8.51* FREEPBX-20451 restore log msg and restapp process order for legacy 
 		*15.0.8.50* bump 

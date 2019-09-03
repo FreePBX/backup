@@ -42,7 +42,11 @@ $(document).ready(function () {
 		e.preventDefault();
 		runRestore(fileid,'Running Restore');
 	});
-
+	$("#runrestorecdr").click(function(e) {
+		e.stopPropagation();
+		e.preventDefault();
+		runRestorelegacycdr(fileid,'Running Restore & Legacy CDR Restore');
+	});
 	if(runningRestore) {
 		showStatusModal(_('View running restore'))
 		getRestoreStatus(runningRestore.fileid, runningRestore.transaction, runningRestore.pid);
@@ -282,6 +286,25 @@ $("#run_backup").on('click', function (e) {
 	$('.fpbx-submit').submit();
 });
 
+function runRestorelegacycdr(id,title) {
+	$.ajax({
+		url: FreePBX.ajaxurl,
+		data: {
+			module: 'backup',
+			command: 'runRestore',
+			fileid: id,
+			legacycdrenable:1
+		},
+	})
+	.then(data => {
+		if (data.status) {
+			showStatusModal(title)
+			getRestoreStatus(id, data.transaction, data.pid);
+		} else {
+			fpbxToast(data.message, _('Error'),'error');
+		}
+	});
+}
 function runRestore(id,title,filepath) {
 	$.ajax({
 		url: FreePBX.ajaxurl,

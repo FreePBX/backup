@@ -55,4 +55,15 @@ abstract class Restore extends ModelBase {
 	public function reset() {
 		$this->moduleHandler->reset($this->data['module'], $this->data['version']);
 	}
+
+	/**
+	 * The install method is run only for cdr
+	 *
+	 * You can override this and add custom code here
+	 *
+	 * @return void
+	 */
+	public function install($module) {
+		$this->moduleHandler->install($module);
+	}
 }

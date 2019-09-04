@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-03 14:53+0530\n"
+"POT-Creation-Date: 2019-09-04 11:26+0530\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -108,7 +108,7 @@ msgstr "مدیر"
 msgid "After the restore you should reload with the apply config button"
 msgstr ""
 
-#: Handlers/Restore/Common.php:167
+#: Handlers/Restore/Common.php:172
 msgid ""
 "Apache will Restat now... And your GUI may die if the ports are changed !!!!"
 msgstr ""
@@ -220,7 +220,7 @@ msgstr "ویزارد پشتیبان گیری"
 msgid "Backup completed successfully"
 msgstr ""
 
-#: Handlers/Restore/Common.php:145
+#: Handlers/Restore/Common.php:147
 #, php-format
 msgid ""
 "Backup extracted to %s. These files will remain until a new restore is run "
@@ -252,7 +252,7 @@ msgstr "اطلاعات اولیه"
 msgid "Both"
 msgstr ""
 
-#: Handlers/Restore/Common.php:85
+#: Handlers/Restore/Common.php:87
 #, php-format
 msgid "Can't find the module data for %s"
 msgstr ""
@@ -308,7 +308,7 @@ msgstr ""
 msgid "Could not find a file for the id supplied"
 msgstr ""
 
-#: Handlers/Restore/Common.php:157
+#: Handlers/Restore/Common.php:159
 msgid "Could not locate the manifest for this file"
 msgstr ""
 
@@ -362,7 +362,7 @@ msgstr ""
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr "دایرکتوری '%s' وجود ندارد و نمی توان آن را ایجاد کرد"
 
-#: Console/Backup.class.php:224 Handlers/Restore/Common.php:114
+#: Console/Backup.class.php:224 Handlers/Restore/Common.php:116
 #: Handlers/Restore/Legacy.php:225
 msgid "Done"
 msgstr ""
@@ -501,7 +501,7 @@ msgstr ""
 msgid "Extracting Backup"
 msgstr ""
 
-#: Handlers/Restore/Common.php:134
+#: Handlers/Restore/Common.php:136
 msgid "Extracting backup..."
 msgstr ""
 
@@ -913,7 +913,7 @@ msgstr "بازنشانی"
 msgid "Resetting %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:109
+#: Handlers/Restore/Common.php:111
 #, php-format
 msgid "Resetting %s module data"
 msgstr ""
@@ -956,7 +956,7 @@ msgstr ""
 msgid "Restoring %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:112 Handlers/Restore/Legacy.php:223
+#: Handlers/Restore/Common.php:114 Handlers/Restore/Legacy.php:223
 #, php-format
 msgid "Restoring from %s [%s]"
 msgstr ""
@@ -1196,7 +1196,7 @@ msgstr ""
 "ارسال این فایل وجود ندارد لذا باید فایل مورد نظر را کوچک تر کرده و یا از روش "
 "های دیگر برای انتقال آن استفاده نمایید."
 
-#: Handlers/Restore/Common.php:100
+#: Handlers/Restore/Common.php:102
 #, php-format
 msgid "The module %s does not seem to support restores."
 msgstr ""
@@ -1348,7 +1348,7 @@ msgstr ""
 msgid "Using default restore strategy"
 msgstr ""
 
-#: Handlers/Restore/Common.php:104
+#: Handlers/Restore/Common.php:106
 msgid "Using fallback restore strategy"
 msgstr ""
 

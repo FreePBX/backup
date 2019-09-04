@@ -20,7 +20,9 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		parent::__construct($freepbx, $file, $transactionId, $pid);
 
 		$this->webroot = $this->freepbx->Config->get('AMPWEBROOT');
-		$this->existingports = $this->freepbx->Sysadmin->getPorts();
+		if ($this->freepbx->Modules->checkStatus("sysadmin")) {
+			$this->existingports = $this->freepbx->Sysadmin->getPorts();
+		}
 		//acquire the restore lock
 		$this->setRestoreStart();
 		$this->legacycdrrestore = $cdrlegacyrestore;
@@ -161,7 +163,10 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	}
 
 	/**  retrun the ports which were in use before restore**/
-	protected function displayportschanges(){
+	protected function displayportschanges() {
+		if (!$this->freepbx->Modules->checkStatus("sysadmin")) {
+			return;
+		}
 		$this->getportschanges();
 		if(is_array($this->changedports) && count($this->changedports)> 0){
 			$this->log(_("Apache will Restat now... And your GUI may die if the ports are changed !!!!"));
@@ -177,7 +182,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	}
 
 	/** Get new ports after restoring */
-	protected function getportschanges() {
+	private function getportschanges() {
 		$sysvals = $this->freepbx->Database->query("SELECT * FROM sysadmin_options")->fetchAll();
 		foreach($sysvals as $keyvalue) {
 			$ports[$keyvalue['key']] = $keyvalue['value'];

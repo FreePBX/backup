@@ -149,6 +149,7 @@ class Legacy extends Common {
 			$this->log(sprintf(_("Processing processLegacyCdr ' %s ' Command is Running now "), $command));
 			$process = new Process($command);
 			try {
+				$process->setTimeout(300); //set timeout to 5min
 				$process->mustRun();
 				$out = $process->getOutput();
 				$this->log(sprintf(_("Processing processLegacyCdr SQL Done....  %s  "), $out));

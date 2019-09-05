@@ -405,7 +405,8 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 
 		try {
 			if(version_compare_freepbx($this->data['pbx_version'],"14","lt")) {
-				$res = $pdo->query('SELECT `id`, `key`, `val`, `type` FROM kvstore WHERE `module` = '.$pdo->quote($this->getNamespace()))->fetchAll(\PDO::FETCH_ASSOC);
+				$module = ucfirst(strtolower($this->data['module']));
+				$res = $pdo->query('SELECT `id`, `key`, `val`, `type` FROM kvstore WHERE `module` like '.$pdo->quote('%'.$module))->fetchAll(\PDO::FETCH_ASSOC);
 			} else {
 				$res = $pdo->query('SELECT `id`, `key`, `val`, `type` FROM kvstore_'.str_replace('\\','_',$this->getNamespace()))->fetchAll(\PDO::FETCH_ASSOC);
 			}

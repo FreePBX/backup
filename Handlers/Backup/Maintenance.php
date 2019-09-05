@@ -80,20 +80,28 @@ class Maintenance extends \FreePBX\modules\Backup\Handlers\CommonBase {
 
 	public function processRemote(){
 		foreach ($this->remoteStorage as $location) {
-			$maintfiles = [];
+			$maintfiles = $files = [];
 			$id = explode('_', $location)[1];
 			try {
 				$info = $this->freepbx->Filestore->getItemById($id);
 				if(empty($info)) {
 					$this->log(_('Invalid filestore location'),'ERROR');
 					continue;
-				}
+				}			
+			} catch (\Exception $e) {
+				$this->log($e->getMessage(),'ERROR');
+				$this->addError($e->getMessage());
+				continue;
+			}
+
+			try {
 				$files = $this->freepbx->Filestore->ls($id);
 			} catch (\Exception $e) {
 				$this->log($e->getMessage(),'ERROR');
-				$files = [];
+				$this->addError($e->getMessage());
+				continue;
 			}
-
+			
 			foreach ($files as $file) {
 				if(!isset($file['path'])){
 					continue;

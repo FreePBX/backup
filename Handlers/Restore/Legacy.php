@@ -246,7 +246,7 @@ class Legacy extends Common {
 			}, ARRAY_FILTER_USE_KEY);
 		}
 		foreach ($moduleList as $module => $tables) {
-			if($module === 'unknown' || $module === 'cdr' || $module === 'cel' || $module === 'queuelog' || $module === 'queuelog'){
+			if($module === 'unknown' || $module === 'cdr' || $module === 'cel' || $module === 'queuelog'){
 				continue;
 			}
 			$this->log(sprintf(_("Processing %s"),$module),'INFO');

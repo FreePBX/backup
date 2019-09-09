@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.57</version>
+	<version>15.0.8.58</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.58* FREEPBX-20492 FREEPBX-20494 13 to 15 restore issue with firewall 
 		*15.0.8.57* FREEPBX-20405 failure to backup to location occurs silently in GUI - no email alert generated 
 		*15.0.8.56* bump 
 		*15.0.8.55* FREEPBX-20357 

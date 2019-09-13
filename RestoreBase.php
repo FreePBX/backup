@@ -522,7 +522,8 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		}
 
 		if($delete) {
-			$this->FreePBX->Database->query("DELETE FROM $table");
+			$this->log("Cleaning table: $table");
+			$this->FreePBX->Database->query("TRUNCATE TABLE $table");
 		}
 
 		foreach($data as $row) {
@@ -538,8 +539,9 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 			//Correctly quote before inserting
 			$final = [];
 			foreach($row as $col => $data) {
-				$data = str_replace('\n', "\n", $data);//new line in any of the column
-				$final['`'.$col.'`'] = str_replace('\"', '"', $data);
+				$find_chr		= array('\n', '\"', "\'" );
+				$replace_chr	= array("\n", '"' , "'" );
+				$final['`'.$col.'`'] = str_replace($find_chr, $replace_chr, $data);
 			}
 
 			try {

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-09 09:14+0530\n"
+"POT-Creation-Date: 2019-09-13 11:53+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -294,7 +294,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: RestoreBase.php:532
+#: RestoreBase.php:533
 #, php-format
 msgid "Column '%s' does not exist in %s, skipping"
 msgstr ""

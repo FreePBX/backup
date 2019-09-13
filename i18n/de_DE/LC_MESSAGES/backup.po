@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-09 09:14+0530\n"
+"POT-Creation-Date: 2019-09-13 11:53+0530\n"
 "PO-Revision-Date: 2017-03-06 03:04+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -282,7 +282,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: RestoreBase.php:532
+#: RestoreBase.php:533
 #, php-format
 msgid "Column '%s' does not exist in %s, skipping"
 msgstr ""

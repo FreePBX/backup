@@ -44,13 +44,14 @@ trait Email {
 			dbug("backup_emailtype not set, hence not sending email");	
 			return;
 		}
-		if ($error && ($this->backupInfo['backup_emailtype'] == 'failure') ||
-				($this->backupInfo['backup_emailtype'] == 'both')) {
+		if ($error && ( $this->backupInfo['backup_emailtype'] == 'failure' || $this->backupInfo['backup_emailtype'] == 'both')) {
 			$this->attachEmailHandler();
-			$this->log(sprintf(_("Generated Backup process result email to %s"), $this->backupInfo['backup_email']),'DEBUG');
-		} else if ($this->backupInfo['backup_emailtype'] == 'success') {
+			$this->log(sprintf(_("Generated Backup process result email to %s. Status: Failure"), $this->backupInfo['backup_email']),'DEBUG');
+
+		} else if (!$error && ( $this->backupInfo['backup_emailtype'] == 'success' || $this->backupInfo['backup_emailtype'] == 'both')) {
 			$this->attachEmailHandler();
-			$this->log(sprintf(_("Generated Backup process result email to %s"), $this->backupInfo['backup_email']),'DEBUG');
+			$this->log(sprintf(_("Generated Backup process result email to %s. Status: Success"), $this->backupInfo['backup_email']),'DEBUG');
 		}
+		return;
 	}
 }

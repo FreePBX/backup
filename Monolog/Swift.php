@@ -42,15 +42,34 @@ class Swift extends MailHandler {
 				$errors = true;
 			}
 		}
-		if($errors && $this->backupInfo['backup_emailtype'] != 'success' && $this->backupInfo['backup_emailtype'] != 'both'){
-			return;
-		}
-		if(!$errors && $this->backupInfo['backup_emailtype'] != 'failure' && $this->backupInfo['backup_emailtype'] != 'both'){
-			return;
+
+		if($errors === false){
+			/**
+			 * double check
+			 * within $content:
+			 * 		Status: Failure
+			 * 		Status: Success
+			 */
+			$errors = strpos(strtolower($content), _("success")) === false? true : false;
+		}		
+		
+		switch($this->backupInfo['backup_emailtype']){
+			case "both":
+				break;
+			case "success":
+				if($errors === true){
+					return;
+				}
+				break;
+			case "failure":
+				if($errors === false){
+					return;
+				}
+				break;
 		}
 
 		$subject = sprintf(_('Backup %s success for %s'), $this->backupInfo['backup_name'], $this->backupInfo['ident']);
-		if (!empty($errors)) {
+		if ($errors === true) {
 			$subject = sprintf(_('Backup %s failed for %s'), $this->backupInfo['backup_name'], $this->backupInfo['ident']);
 		}
 
@@ -83,6 +102,7 @@ class Swift extends MailHandler {
 	 * @return \Swift_Message
 	 */
 	protected function buildMessage($content, array $records) {
+		
 		$location = \FreePBX::Config()->get('ASTLOGDIR');
 		$message = null;
 
@@ -100,7 +120,7 @@ class Swift extends MailHandler {
 
 		$inline = (!isset($this->backupInfo['backup_emailinline']) || $this->backupInfo['backup_emailinline'] === 'no') ? false : true;
 		$log_content = "\n".file_get_contents($location."/backup.log");
-		if($inline) {			
+		if($inline) {	
 			$message->setBody($content.$log_content);
 		} else {
 			$message->attach(new \Swift_Attachment($content.$log_content, $location.'/backup.log', 'text/plain'));

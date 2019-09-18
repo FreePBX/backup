@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.60</version>
+	<version>15.0.8.61</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.61* Bugfix/FREEPBX-20401 backup always sends 
 		*15.0.8.60* Bugfix/FREEPBX-20414 restoring backup in php 7.0 results in strict standards error 
 		*15.0.8.59* FREEPBX-20480 Restoring legacy(FreePBX 13) Backup into FreePBX 15 system is not flushing the previously existing Conference data. 
 		*15.0.8.58* FREEPBX-20492 FREEPBX-20494 13 to 15 restore issue with firewall 

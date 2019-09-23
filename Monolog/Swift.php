@@ -134,7 +134,6 @@ class Swift extends MailHandler {
 			}
 			$log_content .= $line[1]."\n";
 		}
-		$log_content = preg_replace('/^.+\n/', '', $log_content);
 
 		if($inline) {	
 			$message->setBody($content."\n".$log_content);

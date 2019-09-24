@@ -345,7 +345,13 @@ function runBackup(id,title) {
 }
 
 function showStatusModal(title) {
-	$("#runModal").modal('show')
+	//keep the modal on top. disable hiding when clicking the background or the ESC key
+	$("#runModal").modal({
+		backdrop: 'static',	
+		keyboard: false	
+	});
+
+	$("#runModal .close").prop("disabled",true);
 	$("#runModal .btn-close").prop("disabled",true);
 	$("#runModal .modal-title").text(title);
 	$("#runModal .modal-body").css("height",(window.innerHeight-200)+"px")
@@ -388,6 +394,7 @@ function getStatus(type, id, transaction, pid) {
 		$("#runModal .modal-body pre").append('NETWORK ERROR...see console log for more details');
 		if(reconnects > maxReconnects) {
 			$("#runModal .modal-body").animate({scrollTop:$(".modal-body")[0].scrollHeight}, 1000);
+			$("#runModal .close").prop("disabled",false);
 			$("#runModal .btn-close").prop("disabled",false);
 			$("#runModal .modal-body").css("overflow-y","auto")
 		} else {
@@ -422,6 +429,7 @@ function getStatus(type, id, transaction, pid) {
 		if(data.status !== 'running') {
 			$("#runModal .modal-body").animate({scrollTop:$(".modal-body")[0].scrollHeight}, 1000);
 			source.close();
+			$("#runModal .close").prop("disabled",false);
 			$("#runModal .btn-close").prop("disabled",false);
 			$("#runModal .modal-body").css("overflow-y","auto")
 		}

@@ -138,7 +138,11 @@ class Swift extends MailHandler {
 		if($inline) {	
 			$message->setBody($content."\n".$log_content);
 		} else {
-			$message->attach(new \Swift_Attachment($log_content, $log_file, 'text/plain'));
+			file_put_contents("/tmp/".$log_file, $log_content);
+			$f_mime = mime_content_type("/tmp/".$log_file);
+			unlink("/tmp/".$log_file);
+          
+			$message->attach(new \Swift_Attachment($log_content, $log_file, $f_mime));
 			$message->setBody(_('See attachment'));
 		}
 

@@ -102,11 +102,13 @@ class Swift extends MailHandler {
 	 * @return \Swift_Message
 	 */
 	protected function buildMessage($content, array $records) {
-		
 		$location = \FreePBX::Config()->get('ASTLOGDIR');
 		$message = null;
 
-		$message = clone $this->messageTemplate;
+		$message = \Swift_Message::newInstance()
+			->setSubject($this->messageTemplate->getSubject())
+			->setFrom($this->messageTemplate->getFrom())
+			->setTo($this->messageTemplate->getTo());
 		$message->generateId();
 
 		if (!$message instanceof \Swift_Message) {
@@ -119,11 +121,31 @@ class Swift extends MailHandler {
 		}
 
 		$inline = (!isset($this->backupInfo['backup_emailinline']) || $this->backupInfo['backup_emailinline'] === 'no') ? false : true;
-		$log_content = "\n".file_get_contents($location."/backup.log");
+
+		/**
+		 * Creating new log file and cleaning content.
+		 */
+		$log_file = "backup-".strtotime("now").".log";
+		copy($location."/backup.log", $location."/".$log_file);
+		unlink($location."/backup.log");
+		$log_content = str_replace("[] []","", file_get_contents($location."/".$log_file));
+		preg_match_all('/]: (.+)/', $log_content, $matches, PREG_SET_ORDER, 0);
+		$log_content = "";		
+		foreach($matches as $line){
+			if(empty($line)){
+				continue;
+			}
+			$log_content .= $line[1]."\n";
+		}
+
 		if($inline) {	
-			$message->setBody($content.$log_content);
+			$message->setBody($content."\n".$log_content);
 		} else {
-			$message->attach(new \Swift_Attachment($content.$log_content, $location.'/backup.log', 'text/plain'));
+			file_put_contents("/tmp/".$log_file, $log_content);
+			$f_mime = mime_content_type("/tmp/".$log_file);
+			unlink("/tmp/".$log_file);
+          
+			$message->attach(new \Swift_Attachment($log_content, $log_file, $f_mime));
 			$message->setBody(_('See attachment'));
 		}
 

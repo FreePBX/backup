@@ -117,6 +117,12 @@ class Backup extends FreePBX_Helpers implements BMO {
 				out(sprintf(_("Removing table %s."),$table));
 				$this->db->query("DROP TABLE $table");
 			}
+          
+          	$tmp = $this->freepbx->Config->get("ASTSPOOLDIR");
+			if(file_exists($tmp."/backup.log")){
+				unlink($tmp."/backup.log");
+			}
+          
 			$crons = $this->freepbx->Cron->getAll();
 			foreach($crons as $c) {
 				if(preg_match('/backup\.php/',$c,$matches)) {

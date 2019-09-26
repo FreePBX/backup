@@ -105,7 +105,10 @@ class Swift extends MailHandler {
 		$location = \FreePBX::Config()->get('ASTLOGDIR');
 		$message = null;
 
-		$message = clone $this->messageTemplate;
+		$message = \Swift_Message::newInstance()
+			->setSubject($this->messageTemplate->getSubject())
+			->setFrom($this->messageTemplate->getFrom())
+			->setTo($this->messageTemplate->getTo());
 		$message->generateId();
 
 		if (!$message instanceof \Swift_Message) {

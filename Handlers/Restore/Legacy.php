@@ -145,7 +145,11 @@ class Legacy extends Common {
 			$fdbuser = $this->freepbx->Config->get('AMPDBUSER')?$this->freepbx->Config->get('AMPDBUSER'):$amp_conf['AMPDBUSER'];
 			$fdbpass = $this->freepbx->Config->get('AMPDBPASS')?$this->freepbx->Config->get('AMPDBPASS'):$amp_conf['AMPDBPASS'];
 			$dbname = $this->freepbx->Config->get('CDRDBNAME') ? $this->freepbx->Config->get('CDRDBNAME') : 'asteriskcdrdb';
+			$fdbpass = escapeshellarg($fdbpass);
 			$command = "zcat $sql | mysql -u $fdbuser -p$fdbpass $dbname";
+			if(version_compare_freepbx($this->data['manifest']['pbx_version'],"13","lt")) {
+				$command = "mysql -u $fdbuser -p$fdbpass $dbname < $sql";
+			}
 			$this->log(sprintf(_("Processing processLegacyCdr ' %s ' Command is Running now "), $command));
 			$process = new Process($command);
 			try {

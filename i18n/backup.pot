@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-30 16:45+0530\n"
+"POT-Creation-Date: 2019-10-09 16:03+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -382,7 +382,7 @@ msgstr ""
 
 #: Console/Backup.class.php:224
 #: Handlers/Restore/Common.php:116
-#: Handlers/Restore/Legacy.php:226
+#: Handlers/Restore/Legacy.php:230
 msgid "Done"
 msgstr ""
 
@@ -549,7 +549,7 @@ msgstr ""
 msgid "Files"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:272
+#: Handlers/Restore/Legacy.php:276
 #: Handlers/Restore/Multiple.php:71
 #: Handlers/Restore/Single.php:34
 msgid "Finished"
@@ -681,8 +681,8 @@ msgstr ""
 msgid "Inline Logs"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:169
-#: Handlers/Restore/Legacy.php:181
+#: Handlers/Restore/Legacy.php:173
+#: Handlers/Restore/Legacy.php:185
 #, php-format
 msgid "Installing  %s"
 msgstr ""
@@ -852,7 +852,7 @@ msgstr ""
 msgid "Notifications"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:243
+#: Handlers/Restore/Legacy.php:247
 #: Handlers/Restore/Multiple.php:43
 #, php-format
 msgid "Only Restoring %s"
@@ -882,23 +882,23 @@ msgid "Process is no longer running"
 msgstr ""
 
 #: Handlers/Backup/Single.php:36
-#: Handlers/Restore/Legacy.php:252
+#: Handlers/Restore/Legacy.php:256
 #: Handlers/Restore/Multiple.php:50
 #, php-format
 msgid "Processing %s"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:149
+#: Handlers/Restore/Legacy.php:153
 #, php-format
 msgid "Processing processLegacyCdr ' %s ' Command is Running now "
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:155
+#: Handlers/Restore/Legacy.php:159
 #, php-format
 msgid "Processing processLegacyCdr SQL Done....  %s  "
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:157
+#: Handlers/Restore/Legacy.php:161
 #, php-format
 msgid "Processing processLegacyCdr SQL Error....  %s %s %s  "
 msgstr ""
@@ -924,7 +924,7 @@ msgstr ""
 msgid "Recipient"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:268
+#: Handlers/Restore/Legacy.php:272
 #: Handlers/Restore/Multiple.php:67
 msgid "Reloading...... DONE"
 msgstr ""
@@ -955,7 +955,7 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:222
+#: Handlers/Restore/Legacy.php:226
 #, php-format
 msgid "Resetting %s"
 msgstr ""
@@ -986,7 +986,7 @@ msgstr ""
 msgid "Restore from the cloud"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:264
+#: Handlers/Restore/Legacy.php:268
 #: Handlers/Restore/Multiple.php:63
 msgid "Restore processing for modules are finished successfully"
 msgstr ""
@@ -995,8 +995,8 @@ msgstr ""
 msgid "Restore running"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:171
-#: Handlers/Restore/Legacy.php:183
+#: Handlers/Restore/Legacy.php:175
+#: Handlers/Restore/Legacy.php:187
 #, php-format
 msgid "Restored module %s [%s]"
 msgstr ""
@@ -1007,7 +1007,7 @@ msgid "Restoring %s"
 msgstr ""
 
 #: Handlers/Restore/Common.php:114
-#: Handlers/Restore/Legacy.php:224
+#: Handlers/Restore/Legacy.php:228
 #, php-format
 msgid "Restoring from %s [%s]"
 msgstr ""
@@ -1067,12 +1067,12 @@ msgstr ""
 msgid "Running Backup ID: %s"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:271
+#: Handlers/Restore/Legacy.php:275
 #: Handlers/Restore/Multiple.php:70
 msgid "Running Post Restore Hooks DONE"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:269
+#: Handlers/Restore/Legacy.php:273
 #: Handlers/Restore/Multiple.php:68
 msgid ""
 "Running Post Restore Hooks.. Please note that hook will restart httpd "
@@ -1248,7 +1248,7 @@ msgstr ""
 msgid "The module %s does not seem to support restores."
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:204
+#: Handlers/Restore/Legacy.php:208
 #, php-format
 msgid "The module %s does not support restores"
 msgstr ""
@@ -1395,7 +1395,7 @@ msgstr ""
 msgid "Using default backup strategy"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:208
+#: Handlers/Restore/Legacy.php:212
 msgid "Using default restore strategy"
 msgstr ""
 
@@ -1403,12 +1403,12 @@ msgstr ""
 msgid "Using fallback restore strategy"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:289
+#: Handlers/Restore/Legacy.php:293
 #, php-format
 msgid "Utilizing cached based sqlite at %s. The data might be stale!"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:293
+#: Handlers/Restore/Legacy.php:297
 #, php-format
 msgid "Utilizing file based sqlite at %s, This is SLOW"
 msgstr ""

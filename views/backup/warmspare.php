@@ -1,10 +1,10 @@
-<div class="section-title" data-for="backup-warmspare">
+<div class="section-title" data-for="backup-warmspare" style ="display: none">
   <h3>
     <i class="fa fa-minus"></i>
     <?php echo _("Warm Spare") ?>
   </h3>
 </div>
-<div class="section" data-id="backup-warmspare">
+<div class="section" data-id="backup-warmspare" style ="display: none">
   <!--Enable-->
   <div class="element-container">
     <div class="row">

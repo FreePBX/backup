@@ -1,10 +1,15 @@
-<div class="section-title" data-for="backup-warmspare" style ="display: none">
+<div class="section-title" data-for="backup-warmspare">
   <h3>
     <i class="fa fa-minus"></i>
     <?php echo _("Warm Spare") ?>
   </h3>
 </div>
-<div class="section" data-id="backup-warmspare" style ="display: none">
+<?php
+//setting default API, untill SSH  is implimented
+$warmsparewayofrestore = $warmsparewayofrestore ? $warmsparewayofrestore : 'API';
+$button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spare Token").'</a>';
+?>
+<div class="section" data-id="backup-warmspare">
   <!--Enable-->
   <div class="element-container">
     <div class="row">
@@ -42,7 +47,7 @@
       <div class="form-group">
         <div class="col-md-3">
           <label class="control-label" for="warmspare_remotetrunks">
-            <?php echo _("Enable Remote Trunks") ?>
+            <?php echo _("Disable Remote Trunks") ?>
           </label>
           <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remotetrunks"></i>
         </div>
@@ -61,7 +66,7 @@
     <div class="row">
       <div class="col-md-12">
         <span id="warmspare_remotetrunks-help" class="help-block fpbx-help-block">
-          <?php echo _("Should the remote trunks be enabled") ?>
+          <?php echo _("Should the remote trunks be Disabled") ?>
         </span>
       </div>
     </div>
@@ -193,8 +198,192 @@
     </div>
   </div>
   <!--Apply Configs-->
-  <!--Remote IP-->
+  <!-- there are two ways to do this 1.Legacy way using ssh And 2. Using Oauth2 API  -->
+<!--Enable-->
+<input type="hidden" name="warmsparewayofrestore" id="warmsparewayofrestoreapi" value="API">
+<!-- hiding this option
   <div class="element-container warmspare">
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-3">
+          <label class="control-label" for="warmsparewayofrestore">
+            <?php// echo _("Connect Warm Spare Server Over") ?>
+          </label>
+          <i class="fa fa-question-circle fpbx-help-icon" data-for="warmsparewayofrestore"></i>
+        </div>
+        <div class="col-md-9 radioset">
+          <input type="hidden" name="warmsparewayofrestore" id="warmsparewayofrestoreapi" value="API" <?php echo ($warmsparewayofrestore=="API" ?"CHECKED": "CHECKED") ?>>
+          <label for="warmsparewayofrestoreapi">
+            <?php //echo _("API");?>
+          </label>
+          <input type="hidden" name="warmsparewayofrestore" id="warmsparewayofrestoressh" value="API" <?php echo ($warmsparewayofrestore=="SSH" ? "": "") ?>  >
+          <label for="warmsparewayofrestoressh">
+            <?php //echo _("SSH");?>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <span id="warmsparewayofrestore-help" class="help-block fpbx-help-block">
+          <?php //echo _("Way to Connect Warm spare Server")?>
+        </span>
+      </div>
+    </div>
+  </div> -->
+  <!--END Enable-->
+  <div class="element-container warmspare warmspareapi">
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-3">
+          <label class="control-label" for="warmspare_remoteapi_filestoreid">
+            <?php echo _("Warm Spare Server") ?>
+          </label>
+          <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remoteapi_filestoreid"></i>
+        </div>
+        <div class="col-md-9">
+		<select id="warmspare_remoteapi_filestoreid" name="warmspare_remoteapi_filestoreid" class="form-control">
+			<option value="" ><?php echo _("Select Warm Spare server")?> </option>
+			<?php foreach($filestores as $servers) {?>
+			<option value="<?php echo $servers['value']?>" <?php echo $servers['selected'] ? 'selected' : '' ?>><?php echo $servers['label']?> </option>
+			<?php } ?>
+			</select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <span id="warmspare_remoteapi_filestoreid-help" class="help-block fpbx-help-block">
+          <?php echo _("Warm Spare server needs to add to filestore, And it should be a FreePBX 15 and Above")?>
+        </span>
+      </div>
+    </div>
+  </div>
+   <!--Remote API key -->
+  <div class="element-container warmspare warmspareapi">
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-3">
+          <label class="control-label" for="warmspare_remoteapi_accesstokenurl">
+            <?php echo _("Access Token URL") ?>
+          </label>
+          <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remoteapi_accesstokenurl"></i>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="warmspare_remoteapi_accesstokenurl" name="warmspare_remoteapi_accesstokenurl" value="<?php echo isset($warmspare_remoteapi_accesstokenurl)?$warmspare_remoteapi_accesstokenurl:''?>">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <span id="warmspare_remoteapi_accesstokenurl-help" class="help-block fpbx-help-block">
+          <?php echo _("Access Token URL of Warm Spare server.")?>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!--END Remote API-->
+   <!--Remote client id -->
+  <div class="element-container warmspare warmspareapi">
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-3">
+          <label class="control-label" for="warmspare_remoteapi_clientid">
+            <?php echo _("Client ID") ?>
+          </label>
+          <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remoteapi_clientid"></i>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="warmspare_remoteapi_clientid" name="warmspare_remoteapi_clientid" value="<?php echo isset($warmspare_remoteapi_clientid)?$warmspare_remoteapi_clientid:''?>">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <span id="warmspare_remoteapi_clientid-help" class="help-block fpbx-help-block">
+          <?php echo _("ClientID of the Warm Spare server.")?>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!--END ClientID-->
+   <!--Remote API Secret -->
+  <div class="element-container warmspare warmspareapi">
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-3">
+          <label class="control-label" for="warmspare_remoteapi_secret">
+            <?php echo _("Client Secret") ?>
+          </label>
+          <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remoteapi_secret"></i>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="warmspare_remoteapi_secret" name="warmspare_remoteapi_secret" value="<?php echo isset($warmspare_remoteapi_secret)?$warmspare_remoteapi_secret:''?>">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <span id="warmspare_remoteapi_secret-help" class="help-block fpbx-help-block">
+          <?php echo _("Client Secret of the Warm Spare server.")?>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!--END Secret-->
+  <!--Remote GraphQL URL -->
+  <div class="element-container warmspare warmspareapi">
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-3">
+          <label class="control-label" for="warmspare_remoteapi_gql">
+            <?php echo _("GraphQL URL") ?>
+          </label>
+          <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remoteapi_gql"></i>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="warmspare_remoteapi_gql" name="warmspare_remoteapi_gql" value="<?php echo isset($warmspare_remoteapi_gql)?$warmspare_remoteapi_gql:''?>">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <span id="warmspare_remoteapi_gql-help" class="help-block fpbx-help-block">
+          <?php echo _("GraphQL URL of the Warm Spare server.")?>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!--END GraphQL URL-->
+  <!--Remote Refresh Token -->
+  <div class="element-container warmspare warmspareapi">
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-3">
+          <label class="control-label" for="warmspare_remoteapi_refreshtoken">
+            <?php echo _("Client Access Token") ?>
+          </label>
+          <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remoteapi_accesstoken"></i>
+		  <?php echo $button; ?>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="warmspare_remoteapi_accesstoken" name="warmspare_remoteapi_accesstoken" value="<?php echo isset($warmspare_remoteapi_accesstoken)?$warmspare_remoteapi_accesstoken:''?>" readonly>
+		  <input type="hidden" class="form-control" id="warmspare_remoteapi_accesstoken_expire" name="warmspare_remoteapi_accesstoken_expire" value="<?php echo isset($warmspare_remoteapi_accesstoken_expire)?$warmspare_remoteapi_accesstoken_expire:''?>" >
+		</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <span id="warmspare_remoteapi_accesstoken-help" class="help-block fpbx-help-block">
+          <?php echo _("Get OAUTH2 Token for the Warm Spare server API.")?>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!--END Refresh token -->
+  <!--Remote IP-->
+  <!-- hiding SSH
+  <div class="element-container warmspare warmsparessh">
     <div class="row">
       <div class="form-group">
         <div class="col-md-3">
@@ -215,10 +404,11 @@
         </span>
       </div>
     </div>
-  </div>
+  </div>-->
   <!--END Remote IP-->
   <!--Remote User-->
-  <div class="element-container warmspare">
+  <!--
+  <div class="element-container warmspare warmsparessh" >
     <div class="row">
       <div class="form-group">
         <div class="col-md-3">
@@ -240,5 +430,6 @@
       </div>
     </div>
   </div>
+  -->
   <!--Remote User-->
 </div>

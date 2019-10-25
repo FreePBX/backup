@@ -58,6 +58,36 @@ $(document).ready(function () {
                         $("#backup_name").focus();
                         return warnInvalid($("#backup_name"),_("You must set a valid job name for this backup"));
                 }
+				//start WSS checks
+	if ($("#warmspareenabledyes").prop("checked")) {
+		if ($("#warmsparewayofrestoreapi").prop("checked")) {//API is enabled
+			var server_name = $("#warmspare_remoteapi_filestoreid").val().trim();
+			if(server_name === "") {
+				$("#warmspare_remoteapi_filestoreid").focus();
+				return warnInvalid($("#warmspare_remoteapi_filestoreid"),_("You must select a valid Warm Spare Server"));
+			}
+			var server_accesstoken = $("#warmspare_remoteapi_accesstokenurl").val().trim();
+			if(server_accesstoken === "") {
+				$("#warmspare_remoteapi_accesstokenurl").focus();
+				return warnInvalid($("#warmspare_remoteapi_accesstokenurl"),_("You must enter a valid Warm Spare Access Token URL"));
+			}
+			var server_clinetid = $("#warmspare_remoteapi_clientid").val().trim();
+			if(server_clinetid === "") {
+				$("#warmspare_remoteapi_clientid").focus();
+				return warnInvalid($("#warmspare_remoteapi_clientid"),_("You must enter a valid Warm Spare Server API Client ID"));
+			}
+			var server_clinetserect = $("#warmspare_remoteapi_secret").val().trim();
+			if(server_clinetserect === "") {
+				$("#warmspare_remoteapi_secret").focus();
+				return warnInvalid($("#warmspare_remoteapi_secret"),_("You must enter a valid Warm Spare Server API Client Secret"));
+			}
+			var server_graphql = $("#warmspare_remoteapi_gql").val().trim();
+			if(server_graphql === "") {
+				$("#warmspare_remoteapi_gql").focus();
+				return warnInvalid($("#warmspare_remoteapi_gql"),_("You must enter a valid Warm Spare Server API GraphQL URL"));
+			}
+		}
+	}
         });
 
         $("#backup_name").on('input', function() {
@@ -68,9 +98,31 @@ $(document).ready(function () {
                 }
         });
 
-
 });
 //end ready
+
+$("#oauthbutton").click(function() {
+	event.preventDefault();
+	$.post(
+		FreePBX.ajaxurl,
+		{
+			module: "backup",
+			command: "accesstoken",
+			warmspare_remoteapi_secret: $("#warmspare_remoteapi_secret").val(),
+			warmspare_remoteapi_clientid: $("#warmspare_remoteapi_clientid").val(),
+			warmspare_remoteapi_accesstokenurl: $("#warmspare_remoteapi_accesstokenurl").val()
+		}
+	).done(function(data) {
+		if(data.status) {var msgjson  = JSON.stringify(data.message);
+			var msgjsondec  = JSON.parse(data.message);
+			fpbxToast('Access Token Received ');
+			$('#warmspare_remoteapi_accesstoken').val(msgjsondec.access_token);
+			$('#warmspare_remoteapi_accesstoken_expire').val(msgjsondec.expires_in);
+		} else {
+			fpbxToast('There was an error in Access token generation ','','error');
+		}
+	});
+})
 
 var deletables = {}
 $("table").on('check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table', function () {
@@ -269,6 +321,9 @@ $('#itemsReset').on('click', function (e) {
 $('[name="warmspareenabled"]').change(function () {
 	toggle_warmspare();
 });
+$('[name="warmsparewayofrestore"]').change(function () {
+	toggle_warmspareconnection();
+});
 
 $("#addBackupJob").submit(function( e ) {
 	if (!$("#backup_storage option:selected").val()) {
@@ -362,10 +417,24 @@ function showStatusModal(title) {
 function toggle_warmspare() {
 	if ($('input[name="warmspareenabled"]:checked').val() == 'yes') {
 		$(".warmspare").slideDown();
+		$(".warmsparessh").slideUp();
+		//toggle_warmspareconnection();
 	} else {
+		$(".warmspareapi").slideUp();
+		$(".warmsparessh").slideUp();
 		$(".warmspare").slideUp();
 	}
 }
+function toggle_warmspareconnection() {
+	if ($('input[name="warmsparewayofrestore"]:checked').val() == 'API') {
+		$(".warmspareapi").slideDown();
+		$(".warmsparessh").slideUp();
+	} else {//once ssh is implimented we need to change the slidup/slideDown
+		$(".warmsparessh").slideUp();
+		$(".warmspareapi").slideUp();
+	}
+}
+
 
 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 	if($(e.target).data("name") === 'restore') {

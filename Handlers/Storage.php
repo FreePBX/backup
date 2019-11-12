@@ -44,8 +44,12 @@ class Storage extends CommonFile {
 			} catch (\Exception $e) {
 				$err = $e->getMessage();
 				$this->log($err,'ERROR');
+            	$this->addError($e->getMessage());
 			}
 		}
+  		if(empty($err)){
+			unlink($this->file);
+		} 
 		$this->log(_("Finished Saving to selected Filestore locations"));
 	}
 

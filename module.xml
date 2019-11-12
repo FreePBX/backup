@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.66</version>
+	<version>15.0.8.67</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.67* FREEI-782 backup restore: no Apply Config button available 
 		*15.0.8.66* FREEI-817 Make warm spare functionality invisible in the UI 
 		*15.0.8.65* FREEI-819: when uploading a backup, create the uploads folder if it doesn't exist 
 		*15.0.8.64* FREEI-804 Backup: sometimes, uploading to restore fails with Whoops error about Max Execution time 

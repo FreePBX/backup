@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-15 22:41+0530\n"
+"POT-Creation-Date: 2019-11-12 20:43+0530\n"
 "PO-Revision-Date: 2016-02-05 11:17+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -114,8 +114,8 @@ msgstr ""
 msgid "Admin"
 msgstr "Admin"
 
-#: views/restore/processRestore.php:29
-msgid "After the restore you should reload with the apply config button"
+#: views/restore/processRestore.php:28
+msgid "After the restore you might reload with the apply config button"
 msgstr ""
 
 #: Handlers/Restore/Common.php:172
@@ -745,7 +745,7 @@ msgstr ""
 msgid "Missing id or transaction or pid"
 msgstr ""
 
-#: views/backup/form.php:455 views/restore/processRestore.php:48
+#: views/backup/form.php:455 views/restore/processRestore.php:47
 msgid "Module"
 msgstr ""
 
@@ -757,7 +757,7 @@ msgstr ""
 msgid "Modules ("
 msgstr ""
 
-#: views/restore/processRestore.php:36
+#: views/restore/processRestore.php:35
 msgid "Modules in this backup"
 msgstr ""
 
@@ -1130,7 +1130,7 @@ msgstr ""
 msgid "Starting backup %s"
 msgstr ""
 
-#: views/restore/processRestore.php:50
+#: views/restore/processRestore.php:49
 msgid "Status"
 msgstr ""
 
@@ -1255,16 +1255,10 @@ msgid ""
 msgstr ""
 
 #: views/restore/processRestore.php:27
-msgid ""
-"This restore will attempt to install and enable the module version in the "
-"backup."
-msgstr ""
-
-#: views/restore/processRestore.php:28
 msgid "This restore will only affect the modules listed below"
 msgstr ""
 
-#: views/restore/processRestore.php:37
+#: views/restore/processRestore.php:36
 msgid "This table will be empty on backups created prior to version 15"
 msgstr ""
 
@@ -1364,7 +1358,7 @@ msgstr ""
 msgid "Utilizing file based sqlite at %s, This is SLOW"
 msgstr ""
 
-#: views/restore/processRestore.php:49
+#: views/restore/processRestore.php:48
 msgid "Version in Backup"
 msgstr ""
 

@@ -24,9 +24,8 @@
 							<div class="panel-body">
 							<ul class="list-group">
 							<li class = "list-group-item list-group-item-danger"><?php echo _("Running a restore will overwrite current data. This cannot be undone!")?></li>
-							<li class = "list-group-item list-group-item-warning"><?php echo _("This restore will attempt to install and enable the module version in the backup.")?></li>
 							<li class = "list-group-item list-group-item-info"><?php echo _("This restore will only affect the modules listed below")?></li>
-							<li class = "list-group-item list-group-item-info"><?php echo _("After the restore you should reload with the apply config button")?></li>
+							<li class = "list-group-item list-group-item-info"><?php echo _("After the restore you might reload with the apply config button")?></li>
 							</ul>
 						</div>
 						</div> <!--End column-->

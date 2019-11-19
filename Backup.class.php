@@ -656,7 +656,6 @@ public function GraphQL_Access_token($request) {
 						$value = isset($settings[$key])?$settings[$key]:$value;
 						$vars[$key]  = $value;
 					}
-					$filestores = [];
 					try {
 						$fstype = $this->getFSType();
 						$items  = $this->freepbx->Filestore->listLocations($fstype);
@@ -675,7 +674,7 @@ public function GraphQL_Access_token($request) {
 								];
 							}
 						}
-						$vars['filestores'] = $optgroup;
+						$vars['filestores'] = is_array($optgroup) ? $optgroup : [];
 					} catch (\Exception $e) {
 						$vars['filestores'] = false;
 					}

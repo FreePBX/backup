@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-19 15:58+0530\n"
+"POT-Creation-Date: 2019-11-19 21:17+0530\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -129,7 +129,7 @@ msgstr "Aplicar Configs"
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
 
-#: Backup.class.php:1324
+#: Backup.class.php:1323
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -144,7 +144,7 @@ msgstr ""
 msgid "Backup"
 msgstr "Cópia de Segurança"
 
-#: Backup.class.php:1069
+#: Backup.class.php:1068
 #, php-format
 msgid "Backup %s"
 msgstr ""
@@ -340,7 +340,7 @@ msgstr ""
 msgid "Could not locate the manifest for this file"
 msgstr ""
 
-#: Backup.class.php:704 Backup.class.php:772
+#: Backup.class.php:703 Backup.class.php:771
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
@@ -427,7 +427,7 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1230 views/backup/form.php:264
+#: Backup.class.php:1229 views/backup/form.php:264
 msgid "Enabled"
 msgstr ""
 
@@ -636,11 +636,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1309
+#: Backup.class.php:1308
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1315
+#: Backup.class.php:1314
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -838,7 +838,7 @@ msgstr ""
 msgid "No file provided"
 msgstr ""
 
-#: Backup.class.php:693
+#: Backup.class.php:692
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
@@ -1200,7 +1200,7 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: Backup.class.php:686
+#: Backup.class.php:685
 msgid "System Transfer"
 msgstr ""
 
@@ -1353,7 +1353,7 @@ msgstr ""
 msgid "Unable to upload file to the remote server"
 msgstr ""
 
-#: Backup.class.php:1230
+#: Backup.class.php:1229
 msgid "Uninstalled or Disabled"
 msgstr ""
 

@@ -51,7 +51,15 @@ class Backup extends FreePBX_Helpers implements BMO {
 		'warmspare_remoteapply',
 		'warmspare_remoteip',
 		'warmspare_user',
-		'publickey'
+		'publickey',
+		'warmsparewayofrestore',
+		'warmspare_remoteapi_filestoreid',
+		'warmspare_remoteapi_accesstoken',
+		'warmspare_remoteapi_accesstokenurl',
+		'warmspare_remoteapi_accesstoken_expire',
+		'warmspare_remoteapi_clientid',
+		'warmspare_remoteapi_secret',
+		'warmspare_remoteapi_gql'
 	];
 	public $loggingHooks = null;
 
@@ -227,6 +235,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			case 'deleteLocal':
 			case 'getRestoreLog':
 			case 'deleteBackup':
+			case 'accesstoken':
 				return true;
 			case 'restorestatus':
 			case 'backupstatus':
@@ -242,6 +251,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 */
 	public function ajaxHandler() {
 		switch ($_REQUEST['command']) {
+			case 'accesstoken':
+				return $this->GraphQL_Access_token($_REQUEST);
+				break;
 			case 'deleteMultipleRestores':
 				$type = $_REQUEST['type'];
 				$files = $_REQUEST['files'];
@@ -424,10 +436,12 @@ class Backup extends FreePBX_Helpers implements BMO {
 				$jobid   = $this->generateId();
 				$location = $this->freepbx->Config->get('ASTLOGDIR');
 				$warmspare = $this->getConfig('warmspareenabled', $buid) === 'yes';
-				$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup --backup=' . escapeshellarg($buid) . ' --transaction=' . escapeshellarg($jobid) . ' >> '.$location.'/backup_'.$jobid.'_out.log 2> '.$location.'/backup_'.$jobid.'_err.log & echo $!';
 				if($warmspare){
-					$command .= ' --warmspare';
+					$warm = ' --warmspare';
+				} else {
+					$warm = '';
 				}
+				$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup --backup=' . escapeshellarg($buid) . '' . $warm . ' --transaction=' . escapeshellarg($jobid) . ' >> '.$location.'/backup_'.$jobid.'_out.log 2> '.$location.'/backup_'.$jobid.'_err.log & echo $!';
 				file_put_contents($location.'/backup_'.$jobid.'_out.log','Running with: '.$command.PHP_EOL);
 				$process = new Process($command);
 				$process->mustRun();
@@ -562,6 +576,51 @@ class Backup extends FreePBX_Helpers implements BMO {
 			break;
 		}
 	}
+public function GraphQL_Access_token($request) {
+		$client_id = $request['warmspare_remoteapi_clientid'];
+		$client_secret = $request['warmspare_remoteapi_secret'];
+		$token_url = $request['warmspare_remoteapi_accesstokenurl'];
+		$content = array("grant_type"=>"client_credentials","scope"=>"gql:backup:write");
+		$authorization = base64_encode("$client_id:$client_secret");
+		$header = array("Authorization: Basic {$authorization}","Content-Type: application/x-www-form-urlencoded");
+		$pest = new \Pest($token_url);
+		$pest->setupAuth($client_id,$client_secret);
+		$response = $pest->post($token_url, $content, $header);
+		$token = json_decode($response)->access_token;
+		$expires_in = json_decode($response)->expires_in;
+		$token_type = json_decode($response)->token_type;
+		$expires_in = time() + $expires_in;
+		if (!empty($token)) {
+			$res['access_token'] = $token;
+			$res['token_type'] = $token_type;
+			$res['expires_in'] = $expires_in;
+			$retrun = json_encode($res);
+		} else {
+			$retrun = '';
+		}
+		return $retrun;
+	}
+	public function triggerWarmSpareGqlAPI($item , $filename,$transactionid,$sparefilepath) {
+		if(substr($sparefilepath,-1) =='/') {
+			$filename = $sparefilepath.''.$filename;
+		} else {
+			$filename = $sparefilepath.'/'.$filename;
+		}
+		//get new token if access_token is expired !!
+		if($item['warmspare_remoteapi_accesstoken_expire'] < time()) {
+			$jsonarray = $this->GraphQL_Access_token($item);
+			$array = json_decode($jsonarray,true);
+			$item['warmspare_remoteapi_accesstoken'] = $array['access_token'];
+		}
+		$service_url = $item['warmspare_remoteapi_gql'];
+		$access_token = $item['warmspare_remoteapi_accesstoken'];
+		$client = new \EUAutomation\GraphQL\Client($service_url);
+		$query = 'mutation{runWarmsparebackuprestore(input:{backupfilename:"'.$filename.'" clientMutationId:"'.$transactionid.'"}) {clientMutationId restorestatus}}';
+		$headers = array("Authorization"=> "Bearer {$access_token}", "Content-Type"=> "application/json");
+		$variables = '';
+		$response = $client->json($query, $variables, $headers);
+		return $response;
+	}
 
 	//Display stuff
 
@@ -597,7 +656,29 @@ class Backup extends FreePBX_Helpers implements BMO {
 						$value = isset($settings[$key])?$settings[$key]:$value;
 						$vars[$key]  = $value;
 					}
-
+					$filestores = [];
+					try {
+						$fstype = $this->getFSType();
+						$items  = $this->freepbx->Filestore->listLocations($fstype);
+						$return = [];
+						foreach ($items['locations'] as $driver => $locations ) {
+							if ($driver != 'FTP' && $driver != 'SSH') {
+								continue;
+							}
+							foreach ($locations as $location) {
+								$name = isset($location['displayname'])?$location['displayname']:$location ['name'];
+								$select = ($driver.'_'.$location['id']== $vars['warmspare_remoteapi_filestoreid'])? true : '';
+								$optgroup[] = [
+									'label'    => $name,
+									'value'    => $driver.'_'.$location['id'],
+									'selected' => $select
+								];
+							}
+						}
+						$vars['filestores'] = $optgroup;
+					} catch (\Exception $e) {
+						$vars['filestores'] = false;
+					}
 					$vars['warmspare'] = load_view(__DIR__.'/views/backup/warmspare.php',$vars);
 				}
 				$vars['transfer'] = '';

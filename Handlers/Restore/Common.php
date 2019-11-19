@@ -92,6 +92,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		$modData['module'] = $module;
 		$modData['version'] = $version;
 		$modData['pbx_version'] = null;
+		$modData['backupInfo'] = $this->getMasterManifest();
 		if(strtolower($module) === 'framework') {
 			$className = 'FreePBX\Builtin\Restore';
 		} else {
@@ -110,7 +111,12 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		//Change the Text Domain
 		$this->log(sprintf(_('Resetting %s module data'),$module));
 		modgettext::push_textdomain($module);
-		$class->reset();
+		//FREEPBX-20646 Warm spare backup,  resets will clear all data so the extenalip ,nat,bindaddress we can not preserve
+		if ($module === 'sipsettings' && $modData['backupInfo']['backupInfo']['warmspareenabled'] == 'yes') {
+			$this->log(sprintf(_('NOT Resetting %s module data'),$module));
+		} else {
+			$class->reset();
+		}
 		$this->log(sprintf(_("Restoring from %s [%s]"), $module, get_class($class)));
 		$this->runRestore($class);
 		$this->log(modgettext::_('Done','backup'));

@@ -5,5 +5,8 @@
             "Json/json_encode.php",
             "Json/JsonException.php"
         ]
+    },
+    "require": {
+        "euautomation/graphql-client": "^0.2.0"
     }
 }

@@ -209,8 +209,21 @@ class Backup extends Command {
 						}
 					}
 				}
-
 				$this->freepbx->Backup->delConfig($buid,"runningBackupJobs");
+				//trigger Warmspare API
+				if($item['warmspareenabled'] == 'yes') {
+					if($item['warmsparewayofrestore'] == 'API') {
+						$output->writeln(_("Warmspare enabled for this backup"));
+						$filestoreid = explode('_',$item['warmspare_remoteapi_filestoreid']);
+						$sparefilepath = $this->freepbx->Filestore->getConfig('path',$filestoreid[1]);
+						$output->writeln(_("We Have triggered an API to restore the backup on Spare Server"));
+						$resp = $this->freepbx->Backup->triggerWarmSpareGqlAPI($item,basename($backupHandler->getFile()),$transactionid,$sparefilepath);
+						$data = $resp->data->runWarmsparebackuprestore;
+						$output->writeln(_("Response from Warmspare backup Server API"));
+						$output->writeln("clientMutationId :".$data->clientMutationId);
+						$output->writeln("Restorestatus :".$data->restorestatus);
+					}
+				}
 				return;
 			break;
 			case $filestore:

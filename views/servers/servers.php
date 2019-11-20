@@ -13,7 +13,7 @@
     </ul>
   </div>
 </div>
-<table id="serversGridall" data-toolbar="#toolbar-servers" data-pagination="true" data-search="true" data-url="ajax.php?module=backup&amp;command=getJSON&amp;jdata=serverGrid" data-cache="false" data-toggle="table" class="table table-striped">
+<table id="serversGridall" data-escape="true" data-toolbar="#toolbar-servers" data-pagination="true" data-search="true" data-url="ajax.php?module=backup&amp;command=getJSON&amp;jdata=serverGrid" data-cache="false" data-toggle="table" class="table table-striped">
   <thead>
     <tr>
       <th data-field="name" data-sortable="true"><?php echo _("Item")?></th>

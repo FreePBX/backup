@@ -47,6 +47,7 @@ $dataurl = "ajax.php?module=backup&command=getJSON&jdata=serverGrid";
             data-show-columns="true"
             data-show-toggle="true"
             data-toggle="table"
+            data-escape="true"
             data-pagination="true"
             data-search="true"
             class="table table-striped">

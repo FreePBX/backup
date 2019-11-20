@@ -232,7 +232,7 @@ class Backup extends Command {
 					throw new \Exception('Invalid filestore id');
 				}
 				$output->write(sprintf(_("Retrieving %s from %s:%s..."),basename($restore), $info['driver'],$info['name']));
-				$path = $this->tmpDir.'/backup/'.basename($restore);
+				$path = $this->tmpDir.'/'.basename($restore);
 				$this->freepbx->Filestore->download($filestore,$restore,$path);
 				$output->writeln(_('Done'));
 				$restore = $path;

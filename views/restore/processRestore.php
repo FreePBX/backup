@@ -40,6 +40,7 @@
 						data-search="true"
 						data-toolbar="#restoremodule-toolbar"
 						data-id-field="modulename"
+						data-escape="true" 
 						data-maintain-selected="true"
 						class="table table-striped">
 						<thead>

@@ -444,6 +444,7 @@ if (!empty($bkjobs)) {
 						data-detail-formatter="moduleSettingFormatter"
 						data-detail-filter="moduleSettingFilter"
 						data-maintain-selected="true"
+						data-escape="true" 
 						class="table table-striped"
 					>
 						<thead>

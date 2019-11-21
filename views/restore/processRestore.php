@@ -41,6 +41,7 @@
 						data-toolbar="#restoremodule-toolbar"
 						data-id-field="modulename"
 						data-maintain-selected="true"
+						data-escape="true" 
 						class="table table-striped">
 						<thead>
 						<tr>

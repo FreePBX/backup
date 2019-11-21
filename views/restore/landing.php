@@ -58,7 +58,6 @@ if(isset($error) && !empty($error)){
 			data-show-columns="true"
 			data-show-toggle="true"
 			data-toggle="table"
-			data-escape="true" 
 			data-sort-order="desc"
 			data-sort-name="timestamp"
 			data-pagination="true"
@@ -105,7 +104,6 @@ if(isset($error) && !empty($error)){
 			data-sort-name="timestamp"
 			data-toggle="table"
 			data-pagination="true"
-			data-escape="true" 
 			data-search="true"
 			data-unique-id="id"
 			class="table table-striped">

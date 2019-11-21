@@ -19,163 +19,236 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-17 14:07-0400\n"
-"PO-Revision-Date: 2015-04-18 01:09+0200\n"
+"POT-Creation-Date: 2019-11-19 21:17+0530\n"
+"PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish "
-"<http://weblate.freepbx.org/projects/freepbx/backup/es_ES/>\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
+"es_ES/>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.4\n"
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-Country: SPAIN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: views/backup/backup.php:269
-msgid " runs"
-msgstr " Corre"
-
-#: functions.inc/templates.php:251
-msgid "/path/to/dir"
-msgstr "/path/to/dir"
-
-#: functions.inc/templates.php:238
-msgid "/path/to/file"
-msgstr "/path/to/file"
-
-#: install.php:309
-msgid ""
-"A full backup of core settings and web files, doesn't include system sounds "
-"or recordings."
+#: RestoreBase.php:257
+#, php-format
+msgid " %s found no database definitions in module.xml"
 msgstr ""
-"Respaldo completo del core y archivos web, no incluye sonidos del sistema ni "
-"grabaciones."
 
-#: views/backup/backup.php:81
-msgid "A script to be run AFTER a backup is completed."
-msgstr "Un script a ser ejecutado DESPUES que el respaldo sea completado."
+#: views/backup/form.php:17
+#, php-format
+msgid "%s Backup %s"
+msgstr ""
 
-#: views/backup/backup.php:100
-msgid "A script to be run AFTER a backup is restored."
-msgstr "Un Script a ser ejecutado DESPUES que el respaldo sea restaurado."
+#: views/backup/form.php:363 views/backup/form.php:366
+#: views/backup/form.php:369 views/backup/form.php:372
+#, php-format
+msgid "%s Days"
+msgstr ""
 
-#: views/backup/backup.php:90
-msgid "A script to be run BEFORE a backup is restored."
-msgstr "Un Script a ser ejecutado ANTES que el respaldo sea restaurado."
+#: views/backup/form.php:375 views/backup/form.php:378
+#: views/backup/form.php:381 views/backup/form.php:384
+#: views/backup/form.php:387
+#, php-format
+msgid "%s Days (%s Months)"
+msgstr ""
 
-#: views/backup/backup.php:72
-msgid "A script to be run BEFORE a backup is started."
-msgstr "Un Script a ser ejecutado ANTES que el respaldo de inicio."
+#: Handlers/Restore/Multiple.php:17
+#, php-format
+msgid "%s does not exist"
+msgstr ""
 
-#: bin/backup.php:55
-msgid "Adding items..."
-msgstr "Agregando elementos..."
+#: RestoreBase.php:191 RestoreBase.php:373
+#, php-format
+msgid "%s does not implement KVStore"
+msgstr ""
 
-#: backup.i18n.php:6 backup.i18n.php:12
+#: Handlers/Restore/Legacy.php:130
+#, php-format
+msgid "%s is now loaded into memory"
+msgstr ""
+
+#: views/backup/form.php:52
+msgid "A name used to identify your backups"
+msgstr ""
+
+#: views/backup/warmspare.php:268
+msgid "Access Token URL"
+msgstr ""
+
+#: views/backup/warmspare.php:280
+msgid "Access Token URL of Warm Spare server."
+msgstr ""
+
+#: views/backup/grid.php:25 views/restore/landing.php:73
+#: views/restore/landing.php:117
+msgid "Actions"
+msgstr "Acciones"
+
+#: views/backup/form.php:17
+msgid "Add"
+msgstr ""
+
+#: views/backup/grid.php:5 views/rnav.php:3
+msgid "Add Backup"
+msgstr ""
+
+#: views/backup/form.php:76
+msgid "Add a description for your backup"
+msgstr ""
+
+#: Handlers/Backup/Common.php:112
+#, php-format
+msgid "Adding directory to tar: %s"
+msgstr ""
+
+#: Handlers/Backup/Common.php:126
+#, php-format
+msgid "Adding file to tar: %s"
+msgstr ""
+
+#: Handlers/Backup/Multiple.php:125
+#, php-format
+msgid "Adding module %s to queue because %s depends on it"
+msgstr ""
+
+#: Handlers/Backup/Common.php:132
+#, php-format
+msgid "Adding module manifest for %s"
+msgstr ""
+
+#: backup.i18n.php:6
 msgid "Admin"
 msgstr "Administrador"
 
-#: install.php:382
-msgid ""
-"All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
-"VOICEMAIL"
+#: views/restore/processRestore.php:28
+msgid "After the restore you might reload with the apply config button"
 msgstr ""
-"Todos los audios del sistema - incluyendo IVR y Musica en espera. NO "
-"RESPALDA CORREO DE VOZ"
 
-#: views/cron.php:10
-msgid "Annually"
-msgstr "Anualmente"
+#: Handlers/Restore/Common.php:178
+msgid ""
+"Apache will Restat now... And your GUI may die if the ports are changed !!!!"
+msgstr ""
 
-#: views/backup/backup.php:173
+#: views/backup/warmspare.php:176
 msgid "Apply Configs"
 msgstr "Aplicar configuraciones"
 
-#: views/cron.php:108
-msgid "April"
-msgstr "Abril"
+#: assets/js/backup.js:204 assets/js/backup.js:241
+msgid "Are you sure you wish to delete this file? This cannot be undone"
+msgstr ""
 
-#: views/restore/browseserver.php:21
-msgid "AstDB's"
-msgstr "\"AstDB's\""
+#: Backup.class.php:1323
+#, php-format
+msgid ""
+"Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
+"Aborting"
+msgstr ""
 
-#: functions.inc/templates.php:296
-msgid "Asterisk DB"
-msgstr "BD Asterisk"
+#: functions.inc/class.backup.php:411 functions.inc/class.backup.php:414
+msgid "BACKUP NOT ATTACHED"
+msgstr "RESPALDO NO ANEXO"
 
-#: views/cron.php:112
-msgid "August"
-msgstr "Agosto"
-
-#: views/backup/backup.php:224
-msgid "Available Servers"
-msgstr "Servidores Disponibles"
-
-#: functions.inc.php:72
-msgid "BACKUP LOG ATTACHED"
-msgstr "BITACORA DE RESPALDOS ANEXADA"
-
-#: functions.inc/backup.php:81 functions.inc/class.backup.php:334
-#: views/backup/backup.php:3 views/backup/backups.php:3
+#: functions.inc/class.backup.php:405 views/landing.php:13
 msgid "Backup"
 msgstr "Respaldo"
 
-#: backup.i18n.php:4 backup.i18n.php:10
+#: Backup.class.php:1068
+#, php-format
+msgid "Backup %s"
+msgstr ""
+
+#: Monolog/Swift.php:73
+#, php-format
+msgid "Backup %s failed for %s"
+msgstr ""
+
+#: Monolog/Swift.php:71
+#, php-format
+msgid "Backup %s success for %s"
+msgstr ""
+
+#: backup.i18n.php:4 backup.i18n.php:10 views/landing.php:5
 msgid "Backup & Restore"
 msgstr "Copias de seguridad"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "Respalda & Restaura - Restaura"
 
-#: backup.i18n.php:14
-msgid "Backup & Restore - Servers"
-msgstr "Respalda & Restaura - Servidores"
+#: backup.i18n.php:8
+msgid "Backup & Restore for your FreePBX environment"
+msgstr "respaldar & restaurar para su ambiente FreePBX"
 
-#: backup.i18n.php:16
-msgid "Backup & Restore - Templates"
-msgstr "Respaldar & Restaurar - Plantillas"
+#: views/restore/landing.php:71 views/restore/landing.php:114
+msgid "Backup Date"
+msgstr ""
 
-#: views/backup/backup.php:59
+#: Backup.class.php:299
+msgid "Backup Deleted"
+msgstr ""
+
+#: views/backup/form.php:64
+msgid "Backup Description"
+msgstr "Descripción de Respaldo"
+
+#: functions.inc/class.backup.php:410
+msgid "Backup ERROR (exceeded SMTP limits)"
+msgstr "ERROR respaldo (excedio los limites SMTP)"
+
+#: functions.inc/class.backup.php:413
+msgid "Backup ERROR (exceeded soft limit)"
+msgstr "ERROR respaldo (excede limites blandos)"
+
+#: views/restore/landing.php:16
+msgid "Backup File"
+msgstr ""
+
+#: views/restore/processRestore.php:11
+msgid "Backup Info"
+msgstr ""
+
+#: views/restore/landing.php:116
+msgid "Backup Instance"
+msgstr ""
+
+#: views/backup/form.php:88
 msgid "Backup Items"
 msgstr "Respaldar Elementos"
 
-#: bin/backup.php:50
-msgid "Backup Lock acquired!"
-msgstr "Bloqueo de copia de seguridad adquirida!"
-
-#: functions.inc.php:75
-msgid "Backup Log:"
-msgstr "Bitacora del respaldo:"
-
-#: backup.i18n.php:22
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "Modulo de Respaldo"
 
-#: views/backup/backup.php:11
+#: views/backup/form.php:40 views/restore/landing.php:70
+#: views/restore/landing.php:113
 msgid "Backup Name"
 msgstr "Nombre del Respaldo"
 
-#: views/backup/backup.php:230
-msgid "Backup Schedule"
-msgstr "Crongrama de Respaldos"
+#: views/restore/landing.php:115
+msgid "Backup Type"
+msgstr ""
 
-#: views/backup/backup.php:112 views/backup/backup.php:125
-msgid "Backup Server"
-msgstr "Servidor de Respaldo"
+#: views/backup/grid.php:6
+msgid "Backup Wizard"
+msgstr "Asistente de Respaldo"
 
-#: functions.inc/restore.php:252
-msgid "Backup Server not found!"
-msgstr "Servidor de Respaldo no encontrado!"
+#: Console/Backup.class.php:113 Console/Backup.class.php:196
+msgid "Backup completed successfully"
+msgstr ""
 
-#: bin/backup.php:147 bin/backup.php:195
-msgid "Backup completed with errors!"
-msgstr "Respaldo completado con errores!"
+#: Handlers/Restore/Common.php:153
+#, php-format
+msgid ""
+"Backup extracted to %s. These files will remain until a new restore is run "
+"or until cleaned manually."
+msgstr ""
 
-#: functions.inc/class.backup.php:231
+#: functions.inc/class.backup.php:296
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -184,1066 +257,2674 @@ msgstr ""
 "Respaldo fallo vaciando base de datos SQL [%s] al archivo [%s], usted tiene "
 "un respaldo corrupto en el servidor [%s]."
 
-#: bin/restore.php:93
-msgid "Backup file not found! Aborting."
-msgstr "Archivo de Respaldo no encontrado!. Abortando."
+#: functions.inc/class.backup.php:499
+msgid "Backup file uploaded to the remote server"
+msgstr ""
 
-#: install.php:135
-msgid "Backup migration completed"
-msgstr "Migración del Respaldo completada"
+#: Backup.class.php:449
+msgid "Backup running"
+msgstr ""
 
-#: bin/backup.php:14
-msgid "Backup module not found or is disabled. Aborting!"
-msgstr "Modulo de Respaldo  no encontrado o esta deshabilitado. Abortando!"
+#: views/backup/form.php:30
+msgid "Basic Information"
+msgstr "Información Básica"
 
-#: bin/backup.php:149 bin/backup.php:197
-msgid "Backup successfully completed!"
-msgstr "Respaldo satisfactoriamente completado!"
+#: views/backup/form.php:201
+msgid "Both"
+msgstr ""
 
-#: views/rnav/main.php:3
-msgid "Backups"
-msgstr "Respaldos"
+#: Handlers/Restore/Common.php:87
+#, php-format
+msgid "Can't find the module data for %s"
+msgstr ""
 
-#: bin/backup.php:58
-msgid "Bulding manifest..."
-msgstr "Construyendo el manifiesto..."
+#: assets/js/backup.js:205 assets/js/backup.js:242
+msgid "Cancel"
+msgstr ""
 
-#: install.php:268
-msgid "CDR server, generally a local database server"
-msgstr "Servidor CDR, generalmente un servidor local de base de datos"
+#: Handlers/Backup/Single.php:53
+msgid "Cleaning up"
+msgstr ""
 
-#: views/restore/backup_list.php:42
-msgid "CDR's"
-msgstr "CDRs"
+#: Handlers/Backup/Multiple.php:169
+#, php-format
+msgid "Cleaning up data generated by %s"
+msgstr ""
 
-#: install.php:350
-msgid "Call Detail Records"
-msgstr "Registros Detallados de Llamadas"
+#: Backup.class.php:113
+msgid "Cleaning up old data"
+msgstr ""
 
-#: install.php:71
-msgid "Can not create backup tables"
-msgstr "No se pueden crear tablas de Respandos"
+#: views/restore/landing.php:21
+msgid "Click to upload a backup file."
+msgstr ""
 
-#: install.php:132
-msgid "Can not migrate Backup table"
-msgstr "No se pueden migrar tablas de Respaldos"
+#: views/backup/warmspare.php:364
+msgid "Client Access Token"
+msgstr ""
 
-#: install.php:82
-msgid "Can't check for Backup table"
-msgstr "No se puede checar tablas de Respaldos"
+#: views/backup/warmspare.php:292
+msgid "Client ID"
+msgstr ""
 
-#: bin/restore.php:387
-msgid "Cleaning up..."
-msgstr "Limpiando ..."
+#: views/backup/warmspare.php:316
+msgid "Client Secret"
+msgstr ""
 
-#: install.php:292
-msgid "Configurations only"
-msgstr "Solo Configuraciones"
+#: views/backup/warmspare.php:328
+msgid "Client Secret of the Warm Spare server."
+msgstr ""
 
-#: bin/backup.php:77
-msgid "Connecting to remote server..."
-msgstr "Conectando a Servidor remoto..."
+#: views/backup/warmspare.php:304
+msgid "ClientID of the Warm Spare server."
+msgstr ""
 
-#: functions.inc/class.backup.php:327 views/restore/browseserver.php:18
+#: views/backup/form.php:466 views/runModal.php:12
+msgid "Close"
+msgstr ""
+
+#: RestoreBase.php:533
+#, php-format
+msgid "Column '%s' does not exist in %s, skipping"
+msgstr ""
+
+#: Handlers/Backup/Multiple.php:112
+#, php-format
+msgid ""
+"Could not backup module %s because it depends on %s which is not enabled. "
+"Please enable %s"
+msgstr ""
+
+#: Handlers/Backup/Multiple.php:82
+#, php-format
+msgid "Could not backup module %s because it is not enabled"
+msgstr ""
+
+#: functions.inc/class.backup.php:841
+#, php-format
+msgid "Could not find %s on the remote system"
+msgstr ""
+
+#: Backup.class.php:408 Backup.class.php:416
+msgid "Could not find a file for the id supplied"
+msgstr ""
+
+#: Handlers/Restore/Common.php:165
+msgid "Could not locate the manifest for this file"
+msgstr ""
+
+#: Backup.class.php:703 Backup.class.php:771
+msgid "Couldn't find your file, please try submitting your file again."
+msgstr ""
+
+#: functions.inc/class.backup.php:398
 msgid "Created"
 msgstr "Creado"
 
-#: bin/backup.php:63
-msgid "Creating backup..."
-msgstr "Creando respaldo ..."
+#: functions.inc/class.backup.php:477
+#, php-format
+msgid "Creating directory '%s'"
+msgstr "Creando Directorio '%s'"
 
-#: install.php:209
-msgid "Creating backups directory.."
-msgstr "Creando Directorio de Respaldos.."
-
-#: views/cron.php:12
-msgid "Custom"
-msgstr "\"Custom\""
-
-#: views/servers/mysql.php:70
-msgid "DB Name"
-msgstr "Nombre BD"
-
-#: views/cron.php:7
-msgid "Daily"
-msgstr "Diario"
-
-#: views/servers/mysql.php:70
-msgid "Database name"
-msgstr "Nombre Base de Datos"
-
-#: views/cron.php:132
-msgid "Day of Month"
-msgstr "Día del Mes"
-
-#: views/cron.php:77
-msgid "Day of Week"
-msgstr "Día de la semana"
-
-#: views/backup/backup.php:255
-msgid "Days"
-msgstr "Días"
-
-#: views/cron.php:116
-msgid "December"
-msgstr "Diciembre"
-
-#: install.php:630
-msgid "Default backup; automatically installed"
-msgstr "Respaldo por defecto, automáticamente instalado"
-
-#: page.backup.php:45 page.backup_servers.php:32 page.backup_templates.php:20
-#: views/backup/backup.php:286 views/item_table.php:7
-#: views/servers/email.php:76 views/servers/ftp.php:108
-#: views/servers/local.php:47 views/servers/mysql.php:87
-#: views/servers/ssh.php:85 views/templates/template.php:37
+#: Backup.class.php:200 views/restore/landing.php:49
+#: views/restore/landing.php:92 assets/js/backup.js:205 assets/js/backup.js:242
 msgid "Delete"
 msgstr "Eliminar"
 
-#: views/backup/backup.php:244 views/backup/backup.php:261
-msgid "Delete after"
-msgstr "Eliminar despues"
-
-#: views/backup/backup.php:244
-msgid ""
-"Delete this backup after X amount of minutes/hours/days/weeks/months/years. "
-"Please note that deletes aren't time based and will only happen after a "
-"backup was run. Setting the value to 0 will disable any deleting"
+#: views/backup/form.php:353
+msgid "Delete After Days"
 msgstr ""
-"Eliminar esta copia de seguridad después de X cantidad de minutos / horas / "
-"días / semanas / meses / años. Tenga en cuenta que las supresiones no son "
-"basadas en tiempo y sólo va a pasar después de que se ejecute una copia de "
-"seguridad. Establecer el valor a 0 desactivará cualquier borrado"
 
-#: views/backup/backup.php:261
-msgid ""
-"Delete this backup after X amount of runs. Setting the value to 0 will "
-"disable any deleting"
+#: views/backup/form.php:329
+msgid "Delete After Runs"
 msgstr ""
-"Elimine este respaldo después de X monto de corridas. Coloque el valor en 0 "
-"si desea deshabilitar cualquier borrado"
 
-#: functions.inc/templates.php:310
-msgid "Delete this entry. Don't forget to click Submit to save changes!"
+#: Handlers/Backup/Multiple.php:101
+#, php-format
+msgid "Depend field was blank for %s. Skipping because not sure what to do"
 msgstr ""
-"Borrar esta entrada. No olvide oprimir \"Enviar\" para guardar los cambios!"
 
-#: views/backup/backup.php:20 views/servers/email.php:22
-#: views/servers/ftp.php:22 views/servers/local.php:22
-#: views/servers/mysql.php:22 views/servers/ssh.php:22
-#: views/templates/template.php:21
+#: views/backup/grid.php:24 views/restore/processRestore.php:15
+#: views/rnav.php:9
 msgid "Description"
 msgstr "Descripción"
 
-#: views/backup/backup.php:20
-msgid "Description or notes for this backup"
-msgstr "Descripción o comentarios para este Respaldo"
-
-#: views/servers/email.php:22 views/servers/ftp.php:22
-#: views/servers/local.php:22 views/servers/mysql.php:22
-#: views/servers/ssh.php:22 views/templates/template.php:21
-msgid "Description or notes for this server"
-msgstr "Descripción o comentarios para este Servidor"
-
-#: functions.inc/templates.php:246
-msgid "Directory"
-msgstr "Directorio"
-
-#: views/backup/backup.php:144
-msgid "Disable Registered Trunks"
-msgstr "Deshabilitar Troncales Registrados"
-
-#: bin/restore.php:431
-msgid "Done!"
-msgstr "Hecho!"
-
-#: page.backup_restore.php:20 views/restore/browseserver.php:30
-msgid "Download"
-msgstr "Bajar"
-
-#: views/backup/backup.php:62
-msgid ""
-"Drag templates and drop them in the Backup Items table. Add as many "
-"templates as you need"
+#: Handlers/Restore/Legacy.php:78
+#, php-format
+msgid "Detected file %s as the PBX (Asterisk) database. Attempting restore"
 msgstr ""
-"Arrastre las plantillas y póngalas en la tabla de elementos de Respaldo. "
-"Agregue tantas plantillas como necesite"
 
-#: views/backup/backup.php:60
-msgid ""
-"Drag templates and drop them in the items table to add the templates items "
-"to the table"
+#: Console/Backup.class.php:251
+msgid "Determining backup file type..."
 msgstr ""
-"Arrastre la plantillas y póngalas la tabla de elementos para agregar "
-"plantillas a la misma"
 
-#: install.php:142
-msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
+#: functions.inc/class.backup.php:481
+#, php-format
+msgid "Directory '%s' did not exist and we could not create it"
+msgstr "Directorio '%s' no existe y no pudo ser creado"
+
+#: views/backup/warmspare.php:50
+msgid "Disable Remote Trunks"
 msgstr ""
-"ERROR: Fallo al remover tabla de \"respaldo\" vieja. Debería  desinstalar"
 
-#: install.php:87
-msgid ""
-"ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+#: Console/Backup.class.php:237 Handlers/Restore/Common.php:122
+#: Handlers/Restore/Legacy.php:230
+msgid "Done"
 msgstr ""
-"ERROR: fallo al migrar desde la tabla \"Respaldo\" vieja a la nueva tabla"
 
-#: backup.i18n.php:20
+#: views/backup/transfer.php:31
+msgid "Donor"
+msgstr ""
+
+#: views/backup/form.php:17
+msgid "Edit"
+msgstr ""
+
+#: backup.i18n.php:14
 msgid "Email "
 msgstr "Correo "
 
-#: views/servers/email.php:31
-msgid "Email Address"
-msgstr "Dirección de Correo"
-
-#: functions.inc/servers.php:243 functions.inc/servers.php:295
-msgid "Email Server "
-msgstr "Servidor de Correo "
-
-#: views/servers/email.php:31
-msgid "Email address where backups should be emailed to"
-msgstr "Dirección de Correo a donde los Respaldos deberán ser enviado"
-
-#: views/backup/backup.php:30
-msgid "Email to send status messages to when this task is run"
-msgstr "Correo para enviar mensajes de estado cuando esta tarea sea ejecutada"
-
-#: functions.inc/class.backup.php:370
-msgid "Error connecting to the FTP Server..."
-msgstr "Error conectando al Servidor FTP..."
-
-#: page.backup_restore.php:40
-msgid "Error uploading file!"
-msgstr "Error bajando archivo!"
-
-#: page.backup_restore.php:49
-msgid "Error verifying uploaded file!"
-msgstr "Error verificando archivo bajado!"
-
-#: views/item_table.php:7
-msgid "Exclude"
-msgstr "Excluir"
-
-#: install.php:402
-msgid ""
-"Exclude Backup's settings so that they dont get restored, usefull for a "
-"remote restore"
+#: views/backup/form.php:181
+msgid "Email Type"
 msgstr ""
-"Excluir configuración de Respaldos de manera que no sean restaurados. Util "
-"para restaurar remoto"
 
-#: views/backup/backup.php:159
+#: views/backup/form.php:134
+msgid "Email address to send notifications to."
+msgstr ""
+
+#: views/backup/warmspare.php:19
+msgid "Enable"
+msgstr ""
+
+#: views/backup/form.php:285
+msgid "Enable scheduled backups"
+msgstr ""
+
+#: Backup.class.php:1229 views/backup/form.php:264
+msgid "Enabled"
+msgstr ""
+
+#: views/backup/warmspare.php:195
+msgid ""
+"Equivalence of clicking the red button, will happen automatically after a "
+"restore on a Standby system"
+msgstr ""
+"Equivalente de hacer clic en el botón rojo, se producirá automáticamente "
+"después de una restauración en un sistema de espera"
+
+#: assets/js/backup.js:359 assets/js/backup.js:378 assets/js/backup.js:397
+#: assets/js/backup.js:489
+msgid "Error"
+msgstr ""
+
+#: Handlers/Backup/Multiple.php:175
+#, php-format
+msgid "Error Removing %s, %s"
+msgstr ""
+
+#: functions.inc/class.backup.php:471
+msgid "Error creating the FTP object"
+msgstr "Error creando el objeto FTP"
+
+#: functions.inc/class.backup.php:848
+#, php-format
+msgid "Error deleting %s"
+msgstr "Error borrando %s"
+
+#: Handlers/FreePBXModule.php:29
+#, php-format
+msgid "Error installing %s reason(s): %s"
+msgstr ""
+
+#: Handlers/FreePBXModule.php:41
+#, php-format
+msgid "Error uninstalling %s reason(s): %s"
+msgstr ""
+
+#: views/backup/warmspare.php:112
+msgid "Exclude Bind Address"
+msgstr ""
+
+#: views/backup/warmspare.php:145
+msgid "Exclude DNS"
+msgstr ""
+
+#: views/backup/warmspare.php:81
 msgid "Exclude NAT settings"
 msgstr "Excluir configuración de NAT"
 
-#: bin/restore.php:67
-msgid "Explicitly skipping host-specific NAT settings"
-msgstr "Explícitamente saltando configuraciones NAT especificas a host"
-
-#: functions.inc/restore.php:97
-msgid "FTP Connection error!"
-msgstr "Error de Conexión FTP!"
-
-#: functions.inc/servers.php:246 functions.inc/servers.php:298
-msgid "FTP Server "
-msgstr "Servidor FTP "
-
-#: functions.inc/restore.php:438
+#: views/backup/warmspare.php:133
 msgid ""
-"Failed converting asterisk.sql to proper format, renaming to mysql-db.sql in "
-"current state"
+"Explicitly exclude any machine-specific Bindaddres. This allows you to have "
+"a warm-spare machine with a different IP address."
 msgstr ""
-"Fallo convirtiendo asterisk.sql al formato adecuado, renombrando a mysql-db."
-"sql en su estado actual"
 
-#: functions.inc/restore.php:465
+#: views/backup/warmspare.php:164
 msgid ""
-"Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
-"sql in current state"
+"Explicitly exclude any machine-specific DNS. This allows you to have a warm-"
+"spare machine with a different DNS."
 msgstr ""
-"Fallo convirtiendo asteriskcdr.sql al formato adecuado, renombrando a mysql-"
-"cdr.sql en su estado actual"
 
-#: functions.inc/restore.php:280 functions.inc/restore.php:304
-msgid "Failed to retrieve file from server!"
-msgstr "Fallo recuperando archivo desde el servidor!"
+#: views/backup/warmspare.php:100
+msgid ""
+"Explicitly exclude any machine-specific IP settings. This allows you to have "
+"a warm-spare machine with a different IP address."
+msgstr ""
+"Excluir explícitamente cualquier configuración IP específicos de la máquina. "
+"Esto le permite tener una máquina de repuesto para una dirección IP "
+"diferente."
 
-#: install.php:92
-msgid "Failure Message:"
-msgstr "Mensaje de falla:"
+#: BackupBase.php:53
+#, php-format
+msgid "Exporting Advanced settings from %s"
+msgstr ""
 
-#: functions.inc/templates.php:303
-msgid "Family, one per line"
-msgstr "Familia, uno por linea"
+#: BackupBase.php:125
+#, php-format
+msgid "Exporting Databases from %s"
+msgstr ""
 
-#: views/cron.php:106
-msgid "February"
-msgstr "Febrero"
+#: BackupBase.php:67
+#, php-format
+msgid "Exporting Feature Codes from %s"
+msgstr ""
 
-#: functions.inc/templates.php:233
-msgid "File"
-msgstr "Archivo"
+#: BackupBase.php:156
+#, php-format
+msgid "Exporting KVStore based on ids  %s"
+msgstr ""
 
-#: functions.inc/restore.php:312
-msgid "File not found! "
-msgstr "Archivo no encontrado! "
+#: BackupBase.php:154
+#, php-format
+msgid "Exporting KVStore from %s"
+msgstr ""
 
-#: bin/restore.php:151
-msgid "File restore complete!"
-msgstr "Restauración de Archivo Completada!"
+#: Handlers/Restore/Multiple.php:20
+msgid "Extracting Backup"
+msgstr ""
 
-#: bin/backup.php:121
-msgid "File verification failed. "
-msgstr "Verificación de Archivo Fallida. "
+#: Handlers/Restore/Common.php:142
+msgid "Extracting backup..."
+msgstr ""
 
-#: functions.inc/class.backup.php:328 views/restore/browseserver.php:19
+#: Handlers/Restore/Legacy.php:120
+#, php-format
+msgid "Extracting supplied database file %s"
+msgstr ""
+
+#: views/backup/form.php:196
+msgid "Failure"
+msgstr ""
+
+#: Backup.class.php:308
+msgid "File Deleted"
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:72
+#, php-format
+msgid "File named: %s"
+msgstr ""
+
+#: Backup.class.php:336
+msgid "File reached the server but could not be processed"
+msgstr ""
+
+#: functions.inc/class.backup.php:399
 msgid "Files"
 msgstr "Archivos"
 
-#: views/cron.php:85
-msgid "Friday"
-msgstr "Viernes"
-
-#: bin/restore.php:211
-msgid "Getting CDR size..."
-msgstr "Obteniendo tamaño de CDR ..."
-
-#: views/restore/browseserver.php:29 views/restore/restore.php:15
-msgid "Go!"
-msgstr "Ir!"
-
-#: bin/backup.php:122
-msgid "Here are the first few lines of the file as sent by the remote server:"
+#: Handlers/Restore/Legacy.php:276 Handlers/Restore/Multiple.php:79
+#: Handlers/Restore/Single.php:34
+msgid "Finished"
 msgstr ""
-"Estas son las primeras líneas del archivo como fue enviado por el servidor "
-"remoto:"
 
-#: views/backup/backup.php:71
-msgid "Hooks"
-msgstr "Ganchos"
-
-#: views/servers/ftp.php:31 views/servers/mysql.php:31
-#: views/servers/ssh.php:31
-msgid "Hostname"
-msgstr "Nombre de Host"
-
-#: views/cron.php:61
-msgid "Hour"
-msgstr "Hora"
-
-#: views/cron.php:6
-msgid "Hourly"
-msgstr "Cada Hora"
-
-#: views/backup/backup.php:254
-msgid "Hours"
-msgstr "Horas"
-
-#: views/servers/ftp.php:31
-msgid "IP address or FQDN of remote ftp host"
-msgstr "Dirección IP o FQDN del FTP remoto"
-
-#: views/servers/mysql.php:31
-msgid "IP address or FQDN of remote mysql host"
-msgstr "Dirección IP o FQDN del host remoto mysql"
-
-#: views/servers/ssh.php:31
-msgid "IP address or FQDN of remote ssh host"
-msgstr "Dirección IP o FQDN del host remoto SSH"
-
-#: bin/backup.php:41
-msgid "Intializing Backup"
-msgstr "Inicializando Respaldo"
-
-#: bin/restore.php:90
-msgid "Intializing Restore..."
-msgstr "Inicializando restauración .."
-
-#: page.backup_restore.php:121 page.backup_restore.php:141
-msgid "Invalid backup for or undefined error"
-msgstr "Respaldo Invalido o error no definido"
-
-#: views/backup/backup.php:41
-msgid "Items"
-msgstr "Elementos"
-
-#: views/cron.php:105
-msgid "January"
-msgstr "Enero"
-
-#: views/cron.php:111
-msgid "July"
-msgstr "Julio"
-
-#: views/cron.php:110
-msgid "June"
-msgstr "Junio"
-
-#: views/servers/ssh.php:59
-msgid "Key"
-msgstr "Llave"
-
-#: functions.inc/servers.php:249 functions.inc/servers.php:301
-msgid "Local Server "
-msgstr "Servidor Local "
-
-#: install.php:237
-msgid "Location of backups pre 2.10"
-msgstr "Localidad de Respaldo pre 2.10"
-
-#: views/servers/ssh.php:59
-msgid "Location of ssh private key to be used when connecting to a host"
+#: Handlers/Backup/Multiple.php:180 Handlers/Backup/Single.php:58
+msgid "Finished Cleaning up"
 msgstr ""
-"Localidad de la clave privada SSH para ser usada conectándose a un host"
 
-#: install.php:457
-msgid "MIGRATED"
-msgstr "MIGRADO"
+#: Console/Backup.class.php:183
+msgid "Finished Local Maintenance"
+msgstr ""
 
-#: views/backup/backup.php:243
-msgid "Maintenance"
-msgstr "Mantenimiento"
+#: Console/Backup.class.php:186
+msgid "Finished Remote Maintenance"
+msgstr ""
 
-#: views/cron.php:107
-msgid "March"
-msgstr "Marzo"
+#: Handlers/Storage.php:53
+msgid "Finished Saving to selected Filestore locations"
+msgstr ""
 
-#: views/servers/email.php:43
-msgid "Max Email Size"
-msgstr "Tamaño máximo de correo"
+#: Handlers/Backup/Multiple.php:182 Handlers/Backup/Single.php:63
+#, php-format
+msgid "Finished created backup file: %s"
+msgstr ""
 
-#: views/cron.php:109
-msgid "May"
-msgstr "Mayo"
+#: Handlers/Restore/Legacy.php:59
+#, php-format
+msgid "Found %s database files in the backup."
+msgstr ""
 
-#: install.php:586
-msgid "Migrated EMAIL server for backup "
-msgstr "Servidor de EMAIL migrado para respaldo "
+#: views/restore/landing.php:72
+msgid "Framework"
+msgstr ""
 
-#: install.php:554
-msgid "Migrated FTP server for backup "
-msgstr "Servidor FTP migrado para respaldo "
+#: Handlers/Backup/Email.php:49
+#, php-format
+msgid "Generated Backup process result email to %s. Status: Failure"
+msgstr ""
 
-#: install.php:570
-msgid "Migrated SSH server for backup "
-msgstr "Servidor SSH migrado para Respaldo "
+#: Handlers/Backup/Email.php:53
+#, php-format
+msgid "Generated Backup process result email to %s. Status: Success"
+msgstr ""
 
-#: install.php:599
-msgid "Migrated remote SSH server for backup "
-msgstr "Servidor remoto SSH migrado para respaldo "
+#: views/backup/rsa.php:1
+msgid "Generating Key Pair please standby"
+msgstr ""
 
-#: install.php:181 install.php:198
-msgid "Migrating backup table..."
-msgstr "Migrando tabla de respaldo..."
+#: views/backup/warmspare.php:378
+msgid "Get OAUTH2 Token for the Warm Spare server API."
+msgstr ""
 
-#: views/backup/backup.php:253 views/cron.php:45
-msgid "Minutes"
-msgstr "Minutos"
+#: views/backup/warmspare.php:10
+msgid "Get Warm Spare Token"
+msgstr ""
 
-#: views/cron.php:81
-msgid "Monday"
-msgstr "Lunes"
+#: views/landing.php:23
+msgid "Global Settings"
+msgstr ""
 
-#: views/cron.php:102
-msgid "Month"
-msgstr "Mes"
+#: views/backup/warmspare.php:340
+msgid "GraphQL URL"
+msgstr ""
 
-#: views/cron.php:9
-msgid "Monthly"
-msgstr "mensual"
+#: views/backup/warmspare.php:352
+msgid "GraphQL URL of the Warm Spare server."
+msgstr ""
 
-#: views/backup/backup.php:257
-msgid "Months"
-msgstr "Meses"
+#: views/backup/form.php:396
+msgid ""
+"How long to maintain backups. Example 30 will delete anything older than 30 "
+"days."
+msgstr ""
 
-#: functions.inc/templates.php:267
-msgid "Mysql"
-msgstr "\"Mysql\""
+#: views/backup/form.php:341
+msgid ""
+"How many updates to keep. If this number is 3, the last 3 will be kept. 0 is "
+"unlimited"
+msgstr ""
 
-#: views/restore/browseserver.php:20
-msgid "Mysql DB's"
-msgstr "BD's Mysql"
+#: Backup.class.php:1308
+msgid "I don't know who I should be running Backup as."
+msgstr ""
 
-#: functions.inc/class.backup.php:329
+#: Backup.class.php:1314
+#, php-format
+msgid ""
+"I tried to find out about %s, but the system doesn't think that user exists"
+msgstr ""
+
+#: views/backup/transfer.php:16
+msgid "ID From the donor machine"
+msgstr ""
+
+#: RestoreBase.php:83 RestoreBase.php:348
+#, php-format
+msgid "Importing Advanced Settings from %s"
+msgstr ""
+
+#: RestoreBase.php:157
+#, php-format
+msgid "Importing AstDB family %s from %s"
+msgstr ""
+
+#: RestoreBase.php:152
+#, php-format
+msgid "Importing AstDB family %s/%s  : %s"
+msgstr ""
+
+#: RestoreBase.php:280
+#, php-format
+msgid "Importing Databases from %s"
+msgstr ""
+
+#: RestoreBase.php:106
+#, php-format
+msgid "Importing Feature Codes from %s"
+msgstr ""
+
+#: RestoreBase.php:194
+#, php-format
+msgid "Importing KVStore from %s"
+msgstr ""
+
+#: RestoreBase.php:175
+#, php-format
+msgid "Importing Table %s from %s"
+msgstr ""
+
+#: RestoreBase.php:287
+#, php-format
+msgid "Importing table '%s' from legacy %s"
+msgstr ""
+
+#: Handlers/Backup/Single.php:40 Handlers/Restore/Single.php:26
+msgid "In single restores mode dependencies are NOT processed"
+msgstr ""
+
+#: views/backup/form.php:146
+msgid "Inline Logs"
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:173 Handlers/Restore/Legacy.php:185
+#, php-format
+msgid "Installing  %s"
+msgstr ""
+
+#: Backup.class.php:633
+msgid "Invalid Backup ID"
+msgstr ""
+
+#: Backup.class.php:266 Backup.class.php:314
+msgid "Invalid ID Provided"
+msgstr ""
+
+#: Handlers/Backup/Maintenance.php:88 Handlers/Storage.php:39
+msgid "Invalid filestore location"
+msgstr ""
+
+#: views/backup/transfer.php:39
+msgid "Is this the donor machine or the recipient"
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:66
+#, php-format
+msgid ""
+"Legacy CDR Restore Opted. we are processing , It may take long time to "
+"process %s "
+msgstr ""
+
+#: Models/BackupSplFileInfo.php:66
+msgid "Legacy Restore"
+msgstr ""
+
+#: RestoreBase.php:41
+#, php-format
+msgid "Legacy Restore in %s is not implemented"
+msgstr ""
+
+#: RestoreBase.php:38
+#, php-format
+msgid "Legacy Restore in %s is not implemented, using default fallback"
+msgstr ""
+
+#: views/rnav.php:2
+msgid "List Backups"
+msgstr ""
+
+#: assets/js/backup.js:414
+msgid "Loading Please Wait"
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:34
+msgid "Loading astdb to memory"
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:30
+msgid "Loading manifest to memory"
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:128
+#, php-format
+msgid "Loading supplied database file %s"
+msgstr ""
+
+#: Backup.class.php:522
+msgid "Log file is missing but process is still running!"
+msgstr ""
+
+#: views/backup/form.php:319
+msgid "Maintinence"
+msgstr ""
+
+#: Backup.class.php:104
+msgid "Migrating legacy backupjobs"
+msgstr ""
+
+#: Backup.class.php:109
+msgid "Migrating legacy backups to the new backup"
+msgstr ""
+
+#: Backup.class.php:509
+msgid "Missing id or transaction or pid"
+msgstr ""
+
+#: views/backup/form.php:455 views/restore/processRestore.php:47
+msgid "Module"
+msgstr ""
+
+#: views/backup/form.php:94
+msgid "Modules"
+msgstr ""
+
+#: assets/js/backup.js:6 assets/js/backup.js:309
+msgid "Modules ("
+msgstr ""
+
+#: views/restore/processRestore.php:35
+msgid "Modules in this backup"
+msgstr ""
+
+#: views/backup/form.php:431
+msgid "Modules to Backup"
+msgstr ""
+
+#: Backup.class.php:105
+msgid "Moving servers to filestore"
+msgstr ""
+
+#: functions.inc/class.backup.php:400
 msgid "Mysql Db's"
 msgstr "Bd's Mysql"
 
-#: functions.inc/servers.php:252 functions.inc/servers.php:304
-msgid "Mysql Server "
-msgstr "Servidor Mysql "
+#: Handlers/Restore/Common.php:116
+#, php-format
+msgid "NOT Resetting %s module data"
+msgstr ""
 
-#: functions.inc/class.backup.php:326 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:397 views/backup/grid.php:23
+#: views/restore/processRestore.php:14 views/rnav.php:8
 msgid "Name"
 msgstr "Nombre"
 
-#: views/cron.php:5
-msgid "Never"
-msgstr "Nunca"
+#: views/backup/form.php:161 views/backup/form.php:277
+#: views/backup/warmspare.php:30 views/backup/warmspare.php:61
+#: views/backup/warmspare.php:92 views/backup/warmspare.php:125
+#: views/backup/warmspare.php:156 views/backup/warmspare.php:187
+msgid "No"
+msgstr "No"
 
-#: views/backup/backups.php:6
-msgid "New Backup"
-msgstr "Nuevo respaldo"
-
-#: views/servers/servers.php:6
-msgid "New Email server"
-msgstr "Nuevo Servidor de correo"
-
-#: views/servers/servers.php:9
-msgid "New FTP server"
-msgstr "Nuevo servidor FTP"
-
-#: views/servers/servers.php:18
-msgid "New Local server"
-msgstr "Nuevo servidor local"
-
-#: views/servers/servers.php:21
-msgid "New Mysql server"
-msgstr "Nuevo servidor Mysql"
-
-#: views/servers/servers.php:24
-msgid "New SSH server"
-msgstr "Nuevo servidor SSH"
-
-#: views/templates/templates.php:6
-msgid "New Template"
-msgstr "Nueva plantilla"
-
-#: bin/backup.php:74
-msgid "No items in backup set. Aborting."
-msgstr "No hay elementos en el conjunto de respaldo. Abortando..."
-
-#: bin/backup.php:36
-msgid "No storage servers found! Aborting."
-msgstr "No se encontraron servidores de almacenamiento. Abortando..."
-
-#: install.php:137
-msgid "Nothing to migrate"
-msgstr "Nada que migrar"
-
-#: bin/restore.php:86
-msgid "Nothing to restore!"
-msgstr "Nada que restaurar!"
-
-#: views/cron.php:115
-msgid "November"
-msgstr "Noviembre"
-
-#: views/cron.php:114
-msgid "October"
-msgstr "Octubre"
-
-#: install.php:146
-msgid "Old Backup table removed"
-msgstr "Vieja tabla de respaldo removida"
-
-#: functions.inc/templates.php:260
-msgid "PATTERNs, one per line"
-msgstr "PATRONes, uno por linea"
-
-#: views/restore/backup_list.php:35
-msgid "PBX Settings"
-msgstr "Configuración PBX"
-
-#: install.php:255
-msgid "PBX config server, generally a local database server"
+#: assets/js/backup.js:282
+msgid "No Storage Locations"
 msgstr ""
-"Servidor de configuración PBX, generalmente y servidor de base de datos local"
 
-#: views/servers/ftp.php:59 views/servers/mysql.php:59
-msgid "Password"
-msgstr "Contraseña"
+#: Backup.class.php:433
+msgid "No backup id provided"
+msgstr ""
 
-#: views/servers/ftp.php:70 views/servers/local.php:32
-#: views/servers/ssh.php:70
-msgid "Path"
-msgstr "Camino"
+#: Backup.class.php:333
+msgid "No file provided"
+msgstr ""
 
-#: views/servers/ssh.php:70
-msgid "Path on server where files are stored"
-msgstr "camino en el servidor donde los archivos son almacenados"
+#: Backup.class.php:692
+msgid "No id was specified to process. Please try submitting your file again."
+msgstr ""
 
-#: views/servers/ftp.php:70 views/servers/local.php:32
-msgid "Path where files are stored"
-msgstr "camino donde los archivos son almacenados"
+#: assets/js/backup.js:305
+msgid ""
+"No module is selected for Backup. Please ensure you are selecting atleast "
+"one module for Backup"
+msgstr ""
 
-#: views/item_table.php:7
-msgid "Path/DB"
-msgstr "Camino/BD"
+#: assets/js/backup.js:330 assets/js/backup.js:337
+msgid ""
+"No storage location selected for Backup. Please select atleast one storage "
+"location to save the backup"
+msgstr ""
 
-#: views/servers/ftp.php:47 views/servers/mysql.php:47
-#: views/servers/ssh.php:47
-msgid "Port"
-msgstr "Puerto"
+#: views/backup/form.php:122
+msgid "Notification Email"
+msgstr ""
 
-#: views/backup/backup.php:81
-msgid "Post-backup Hook"
-msgstr "Enganche post-respaldo"
+#: views/backup/form.php:112
+msgid "Notifications"
+msgstr "Notificaciones"
 
-#: views/backup/backup.php:100
-msgid "Post-restore Hook"
-msgstr "Enganche post-restauración"
-
-#: views/backup/backup.php:72
-msgid "Pre-backup Hook"
-msgstr "Enganche pre-respaldo"
-
-#: views/backup/backup.php:90
-msgid "Pre-restore Hook"
-msgstr "Enganche pre-restauración"
-
-#: bin/restore.php:294
-msgid "Preserving local NAT settings"
-msgstr "Preservando configuración local NAT"
-
-#: bin/restore.php:245
+#: Handlers/Restore/Legacy.php:247 Handlers/Restore/Multiple.php:43
 #, php-format
-msgid "Processed %s%% of CDRs (%s of %s lines)"
-msgstr "Procesado %s%% de CDR (%s de %s líneas)"
+msgid "Only Restoring %s"
+msgstr ""
 
-#: bin/restore.php:339
+#: Handlers/Restore/Legacy.php:45
+msgid ""
+"Parsing out SQL tables. This may take a moment depending on backup size."
+msgstr ""
+
+#: functions.inc/class.backup.php:837 functions.inc/class.backup.php:838
 #, php-format
-msgid "Processed %s%% of Settings (%s of %s lines)"
-msgstr "Procesado %s%% de Ajustes (%s de  %s líneas)"
+msgid "Path: %s"
+msgstr ""
 
-#: bin/backup.php:134
-msgid "Processing received file..."
-msgstr "Procesando archivo recibido..."
+#: Console/Backup.class.php:181
+msgid "Performing Local Maintenance"
+msgstr ""
 
-#: backup.i18n.php:8
-msgid "Provides Backup & Restore capabilities for your PBX"
-msgstr "Proporciona funciones de copia de seguridad y restauración para su PBX"
+#: Console/Backup.class.php:184
+msgid "Performing Remote Maintenance"
+msgstr ""
 
-#: views/cron.php:41
-msgid "Randomize"
-msgstr "Randomizar"
+#: Backup.class.php:524
+msgid "Process is no longer running"
+msgstr ""
 
-#: views/cron.php:11
-msgid "Reboot"
+#: Handlers/Backup/Single.php:36 Handlers/Restore/Legacy.php:256
+#: Handlers/Restore/Multiple.php:50
+#, php-format
+msgid "Processing %s"
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:153
+#, php-format
+msgid "Processing processLegacyCdr ' %s ' Command is Running now "
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:159
+#, php-format
+msgid "Processing processLegacyCdr SQL Done....  %s  "
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:161
+#, php-format
+msgid "Processing processLegacyCdr SQL Error....  %s %s %s  "
+msgstr ""
+
+#: assets/js/backup.js:30
+msgid "Processing..."
+msgstr ""
+
+#: views/backup/settings.php:6
+msgid "Public Key"
+msgstr ""
+
+#: views/backup/settings.php:16
+msgid "Public SSH key to allow other servers to connect"
+msgstr ""
+
+#: RestoreBase.php:261
+#, php-format
+msgid "Reading Databases Table infromation using module name %s"
+msgstr ""
+
+#: views/backup/transfer.php:33
+msgid "Recipient"
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:272 Handlers/Restore/Multiple.php:74
+msgid "Reloading...... DONE"
+msgstr ""
+
+#: views/backup/warmspare.php:391
+msgid "Remote IP"
+msgstr ""
+
+#: views/backup/warmspare.php:416
+msgid "Remote User"
+msgstr ""
+
+#: Handlers/Backup/Maintenance.php:120 Handlers/Backup/Maintenance.php:139
+#: Handlers/Backup/Multiple.php:171 Handlers/Backup/Single.php:55
+#, php-format
+msgid "Removing %s"
+msgstr ""
+
+#: Backup.class.php:125
+#, php-format
+msgid "Removing table %s."
+msgstr ""
+
+#: Backup.class.php:185 views/backup/form.php:463
+msgid "Reset"
 msgstr "Reiniciar"
 
-#: bin/restore.php:418
-msgid "Reloading..."
-msgstr "Recargando..."
+#: Handlers/Restore/Legacy.php:226
+#, php-format
+msgid "Resetting %s"
+msgstr ""
 
-#: install.php:157
-msgid "Replacing ampbackup.pl in db.."
-msgstr "Reemplazando ampbackup.pt in db.."
+#: Handlers/Restore/Common.php:112
+#, php-format
+msgid "Resetting %s module data"
+msgstr ""
 
-#: views/restore/backup_list.php:4 views/restore/backup_list.php:59
-#: views/restore/browseserver.php:4 views/restore/restore.php:3
-#: views/rnav/main.php:4
+#: Console/Backup.class.php:222
+msgid "Response from Warmspare backup Server API"
+msgstr ""
+
+#: views/landing.php:18
 msgid "Restore"
 msgstr "Restaurar"
 
-#: views/restore/backup_list.php:42
-msgid "Restore CDR records stored in this backup"
-msgstr "Restaurar registros CDR almacenados en este respaldo"
+#: views/restore/processRestore.php:23
+msgid "Restore Information"
+msgstr ""
 
-#: views/backup/backup.php:138
-msgid "Restore Here"
-msgstr "Restaurar aqui"
+#: Console/Backup.class.php:140 Console/Backup.class.php:284
+msgid "Restore completed successfully"
+msgstr ""
 
-#: views/restore/backup_list.php:35
-msgid "Restore all setting stored in the database"
-msgstr "Restaurar toda la configuración almacenada en la base de datos"
+#: views/restore/landing.php:44
+msgid "Restore from local cache"
+msgstr ""
 
-#: bin/restore.php:417
-msgid "Restore complete!"
-msgstr "Restauración completada!"
+#: views/restore/landing.php:81
+msgid "Restore from the cloud"
+msgstr ""
 
-#: bin/restore.php:343
-msgid "Restored Database"
-msgstr "Base de Datos restaurada"
+#: Handlers/Restore/Legacy.php:268 Handlers/Restore/Multiple.php:63
+msgid "Restore processing for modules are finished successfully"
+msgstr ""
 
-#: bin/restore.php:252
-msgid "Restoring CDRs complete"
-msgstr "Restauración de CDRs completada"
+#: Backup.class.php:430
+msgid "Restore running"
+msgstr ""
 
-#: bin/restore.php:170
-msgid "Restoring CDRs..."
-msgstr "restaurando CDRs..."
+#: Handlers/Restore/Legacy.php:175 Handlers/Restore/Legacy.php:187
+#, php-format
+msgid "Restored module %s [%s]"
+msgstr ""
 
-#: bin/restore.php:301
-msgid "Restoring Database..."
-msgstr "Restaurando Base de Datos..."
+#: views/restore/processRestore.php:2
+#, php-format
+msgid "Restoring %s"
+msgstr ""
 
-#: bin/restore.php:351
-msgid "Restoring NAT settings"
-msgstr "Restaurando configuración NAT"
+#: Handlers/Restore/Common.php:120 Handlers/Restore/Legacy.php:228
+#, php-format
+msgid "Restoring from %s [%s]"
+msgstr ""
 
-#: bin/restore.php:372
-msgid "Restoring Settings complete"
-msgstr "Restauración de configuración completada"
+#: Console/Backup.class.php:234
+#, php-format
+msgid "Retrieving %s from %s:%s..."
+msgstr ""
 
-#: bin/restore.php:115
-msgid "Restoring all files (this may take some time)..."
-msgstr "Restaurando todos los archivos (esto puede tomar un tiempo)..."
+#: views/restore/processRestore.php:16
+msgid "Run Date"
+msgstr ""
 
-#: bin/restore.php:362
-msgid "Restoring astDB..."
-msgstr "restaurando astDB..."
+#: Backup.class.php:171
+msgid "Run Restore"
+msgstr ""
 
-#: bin/backup.php:168
-msgid "Restoring backup..."
-msgstr "Restaurando respaldo..."
+#: Backup.class.php:176
+msgid "Run Restore & Legacy CDR "
+msgstr ""
 
-#: bin/restore.php:119
-msgid "Restoring files (this may take some time)..."
-msgstr "Restaurando archivos (esto puede tomar un tiempo)..."
+#: assets/js/backup.js:550
+msgid "Run the following in the CLI"
+msgstr ""
 
-#: views/cron.php:32
-msgid "Run Automatically"
-msgstr "Correr Automaticamente"
+#: BackupBase.php:23
+#, php-format
+msgid "RunBackup method is not implemented in %s"
+msgstr ""
 
-#: page.backup.php:47
-msgid "Run now"
-msgstr "Correr ahora"
+#: BackupBase.php:20
+#, php-format
+msgid "RunBackup method is not implemented in %s, using default fallback"
+msgstr ""
 
-#: bin/restore.php:378
-msgid "Running post restore script..."
-msgstr "Corriendo Script post-restauración..."
+#: RestoreBase.php:18
+#, php-format
+msgid ""
+"RunRestore method is not implemented in %s, but was backed up using default "
+"backup fallback, using default fallback"
+msgstr ""
 
-#: bin/backup.php:142 bin/backup.php:180
-msgid "Running post-backup hooks..."
-msgstr "Corriendo enganches post-respaldo..."
+#: RestoreBase.php:21
+#, php-format
+msgid ""
+"RunRestore method is not implemented in %s, however there is default falback "
+"data, nothing to do"
+msgstr ""
 
-#: bin/restore.php:382
-msgid "Running post-restore hooks, if any..."
-msgstr "Corriendo enganches post-restauración, si hay alguno..."
+#: RestoreBase.php:23
+#, php-format
+msgid "RunRestore method is not implemented in %s, nothing to do"
+msgstr ""
 
-#: bin/backup.php:52
-msgid "Running pre-backup hooks..."
-msgstr "Corriendo enganches pre-respaldo..."
+#: Handlers/Backup/Multiple.php:48
+#, php-format
+msgid "Running Backup ID: %s"
+msgstr ""
 
-#: bin/restore.php:105
-msgid "Running pre-restore hooks, if any..."
-msgstr "Corriendo enganches pre-restauración, si hay alguno..."
+#: Handlers/Restore/Legacy.php:275 Handlers/Restore/Multiple.php:78
+msgid "Running Post Restore Hooks DONE"
+msgstr ""
 
-#: bin/restore.php:102
-msgid "Running pre-restore scripts..."
-msgstr "Corriendo scripts pre-restauración..."
+#: Handlers/Restore/Legacy.php:273 Handlers/Restore/Multiple.php:76
+msgid ""
+"Running Post Restore Hooks.. Please note that hook will restart httpd "
+"service so please refresh your page (using new ports) "
+msgstr ""
 
-#: functions.inc/servers.php:255 functions.inc/servers.php:307
-msgid "SSH Server "
-msgstr "Servidor SSH "
+#: views/restore/processRestore.php:26
+msgid "Running a restore will overwrite current data. This cannot be undone!"
+msgstr ""
 
-#: views/cron.php:86
-msgid "Saturday"
-msgstr "Sábado"
+#: functions.inc/class.backup.php:500
+msgid "Running maintenance.."
+msgstr ""
 
-#: views/backup/backup.php:278 views/servers/email.php:72
-#: views/servers/ftp.php:105 views/servers/local.php:43
-#: views/servers/mysql.php:83 views/servers/ssh.php:81
-#: views/templates/template.php:36
+#: Backup.class.php:190
 msgid "Save"
 msgstr "Salvar"
 
-#: views/restore/browseserver.php:12
-msgid "Select a file and click go"
-msgstr "Selecciones un archivo y haga click en ir"
-
-#: views/restore/backup_list.php:50
-msgid "Select files and databases to restore:"
-msgstr "Selecciones archivos y bases de datos a restaurar:"
-
-#: views/backup/backup.php:126
-msgid ""
-"Select the server to be backed up (this server, or any other SSH server)"
+#: views/backup/form.php:469
+msgid "Save Changes"
 msgstr ""
-"Selecciones el servidor a ser respaldado (este servidor, o cualquier otro "
-"servidor SSH)"
 
-#: views/cron.php:113
-msgid "September"
-msgstr "Septiembre"
+#: Backup.class.php:195
+msgid "Save and Run"
+msgstr "Guardar y Ejecutar"
 
-#: views/servers/email.php:13 views/servers/ftp.php:13
-#: views/servers/local.php:13 views/servers/mysql.php:13
-#: views/servers/ssh.php:13
-msgid "Server Name"
-msgstr "Nombre de Servidor"
+#: functions.inc/class.backup.php:488
+msgid "Saving file to remote ftp"
+msgstr "Guardando archivo en ftp remoto"
 
-#: views/rnav/main.php:5
-msgid "Servers"
-msgstr "Servidores"
+#: Handlers/Storage.php:30
+msgid "Saving to selected Filestore locations"
+msgstr ""
 
-#: bin/backup.php:101
-msgid "Something went wrong when connecting to remote server. Aborting!"
-msgstr "Algo salio mal conectándose al servidor remoto. Abortando!"
+#: Handlers/Storage.php:43
+#, php-format
+msgid "Saving to: %s:'%s' instance"
+msgstr ""
 
-#: views/backup/backup.php:30
-msgid "Status Email"
-msgstr "Correo de estado"
+#: views/backup/form.php:254
+msgid "Schedule and Maintinence"
+msgstr ""
 
-#: views/backup/backup.php:191
-msgid "Storage Locations"
-msgstr "Localidad de Almacenaje"
+#: views/backup/form.php:297
+msgid "Scheduling"
+msgstr ""
 
-#: views/backup/backup.php:222
-msgid "Storage Servers"
-msgstr "Servidores de Almacenaje"
+#: Monolog/Swift.php:149
+msgid "See attachment"
+msgstr ""
 
-#: install.php:246
-msgid "Storage location for backups"
-msgstr "Localidad de almacenamiento para respaldos"
+#: views/backup/warmspare.php:246
+msgid "Select Warm Spare server"
+msgstr ""
 
-#: bin/backup.php:139
-msgid "Storing backup..."
-msgstr "Almacenando Respaldo..."
+#: views/backup/form.php:102
+msgid "Select items to backup"
+msgstr ""
 
-#: install.php:190 install.php:204
-msgid "Successfully migrated backup table!"
-msgstr "Tabla de respaldo migrada satisfactoriamente!"
+#: views/backup/form.php:244
+msgid ""
+"Select one or more storage locations. Storage locations can be added/"
+"configured with the Filestore module"
+msgstr ""
 
-#: views/cron.php:80
-msgid "Sunday"
-msgstr "Domingo"
+#: views/backup/form.php:452
+msgid "Selected"
+msgstr "Seleccionados"
 
-#: views/templates/template.php:12
-msgid "Template Name"
-msgstr "Nombre Plantilla"
+#: views/backup/transfer.php:26
+msgid "Server Mode"
+msgstr ""
 
-#: views/backup/backup.php:62 views/restore/backup_list.php:50
-#: views/rnav/main.php:6
-msgid "Templates"
-msgstr "Plantillas"
+#: views/backup/warmspare.php:69
+msgid "Should the remote trunks be Disabled"
+msgstr ""
 
-#: backup.i18n.php:24
+#: views/backup/warmspare.php:38
+msgid "Should the warm spare feature be enabled"
+msgstr ""
+
+#: Handlers/Backup/Multiple.php:106
+#, php-format
+msgid ""
+"Skpping %s which depends on framework because framework is a system "
+"requirement. Framework should be removed as a dependency"
+msgstr ""
+
+#: Backup.class.php:285 Backup.class.php:310
+msgid "Something failed, The file may need to be removed manually."
+msgstr ""
+
+#: Backup.class.php:301
+msgid "Something failed."
+msgstr ""
+
+#: Handlers/Backup/Multiple.php:166
+msgid "Starting Cleaning up"
+msgstr ""
+
+#: Handlers/Backup/Multiple.php:51
+#, php-format
+msgid "Starting backup %s"
+msgstr ""
+
+#: views/restore/processRestore.php:49
+msgid "Status"
+msgstr ""
+
+#: views/backup/form.php:220
+msgid "Storage"
+msgstr ""
+
+#: views/backup/form.php:230
+msgid "Storage Location"
+msgstr ""
+
+#: Handlers/Backup/Multiple.php:57
+#, php-format
+msgid "Storage Location: %s"
+msgstr ""
+
+#: views/backup/form.php:191
+msgid "Success"
+msgstr ""
+
+#: Backup.class.php:685
+msgid "System Transfer"
+msgstr ""
+
+#: RestoreBase.php:293
+#, php-format
+msgid "Table '%s' does not exist in legacy %s, skipping"
+msgstr ""
+
+#: RestoreBase.php:290
+#, php-format
+msgid "Table '%s' is empty from legacy %s, skipping"
+msgstr ""
+
+#: assets/js/backup.js:96
+#, perl-format
+msgid "The Backup job name %s is already in used, please use a different name."
+msgstr ""
+
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "El campo From: para correos cuando se usa la funcionalidad de email del "
 "respaldo."
 
-#: views/servers/email.php:44
-msgid ""
-"The maximum size a backup can be and still be emailed. Some email servers "
-"limit the size of email attachments, this will make sure that files larger "
-"than the max size are not sent."
+#: views/backup/warmspare.php:403
+msgid "The address of the remote server."
 msgstr ""
-"El tamaño máximo de un  respaldo y que pueda ser enviado por correo. Algunos "
-"servidores de correo limitan el tamaño máximo de anexo, esto asegurará que "
-"no se envíen archivos superiores a ese tamaño."
 
-#: install.php:88
-msgid "This error can result from a previous incomplete/failed install of"
-msgstr ""
-"Este error puede resultar de una instalación anterior fallida o incompleta de"
-
-#: views/backup/backup.php:117
-msgid "This server"
-msgstr "Este Servidor"
-
-#: views/cron.php:84
-msgid "Thursday"
-msgstr "Jueves"
-
-#: views/servers/ftp.php:79
-msgid "Transfer Mode"
-msgstr "Modo Transferencia"
-
-#: views/cron.php:82
-msgid "Tuesday"
-msgstr "Martes"
-
-#: views/item_table.php:7
-msgid "Type"
-msgstr "Tipo"
-
-#: views/restore/restore.php:10
-msgid ""
-"Upload a backup file to restore from it. Or, pick a saved backup by "
-"selecting a server from the list on the right."
-msgstr ""
-"Subir un respaldo para restaurar desde el. O, escoger un respaldo ya salvado "
-"escogiendo de la lista de servidores a la derecha."
-
-#: views/servers/ftp.php:56 views/servers/mysql.php:56
-#: views/servers/ssh.php:56
-msgid "User Name"
-msgstr "Nombre de usuario"
-
-#: bin/backup.php:106
-msgid "Verifying received file..."
-msgstr "Verificando archivo recibido..."
-
-#: install.php:366
-msgid "Voice Mail Storage"
-msgstr "Almacenamiento de Correo de Voz"
-
-#: bin/restore.php:258
-msgid "WARNING!"
-msgstr "ADVERTENCIA!"
-
-#: install.php:188 install.php:202
-msgid "WARNING: backup table not migrated"
-msgstr "ADVERTENCIA: tabla de respaldos no migrada"
-
-#: install.php:214
+#: Handlers/Backup/Multiple.php:210
 #, php-format
-msgid "WARNING: failed to create backup directory: %s"
-msgstr "ADVERTENCIA: Falla creando directorio de respaldo. %s"
-
-#: bin/restore.php:259
-msgid "Web Root restore not detected, not restoring module table"
-msgstr "Restauración web Root no detectada, no se restaura tabla de modulo"
-
-#: views/cron.php:83
-msgid "Wednesday"
-msgstr "Miércoles"
-
-#: views/cron.php:8
-msgid "Weekly"
-msgstr "Semanal"
-
-#: views/backup/backup.php:256
-msgid "Weeks"
-msgstr "Semanas"
-
-#: views/backup/backup.php:258
-msgid "Years"
-msgstr "Años"
-
-#: bin/restore.php:260
-msgid "You should run \"amportal a ma updateall\" to ensure system integrity"
+msgid "The backup %s did not set a status and may have had an error"
 msgstr ""
-"Usted debe correr \"amportal a ma updateall\" para asegurar la integridad "
-"del sistema"
 
-#: install.php:286
-msgid "added default backup servers"
-msgstr "Añadidos servidores de respaldo por defecto"
+#: functions.inc/class.backup.php:411
+msgid ""
+"The backup file exceeded the maximum SMTP limits of 25MB. It was not "
+"attempted to be sent. Please shrink your backup, or use a different method "
+"of transferring your backup."
+msgstr ""
+"El archivo de copia de seguridad supera los límites máximos de SMTP 25MB. No "
+"se intentó ser enviados. Por favor, encoger la copia de seguridad, o "
+"utilizar un método diferente de transferencia de la copia de seguridad."
 
-#: install.php:430
-msgid "added default backup templates"
-msgstr "Añadidas plantillas de respaldo por defecto"
+#: functions.inc/class.backup.php:414
+#, php-format
+msgid ""
+"The backup file exceeded the soft limit set in SMTP configuration (%s "
+"bytes). It was not attempted to be sent. Please shrink your backup, or use a "
+"different method of transferring your backup."
+msgstr ""
+"El archivo de copia de seguridad supera el límite establecido en la "
+"configuración SMTP (%s bytes). No se intentó ser enviados. Por favor, "
+"encoger la copia de seguridad, o utilizar un método diferente de "
+"transferencia de la copia de seguridad."
 
-#: install.php:160
-msgid "an error has occurred, update not done"
-msgstr "un error ha ocurrido, actualización no efectuada"
+#: Handlers/Restore/Common.php:103
+#, php-format
+msgid "The module %s does not seem to support restores."
+msgstr ""
 
-#: views/backup/backup.php:283
-msgid "and Run"
-msgstr "y corre"
+#: Handlers/Restore/Legacy.php:208
+#, php-format
+msgid "The module %s does not support restores"
+msgstr ""
 
-#: install.php:143
-msgid "and then re-install this module. Settings will be lost but old"
-msgstr "y entonces re-instalar este modulo. Configuración será perdida"
+#: Handlers/Backup/Common.php:80
+#, php-format
+msgid "The module %s doesn't seem to support Backup"
+msgstr ""
 
-#: functions.inc/class.backup.php:330
+#: Handlers/Backup/Common.php:101
+#, php-format
+msgid "The module %s returned no data, No backup created"
+msgstr ""
+
+#: Handlers/Backup/Single.php:60
+msgid "There was nothing to cleanup"
+msgstr ""
+
+#: Console/Backup.class.php:117 Console/Backup.class.php:200
+msgid "There were errors during the backup process"
+msgstr ""
+
+#: Console/Backup.class.php:143 Console/Backup.class.php:287
+msgid "There were errors during the restore process"
+msgstr ""
+
+#: Console/Backup.class.php:123 Console/Backup.class.php:206
+msgid "There were warnings during the backup process"
+msgstr ""
+
+#: Console/Backup.class.php:149 Console/Backup.class.php:293
+msgid "There were warnings during the restore process"
+msgstr ""
+
+#: Handlers/Backup/Multiple.php:56
+msgid ""
+"This backup will be stored locally and is subject to maintenance settings"
+msgstr ""
+
+#: views/restore/landing.php:85
+msgid ""
+"This feature requires filestore be setup and may not be availible on a clean "
+"install"
+msgstr ""
+
+#: views/restore/processRestore.php:27
+msgid "This restore will only affect the modules listed below"
+msgstr ""
+
+#: views/restore/processRestore.php:36
+msgid "This table will be empty on backups created prior to version 15"
+msgstr ""
+
+#: Console/Backup.class.php:96
+#, php-format
+msgid "Transaction ID is: %s"
+msgstr ""
+
+#: Handlers/Backup/Multiple.php:49
+#, php-format
+msgid "Transaction: %s"
+msgstr ""
+
+#: views/backup/transfer.php:6
+msgid "Transfer Id"
+msgstr ""
+
+#: functions.inc/class.backup.php:493
+#, php-format
+msgid "Trying to upload %s to %s"
+msgstr ""
+
+#: Migration/Servers.php:86
+#, php-format
+msgid "Unable to map '%s' of type '%s"
+msgstr ""
+
+#: RestoreBase.php:276
+#, php-format
+msgid ""
+"Unable to run restoreLegacyDatabase on %s because NO Database information "
+"provided"
+msgstr ""
+
+#: RestoreBase.php:252
+#, php-format
+msgid ""
+"Unable to run restoreLegacyDatabase on %s because module.xml was not found"
+msgstr ""
+
+#: Monolog/Swift.php:82
+msgid "Unable to send backup email!"
+msgstr ""
+
+#: functions.inc/class.backup.php:491
+msgid "Unable to upload file to the remote server"
+msgstr "No se puede subir el archivo al servidor remoto"
+
+#: Backup.class.php:1229
+msgid "Uninstalled or Disabled"
+msgstr ""
+
+#: Handlers/Backup/Single.php:25
+#, php-format
+msgid "Unknown module %s"
+msgstr ""
+
+#: views/backup/form.php:360
+msgid "Unlimited"
+msgstr ""
+
+#: views/restore/landing.php:34
+msgid "Upload a valid backup.tar.gz"
+msgstr ""
+
+#: views/restore/landing.php:8
+msgid "Upload your restore files"
+msgstr ""
+
+#: assets/js/backup.js:20
+msgid "Uploading..."
+msgstr ""
+
+#: views/backup/warmspare.php:428
+msgid "User on remote system with proper permissions, usually root."
+msgstr ""
+
+#: Handlers/Backup/Common.php:86
+msgid "Using default backup strategy"
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:212
+msgid "Using default restore strategy"
+msgstr ""
+
+#: Handlers/Restore/Common.php:107
+msgid "Using fallback restore strategy"
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:293
+#, php-format
+msgid "Utilizing cached based sqlite at %s. The data might be stale!"
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:297
+#, php-format
+msgid "Utilizing file based sqlite at %s, This is SLOW"
+msgstr ""
+
+#: views/restore/processRestore.php:48
+msgid "Version in Backup"
+msgstr ""
+
+#: assets/js/backup.js:192
+msgid "View backup log"
+msgstr ""
+
+#: assets/js/backup.js:51
+msgid "View running restore"
+msgstr ""
+
+#: views/backup/warmspare.php:4
+msgid "Warm Spare"
+msgstr ""
+
+#: views/backup/warmspare.php:240
+msgid "Warm Spare Server"
+msgstr ""
+
+#: views/backup/warmspare.php:257
+msgid ""
+"Warm Spare server needs to add to filestore, And it should be a FreePBX 15 "
+"and Above"
+msgstr ""
+
+#: Console/Backup.class.php:216
+msgid "Warmspare enabled for this backup"
+msgstr ""
+
+#: Console/Backup.class.php:219
+msgid "We Have triggered an API to restore the backup on Spare Server"
+msgstr ""
+
+#: Backup.class.php:273 Backup.class.php:323
+msgid "We can't seem to delete the chosen file"
+msgstr ""
+
+#: Backup.class.php:270 Backup.class.php:318
+msgid "We don't have permissions to this file"
+msgstr ""
+
+#: views/backup/form.php:170
+msgid ""
+"When set to Yes logs will be added to the body of the email, when set to No "
+"logs will be added as an attachment"
+msgstr ""
+
+#: views/backup/form.php:309
+msgid "When should this backup run"
+msgstr ""
+
+#: views/backup/form.php:210
+msgid "When to email"
+msgstr ""
+
+#: Handlers/Backup/Common.php:71
+#, php-format
+msgid "Working with %s module"
+msgstr ""
+
+#: views/backup/form.php:156 views/backup/form.php:272
+#: views/backup/warmspare.php:26 views/backup/warmspare.php:57
+#: views/backup/warmspare.php:88 views/backup/warmspare.php:120
+#: views/backup/warmspare.php:152 views/backup/warmspare.php:183
+msgid "Yes"
+msgstr "Si"
+
+#: assets/js/backup.js:72
+msgid "You must enter a valid Warm Spare Access Token URL"
+msgstr ""
+
+#: assets/js/backup.js:77
+msgid "You must enter a valid Warm Spare Server API Client ID"
+msgstr ""
+
+#: assets/js/backup.js:82
+msgid "You must enter a valid Warm Spare Server API Client Secret"
+msgstr ""
+
+#: assets/js/backup.js:87
+msgid "You must enter a valid Warm Spare Server API GraphQL URL"
+msgstr ""
+
+#: assets/js/backup.js:67
+msgid "You must select a valid Warm Spare Server"
+msgstr ""
+
+#: assets/js/backup.js:59
+msgid "You must set a valid job name for this backup"
+msgstr ""
+
+#: functions.inc/class.backup.php:401
 msgid "astDb's"
 msgstr "\"astDb's\""
 
-#: install.php:91
-msgid "backup data will be preserved."
-msgstr "Datos de respaldo serán preservados."
-
-#: install.php:144
-msgid "backup data will be retained."
-msgstr "Datos de respaldo serán retenidos."
-
-#: views/item_table.php:40
-msgid "chose"
-msgstr "Escoge"
-
-#: install.php:90
-msgid ""
-"doing so will result in a loss of all your backup settings though previous"
+#: Monolog/Swift.php:53
+msgid "success"
 msgstr ""
-"haciendo esto resultara en la perdida de toda la configuración de respaldo "
-"aunque no la previa"
 
-#: views/backup/backup.php:223
-msgid ""
-"drag servers from the Available Servers list to add them as Storage Servers"
+#: Console/Backup.class.php:256
+#, php-format
+msgid "type is %s"
 msgstr ""
-"Arrastre los servidores de la lista de Servidores Disponibles para "
-"agregarlos como Servidores de Almacenaje"
 
-#: views/backup/backup.php:44 views/restore/backup_list.php:46
-msgid "drop here"
-msgstr "Sueltelos aqui"
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Respalda & Restaura - Servidores"
 
-#: functions.inc/restore.php:17
-msgid "error/not found!"
-msgstr "error/no encontrado!"
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Respaldar & Restaurar - Plantillas"
 
-#: install.php:173 install.php:213
-msgid "failed"
-msgstr "falló"
+#~ msgid "AWS Access Key"
+#~ msgstr "Llave de Acceso AWS"
 
-#: functions.inc/restore.php:162
-msgid "manifest not found"
-msgstr "manifiesto no encontrado"
+#~ msgid "AWS Secret"
+#~ msgstr "Secreto AWS"
 
-#: install.php:459
-msgid "migrated backup"
-msgstr "respaldo migrado"
+#~ msgid "Amazon S3&trade; Server"
+#~ msgstr "Servidor S3&trade; Amazon"
 
-#: install.php:163 install.php:211
-msgid "ok"
-msgstr "ok"
+#~ msgid "B"
+#~ msgstr "B"
 
-#: views/servers/ftp.php:47
-msgid "remote ftp port"
-msgstr "puerto ftp remoto"
+#~ msgid "Bucket Name"
+#~ msgstr "Nombre del Bucket"
 
-#: views/servers/mysql.php:47
-msgid "remote mysql port"
-msgstr "puerto mysql remoto"
+#~ msgid "DB Name"
+#~ msgstr "Nombre BD"
 
-#: views/servers/ssh.php:47
-msgid "remote ssh port"
-msgstr "puerto ssh remoto"
+#~ msgid "Description or notes for this server"
+#~ msgstr "Descripción o comentarios para este Servidor"
 
-#: install.php:171
-msgid "removed"
-msgstr "eliminado"
+#~ msgid "Email Address"
+#~ msgstr "Dirección de Correo"
 
-#: install.php:169
-msgid "removing retrieve_backup_cron_from_mysql.pl.."
-msgstr "eliminando retrieve_backup_cron_from_mysql.pl.."
+#~ msgid "Email Server"
+#~ msgstr "Servidor de Email"
 
-#: functions.inc/templates.php:289
-msgid "table names, one per line"
-msgstr "nombres de tablas, una por linea"
+#~ msgid "Email address where backups should be emailed to"
+#~ msgstr "Dirección de Correo a donde los Respaldos deberán ser enviado"
 
-#: install.php:89
-msgid "this module. You should probably uninstall and reinstall this module"
-msgstr ""
-"este modulo. Usted debe probablemente desinstalar y reinstalar el modulo"
+#~ msgid "FTP Password"
+#~ msgstr "FTP Contraseña"
 
-#: bin/backup.php:47
-msgid "waiting for lock..."
-msgstr "esperando por bloqueo..."
+#~ msgid "FTP Username"
+#~ msgstr "FTP Usuario"
 
-#: functions.inc/templates.php:281
-msgid "{no servers available}"
-msgstr "(no servidores disponibles)"
+#~ msgid "Hostname"
+#~ msgstr "Nombre de Host"
 
-#~ msgid "Backup & Restore for your FreePBX environment"
-#~ msgstr "respaldar & restaurar para su ambiente FreePBX"
+#~ msgid "IP address or FQDN of remote SSH server"
+#~ msgstr "Direccion IP o FQDN del servidor SSH remoto"
 
-#~ msgid "Processed "
-#~ msgstr "Procesado "
+#~ msgid "IP address or FQDN of remote mysql host"
+#~ msgstr "Dirección IP o FQDN del host remoto mysql"
 
-#~ msgid "Restored all CDRs."
-#~ msgstr "Todos los CDR restaurados."
+#~ msgid "KB"
+#~ msgstr "KB"
+
+#~ msgid "Key"
+#~ msgstr "Llave"
+
+#~ msgid "Local Server"
+#~ msgstr "Servidor Local"
+
+#~ msgid "Location of ssh private key to be used when connecting to a host"
+#~ msgstr ""
+#~ "Localidad de la clave privada SSH para ser usada conectándose a un host"
+
+#~ msgid "MB"
+#~ msgstr "MB"
+
+#~ msgid "Max Email Size"
+#~ msgstr "Tamaño máximo de correo"
+
+#~ msgid "MySQL Server"
+#~ msgstr "Servidor MySQL"
+
+#~ msgid "Name this Server"
+#~ msgstr "Nombre de este Servidor"
+
+#~ msgid "Password"
+#~ msgstr "Contraseña"
+
+#~ msgid "Path"
+#~ msgstr "Camino"
+
+#~ msgid "Path on remote server"
+#~ msgstr "Camino en servidor remoto"
+
+#~ msgid "Port"
+#~ msgstr "Puerto"
+
+#~ msgid "Provide the name for this server"
+#~ msgstr "Provea el nimbre para este servidor"
+
+#~ msgid "Remote Database Name"
+#~ msgstr "Nombre Base de datos remota"
+
+#~ msgid "Remote MySQL Port"
+#~ msgstr "Puerto renoto MySQL"
+
+#~ msgid "Remote SSH Port"
+#~ msgstr "Puerto SSH remoto"
+
+#~ msgid "SSH Server"
+#~ msgstr "Servidor SSH"
+
+#~ msgid "SSH Username"
+#~ msgstr "Usuario SSH"
+
+#~ msgid "Server Name"
+#~ msgstr "Nombre de Servidor"
+
+#~ msgid "Supply a server name"
+#~ msgstr "Provea un nombre de servidor"
+
+#~ msgid ""
+#~ "The maximum size a backup can be and still be emailed. Some email servers "
+#~ "limit the size of email attachments, this will make sure that files "
+#~ "larger than the max size are not sent."
+#~ msgstr ""
+#~ "El tamaño máximo de un  respaldo y que pueda ser enviado por correo. "
+#~ "Algunos servidores de correo limitan el tamaño máximo de anexo, esto "
+#~ "asegurará que no se envíen archivos superiores a ese tamaño."
+
+#~ msgid "This has a maximum size of 25MB."
+#~ msgstr "Esto tiene un tamaño máximo de 25 MB."
+
+#~ msgid "User Name"
+#~ msgstr "Nombre de usuario"
+
+#~ msgid "Username"
+#~ msgstr "Usuario"
+
+#~ msgid "What's this?"
+#~ msgstr "Que es esto?"
+
+#~ msgid "Download"
+#~ msgstr "Bajar"
+
+#~ msgid "%s Backup Wizard"
+#~ msgstr "%s Asistente de Copia de Seguridad"
+
+#~ msgid "/path/to/dir"
+#~ msgstr "/path/to/dir"
+
+#~ msgid "/path/to/file"
+#~ msgstr "/path/to/file"
+
+#~ msgid ""
+#~ "A full backup of core settings and web files, doesn't include system "
+#~ "sounds or recordings."
+#~ msgstr ""
+#~ "Respaldo completo del core y archivos web, no incluye sonidos del sistema "
+#~ "ni grabaciones."
+
+#~ msgid "A script to be run AFTER a backup is completed."
+#~ msgstr "Un script a ser ejecutado DESPUES que el respaldo sea completado."
+
+#~ msgid "A script to be run AFTER a backup is restored."
+#~ msgstr "Un Script a ser ejecutado DESPUES que el respaldo sea restaurado."
+
+#~ msgid "A script to be run BEFORE a backup is restored."
+#~ msgstr "Un Script a ser ejecutado ANTES que el respaldo sea restaurado."
+
+#~ msgid "A script to be run BEFORE a backup is started."
+#~ msgstr "Un Script a ser ejecutado ANTES que el respaldo de inicio."
+
+#~ msgid "AT"
+#~ msgstr "EN"
+
+#~ msgid "AWS S3 Server "
+#~ msgstr "Servidor AWS S3 "
+
+#~ msgid "Active"
+#~ msgstr "Activo"
+
+#~ msgid "Add Server"
+#~ msgstr "Agregar Servidor"
+
+#~ msgid "Adding items..."
+#~ msgstr "Agregando elementos..."
+
+#~ msgid ""
+#~ "After a restore, disable any trunks that use registration. This is "
+#~ "helpful to prevent the Primary and Standby systems from \"fighting\" for "
+#~ "the registration, resulting in some calls routed to the Standby system."
+#~ msgstr ""
+#~ "Después de una restauración, deshabilitar los troncales que utilizan "
+#~ "registro. Esto es útil para evitar que los sistemas primario y Standby  "
+#~ "\"luchen\" por el registro, lo que resultaria en algunas llamadas "
+#~ "dirigidas al sistema de standby."
+
+#~ msgid ""
+#~ "All PBX Configuration files and any Custom Sound Prompts are included in "
+#~ "the base backup"
+#~ msgstr ""
+#~ "Todos los archivos de configuración de PBX y los Avisos de sonido "
+#~ "personalizados están incluidos en la copia de seguridad base"
+
+#~ msgid ""
+#~ "All system audio - including IVR prompts and Music On Hold. DOES NOT "
+#~ "BACKUP VOICEMAIL"
+#~ msgstr ""
+#~ "Todos los audios del sistema - incluyendo IVR y Musica en espera. NO "
+#~ "RESPALDA CORREO DE VOZ"
+
+#~ msgid "Amazon S3 Server "
+#~ msgstr "Servidor S3 Amazon "
+
+#~ msgid "Annually"
+#~ msgstr "Anualmente"
+
+#~ msgid "April"
+#~ msgstr "Abril"
+
+#~ msgid "AstDB's"
+#~ msgstr "\"AstDB's\""
+
+#~ msgid "Asterisk DB"
+#~ msgstr "BD Asterisk"
+
+#~ msgid "August"
+#~ msgstr "Agosto"
+
+#~ msgid "Auto"
+#~ msgstr "Auto"
+
+#~ msgid "Available Servers"
+#~ msgstr "Servidores Disponibles"
+
+#~ msgid "BACKUP LOG ATTACHED"
+#~ msgstr "BITACORA DE RESPALDOS ANEXADA"
+
+#~ msgid "Backup CDR and call record data?"
+#~ msgstr "Respaldar CDR y datos de grabación de llamadas?"
+
+#~ msgid "Backup Frequency"
+#~ msgstr "Frecuencia de Respaldo"
+
+#~ msgid "Backup Lock acquired!"
+#~ msgstr "Bloqueo de copia de seguridad adquirida!"
+
+#~ msgid "Backup Log:"
+#~ msgstr "Bitacora del respaldo:"
+
+#~ msgid "Backup Schedule"
+#~ msgstr "Crongrama de Respaldos"
+
+#~ msgid "Backup Server"
+#~ msgstr "Servidor de Respaldo"
+
+#~ msgid "Backup Server not found!"
+#~ msgstr "Servidor de Respaldo no encontrado!"
+
+#~ msgid "Backup Template"
+#~ msgstr "Plantilla de Respaldo"
+
+#~ msgid "Backup and Restore"
+#~ msgstr "Respaldo y Restauración"
+
+#~ msgid "Backup completed with errors!"
+#~ msgstr "Respaldo completado con errores!"
+
+#~ msgid "Backup file not found! Aborting."
+#~ msgstr "Archivo de Respaldo no encontrado!. Abortando."
+
+#~ msgid "Backup module not found or is disabled. Aborting!"
+#~ msgstr "Modulo de Respaldo  no encontrado o esta deshabilitado. Abortando!"
+
+#~ msgid "Backup successfully completed!"
+#~ msgstr "Respaldo satisfactoriamente completado!"
+
+#~ msgid "Backups"
+#~ msgstr "Respaldos"
+
+#~ msgid "Basic Backup Information"
+#~ msgstr "Información Básica de Respaldo"
+
+#~ msgid "Browse"
+#~ msgstr "Vistazo"
+
+#~ msgid "Browser reconnected realtime updates are unavailable."
+#~ msgstr ""
+#~ "Navegador re-conectado actualizaciones en tiempo real no disponibles."
+
+#~ msgid "Building manifest..."
+#~ msgstr "Construyendo manifiesto ..."
+
+#~ msgid "CDR and Call Log Data"
+#~ msgstr "CDR y Datos Registro de llamadas"
+
+#~ msgid "CDR server, generally a local database server"
+#~ msgstr "Servidor CDR, generalmente un servidor local de base de datos"
+
+#~ msgid "CDR's"
+#~ msgstr "CDRs"
+
+#~ msgid "Call Detail Records"
+#~ msgstr "Registros Detallados de Llamadas"
+
+#~ msgid "Call Recordings"
+#~ msgstr "Grabaciones de Llamadas"
+
+#~ msgid "Can not create backup tables"
+#~ msgstr "No se pueden crear tablas de Respandos"
+
+#~ msgid "Cleaning up..."
+#~ msgstr "Limpiando ..."
+
+#~ msgid "Click 'Next' to continue."
+#~ msgstr "Oprima \"Próximo\" para Continuar."
+
+#~ msgid "Configurations only"
+#~ msgstr "Solo Configuraciones"
+
+#~ msgid "Connecting to remote server..."
+#~ msgstr "Conectando a Servidor remoto..."
+
+#~ msgid "Creating backup..."
+#~ msgstr "Creando respaldo ..."
+
+#~ msgid "Custom"
+#~ msgstr "\"Custom\""
+
+#~ msgid "Daily"
+#~ msgstr "Diario"
+
+#~ msgid "Day each month"
+#~ msgstr "Día cada mes"
+
+#~ msgid "Day of Week"
+#~ msgstr "Día de la semana"
+
+#~ msgid "Days"
+#~ msgstr "Días"
+
+#~ msgid "Days of Month"
+#~ msgstr "Días del Mes"
+
+#~ msgid "Days of month to run"
+#~ msgstr "Días del mes a correr"
+
+#~ msgid "December"
+#~ msgstr "Diciembre"
+
+#~ msgid "Default"
+#~ msgstr "Defecto"
+
+#~ msgid "Default backup; automatically installed"
+#~ msgstr "Respaldo por defecto, automáticamente instalado"
+
+#~ msgid "Delete After"
+#~ msgstr "Borrar despues"
+
+#~ msgid ""
+#~ "Delete this backup after X amount of minutes/hours/days/weeks/months/"
+#~ "years. Please note that deletes aren't time based and will only happen "
+#~ "after a backup was run. Setting the value to 0 will disable any deleting"
+#~ msgstr ""
+#~ "Eliminar esta copia de seguridad después de X cantidad de minutos / "
+#~ "horas / días / semanas / meses / años. Tenga en cuenta que las "
+#~ "supresiones no son basadas en tiempo y sólo va a pasar después de que se "
+#~ "ejecute una copia de seguridad. Establecer el valor a 0 desactivará "
+#~ "cualquier borrado"
+
+#~ msgid ""
+#~ "Delete this backup after X amount of runs. Setting the value to 0 will "
+#~ "disable any deleting"
+#~ msgstr ""
+#~ "Elimine este respaldo después de X monto de corridas. Coloque el valor en "
+#~ "0 si desea deshabilitar cualquier borrado"
+
+#~ msgid "Delete this entry. Don't forget to click Submit to save changes!"
+#~ msgstr ""
+#~ "Borrar esta entrada. No olvide oprimir \"Enviar\" para guardar los "
+#~ "cambios!"
+
+#~ msgid "Description or notes for this backup"
+#~ msgstr "Descripción o comentarios para este Respaldo"
+
+#~ msgid "Destination"
+#~ msgstr "Destino"
+
+#~ msgid "Directory"
+#~ msgstr "Directorio"
+
+#~ msgid "Disable Registered Trunks"
+#~ msgstr "Deshabilitar Troncales Registrados"
+
+#~ msgid "Done!"
+#~ msgstr "Hecho!"
+
+#~ msgid ""
+#~ "Drag servers from the Available Servers list to add them as Storage "
+#~ "Servers"
+#~ msgstr ""
+#~ "Arrastre servidores desde la lista Servidores Disponibles para agregar a "
+#~ "Servideres de Almacenamiento"
+
+#~ msgid ""
+#~ "Drag templates and drop them in the items table to add the templates "
+#~ "items to the table"
+#~ msgstr ""
+#~ "Arrastre la plantillas y póngalas la tabla de elementos para agregar "
+#~ "plantillas a la misma"
+
+#~ msgid "Drop Here"
+#~ msgstr "Sueltelos aqui"
+
+#~ msgid "Email Notifications"
+#~ msgstr "Notificacion de Email"
+
+#~ msgid "Email Server "
+#~ msgstr "Servidor de Correo "
+
+#~ msgid "Email notifications are set to Yes but no email provided"
+#~ msgstr ""
+#~ "Notificaciones por Email esta configurado \"Si\" pero no se ha provisto "
+#~ "un correo"
+
+#~ msgid "Email to send status messages to when this task is run"
+#~ msgstr ""
+#~ "Correo para enviar mensajes de estado cuando esta tarea sea ejecutada"
+
+#~ msgid "Error uploading file!"
+#~ msgstr "Error bajando archivo!"
+
+#~ msgid "Error verifying uploaded file!"
+#~ msgstr "Error verificando archivo bajado!"
+
+#~ msgid "Exclude"
+#~ msgstr "Excluir"
+
+#~ msgid ""
+#~ "Exclude Backup's settings so that they dont get restored, useful for a "
+#~ "remote restore"
+#~ msgstr ""
+#~ "Excluir la configuración de copia de seguridad para que no pueda ser  "
+#~ "restaurado, útil para una restauración remota"
+
+#~ msgid "Explicitly skipping host-specific NAT settings"
+#~ msgstr "Explícitamente saltando configuraciones NAT especificas a host"
+
+#~ msgid "FTP"
+#~ msgstr "FTP"
+
+#~ msgid "FTP Server"
+#~ msgstr "FTP Servidor"
+
+#~ msgid "FTP Server "
+#~ msgstr "Servidor FTP "
+
+#~ msgid "FTP Transfer type"
+#~ msgstr "FTP Tipo de Transferencia"
+
+#~ msgid ""
+#~ "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql "
+#~ "in current state"
+#~ msgstr ""
+#~ "Fallo convirtiendo asterisk.sql al formato adecuado, renombrando a mysql-"
+#~ "db.sql en su estado actual"
+
+#~ msgid ""
+#~ "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
+#~ "sql in current state"
+#~ msgstr ""
+#~ "Fallo convirtiendo asteriskcdr.sql al formato adecuado, renombrando a "
+#~ "mysql-cdr.sql en su estado actual"
+
+#~ msgid "Failed to retrieve file from server!"
+#~ msgstr "Fallo recuperando archivo desde el servidor!"
+
+#~ msgid "Family, one per line"
+#~ msgstr "Familia, uno por linea"
+
+#~ msgid "February"
+#~ msgstr "Febrero"
+
+#~ msgid "File"
+#~ msgstr "Archivo"
+
+#~ msgid "File not found! "
+#~ msgstr "Archivo no encontrado! "
+
+#~ msgid "File restore complete!"
+#~ msgstr "Restauración de Archivo Completada!"
+
+#~ msgid "File verification failed. "
+#~ msgstr "Verificación de Archivo Fallida. "
+
+#~ msgid "Filesystem Type"
+#~ msgstr "Tipo de Filesystem"
+
+#~ msgid "FreePBX"
+#~ msgstr "FreePBX"
+
+#~ msgid "Friday"
+#~ msgstr "Viernes"
+
+#~ msgid "Getting CDR size..."
+#~ msgstr "Obteniendo tamaño de CDR ..."
+
+#~ msgid "Give the server a descriptive name"
+#~ msgstr "Asigne al Servidor un nombre descriptivo"
+
+#~ msgid "Give your backup a description"
+#~ msgstr "Asigne a su Respaldo una descripcion"
+
+#~ msgid "Give your backup a friendly name"
+#~ msgstr "Asigne a su respaldo un nombre amigable"
+
+#~ msgid "Go!"
+#~ msgstr "Ir!"
+
+#~ msgid ""
+#~ "Here are the first few lines of the file as sent by the remote server:"
+#~ msgstr ""
+#~ "Estas son las primeras líneas del archivo como fue enviado por el "
+#~ "servidor remoto:"
+
+#~ msgid "Hooks"
+#~ msgstr "Ganchos"
+
+#~ msgid "Hourly"
+#~ msgstr "Cada Hora"
+
+#~ msgid "Hours"
+#~ msgstr "Horas"
+
+#~ msgid "How often should we backup?"
+#~ msgstr "Con que frecuencia haremos respaldo?"
+
+#~ msgid "IP Address or FQDN of your server"
+#~ msgstr "Direccion IP o FQDB de su servidor"
+
+#~ msgid "IP address or FQDN of remote ftp host"
+#~ msgstr "Dirección IP o FQDN del FTP remoto"
+
+#~ msgid ""
+#~ "If Randomize is selected, a similar frequency will be followed, only the "
+#~ "exact times will be randomized (avoiding peak business hours, when "
+#~ "possible). Please note: randomized schedules will be rescheduled "
+#~ "(randomly) every time ANY backup is saved"
+#~ msgstr ""
+#~ "Si se selecciona Randomize, una frecuencia similar será seguida, sólo se "
+#~ "asignaran  al azar los tiempos exactos (evitando el horario comercial "
+#~ "pico, cuando sea posible). Tenga en cuenta: los horarios aleatorios serán "
+#~ "reprogramados (al azar) cada vez que se guarda CUALQUIER copia de "
+#~ "seguridad"
+
+#~ msgid ""
+#~ "If a custom schedule is selected, any section not specified will be "
+#~ "considered to be \"any\" (aka: wildcard).\n"
+#~ "\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, "
+#~ "the Backup will be run on ANY 12th of\n"
+#~ "\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week "
+#~ "is set to, say, Monday, the Backup will run ONLY\n"
+#~ "\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
+#~ msgstr ""
+#~ "Si se selecciona una programación personalizada, cualquier sección no "
+#~ "especificada se considera que es \"cualquier\" (aka: comodín) .↵\n"
+#~ "→→→→→ En caso de Día del mes se establece en 12 y el día de la semana no "
+#~ "se ha establecido, la copia de seguridad se llevará a cabo en CUALQUIER "
+#~ "12avo del↵\n"
+#~ "→→→→→ mes - sin importar el día de la semana. Si el día de la semana se "
+#~ "ajusta en, digamos, el lunes, la copia de seguridad se ejecutará "
+#~ "SOLAMENTE↵\n"
+#~ "→→→→→ un lunes, y sólo si es el día 12 del mes."
+
+#~ msgid "Import"
+#~ msgstr "Importar"
+
+#~ msgid "Initializing Backup"
+#~ msgstr "Iniciando Respaldo"
+
+#~ msgid "Initializing Restore..."
+#~ msgstr "Iniciando Restauracion..."
+
+#~ msgid "Introduction"
+#~ msgstr "Introduccion"
+
+#~ msgid "Invalid Backup Name"
+#~ msgstr "Nombre de Respaldo Invalido"
+
+#~ msgid "Invalid backup for or undefined error"
+#~ msgstr "Respaldo Invalido o error no definido"
+
+#~ msgid "Item"
+#~ msgstr "Elemento"
+
+#~ msgid "Items"
+#~ msgstr "Elementos"
+
+#~ msgid "January"
+#~ msgstr "Enero"
+
+#~ msgid "July"
+#~ msgstr "Julio"
+
+#~ msgid "June"
+#~ msgstr "Junio"
+
+#~ msgid "Local Server "
+#~ msgstr "Servidor Local "
+
+#~ msgid "Maintenance"
+#~ msgstr "Mantenimiento"
+
+#~ msgid "March"
+#~ msgstr "Marzo"
+
+#~ msgid "May"
+#~ msgstr "Mayo"
+
+#~ msgid "Minutes"
+#~ msgstr "Minutos"
+
+#~ msgid "Monday"
+#~ msgstr "Lunes"
+
+#~ msgid "Monthly"
+#~ msgstr "mensual"
+
+#~ msgid "Months"
+#~ msgstr "Meses"
+
+#~ msgid "Mysql"
+#~ msgstr "\"Mysql\""
+
+#~ msgid "Mysql DB's"
+#~ msgstr "BD's Mysql"
+
+#~ msgid "Mysql Server "
+#~ msgstr "Servidor Mysql "
+
+#~ msgid "Name this backup"
+#~ msgstr "Nombre de este Respaldo"
+
+#~ msgid "Never"
+#~ msgstr "Nunca"
+
+#~ msgid "Never will never run the backup automatically"
+#~ msgstr "Nunca jamás ejecutar la copia de seguridad automática"
+
+#~ msgid "New Amazon S3 server"
+#~ msgstr "Nuevo servidor Amazon S3"
+
+#~ msgid "New Backup"
+#~ msgstr "Nuevo respaldo"
+
+#~ msgid "New Email server"
+#~ msgstr "Nuevo Servidor de correo"
+
+#~ msgid "New FTP server"
+#~ msgstr "Nuevo servidor FTP"
+
+#~ msgid "New Local server"
+#~ msgstr "Nuevo servidor local"
+
+#~ msgid "New MySQL server"
+#~ msgstr "Nuevo servidor MySQL"
+
+#~ msgid "New SSH server"
+#~ msgstr "Nuevo servidor SSH"
+
+#~ msgid "New Template"
+#~ msgstr "Nueva plantilla"
+
+#~ msgid "Nightly"
+#~ msgstr "Nocturno"
+
+#~ msgid "No items in backup set. Aborting."
+#~ msgstr "No hay elementos en el conjunto de respaldo. Abortando..."
+
+#~ msgid "No storage servers found! Aborting."
+#~ msgstr "No se encontraron servidores de almacenamiento. Abortando..."
+
+#~ msgid "Nothing to restore!"
+#~ msgstr "Nada que restaurar!"
+
+#~ msgid "November"
+#~ msgstr "Noviembre"
+
+#~ msgid "ON"
+#~ msgstr "ON"
+
+#~ msgid "October"
+#~ msgstr "Octubre"
+
+#~ msgid "On Failure Only"
+#~ msgstr "Solo en Falla"
+
+#~ msgid "On the"
+#~ msgstr "En el"
+
+#~ msgid "Only send an email on failure"
+#~ msgstr "Solo enviar email en falla"
+
+#~ msgid "Optional description or notes for this backup temnplate."
+#~ msgstr "Descripcion opcional o notas para esta plantilla de respaldo."
+
+#~ msgid "PATTERNs, one per line"
+#~ msgstr "PATRONes, uno por linea"
+
+#~ msgid "PBX Settings"
+#~ msgstr "Configuración PBX"
+
+#~ msgid "PBX config server, generally a local database server"
+#~ msgstr ""
+#~ "Servidor de configuración PBX, generalmente y servidor de base de datos "
+#~ "local"
+
+#~ msgid "Passive"
+#~ msgstr "Pasivo"
+
+#~ msgid ""
+#~ "Path on remote server. This must be a COMPLETE PATH, starting with a / - "
+#~ "for example, <tt>/home/backups/freepbx</tt>. A path without a leading "
+#~ "slash will not work, and will behave in unexpected ways."
+#~ msgstr ""
+#~ "Ruta de acceso en el servidor remoto. Debe ser un PATH COMPLETO, "
+#~ "comenzando con un / - por ejemplo, <tt>/home/backups/freepbx</tt>. Un "
+#~ "camino sin una barra inclinada principal no funcionará, y se comportará "
+#~ "de manera inesperada."
+
+#~ msgid "Path to ssh key, example /home/asterisk/.ssh/id_rsa"
+#~ msgstr "camino a llave ssh, ejemplo /home/asterisk/.ssh/id_rsa"
+
+#~ msgid "Path/DB"
+#~ msgstr "Camino/BD"
+
+#~ msgid "Please wait"
+#~ msgstr "Por favor espere"
+
+#~ msgid "Please wait, loading..."
+#~ msgstr "Por favor espere, cargando..."
+
+#~ msgid "Post-Backup Hook"
+#~ msgstr "Gancho Post-Respaldo"
+
+#~ msgid "Post-Restore Hook"
+#~ msgstr "Gancho Post-Respaldo"
+
+#~ msgid "Pre-Backup Hook"
+#~ msgstr "Gancho Pre-Respaldo"
+
+#~ msgid "Pre-Restore Hook"
+#~ msgstr "Gancho Pre-Restaurar"
+
+#~ msgid "Preserving local NAT settings"
+#~ msgstr "Preservando configuración local NAT"
+
+#~ msgid "Processed %s%% of CDRs (%s of %s lines)"
+#~ msgstr "Procesado %s%% de CDR (%s de %s líneas)"
+
+#~ msgid "Processed %s%% of Settings (%s of %s lines)"
+#~ msgstr "Procesado %s%% de Ajustes (%s de  %s líneas)"
+
+#~ msgid "Processing received file..."
+#~ msgstr "Procesando archivo recibido..."
+
+#~ msgid "Randomize"
+#~ msgstr "Randomizar"
+
+#~ msgid "Reboot"
+#~ msgstr "Reiniciar"
+
+#~ msgid "Reloading..."
+#~ msgstr "Recargando..."
+
+#~ msgid "Remote Path"
+#~ msgstr "Camino Remoto"
+
+#~ msgid "Remote Save"
+#~ msgstr "Guardar Remoto"
+
+#~ msgid "Remote Server Settings?"
+#~ msgstr "Configuracion Servidor remoto?"
+
+#~ msgid "Remote Server Type"
+#~ msgstr "Tipo Servidor remoto"
+
+#~ msgid "Remote Server type"
+#~ msgstr "Tipo Servidor remoto"
+
+#~ msgid "Remote save options"
+#~ msgstr "Opciones guardar remoto"
+
+#~ msgid "Remote save path, blank for default"
+#~ msgstr "Camino salvar remoto, dejar en blanco para valor por defecto"
+
+#~ msgid "Restore CDR records stored in this backup"
+#~ msgstr "Restaurar registros CDR almacenados en este respaldo"
+
+#~ msgid "Restore Here"
+#~ msgstr "Restaurar aqui"
+
+#~ msgid "Restore all setting stored in the database"
+#~ msgstr "Restaurar toda la configuración almacenada en la base de datos"
+
+#~ msgid "Restore backup to this server after the backup is complete"
+#~ msgstr ""
+#~ "Restaurar respaldo en este server luego que el respaldo sea completado"
+
+#~ msgid "Restore complete!"
+#~ msgstr "Restauración completada!"
+
+#~ msgid "Restored Database"
+#~ msgstr "Base de Datos restaurada"
+
+#~ msgid "Restoring CDRs complete"
+#~ msgstr "Restauración de CDRs completada"
+
+#~ msgid "Restoring CDRs..."
+#~ msgstr "restaurando CDRs..."
+
+#~ msgid "Restoring Database..."
+#~ msgstr "Restaurando Base de Datos..."
+
+#~ msgid "Restoring NAT settings"
+#~ msgstr "Restaurando configuración NAT"
+
+#~ msgid "Restoring Settings complete"
+#~ msgstr "Restauración de configuración completada"
+
+#~ msgid "Restoring all files (this may take some time)..."
+#~ msgstr "Restaurando todos los archivos (esto puede tomar un tiempo)..."
+
+#~ msgid "Restoring astDB..."
+#~ msgstr "restaurando astDB..."
+
+#~ msgid "Restoring backup..."
+#~ msgstr "Restaurando respaldo..."
+
+#~ msgid "Restoring files (this may take some time)..."
+#~ msgstr "Restaurando archivos (esto puede tomar un tiempo)..."
+
+#~ msgid "Run Automatically"
+#~ msgstr "Correr Automaticamente"
+
+#~ msgid ""
+#~ "Run at startup of the server OR of the cron deamon (i.e. after every "
+#~ "<code>service cron restart</code>)"
+#~ msgstr ""
+#~ "Ejecutar en el arranque del servidor o del demonio cron (es decir, "
+#~ "después de cada <code>reinicio cron servicio </code>)"
+
+#~ msgid "Run now"
+#~ msgstr "Correr ahora"
+
+#~ msgid "Run once a day, at midnight"
+#~ msgstr "Ejecutar una vez al dia, a media noche"
+
+#~ msgid "Run once a month, midnight, first of month"
+#~ msgstr "Ejecutar una vez al mes, media noche, primero del mes"
+
+#~ msgid "Run once a week, midnight on Sun"
+#~ msgstr "Ejecutar una vez a la semana, media noche del Dom"
+
+#~ msgid "Run once a year, midnight, Jan. 1"
+#~ msgstr "Ejecutar una vez al año, medianoche, 01 de enero"
+
+#~ msgid "Run once an hour, beginning of hour"
+#~ msgstr "Ejecutar una vez cada hora, a inicio de la hora"
+
+#~ msgid "Running post restore script..."
+#~ msgstr "Corriendo Script post-restauración..."
+
+#~ msgid "Running post-backup hooks..."
+#~ msgstr "Corriendo enganches post-respaldo..."
+
+#~ msgid "Running post-restore hooks, if any..."
+#~ msgstr "Corriendo enganches post-restauración, si hay alguno..."
+
+#~ msgid "Running pre-backup hooks..."
+#~ msgstr "Corriendo enganches pre-respaldo..."
+
+#~ msgid "Running pre-restore hooks, if any..."
+#~ msgstr "Corriendo enganches pre-restauración, si hay alguno..."
+
+#~ msgid "Running pre-restore scripts..."
+#~ msgstr "Corriendo scripts pre-restauración..."
+
+#~ msgid "Runs"
+#~ msgstr "Ejecuta"
+
+#~ msgid "SSH"
+#~ msgstr "SSH"
+
+#~ msgid "SSH Key Path"
+#~ msgstr "Camino llave de SSH"
+
+#~ msgid "SSH Server "
+#~ msgstr "Servidor SSH "
+
+#~ msgid "Saturday"
+#~ msgstr "Sábado"
+
+#~ msgid "Schedule Help"
+#~ msgstr "Horario Ayuda"
+
+#~ msgid "Select a file and click go"
+#~ msgstr "Selecciones un archivo y haga click en ir"
+
+#~ msgid ""
+#~ "Select how often to run this backup. The following schedule will be "
+#~ "followed for all but custom."
+#~ msgstr ""
+#~ "Seleccione la frecuencia para ejecutar esta copia de seguridad. El "
+#~ "siguiente programa será seguido por todos, excepto lo personalizado."
+
+#~ msgid ""
+#~ "Select the server to be backed up (this server, or any other SSH server)"
+#~ msgstr ""
+#~ "Selecciones el servidor a ser respaldado (este servidor, o cualquier otro "
+#~ "servidor SSH)"
+
+#~ msgid "September"
+#~ msgstr "Septiembre"
+
+#~ msgid "Server"
+#~ msgstr "Servidor"
+
+#~ msgid "Server Address"
+#~ msgstr "Direccion de Servidor"
+
+#~ msgid "Server Name can not be blank"
+#~ msgstr "Nombre del Servidor no puede estar en blanco"
+
+#~ msgid "Server Port"
+#~ msgstr "Puerto del Servidor"
+
+#~ msgid "Server Port, leave blank for default"
+#~ msgstr "Puerto del Servidor, dejelo en blanco para valores por defecto"
+
+#~ msgid "Server Username"
+#~ msgstr "Usuario Servidor"
+
+#~ msgid "Server address can not be blank"
+#~ msgstr "Direccion de servidor no puede estar en blanco"
+
+#~ msgid "Servers"
+#~ msgstr "Servidores"
+
+#~ msgid "Something went wrong when connecting to remote server. Aborting!"
+#~ msgstr "Algo salio mal conectándose al servidor remoto. Abortando!"
+
+#~ msgid "Status Email"
+#~ msgstr "Correo de estado"
+
+#~ msgid "Step 1"
+#~ msgstr "Paso 1"
+
+#~ msgid "Step 2"
+#~ msgstr "Paso 2"
+
+#~ msgid "Step 3"
+#~ msgstr "Paso 3"
+
+#~ msgid "Step 4"
+#~ msgstr "Paso 4"
+
+#~ msgid "Step 5"
+#~ msgstr "Paso 5"
+
+#~ msgid "Storage Servers"
+#~ msgstr "Servidores de Almacenaje"
+
+#~ msgid "Storage location for backups"
+#~ msgstr "Localidad de almacenamiento para respaldos"
+
+#~ msgid "Storing backup..."
+#~ msgstr "Almacenando Respaldo..."
+
+#~ msgid "Sunday"
+#~ msgstr "Domingo"
+
+#~ msgid "Template Name"
+#~ msgstr "Nombre Plantilla"
+
+#~ msgid "Templates"
+#~ msgstr "Plantillas"
+
+#~ msgid ""
+#~ "The FTP Server's file system type. If you are unsure set this to Auto"
+#~ msgstr ""
+#~ "El tipo de Filesystem del servidor FTP. Si no esta seguro déjelo en Auto"
+
+#~ msgid "The Restore script Finished You can close this window"
+#~ msgstr "El script de restauración Finalizado Puede cerrar esta ventana"
+
+#~ msgid "The Restore script is still running"
+#~ msgstr "El script de Restauración aun esta corriendo"
+
+#~ msgid ""
+#~ "This defaults to 'Passive'. If your FTP server is behind a seperate NAT "
+#~ "or Firewall to this VoIP server, you should select 'Active'. In 'Active' "
+#~ "mode, the FTP server establishes a connection back to the VoIP server to "
+#~ "receive the data. In 'Passive' mode, the VoIP server connects to the FTP "
+#~ "Server to send data."
+#~ msgstr ""
+#~ "Por defecto es 'pasivo'. Si el servidor FTP está detrás de un NAT "
+#~ "separado o Firewall respecto a este servidor VoIP, debe seleccionar "
+#~ "\"Activo\". En el modo 'activo', el servidor FTP establece una conexión "
+#~ "con el servidor de VoIP para recibir los datos. En el modo 'pasivo', el "
+#~ "servidor VoIP se conecta con el servidor FTP para enviar datos."
+
+#~ msgid "This server"
+#~ msgstr "Este Servidor"
+
+#~ msgid ""
+#~ "This wizard can be used to add a basic backup task for your %s system"
+#~ msgstr ""
+#~ "Este asistente se puede utilizar para agregar una tarea de copia de "
+#~ "seguridad básica para su sistema %s"
+
+#~ msgid "Thursday"
+#~ msgstr "Jueves"
+
+#~ msgid "Transfer Mode"
+#~ msgstr "Modo Transferencia"
+
+#~ msgid "Transfer Type"
+#~ msgstr "Tipo de Transferencia"
+
+#~ msgid "Tuesday"
+#~ msgstr "Martes"
+
+#~ msgid "Type"
+#~ msgstr "Tipo"
+
+#~ msgid "Unix/Linux"
+#~ msgstr "Unix/Linux"
+
+#~ msgid "Updated Job %s with new custom sounds directory"
+#~ msgstr ""
+#~ "Trabajo Actualizado %s con el nuevo directorio de sonidos personalizados"
+
+#~ msgid "Updated System Recordings template"
+#~ msgstr "Plantilla actualizada sistema de grabaciones"
+
+#~ msgid "Upload File"
+#~ msgstr "Subir Archivo"
+
+#~ msgid "Verifying received file..."
+#~ msgstr "Verificando archivo recibido..."
+
+#~ msgid "Voice Mail Storage"
+#~ msgstr "Almacenamiento de Correo de Voz"
+
+#~ msgid "Voicemails"
+#~ msgstr "CorreosdeVoz"
+
+#~ msgid "WARNING!"
+#~ msgstr "ADVERTENCIA!"
+
+#~ msgid "Web Root restore not detected, not restoring module table"
+#~ msgstr "Restauración web Root no detectada, no se restaura tabla de modulo"
+
+#~ msgid "Wednesday"
+#~ msgstr "Miércoles"
+
+#~ msgid "Week Days"
+#~ msgstr "Dias de la semana"
+
+#~ msgid "Weekly"
+#~ msgstr "Semanal"
+
+#~ msgid "Weeks"
+#~ msgstr "Semanas"
+
+#~ msgid "Welcome to the Backup Wizard"
+#~ msgstr "Bienvenido al Asistente de Respaldo"
+
+#~ msgid "What should we backup?"
+#~ msgstr "Que debemos respaldar?"
+
+#~ msgid "Where should status emails for this job be sent?"
+#~ msgstr ""
+#~ "¿Dónde se deben enviar mensajes de correo electrónico de estado para este "
+#~ "trabajo?"
+
+#~ msgid "Which Days of the week to run"
+#~ msgstr "Qué días de la semana para correr"
+
+#~ msgid "Which Hours to run."
+#~ msgstr "Que horas para correr."
+
+#~ msgid "Which Months to run"
+#~ msgstr "Qué Meses ejecutar"
+
+#~ msgid "Which minutes to run"
+#~ msgstr "Qué minutos para ejecutar"
+
+#~ msgid "Windows"
+#~ msgstr "Windows"
+
+#~ msgid "Wizard"
+#~ msgstr "Asistente"
+
+#~ msgid "Would you like an email when this job runs?"
+#~ msgstr ""
+#~ "¿Te gustaría recibir un correo electrónico cuando este trabajo se ejecuta?"
+
+#~ msgid "Would you like notifications?"
+#~ msgstr "¿Te gustaría notificaciones?"
+
+#~ msgid "Would you like to backup recordings?"
+#~ msgstr "¿Quieres grabaciones de copia de seguridad?"
+
+#~ msgid "Would you like voicemails backded up."
+#~ msgstr "Te gustaria mensajes de voz respaldados."
+
+#~ msgid "Years"
+#~ msgstr "Años"
+
+#~ msgid "You should run \"%s\" to ensure system integrity"
+#~ msgstr "Debe ejecutar \"%s\" para asegurar la integridad del sistema"
+
+#~ msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
+#~ msgstr ""
+#~ "La copia de seguridad se guardará localmente en /var/spool/asterisk/backup"
+
+#~ msgid "added default backup servers"
+#~ msgstr "Añadidos servidores de respaldo por defecto"
+
+#~ msgid "added default backup templates"
+#~ msgstr "Añadidas plantillas de respaldo por defecto"
+
+#~ msgid "chose"
+#~ msgstr "Escoge"
+
+#~ msgid "error/not found!"
+#~ msgstr "error/no encontrado!"
+
+#~ msgid "manifest not found"
+#~ msgstr "manifiesto no encontrado"
+
+#~ msgid "table names, one per line"
+#~ msgstr "nombres de tablas, una por linea"
+
+#~ msgid "waiting for lock..."
+#~ msgstr "esperando por bloqueo..."
+
+#~ msgid "{no servers available}"
+#~ msgstr "(no servidores disponibles)"
+
+#~ msgid "Error connecting to the FTP Server... Check your host name or DNS"
+#~ msgstr ""
+#~ "Error al conectar con el servidor FTP ... Compruebe su nombre de host o "
+#~ "DNS"
+
+#~ msgid " Authentication Failure"
+#~ msgstr " Error de autenticación"
+
+#~ msgid "Error connecting to the FTP Server..."
+#~ msgstr "Error conectando al Servidor FTP..."
+
+#~ msgid "FTP Connection error!"
+#~ msgstr "Error de Conexión FTP!"
+
+#~ msgid "'Description or notes for this server"
+#~ msgstr "'Descripcion o notas para este servidor"
+
+#~ msgid "Backup Desctiption"
+#~ msgstr "Descripcion de Respaldo"
+
+#~ msgid "Bulding manifest..."
+#~ msgstr "Construyendo el manifiesto..."
+
+#~ msgid ""
+#~ "If Randomize is selcted, a similar frequency will be followed, only the "
+#~ "exact times will be randomized (avoiding peak business hours, when "
+#~ "possible). Please note: randomized schedules will be rescheduled "
+#~ "(randomly) every time ANY backup is saved"
+#~ msgstr ""
+#~ "Si se selecciona Randomize, una frecuencia similar será asumida, sólo se "
+#~ "asignaran al azar los tiempos exactos (evitando el horario comercial "
+#~ "pico, cuando sea posible). Tenga en cuenta: los horarios aleatorios serán "
+#~ "reprogramados (al azar) cada vez que se guarda cualquier copia de "
+#~ "seguridad"
+
+#~ msgid ""
+#~ "If a custom schedule is selected, any section not specficed will be "
+#~ "considered to be \"any\" (aka: wildcard).\n"
+#~ "\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, "
+#~ "the Backup will be run on ANY 12th of\n"
+#~ "\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week "
+#~ "is set to, say, Monday, the Backup will run ONLY\n"
+#~ "\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
+#~ msgstr ""
+#~ "Si se selecciona una programación personalizada, cualquier sección no "
+#~ "especificado se considera que es \"cualquiera\" (aka: comodín) .↵\n"
+#~ "→→→→→ es decir. si día del mes se establece en 12 y el día de la semana "
+#~ "no se ha establecido, la copia de seguridad se llevará a cabo en "
+#~ "CUALQUIER 12avo del↵\n"
+#~ "→→→→→ mes - sin importar el día de la semana. Si el día de la semana se "
+#~ "ajusta en, digamos, el lunes, la copia de seguridad se ejecutará SOLO↵\n"
+#~ "→→→→→ un lunes, y sólo si es el día 12 del mes."
+
+#~ msgid "Maintinance"
+#~ msgstr "Mantenimeinto"
+
+#~ msgid "Random"
+#~ msgstr "Al Azar"
+
+#~ msgid "GB"
+#~ msgstr "GB"
+
+#~ msgid "Backup migration completed"
+#~ msgstr "Migración del Respaldo completada"
+
+#~ msgid "Can not migrate Backup table"
+#~ msgstr "No se pueden migrar tablas de Respaldos"
+
+#~ msgid "Can't check for Backup table"
+#~ msgstr "No se puede checar tablas de Respaldos"
+
+#~ msgid "Creating backups directory.."
+#~ msgstr "Creando Directorio de Respaldos.."
+
+#~ msgid "ERROR: Failed to remove old \"Backup\" table. You should uninstall"
+#~ msgstr ""
+#~ "ERROR: Fallo al remover tabla de \"respaldo\" vieja. Debería  desinstalar"
+
+#~ msgid ""
+#~ "ERROR: failed to migrate from old \"Backup\" table to new \"backup\" table"
+#~ msgstr ""
+#~ "ERROR: fallo al migrar desde la tabla \"Respaldo\" vieja a la nueva tabla"
+
+#~ msgid ""
+#~ "Exclude Backup's settings so that they dont get restored, usefull for a "
+#~ "remote restore"
+#~ msgstr ""
+#~ "Excluir configuración de Respaldos de manera que no sean restaurados. "
+#~ "Util para restaurar remoto"
+
+#~ msgid "Failure Message:"
+#~ msgstr "Mensaje de falla:"
+
+#~ msgid "Location of backups pre 2.10"
+#~ msgstr "Localidad de Respaldo pre 2.10"
+
+#~ msgid "MIGRATED"
+#~ msgstr "MIGRADO"
+
+#~ msgid "Migrated EMAIL server for backup "
+#~ msgstr "Servidor de EMAIL migrado para respaldo "
+
+#~ msgid "Migrated FTP server for backup "
+#~ msgstr "Servidor FTP migrado para respaldo "
+
+#~ msgid "Migrated SSH server for backup "
+#~ msgstr "Servidor SSH migrado para Respaldo "
+
+#~ msgid "Migrated remote SSH server for backup "
+#~ msgstr "Servidor remoto SSH migrado para respaldo "
+
+#~ msgid "Migrating backup table..."
+#~ msgstr "Migrando tabla de respaldo..."
+
+#~ msgid "Nothing to migrate"
+#~ msgstr "Nada que migrar"
+
+#~ msgid "Old Backup table removed"
+#~ msgstr "Vieja tabla de respaldo removida"
+
+#~ msgid "Replacing ampbackup.pl in db.."
+#~ msgstr "Reemplazando ampbackup.pt in db.."
+
+#~ msgid "Successfully migrated backup table!"
+#~ msgstr "Tabla de respaldo migrada satisfactoriamente!"
+
+#~ msgid "This error can result from a previous incomplete/failed install of"
+#~ msgstr ""
+#~ "Este error puede resultar de una instalación anterior fallida o "
+#~ "incompleta de"
+
+#~ msgid "WARNING: backup table not migrated"
+#~ msgstr "ADVERTENCIA: tabla de respaldos no migrada"
+
+#~ msgid "WARNING: failed to create backup directory: %s"
+#~ msgstr "ADVERTENCIA: Falla creando directorio de respaldo. %s"
+
+#~ msgid "an error has occurred, update not done"
+#~ msgstr "un error ha ocurrido, actualización no efectuada"
+
+#~ msgid "and then re-install this module. Settings will be lost but old"
+#~ msgstr "y entonces re-instalar este modulo. Configuración será perdida"
+
+#~ msgid "backup data will be preserved."
+#~ msgstr "Datos de respaldo serán preservados."
+
+#~ msgid "backup data will be retained."
+#~ msgstr "Datos de respaldo serán retenidos."
+
+#~ msgid ""
+#~ "doing so will result in a loss of all your backup settings though previous"
+#~ msgstr ""
+#~ "haciendo esto resultara en la perdida de toda la configuración de "
+#~ "respaldo aunque no la previa"
+
+#~ msgid "failed"
+#~ msgstr "falló"
+
+#~ msgid "migrated backup"
+#~ msgstr "respaldo migrado"
+
+#~ msgid "ok"
+#~ msgstr "ok"
+
+#~ msgid "removed"
+#~ msgstr "eliminado"
+
+#~ msgid "removing retrieve_backup_cron_from_mysql.pl.."
+#~ msgstr "eliminando retrieve_backup_cron_from_mysql.pl.."
+
+#~ msgid "this module. You should probably uninstall and reinstall this module"
+#~ msgstr ""
+#~ "este modulo. Usted debe probablemente desinstalar y reinstalar el modulo"
+
+#~ msgid "Intializing Backup"
+#~ msgstr "Inicializando Respaldo"
+
+#~ msgid "Intializing Restore..."
+#~ msgstr "Inicializando restauración .."
+
+#~ msgid "Select files and databases to restore:"
+#~ msgstr "Selecciones archivos y bases de datos a restaurar:"
+
+#~ msgid "drop here"
+#~ msgstr "Sueltelos aqui"
+
+#~ msgid ""
+#~ "You should run \"amportal a ma updateall\" to ensure system integrity"
+#~ msgstr ""
+#~ "Usted debe correr \"amportal a ma updateall\" para asegurar la integridad "
+#~ "del sistema"
+
+#~ msgid " runs"
+#~ msgstr " Corre"
+
+#~ msgid "Add Backup Schedule"
+#~ msgstr "Añadir programación de copia de seguridad"
+
+#~ msgid "All"
+#~ msgstr "Todos"
+
+#~ msgid ""
+#~ "Are you sure you want to Restore the CALL DETAIL FILES?\\nDoing so will "
+#~ "Permanently DELETE all CALL RECORDS!"
+#~ msgstr ""
+#~ "¿Está seguro de que desea restaurar los archivos del registro de llamadas?"
+#~ "\\nAl hacer esto eliminará permanentemente todos los registros de "
+#~ "llamadas que se encuentran actualmente en la base de datos."
+
+#~ msgid ""
+#~ "Are you sure you want to Restore the Operator Panel Files?\\nDoing so "
+#~ "will Permanently Over-Write all Operator Panel Files!"
+#~ msgstr ""
+#~ "¿Está seguro de que desea restaurar los archivos del panel de operador?"
+#~ "\\nAl hacer esto, sobreescribirá definitivamente todos los archivos del "
+#~ "panel de operador."
+
+#~ msgid ""
+#~ "Are you sure you want to Restore this File Set?\\nDoing so will "
+#~ "Permanently Over-Write all FreePBX and Asterisk Files!"
+#~ msgstr ""
+#~ "¿Está seguro de que desea rastaurar este conjunto de archivos?\\nAl hacer "
+#~ "esto, sobreescribirá definitivamente todos los archivos FreePBX y "
+#~ "Asterisk."
+
+#~ msgid ""
+#~ "Are you sure you want to Restore this file set?\\nDoing so will "
+#~ "permanently delete any new voicemail you have in your mailbox\\nsince "
+#~ "this backup on"
+#~ msgstr ""
+#~ "¿Está seguro de que desea restaurar este conjunto de archivos?\\nAl hacer "
+#~ "esto, eliminará definitivamente los mensajes del buzón de voz de su "
+#~ "cuenta desde que se hizo la copia de seguridad."
+
+#~ msgid ""
+#~ "Are you sure you want to Restore this file set?\\nNOTE! This will "
+#~ "OVERWRITE any voicerecordings currently on the system. It will NOT delete "
+#~ "new files not currently in the backup set"
+#~ msgstr ""
+#~ "¿Está seguro de que desea restaurar este conjunto de archivos?\\nTenga en "
+#~ "cuenta que esto sobreescribirá cualquier mensaje del buzón de voz del "
+#~ "sistema. No eliminará los nuevos archivos que se encuentren en el sistema "
+#~ "y que no se encuentren en el conjunto de archivos de la copia de "
+#~ "seguridad."
 
 #~ msgid "Are you sure you want to delete this File Set?"
 #~ msgstr "¿Está seguro de que desea eliminar esta copia de seguridad?"
-
-#~ msgid "DELETE ALL THE DATA IN THIS SET"
-#~ msgstr "ELIMINAR TODOS LOS DATOS DE ESTA COPIA DE SEGURIDAD"
-
-#~ msgid ""
-#~ "Delete this backup set and all data associated with this backup set.."
-#~ msgstr "Eliminar esta de copia de seguridad y todos los datos asociados..."
-
-#~ msgid "Delete File Set"
-#~ msgstr "Eliminar copia de seguridad"
-
-#~ msgid "Delete this backup set."
-#~ msgstr "Eliminar esta copia de seguridad"
 
 #~ msgid ""
 #~ "Are you sure you want to restore this COMPLETE file set?\\nDoing so will "
@@ -1257,25 +2938,177 @@ msgstr "(no servidores disponibles)"
 #~ "llamadas y cualquier mensaje del buzón de voz grabado entre la fecha de "
 #~ "realización de la copia de seguridad y ahora."
 
+#~ msgid "Backup the Operator Panel (HTML and Database)"
+#~ msgstr ""
+#~ "Realiza una copia de seguridad del panel de operador Flash (archivos HTML "
+#~ "y base de datos)"
+
+#~ msgid "Backup the System Call Detail Reporting (HTML and Database)"
+#~ msgstr ""
+#~ "Realiza una copia de seguridad del registro de llamadas (archivos HTML y "
+#~ "base de datos)."
+
+#~ msgid ""
+#~ "Backup the System Configurations (Database, etc files, SQL Database, "
+#~ "astdb)"
+#~ msgstr ""
+#~ "Realiza una copia de seguridad de la configuración del sistema (base de "
+#~ "datos, archivos de configuración, etc.)."
+
+#~ msgid ""
+#~ "Backup the System Recordings (AutoAttendant, Music On Hold, System "
+#~ "Recordings)"
+#~ msgstr ""
+#~ "Realiza una copia de seguridad de las grabaciones del sistema "
+#~ "(recepcionista digital, música en espera, grabaciones del sistema)."
+
+#~ msgid ""
+#~ "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
+#~ msgstr ""
+#~ "Realiza una copia de seguridad de los buzones de voz. Tenga en cuenta que "
+#~ "esto puede hacer que el archivo de la copia de seguridad sea muy grande."
+
+#~ msgid "CDR"
+#~ msgstr "Registro de llamadas"
+
+#~ msgid "DELETE ALL THE DATA IN THIS SET"
+#~ msgstr "ELIMINAR TODOS LOS DATOS DE ESTA COPIA DE SEGURIDAD"
+
+#~ msgid "Daily (at midnight)"
+#~ msgstr "Diariamente (a medianoche)"
+
+#~ msgid "Database name"
+#~ msgstr "Nombre Base de Datos"
+
+#~ msgid "Day of Month"
+#~ msgstr "Día del Mes"
+
+#~ msgid "Delete Backup Schedule %s"
+#~ msgstr "Eliminar programación de copia de seguridad %s"
+
+#~ msgid "Delete File Set"
+#~ msgstr "Eliminar copia de seguridad"
+
+#~ msgid "Delete after"
+#~ msgstr "Eliminar despues"
+
+#~ msgid ""
+#~ "Delete this backup set and all data associated with this backup set.."
+#~ msgstr "Eliminar esta de copia de seguridad y todos los datos asociados..."
+
+#~ msgid "Delete this backup set."
+#~ msgstr "Eliminar esta copia de seguridad"
+
+#~ msgid ""
+#~ "Drag templates and drop them in the Backup Items table. Add as many "
+#~ "templates as you need"
+#~ msgstr ""
+#~ "Arrastre las plantillas y póngalas en la tabla de elementos de Respaldo. "
+#~ "Agregue tantas plantillas como necesite"
+
+#~ msgid "ERROR its not a BACKUP SET file"
+#~ msgstr "ERROR: El archivo no es una copia de seguridad"
+
+#~ msgid "Follow Schedule Below"
+#~ msgstr "Seguir la programación siguiente"
+
+#~ msgid "Give this Backup Schedule a brief name to help you identify it."
+#~ msgstr ""
+#~ "Asigne un nombre a la programación de esta copia de seguridad para "
+#~ "ayudarle a identificarla"
+
+#~ msgid "Hour"
+#~ msgstr "Hora"
+
+#~ msgid "IP address or FQDN of remote ssh host"
+#~ msgstr "Dirección IP o FQDN del host remoto SSH"
+
+#~ msgid "Month"
+#~ msgstr "Mes"
+
+#~ msgid "Monthly (on the 1st)"
+#~ msgstr "Mensualmente (el día 1)"
+
+#~ msgid "New Mysql server"
+#~ msgstr "Nuevo servidor Mysql"
+
+#~ msgid "Now"
+#~ msgstr "Ahora"
+
+#~ msgid "Operator Panel"
+#~ msgstr "Panel de operador Flash"
+
+#~ msgid "Path on server where files are stored"
+#~ msgstr "camino en el servidor donde los archivos son almacenados"
+
+#~ msgid "Path where files are stored"
+#~ msgstr "camino donde los archivos son almacenados"
+
+#~ msgid "Post-backup Hook"
+#~ msgstr "Enganche post-respaldo"
+
+#~ msgid "Post-restore Hook"
+#~ msgstr "Enganche post-restauración"
+
+#~ msgid "Pre-backup Hook"
+#~ msgstr "Enganche pre-respaldo"
+
+#~ msgid "Pre-restore Hook"
+#~ msgstr "Enganche pre-restauración"
+
+#~ msgid "Processed "
+#~ msgstr "Procesado "
+
+#~ msgid "Provides Backup & Restore capabilities for your PBX"
+#~ msgstr ""
+#~ "Proporciona funciones de copia de seguridad y restauración para su PBX"
+
+#~ msgid "Restore Call Detail Report"
+#~ msgstr "Restaurar registro de llamadas"
+
 #~ msgid "Restore Entire Backup Set"
 #~ msgstr "Restaurar copia de seguridad completa"
+
+#~ msgid "Restore Operator Panel"
+#~ msgstr "Restaurar panel de operador"
+
+#~ msgid "Restore System Configuration"
+#~ msgstr "Restaurar configuración del sistema"
+
+#~ msgid "Restore System Recordings Files"
+#~ msgstr "Restaurar archivos de grabaciones del sistema"
+
+#~ msgid "Restore VoiceMail Files"
+#~ msgstr "Restaurar archivos del buzón de voz"
+
+#~ msgid "Restore from Backup"
+#~ msgstr "Restaurar desde copia de seguridad"
+
+#~ msgid ""
+#~ "Restore the Call Detail Records from this backup set.  NOTE! This will "
+#~ "DELETE ALL CALL RECORDS that have been saved since this backup set."
+#~ msgstr ""
+#~ "Restaura el registro de llamadas desde este conjunto de archivos de la "
+#~ "copia de seguridad. Tenga en cuenta que esto eliminará todos los "
+#~ "registros de llamadas que se hayan realizado desde que se hizo esta copia "
+#~ "de seguridad."
+
+#~ msgid ""
+#~ "Restore the Operator Panel from this backup set.  NOTE! This will "
+#~ "OVERWRITE any Operator Panel Changes you have made since this backup... "
+#~ "ALL items will be reset to what they were at the time of this backup set.."
+#~ msgstr ""
+#~ "Restaura los archivos del panel de operador Flash desde este conjunto de "
+#~ "archivos de la copia de seguridad. Tenga en cuenta que esto "
+#~ "sobreescribirá cualquier cambio que se haya realizado en el panel de "
+#~ "operador Flash desde que se hizo la copia de seguridad. Todos los "
+#~ "elementos serán restaurados a su estado tal y como se encontraban cuando "
+#~ "se hizo la copia de seguridad."
 
 #~ msgid "Restore your Complete Backup set overwriting all files."
 #~ msgstr ""
 #~ "La restauración de la copia de seguridad completa sobreescribirá todos "
 #~ "sus archivos"
-
-#~ msgid ""
-#~ "Are you sure you want to Restore this file set?\\nDoing so will "
-#~ "permanently delete any new voicemail you have in your mailbox\\nsince "
-#~ "this backup on"
-#~ msgstr ""
-#~ "¿Está seguro de que desea restaurar este conjunto de archivos?\\nAl hacer "
-#~ "esto, eliminará definitivamente los mensajes del buzón de voz de su "
-#~ "cuenta desde que se hizo la copia de seguridad."
-
-#~ msgid "Restore VoiceMail Files"
-#~ msgstr "Restaurar archivos del buzón de voz"
 
 #~ msgid ""
 #~ "Restore your Voicemail files from this backup set.  NOTE! This will "
@@ -1284,20 +3117,6 @@ msgstr "(no servidores disponibles)"
 #~ "Restaura los archivos del buzón de voz de este conjunto de archivos de "
 #~ "esta copia de seguridad. Tenga en cuenta que esto eliminará cualquier "
 #~ "mensaje del buzón de voz que haya actualmente en su cuenta."
-
-#~ msgid ""
-#~ "Are you sure you want to Restore this file set?\\nNOTE! This will "
-#~ "OVERWRITE any voicerecordings currently on the system. It will NOT delete "
-#~ "new files not currently in the backup set"
-#~ msgstr ""
-#~ "¿Está seguro de que desea restaurar este conjunto de archivos?\\nTenga en "
-#~ "cuenta que esto sobreescribirá cualquier mensaje del buzón de voz del "
-#~ "sistema. No eliminará los nuevos archivos que se encuentren en el sistema "
-#~ "y que no se encuentren en el conjunto de archivos de la copia de "
-#~ "seguridad."
-
-#~ msgid "Restore System Recordings Files"
-#~ msgstr "Restaurar archivos de grabaciones del sistema"
 
 #~ msgid ""
 #~ "Restore your system Voice Recordings including AutoAttendant files from "
@@ -1313,17 +3132,6 @@ msgstr "(no servidores disponibles)"
 #~ "seguridad."
 
 #~ msgid ""
-#~ "Are you sure you want to Restore this File Set?\\nDoing so will "
-#~ "Permanently Over-Write all FreePBX and Asterisk Files!"
-#~ msgstr ""
-#~ "¿Está seguro de que desea rastaurar este conjunto de archivos?\\nAl hacer "
-#~ "esto, sobreescribirá definitivamente todos los archivos FreePBX y "
-#~ "Asterisk."
-
-#~ msgid "Restore System Configuration"
-#~ msgstr "Restaurar configuración del sistema"
-
-#~ msgid ""
 #~ "Restore your system configuration from this backup set.  NOTE! This will "
 #~ "OVERWRITE any System changes you have made since this backup... ALL items "
 #~ "will be reset to what they were at the time of this backup set.."
@@ -1334,170 +3142,88 @@ msgstr "(no servidores disponibles)"
 #~ "Todos los elementos serán restaurados a su estado tal y como se "
 #~ "encontraban cuando se hizo la copia de seguridad."
 
-#~ msgid ""
-#~ "Are you sure you want to Restore the Operator Panel Files?\\nDoing so "
-#~ "will Permanently Over-Write all Operator Panel Files!"
-#~ msgstr ""
-#~ "¿Está seguro de que desea restaurar los archivos del panel de operador?"
-#~ "\\nAl hacer esto, sobreescribirá definitivamente todos los archivos del "
-#~ "panel de operador."
-
-#~ msgid "Restore Operator Panel"
-#~ msgstr "Restaurar panel de operador"
-
-#~ msgid ""
-#~ "Restore the Operator Panel from this backup set.  NOTE! This will "
-#~ "OVERWRITE any Operator Panel Changes you have made since this backup... "
-#~ "ALL items will be reset to what they were at the time of this backup set.."
-#~ msgstr ""
-#~ "Restaura los archivos del panel de operador Flash desde este conjunto de "
-#~ "archivos de la copia de seguridad. Tenga en cuenta que esto "
-#~ "sobreescribirá cualquier cambio que se haya realizado en el panel de "
-#~ "operador Flash desde que se hizo la copia de seguridad. Todos los "
-#~ "elementos serán restaurados a su estado tal y como se encontraban cuando "
-#~ "se hizo la copia de seguridad."
-
-#~ msgid ""
-#~ "Are you sure you want to Restore the CALL DETAIL FILES?\\nDoing so will "
-#~ "Permanently DELETE all CALL RECORDS!"
-#~ msgstr ""
-#~ "¿Está seguro de que desea restaurar los archivos del registro de llamadas?"
-#~ "\\nAl hacer esto eliminará permanentemente todos los registros de "
-#~ "llamadas que se encuentran actualmente en la base de datos."
-
-#~ msgid "Restore Call Detail Report"
-#~ msgstr "Restaurar registro de llamadas"
-
-#~ msgid ""
-#~ "Restore the Call Detail Records from this backup set.  NOTE! This will "
-#~ "DELETE ALL CALL RECORDS that have been saved since this backup set."
-#~ msgstr ""
-#~ "Restaura el registro de llamadas desde este conjunto de archivos de la "
-#~ "copia de seguridad. Tenga en cuenta que esto eliminará todos los "
-#~ "registros de llamadas que se hayan realizado desde que se hizo esta copia "
-#~ "de seguridad."
-
-#~ msgid "ERROR its not a BACKUP SET file"
-#~ msgstr "ERROR: El archivo no es una copia de seguridad"
-
 #~ msgid "Restored All Files in Backup Set"
 #~ msgstr "Se han restaurado todos los archivos"
-
-#~ msgid "Restored VoiceMail"
-#~ msgstr "Se ha restaurado el buzón de voz"
-
-#~ msgid "Restored System Recordings"
-#~ msgstr "Se han restaurado las grabaciones del sistema"
-
-#~ msgid "Restored System Configuration"
-#~ msgstr "Se ha restaurado la configuración del sistema"
-
-#~ msgid "Restored Operator Panel"
-#~ msgstr "Se ha restaurado el panel de operador Flash"
 
 #~ msgid "Restored CDR logs"
 #~ msgstr "Se han restaurado los registros de llamadas"
 
-#~ msgid "Schedule Name:"
-#~ msgstr "Nombre de la programación:"
+#~ msgid "Restored Operator Panel"
+#~ msgstr "Se ha restaurado el panel de operador Flash"
 
-#~ msgid "Give this Backup Schedule a brief name to help you identify it."
-#~ msgstr ""
-#~ "Asigne un nombre a la programación de esta copia de seguridad para "
-#~ "ayudarle a identificarla"
+#~ msgid "Restored System Configuration"
+#~ msgstr "Se ha restaurado la configuración del sistema"
 
-#~ msgid "CDR"
-#~ msgstr "Registro de llamadas"
+#~ msgid "Restored System Recordings"
+#~ msgstr "Se han restaurado las grabaciones del sistema"
 
-#~ msgid "Backup the System Call Detail Reporting (HTML and Database)"
-#~ msgstr ""
-#~ "Realiza una copia de seguridad del registro de llamadas (archivos HTML y "
-#~ "base de datos)."
+#~ msgid "Restored VoiceMail"
+#~ msgstr "Se ha restaurado el buzón de voz"
 
-#~ msgid "Operator Panel"
-#~ msgstr "Panel de operador Flash"
-
-#~ msgid "Backup the Operator Panel (HTML and Database)"
-#~ msgstr ""
-#~ "Realiza una copia de seguridad del panel de operador Flash (archivos HTML "
-#~ "y base de datos)"
-
-#~ msgid "System Recordings"
-#~ msgstr "Grabaciones del sistema"
-
-#~ msgid ""
-#~ "Backup the System Recordings (AutoAttendant, Music On Hold, System "
-#~ "Recordings)"
-#~ msgstr ""
-#~ "Realiza una copia de seguridad de las grabaciones del sistema "
-#~ "(recepcionista digital, música en espera, grabaciones del sistema)."
-
-#~ msgid "VoiceMail"
-#~ msgstr "Buzón de voz"
-
-#~ msgid ""
-#~ "Backup the System VoiceMail Boxes... CAUTION: Could result in large file"
-#~ msgstr ""
-#~ "Realiza una copia de seguridad de los buzones de voz. Tenga en cuenta que "
-#~ "esto puede hacer que el archivo de la copia de seguridad sea muy grande."
-
-#~ msgid "System Configuration"
-#~ msgstr "Configuración del sistema"
-
-#~ msgid ""
-#~ "Backup the System Configurations (Database, etc files, SQL Database, "
-#~ "astdb)"
-#~ msgstr ""
-#~ "Realiza una copia de seguridad de la configuración del sistema (base de "
-#~ "datos, archivos de configuración, etc.)."
-
-#~ msgid "All"
-#~ msgstr "Todos"
-
-#~ msgid "Selected"
-#~ msgstr "Seleccionados"
+#~ msgid "Restored all CDRs."
+#~ msgstr "Todos los CDR restaurados."
 
 #~ msgid "Run Backup"
 #~ msgstr "Ejecutar copia de seguridad"
 
-#~ msgid "Follow Schedule Below"
-#~ msgstr "Seguir la programación siguiente"
-
-#~ msgid "Now"
-#~ msgstr "Ahora"
-
-#~ msgid "Daily (at midnight)"
-#~ msgstr "Diariamente (a medianoche)"
-
-#~ msgid "Weekly (on Sunday)"
-#~ msgstr "Semanalmente (los domingos)"
-
-#~ msgid "Monthly (on the 1st)"
-#~ msgstr "Mensualmente (el día 1)"
-
-#~ msgid "Yearly (on 1st Jan)"
-#~ msgstr "Anualmente (el 1 de enero)"
-
-#~ msgid "Weekdays"
-#~ msgstr "Semanas"
-
-#~ msgid "Add Backup Schedule"
-#~ msgstr "Añadir programación de copia de seguridad"
-
-#~ msgid "Restore from Backup"
-#~ msgstr "Restaurar desde copia de seguridad"
-
-#~ msgid "System Backup"
-#~ msgstr "Copia de seguridad del sistema"
-
 #~ msgid "Run Schedule"
 #~ msgstr "Ejecutar programación"
+
+#~ msgid "Schedule Name:"
+#~ msgstr "Nombre de la programación:"
+
+#~ msgid "Storage Locations"
+#~ msgstr "Localidad de Almacenaje"
 
 #~ msgid "Submit Changes"
 #~ msgstr "Enviar cambios"
 
-#~ msgid "Delete Backup Schedule %s"
-#~ msgstr "Eliminar programación de copia de seguridad %s"
+#~ msgid "System Backup"
+#~ msgstr "Copia de seguridad del sistema"
+
+#~ msgid "System Configuration"
+#~ msgstr "Configuración del sistema"
+
+#~ msgid "System Recordings"
+#~ msgstr "Grabaciones del sistema"
 
 #~ msgid "System Restore"
 #~ msgstr "Restaurar sistema"
+
+#~ msgid ""
+#~ "Upload a backup file to restore from it. Or, pick a saved backup by "
+#~ "selecting a server from the list on the right."
+#~ msgstr ""
+#~ "Subir un respaldo para restaurar desde el. O, escoger un respaldo ya "
+#~ "salvado escogiendo de la lista de servidores a la derecha."
+
+#~ msgid "VoiceMail"
+#~ msgstr "Buzón de voz"
+
+#~ msgid "Weekdays"
+#~ msgstr "Semanas"
+
+#~ msgid "Weekly (on Sunday)"
+#~ msgstr "Semanalmente (los domingos)"
+
+#~ msgid "Yearly (on 1st Jan)"
+#~ msgstr "Anualmente (el 1 de enero)"
+
+#~ msgid "and Run"
+#~ msgstr "y corre"
+
+#~ msgid ""
+#~ "drag servers from the Available Servers list to add them as Storage "
+#~ "Servers"
+#~ msgstr ""
+#~ "Arrastre los servidores de la lista de Servidores Disponibles para "
+#~ "agregarlos como Servidores de Almacenaje"
+
+#~ msgid "remote ftp port"
+#~ msgstr "puerto ftp remoto"
+
+#~ msgid "remote mysql port"
+#~ msgstr "puerto mysql remoto"
+
+#~ msgid "remote ssh port"
+#~ msgstr "puerto ssh remoto"

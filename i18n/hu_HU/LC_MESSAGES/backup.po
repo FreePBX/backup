@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 20:53-0400\n"
+"POT-Creation-Date: 2019-11-25 18:14+0530\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Lónyai Gergely <alephlg@gmail.com>\n"
 "Language-Team: Magyar <support@freepbx.hu>\n"
@@ -183,16 +183,8 @@ msgstr ""
 msgid "Backup & Restore"
 msgstr ""
 
-#: backup.i18n.php:16
-msgid "Backup & Restore - Restore"
-msgstr ""
-
 #: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr ""
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
+msgid "Backup & Restore - Restore"
 msgstr ""
 
 #: backup.i18n.php:8
@@ -231,7 +223,7 @@ msgstr ""
 msgid "Backup Log:"
 msgstr ""
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr ""
 
@@ -509,7 +501,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr ""
 
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr ""
 
@@ -1378,7 +1370,7 @@ msgstr ""
 msgid "September"
 msgstr "Szeptember"
 
-#: views/restore/restore.php:55
+#: views/restore/restore.php:56
 msgid "Server"
 msgstr ""
 
@@ -1493,7 +1485,7 @@ msgstr ""
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr ""
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 

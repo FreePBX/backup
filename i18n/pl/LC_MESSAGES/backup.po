@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 20:53-0400\n"
+"POT-Creation-Date: 2019-11-25 18:14+0530\n"
 "PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/backup/pl/"
@@ -175,17 +175,9 @@ msgstr "Kopa zapasowa"
 msgid "Backup & Restore"
 msgstr "Kopia zapasowa & Przywracanie"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "Kopia zapasowa & Przywracanie - Przywracanie"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "Kopia zapasowa & Przywracanie - Serwery"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "Kopia zapasowa & Przywracanie - Szblony"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -224,7 +216,7 @@ msgstr "Backup Lock wymagany!"
 msgid "Backup Log:"
 msgstr "Backup Log:"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "Moduł kopii zapasowej"
 
@@ -514,7 +506,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr "Upuść tutaj"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr "Email "
 
@@ -1395,7 +1387,7 @@ msgstr "Wybierz serwer do archiwizacji (ten serwer lub inny serwer SSH)"
 msgid "September"
 msgstr "Wrzesień"
 
-#: views/restore/restore.php:55
+#: views/restore/restore.php:56
 msgid "Server"
 msgstr "Serwer"
 
@@ -1512,7 +1504,7 @@ msgstr ""
 "Typ plików systemu serwera FTP. Jeśli nie jesteś pewny, ustaw to na "
 "automatyczne"
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "Pole od: dla wiadomości e-mail podczas korzystania z funkcji tworzenia kopii "
@@ -1790,6 +1782,12 @@ msgstr "oczekiwanie na blokadę..."
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{brak dostępnych serwerów}"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Kopia zapasowa & Przywracanie - Serwery"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Kopia zapasowa & Przywracanie - Szblony"
 
 #~ msgid "Apply Configs"
 #~ msgstr "Zastosuj konfiguracje"

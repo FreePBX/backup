@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 20:53-0400\n"
+"POT-Creation-Date: 2019-11-25 18:14+0530\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -180,17 +180,9 @@ msgstr "پشتیبان گیری"
 msgid "Backup & Restore"
 msgstr "پشتیبان گیری و بازیابی"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "پشتیبان گیری و بازیابی - بازیابی"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "پشتیبان گیری و بازیابی - سرورها"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "پشتیبان گیری و بازیابی - قالب ها"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -229,7 +221,7 @@ msgstr "به وجود آمدن قفل پشتیبان گیری!"
 msgid "Backup Log:"
 msgstr "لاگ پشتیبان گیری:"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "ماژول پشتیبان گیری"
 
@@ -517,7 +509,7 @@ msgstr "برای اضافه کردن قالب ها به جدول، آن ها ر�
 msgid "Drop Here"
 msgstr "اینجا بیندازید"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr "ایمیل "
 
@@ -1406,7 +1398,7 @@ msgstr ""
 msgid "September"
 msgstr "سپتامبر"
 
-#: views/restore/restore.php:55
+#: views/restore/restore.php:56
 msgid "Server"
 msgstr "سرور"
 
@@ -1522,7 +1514,7 @@ msgstr "قالب ها"
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr "سیستم فایل از نوع سرور FTP . اگر مطمئن نیستید به صورت خودکارتنظیم کنید"
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "از طرف: فیلد مبدا ایمیل ها وقتی از قابلیت ارسال ایمیل پشتیبان استفاده می شود."
@@ -1798,6 +1790,12 @@ msgstr "انتظار برای قفل..."
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{سروری در دسترس نیست}"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "پشتیبان گیری و بازیابی - سرورها"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "پشتیبان گیری و بازیابی - قالب ها"
 
 #~ msgid "Apply Configs"
 #~ msgstr "اعمال تنظیمات"

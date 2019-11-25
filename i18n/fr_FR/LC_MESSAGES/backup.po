@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 20:53-0400\n"
+"POT-Creation-Date: 2019-11-25 18:14+0530\n"
 "PO-Revision-Date: 2017-12-11 23:32+0200\n"
 "Last-Translator: JCattan <jeremie@famillecattan.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -193,17 +193,9 @@ msgstr "Copie de sauvegarde"
 msgid "Backup & Restore"
 msgstr "Sauvegarder et restaurer"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "Sauvegarder et restaurer - Restaurer"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "Sauvegarder et restaurer - Serveurs"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "Sauvegarder et restaurer - Modèles"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -241,7 +233,7 @@ msgstr "Verrouillage Sauvegarde acquis!"
 msgid "Backup Log:"
 msgstr "Journal de la copie de sauvegarde :"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "Modele de copie de sauvegarde"
 
@@ -521,7 +513,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr ""
 
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr ""
 
@@ -1390,7 +1382,7 @@ msgstr ""
 msgid "September"
 msgstr "Septembre"
 
-#: views/restore/restore.php:55
+#: views/restore/restore.php:56
 msgid "Server"
 msgstr ""
 
@@ -1505,7 +1497,7 @@ msgstr ""
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr ""
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 
@@ -1765,6 +1757,12 @@ msgstr ""
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr ""
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Sauvegarder et restaurer - Serveurs"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Sauvegarder et restaurer - Modèles"
 
 #~ msgid "Apply Configs"
 #~ msgstr "Appliquer la configuration"

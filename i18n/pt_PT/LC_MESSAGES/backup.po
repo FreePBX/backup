@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 20:53-0400\n"
+"POT-Creation-Date: 2019-11-25 18:14+0530\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -177,17 +177,9 @@ msgstr "Cópia de Segurança"
 msgid "Backup & Restore"
 msgstr "Cópia de Segurança & Restauro"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "Cópia de Segurança & Restauro - Restauro"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "Cópia de Segurança & Restauro - Servidores"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "Cópia de Segurança & Restauro - Modelos"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -225,7 +217,7 @@ msgstr "Bloqueio de Cópia de Segurança adquirido!"
 msgid "Backup Log:"
 msgstr "Log de Cópia de Segurança:"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "Módulo de Cópia de Segurança"
 
@@ -514,7 +506,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr ""
 
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr "Email "
 
@@ -1393,7 +1385,7 @@ msgstr ""
 msgid "September"
 msgstr "Setembro"
 
-#: views/restore/restore.php:55
+#: views/restore/restore.php:56
 msgid "Server"
 msgstr ""
 
@@ -1508,7 +1500,7 @@ msgstr "Modelos"
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr ""
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "O campo De: para os emails ao usar a funcionalidade email de cópia de "
@@ -1771,6 +1763,12 @@ msgstr "aguardando bloqueio..."
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{nenhum servidor disponível}"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Cópia de Segurança & Restauro - Servidores"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Cópia de Segurança & Restauro - Modelos"
 
 #~ msgid "Apply Configs"
 #~ msgstr "Aplicar Configs"

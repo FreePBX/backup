@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-19 11:35+0530\n"
+"POT-Creation-Date: 2019-11-25 13:53+0530\n"
 "PO-Revision-Date: 2019-03-29 18:00+0000\n"
 "Last-Translator: jeremie cattan <freepbx@famillecattan.com>\n"
 "Language-Team: French <http://*/projects/freepbx/backup/fr/>\n"
@@ -196,17 +196,9 @@ msgstr "Copie de sauvegarde"
 msgid "Backup & Restore"
 msgstr "Sauvegarder et restaurer"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "Sauvegarder et restaurer - Restaurer"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "Sauvegarder et restaurer - Serveurs"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "Sauvegarder et restaurer - Modèles"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -248,7 +240,7 @@ msgstr "Verrou de sauvegarde acquis !"
 msgid "Backup Log:"
 msgstr "Journal de sauvegarde :"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "Module de sauvegarde"
 
@@ -363,7 +355,7 @@ msgstr "Enregistrement des appels"
 msgid "Can not create backup tables"
 msgstr "Impossible de créer des tables de sauvegarde"
 
-#: bin/restore.php:500
+#: bin/restore.php:503
 msgid "Cleaning up..."
 msgstr "Nettoyage..."
 
@@ -542,7 +534,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr "Déposer ici"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr "Mail "
 
@@ -634,8 +626,8 @@ msgid ""
 "Explicitly exclude any machine-specific DNS. This allows you to have a warm-"
 "spare machine with a different DNS."
 msgstr ""
-"Exclure explicitement tout DNS spécifique à une machine. Cela vous permet d’"
-"avoir un ordinateur de secours avec un DNS différent."
+"Exclure explicitement tout DNS spécifique à une machine. Cela vous permet "
+"d’avoir un ordinateur de secours avec un DNS différent."
 
 #: views/backup/backup.php:368
 msgid ""
@@ -813,8 +805,8 @@ msgid ""
 msgstr ""
 "Si Randomize est sélectionné, une fréquence similaire sera suivie, seuls les "
 "horaires exacts seront randomisés (en évitant les heures de pointe, lorsque "
-"cela est possible). Remarque: les programmes aléatoires seront reprogrammés ("
-"au hasard) chaque fois qu'une sauvegarde est sauvegardée"
+"cela est possible). Remarque: les programmes aléatoires seront reprogrammés "
+"(au hasard) chaque fois qu'une sauvegarde est sauvegardée"
 
 #: views/cron.php:108
 msgid ""
@@ -828,8 +820,8 @@ msgid ""
 msgstr ""
 "Si une planification personnalisée est sélectionnée, toute section non "
 "spécifiée sera considérée comme \"quelconque\" (aka: caractère générique).\n"
-"\t\tEx: si le jour du mois est défini sur 12 et que le jour de la semaine n’"
-"est pas défini, la sauvegarde sera exécutée CHAQUE 12 du mois\n"
+"\t\tEx: si le jour du mois est défini sur 12 et que le jour de la semaine "
+"n’est pas défini, la sauvegarde sera exécutée CHAQUE 12 du mois\n"
 "\t\tquel que soit le jour de la semaine. Si le jour de la semaine est défini "
 "sur, par exemple, le lundi, la sauvegarde s'exécutera\n"
 "\t\tUNIQUEMENT un lundi et UNIQUEMENT s'il s'agit du 12 du mois ."
@@ -1095,7 +1087,8 @@ msgstr "Paramètres PBX"
 
 #: install.php:87
 msgid "PBX config server, generally a local database server"
-msgstr "Serveur de config PBX, généralement un serveur de base de données local"
+msgstr ""
+"Serveur de config PBX, généralement un serveur de base de données local"
 
 #: views/backup/backups.php:499 views/servers/ftp.php:160
 msgid "Passive"
@@ -1375,7 +1368,7 @@ msgstr "Exécuter une fois par Heure, au debut de l'heure"
 msgid "Running maintenance.."
 msgstr "Maintenance en cours .."
 
-#: bin/restore.php:491
+#: bin/restore.php:494
 msgid "Running post restore script..."
 msgstr "Exécution du script de post-restauration ..."
 
@@ -1383,7 +1376,7 @@ msgstr "Exécution du script de post-restauration ..."
 msgid "Running post-backup hooks..."
 msgstr "Exécution du script de post-sauvegarde ..."
 
-#: bin/restore.php:495
+#: bin/restore.php:498
 msgid "Running post-restore hooks, if any..."
 msgstr "Exécution de hooks post-restauration, le cas échéant ..."
 
@@ -1591,7 +1584,7 @@ msgstr ""
 "Le type de système de fichiers du serveur FTP. Si vous n'êtes pas sûr, "
 "utilisez Auto"
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "Le champ De: pour les mail lors de l'utilisation de la fonction de mail de "
@@ -1884,6 +1877,12 @@ msgstr "en attente de verrouillage ..."
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{aucun serveur disponible}"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Sauvegarder et restaurer - Serveurs"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Sauvegarder et restaurer - Modèles"
 
 #~ msgid "Apply Configs"
 #~ msgstr "Appliquer la configuration"

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-19 11:35+0530\n"
+"POT-Creation-Date: 2019-11-25 13:53+0530\n"
 "PO-Revision-Date: 2018-05-28 14:10+0000\n"
 "Last-Translator: Stell0 <stefano.fancello@nethesis.it>\n"
 "Language-Team: Italian <http://*/projects/freepbx/backup/it/>\n"
@@ -198,17 +198,9 @@ msgstr "Supporto"
 msgid "Backup & Restore"
 msgstr "Backup & Ripristino"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "Backup e ripristino - Ripristino"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "Backup e Ripristino - Servers"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "Backup e Ripristino - Modelli"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -250,7 +242,7 @@ msgstr "Backup Lock acquisito!"
 msgid "Backup Log:"
 msgstr "Log di Backup:"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "Moduli di Backup"
 
@@ -364,7 +356,7 @@ msgstr "Registrazioni Chiamata"
 msgid "Can not create backup tables"
 msgstr "Impossibile creare tabelle di backup"
 
-#: bin/restore.php:500
+#: bin/restore.php:503
 msgid "Cleaning up..."
 msgstr "Pulizia..."
 
@@ -543,7 +535,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr "Rilascia qui"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr "Email "
 
@@ -1380,7 +1372,7 @@ msgstr "Esegui una volta all'ora, all'inizio dell'ora"
 msgid "Running maintenance.."
 msgstr "Manutenzione in corso .."
 
-#: bin/restore.php:491
+#: bin/restore.php:494
 msgid "Running post restore script..."
 msgstr "Esecuzione di script di post-ripristino ..."
 
@@ -1388,7 +1380,7 @@ msgstr "Esecuzione di script di post-ripristino ..."
 msgid "Running post-backup hooks..."
 msgstr "Esecuzione di hook post-backup ..."
 
-#: bin/restore.php:495
+#: bin/restore.php:498
 msgid "Running post-restore hooks, if any..."
 msgstr "Esecuzione di hook post ripristino, se presenti ..."
 
@@ -1597,7 +1589,7 @@ msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr ""
 "Il tipo di file system del server FTP. Se non si è sicuri, impostare su Auto"
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "Il campo Da: per le e-mail quando si utilizza la funzione di e-mail di "
@@ -1891,6 +1883,12 @@ msgstr "in attesa di blocco ..."
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{nessun server disponibile}"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Backup e Ripristino - Servers"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Backup e Ripristino - Modelli"
 
 #~ msgid "Apply Configs"
 #~ msgstr "Applica Configurazioni"

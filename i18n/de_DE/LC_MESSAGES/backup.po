@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-19 11:35+0530\n"
+"POT-Creation-Date: 2019-11-25 13:53+0530\n"
 "PO-Revision-Date: 2019-02-20 10:42+0000\n"
 "Last-Translator: hammer125 <auswertung@mariner.at>\n"
 "Language-Team: German <http://*/projects/freepbx/backup/de/>\n"
@@ -187,17 +187,9 @@ msgstr "Sicherung"
 msgid "Backup & Restore"
 msgstr "Sichern & Wiederherstellen"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "Sichern & Wiederherstellen - Wiederherstellen"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "Sichern & Wiederherstellen - Server"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "Sichern & Wiederherstellen - Vorlagen"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -239,7 +231,7 @@ msgstr "Sicherungssperre erworben!"
 msgid "Backup Log:"
 msgstr "Sicherungsprotokoll:"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "Sicherungsmodule"
 
@@ -352,7 +344,7 @@ msgstr "Anruferberichte"
 msgid "Can not create backup tables"
 msgstr "Es können keine Sicherungstabellen erstellt werden"
 
-#: bin/restore.php:500
+#: bin/restore.php:503
 msgid "Cleaning up..."
 msgstr "Aufräumen..."
 
@@ -530,7 +522,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr "Hier reinziehen"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr "E-Mail "
 
@@ -1375,7 +1367,7 @@ msgstr "Startet einmal stündlich, am Stundenanfang"
 msgid "Running maintenance.."
 msgstr "Führe Wartung durch.."
 
-#: bin/restore.php:491
+#: bin/restore.php:494
 msgid "Running post restore script..."
 msgstr "Laufendes Wiederherstellungs-Post-Skript..."
 
@@ -1383,7 +1375,7 @@ msgstr "Laufendes Wiederherstellungs-Post-Skript..."
 msgid "Running post-backup hooks..."
 msgstr "Laufende Sicherungs-Post-Skripte..."
 
-#: bin/restore.php:495
+#: bin/restore.php:498
 msgid "Running post-restore hooks, if any..."
 msgstr "Laufende Wiederherstellungs-Post-Skripte, falls vorhanden..."
 
@@ -1592,7 +1584,7 @@ msgstr ""
 "Der Dateisystemtyp des FTP-Servers. Wenn Sie nicht sicher sind, stellen Sie "
 "dies auf Auto"
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr "Von: Ein Feld für E-Mails, wenn Sie das E-Mail-Feature verwenden."
 
@@ -1886,6 +1878,12 @@ msgstr "warte auf Sperrung..."
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{keine Server Verfügbar}"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Sichern & Wiederherstellen - Server"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Sichern & Wiederherstellen - Vorlagen"
 
 #~ msgid "Apply Configs"
 #~ msgstr "Konfigurationen anwenden"

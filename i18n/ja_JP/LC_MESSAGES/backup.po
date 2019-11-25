@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-19 11:35+0530\n"
+"POT-Creation-Date: 2019-11-25 13:53+0530\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -209,17 +209,9 @@ msgstr "バックアップ"
 msgid "Backup & Restore"
 msgstr "バックアップと復元"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "バックアップと復元：復元"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "バックアップとリストア：サーバー"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "バックアップと復元：テンプレート"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -261,7 +253,7 @@ msgstr "バックアップロックを取得しました。"
 msgid "Backup Log:"
 msgstr "バックアップログ："
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "バックアップモジュール"
 
@@ -376,7 +368,7 @@ msgstr ""
 msgid "Can not create backup tables"
 msgstr "バックアップのテーブルを作成できません。"
 
-#: bin/restore.php:500
+#: bin/restore.php:503
 msgid "Cleaning up..."
 msgstr "クリーンアップしています..."
 
@@ -550,7 +542,7 @@ msgstr ""
 msgid "Drop Here"
 msgstr ""
 
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr ""
 
@@ -1358,7 +1350,7 @@ msgstr ""
 msgid "Running maintenance.."
 msgstr ""
 
-#: bin/restore.php:491
+#: bin/restore.php:494
 msgid "Running post restore script..."
 msgstr "復元後のスクリプトを実行中..."
 
@@ -1366,7 +1358,7 @@ msgstr "復元後のスクリプトを実行中..."
 msgid "Running post-backup hooks..."
 msgstr "バックアップ後フック実行中..."
 
-#: bin/restore.php:495
+#: bin/restore.php:498
 msgid "Running post-restore hooks, if any..."
 msgstr "復元後のフックがある場合は実行します。"
 
@@ -1570,7 +1562,7 @@ msgstr "テンプレート"
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr ""
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr "バックアップEメール機能使用時のFrom:フィールド。"
 
@@ -1843,6 +1835,12 @@ msgstr "ロックを待機中…"
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{サーバーはありません}"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "バックアップとリストア：サーバー"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "バックアップと復元：テンプレート"
 
 #~ msgid "Apply Configs"
 #~ msgstr "変更を適用"

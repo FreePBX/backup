@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-19 11:35+0530\n"
+"POT-Creation-Date: 2019-11-25 13:53+0530\n"
 "PO-Revision-Date: 2017-06-06 11:54+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -186,17 +186,9 @@ msgstr "Sao lưu"
 msgid "Backup & Restore"
 msgstr "Sao lưu và khôi phục"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "Sao lưu và Khôi phục- Khôi phục"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "Sao lưu & Khôi phục- Các máy chủ"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "Sao lưu & Khôi phục- Các mẫu"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -238,7 +230,7 @@ msgstr "Sao lưu Lock thu được!"
 msgid "Backup Log:"
 msgstr "Sao lưu Log:"
 
-#: backup.i18n.php:20
+#: backup.i18n.php:16
 msgid "Backup Module"
 msgstr "Sao lưu Mô đun"
 
@@ -351,7 +343,7 @@ msgstr "Các ghi âm cuộc gọi"
 msgid "Can not create backup tables"
 msgstr "Không thể tạo ra các bảng sao lưu"
 
-#: bin/restore.php:500
+#: bin/restore.php:503
 msgid "Cleaning up..."
 msgstr "Đang dọn sạch..."
 
@@ -526,7 +518,7 @@ msgstr "Kéo và thả các mẫu vào bản mục lục để thêm các thư m
 msgid "Drop Here"
 msgstr "Thả tại đây"
 
-#: backup.i18n.php:18
+#: backup.i18n.php:14
 msgid "Email "
 msgstr "Thư điện tử "
 
@@ -1357,7 +1349,7 @@ msgstr "Chạy 1 lần 1 giờ, vào lúc bắt đầu của giờ đó"
 msgid "Running maintenance.."
 msgstr "Đang chạy bảo dưỡng..."
 
-#: bin/restore.php:491
+#: bin/restore.php:494
 msgid "Running post restore script..."
 msgstr "Đang chạy kịch bản sau khôi phục..."
 
@@ -1365,7 +1357,7 @@ msgstr "Đang chạy kịch bản sau khôi phục..."
 msgid "Running post-backup hooks..."
 msgstr "Đang chạt Hooks sau sao lưu..."
 
-#: bin/restore.php:495
+#: bin/restore.php:498
 msgid "Running post-restore hooks, if any..."
 msgstr "Đang chạy hooks sau khôi phục, nếu có..."
 
@@ -1572,7 +1564,7 @@ msgstr ""
 "Kiểu hệ thống tệp của máy chủ FTP. Nếu bạn không chắc chắn hãy cài đặt về Tự "
 "động"
 
-#: backup.i18n.php:22
+#: backup.i18n.php:18
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 "The From: Trường cho các thư điện tử khi sử dụng đặc tính sao lưu Thư điện "
@@ -1846,6 +1838,12 @@ msgstr ""
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr ""
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Sao lưu & Khôi phục- Các máy chủ"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Sao lưu & Khôi phục- Các mẫu"
 
 #~ msgid "Apply Configs"
 #~ msgstr "Áp dụng các cấu hình"

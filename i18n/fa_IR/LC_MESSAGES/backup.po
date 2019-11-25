@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-19 11:35+0530\n"
-"PO-Revision-Date: 2019-01-25 06:16+0000\n"
+"PO-Revision-Date: 2019-08-13 11:55+0000\n"
 "Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://*/projects/freepbx/backup/fa/>\n"
 "Language: fa_IR\n"
@@ -222,7 +222,7 @@ msgstr "زمانبندی پشتیبان"
 
 #: Console/Backup.class.php:20
 msgid "Backup History"
-msgstr ""
+msgstr "تاریخچه پشتیبان"
 
 #: views/backup/backups.php:58
 msgid "Backup Items"
@@ -558,7 +558,7 @@ msgstr "آدرس ایمیلی که وضعیت اجرای این پشتیبان �
 
 #: Console/Backup.class.php:47
 msgid "End"
-msgstr ""
+msgstr "پایان"
 
 #: functions.inc/class.backup.php:471 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
@@ -689,7 +689,7 @@ msgstr "فایل"
 
 #: Console/Backup.class.php:47
 msgid "File Count"
-msgstr ""
+msgstr "تعداد فایل"
 
 #: functions.inc/restore.php:424
 msgid "File not found! "
@@ -850,11 +850,11 @@ msgstr "ژانویه"
 
 #: Console/Backup.class.php:47
 msgid "Job ID"
-msgstr ""
+msgstr "شناسه کاری"
 
 #: Console/Backup.class.php:47
 msgid "Job Name"
-msgstr ""
+msgstr "نام شغل"
 
 #: views/cron.php:50
 msgid "July"
@@ -894,7 +894,7 @@ msgstr "نگهداری"
 
 #: Console/Backup.class.php:17
 msgid "Manage Backup jobs"
-msgstr ""
+msgstr "مدیریت پشتیبان کارها"
 
 #: views/cron.php:46
 msgid "March"
@@ -1059,7 +1059,7 @@ msgstr "دیگر دیتابیس های MySQL"
 
 #: Console/Backup.class.php:19
 msgid "Output in JSON"
-msgstr ""
+msgstr "خروج در JSON"
 
 #: functions.inc/templates.php:259
 msgid "PATTERNs, one per line"
@@ -1505,7 +1505,7 @@ msgstr ""
 
 #: Console/Backup.class.php:47
 msgid "Start"
-msgstr ""
+msgstr "شروع"
 
 #: views/backup/backup.php:65 views/backup/backups.php:291
 msgid "Status Email"

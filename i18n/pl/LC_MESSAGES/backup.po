@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 13:53+0530\n"
+"POT-Creation-Date: 2019-11-25 18:15+0530\n"
 "PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/backup/pl/"
@@ -1419,7 +1419,7 @@ msgstr "Wybierz serwer do archiwizacji (ten serwer lub inny serwer SSH)"
 msgid "September"
 msgstr "Wrzesień"
 
-#: views/restore/restore.php:55
+#: views/restore/restore.php:56
 msgid "Server"
 msgstr "Serwer"
 

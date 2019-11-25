@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 13:53+0530\n"
+"POT-Creation-Date: 2019-11-25 18:15+0530\n"
 "PO-Revision-Date: 2015-11-17 12:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -1392,7 +1392,7 @@ msgstr ""
 msgid "September"
 msgstr "九月"
 
-#: views/restore/restore.php:55
+#: views/restore/restore.php:56
 msgid "Server"
 msgstr ""
 

@@ -486,6 +486,9 @@ if (!isset($vars['restore'])) {
 	}
 	//dbug($file);
 
+	if (isset($vars['disabletrunks'])) {
+		core_trunks_disable('reg', true);
+	}
 	//run hooks
 	if (isset($manifest['hooks']['post_restore']) && $manifest['hooks']['post_restore']) {
 		backup_log(_('Running post restore script...'));
@@ -525,9 +528,6 @@ if (!isset($vars['restore'])) {
 		if ($f[0] == 'backuptmp' && $f[2] < strtotime('yesterday')) {
 			unlink($amp_conf['ASTSPOOLDIR'] . '/tmp/' . $file);
 		}
-	}
-	if (isset($vars['disabletrunks'])) {
-		core_trunks_disable('reg', true);
 	}
 	backup_log(_('Restore complete!'));
 	backup_log(_('Reloading...'));

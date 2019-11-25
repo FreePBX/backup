@@ -18,6 +18,7 @@ class ModelBase {
 		'garbage' => []
 	];
 	protected $defaultFallback = false;
+	protected $getBackupManifestBackupInfo = [];
 
 	public function __construct($freepbx, $backupModVer, $logger, $transactionId, $modData, $defaultFallback){
 		$this->FreePBX = $freepbx;
@@ -25,7 +26,7 @@ class ModelBase {
 		$this->logger = $logger;
 		$this->transactionId = $transactionId;
 		$this->defaultFallback = $defaultFallback;
-
+		$this->getBackupManifestBackupInfo = $modData['backupInfo']['backupInfo'];
 		foreach($this->data as $key => $data) {
 			if(!isset($modData[$key])) {
 				$modData[$key] = $data;
@@ -121,7 +122,10 @@ class ModelBase {
 	public function getPBXVersion() {
 		return $this->data['pbx_version'];
 	}
-
+	/* Return the backupmainfest backupinfo when the module request*/
+	public function getBackupInfo() {
+		return $this->getBackupManifestBackupInfo;
+	}
 	/**
 	 * Logging functionality
 	 *

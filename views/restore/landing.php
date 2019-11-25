@@ -63,6 +63,7 @@ if(isset($error) && !empty($error)){
 			data-pagination="true"
 			data-search="true"
 			data-unique-id="id"
+			data-escape="true" 
 			class="table table-striped">
 			<thead>
 				<tr>
@@ -105,7 +106,8 @@ if(isset($error) && !empty($error)){
 			data-toggle="table"
 			data-pagination="true"
 			data-search="true"
-			data-unique-id="id"
+			data-unique-id="id" 
+			data-escape="true" 
 			class="table table-striped">
 			<thead>
 				<tr>

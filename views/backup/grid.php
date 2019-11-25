@@ -17,6 +17,7 @@
         data-toggle="table"
         data-pagination="true"
         data-search="true"
+        data-escape="true" 
         class="table table-striped">
     <thead>
         <tr>

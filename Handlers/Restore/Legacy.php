@@ -345,7 +345,7 @@ class Legacy extends Common {
 							if(preg_match('/'.$ere_bit_field.'/', $query)) {
 								throw new \Exception("Ere_bit_field");
 							}
-							$query = preg_replace('/ (COMMENT|comment).+$/', "",$query);
+							$query = preg_replace('/(COMMENT|comment)\s*\'.*\'/', ",",$query);
 							$query = preg_replace('/\)\s*ENGINE=.*;/', ');', $query);
 							$query = preg_replace('/,\s*\n\);/', "\n);", $query);
 							try {

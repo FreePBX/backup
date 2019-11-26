@@ -2,7 +2,7 @@
 $disabled = (isset($readonly) && !empty($readonly))?' disabled ':'';
 ?>
 <h2><?php echo _("Email Server")?></h2>
-<form class="fpbx-submit" action="" method="post" id="server_form" name="server_form" data-fpbx-delete="?display=backup_servers&action=delete&id=<?php echo isset($_GET['id']) ? $_GET['id'] : '' ?>">
+<form class="fpbx-submit" action="" method="post" id="server_form" name="server_form" data-fpbx-delete="?display=backup_servers&action=delete&id=<?php echo isset($request['id']) ? urlencode($request['id']) : '' ?>">
 	<input type="hidden" name="action" value="save">
 	<input type="hidden" name="id" value="<?php echo isset($id)?$id:''?>">
 	<input type="hidden" name="server_type" value="email">

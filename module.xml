@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.72</version>
+	<version>15.0.8.73</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.73* bump 
 		*15.0.8.72* FREEI-765 Added the missing method 
 		*15.0.8.71* FREEI-835: fixed path to get cloud backup restores working 
 		*15.0.8.70* FREEPBX-20646 

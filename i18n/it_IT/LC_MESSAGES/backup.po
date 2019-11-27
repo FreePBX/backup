@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-19 21:17+0530\n"
+"POT-Creation-Date: 2019-11-27 11:21+0530\n"
 "PO-Revision-Date: 2010-01-23 14:24+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -80,8 +80,8 @@ msgstr ""
 msgid "Access Token URL of Warm Spare server."
 msgstr ""
 
-#: views/backup/grid.php:25 views/restore/landing.php:73
-#: views/restore/landing.php:117
+#: views/backup/grid.php:26 views/restore/landing.php:74
+#: views/restore/landing.php:119
 msgid "Actions"
 msgstr ""
 
@@ -180,7 +180,7 @@ msgstr ""
 msgid "Backup & Restore for your FreePBX environment"
 msgstr ""
 
-#: views/restore/landing.php:71 views/restore/landing.php:114
+#: views/restore/landing.php:72 views/restore/landing.php:116
 msgid "Backup Date"
 msgstr ""
 
@@ -208,7 +208,7 @@ msgstr ""
 msgid "Backup Info"
 msgstr ""
 
-#: views/restore/landing.php:116
+#: views/restore/landing.php:118
 msgid "Backup Instance"
 msgstr ""
 
@@ -220,12 +220,12 @@ msgstr ""
 msgid "Backup Module"
 msgstr ""
 
-#: views/backup/form.php:40 views/restore/landing.php:70
-#: views/restore/landing.php:113
+#: views/backup/form.php:40 views/restore/landing.php:71
+#: views/restore/landing.php:115
 msgid "Backup Name"
 msgstr ""
 
-#: views/restore/landing.php:115
+#: views/restore/landing.php:117
 msgid "Backup Type"
 msgstr ""
 
@@ -313,7 +313,7 @@ msgstr ""
 msgid "ClientID of the Warm Spare server."
 msgstr ""
 
-#: views/backup/form.php:466 views/runModal.php:12
+#: views/backup/form.php:467 views/runModal.php:12
 msgid "Close"
 msgstr ""
 
@@ -361,7 +361,7 @@ msgid "Creating directory '%s'"
 msgstr ""
 
 #: Backup.class.php:200 views/restore/landing.php:49
-#: views/restore/landing.php:92 assets/js/backup.js:205 assets/js/backup.js:242
+#: views/restore/landing.php:93 assets/js/backup.js:205 assets/js/backup.js:242
 msgid "Delete"
 msgstr ""
 
@@ -378,7 +378,7 @@ msgstr ""
 msgid "Depend field was blank for %s. Skipping because not sure what to do"
 msgstr ""
 
-#: views/backup/grid.php:24 views/restore/processRestore.php:15
+#: views/backup/grid.php:25 views/restore/processRestore.php:15
 #: views/rnav.php:9
 msgid "Description"
 msgstr ""
@@ -593,7 +593,7 @@ msgstr ""
 msgid "Found %s database files in the backup."
 msgstr ""
 
-#: views/restore/landing.php:72
+#: views/restore/landing.php:73
 msgid "Framework"
 msgstr ""
 
@@ -788,7 +788,7 @@ msgstr ""
 msgid "Missing id or transaction or pid"
 msgstr ""
 
-#: views/backup/form.php:455 views/restore/processRestore.php:47
+#: views/backup/form.php:456 views/restore/processRestore.php:48
 msgid "Module"
 msgstr ""
 
@@ -821,7 +821,7 @@ msgstr ""
 msgid "NOT Resetting %s module data"
 msgstr ""
 
-#: functions.inc/class.backup.php:397 views/backup/grid.php:23
+#: functions.inc/class.backup.php:397 views/backup/grid.php:24
 #: views/restore/processRestore.php:14 views/rnav.php:8
 msgid "Name"
 msgstr ""
@@ -961,7 +961,7 @@ msgstr ""
 msgid "Removing table %s."
 msgstr ""
 
-#: Backup.class.php:185 views/backup/form.php:463
+#: Backup.class.php:185 views/backup/form.php:464
 msgid "Reset"
 msgstr ""
 
@@ -995,7 +995,7 @@ msgstr ""
 msgid "Restore from local cache"
 msgstr ""
 
-#: views/restore/landing.php:81
+#: views/restore/landing.php:82
 msgid "Restore from the cloud"
 msgstr ""
 
@@ -1099,7 +1099,7 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: views/backup/form.php:469
+#: views/backup/form.php:470
 msgid "Save Changes"
 msgstr ""
 
@@ -1146,7 +1146,7 @@ msgid ""
 "configured with the Filestore module"
 msgstr ""
 
-#: views/backup/form.php:452
+#: views/backup/form.php:453
 msgid "Selected"
 msgstr "Selezionato"
 
@@ -1186,7 +1186,7 @@ msgstr ""
 msgid "Starting backup %s"
 msgstr ""
 
-#: views/restore/processRestore.php:49
+#: views/restore/processRestore.php:50
 msgid "Status"
 msgstr ""
 
@@ -1299,7 +1299,7 @@ msgid ""
 "This backup will be stored locally and is subject to maintenance settings"
 msgstr ""
 
-#: views/restore/landing.php:85
+#: views/restore/landing.php:86
 msgid ""
 "This feature requires filestore be setup and may not be availible on a clean "
 "install"
@@ -1409,7 +1409,7 @@ msgstr ""
 msgid "Utilizing file based sqlite at %s, This is SLOW"
 msgstr ""
 
-#: views/restore/processRestore.php:48
+#: views/restore/processRestore.php:49
 msgid "Version in Backup"
 msgstr ""
 

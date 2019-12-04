@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-04 16:38+0530\n"
+"POT-Creation-Date: 2019-12-04 16:48+0530\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -193,6 +193,11 @@ msgstr "Sao lưu LỖI ( Vượt quá giới hạn mềm)"
 
 #: views/restore/landing.php:16
 msgid "Backup File"
+msgstr ""
+
+#: Handlers/Backup/Multiple.php:57
+#, php-format
+msgid "Backup File Name: %s"
 msgstr ""
 
 #: views/restore/processRestore.php:11
@@ -1116,7 +1121,7 @@ msgstr ""
 
 #: Handlers/Storage.php:43
 #, php-format
-msgid "Saving to: %s:'%s' instance"
+msgid "Saving to: %s:'%s' instance ,File location: %s/%s "
 msgstr ""
 
 #: views/backup/form.php:254
@@ -1195,11 +1200,6 @@ msgstr ""
 
 #: views/backup/form.php:230
 msgid "Storage Location"
-msgstr ""
-
-#: Handlers/Backup/Multiple.php:57
-#, php-format
-msgid "Storage Location: %s"
 msgstr ""
 
 #: views/backup/form.php:191

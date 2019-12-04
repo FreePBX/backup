@@ -40,7 +40,7 @@ class Storage extends CommonFile {
 					continue;
 				}
 				$this->Filestore->upload($id,$this->file,basename($this->file));
-				$this->log("\t".sprintf(_("Saving to: %s:'%s' instance"),$info['driver'],$info['name']),'DEBUG');
+				$this->log("\t".sprintf(_("Saving to: %s:'%s' instance ,File location: %s/%s "),$info['driver'],$info['name'],$info['path'],basename($this->file)),'DEBUG');
 			} catch (\Exception $e) {
 				$err = $e->getMessage();
 				$this->log($err,'ERROR');

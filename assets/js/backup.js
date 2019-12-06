@@ -207,7 +207,7 @@ $("#restoreFiles").on("post-body.bs.table", function () {
 				var id = e.currentTarget.dataset.id;
 				var file = e.currentTarget.dataset.file;
 				$.ajax({
-					url: ajaxurl,
+					url: FreePBX.ajaxurl,
 					method: "GET",
 					data: {
 						module: 'backup',

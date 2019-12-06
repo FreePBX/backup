@@ -81,7 +81,7 @@ class Multiple extends Common {
 				$manifest['skipped'][] = ucfirst($mod);
 				$msg = sprintf(_("Could not backup module %s because it is not enabled"),$mod);
 				$this->log($msg,'WARNING');
-				$this->addError($msg);
+				$this->addWarning($msg);
 				continue;
 			}
 			$this->dependencies[$mod] = $validMods[$mod]['version'];

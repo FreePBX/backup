@@ -54,7 +54,7 @@ class Multiple extends Common {
 		$tarfilename = sprintf('%s%s-%s-%s',date("Ymd-His-"),time(),getVersion(),rand());
 		$targzname = sprintf('%s.tar.gz',$tarfilename);
 		$this->log(_("This backup will be stored locally and is subject to maintenance settings"),'DEBUG');
-		$this->log(sprintf(_("Storage Location: %s"),$this->filePath.'/'.$targzname));
+		$this->log(sprintf(_("Backup File Name: %s"),$targzname));
 		$this->setFilename($targzname);
 		$this->setnametodb($this->transactionId,$this->id,$targzname);
 		$tar = $this->openFile();
@@ -81,7 +81,7 @@ class Multiple extends Common {
 				$manifest['skipped'][] = ucfirst($mod);
 				$msg = sprintf(_("Could not backup module %s because it is not enabled"),$mod);
 				$this->log($msg,'WARNING');
-				$this->addError($msg);
+				$this->addWarning($msg);
 				continue;
 			}
 			$this->dependencies[$mod] = $validMods[$mod]['version'];
@@ -179,7 +179,7 @@ class Multiple extends Common {
 		}
 		$this->log(_("Finished Cleaning up"));
 
-		$this->log(sprintf(_("Finished created backup file: %s"),$this->getFile()));
+		$this->log(sprintf(_("Finished created backup file: %s"),$targzname));
 
 		return $this->getFile();
 	}

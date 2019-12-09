@@ -175,7 +175,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		}
 		$this->getportschanges();
 		if(is_array($this->changedports) && count($this->changedports)> 0){
-			$this->log(_("Apache will Restat now... And your GUI may die if the ports are changed !!!!"));
+			$this->log(_("Apache will Restart now... And your GUI may die if the ports are changed !!!!"));
 			foreach($this->changedports as $key => $port){
 				if($key == 'acp' || $key == 'sslacp') {
 					if(!strpos($port, 'available')){

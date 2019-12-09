@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-04 16:48+0530\n"
+"POT-Creation-Date: 2019-12-09 15:30+0530\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -127,7 +127,7 @@ msgstr ""
 
 #: Handlers/Restore/Common.php:178
 msgid ""
-"Apache will Restat now... And your GUI may die if the ports are changed !!!!"
+"Apache will Restart now... And your GUI may die if the ports are changed !!!!"
 msgstr ""
 
 #: views/backup/warmspare.php:176

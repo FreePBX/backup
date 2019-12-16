@@ -94,6 +94,15 @@ class Maintenance extends \FreePBX\modules\Backup\Handlers\CommonBase {
 				continue;
 			}
 
+			if($info["driver"] == "Dropbox"){
+				/**
+				 * Need to do that for avoid to get an error : path/not_found 
+				 * Because even if we get this kind of error from Dropbox, the folder will be created anyway.
+				 * Forcing to create a directory /, even if this one exists avoids to get this error. 
+				 */				
+				$this->freepbx->Filestore->makeDirectory($id,"/");
+			}
+          
 			try {
 				$files = $this->freepbx->Filestore->ls($id);
 			} catch (\Exception $e) {

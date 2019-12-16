@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-09 15:30+0530\n"
+"POT-Creation-Date: 2019-12-16 15:34+0530\n"
 "PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/backup/pl/"
@@ -945,7 +945,7 @@ msgstr ""
 msgid "Remote User"
 msgstr ""
 
-#: Handlers/Backup/Maintenance.php:120 Handlers/Backup/Maintenance.php:139
+#: Handlers/Backup/Maintenance.php:129 Handlers/Backup/Maintenance.php:148
 #: Handlers/Backup/Multiple.php:171 Handlers/Backup/Single.php:55
 #, php-format
 msgid "Removing %s"

@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.77</version>
+	<version>15.0.8.78</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.78* FREEI-917 backup to dropbox - path not found error, even though creation successful 
 		*15.0.8.77* bump 
 		*15.0.8.76* FREEPBX-20625 backup is getting failed if you are disabling any module after adding backup 
 		*15.0.8.75* FREEPBX-20846 FREEI-954 

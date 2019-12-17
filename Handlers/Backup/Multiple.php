@@ -87,6 +87,12 @@ class Multiple extends Common {
 			$this->dependencies[$mod] = $validMods[$mod]['version'];
 			$processQueue->enqueue(['rawname' => $mod, 'ucfirst' => ucfirst($mod)]);
 		}
+		if($processQueue->isEmpty()) {
+			$msg = "No Module selected for this backup";
+			$this->log($msg,'WARNING');
+			$this->addWarning($msg);
+			return false;
+		}
 
 		//Process the Queue
 		foreach($processQueue as $mod) {

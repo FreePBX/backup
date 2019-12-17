@@ -175,8 +175,12 @@ class Backup extends Command {
 				if($input->getOption('fallback')){
 					$backupHandler->setDefaultFallback(true);
 				}
-				$backupHandler->process();
 
+				$val = $backupHandler->process();
+				if($val == "") {
+					$backupHandler->sendEmail(true);
+					return 0;
+				}
 				$maintenanceHandler = new Handler\Backup\Maintenance($this->freepbx, $buid, $transactionid, posix_getpid());
 				$output->writeln(_("Performing Local Maintenance"));
 				$maintenanceHandler->processLocal();

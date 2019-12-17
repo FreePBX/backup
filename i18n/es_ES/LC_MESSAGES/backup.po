@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-17 15:46+0530\n"
+"POT-Creation-Date: 2019-12-17 15:58+0530\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -399,7 +399,7 @@ msgstr "Descripción"
 msgid "Detected file %s as the PBX (Asterisk) database. Attempting restore"
 msgstr ""
 
-#: Console/Backup.class.php:255
+#: Console/Backup.class.php:258
 msgid "Determining backup file type..."
 msgstr ""
 
@@ -412,7 +412,7 @@ msgstr "Directorio '%s' no existe y no pudo ser creado"
 msgid "Disable Remote Trunks"
 msgstr ""
 
-#: Console/Backup.class.php:241 Handlers/Restore/Common.php:122
+#: Console/Backup.class.php:244 Handlers/Restore/Common.php:122
 #: Handlers/Restore/Legacy.php:231
 msgid "Done"
 msgstr ""
@@ -991,7 +991,7 @@ msgstr ""
 msgid "Resetting %s module data"
 msgstr ""
 
-#: Console/Backup.class.php:226
+#: Console/Backup.class.php:229
 msgid "Response from Warmspare backup Server API"
 msgstr ""
 
@@ -1003,7 +1003,7 @@ msgstr "Restaurar"
 msgid "Restore Information"
 msgstr ""
 
-#: Console/Backup.class.php:140 Console/Backup.class.php:288
+#: Console/Backup.class.php:140 Console/Backup.class.php:291
 msgid "Restore completed successfully"
 msgstr ""
 
@@ -1038,7 +1038,7 @@ msgstr ""
 msgid "Restoring from %s [%s]"
 msgstr ""
 
-#: Console/Backup.class.php:238
+#: Console/Backup.class.php:241
 #, php-format
 msgid "Retrieving %s from %s:%s..."
 msgstr ""
@@ -1298,19 +1298,19 @@ msgstr ""
 msgid "There was nothing to cleanup"
 msgstr ""
 
-#: Console/Backup.class.php:117 Console/Backup.class.php:204
+#: Console/Backup.class.php:117 Console/Backup.class.php:205
 msgid "There were errors during the backup process"
 msgstr ""
 
-#: Console/Backup.class.php:143 Console/Backup.class.php:291
+#: Console/Backup.class.php:143 Console/Backup.class.php:294
 msgid "There were errors during the restore process"
 msgstr ""
 
-#: Console/Backup.class.php:123 Console/Backup.class.php:210
+#: Console/Backup.class.php:123 Console/Backup.class.php:211
 msgid "There were warnings during the backup process"
 msgstr ""
 
-#: Console/Backup.class.php:149 Console/Backup.class.php:297
+#: Console/Backup.class.php:149 Console/Backup.class.php:300
 msgid "There were warnings during the restore process"
 msgstr ""
 
@@ -1461,11 +1461,11 @@ msgid ""
 "and Above"
 msgstr ""
 
-#: Console/Backup.class.php:220
+#: Console/Backup.class.php:223
 msgid "Warmspare enabled for this backup"
 msgstr ""
 
-#: Console/Backup.class.php:223
+#: Console/Backup.class.php:226
 msgid "We Have triggered an API to restore the backup on Spare Server"
 msgstr ""
 
@@ -1535,7 +1535,7 @@ msgstr "\"astDb's\""
 msgid "success"
 msgstr ""
 
-#: Console/Backup.class.php:260
+#: Console/Backup.class.php:263
 #, php-format
 msgid "type is %s"
 msgstr ""

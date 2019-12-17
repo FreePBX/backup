@@ -199,8 +199,9 @@ class Backup extends Command {
 					$backupHandler->sendEmail(false);
 					$output->writeln(_("Backup completed successfully"));
 				} else {
+					$backuperror_warning = 0 ;// 0 mean no error
 					if(!empty($errors)) {
-						$backupHandler->sendEmail(true);
+						$backuperror_warning = 1;
 						$output->writeln(_("There were errors during the backup process"));
 						foreach($errors as $error) {
 							$output->writeln("\t<error>".$error."</error>");
@@ -212,6 +213,8 @@ class Backup extends Command {
 							$output->writeln("\t<comment>".$warning."</comment>");
 						}
 					}
+					$bkstatus = $backuperror_warning == 1 ? true:false;
+					$backupHandler->sendEmail($bkstatus);
 				}
 				$this->freepbx->Backup->delConfig($buid,"runningBackupJobs");
 				//trigger Warmspare API

@@ -34,11 +34,11 @@ class BackupBase extends Model\Backup{
 	 *
 	 * @return array
 	 */
-	public function dumpAll() {
+	public function dumpAll($ignoretables =[]) {
 		return [
 			"settings" => $this->dumpAdvancedSettings(),
 			"features" => $this->dumpFeatureCodes(),
-			"tables" => $this->dumpTables(),
+			"tables" => $this->dumpTables($ignoretables),
 			"kvstore" => $this->dumpKVStore()
 		];
 	}
@@ -74,7 +74,7 @@ class BackupBase extends Model\Backup{
 	*  $modulename
 	*   $under_score = true or false search with like modulename_
 	*/
-	public function dumpDBTables($modename,$under_score=true) {
+	public function dumpDBTables($modename,$under_score = true,$ignoretables = []) {
 		if(!$under_score) {
 			$query = "SELECT table_name FROM information_schema.tables WHERE table_name LIKE '".$modename."%'";
 		} else {
@@ -84,7 +84,9 @@ class BackupBase extends Model\Backup{
 		$ret = [];
 		foreach($tables as $table) {
 			$tname = (string)$table['table_name'];
-			$ret[$tname] = $this->FreePBX->Database->query("SELECT * FROM $tname")->fetchAll(\PDO::FETCH_ASSOC);
+			if(!in_array($tname,$ignoretables)){
+				$ret[$tname] = $this->FreePBX->Database->query("SELECT * FROM $tname")->fetchAll(\PDO::FETCH_ASSOC);
+			}
 		}
 		return $ret;
 	}
@@ -120,7 +122,7 @@ class BackupBase extends Model\Backup{
 	 *
 	 * @return array
 	 */
-	public function dumpTables() {
+	public function dumpTables($ignoretables =[]) {
 		$module = strtolower($this->data['module']);
 		$this->log(sprintf(_("Exporting Databases from %s"), $module));
 		$dir = $this->FreePBX->Config->get('AMPWEBROOT').'/admin/modules/'.$module;
@@ -129,7 +131,7 @@ class BackupBase extends Model\Backup{
 		}
 		$xml = simplexml_load_file($dir.'/module.xml');
 		$tables = [];
-		$tables = $this->dumpDBTables($module);
+		$tables = $this->dumpDBTables($module,true,$ignoretables);
 
 		if(is_object($xml->database->table)) {
 			foreach($xml->database->table as $table) {
@@ -137,7 +139,9 @@ class BackupBase extends Model\Backup{
 				if(array_key_exists($tname,$tables)) {
 					continue;
 				} else {
-					$tables[$tname] = $this->FreePBX->Database->query("SELECT * FROM $tname")->fetchAll(\PDO::FETCH_ASSOC);
+					if(!in_array($tname,$ignoretables)) {
+						$tables[$tname] = $this->FreePBX->Database->query("SELECT * FROM $tname")->fetchAll(\PDO::FETCH_ASSOC);
+					}
 				}
 			}
 		}

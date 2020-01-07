@@ -69,6 +69,14 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 
 	protected function processModule($id, $module) {
 		$this->log(sprintf(_("Working with %s module"), $module['rawname']));
+		// Skip modules backup if system is not activated
+		$skipModule = array("vqplus");
+		if(!defined('ZEND_LICENSE_LOADED') && in_array($module['rawname'], $skipModule)) {
+			$msg = sprintf(_("System is not Activated,Skipping %s module"),$module['rawname']);
+			$this->log($msg,'WARNING');
+			$this->addWarning($msg);
+			return [];
+		}
 		//check to make sure the module supports backup
 		if($module['rawname'] === 'framework') {
 			$class = 'FreePBX\Builtin\Backup';

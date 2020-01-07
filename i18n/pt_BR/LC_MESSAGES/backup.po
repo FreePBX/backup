@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-17 15:58+0530\n"
+"POT-Creation-Date: 2020-01-07 15:32+0530\n"
 "PO-Revision-Date: 2017-03-08 21:01+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -88,12 +88,12 @@ msgstr ""
 msgid "Add a description for your backup"
 msgstr ""
 
-#: Handlers/Backup/Common.php:112
+#: Handlers/Backup/Common.php:120
 #, php-format
 msgid "Adding directory to tar: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:126
+#: Handlers/Backup/Common.php:134
 #, php-format
 msgid "Adding file to tar: %s"
 msgstr ""
@@ -103,7 +103,7 @@ msgstr ""
 msgid "Adding module %s to queue because %s depends on it"
 msgstr ""
 
-#: Handlers/Backup/Common.php:132
+#: Handlers/Backup/Common.php:140
 #, php-format
 msgid "Adding module manifest for %s"
 msgstr ""
@@ -1209,6 +1209,11 @@ msgstr ""
 msgid "System Transfer"
 msgstr ""
 
+#: Handlers/Backup/Common.php:75
+#, php-format
+msgid "System is not Activated,Skipping %s module"
+msgstr ""
+
 #: RestoreBase.php:293
 #, php-format
 msgid "Table '%s' does not exist in legacy %s, skipping"
@@ -1268,12 +1273,12 @@ msgstr ""
 msgid "The module %s does not support restores"
 msgstr ""
 
-#: Handlers/Backup/Common.php:80
+#: Handlers/Backup/Common.php:88
 #, php-format
 msgid "The module %s doesn't seem to support Backup"
 msgstr ""
 
-#: Handlers/Backup/Common.php:101
+#: Handlers/Backup/Common.php:109
 #, php-format
 msgid "The module %s returned no data, No backup created"
 msgstr ""
@@ -1397,7 +1402,7 @@ msgstr ""
 msgid "User on remote system with proper permissions, usually root."
 msgstr ""
 
-#: Handlers/Backup/Common.php:86
+#: Handlers/Backup/Common.php:94
 msgid "Using default backup strategy"
 msgstr ""
 

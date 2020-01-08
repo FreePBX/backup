@@ -100,7 +100,7 @@ $(document).ready(function () {
 
 });
 //end ready
-
+var moduledisplaysetting = {};
 $("#oauthbutton").click(function() {
 	event.preventDefault();
 	$.post(
@@ -532,12 +532,18 @@ function linkFormatter(value, row, index) {
 }
 
 function moduleSettingFilter(index, row) {
+	var mname = row.modulename;
+	if( mname != "") {
+		if (row.settingdisplay) {
+			moduledisplaysetting[ mname ] = row.settingdisplay;
+		}
+	}
 	return (row.settingdisplay);
 }
-
 function moduleSettingFormatter(index, row, element) {
-	if (row.settingdisplay) {
-		return `<div class = "settingdisplay">${row.settingdisplay}</div>`;
+	var mname = row.modulename;
+	if (moduledisplaysetting[ mname ]) {
+		return '<div class = "settingdisplay">'+ moduledisplaysetting[ mname ] + '</div>';
 	} else {
 		return '';
 	}

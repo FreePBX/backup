@@ -15,10 +15,11 @@ trait Email {
 			return;
 		}
 
+		$emailList = explode(',', $email);
 		$logger = $this->getLogger();
 
 		$this->freepbx->Mail->resetMessage();
-		$this->freepbx->Mail->setTo([$email]);
+		$this->freepbx->Mail->setTo($emailList);
 		$this->freepbx->Mail->setSubject("Test");
 
 		$settings = $this->backupInfo;

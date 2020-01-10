@@ -131,7 +131,7 @@ if (!empty($bkjobs)) {
 								<div class="row">
 									<div class="col-md-12">
 										<span id="backup_email-help" class="help-block fpbx-help-block">
-											<?php echo _("Email address to send notifications to.")?>
+											<?php echo _("Email address to send notifications, Multiple email addresses need to be separated by comma")?>
 										</span>
 									</div>
 								</div>

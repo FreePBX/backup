@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-08 17:51+0530\n"
+"POT-Creation-Date: 2020-01-13 09:09+0530\n"
 "PO-Revision-Date: 2015-11-17 12:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -419,7 +419,9 @@ msgid "Email Type"
 msgstr ""
 
 #: views/backup/form.php:134
-msgid "Email address to send notifications to."
+msgid ""
+"Email address to send notifications, Multiple email addresses need to be "
+"separated by comma"
 msgstr ""
 
 #: views/backup/warmspare.php:19
@@ -593,12 +595,12 @@ msgstr ""
 msgid "Framework"
 msgstr ""
 
-#: Handlers/Backup/Email.php:49
+#: Handlers/Backup/Email.php:50
 #, php-format
 msgid "Generated Backup process result email to %s. Status: Failure"
 msgstr ""
 
-#: Handlers/Backup/Email.php:53
+#: Handlers/Backup/Email.php:54
 #, php-format
 msgid "Generated Backup process result email to %s. Status: Success"
 msgstr ""

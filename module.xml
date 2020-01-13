@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.82</version>
+	<version>15.0.8.83</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.83* FREEI-959 backup error 
 		*15.0.8.82* FREEPBX-20870 Display issue with backup on 15 
 		*15.0.8.81* FREEPBX-20913 Backup fails if system is unregistered and there is commercial module config 
 		*15.0.8.80* FREEPBX-20875 If backup is completed successfully with some warnings then the status mail is not sent. 

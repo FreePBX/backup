@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-13 09:09+0530\n"
+"POT-Creation-Date: 2020-01-16 13:58+0530\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Lónyai Gergely <alephlg@gmail.com>\n"
 "Language-Team: Magyar <support@freepbx.hu>\n"
@@ -118,10 +118,6 @@ msgstr ""
 msgid "Adding module manifest for %s"
 msgstr ""
 
-#: backup.i18n.php:6
-msgid "Admin"
-msgstr ""
-
 #: views/restore/processRestore.php:28
 msgid "After the restore you might reload with the apply config button"
 msgstr ""
@@ -169,16 +165,8 @@ msgstr ""
 msgid "Backup %s success for %s"
 msgstr ""
 
-#: backup.i18n.php:4 backup.i18n.php:10 views/landing.php:5
+#: views/landing.php:5
 msgid "Backup & Restore"
-msgstr ""
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Restore"
-msgstr ""
-
-#: backup.i18n.php:8
-msgid "Backup & Restore for your FreePBX environment"
 msgstr ""
 
 #: views/restore/landing.php:72 views/restore/landing.php:116
@@ -222,7 +210,7 @@ msgstr ""
 msgid "Backup Items"
 msgstr ""
 
-#: backup.i18n.php:16
+#: backup.i18n.php:6
 msgid "Backup Module"
 msgstr ""
 
@@ -420,7 +408,7 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: backup.i18n.php:14
+#: backup.i18n.php:4
 msgid "Email "
 msgstr ""
 
@@ -587,7 +575,7 @@ msgstr ""
 msgid "Finished Remote Maintenance"
 msgstr ""
 
-#: Handlers/Storage.php:53
+#: Handlers/Storage.php:60
 msgid "Finished Saving to selected Filestore locations"
 msgstr ""
 
@@ -1123,7 +1111,7 @@ msgstr ""
 msgid "Saving to selected Filestore locations"
 msgstr ""
 
-#: Handlers/Storage.php:43
+#: Handlers/Storage.php:50
 #, php-format
 msgid "Saving to: %s:'%s' instance ,File location: %s/%s "
 msgstr ""
@@ -1234,7 +1222,7 @@ msgstr ""
 msgid "The Backup job name %s is already in used, please use a different name."
 msgstr ""
 
-#: backup.i18n.php:18
+#: backup.i18n.php:8
 msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 

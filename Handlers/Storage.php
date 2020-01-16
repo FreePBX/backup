@@ -39,8 +39,15 @@ class Storage extends CommonFile {
 					$this->log(_('Invalid filestore location'),'ERROR');
 					continue;
 				}
+				$path = trim($info['path'],"'");
+				if (substr($path,0,2) == '__') {
+					$path = trim($path,'__');
+					$Rpath = $this->freepbx->config->get($path);
+				} else {
+					$Rpath = $path;
+				}
 				$this->Filestore->upload($id,$this->file,basename($this->file));
-				$this->log("\t".sprintf(_("Saving to: %s:'%s' instance ,File location: %s/%s "),$info['driver'],$info['name'],$info['path'],basename($this->file)),'DEBUG');
+				$this->log("\t".sprintf(_("Saving to: %s:'%s' instance ,File location: %s/%s "),$info['driver'],$info['name'],$Rpath,basename($this->file)),'DEBUG');
 			} catch (\Exception $e) {
 				$err = $e->getMessage();
 				$this->log($err,'ERROR');

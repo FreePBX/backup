@@ -73,6 +73,8 @@ class Multiple extends Common {
 			do_reload();
 			$this->log(_('Reloading...... DONE'));
 		}
+		$rmcommand = "rm -rf $this->tmp";
+		shell_exec($rmcommand);
 		$this->log(_('Running Post Restore Hooks.. Please note that hook will restart httpd service so please refresh your page (using new ports) '));
 		$this->postRestoreHooks();
 		$this->log(_('Running Post Restore Hooks DONE'));

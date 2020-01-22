@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-16 13:58+0530\n"
+"POT-Creation-Date: 2020-01-22 16:04+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -571,7 +571,7 @@ msgid "Files"
 msgstr ""
 
 #: Handlers/Restore/Legacy.php:277
-#: Handlers/Restore/Multiple.php:79
+#: Handlers/Restore/Multiple.php:81
 #: Handlers/Restore/Single.php:34
 msgid "Finished"
 msgstr ""
@@ -1114,12 +1114,12 @@ msgid "Running Backup ID: %s"
 msgstr ""
 
 #: Handlers/Restore/Legacy.php:276
-#: Handlers/Restore/Multiple.php:78
+#: Handlers/Restore/Multiple.php:80
 msgid "Running Post Restore Hooks DONE"
 msgstr ""
 
 #: Handlers/Restore/Legacy.php:274
-#: Handlers/Restore/Multiple.php:76
+#: Handlers/Restore/Multiple.php:78
 msgid ""
 "Running Post Restore Hooks.. Please note that hook will restart httpd "
 "service so please refresh your page (using new ports) "

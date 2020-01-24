@@ -150,7 +150,6 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		$tar->open($this->file);
 		$tar->extract($this->tmp);
 		$tar->close();
-		$this->log(sprintf(_("Backup extracted to %s. These files will remain until a new restore is run or until cleaned manually."),$this->tmp));
 	}
 
 	/**

@@ -242,7 +242,13 @@ class Legacy extends Common {
 	public function processLegacyNormal($dbh, $tableMap, $versions){
 		$this->data['settings'] = $dbh->query("SELECT `keyword`, `value` FROM freepbx_settings")->fetchAll(PDO::FETCH_KEY_PAIR);
 		$this->data['features'] = $dbh->query("SELECT `featurename`, `customcode`, `enabled` FROM featurecodes")->fetchAll(\PDO::FETCH_GROUP|\PDO::FETCH_ASSOC|\PDO::FETCH_UNIQUE);
-
+		//lets  check this system is pbxact or not 
+		$skin = $dbh->query("select `key`,`value` from sysadmin_options where `key`='skin_module'")->fetch();
+		if(is_array($skin) && isset($skin['key'])) {
+			 $this->log(sprintf(_("This Backup is having PBXact Skin  %s . At this time we do NOT support PBXact Legacy Restore to 15 "),$skin['value']),'INFO');
+			 $this->log(_('Finished'));
+			 return;
+		}
 		$moduleList = $tableMap;
 		if(!is_null($this->specificRestores)) {
 			$this->log(sprintf(_("Only Restoring %s"),implode(",",$this->specificRestores)),'WARNING');

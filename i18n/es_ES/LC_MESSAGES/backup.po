@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-22 16:04+0530\n"
+"POT-Creation-Date: 2020-01-24 18:46+0530\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -125,7 +125,7 @@ msgstr ""
 msgid "After the restore you might reload with the apply config button"
 msgstr ""
 
-#: Handlers/Restore/Common.php:178
+#: Handlers/Restore/Common.php:177
 msgid ""
 "Apache will Restart now... And your GUI may die if the ports are changed !!!!"
 msgstr ""
@@ -234,13 +234,6 @@ msgstr "Asistente de Respaldo"
 msgid "Backup completed successfully"
 msgstr ""
 
-#: Handlers/Restore/Common.php:153
-#, php-format
-msgid ""
-"Backup extracted to %s. These files will remain until a new restore is run "
-"or until cleaned manually."
-msgstr ""
-
 #: functions.inc/class.backup.php:296
 #, php-format
 msgid ""
@@ -342,7 +335,7 @@ msgstr ""
 msgid "Could not find a file for the id supplied"
 msgstr ""
 
-#: Handlers/Restore/Common.php:165
+#: Handlers/Restore/Common.php:164
 msgid "Could not locate the manifest for this file"
 msgstr ""
 

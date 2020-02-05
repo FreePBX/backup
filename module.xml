@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.86</version>
+	<version>16.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,130 +17,9 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
-		*15.0.8.86* FREEI-1041 
-		*15.0.8.85* FREEI-1041 warm spare target runs out of disk space 
-		*15.0.8.84* FREEPBX-20994 Record actual save location in backup log 
-		*15.0.8.83* FREEI-959 backup error 
-		*15.0.8.82* FREEPBX-20870 Display issue with backup on 15 
-		*15.0.8.81* FREEPBX-20913 Backup fails if system is unregistered and there is commercial module config 
-		*15.0.8.80* FREEPBX-20875 If backup is completed successfully with some warnings then the status mail is not sent. 
-		*15.0.8.79* FREEPBX-20880 Backup fails to start with default job(No module selected):Invalid argument supplied for foreach() 
-		*15.0.8.78* FREEI-917 backup to dropbox - path not found error, even though creation successful 
-		*15.0.8.77* bump 
-		*15.0.8.76* FREEPBX-20625 backup is getting failed if you are disabling any module after adding backup 
-		*15.0.8.75* FREEPBX-20846 FREEI-954 
-		*15.0.8.74* FREEI-951 cdr timeout 
-		*15.0.8.73* bump 
-		*15.0.8.72* FREEI-765 Added the missing method 
-		*15.0.8.71* FREEI-835: fixed path to get cloud backup restores working 
-		*15.0.8.70* FREEPBX-20646 
-		*15.0.8.69* FREEI-765 FREEI-826 FREEPBX-20646 Adding Warmspare functionality 
-		*15.0.8.68* FREEPBX-20645 Backup to AWS also keeping copies locally 
-		*15.0.8.67* FREEI-782 backup restore: no Apply Config button available 
-		*15.0.8.66* FREEI-817 Make warm spare functionality invisible in the UI 
-		*15.0.8.65* FREEI-819: when uploading a backup, create the uploads folder if it doesn't exist 
-		*15.0.8.64* FREEI-804 Backup: sometimes, uploading to restore fails with Whoops error about Max Execution time 
-		*15.0.8.63* bump 
-		*15.0.8.62* bump 
-		*15.0.8.61* Bugfix/FREEPBX-20401 backup always sends 
-		*15.0.8.60* Bugfix/FREEPBX-20414 restoring backup in php 7.0 results in strict standards error 
-		*15.0.8.59* FREEPBX-20480 Restoring legacy(FreePBX 13) Backup into FreePBX 15 system is not flushing the previously existing Conference data. 
-		*15.0.8.58* FREEPBX-20492 FREEPBX-20494 13 to 15 restore issue with firewall 
-		*15.0.8.57* FREEPBX-20405 failure to backup to location occurs silently in GUI - no email alert generated 
-		*15.0.8.56* bump 
-		*15.0.8.55* FREEPBX-20357 
-		*15.0.8.54* FREEPBX-20382  FREEPBX-20383 FREEPBX-20398 
-		*15.0.8.53* FREEPBX-20401 Add the content of backup.log, in body or attachment 
-		*15.0.8.52* FREEPBX-20358 Legacy restore adds slashes in front of caller-id name 
-		*15.0.8.51* FREEPBX-20451 restore log msg and restapp process order for legacy 
-		*15.0.8.50* bump 
-		*15.0.8.49* Fixes FREEPBX-20446: read public key instead of private 
-		*15.0.8.48* Fixes FREEPBX-20447: corrected id of span-element 
-		*15.0.8.47* FREEPBX-20397 removed stripslashes for data. 
-		*15.0.8.46* FREEPBX-20374 Restoring legacy(FreePBX 14) Backup into FreePBX 15 system is not restoring the Feature codes 
-		*15.0.8.45* FREEPBX-20121 Backup rotation faulty 
-		*15.0.8.44* FREEI-672
-		*15.0.8.43* FREEPBX-20411 Getting exception error while editing Qxact Reports Template 
-		*15.0.8.42* bump 
-		*15.0.8.41* FREEPBX-20403 FREEPBX-20401 
-		*15.0.8.40* FREEPBX-20347 Legacy backup Restore common issue 
-		*15.0.8.39* FREEPBX-20370 restore issue with apache port 
-		*15.0.8.38* FREEPBX-20341 invalid argument passed in call flow control - daynight) 
-		*15.0.8.37* FREEPBX-20352 Legacy restore stops at restapps if the restore is done through GUI. 
-		*15.0.8.36* FREEPBX-20335 backup restore stops due to restapps and sysadmin port changes 
-		*15.0.8.35* FREEPBX-20324 Getting whoops error while updating sangoma CRM module to edge version in FreePBX 15 
-		*15.0.8.34* FREEPBX-20293 Legacy 15 restore stops at queuestats import 
-		*15.0.8.33* FREEPBX-20073 Backup module not restored in the secondary system 
-		*15.0.8.32* FREEPBX-20121 Backup rotation faulty 
-		*15.0.8.31* FREEPBX-20060 Restore stops after restapps  module 
-		*15.0.8.30* FREEPBX-20087 backup fails on queue stats 
-		*15.0.8.29* FREEPBX-20067 Fix parsing astdb data for restore.
-		*15.0.8.28* FREEPBX-20089 dumpDBTables with table name with and without underscore 
-		*15.0.8.27* FREEPBX-20027  Getting exception error while downloading or deleting 
-		*15.0.8.26* FREEPBX-20067 
-		*15.0.8.25* Bugfix/FREEPBX-20067 featurecodes not restored 
-		*15.0.8.24* FREEPBX-20082 Backup restore module is not restoring Broadcast module entries in secondary system. 
-		*15.0.8.23* FREEPBX-20027 Fix tmp path in console 
-		*15.0.8.22* FREEPBX-20041 
-		*15.0.8.21* FREEPBX-20017 Can't install latest Backup &amp;amp; Restore module due to Cutom Cron entry 
-		*15.0.8.20* bump 
-		*15.0.8.19* Fixing Backup allows to create Empty and Duplicate entries.
-		*15.0.8.18* Fixing FREEPBX-20028 Delete issue from edit section 
-		*15.0.8.17* FREEPBX-19984 only restore legacy pbx tables (for now)
-		*15.0.8.16* FREEPBX-19890 Check for existence of a private key, not public
-		*15.0.8.15* FREEPBX-19931
-		*15.0.8.14* FREEPBX-19921
-		*15.0.8.13* Catch errors during cleanup but dont abort
-		*15.0.8.12* FREEPBX-19882
-		*15.0.8.11* FREEPBX-19679
-		*15.0.8.10* FREEPBX-19675
-		*15.0.8.9* Jump to restore if one is active
-		*15.0.8.8* FREEPBX-19651
-		*15.0.8.7* Dont store metadata about backups
-		*15.0.8.6* FREEPBX-19660 and network connectivity issues
-		*15.0.8.4* FREEI-429
-		*15.0.8.3* FREEI-429
-		*15.0.8.2* Fix migrations
-		*15.0.8.1* FREEPBX-19634 Unable to send backup email
-		*15.0.8* Fix backup issues
-		*15.0.7* Handle restores from 12 or lower (scary)
-		*15.0.6* Rework functions from filestore
-		*15.0.5.3* Remove duplicated log message
-		*15.0.5.1* Allow framework to be backed up
-		*15.0.5* implement default fallback for unimplemented modules using --fallback cli option
-		*15.0.4.6* Bug fixes and speed enhancements
-		*15.0.4.5* reference to object fix
-		*15.0.4.4* reference to object fix
-		*15.0.4.3* reference to object fix
-		*15.0.4.2* Add back migration
-		*15.0.4.1* Add Additional warning
-		*15.0.3beta7* FREEPBX-18886  Fix long polling on backup log
-		*15.0.3beta6* Set the debug flag to false which will clean up old data db data
-		*15.0.3beta5* FREEPBX-18709 Fix corrupt backups, fix restore log
-		*15.0.3beta4* FREEPBX-18155 Move echo to logger in legacy
-		*15.0.3beta3* FREEPBX-18882 Update help text in fwconsole
-		*15.0.3beta2* FREEPBX-18885 Fix cron syntax, don't hardcode sbin.
-		*15.0.3beta1* Bump to beta
-		*15.0.3alpha15* FREEPBX-18754 Updates for logger in framework 15.0.1.33
-		*15.0.3alpha14* FREEPBX-18625 Rework the message handling
-		*15.0.3alpha14* FREEPBX-18166
-		*15.0.3alpha14* Fixing problems in Backup 15
-		*15.0.3alpha11* New Backup and Restore for 15.0
-		*15.0.3alpha10* FREEPBX-18160 More fixes to server migrations
-		*15.0.3alpha9* FREEPBX-18252 Fix variables in Backup, handle the use of a single module
-		*15.0.3alpha8* FREEPBX-18202 Fix restore file ajax handling
-		*15.0.3alpha7* FREEPBX-18160 Migration improvements
-		*15.0.3alpha6* FREEPBX-18215 Fix the mail handler validation
-		*15.0.3alpha5* FREEPBX-18210 Remove unimplemented tab
-		*15.0.3alpha4* FREEPBX-18160 Fix server migration
-		*15.0.3alpha3* Remove unneeded composer deps
-		*15.0.3alpha2* Fix import of cron job for backup migration
-		*15.0.3alpha1* Alpha 1 release of the Backup 15 module
-		*15.0.2.1* Don't crash on a new install
-		*15.0.2* Packaging of ver 15.0.2
-		*15.0.1* Initial release of new backup module
+		*16.0.1alpha* 16.0.1 alpha release
 	</changelog>
 	<supported>
-		<version>15.0</version>
+		<version>16.0</version>
 	</supported>
 </module>

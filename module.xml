@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.86</version>
+	<version>15.0.8.87</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.87* FREEPBX-21089 Backup &amp;amp; Restore Module allows destruction of installation with just a click 
 		*15.0.8.86* FREEI-1041 
 		*15.0.8.85* FREEI-1041 warm spare target runs out of disk space 
 		*15.0.8.84* FREEPBX-20994 Record actual save location in backup log 

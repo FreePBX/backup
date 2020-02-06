@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-24 18:46+0530\n"
+"POT-Creation-Date: 2020-02-06 19:18+0530\n"
 "PO-Revision-Date: 2017-03-06 03:04+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -121,8 +121,12 @@ msgstr ""
 msgid "Apply Configs"
 msgstr "Konfigurationen anwenden"
 
-#: assets/js/backup.js:204 assets/js/backup.js:241
+#: assets/js/backup.js:204 assets/js/backup.js:243
 msgid "Are you sure you wish to delete this file? This cannot be undone"
+msgstr ""
+
+#: assets/js/backup.js:229 assets/js/backup.js:270
+msgid "Are you sure, you want to restore this backup?"
 msgstr ""
 
 #: Backup.class.php:1323
@@ -251,7 +255,7 @@ msgstr ""
 msgid "Can't find the module data for %s"
 msgstr ""
 
-#: assets/js/backup.js:205 assets/js/backup.js:242
+#: assets/js/backup.js:205 assets/js/backup.js:244
 msgid "Cancel"
 msgstr ""
 
@@ -340,7 +344,7 @@ msgid "Creating directory '%s'"
 msgstr "Erstelle Verzeichnis '%s'"
 
 #: Backup.class.php:200 views/restore/landing.php:49
-#: views/restore/landing.php:93 assets/js/backup.js:205 assets/js/backup.js:242
+#: views/restore/landing.php:93 assets/js/backup.js:205 assets/js/backup.js:244
 msgid "Delete"
 msgstr "Löschen"
 
@@ -428,8 +432,8 @@ msgstr ""
 "Das Gleiche, wie auf den Roten Button zu drücken, passiert automatisch nach "
 "einer Wiederherstellung (restore) auf einem Standby-System"
 
-#: assets/js/backup.js:359 assets/js/backup.js:378 assets/js/backup.js:397
-#: assets/js/backup.js:489
+#: assets/js/backup.js:363 assets/js/backup.js:382 assets/js/backup.js:401
+#: assets/js/backup.js:493
 msgid "Error"
 msgstr ""
 
@@ -563,7 +567,7 @@ msgstr ""
 msgid "Finished Remote Maintenance"
 msgstr ""
 
-#: Handlers/Storage.php:60
+#: Handlers/Storage.php:67
 msgid "Finished Saving to selected Filestore locations"
 msgstr ""
 
@@ -735,7 +739,7 @@ msgstr ""
 msgid "List Backups"
 msgstr ""
 
-#: assets/js/backup.js:414
+#: assets/js/backup.js:418
 msgid "Loading Please Wait"
 msgstr ""
 
@@ -780,7 +784,7 @@ msgstr ""
 msgid "Modules"
 msgstr ""
 
-#: assets/js/backup.js:6 assets/js/backup.js:309
+#: assets/js/backup.js:6 assets/js/backup.js:313
 msgid "Modules ("
 msgstr ""
 
@@ -817,7 +821,7 @@ msgstr "Name"
 msgid "No"
 msgstr "Nein"
 
-#: assets/js/backup.js:282
+#: assets/js/backup.js:286
 msgid "No Storage Locations"
 msgstr ""
 
@@ -833,13 +837,13 @@ msgstr ""
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
-#: assets/js/backup.js:305
+#: assets/js/backup.js:309
 msgid ""
 "No module is selected for Backup. Please ensure you are selecting atleast "
 "one module for Backup"
 msgstr ""
 
-#: assets/js/backup.js:330 assets/js/backup.js:337
+#: assets/js/backup.js:334 assets/js/backup.js:341
 msgid ""
 "No storage location selected for Backup. Please select atleast one storage "
 "location to save the backup"
@@ -1023,7 +1027,7 @@ msgstr ""
 msgid "Run Restore & Legacy CDR "
 msgstr ""
 
-#: assets/js/backup.js:556
+#: assets/js/backup.js:560
 msgid "Run the following in the CLI"
 msgstr ""
 
@@ -1099,7 +1103,7 @@ msgstr "Datei auf FTP-Server speichern"
 msgid "Saving to selected Filestore locations"
 msgstr ""
 
-#: Handlers/Storage.php:50
+#: Handlers/Storage.php:57
 #, php-format
 msgid "Saving to: %s:'%s' instance ,File location: %s/%s "
 msgstr ""

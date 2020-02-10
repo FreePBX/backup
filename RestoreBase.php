@@ -245,7 +245,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	 * @param \PDO $pdo The pdo connection for the temporary database
 	 * @return void
 	 */
-	public function restoreLegacyDatabase(\PDO $pdo,$tables = []) {
+	public function restoreLegacyDatabase(\PDO $pdo,$tables = [],$ignoretables = []) {
 		$module = strtolower($this->data['module']);
 		$dir = $this->FreePBX->Config->get('AMPWEBROOT').'/admin/modules/'.$module;
 		if(!file_exists($dir.'/module.xml')) {
@@ -279,6 +279,9 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 
 		$this->log(sprintf(_("Importing Databases from %s"), $module));
 		foreach($tables as $table) {
+			if(in_array($table, $ignoretables)) {
+				continue;
+			}
 			$tname = $table;
 			try {
 				$sth = $pdo->query("SELECT * FROM $tname",\PDO::FETCH_ASSOC);

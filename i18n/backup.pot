@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-06 19:18+0530\n"
+"POT-Creation-Date: 2020-02-10 09:02+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,7 +51,7 @@ msgid "%s does not exist"
 msgstr ""
 
 #: RestoreBase.php:191
-#: RestoreBase.php:373
+#: RestoreBase.php:376
 #, php-format
 msgid "%s does not implement KVStore"
 msgstr ""
@@ -311,7 +311,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: RestoreBase.php:533
+#: RestoreBase.php:536
 #, php-format
 msgid "Column '%s' does not exist in %s, skipping"
 msgstr ""
@@ -667,7 +667,7 @@ msgid "ID From the donor machine"
 msgstr ""
 
 #: RestoreBase.php:83
-#: RestoreBase.php:348
+#: RestoreBase.php:351
 #, php-format
 msgid "Importing Advanced Settings from %s"
 msgstr ""
@@ -702,7 +702,7 @@ msgstr ""
 msgid "Importing Table %s from %s"
 msgstr ""
 
-#: RestoreBase.php:287
+#: RestoreBase.php:290
 #, php-format
 msgid "Importing table '%s' from legacy %s"
 msgstr ""
@@ -1248,12 +1248,12 @@ msgstr ""
 msgid "System is not Activated,Skipping %s module"
 msgstr ""
 
-#: RestoreBase.php:293
+#: RestoreBase.php:296
 #, php-format
 msgid "Table '%s' does not exist in legacy %s, skipping"
 msgstr ""
 
-#: RestoreBase.php:290
+#: RestoreBase.php:293
 #, php-format
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""

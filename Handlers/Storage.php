@@ -21,12 +21,12 @@ class Storage extends CommonFile {
 
 	/**
 	 * Process the Locations for the backup
-	 *
+	 * @param  $storages passsed from secondparty module
 	 * @return void
 	 */
-	public function process() {
+	public function process($storages = []) {
 		$storage_ids = $this->Backup->getStorageById($this->id);
-
+		$storage_ids = count($storages)> 0?$storages:$storage_ids;
 		$this->log(_("Saving to selected Filestore locations"));
 		foreach ($storage_ids as $location) {
 			if(empty(trim($location))){

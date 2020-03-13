@@ -25,22 +25,25 @@ class Multiple extends Common {
 	 * @param string $id
 	 * @param string $transactionId
 	 * @param integer $pid
+	 * @param array $extradata is passed from a secondparty module
 	 */
-	public function __construct($freepbx, $id, $transactionId, $pid) {
-		$this->id = $id;
+	public function __construct($freepbx, $id, $transactionId, $pid,$extradata = []) {
+		$this->id = $extradata['id']?$extradata['id']:$id;
 		$spooldir = $freepbx->Config->get("ASTSPOOLDIR");
 		$this->backupInfo = $freepbx->Backup->getBackup($this->id);
+		$this->backupInfo = $extradata['backupInfo']?$extradata['backupInfo']:$this->backupInfo;
 		$this->underscoreName = str_replace(' ', '_', $this->backupInfo['backup_name']);
 		$filePath = sprintf('%s/backup/%s',$spooldir,$this->underscoreName);
+
 		parent::__construct($freepbx, $filePath, $transactionId, $pid);
 	}
 
 	/**
 	 * Process the backup
-	 *
+	 * @param array  $extenalBackupitems is passed from secondparty module
 	 * @return void
 	 */
-	public function process() {
+	public function process($extenalBackupitems = []) {
 		if(empty($this->id)){
 			throw new \Exception("Backup id not provided", 500);
 		}
@@ -73,7 +76,11 @@ class Multiple extends Common {
 			'backupInfo' => $this->backupInfo,
 		];
 		$validMods = $this->Backup->getModules();
-		$backupItems = $this->Backup->getAll('modules_'.$this->id);
+		if(count($extenalBackupitems) > 1) {
+			$backupItems = $extenalBackupitems;
+		} else {
+			$backupItems = $this->Backup->getAll('modules_'.$this->id);
+		}
 		$selectedmods = is_array($backupItems)?array_keys($backupItems):[];
 		$selectedmods = array_map('strtolower', $selectedmods);
 		foreach($selectedmods as $mod) {

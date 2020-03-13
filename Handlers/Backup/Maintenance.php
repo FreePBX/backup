@@ -17,7 +17,7 @@ class Maintenance extends \FreePBX\modules\Backup\Handlers\CommonBase {
 	private $localPath;
 	private $backupfiles;
 
-	public function __construct($freepbx, $id, $transactionId, $pid) {
+	public function __construct($freepbx, $id, $transactionId, $pid,$extradata = []) {
 		parent::__construct($freepbx, $transactionId, $pid);
 		$this->id = $id;
 		$this->backupInfo = $this->freepbx->Backup->getBackup($this->id);

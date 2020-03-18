@@ -306,7 +306,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	 */
 	public function restoreLegacyFeatureCodes(\PDO $pdo) {
 		$module = strtolower($this->data['module']);
-		$sql = "SELECT `featurename`,`description`, `defaultcode`, `customcode`, `enabled`,`helptext` FROM featurecodes WHERE modulename = :name";
+		$sql = "SELECT `featurename`,`description`, `defaultcode`, `customcode`, `enabled`,`helptext`,`providedest` FROM featurecodes WHERE modulename = :name";
 		$sth = $pdo->prepare($sql);
 		$sth->execute([":name" => $module]);
 		$res = $sth->fetchAll(\PDO::FETCH_ASSOC);
@@ -315,7 +315,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		$sth = $this->FreePBX->Database->prepare($sql);
 		$sth->execute(array(":modulename" => $module));
 
-		$sql = "INSERT INTO featurecodes (`modulename`, `featurename`, `description`, `helptext`, `defaultcode`, `customcode`, `enabled`) VALUES (:modulename, :featurename, :description, :helptext, :defaultcode, :customcode, :enabled)";
+		$sql = "INSERT INTO featurecodes (`modulename`, `featurename`, `description`, `helptext`, `defaultcode`, `customcode`, `enabled`, `providedest`) VALUES (:modulename, :featurename, :description, :helptext, :defaultcode, :customcode, :enabled, :providedest)";
 		$sth = $this->FreePBX->Database->prepare($sql);
 		foreach($res as $data) {
 			$sth->execute([
@@ -323,9 +323,10 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 				":helptext" 	=> $data['helptext'],
 				":defaultcode" 	=> $data['defaultcode'],
 				":customcode" 	=> $data['customcode'],
-				":enabled" 		=> $data['enabled'],
+				":enabled" 	=> $data['enabled'],
 				":featurename" 	=> $data['featurename'],
-				":modulename" 	=> $module
+				":modulename" 	=> $module,
+				":providedest"	=> $data['providedest']
 			]);
 		}
 	}

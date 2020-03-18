@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.89</version>
+	<version>15.0.8.90</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.90* FREEPBX-21258 Backup &amp;amp; Restore - IVR Module - missing "Dial Voicemail" feature code option after restoring 14 backup 
 		*15.0.8.89* FREEI-1384 Backup module to support Backup Run from other module 
 		*15.0.8.88* FREEI-1196 Cannot restore a FPBX13 backup into 15 
 		*15.0.8.87* FREEPBX-21089 Backup &amp;amp; Restore Module allows destruction of installation with just a click 

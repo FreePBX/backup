@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-18 10:49+0530\n"
+"POT-Creation-Date: 2020-03-19 16:39+0530\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -55,7 +55,7 @@ msgstr ""
 msgid "%s does not exist"
 msgstr ""
 
-#: RestoreBase.php:191 RestoreBase.php:377
+#: RestoreBase.php:191 RestoreBase.php:390
 #, php-format
 msgid "%s does not implement KVStore"
 msgstr ""
@@ -316,7 +316,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: RestoreBase.php:537
+#: RestoreBase.php:550
 #, php-format
 msgid "Column '%s' does not exist in %s, skipping"
 msgstr ""
@@ -659,7 +659,7 @@ msgstr ""
 msgid "ID From the donor machine"
 msgstr ""
 
-#: RestoreBase.php:83 RestoreBase.php:352
+#: RestoreBase.php:83 RestoreBase.php:365
 #, php-format
 msgid "Importing Advanced Settings from %s"
 msgstr ""

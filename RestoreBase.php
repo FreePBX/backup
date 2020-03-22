@@ -305,8 +305,18 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	 * @return void
 	 */
 	public function restoreLegacyFeatureCodes(\PDO $pdo) {
+		$helptextskip = false;
+		$skipver = array('2.11.0');
+		$pbxver = $this->data['pbx_version'];
+		if(in_array($pbxver, $skipver)) {
+			$helptextskip = true;
+		}
 		$module = strtolower($this->data['module']);
-		$sql = "SELECT `featurename`,`description`, `defaultcode`, `customcode`, `enabled`,`helptext` FROM featurecodes WHERE modulename = :name";
+		if($helptextskip) {
+			$sql = "SELECT `featurename`,`description`, `defaultcode`, `customcode`, `enabled`, `providedest` FROM featurecodes WHERE modulename = :name";
+		}else {
+			$sql = "SELECT `featurename`,`description`, `defaultcode`, `customcode`, `enabled`,`helptext`,`providedest` FROM featurecodes WHERE modulename = :name";
+		}
 		$sth = $pdo->prepare($sql);
 		$sth->execute([":name" => $module]);
 		$res = $sth->fetchAll(\PDO::FETCH_ASSOC);
@@ -315,17 +325,21 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		$sth = $this->FreePBX->Database->prepare($sql);
 		$sth->execute(array(":modulename" => $module));
 
-		$sql = "INSERT INTO featurecodes (`modulename`, `featurename`, `description`, `helptext`, `defaultcode`, `customcode`, `enabled`) VALUES (:modulename, :featurename, :description, :helptext, :defaultcode, :customcode, :enabled)";
+		$sql = "INSERT INTO featurecodes (`modulename`, `featurename`, `description`, `helptext`, `defaultcode`, `customcode`, `enabled`, `providedest`) VALUES (:modulename, :featurename, :description, :helptext, :defaultcode, :customcode, :enabled, :providedest)";
 		$sth = $this->FreePBX->Database->prepare($sql);
 		foreach($res as $data) {
+			if($helptextskip) {
+				$data['helptext'] = '';
+			}
 			$sth->execute([
 				":description" 	=> $data['description'],
 				":helptext" 	=> $data['helptext'],
 				":defaultcode" 	=> $data['defaultcode'],
 				":customcode" 	=> $data['customcode'],
-				":enabled" 		=> $data['enabled'],
+				":enabled" 	=> $data['enabled'],
 				":featurename" 	=> $data['featurename'],
-				":modulename" 	=> $module
+				":modulename" 	=> $module,
+				":providedest"	=> $data['providedest']
 			]);
 		}
 	}

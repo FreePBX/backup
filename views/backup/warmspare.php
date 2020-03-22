@@ -207,7 +207,7 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
       <div class="form-group">
         <div class="col-md-3">
           <label class="control-label" for="warmsparewayofrestore">
-            <?php// echo _("Connect Warm Spare Server Over") ?>
+            <?php // echo _("Connect Warm Spare Server Over") ?>
           </label>
           <i class="fa fa-question-circle fpbx-help-icon" data-for="warmsparewayofrestore"></i>
         </div>

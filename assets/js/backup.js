@@ -515,10 +515,10 @@ function processItems() {
 		return el.selected == true;
 	})
 	$.each(selected, function (i, v) {
+		v.settings = $("#modulesetting_"+v.modulename).serializeArray();
 		if (v.hasOwnProperty('settingdisplay')) {
 			delete v.settingdisplay;
-			v.settings = $("#modulesetting_"+v.modulename).serializeArray();
-		}
+		}		
 	});
 	return selected;
 }

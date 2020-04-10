@@ -198,9 +198,39 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
     </div>
   </div>
   <!--Apply Configs-->
+  <!--Exclude Trunks-->
+  <div class="element-container warmspare">
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-3">
+	  <label class="control-label" for="warmspare_excludetrunks">
+	    <?php echo _("Exclude Trunks") ?>
+	  </label>
+	  <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_excludetrunks"></i>
+	</div>
+	<div class="col-md-9 radioset">
+	  <input type="radio" name="warmspare_excludetrunks" id="warmspare_excludetrunksyes" value="yes" <?php echo ($warmspare_excludetrunks == "yes" ? "CHECKED" : "") ?>>
+	  <label for="warmspare_excludetrunksyes">
+	    <?php echo _("Yes"); ?>
+	  </label>
+	  <input type="radio" name="warmspare_excludetrunks" id="warmspare_excludetrunksno" <?php echo ($warmspare_excludetrunks == "yes" ? "" : "CHECKED")?>>
+	  <label for="warmspare_excludetrunksno">
+	    <?php echo _("No"); ?>
+	  </label>
+	</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <span id="warmspare_excludetrunks-help" class="help-block fpbx-help-block">
+	  <?php echo _("Should the trunks be Excluded") ?>
+	</span>
+      </div>
+    </div>
+  </div>
+  <!--END Exclude Trunks-->
   <!-- there are two ways to do this 1.Legacy way using ssh And 2. Using Oauth2 API  -->
 <!--Enable-->
-<input type="hidden" name="warmsparewayofrestore" id="warmsparewayofrestoreapi" value="API">
 <!-- hiding this option
   <div class="element-container warmspare">
     <div class="row">
@@ -432,4 +462,5 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
   </div>
   -->
   <!--Remote User-->
+  <input type="hidden" name="warmsparewayofrestore" id="warmsparewayofrestoreapi" value="API">
 </div>

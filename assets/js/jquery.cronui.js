@@ -422,7 +422,7 @@
     var data = $.fn.cronui.data = {
         'en': {
             periods: ['Minute', 'Hour', 'Day', 'Week', 'Month', 'Year'],
-            days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
             months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'Novermber', 'December'],
             period: 'Every',
             minute: 'Minute',

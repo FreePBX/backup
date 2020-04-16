@@ -306,9 +306,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	 */
 	public function restoreLegacyFeatureCodes(\PDO $pdo) {
 		$helptextskip = false;
-		$skipver = array('2.11.0');
-		$pbxver = $this->data['pbx_version'];
-		if(in_array($pbxver, $skipver)) {
+		if(version_compare_freepbx($this->getVersion(),"11","lt")) {
 			$helptextskip = true;
 		}
 		$module = strtolower($this->data['module']);

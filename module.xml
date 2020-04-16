@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.97</version>
+	<version>15.0.8.98</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.8.98* FREEPBX-21398 Voicemail not restored from legacy back to FreePBX 15 
 		*15.0.8.97* Fixing FREEI-1503 Adding variable to choose either we want  module_% 
 		*15.0.8.96* FREEPBX-21370 Backup Day Incorrect 
 		*15.0.8.95* FREEPBX-21385 Adding an option for remove Trunks from copying to a warm spare. 

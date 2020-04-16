@@ -78,7 +78,7 @@ class BackupBase extends Model\Backup{
 		if(!$under_score) {
 			$query = "SELECT table_name FROM information_schema.tables WHERE table_name LIKE '".$modename."%'";
 		} else {
-			$query = "SELECT table_name FROM information_schema.tables WHERE table_name LIKE '".$modename."_%'";
+			$query = "SELECT table_name FROM information_schema.tables WHERE table_name LIKE '".$modename."\_%'";
 		}
 		$tables = $this->FreePBX->Database->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 		$ret = [];

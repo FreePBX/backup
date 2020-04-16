@@ -34,11 +34,11 @@ class BackupBase extends Model\Backup{
 	 *
 	 * @return array
 	 */
-	public function dumpAll() {
+	public function dumpAll($under_score=false) {
 		return [
 			"settings" => $this->dumpAdvancedSettings(),
 			"features" => $this->dumpFeatureCodes(),
-			"tables" => $this->dumpTables(),
+			"tables" => $this->dumpTables($under_score),
 			"kvstore" => $this->dumpKVStore()
 		];
 	}
@@ -120,7 +120,7 @@ class BackupBase extends Model\Backup{
 	 *
 	 * @return array
 	 */
-	public function dumpTables() {
+	public function dumpTables($under_score=false) {
 		$module = strtolower($this->data['module']);
 		$this->log(sprintf(_("Exporting Databases from %s"), $module));
 		$dir = $this->FreePBX->Config->get('AMPWEBROOT').'/admin/modules/'.$module;
@@ -129,7 +129,7 @@ class BackupBase extends Model\Backup{
 		}
 		$xml = simplexml_load_file($dir.'/module.xml');
 		$tables = [];
-		$tables = $this->dumpDBTables($module);
+		$tables = $this->dumpDBTables($module, $under_score);
 
 		if(is_object($xml->database->table)) {
 			foreach($xml->database->table as $table) {

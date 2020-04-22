@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.8.99</version>
+	<version>15.0.9</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.9*    FREEI-1526 Add backup module hooks to update the restore status 
 		*15.0.8.99* bump 
 		*15.0.8.97* Fixing FREEI-1503 Adding variable to choose either we want  module_% 
 		*15.0.8.96* FREEPBX-21370 Backup Day Incorrect 

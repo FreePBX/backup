@@ -1329,4 +1329,12 @@ public function GraphQL_Access_token($request) {
 		}
 		return $this->homeDir;
 	}
+
+	/* This method is useful for modules to run somethinng special after all module restore
+	* And before httpd restart 
+	*/
+	public function postrestoreModulehook($transactionid,$backupinfo=[]) {
+		 $this->freepbx->Hooks->processHooks($transactionid,$backupinfo);
+		return;
+	}
 }

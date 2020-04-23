@@ -20,8 +20,17 @@ class Maintenance extends \FreePBX\modules\Backup\Handlers\CommonBase {
 	public function __construct($freepbx, $id, $transactionId, $pid,$extradata = []) {
 		parent::__construct($freepbx, $transactionId, $pid);
 		$this->id = $id;
-		$this->backupInfo = $this->freepbx->Backup->getBackup($this->id);
-		$this->remoteStorage = $this->freepbx->Backup->getStorageById($this->id);
+		if(isset($extradata['backupInfo'])) {
+			$this->backupInfo = $extradata['backupInfo'];
+		}else {
+			$this->backupInfo = $this->freepbx->Backup->getBackup($this->id);
+		}
+		if(isset($extradata['remoteStorage'])) {
+			
+			$this->remoteStorage = [$extradata['remoteStorage']];
+		} else {
+			$this->remoteStorage = $this->freepbx->Backup->getStorageById($this->id);
+		}
 		$this->name = str_replace(' ', '_', $this->backupInfo['backup_name']);
 		$this->spooldir = $this->freepbx->Config->get("ASTSPOOLDIR");
 		$this->serverName = str_replace(' ', '_',$this->freepbx->Config->get('FREEPBX_SYSTEM_IDENT'));
@@ -131,6 +140,7 @@ class Maintenance extends \FreePBX\modules\Backup\Handlers\CommonBase {
 								continue;
 							}
 							$this->freepbx->Filestore->delete($id,$file['path']);
+							
 						} catch (\Exception $e) {
 							$this->log($e->getMessage(),'ERROR');
 							continue;

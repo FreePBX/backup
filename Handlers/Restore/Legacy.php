@@ -67,7 +67,7 @@ class Legacy extends Common {
 					$this->processLegacyCdr($file);
 				}
 			}
-		}	
+		}
 		foreach($files as $file){
 			$this->log(sprintf(_("File named: %s"),$file));
 			$dt = $this->data['manifest']['fpbx_cdrdb'];
@@ -86,7 +86,7 @@ class Legacy extends Common {
 					}
 					$tableMap[$tables[$current]][] = $current;
 				}
-				$this->processLegacyNormal($dbh, $tableMap, $versions);
+				$this->processLegacyNormal($dbh, $tableMap, $versions, $file);
 			}
 		}
 	}
@@ -239,7 +239,7 @@ class Legacy extends Common {
 	 * @param array $versions
 	 * @return void
 	 */
-	public function processLegacyNormal($dbh, $tableMap, $versions){
+	public function processLegacyNormal($dbh, $tableMap, $versions, $file){
 		$this->data['settings'] = $dbh->query("SELECT `keyword`, `value` FROM freepbx_settings")->fetchAll(PDO::FETCH_KEY_PAIR);
 		$this->data['features'] = $dbh->query("SELECT `featurename`, `customcode`, `enabled` FROM featurecodes")->fetchAll(\PDO::FETCH_GROUP|\PDO::FETCH_ASSOC|\PDO::FETCH_UNIQUE);
 
@@ -251,7 +251,14 @@ class Legacy extends Common {
 			}, ARRAY_FILTER_USE_KEY);
 		}
 		foreach ($moduleList as $module => $tables) {
-			if($module === 'unknown' || $module === 'cdr' || $module === 'cel' || $module === 'queuelog'){
+			if($module === 'sms' && in_array('sms_routing', $tables)) {
+				$count = $dbh->query("SELECT count(*) FROM `sms_routing`")->fetch(\PDO::FETCH_COLUMN);
+				if($count > 0) {
+					$this->log(sprintf(_("Processing %s"),$module),'INFO');
+					$this->processLegacysms($file);
+				}
+			}
+			if($module === 'unknown' || $module === 'cdr' || $module === 'cel' || $module === 'queuelog' || $module === 'sms'){
 				continue;
 			}
 			$this->log(sprintf(_("Processing %s"),$module),'INFO');
@@ -455,5 +462,56 @@ class Legacy extends Common {
 			return $this;
 		}
 		return simplexml_load_file($dir . '/module.xml');
+	}
+
+	public function processLegacysms($file) {
+		global $amp_conf;
+		$module = "sms";
+
+		// Extracting the sms module data from mysqldump.
+		$info = new \SplFileInfo($file);
+		if($info->getExtension() === 'gz') {
+                        $dbfile = $info->getPath().'/'.$info->getBasename('.' . $info->getExtension());
+                } else {
+                        $dbfile = $file;
+                }
+		$filePath = $info->getPath();
+		$extractedFile = $filePath."/sms.sql";
+		$command = "sed -n -e '/DROP TABLE.*`sms_dids`/,/INSERT INTO `sms_routing`/p' $dbfile > $extractedFile";
+		$process = new Process($command);
+		$process->mustRun();
+		$out = $process->getOutput();
+		$this->log(sprintf(_("Extract sms module tables from mysqldump Done....  %s  "), $out));
+		$fdbuser = $this->freepbx->Config->get('AMPDBUSER')?$this->freepbx->Config->get('AMPDBUSER'):$amp_conf['AMPDBUSER'];
+		$fdbpass = $this->freepbx->Config->get('AMPDBPASS')?$this->freepbx->Config->get('AMPDBPASS'):$amp_conf['AMPDBPASS'];
+		$dbname = $this->freepbx->Config->get('AMPDBNAME') ? $this->freepbx->Config->get('AMPDBNAME') : 'asterisk';
+		$fdbpass = escapeshellarg($fdbpass);
+
+		// Increasing the value of  mysql global variable
+		$command = 'mysql -u root -e "SET GLOBAL max_allowed_packet=2097152"';
+		$process = new Process($command);
+		$process->mustRun();
+		$out = $process->getOutput();
+		$this->log(sprintf(_("Setting Global Variable Done....  %s  "), $out));
+
+		//Restoring the sms module mysqldump
+		$command = "mysql -u $fdbuser -p$fdbpass $dbname < $extractedFile";
+		$process = new Process($command);
+		$process->mustRun();
+		$out = $process->getOutput();
+		$this->log(sprintf(_("Processing sms module Done....  %s  "), $out));
+
+		//Install sms module
+		$className = 'FreePBX\modules\Backup\RestoreBase';
+		$modData = [
+			'module' => $module,
+			'version' => '',
+			'pbx_version' => $this->data['manifest']['pbx_version'],
+			'configs' => []
+			];
+		$class = new $className($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp, $this->defaultFallback);
+		$this->log(sprintf(_("Installing  %s"), $module));
+		$class->install($module);
+		$this->log(sprintf(_("Restored module %s [%s]"), $module, get_class($class)));
 	}
 }

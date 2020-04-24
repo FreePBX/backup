@@ -89,6 +89,14 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 			$this->addWarning($msg);
 			return;
 		}
+		// Skip modules Restore if system is not activated
+		$skipModule = array("vqplus");
+		if(!defined('ZEND_LICENSE_LOADED') && in_array($module, $skipModule)) {
+			$msg = sprintf(_("System is not Activated,Skipping %s module"),$module);
+			$this->log($msg,'WARNING');
+			$this->addWarning($msg);
+			return;
+		}
 		$modData['module'] = $module;
 		$modData['version'] = $version;
 		$modData['pbx_version'] = null;

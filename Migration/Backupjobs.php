@@ -85,6 +85,7 @@ class Backupjobs extends Common{
 				$this->Backup->setConfig('backup_description', $backup['description'],$backup['uuid']);
 				$this->Backup->setConfig('backup_email', $backup['email'],$backup['uuid']);
 				$this->Backup->setConfig('backup_emailinline', 'no');
+				$this->Backup->setConfig('backup_addbjname', 'no');
 				foreach($backup['data'] as $key => $value){
 					if($key === 'name'){
 						$key = 'backup_name';

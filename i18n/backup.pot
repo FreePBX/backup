@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-24 10:25+0530\n"
+"POT-Creation-Date: 2020-04-30 13:53+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -586,7 +586,7 @@ msgstr ""
 msgid "Files"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:277
+#: Handlers/Restore/Legacy.php:278
 #: Handlers/Restore/Multiple.php:82
 #: Handlers/Restore/Single.php:34
 msgid "Finished"
@@ -983,7 +983,7 @@ msgstr ""
 msgid "Recipient"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:273
+#: Handlers/Restore/Legacy.php:274
 #: Handlers/Restore/Multiple.php:74
 msgid "Reloading...... DONE"
 msgstr ""
@@ -1130,12 +1130,12 @@ msgstr ""
 msgid "Running Backup ID: %s"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:276
+#: Handlers/Restore/Legacy.php:277
 #: Handlers/Restore/Multiple.php:81
 msgid "Running Post Restore Hooks DONE"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:274
+#: Handlers/Restore/Legacy.php:275
 #: Handlers/Restore/Multiple.php:79
 msgid ""
 "Running Post Restore Hooks.. Please note that hook will restart httpd "
@@ -1469,12 +1469,12 @@ msgstr ""
 msgid "Using fallback restore strategy"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:294
+#: Handlers/Restore/Legacy.php:295
 #, php-format
 msgid "Utilizing cached based sqlite at %s. The data might be stale!"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:298
+#: Handlers/Restore/Legacy.php:299
 #, php-format
 msgid "Utilizing file based sqlite at %s, This is SLOW"
 msgstr ""

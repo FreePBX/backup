@@ -245,7 +245,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	 * @param \PDO $pdo The pdo connection for the temporary database
 	 * @return void
 	 */
-	public function restoreLegacyDatabase(\PDO $pdo,$tables = []) {
+	public function restoreLegacyDatabase(\PDO $pdo,$tables = [],$ignoretables = []) {
 		$module = strtolower($this->data['module']);
 		$dir = $this->FreePBX->Config->get('AMPWEBROOT').'/admin/modules/'.$module;
 		if(!file_exists($dir.'/module.xml')) {
@@ -279,6 +279,9 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 
 		$this->log(sprintf(_("Importing Databases from %s"), $module));
 		foreach($tables as $table) {
+			if(in_array($table, $ignoretables)) {
+				continue;
+			}
 			$tname = $table;
 			try {
 				$sth = $pdo->query("SELECT * FROM $tname",\PDO::FETCH_ASSOC);
@@ -302,8 +305,16 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 	 * @return void
 	 */
 	public function restoreLegacyFeatureCodes(\PDO $pdo) {
+		$helptextskip = false;
+		if(version_compare_freepbx($this->getVersion(),"11","lt")) {
+			$helptextskip = true;
+		}
 		$module = strtolower($this->data['module']);
-		$sql = "SELECT `featurename`,`description`, `defaultcode`, `customcode`, `enabled`,`helptext` FROM featurecodes WHERE modulename = :name";
+		if($helptextskip) {
+			$sql = "SELECT `featurename`,`description`, `defaultcode`, `customcode`, `enabled`, `providedest` FROM featurecodes WHERE modulename = :name";
+		}else {
+			$sql = "SELECT `featurename`,`description`, `defaultcode`, `customcode`, `enabled`,`helptext`,`providedest` FROM featurecodes WHERE modulename = :name";
+		}
 		$sth = $pdo->prepare($sql);
 		$sth->execute([":name" => $module]);
 		$res = $sth->fetchAll(\PDO::FETCH_ASSOC);
@@ -312,17 +323,21 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		$sth = $this->FreePBX->Database->prepare($sql);
 		$sth->execute(array(":modulename" => $module));
 
-		$sql = "INSERT INTO featurecodes (`modulename`, `featurename`, `description`, `helptext`, `defaultcode`, `customcode`, `enabled`) VALUES (:modulename, :featurename, :description, :helptext, :defaultcode, :customcode, :enabled)";
+		$sql = "INSERT INTO featurecodes (`modulename`, `featurename`, `description`, `helptext`, `defaultcode`, `customcode`, `enabled`, `providedest`) VALUES (:modulename, :featurename, :description, :helptext, :defaultcode, :customcode, :enabled, :providedest)";
 		$sth = $this->FreePBX->Database->prepare($sql);
 		foreach($res as $data) {
+			if($helptextskip) {
+				$data['helptext'] = '';
+			}
 			$sth->execute([
 				":description" 	=> $data['description'],
 				":helptext" 	=> $data['helptext'],
 				":defaultcode" 	=> $data['defaultcode'],
 				":customcode" 	=> $data['customcode'],
-				":enabled" 		=> $data['enabled'],
+				":enabled" 	=> $data['enabled'],
 				":featurename" 	=> $data['featurename'],
-				":modulename" 	=> $module
+				":modulename" 	=> $module,
+				":providedest"	=> $data['providedest']
 			]);
 		}
 	}

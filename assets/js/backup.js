@@ -226,9 +226,11 @@ $("#restoreFiles").on("post-body.bs.table", function () {
 		);
 	});
 	$("#restoreFiles .run").click(function() {
-		var id = $(this).data('id');
-		var filepath = $(this).data('filepath');
-		runRestore(id,'Running Remote Restore',filepath);
+		if(confirm(_('Are you sure, you want to restore this backup?'))) {
+			var id = $(this).data('id');
+			var filepath = $(this).data('filepath');
+			runRestore(id,'Running Remote Restore',filepath);
+		}
 	});
 });
 
@@ -265,8 +267,10 @@ $("#localrestorefiles").on("post-body.bs.table", function () {
 		);
 	});
 	$("#localrestorefiles .run").click(function() {
-		var id = $(this).data('id');
-		runRestore(id,'Running Local Restore');
+		if(confirm(_('Are you sure, you want to restore this backup?'))) {
+			var id = $(this).data('id');
+			runRestore(id,'Running Local Restore');
+		}
 	});
 });
 
@@ -511,10 +515,10 @@ function processItems() {
 		return el.selected == true;
 	})
 	$.each(selected, function (i, v) {
+		v.settings = $("#modulesetting_"+v.modulename).serializeArray();
 		if (v.hasOwnProperty('settingdisplay')) {
 			delete v.settingdisplay;
-			v.settings = $("#modulesetting_"+v.modulename).serializeArray();
-		}
+		}		
 	});
 	return selected;
 }

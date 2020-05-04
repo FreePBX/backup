@@ -112,7 +112,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		$this->log(sprintf(_('Resetting %s module data'),$module));
 		modgettext::push_textdomain($module);
 		//FREEPBX-20646 Warm spare backup,  resets will clear all data so the extenalip ,nat,bindaddress we can not preserve
-		if ($module === 'sipsettings' && $modData['backupInfo']['backupInfo']['warmspareenabled'] == 'yes') {
+		if ($module === 'sipsettings' && $modData['backupInfo']['backupInfo']['warmspareenabled'] == 'yes' || $module === 'zulu' || ($modData['backupInfo']['backupInfo']['warmspareenabled'] == 'yes' && $modData['backupInfo']['backupInfo']['warmspare_excludetrunks'] == 'yes' && $module === 'core')) {
 			$this->log(sprintf(_('NOT Resetting %s module data'),$module));
 		} else {
 			$class->reset();

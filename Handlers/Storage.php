@@ -21,12 +21,12 @@ class Storage extends CommonFile {
 
 	/**
 	 * Process the Locations for the backup
-	 *
+	 * @param  $storages passsed from secondparty module
 	 * @return void
 	 */
-	public function process() {
+	public function process($storages = []) {
 		$storage_ids = $this->Backup->getStorageById($this->id);
-
+		$storage_ids = count($storages)> 0?$storages:$storage_ids;
 		$this->log(_("Saving to selected Filestore locations"));
 		foreach ($storage_ids as $location) {
 			if(empty(trim($location))){
@@ -41,11 +41,18 @@ class Storage extends CommonFile {
 				}
 				$path = trim($info['path'],"'");
 				if (substr($path,0,2) == '__') {
-					$path = trim($path,'__');
-					$Rpath = $this->freepbx->config->get($path);
+					$path = ltrim($path,'__');
+					$position = strpos($path, '__');
+					if($position > 0){
+						$basepath = substr($path,0,$position);
+						$additionalpath = substr($path,$position+2);
+					}
+					$Rpath = $this->freepbx->config->get($basepath);
+					$Rpath .= $additionalpath;
 				} else {
 					$Rpath = $path;
 				}
+				$Rpath = rtrim($Rpath,'/');
 				$this->Filestore->upload($id,$this->file,basename($this->file));
 				$this->log("\t".sprintf(_("Saving to: %s:'%s' instance ,File location: %s/%s "),$info['driver'],$info['name'],$Rpath,basename($this->file)),'DEBUG');
 			} catch (\Exception $e) {

@@ -59,7 +59,8 @@ class Backup extends FreePBX_Helpers implements BMO {
 		'warmspare_remoteapi_accesstoken_expire',
 		'warmspare_remoteapi_clientid',
 		'warmspare_remoteapi_secret',
-		'warmspare_remoteapi_gql'
+		'warmspare_remoteapi_gql',
+		'warmspare_excludetrunks'
 	];
 	public $loggingHooks = null;
 
@@ -1327,5 +1328,13 @@ public function GraphQL_Access_token($request) {
 			$this->homeDir = $home;
 		}
 		return $this->homeDir;
+	}
+
+	/* This method is useful for modules to run somethinng special after all module restore
+	* And before httpd restart 
+	*/
+	public function postrestoreModulehook($transactionid,$backupinfo=[]) {
+		 $this->freepbx->Hooks->processHooks($transactionid,$backupinfo);
+		return;
 	}
 }

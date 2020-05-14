@@ -92,6 +92,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		$modData['module'] = $module;
 		$modData['version'] = $version;
 		$modData['pbx_version'] = null;
+		$skipModuleReset = $modData['skip_reset'];
 		$modData['backupInfo'] = $this->getMasterManifest();
 		if(strtolower($module) === 'framework') {
 			$className = 'FreePBX\Builtin\Restore';
@@ -115,7 +116,11 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		if ($module === 'sipsettings' && $modData['backupInfo']['backupInfo']['warmspareenabled'] == 'yes' || $module === 'zulu' || ($modData['backupInfo']['backupInfo']['warmspareenabled'] == 'yes' && $modData['backupInfo']['backupInfo']['warmspare_excludetrunks'] == 'yes' && $module === 'core')) {
 			$this->log(sprintf(_('NOT Resetting %s module data'),$module));
 		} else {
-			$class->reset();
+			if(!$skipModuleReset){
+				$class->reset();
+			}else {
+				$this->log(sprintf(_('Based on Module settings We are NOT Resetting %s module data'),$module));
+			}
 		}
 		$this->log(sprintf(_("Restoring from %s [%s]"), $module, get_class($class)));
 		$this->runRestore($class);

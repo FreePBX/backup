@@ -11,6 +11,7 @@ class ModelBase {
 		'version' => null,
 		'module' => null,
 		'pbx_version' => null,
+		'skip_reset' => false,
 		'dirs' => [],
 		'files' => [],
 		'configs' => [],
@@ -121,6 +122,10 @@ class ModelBase {
 	 */
 	public function getPBXVersion() {
 		return $this->data['pbx_version'];
+	}
+	/* return reset is required or not */
+	public function getSkipReset() {
+		return $this->data['skip_reset'];
 	}
 	/* Return the backupmainfest backupinfo when the module request*/
 	public function getBackupInfo() {

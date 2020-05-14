@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-30 13:53+0530\n"
+"POT-Creation-Date: 2020-05-14 13:01+0530\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -116,7 +116,7 @@ msgstr "Beheer"
 msgid "After the restore you might reload with the apply config button"
 msgstr ""
 
-#: Handlers/Restore/Common.php:177
+#: Handlers/Restore/Common.php:182
 msgid ""
 "Apache will Restart now... And your GUI may die if the ports are changed !!!!"
 msgstr ""
@@ -254,6 +254,11 @@ msgstr ""
 msgid "Backup running"
 msgstr ""
 
+#: Handlers/Restore/Common.php:122
+#, php-format
+msgid "Based on Module settings We are NOT Resetting %s module data"
+msgstr ""
+
 #: views/backup/form.php:30
 msgid "Basic Information"
 msgstr ""
@@ -338,7 +343,7 @@ msgstr ""
 msgid "Could not find a file for the id supplied"
 msgstr ""
 
-#: Handlers/Restore/Common.php:164
+#: Handlers/Restore/Common.php:169
 msgid "Could not locate the manifest for this file"
 msgstr ""
 
@@ -396,7 +401,7 @@ msgstr ""
 msgid "Disable Remote Trunks"
 msgstr ""
 
-#: Console/Backup.class.php:244 Handlers/Restore/Common.php:122
+#: Console/Backup.class.php:244 Handlers/Restore/Common.php:127
 #: Handlers/Restore/Legacy.php:231
 msgid "Done"
 msgstr ""
@@ -533,7 +538,7 @@ msgstr ""
 msgid "Extracting Backup"
 msgstr ""
 
-#: Handlers/Restore/Common.php:142
+#: Handlers/Restore/Common.php:147
 msgid "Extracting backup..."
 msgstr ""
 
@@ -817,7 +822,7 @@ msgstr ""
 msgid "Mysql Db's"
 msgstr "MySQL DB's"
 
-#: Handlers/Restore/Common.php:116
+#: Handlers/Restore/Common.php:117
 #, php-format
 msgid "NOT Resetting %s module data"
 msgstr ""
@@ -972,7 +977,7 @@ msgstr ""
 msgid "Resetting %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:112
+#: Handlers/Restore/Common.php:113
 #, php-format
 msgid "Resetting %s module data"
 msgstr ""
@@ -1019,7 +1024,7 @@ msgstr ""
 msgid "Restoring %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:120 Handlers/Restore/Legacy.php:229
+#: Handlers/Restore/Common.php:125 Handlers/Restore/Legacy.php:229
 #, php-format
 msgid "Restoring from %s [%s]"
 msgstr ""
@@ -1262,7 +1267,7 @@ msgid ""
 "different method of transferring your backup."
 msgstr ""
 
-#: Handlers/Restore/Common.php:103
+#: Handlers/Restore/Common.php:104
 #, php-format
 msgid "The module %s does not seem to support restores."
 msgstr ""
@@ -1409,7 +1414,7 @@ msgstr ""
 msgid "Using default restore strategy"
 msgstr ""
 
-#: Handlers/Restore/Common.php:107
+#: Handlers/Restore/Common.php:108
 msgid "Using fallback restore strategy"
 msgstr ""
 

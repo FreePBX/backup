@@ -487,7 +487,7 @@ if (!isset($vars['restore'])) {
 	//dbug($file);
 
 	if (isset($vars['disabletrunks'])) {
-		core_trunks_disable('reg', true);
+		core_trunks_disable('*', true);
 	}
 	//run hooks
 	if (isset($manifest['hooks']['post_restore']) && $manifest['hooks']['post_restore']) {

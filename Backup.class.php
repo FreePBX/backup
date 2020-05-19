@@ -41,6 +41,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 		'backup_email',
 		'backup_emailtype',
 		'backup_emailinline',
+		'backup_addbjname',
 		'immortal',
 		'warmspareenabled',
 		'warmspare_remotetrunks',

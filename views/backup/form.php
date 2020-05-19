@@ -247,7 +247,40 @@ if (!empty($bkjobs)) {
 								</div>
 							</div>
 							<!--END Storage Location-->
+							<div class="element-container">
+								<div class="row">
+									<div class="form-group">
+										<div class="col-md-3">
+											<label class="control-label" for="backup_addbjname">
+												<?php echo _("Append BackupJobName Directory into Storage path") ?>
+											</label>
+											<i class="fa fa-question-circle fpbx-help-icon" data-for="backup_addbjname"></i>
+										</div>
+										<div class="col-md-9">
+											<span class="radioset">
+<?php $backup_addbjname = (!empty($backup_addbjname) && isset($backup_addbjname))?$backup_addbjname:'no';?>
+<input type="radio" name="backup_addbjname" id="backup_addbjname_success" value="yes" <?php echo ($backup_addbjname === 'yes' ? "CHECKED": "") ?>>
+												<label for="backup_addbjname_success">
+													<?php echo _("Yes");?>
+												</label>
+<input type="radio" name="backup_addbjname" id="backup_addbjname_failure" value="no" <?php echo ($backup_addbjname === 'no' ? "CHECKED": "") ?>>
+												<label for="backup_addbjname_failure">
+													<?php echo _("No");?>
+												</label>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<span id="backup_addbjname-help" class="help-block fpbx-help-block">
+											<?php echo _("When set to Yes , Backp files will store like 'filestore-path/backup-job-name/backup-file' and if set to NO then backup file will store into 'filestore-path/backup-file'");?>			</span>
+									</div>
+								</div>
+							</div>
+
 						</div>
+						<!--END Storage Location Section -->
 						<div class="section-title" data-for="backup-schedule">
 							<h3>
 								<i class="fa fa-minus"></i>

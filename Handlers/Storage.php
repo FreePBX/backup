@@ -19,6 +19,19 @@ class Storage extends CommonFile {
 		$this->Filestore = $this->freepbx->Filestore;
 	}
 
+
+	protected function translatePath($path) {
+		if(preg_match("/(.*)__(.*)__(.*)/", $path, $matches) !== 1){
+			return $path;
+		}
+		$var = $this->freepbx->Config->get($matches[2]);
+		if($var === false){
+			return $path;
+		}
+		return $matches[1].$var.$matches[3];
+	}
+
+
 	/**
 	 * Process the Locations for the backup
 	 * @param  $storages passsed from secondparty module
@@ -39,22 +52,18 @@ class Storage extends CommonFile {
 					$this->log(_('Invalid filestore location'),'ERROR');
 					continue;
 				}
-				$path = trim($info['path'],"'");
-				if (substr($path,0,2) == '__') {
-					$path = ltrim($path,'__');
-					$position = strpos($path, '__');
-					if($position > 0){
-						$basepath = substr($path,0,$position);
-						$additionalpath = substr($path,$position+2);
+				$Rpath = $this->translatePath($info['path']); 
+				$Rfile = basename($this->file);
+				if ($this->backupInfo['backup_addbjname'] == 'yes') {
+					if ($info['driver'] == 'Email') {
+						$Rfile = basename($this->file);
+					} else { 
+						$Rfile = $this->backupInfo['backup_name'].'/'.basename($this->file);
+						$this->freepbx->Filestore->makeDirectory($id, $this->backupInfo['backup_name']);
 					}
-					$Rpath = $this->freepbx->config->get($basepath);
-					$Rpath .= $additionalpath;
-				} else {
-					$Rpath = $path;
 				}
-				$Rpath = rtrim($Rpath,'/');
-				$this->Filestore->upload($id,$this->file,basename($this->file));
-				$this->log("\t".sprintf(_("Saving to: %s:'%s' instance ,File location: %s/%s "),$info['driver'],$info['name'],$Rpath,basename($this->file)),'DEBUG');
+				$this->Filestore->upload($id,$this->file,$Rfile);
+				$this->log("\t".sprintf(_("Saving to: %s:'%s' instance ,File location: %s/%s "),$info['driver'],$info['name'],$Rpath,$Rfile),'DEBUG');
 			} catch (\Exception $e) {
 				$err = $e->getMessage();
 				$this->log($err,'ERROR');

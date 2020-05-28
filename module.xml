@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.10.3</version>
+	<version>15.0.10.4</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.10.4* FREEI-1551 https setup not replicating to warm spare 
 		*15.0.10.3* Fixing FREEPBX-21456 Adding backup file under "backup job name" directory 
 		*15.0.10.2*  FREEI-1644 added set reset option
 		*15.0.10.1* FREEPBX-21399 Firewall broken after restore from legacy backup onto FreePBX 15 

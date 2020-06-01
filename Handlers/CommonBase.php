@@ -18,8 +18,7 @@ abstract class CommonBase {
 	public function __construct($freepbx, $transactionId, $pid) {
 		$this->freepbx = $freepbx;
 		$this->Backup = $freepbx->Backup;
-		$this->logpath = $this->Backup->getConfig('logpath');
-		$this->logpath = !empty($this->logpath)?$this->logpath:$this->freepbx->Config->get('ASTLOGDIR').'/backup.log';
+		$this->logpath = $this->freepbx->Config->get('ASTLOGDIR').'/backup-'.$transactionId.'.log';
 		//Get the version of the backup module currently in use
 		$this->backupModVer = (string)$this->freepbx->Modules->getInfo('backup')['backup']['version'];
 		$this->transactionId = $transactionId;
@@ -57,6 +56,9 @@ abstract class CommonBase {
 	 * @return void
 	 */
 	protected function setupLogger() {
+		if(!isset($this->backupInfo['backup_email']) || empty($this->backupInfo['backup_email'])){
+			$this->logpath = $this->freepbx->Config->get('ASTLOGDIR').'/backup.log';
+		}
 		$this->logger = $this->freepbx->Logger->createLogDriver('backup', $this->logpath, \Monolog\Logger::DEBUG);
 		if(php_sapi_name() == 'cli' || php_sapi_name() == 'phpdbg'){
 			foreach($this->logger->getHandlers() as $handler) {

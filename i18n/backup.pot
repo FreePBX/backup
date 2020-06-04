@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-28 08:08+0000\n"
+"POT-Creation-Date: 2020-06-04 07:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -165,12 +165,12 @@ msgstr ""
 msgid "Backup %s"
 msgstr ""
 
-#: Monolog/Swift.php:73
+#: Monolog/Swift.php:75
 #, php-format
 msgid "Backup %s failed for %s"
 msgstr ""
 
-#: Monolog/Swift.php:71
+#: Monolog/Swift.php:73
 #, php-format
 msgid "Backup %s success for %s"
 msgstr ""
@@ -1185,7 +1185,7 @@ msgstr ""
 msgid "Scheduling"
 msgstr ""
 
-#: Monolog/Swift.php:149
+#: Monolog/Swift.php:148
 msgid "See attachment"
 msgstr ""
 
@@ -1418,7 +1418,7 @@ msgid ""
 "Unable to run restoreLegacyDatabase on %s because module.xml was not found"
 msgstr ""
 
-#: Monolog/Swift.php:82
+#: Monolog/Swift.php:91
 msgid "Unable to send backup email!"
 msgstr ""
 
@@ -1588,7 +1588,7 @@ msgstr ""
 msgid "astDb's"
 msgstr ""
 
-#: Monolog/Swift.php:53
+#: Monolog/Swift.php:55
 msgid "success"
 msgstr ""
 

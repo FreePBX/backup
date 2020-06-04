@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-28 08:07+0000\n"
+"POT-Creation-Date: 2020-06-04 07:08+0000\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -170,12 +170,12 @@ msgstr "Respaldo"
 msgid "Backup %s"
 msgstr ""
 
-#: Monolog/Swift.php:73
+#: Monolog/Swift.php:75
 #, php-format
 msgid "Backup %s failed for %s"
 msgstr ""
 
-#: Monolog/Swift.php:71
+#: Monolog/Swift.php:73
 #, php-format
 msgid "Backup %s success for %s"
 msgstr ""
@@ -1149,7 +1149,7 @@ msgstr ""
 msgid "Scheduling"
 msgstr ""
 
-#: Monolog/Swift.php:149
+#: Monolog/Swift.php:148
 msgid "See attachment"
 msgstr ""
 
@@ -1384,7 +1384,7 @@ msgid ""
 "Unable to run restoreLegacyDatabase on %s because module.xml was not found"
 msgstr ""
 
-#: Monolog/Swift.php:82
+#: Monolog/Swift.php:91
 msgid "Unable to send backup email!"
 msgstr ""
 
@@ -1547,7 +1547,7 @@ msgstr ""
 msgid "astDb's"
 msgstr "\"astDb's\""
 
-#: Monolog/Swift.php:53
+#: Monolog/Swift.php:55
 msgid "success"
 msgstr ""
 

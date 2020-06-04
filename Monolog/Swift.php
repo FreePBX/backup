@@ -5,6 +5,7 @@ use Monolog\Handler\MailHandler;
 use Monolog\Logger;
 use Monolog\Formatter\FormatterInterface;
 use Monolog\Formatter\LineFormatter;
+use Symfony\Component\Process\Process;
 use Swift as SwiftMailer;
 
 /**
@@ -36,6 +37,7 @@ class Swift extends MailHandler {
 	 * {@inheritdoc}
 	 */
 	protected function send($content, array $records) {
+		$location = \FreePBX::Config()->get('ASTLOGDIR');
 		$errors = false;
 		foreach ($records as $record) {
 			if($record['level'] > 399){
@@ -77,6 +79,13 @@ class Swift extends MailHandler {
 
 		try {
 			$this->mailer->send($this->buildMessage($content, $records));
+			if(file_exists($location.'/backup-'.$records[0]['channel'].'.log')) {
+				$command = 'cat '.$location.'/backup-'.$records[0]['channel'].'.log >> '.$location.'/backup.log';
+				$process = new Process($command);
+				$process->setTimeout(50);
+				$process->mustRun();
+				unlink($location.'/backup-'.$records[0]['channel'].'.log');
+			}
 		} catch(\Exception $e) {
 			$nt = \FreePBX::Notifications();
 			$nt->add_error('backup', 'EMAIL', _('Unable to send backup email!'), $e->getMessage(), "", true, true);
@@ -125,18 +134,8 @@ class Swift extends MailHandler {
 		/**
 		 * Creating new log file and cleaning content.
 		 */
+		$log_content = str_replace("[] []","", file_get_contents($location.'/backup-'.$records[0]['channel'].'.log'));
 		$log_file = "backup-".strtotime("now").".log";
-		copy($location."/backup.log", $location."/".$log_file);
-		unlink($location."/backup.log");
-		$log_content = str_replace("[] []","", file_get_contents($location."/".$log_file));
-		preg_match_all('/]: (.+)/', $log_content, $matches, PREG_SET_ORDER, 0);
-		$log_content = "";		
-		foreach($matches as $line){
-			if(empty($line)){
-				continue;
-			}
-			$log_content .= $line[1]."\n";
-		}
 
 		if($inline) {	
 			$message->setBody($content."\n".$log_content);
@@ -144,7 +143,7 @@ class Swift extends MailHandler {
 			file_put_contents("/tmp/".$log_file, $log_content);
 			$f_mime = mime_content_type("/tmp/".$log_file);
 			unlink("/tmp/".$log_file);
-          
+
 			$message->attach(new \Swift_Attachment($log_content, $log_file, $f_mime));
 			$message->setBody(_('See attachment'));
 		}

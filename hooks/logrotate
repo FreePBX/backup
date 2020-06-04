@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cat <<- EOF > /etc/logrotate.d/freepbx-backup
+/var/log/asterisk/backup.log{
+	size 50M
+	missingok
+	rotate 5
+	notifempty
+	sharedscripts
+	dateext
+	create 0640 asterisk asterisk
+	su asterisk asterisk
+}
+EOF

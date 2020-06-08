@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-04 07:08+0000\n"
+"POT-Creation-Date: 2020-06-08 09:22+0530\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -226,6 +226,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr ""
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr ""
+
 #: views/backup/form.php:40 views/restore/landing.php:71
 #: views/restore/landing.php:115
 msgid "Backup Name"
@@ -417,6 +421,10 @@ msgstr ""
 
 #: views/backup/form.php:17
 msgid "Edit"
+msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
 msgstr ""
 
 #: views/backup/form.php:181
@@ -1238,6 +1246,10 @@ msgstr ""
 msgid "The Backup job name %s is already in used, please use a different name."
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr ""
+
 #: views/backup/warmspare.php:433
 msgid "The address of the remote server."
 msgstr ""
@@ -1315,8 +1327,8 @@ msgstr ""
 
 #: Handlers/Restore/Legacy.php:156
 msgid ""
-"This process may take long time based on the CDR SQL file size, setting time "
-"out to MAX 1 hour"
+"This process may take a long time based on the CDR SQL file size, the "
+"timeout limit will be set to a maximum of 5 Hour"
 msgstr ""
 
 #: views/restore/processRestore.php:27

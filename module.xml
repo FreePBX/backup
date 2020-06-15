@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>16.0.5</version>
+	<version>16.0.6</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*16.0.6* Added custom files functionality code 
 		*16.0.5* Fixing FREEI-1710 Increasing legacy cdr restore timeout to 5 hours 
 		*16.0.4* FREEI-1567 logs created by new freepbxc 15 backup appear to be unmanaged 
 		*16.0.3* FREEI-1551 https setup not replicating to warm spare 

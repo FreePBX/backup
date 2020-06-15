@@ -61,6 +61,7 @@ class Multiple extends Common {
 		}
 		//end of all modules restore so unlock it
 		$this->log(_('Restore processing for modules are finished successfully'));
+		$this->setCustomFiles();
 		$this->setRestoreEnd();
 		$this->displayportschanges();
 		$metadata = $this->getMasterManifest();

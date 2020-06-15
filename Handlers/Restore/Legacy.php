@@ -267,6 +267,7 @@ class Legacy extends Common {
 		}
 		//end of all modules so unlock it
 		$this->log(_('Restore processing for modules are finished successfully'));
+		$this->setCustomFiles($this->data['manifest']);
 		$this->setRestoreEnd();
 		$this->displayportschanges();
 		$this->freepbx->Backup->postrestoreModulehook($this->transactionId, $backupinfo=[]);

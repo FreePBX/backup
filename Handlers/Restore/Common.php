@@ -245,4 +245,85 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	}
 
 
+	public function setCustomFiles($manifest= false) {
+		if(!$manifest) {
+			$restoredata = $this->getMasterManifest();
+			$custom_files = json_decode($restoredata['backupInfo']['custom_files'], true);
+			if(!empty($custom_files)) {
+				foreach($custom_files as $files) {
+					if($files['type'] == 'file') {
+						$fdstpath = $this->Backup->getPath($files['path']);
+						if(file_exists($this->tmp.'/customfiles'.$fdstpath)) {
+							$this->log(sprintf(_('Restoring custom file to %s'),$fdstpath),'DEBUG');
+							try {
+								copy($this->tmp.'/customfiles'.$fdstpath, $fdstpath);
+							} catch(\Exception $e) {
+								$this->log(sprintf(_($e->getMessage()),'DEBUG'));
+							}
+						}
+					}
+					if($files['type'] == 'dir') {
+						$dstpath = $this->Backup->getPath($files['path']);
+						if(file_exists($this->tmp.'/customdir'.$dstpath)) {
+							$this->log(sprintf(_('Restoring custom directory to %s'),$dstpath),'DEBUG');
+							$this->recurseCopy($this->tmp.'/customdir'.$dstpath, $dstpath, false);
+						}
+					}
+				}
+			}
+		} else {
+			$fileList = $manifest['file_list'];
+			if(!empty($fileList)) {
+				if($fileList['etc']['asterisk']) {
+					$files = glob("$this->tmp/etc/asterisk/*_custom.conf");
+					foreach($files as $fval) {
+						$src = $fval;
+						$dst = '/etc/asterisk/' . basename($fval);
+						try {
+							copy($src, $dst);
+							$this->log(sprintf(_('Restoring custom file to %s'),$dst),'DEBUG');
+						} catch(\Exception $e) {
+							$this->log(sprintf(_($e->getMessage()),'DEBUG'));
+						}
+					}
+				}
+				foreach($fileList as $key => $file) {
+					if($key == 'etc') { continue; }
+					$this->recurseCopy($this->tmp.'/'.$key, '/'.$key, true);
+				}
+			}
+		}
+	}
+
+	public function recurseCopy($src, $dst, $legacy= false) {
+		$dir = opendir($src);
+		if(!is_dir($dst)) {
+			try {
+				$this->fs->mkdir($dst);
+			} catch(\Exception $e) {
+				$this->log(sprintf(_($e->getMessage()),'DEBUG'));
+			}
+		}
+		while(false !== ( $file = readdir($dir)) ) {
+			if($file == 'www' || $file == 'bin') {
+				$this->log(sprintf(_('Skipping directory %s'), $file),'DEBUG');
+					continue;
+			}
+			if (( $file != '.' ) && ( $file != '..' )) {
+				if ( is_dir($src . '/' . $file) ) {
+					$this->recurseCopy($src . '/' . $file, $dst . '/' . $file, $legacy);
+				} else {
+					try {
+						if($legacy) {
+							$this->log(sprintf(_('Restoring custom file to %s'),$dst . '/' . $file),'DEBUG');
+						}
+						$data = copy($src . '/' . $file, $dst . '/' . $file);
+					} catch(\Exception $e) {
+						$this->log(sprintf(_($e->getMessage()),'DEBUG'));
+					}
+				}
+			}
+		}
+		closedir($dir);
+	}
 }

@@ -61,7 +61,8 @@ class Backup extends FreePBX_Helpers implements BMO {
 		'warmspare_remoteapi_clientid',
 		'warmspare_remoteapi_secret',
 		'warmspare_remoteapi_gql',
-		'warmspare_excludetrunks'
+		'warmspare_excludetrunks',
+		'custom_files'
 	];
 	public $loggingHooks = null;
 
@@ -1084,7 +1085,26 @@ public function GraphQL_Access_token($request) {
 			$this->setModulesById($data['id'], $backup_items);
 			$this->processBackupSettings($data['id'], $processibleSettings);
 		}
+		$cftype = $this->getReq('type');
+		$path = $this->getReq('path');
+		$exclude = $this->getReq('exclude');
+		$saved = array();
+		if (is_array($cftype)) {
+			foreach ($cftype as $e_id => $type) {
+				if (!isset($saved[$type], $saved[$type][$path[$e_id]])) {
+					$saved[$type][$path[$e_id]] = true;
+					$excludes = trim($exclude[$e_id]) ? explode("\n", $exclude[$e_id]) : array();
+					foreach ($excludes as $my => $e) {
+						$excludes[$my] = trim($e);
+					}
+					$excludes  = array_unique($excludes);
+					$values[] = array('type' => $type, 'path'=> $path[$e_id], 'exclude'=> $excludes);
+				}
+			}
+			$customVal = json_encode($values);
+			$this->setConfig('custom_files', $customVal, $data['id']);
 
+		}
 		$this->scheduleJobs($id);
 		return $id;
 	}
@@ -1207,7 +1227,7 @@ public function GraphQL_Access_token($request) {
 		if (!preg_match("/__(.+)__/", $string, $out)) {
 			return $string;
 		}
-		$path = $this->freepbx->Config->get($out[1]);
+		$path = \FreePBX::Config()->get($out[1]);
 		if($path){
 			return str_replace($out[0], $path, $string);
 		}
@@ -1338,4 +1358,56 @@ public function GraphQL_Access_token($request) {
 		 $this->freepbx->Hooks->processHooks($transactionid,$backupinfo);
 		return;
 	}
+
+	public function backup_template_generate_tr($c, $i, $build_tr = false) {
+		$type = '';
+		$path = '';
+		$exclude = '';
+
+		switch ($i['type']) {
+			case 'file':
+				$type = _('File') . form_hidden('type[' . $c . ']', 'file');
+				$path = array(
+							'name' => 'path[' . $c . ']',
+							'value' => $i['path'],
+							'required' => '',
+							'placeholder' => _('/path/to/file')
+						);
+				$path = form_input($path);
+				$exclude = form_hidden('exclude[' . $c . ']', '');
+				break;
+
+			case 'dir':
+				$type = _('Directory') . form_hidden('type[' . $c . ']', 'dir');
+				$path = array(
+							'name' => 'path[' . $c . ']',
+							'value' => $i['path'],
+							'required' => '',
+							'placeholder' => _('/path/to/dir')
+						);
+				$path = form_input($path);
+				$exclude = array(
+							'name' => 'exclude[' . $c . ']',
+							'value' => implode("\n", $i['exclude']),
+							'rows' => count($i['exclude']),
+							'cols' => 20,
+							'placeholder' => _('PATTERNs, one per line')
+						);
+				$exclude = form_textarea($exclude);
+				break;
+		}
+		$del_txt = _('Delete this entry. Don\'t forget to click Submit to save changes!');
+		$delete = '<img src="images/trash.png" style="cursor:pointer" title="'. $del_txt . '" class="delete_entrie">';
+
+		if($build_tr) {
+			return '<tr><td>'
+				. $type . '</td><td>'
+				. $path . '</td><td>'
+				. $exclude . '</td><td>'
+				. $delete . '</td></tr>';
+		} else {
+			return array('type' => $type, 'path' => $path, 'exclude' => $exclude, 'delete' => $delete);
+		}
+	}
+
 }

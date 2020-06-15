@@ -9,6 +9,7 @@ use function FreePBX\modules\Backup\Json\json_decode;
 use function FreePBX\modules\Backup\Json\json_encode;
 use splitbrain\PHPArchive\Tar;
 use FreePBX\modules\Backup\Handlers\FreePBXModule;
+use Symfony\Component\Process\Process;
 use modgettext;
 abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	protected $tar;
@@ -149,4 +150,83 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		$this->fs->rename($this->tmp .'/'. $this->filename, $this->file);
 		$this->fs->remove($this->tmp);
 	}
+
+	public function addcustomFiles($cfiles) {
+		$custfiles = json_decode($cfiles, true);
+		foreach($custfiles as $cfvalue) {
+			if($cfvalue['type'] == 'file') {
+				$srcpath = $this->Backup->getPath($cfvalue['path']);
+				if(file_exists($srcpath)) {
+					$destpath = $this->Backup->getPath('customfiles/' . ltrim($srcpath, '/'));
+					$this->log("\t".sprintf(_('Adding custom file to tar: %s'),$destpath),'DEBUG');
+					$this->tar->addFile($srcpath, $destpath);
+				} else {
+					$this->log("\t".sprintf(_('Custom file not exists: %s'),$srcpath),'DEBUG');
+				}
+			}
+			if($cfvalue['type'] == 'dir') {
+				$dir = $this->Backup->getPath($cfvalue['path']);
+				if(is_dir($dir)) {
+					$fdir = $this->Backup->getPath('customdir/' . ltrim($dir, '/'));
+					$this->fs->mkdir($this->tmp . '/' . $fdir);
+					$dst = $this->tmp . '/' . $fdir;
+					$excludes = " --exclude='node_modules' ";
+					$excludes .= "--exclude='*tgz' --exclude='*gpg' ";
+					$excludes .= "--exclude='.git' ";
+					if($cfvalue['exclude']) {
+						if (!is_array($cfvalue['exclude'])) {
+							$xArr = explode("\n", $cfvalue['exclude']);
+						} else {
+							$xArr = $cfvalue['exclude'];
+						}
+						foreach ($xArr as $x) {
+							if ($x[0] === "/") {
+								$excludes .= " --filter='-/ $x'";
+							} else {
+								$excludes .= " --exclude='$x'";
+							}
+						}
+					}
+					$cmd = fpbx_which('rsync')." $excludes -rlptgov $dir/ $dst/";
+					$process= new Process($cmd);
+					try {
+						$process->setTimeout(null);
+						$process->mustRun();
+					} catch(ProcessFailedException $e) {
+						$this->log(sprintf(_($e->getMessage()),'DEBUG'));
+					}
+					$this->log("\t".sprintf(_('Adding custom directory to tar: %s'),$fdir),'DEBUG');
+					$fileList = $this->getFileList("$dst/");
+					foreach($fileList as $file) {
+						$this->tar->addFile($dst.'/'.$file, $fdir.'/'.$file);
+					}
+				} else {
+					$this->log("\t".sprintf(_('Custom directory not exists: %s'),$dir),'DEBUG');
+				}
+			}
+		}
+	}
+
+	private function recurseDirectory($dir, &$retarr, $strip) {
+		$dirarr = scandir($dir);
+		foreach ($dirarr as $d) {
+			// Always exclude hidden files.
+			if ($d[0] == ".") {
+				continue;
+			}
+			$fullpath = "$dir/$d";
+			if (is_dir($fullpath)) {
+				$this->recurseDirectory($fullpath, $retarr, $strip);
+			} else {
+				$retarr[] = substr($fullpath, $strip);
+			}
+		}
+	}
+
+	private function getFileList($dir) {
+		$retarr = array();
+		$this->recurseDirectory($dir, $retarr, strlen($dir)+1);
+		return $retarr;
+	}
+
 }

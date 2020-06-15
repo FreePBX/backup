@@ -155,6 +155,9 @@ class Multiple extends Common {
 				'version' => $version
 			];
 		}
+		if(!empty($this->backupInfo['custom_files'])) {
+			$this->addcustomFiles($this->backupInfo['custom_files']);
+		}
 		//FREEPBX-20060 restapps stopping the restore in between, because apache restart
 		//putting restapps to end of the process order
 		$processorder = $manifest['processorder'];

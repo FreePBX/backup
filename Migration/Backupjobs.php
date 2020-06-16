@@ -215,7 +215,7 @@ class Backupjobs extends Common{
 							$cronjob = sprintf('%s %s * * %s', rand(0, 59),rand(0,23),rand(1,7));
 							break;
 						case 'annually':
-							$cronjob = sprintf('%s %s %s %s *', rand(0, 59), rand(0, 23), rand(1, 28),rand(1.12));
+							$cronjob = sprintf('%s %s %s %s *', rand(0, 59), rand(0, 23), rand(1, 28),rand(1,12));
 							break;
 						case 'reboot':
 							$cronjob = sprintf('* * * * *', rand(0, 23));

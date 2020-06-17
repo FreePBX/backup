@@ -104,8 +104,14 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 
 		//Ask the module for data
 		$class = new $class($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->defaultFallback);
-
-		$class->runBackup($id, $this->transactionId);
+		try {
+			$class->runBackup($id, $this->transactionId);
+		}  catch (\RuntimeException $e) {
+			$this->addError($e->getMessage());
+		}catch ( \Exception $e ) {
+			$this->addError($e->getMessage());
+		}
+		
 		if ($class->getModified() === false) {
 			$msg = sprintf(_("The module %s returned no data, No backup created"),$module['rawname']);
 			$this->log("\t".$msg,'WARNING');

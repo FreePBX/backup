@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-16 08:56+0000\n"
+"POT-Creation-Date: 2020-06-17 07:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,22 +104,22 @@ msgstr ""
 msgid "Add custom files in backup"
 msgstr ""
 
-#: Handlers/Backup/Common.php:198
+#: Handlers/Backup/Common.php:204
 #, php-format
 msgid "Adding custom directory to tar: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:161
+#: Handlers/Backup/Common.php:167
 #, php-format
 msgid "Adding custom file to tar: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:121
+#: Handlers/Backup/Common.php:127
 #, php-format
 msgid "Adding directory to tar: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:135
+#: Handlers/Backup/Common.php:141
 #, php-format
 msgid "Adding file to tar: %s"
 msgstr ""
@@ -129,7 +129,7 @@ msgstr ""
 msgid "Adding module %s to queue because %s depends on it"
 msgstr ""
 
-#: Handlers/Backup/Common.php:141
+#: Handlers/Backup/Common.php:147
 #, php-format
 msgid "Adding module manifest for %s"
 msgstr ""
@@ -405,12 +405,12 @@ msgstr ""
 msgid "Custom Files"
 msgstr ""
 
-#: Handlers/Backup/Common.php:204
+#: Handlers/Backup/Common.php:210
 #, php-format
 msgid "Custom directory not exists: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:164
+#: Handlers/Backup/Common.php:170
 #, php-format
 msgid "Custom file not exists: %s"
 msgstr ""
@@ -1409,7 +1409,7 @@ msgstr ""
 msgid "The module %s doesn't seem to support Backup"
 msgstr ""
 
-#: Handlers/Backup/Common.php:110
+#: Handlers/Backup/Common.php:116
 #, php-format
 msgid "The module %s returned no data, No backup created"
 msgstr ""

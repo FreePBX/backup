@@ -3,6 +3,10 @@ var backup_jobs = [];
 var runningRestore=false;
 var bkjob_names=[];
 <?php
+if(empty($id)) {
+	$dval[] = array("type" => "dir", "path" => "__ASTETCDIR__", "exclude" => array());
+	$custom_files = json_encode($dval);
+}
 $items = array();
 if(!empty($custom_files)) {
 	$items = json_decode($custom_files, true);

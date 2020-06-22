@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-17 07:22+0000\n"
+"POT-Creation-Date: 2020-06-22 09:07+0000\n"
 "PO-Revision-Date: 2017-03-08 21:01+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -26,20 +26,20 @@ msgstr ""
 msgid " %s found no database definitions in module.xml"
 msgstr ""
 
-#: views/backup/form.php:21
+#: views/backup/form.php:25
 #, php-format
 msgid "%s Backup %s"
 msgstr ""
 
-#: views/backup/form.php:429 views/backup/form.php:432
-#: views/backup/form.php:435 views/backup/form.php:438
+#: views/backup/form.php:433 views/backup/form.php:436
+#: views/backup/form.php:439 views/backup/form.php:442
 #, php-format
 msgid "%s Days"
 msgstr ""
 
-#: views/backup/form.php:441 views/backup/form.php:444
-#: views/backup/form.php:447 views/backup/form.php:450
-#: views/backup/form.php:453
+#: views/backup/form.php:445 views/backup/form.php:448
+#: views/backup/form.php:451 views/backup/form.php:454
+#: views/backup/form.php:457
 #, php-format
 msgid "%s Days (%s Months)"
 msgstr ""
@@ -67,7 +67,7 @@ msgstr "/caminho/do/diretório"
 msgid "/path/to/file"
 msgstr "/caminho/do/arquivo"
 
-#: views/backup/form.php:56
+#: views/backup/form.php:60
 msgid "A name used to identify your backups"
 msgstr ""
 
@@ -84,7 +84,7 @@ msgstr ""
 msgid "Actions"
 msgstr "Ações"
 
-#: views/backup/form.php:21
+#: views/backup/form.php:25
 msgid "Add"
 msgstr ""
 
@@ -92,11 +92,11 @@ msgstr ""
 msgid "Add Backup"
 msgstr ""
 
-#: views/backup/form.php:80
+#: views/backup/form.php:84
 msgid "Add a description for your backup"
 msgstr ""
 
-#: views/backup/form.php:136
+#: views/backup/form.php:140
 msgid "Add custom files in backup"
 msgstr ""
 
@@ -143,7 +143,7 @@ msgid ""
 "Apache will Restart now... And your GUI may die if the ports are changed !!!!"
 msgstr ""
 
-#: views/backup/form.php:288
+#: views/backup/form.php:292
 msgid "Append BackupJobName Directory into Storage path"
 msgstr ""
 
@@ -209,7 +209,7 @@ msgstr ""
 msgid "Backup Deleted"
 msgstr ""
 
-#: views/backup/form.php:68
+#: views/backup/form.php:72
 msgid "Backup Description"
 msgstr "Descrição do Backup"
 
@@ -238,11 +238,11 @@ msgstr ""
 msgid "Backup Instance"
 msgstr ""
 
-#: views/backup/form.php:92
+#: views/backup/form.php:96
 msgid "Backup Items"
 msgstr "Itens de Backup"
 
-#: views/backup/form.php:44 views/restore/landing.php:71
+#: views/backup/form.php:48 views/restore/landing.php:71
 #: views/restore/landing.php:115
 msgid "Backup Name"
 msgstr "Nome do Backup"
@@ -281,11 +281,11 @@ msgstr ""
 msgid "Based on Module settings We are NOT Resetting %s module data"
 msgstr ""
 
-#: views/backup/form.php:34
+#: views/backup/form.php:38
 msgid "Basic Information"
 msgstr "Informação Básica"
 
-#: views/backup/form.php:234
+#: views/backup/form.php:238
 msgid "Both"
 msgstr ""
 
@@ -335,7 +335,7 @@ msgstr ""
 msgid "ClientID of the Warm Spare server."
 msgstr ""
 
-#: views/backup/form.php:533 views/runModal.php:12
+#: views/backup/form.php:537 views/runModal.php:12
 msgid "Close"
 msgstr ""
 
@@ -386,7 +386,7 @@ msgstr "Criado"
 msgid "Creating directory '%s'"
 msgstr "Criando diretório '%s'"
 
-#: views/backup/form.php:117
+#: views/backup/form.php:121
 msgid "Custom Files"
 msgstr ""
 
@@ -406,11 +406,11 @@ msgstr ""
 msgid "Delete"
 msgstr "Apagar"
 
-#: views/backup/form.php:419
+#: views/backup/form.php:423
 msgid "Delete After Days"
 msgstr ""
 
-#: views/backup/form.php:395
+#: views/backup/form.php:399
 msgid "Delete After Runs"
 msgstr ""
 
@@ -461,15 +461,15 @@ msgstr ""
 msgid "Donor"
 msgstr ""
 
-#: views/backup/form.php:21
+#: views/backup/form.php:25
 msgid "Edit"
 msgstr ""
 
-#: views/backup/form.php:214
+#: views/backup/form.php:218
 msgid "Email Type"
 msgstr ""
 
-#: views/backup/form.php:167
+#: views/backup/form.php:171
 msgid ""
 "Email address to send notifications, Multiple email addresses need to be "
 "separated by comma"
@@ -479,11 +479,11 @@ msgstr ""
 msgid "Enable"
 msgstr ""
 
-#: views/backup/form.php:351
+#: views/backup/form.php:355
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1251 views/backup/form.php:330
+#: Backup.class.php:1251 views/backup/form.php:334
 msgid "Enabled"
 msgstr ""
 
@@ -603,7 +603,7 @@ msgstr ""
 msgid "Extracting supplied database file %s"
 msgstr ""
 
-#: views/backup/form.php:229
+#: views/backup/form.php:233
 msgid "Failure"
 msgstr ""
 
@@ -697,13 +697,13 @@ msgstr ""
 msgid "GraphQL URL of the Warm Spare server."
 msgstr ""
 
-#: views/backup/form.php:462
+#: views/backup/form.php:466
 msgid ""
 "How long to maintain backups. Example 30 will delete anything older than 30 "
 "days."
 msgstr ""
 
-#: views/backup/form.php:407
+#: views/backup/form.php:411
 msgid ""
 "How many updates to keep. If this number is 3, the last 3 will be kept. 0 is "
 "unlimited"
@@ -767,7 +767,7 @@ msgstr ""
 msgid "In single restores mode dependencies are NOT processed"
 msgstr ""
 
-#: views/backup/form.php:179
+#: views/backup/form.php:183
 msgid "Inline Logs"
 msgstr ""
 
@@ -792,7 +792,7 @@ msgstr ""
 msgid "Is this the donor machine or the recipient"
 msgstr ""
 
-#: views/backup/form.php:124
+#: views/backup/form.php:128
 msgid "Items"
 msgstr "Itens"
 
@@ -842,7 +842,7 @@ msgstr ""
 msgid "Log file is missing but process is still running!"
 msgstr ""
 
-#: views/backup/form.php:385
+#: views/backup/form.php:389
 msgid "Maintinence"
 msgstr ""
 
@@ -858,11 +858,11 @@ msgstr ""
 msgid "Missing id or transaction or pid"
 msgstr ""
 
-#: views/backup/form.php:522 views/restore/processRestore.php:48
+#: views/backup/form.php:526 views/restore/processRestore.php:48
 msgid "Module"
 msgstr ""
 
-#: views/backup/form.php:98
+#: views/backup/form.php:102
 msgid "Modules"
 msgstr ""
 
@@ -874,7 +874,7 @@ msgstr ""
 msgid "Modules in this backup"
 msgstr ""
 
-#: views/backup/form.php:497
+#: views/backup/form.php:501
 msgid "Modules to Backup"
 msgstr ""
 
@@ -896,8 +896,8 @@ msgstr ""
 msgid "Name"
 msgstr "Nome"
 
-#: views/backup/form.php:194 views/backup/form.php:301
-#: views/backup/form.php:343 views/backup/warmspare.php:30
+#: views/backup/form.php:198 views/backup/form.php:305
+#: views/backup/form.php:347 views/backup/warmspare.php:30
 #: views/backup/warmspare.php:61 views/backup/warmspare.php:92
 #: views/backup/warmspare.php:125 views/backup/warmspare.php:156
 #: views/backup/warmspare.php:187 views/backup/warmspare.php:218
@@ -932,11 +932,11 @@ msgid ""
 "location to save the backup"
 msgstr ""
 
-#: views/backup/form.php:155
+#: views/backup/form.php:159
 msgid "Notification Email"
 msgstr ""
 
-#: views/backup/form.php:145
+#: views/backup/form.php:149
 msgid "Notifications"
 msgstr "Notificações"
 
@@ -1036,7 +1036,7 @@ msgstr ""
 msgid "Removing table %s."
 msgstr ""
 
-#: Backup.class.php:188 views/backup/form.php:530
+#: Backup.class.php:188 views/backup/form.php:534
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -1097,8 +1097,8 @@ msgstr ""
 msgid "Restoring custom directory to %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:257 Handlers/Restore/Common.php:284
-#: Handlers/Restore/Common.php:318
+#: Handlers/Restore/Common.php:257 Handlers/Restore/Common.php:276
+#: Handlers/Restore/Common.php:298 Handlers/Restore/Common.php:332
 #, php-format
 msgid "Restoring custom file to %s"
 msgstr ""
@@ -1185,7 +1185,7 @@ msgstr ""
 msgid "Save"
 msgstr "Salvar"
 
-#: views/backup/form.php:536
+#: views/backup/form.php:540
 msgid "Save Changes"
 msgstr ""
 
@@ -1206,11 +1206,11 @@ msgstr ""
 msgid "Saving to: %s:'%s' instance ,File location: %s/%s "
 msgstr ""
 
-#: views/backup/form.php:320
+#: views/backup/form.php:324
 msgid "Schedule and Maintinence"
 msgstr ""
 
-#: views/backup/form.php:363
+#: views/backup/form.php:367
 msgid "Scheduling"
 msgstr ""
 
@@ -1222,17 +1222,17 @@ msgstr ""
 msgid "Select Warm Spare server"
 msgstr ""
 
-#: views/backup/form.php:106
+#: views/backup/form.php:110
 msgid "Select items to backup"
 msgstr ""
 
-#: views/backup/form.php:277
+#: views/backup/form.php:281
 msgid ""
 "Select one or more storage locations. Storage locations can be added/"
 "configured with the Filestore module"
 msgstr ""
 
-#: views/backup/form.php:519
+#: views/backup/form.php:523
 msgid "Selected"
 msgstr ""
 
@@ -1252,7 +1252,7 @@ msgstr ""
 msgid "Should the warm spare feature be enabled"
 msgstr ""
 
-#: Handlers/Restore/Common.php:309
+#: Handlers/Restore/Common.php:323
 #, php-format
 msgid "Skipping directory %s"
 msgstr ""
@@ -1285,15 +1285,15 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: views/backup/form.php:253
+#: views/backup/form.php:257
 msgid "Storage"
 msgstr ""
 
-#: views/backup/form.php:263
+#: views/backup/form.php:267
 msgid "Storage Location"
 msgstr ""
 
-#: views/backup/form.php:224
+#: views/backup/form.php:228
 msgid "Success"
 msgstr ""
 
@@ -1474,7 +1474,7 @@ msgstr ""
 msgid "Unknown module %s"
 msgstr ""
 
-#: views/backup/form.php:426
+#: views/backup/form.php:430
 msgid "Unlimited"
 msgstr ""
 
@@ -1558,24 +1558,24 @@ msgstr ""
 msgid "We don't have permissions to this file"
 msgstr ""
 
-#: views/backup/form.php:310
+#: views/backup/form.php:314
 msgid ""
 "When set to Yes , Backp files will store like 'filestore-path/backup-job-"
 "name/backup-file' and if set to NO then backup file will store into "
 "'filestore-path/backup-file'"
 msgstr ""
 
-#: views/backup/form.php:203
+#: views/backup/form.php:207
 msgid ""
 "When set to Yes logs will be added to the body of the email, when set to No "
 "logs will be added as an attachment"
 msgstr ""
 
-#: views/backup/form.php:375
+#: views/backup/form.php:379
 msgid "When should this backup run"
 msgstr ""
 
-#: views/backup/form.php:243
+#: views/backup/form.php:247
 msgid "When to email"
 msgstr ""
 
@@ -1584,8 +1584,8 @@ msgstr ""
 msgid "Working with %s module"
 msgstr ""
 
-#: views/backup/form.php:189 views/backup/form.php:297
-#: views/backup/form.php:338 views/backup/warmspare.php:26
+#: views/backup/form.php:193 views/backup/form.php:301
+#: views/backup/form.php:342 views/backup/warmspare.php:26
 #: views/backup/warmspare.php:57 views/backup/warmspare.php:88
 #: views/backup/warmspare.php:120 views/backup/warmspare.php:152
 #: views/backup/warmspare.php:183 views/backup/warmspare.php:214

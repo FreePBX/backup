@@ -266,7 +266,21 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 						$dstpath = $this->Backup->getPath($files['path']);
 						if(file_exists($this->tmp.'/customdir'.$dstpath)) {
 							$this->log(sprintf(_('Restoring custom directory to %s'),$dstpath),'DEBUG');
-							$this->recurseCopy($this->tmp.'/customdir'.$dstpath, $dstpath, false);
+							if($dstpath == "/etc/asterisk" || $dstpath == "/etc/asterisk/") {
+								$files = glob("$this->tmp/customdir/etc/asterisk/*_custom.conf");
+								foreach($files as $fval) {
+									$src = $fval;
+									$dst = '/etc/asterisk/' . basename($fval);
+									try {
+										copy($src, $dst);
+										$this->log(sprintf(_('Restoring custom file to %s'),$dst),'DEBUG');
+									} catch(\Exception $e) {
+										$this->log(sprintf(_($e->getMessage()),'DEBUG'));
+									}
+								}
+							} else {
+								$this->recurseCopy($this->tmp.'/customdir'.$dstpath, $dstpath, false);
+							}
 						}
 					}
 				}

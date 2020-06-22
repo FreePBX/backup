@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.10.9</version>
+	<version>15.0.10.10</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.10.10* FREEI-1771 Adding by default /etc/asterisk directory while creating backup 
 		*15.0.10.9* FREEI-1717 Backup module not sending the failure mail when the backup got failed due to asterisk not running. 
 		*15.0.10.8* FREEI-1765 typo error 
 		*15.0.10.7* Added custom files functionality code 

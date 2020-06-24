@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-22 09:07+0000\n"
+"POT-Creation-Date: 2020-06-24 04:26+0000\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -1212,7 +1212,7 @@ msgstr ""
 msgid "Scheduling"
 msgstr ""
 
-#: Monolog/Swift.php:148
+#: Monolog/Swift.php:142
 msgid "See attachment"
 msgstr ""
 
@@ -1449,7 +1449,7 @@ msgid ""
 "Unable to run restoreLegacyDatabase on %s because module.xml was not found"
 msgstr ""
 
-#: Monolog/Swift.php:91
+#: Monolog/Swift.php:84
 msgid "Unable to send backup email!"
 msgstr ""
 

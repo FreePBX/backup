@@ -79,13 +79,6 @@ class Swift extends MailHandler {
 
 		try {
 			$this->mailer->send($this->buildMessage($content, $records));
-			if(file_exists($location.'/backup-'.$records[0]['channel'].'.log')) {
-				$command = 'cat '.$location.'/backup-'.$records[0]['channel'].'.log >> '.$location.'/backup.log';
-				$process = new Process($command);
-				$process->setTimeout(50);
-				$process->mustRun();
-				unlink($location.'/backup-'.$records[0]['channel'].'.log');
-			}
 		} catch(\Exception $e) {
 			$nt = \FreePBX::Notifications();
 			$nt->add_error('backup', 'EMAIL', _('Unable to send backup email!'), $e->getMessage(), "", true, true);
@@ -134,18 +127,27 @@ class Swift extends MailHandler {
 		/**
 		 * Creating new log file and cleaning content.
 		 */
-		$log_content = str_replace("[] []","", file_get_contents($location.'/backup-'.$records[0]['channel'].'.log'));
-		$log_file = "backup-".strtotime("now").".log";
+		if(file_exists($location.'/backup-'.$records[0]['channel'].'.log')) {
+			$log_content = str_replace("[] []","", file_get_contents($location.'/backup-'.$records[0]['channel'].'.log'));
+			$log_file = "backup-".strtotime("now").".log";
 
-		if($inline) {	
-			$message->setBody($content."\n".$log_content);
-		} else {
-			file_put_contents("/tmp/".$log_file, $log_content);
-			$f_mime = mime_content_type("/tmp/".$log_file);
-			unlink("/tmp/".$log_file);
+			if($inline) {	
+				$message->setBody($content."\n".$log_content);
+			} else {
+				file_put_contents("/tmp/".$log_file, $log_content);
+				$f_mime = mime_content_type("/tmp/".$log_file);
+				unlink("/tmp/".$log_file);
 
-			$message->attach(new \Swift_Attachment($log_content, $log_file, $f_mime));
-			$message->setBody(_('See attachment'));
+				$message->attach(new \Swift_Attachment($log_content, $log_file, $f_mime));
+				$message->setBody(_('See attachment'));
+			}
+
+			//now copy the content to backup.log(backup module standard file) and delete this unique file
+			$command = 'cat '.$location.'/backup-'.$records[0]['channel'].'.log >> '.$location.'/backup.log';
+			$process = new Process($command);
+			$process->setTimeout(50);
+			$process->mustRun();
+			unlink($location.'/backup-'.$records[0]['channel'].'.log');
 		}
 
 		if (version_compare(SwiftMailer::VERSION, '6.0.0', '>=')) {
@@ -153,6 +155,8 @@ class Swift extends MailHandler {
 		} else {
 			$message->setDate(time());
 		}
+
+
 
 		return $message;
 	}

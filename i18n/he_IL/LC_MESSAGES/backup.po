@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-24 04:26+0000\n"
+"POT-Creation-Date: 2020-06-29 05:41+0000\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -1397,7 +1397,7 @@ msgstr ""
 #: Handlers/Restore/Legacy.php:156
 msgid ""
 "This process may take a long time based on the CDR SQL file size, the "
-"timeout limit will be set to a maximum of 5 Hour"
+"timeout limit will be set to a maximum of 10 Hour "
 msgstr ""
 
 #: views/restore/processRestore.php:27

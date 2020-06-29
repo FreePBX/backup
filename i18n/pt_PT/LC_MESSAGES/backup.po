@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-24 04:26+0000\n"
+"POT-Creation-Date: 2020-06-29 05:41+0000\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -1393,7 +1393,7 @@ msgstr ""
 #: Handlers/Restore/Legacy.php:156
 msgid ""
 "This process may take a long time based on the CDR SQL file size, the "
-"timeout limit will be set to a maximum of 5 Hour"
+"timeout limit will be set to a maximum of 10 Hour "
 msgstr ""
 
 #: views/restore/processRestore.php:27

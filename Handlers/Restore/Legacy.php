@@ -153,8 +153,8 @@ class Legacy extends Common {
 			$this->log(sprintf(_("Processing processLegacyCdr ' %s ' Command is Running now "), $command));
 			$process = new Process($command);
 			try {
-				$this->log(_("This process may take a long time based on the CDR SQL file size, the timeout limit will be set to a maximum of 5 Hour"));
-				$process->setTimeout(18000);
+				$this->log(_("This process may take a long time based on the CDR SQL file size, the timeout limit will be set to a maximum of 10 Hour "));
+				$process->setTimeout(36000);
 				$process->mustRun();
 				$out = $process->getOutput();
 				$this->log(sprintf(_("Processing processLegacyCdr SQL Done....  %s  "), $out));

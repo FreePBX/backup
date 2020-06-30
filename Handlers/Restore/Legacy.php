@@ -150,16 +150,16 @@ class Legacy extends Common {
 			if(version_compare_freepbx($this->data['manifest']['pbx_version'],"13","lt")) {
 				$command = "mysql -u $fdbuser -p$fdbpass $dbname < $sql";
 			}
-			$this->log(sprintf(_("Processing processLegacyCdr ' %s ' Command is Running now "), $command));
+			$this->log(_("Starting legacy cdr sql restore process"));
 			$process = new Process($command);
 			try {
-				$this->log(_("This process may take a long time based on the CDR SQL file size, the timeout limit will be set to a maximum of 10 Hour "));
-				$process->setTimeout(36000);
+				$this->log(_("Please note that, legacy cdr sql restoration process may take a long time depends on cdr sql file size "));
+				$process->setTimeout(null);
 				$process->mustRun();
 				$out = $process->getOutput();
-				$this->log(sprintf(_("Processing processLegacyCdr SQL Done....  %s  "), $out));
+				$this->log(sprintf(_("Restore of legacy cdr sql process done....  %s  "), $out));
 			} catch (ProcessFailedException $e) {
-					$this->log(sprintf(_("Processing processLegacyCdr SQL Error....  %s %s %s  "),$out, $process->getOutput(),$process->getErrorOutput()));
+					$this->log(sprintf(_("Error in processing legacy cdr sql restore process....  %s %s %s  "),$out, $process->getOutput(),$process->getErrorOutput()));
 					return;
 			}
 			//lets install cdr and cel to bring back the new table structure

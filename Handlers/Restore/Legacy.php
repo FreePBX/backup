@@ -29,6 +29,10 @@ class Legacy extends Common {
 		if(file_exists($this->tmp . '/manifest')){
 			$this->log(_("Loading manifest to memory"));
 			$this->data['manifest'] = unserialize(file_get_contents($this->tmp.'/manifest'));
+			if($this->data['manifest'] === false){
+				$this->log(_("Restore process failed due to corrupted manifest file present in provided backup file. Please ensure your backup file is proper or regenerate the new backup file to proceed further."),'ERROR');
+				exit(1);
+			}
 		}
 		if(file_exists($this->tmp . '/astdb')){
 			$this->log(_("Loading astdb to memory"));

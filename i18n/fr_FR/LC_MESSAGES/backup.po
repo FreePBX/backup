@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-02 07:55+0000\n"
+"POT-Creation-Date: 2020-07-02 08:31+0000\n"
 "PO-Revision-Date: 2016-02-05 11:17+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -64,7 +64,7 @@ msgstr ""
 msgid "%s does not implement KVStore"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:130
+#: Handlers/Restore/Legacy.php:134
 #, php-format
 msgid "%s is now loaded into memory"
 msgstr ""
@@ -436,7 +436,7 @@ msgstr ""
 msgid "Description"
 msgstr "Description"
 
-#: Handlers/Restore/Legacy.php:78
+#: Handlers/Restore/Legacy.php:82
 #, php-format
 msgid "Detected file %s as the PBX (Asterisk) database. Attempting restore"
 msgstr ""
@@ -459,7 +459,7 @@ msgid "Disable Remote Trunks"
 msgstr ""
 
 #: Console/Backup.class.php:244 Handlers/Restore/Common.php:127
-#: Handlers/Restore/Legacy.php:231
+#: Handlers/Restore/Legacy.php:235
 msgid "Done"
 msgstr ""
 
@@ -518,7 +518,7 @@ msgstr ""
 msgid "Error deleting %s"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:162
+#: Handlers/Restore/Legacy.php:166
 #, php-format
 msgid "Error in processing legacy cdr sql restore process....  %s %s %s  "
 msgstr ""
@@ -604,7 +604,7 @@ msgstr ""
 msgid "Extracting backup..."
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:120
+#: Handlers/Restore/Legacy.php:124
 #, php-format
 msgid "Extracting supplied database file %s"
 msgstr ""
@@ -621,7 +621,7 @@ msgstr ""
 msgid "File Deleted"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:72
+#: Handlers/Restore/Legacy.php:76
 #, php-format
 msgid "File named: %s"
 msgstr ""
@@ -634,7 +634,7 @@ msgstr ""
 msgid "Files"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:279 Handlers/Restore/Multiple.php:83
+#: Handlers/Restore/Legacy.php:283 Handlers/Restore/Multiple.php:83
 #: Handlers/Restore/Single.php:34
 msgid "Finished"
 msgstr ""
@@ -660,7 +660,7 @@ msgstr ""
 msgid "Finished created backup file: %s"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:59
+#: Handlers/Restore/Legacy.php:63
 #, php-format
 msgid "Found %s database files in the backup."
 msgstr ""
@@ -777,7 +777,7 @@ msgstr ""
 msgid "Inline Logs"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:174 Handlers/Restore/Legacy.php:186
+#: Handlers/Restore/Legacy.php:178 Handlers/Restore/Legacy.php:190
 #, php-format
 msgid "Installing  %s"
 msgstr ""
@@ -802,7 +802,7 @@ msgstr ""
 msgid "Items"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:66
+#: Handlers/Restore/Legacy.php:70
 #, php-format
 msgid ""
 "Legacy CDR Restore Opted. we are processing , It may take long time to "
@@ -831,7 +831,7 @@ msgstr ""
 msgid "Loading Please Wait"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:34
+#: Handlers/Restore/Legacy.php:38
 msgid "Loading astdb to memory"
 msgstr ""
 
@@ -839,7 +839,7 @@ msgstr ""
 msgid "Loading manifest to memory"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:128
+#: Handlers/Restore/Legacy.php:132
 #, php-format
 msgid "Loading supplied database file %s"
 msgstr ""
@@ -946,7 +946,7 @@ msgstr ""
 msgid "Notifications"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:248 Handlers/Restore/Multiple.php:43
+#: Handlers/Restore/Legacy.php:252 Handlers/Restore/Multiple.php:43
 #, php-format
 msgid "Only Restoring %s"
 msgstr ""
@@ -955,7 +955,7 @@ msgstr ""
 msgid "PATTERNs, one per line"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:45
+#: Handlers/Restore/Legacy.php:49
 msgid ""
 "Parsing out SQL tables. This may take a moment depending on backup size."
 msgstr ""
@@ -973,7 +973,7 @@ msgstr ""
 msgid "Performing Remote Maintenance"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:156
+#: Handlers/Restore/Legacy.php:160
 msgid ""
 "Please note that, legacy cdr sql restoration process may take a long time "
 "depends on cdr sql file size "
@@ -983,7 +983,7 @@ msgstr ""
 msgid "Process is no longer running"
 msgstr ""
 
-#: Handlers/Backup/Single.php:36 Handlers/Restore/Legacy.php:257
+#: Handlers/Backup/Single.php:36 Handlers/Restore/Legacy.php:261
 #: Handlers/Restore/Multiple.php:50
 #, php-format
 msgid "Processing %s"
@@ -1010,7 +1010,7 @@ msgstr ""
 msgid "Recipient"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:275 Handlers/Restore/Multiple.php:75
+#: Handlers/Restore/Legacy.php:279 Handlers/Restore/Multiple.php:75
 msgid "Reloading...... DONE"
 msgstr ""
 
@@ -1037,7 +1037,7 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:227
+#: Handlers/Restore/Legacy.php:231
 #, php-format
 msgid "Resetting %s"
 msgstr ""
@@ -1071,12 +1071,19 @@ msgstr ""
 msgid "Restore from the cloud"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:160
+#: Handlers/Restore/Legacy.php:164
 #, php-format
 msgid "Restore of legacy cdr sql process done....  %s  "
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:269 Handlers/Restore/Multiple.php:63
+#: Handlers/Restore/Legacy.php:33
+msgid ""
+"Restore process failed due to corrupted manifest file present in provided "
+"backup file. Please ensure your backup file is proper or regenerate the new "
+"backup file to proceed further."
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:273 Handlers/Restore/Multiple.php:63
 msgid "Restore processing for modules are finished successfully"
 msgstr ""
 
@@ -1084,7 +1091,7 @@ msgstr ""
 msgid "Restore running"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:176 Handlers/Restore/Legacy.php:188
+#: Handlers/Restore/Legacy.php:180 Handlers/Restore/Legacy.php:192
 #, php-format
 msgid "Restored module %s [%s]"
 msgstr ""
@@ -1105,7 +1112,7 @@ msgstr ""
 msgid "Restoring custom file to %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:125 Handlers/Restore/Legacy.php:229
+#: Handlers/Restore/Common.php:125 Handlers/Restore/Legacy.php:233
 #, php-format
 msgid "Restoring from %s [%s]"
 msgstr ""
@@ -1165,11 +1172,11 @@ msgstr ""
 msgid "Running Backup ID: %s"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:278 Handlers/Restore/Multiple.php:82
+#: Handlers/Restore/Legacy.php:282 Handlers/Restore/Multiple.php:82
 msgid "Running Post Restore Hooks DONE"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:276 Handlers/Restore/Multiple.php:80
+#: Handlers/Restore/Legacy.php:280 Handlers/Restore/Multiple.php:80
 msgid ""
 "Running Post Restore Hooks.. Please note that hook will restart httpd "
 "service so please refresh your page (using new ports) "
@@ -1283,7 +1290,7 @@ msgstr ""
 msgid "Starting backup %s"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:153
+#: Handlers/Restore/Legacy.php:157
 msgid "Starting legacy cdr sql restore process"
 msgstr ""
 
@@ -1356,7 +1363,7 @@ msgstr ""
 msgid "The module %s does not seem to support restores."
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:209
+#: Handlers/Restore/Legacy.php:213
 #, php-format
 msgid "The module %s does not support restores"
 msgstr ""
@@ -1492,7 +1499,7 @@ msgstr ""
 msgid "Using default backup strategy"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:213
+#: Handlers/Restore/Legacy.php:217
 msgid "Using default restore strategy"
 msgstr ""
 
@@ -1500,12 +1507,12 @@ msgstr ""
 msgid "Using fallback restore strategy"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:296
+#: Handlers/Restore/Legacy.php:300
 #, php-format
 msgid "Utilizing cached based sqlite at %s. The data might be stale!"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:300
+#: Handlers/Restore/Legacy.php:304
 #, php-format
 msgid "Utilizing file based sqlite at %s, This is SLOW"
 msgstr ""

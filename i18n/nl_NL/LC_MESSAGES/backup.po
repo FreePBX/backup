@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-29 05:41+0000\n"
+"POT-Creation-Date: 2020-07-02 07:55+0000\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -512,6 +512,11 @@ msgstr ""
 msgid "Error deleting %s"
 msgstr ""
 
+#: Handlers/Restore/Legacy.php:162
+#, php-format
+msgid "Error in processing legacy cdr sql restore process....  %s %s %s  "
+msgstr ""
+
 #: Handlers/FreePBXModule.php:29
 #, php-format
 msgid "Error installing %s reason(s): %s"
@@ -962,6 +967,12 @@ msgstr ""
 msgid "Performing Remote Maintenance"
 msgstr ""
 
+#: Handlers/Restore/Legacy.php:156
+msgid ""
+"Please note that, legacy cdr sql restoration process may take a long time "
+"depends on cdr sql file size "
+msgstr ""
+
 #: Backup.class.php:527
 msgid "Process is no longer running"
 msgstr ""
@@ -970,21 +981,6 @@ msgstr ""
 #: Handlers/Restore/Multiple.php:50
 #, php-format
 msgid "Processing %s"
-msgstr ""
-
-#: Handlers/Restore/Legacy.php:153
-#, php-format
-msgid "Processing processLegacyCdr ' %s ' Command is Running now "
-msgstr ""
-
-#: Handlers/Restore/Legacy.php:160
-#, php-format
-msgid "Processing processLegacyCdr SQL Done....  %s  "
-msgstr ""
-
-#: Handlers/Restore/Legacy.php:162
-#, php-format
-msgid "Processing processLegacyCdr SQL Error....  %s %s %s  "
 msgstr ""
 
 #: assets/js/backup.js:30
@@ -1067,6 +1063,11 @@ msgstr ""
 
 #: views/restore/landing.php:82
 msgid "Restore from the cloud"
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:160
+#, php-format
+msgid "Restore of legacy cdr sql process done....  %s  "
 msgstr ""
 
 #: Handlers/Restore/Legacy.php:269 Handlers/Restore/Multiple.php:63
@@ -1276,6 +1277,10 @@ msgstr ""
 msgid "Starting backup %s"
 msgstr ""
 
+#: Handlers/Restore/Legacy.php:153
+msgid "Starting legacy cdr sql restore process"
+msgstr ""
+
 #: views/restore/processRestore.php:50
 msgid "Status"
 msgstr ""
@@ -1389,12 +1394,6 @@ msgstr ""
 msgid ""
 "This feature requires filestore be setup and may not be availible on a clean "
 "install"
-msgstr ""
-
-#: Handlers/Restore/Legacy.php:156
-msgid ""
-"This process may take a long time based on the CDR SQL file size, the "
-"timeout limit will be set to a maximum of 10 Hour "
 msgstr ""
 
 #: views/restore/processRestore.php:27

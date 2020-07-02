@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.10.13</version>
+	<version>15.0.10.14</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.10.14* FREEI-1838  time out issue 
 		*15.0.10.13* FREEI-1838 Cdr restore timeout  issue 
 		*15.0.10.12* Fixing FREEI-1780 Improving code to 
 		*15.0.10.11* FREEI-1791 Issue restoring a backup to FPBX15 

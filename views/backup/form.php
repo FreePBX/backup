@@ -470,6 +470,106 @@ if (!empty($bkjobs)) {
 							</div>
 						</div>
 						<!--END Delete After Days-->
+						<div class="section-title" data-for="buhooks"><h3><i class="fa fa-minus"></i> <?php echo _("Hooks")?></h3></div>
+							<div class="section" data-id="buhooks">
+							<!--Pre-Backup Hook-->
+								<div class="element-container">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="row">
+												<div class="form-group">
+													<div class="col-md-3">
+														<label class="control-label" for="prebu_hook"><?php echo _("Pre-Backup Hook") ?></label>
+														<i class="fa fa-question-circle fpbx-help-icon" data-for="prebu_hook"></i>
+													</div>
+													<div class="col-md-9">
+														<input type="text" class="form-control" id="prebu_hook" name="prebu_hook" value="<?php echo isset($prebu_hook)?$prebu_hook:''?>">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<span id="prebu_hook-help" class="help-block fpbx-help-block"><?php echo _("A script to be run BEFORE a backup is started.")?></span>
+										</div>
+									</div>
+								</div>
+							<!--END Pre-Backup Hook-->
+							<!--Post-Backup Hook-->
+								<div class="element-container">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="row">
+												<div class="form-group">
+													<div class="col-md-3">
+														<label class="control-label" for="postbu_hook"><?php echo _("Post-Backup Hook") ?></label>
+														<i class="fa fa-question-circle fpbx-help-icon" data-for="postbu_hook"></i>
+													</div>
+													<div class="col-md-9">
+														<input type="text" class="form-control" id="postbu_hook" name="postbu_hook" value="<?php echo isset($postbu_hook)?$postbu_hook:''?>">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<span id="postbu_hook-help" class="help-block fpbx-help-block"><?php echo _("A script to be run AFTER a backup is completed.")?></span>
+										</div>
+									</div>
+								</div>
+							<!--END Post-Backup Hook-->
+							<!--Pre-Restore Hook-->
+								<div class="element-container">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="row">
+												<div class="form-group">
+													<div class="col-md-3">
+														<label class="control-label" for="prere_hook"><?php echo _("Pre-Restore Hook") ?></label>
+															<i class="fa fa-question-circle fpbx-help-icon" data-for="prere_hook"></i>
+													</div>
+													<div class="col-md-9">
+														<input type="text" class="form-control" id="prere_hook" name="prere_hook" value="<?php echo isset($prere_hook)?$prere_hook:''?>">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<span id="prere_hook-help" class="help-block fpbx-help-block"><?php echo _("A script to be run BEFORE a backup is restored.")?></span>
+										</div>
+									</div>
+								</div>
+							<!--END Pre-Restore Hook-->
+							<!--Post-Restore Hook-->
+								<div class="element-container">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="row">
+												<div class="form-group">
+													<div class="col-md-3">
+														<label class="control-label" for="postre_hook"><?php echo _("Post-Restore Hook") ?></label>
+														<i class="fa fa-question-circle fpbx-help-icon" data-for="postre_hook"></i>
+													</div>
+													<div class="col-md-9">
+														<input type="text" class="form-control" id="postre_hook" name="postre_hook" value="<?php echo isset($postre_hook)?$postre_hook:''?>">	
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<span id="postre_hook-help" class="help-block fpbx-help-block"><?php echo _("A script to be run AFTER a backup is restored.")?></span>
+										</div>
+									</div>
+								</div>
+							<!--END Post-Restore Hook-->
+						</div>
+
 						<?php echo $warmspare ?>
 					</form>
 				</div>

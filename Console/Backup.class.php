@@ -171,7 +171,7 @@ class Backup extends Command {
 				//run prebackup hook
 				$prebu_hook = $this->freepbx->Backup->getConfig("prebu_hook",$buid);
 				if(strlen(trim($prebu_hook))> 1) {
-					$output->writeln(_("Executing Pre Backup Hook $prebu_hook"));
+					$output->writeln(sprintf('Executing Pre Backup Hook: %s',$prebu_hook));
 					exec($prebu_hook);
 				}
 
@@ -225,7 +225,7 @@ class Backup extends Command {
 				$this->freepbx->Backup->delConfig($buid,"runningBackupJobs");
 				$postbu_hook = $this->freepbx->Backup->getConfig("postbu_hook",$buid);
 				if(strlen(trim($postbu_hook))> 1) {
-					$output->writeln(_("Executing Post Backup Hook"));
+					$output->writeln(sprintf('Executing Post Backup Hook: %s',$postbu_hook));
 					exec($postbu_hook);
 				}
 				//trigger Warmspare API

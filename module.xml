@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>16.0.14</version>
+	<version>16.0.15</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*16.0.15* FREEI-1858 FREEI-1857 
 		*16.0.14* FREEI-1836 Throwing error if restore process is not able to load the manifest file of backup 
 		*16.0.13* FREEI-1838  time out issue 
 		*16.0.12* FREEI-1838 Cdr restore timeout  issue 

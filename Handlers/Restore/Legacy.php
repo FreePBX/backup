@@ -371,7 +371,7 @@ class Legacy extends Common {
 							$query = preg_replace('/\\n/', "\n", $query);
 							$query = preg_replace('/\\r/', "\r", $query);
 							$query = preg_replace("/_binary\s/", "",$query);
-							$query = preg_replace("/\/?\\\'\'/", "'",$query);
+							$query = preg_replace('/\'\'/', "''",$query);
 							$query = preg_replace("/\w\'[a-z]/", '',$query);
 							//$query = preg_replace('/\\\032/', "\032" );  # substitute char
 

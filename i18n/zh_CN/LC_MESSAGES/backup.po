@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-06 02:38+0000\n"
+"POT-Creation-Date: 2020-07-06 15:56+0530\n"
 "PO-Revision-Date: 2015-11-17 12:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -258,6 +258,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr ""
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr ""
+
 #: views/backup/form.php:48 views/restore/landing.php:71
 #: views/restore/landing.php:115
 msgid "Backup Name"
@@ -475,6 +479,10 @@ msgstr ""
 
 #: views/backup/form.php:25
 msgid "Edit"
+msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
 msgstr ""
 
 #: views/backup/form.php:218
@@ -1366,6 +1374,10 @@ msgstr ""
 #: assets/js/backup.js:96
 #, perl-format
 msgid "The Backup job name %s is already in used, please use a different name."
+msgstr ""
+
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 
 #: views/backup/warmspare.php:433

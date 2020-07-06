@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-06 02:38+0000\n"
+"POT-Creation-Date: 2020-07-06 15:56+0530\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -258,6 +258,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Itens da Cópia de Segurança"
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "Módulo de Cópia de Segurança"
+
 #: views/backup/form.php:48 views/restore/landing.php:71
 #: views/restore/landing.php:115
 msgid "Backup Name"
@@ -479,6 +483,10 @@ msgstr ""
 #: views/backup/form.php:25
 msgid "Edit"
 msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
+msgstr "Email "
 
 #: views/backup/form.php:218
 msgid "Email Type"
@@ -1371,6 +1379,12 @@ msgstr ""
 msgid "The Backup job name %s is already in used, please use a different name."
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr ""
+"O campo De: para os emails ao usar a funcionalidade email de cópia de "
+"segurança."
+
 #: views/backup/warmspare.php:433
 msgid "The address of the remote server."
 msgstr ""
@@ -1671,17 +1685,6 @@ msgstr ""
 #, php-format
 msgid "type is %s"
 msgstr ""
-
-#~ msgid "Backup Module"
-#~ msgstr "Módulo de Cópia de Segurança"
-
-#~ msgid "Email "
-#~ msgstr "Email "
-
-#~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr ""
-#~ "O campo De: para os emails ao usar a funcionalidade email de cópia de "
-#~ "segurança."
 
 #~ msgid "Backup & Restore - Servers"
 #~ msgstr "Cópia de Segurança & Restauro - Servidores"

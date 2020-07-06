@@ -24,6 +24,9 @@ abstract class CommonBase {
 		$this->transactionId = $transactionId;
 		$this->fs = new Filesystem;
 		$this->pid = $pid;
+		//delete all OLD file which are not deleted
+		$rmcommand = 'rm -rf '.sys_get_temp_dir().'/backup/*';
+		shell_exec($rmcommand);
 		$this->tmp = sys_get_temp_dir().'/backup/'.$this->transactionId;
 	}
 

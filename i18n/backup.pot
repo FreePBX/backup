@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-06 15:56+0530\n"
+"POT-Creation-Date: 2020-07-06 16:03+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -590,15 +590,6 @@ msgstr ""
 
 #: views/backup/warmspare.php:207
 msgid "Exclude Trunks"
-msgstr ""
-
-#: Console/Backup.class.php:228
-msgid "Executing Post Backup Hook"
-msgstr ""
-
-#: Handlers/Restore/Multiple.php:26
-#: Handlers/Restore/Multiple.php:74
-msgid "Executing Pre Restore Hook"
 msgstr ""
 
 #: views/backup/warmspare.php:133

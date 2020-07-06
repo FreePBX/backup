@@ -21,7 +21,11 @@ class Multiple extends Common {
 		$this->extractFile();
 
 		$restoreData = $this->getMasterManifest();
-
+		$bkinfo = $restoreData['backupInfo'];
+		if(isset($bkinfo['prere_hook']) && strlen(trim($bkinfo['prere_hook']))> 1){
+			$this->log(_("Executing Pre Restore Hook"));
+			exec($bkinfo['prere_hook']);
+		}
 		if(isset($restoreData['processorder'])){
 			$restoreModules = $restoreData['processorder'];
 		} else {
@@ -66,6 +70,10 @@ class Multiple extends Common {
 		$this->displayportschanges();
 		$metadata = $this->getMasterManifest();
 		$backupinfo = $metadata['backupInfo'];
+		if(isset($backupinfo['postre_hook']) && strlen(trim($backupinfo['postre_hook']))> 1){
+			$this->log(_("Executing Pre Restore Hook"));
+			exec($backupinfo['postre_hook']);
+		}
 		if ($backupinfo['warmspareenabled'] == 'yes') {
 			if($backupinfo['warmspare_remoteapply'] =='yes') {
 				do_reload();

@@ -168,6 +168,12 @@ class Backup extends Command {
 				if(!empty($running) && posix_getpgid($running['pid']) !== false) {
 					throw new \Exception("This backup is already running!");
 				}
+				//run prebackup hook
+				$prebu_hook = $this->freepbx->Backup->getConfig("prebu_hook",$buid);
+				if(strlen(trim($prebu_hook))> 1) {
+					$output->writeln(_("Executing Pre Backup Hook $prebu_hook"));
+					exec($prebu_hook);
+				}
 
 				$this->freepbx->Backup->setConfig($buid,["pid" => posix_getpid(), "transaction" => $transactionid],"runningBackupJobs");
 
@@ -217,6 +223,11 @@ class Backup extends Command {
 					$backupHandler->sendEmail($bkstatus);
 				}
 				$this->freepbx->Backup->delConfig($buid,"runningBackupJobs");
+				$postbu_hook = $this->freepbx->Backup->getConfig("postbu_hook",$buid);
+				if(strlen(trim($postbu_hook))> 1) {
+					$output->writeln(_("Executing Post Backup Hook"));
+					exec($postbu_hook);
+				}
 				//trigger Warmspare API
 				if($item['warmspareenabled'] == 'yes') {
 					if($item['warmsparewayofrestore'] == 'API') {

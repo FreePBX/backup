@@ -62,7 +62,11 @@ class Backup extends FreePBX_Helpers implements BMO {
 		'warmspare_remoteapi_secret',
 		'warmspare_remoteapi_gql',
 		'warmspare_excludetrunks',
-		'custom_files'
+		'custom_files',
+		'prebu_hook',
+		'postbu_hook',
+		'prere_hook',
+		'postre_hook'
 	];
 	public $loggingHooks = null;
 

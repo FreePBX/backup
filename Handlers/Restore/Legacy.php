@@ -12,7 +12,8 @@ class Legacy extends Common {
 	private $data;
 	private $inMemory = true; //use in memory sqlite (much faster)
 
-	public function process(){
+	public function process($useinmemory){
+		$this->inMemory = $useinmemory;
 		$this->extractFile();
 		$this->buildData();
 		$this->parseSQL();
@@ -371,7 +372,6 @@ class Legacy extends Common {
 							$query = preg_replace('/\\n/', "\n", $query);
 							$query = preg_replace('/\\r/', "\r", $query);
 							$query = preg_replace("/_binary\s/", "",$query);
-							$query = preg_replace('/\'\'/', "''",$query);
 							$query = preg_replace("/\w\'[a-z]/", '',$query);
 							//$query = preg_replace('/\\\032/', "\032" );  # substitute char
 
@@ -394,9 +394,13 @@ class Legacy extends Common {
 									try {
 										$db->query($insert);
 									} catch(\Exception $e) {
-										print_r($insert);
-										print_r($e->getMessage());
-										die();
+										//ignore all zulu_interactions_* tables
+										preg_match('/zulu_interactions_/',$matches1[1], $output_array);
+										if(count($output_array) ==0){
+											print_r($insert);
+											print_r($e->getMessage());
+											die();
+										}
 									}
 									$offset = $offset + $amount;
 								}
@@ -405,9 +409,13 @@ class Legacy extends Common {
 								try {
 									$db->query($query);
 								} catch(\Exception $e) {
-									print_r($query);
-									print_r($e->getMessage());
-									die();
+									//ignore all zulu_interactions_* tables
+									preg_match('/zulu_interactions_/',$matches1[1], $output_array);
+									if(count($output_array) ==0){
+										print_r($query);
+										print_r($e->getMessage());
+										die();
+									}
 								}
 							}
 						}

@@ -12,7 +12,8 @@ class Legacy extends Common {
 	private $data;
 	private $inMemory = true; //use in memory sqlite (much faster)
 
-	public function process(){
+	public function process($useinmemory){
+		$this->inMemory = $useinmemory;
 		$this->extractFile();
 		$this->buildData();
 		$this->parseSQL();

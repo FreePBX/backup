@@ -34,6 +34,7 @@ class Backup extends Command {
 				new InputOption('singlesaveto', '', InputOption::VALUE_REQUIRED, 'Where to save the single module backup.'),
 				new InputOption('b64import', '', InputOption::VALUE_REQUIRED, ''),
 				new InputOption('fallback', '', InputOption::VALUE_NONE, ''),
+				new InputOption('useinfiledb', '', InputOption::VALUE_NONE, 'Option --useinfiledb to restore Legacy backup using file based sqlite, By default system uses inmemory'),
 		))
 		->setHelp('Run a backup: fwconsole backup --backup [backup-id]'.PHP_EOL
 		.'Run a restore: fwconsole backup --restore [/path/to/restore-xxxxxx.tar.gz]'.PHP_EOL
@@ -73,6 +74,7 @@ class Backup extends Command {
 		$filestore = $input->getOption('filestore');
 		$restore = $input->getOption('restore');
 		$restorelegacycdr = $input->getOption('restorelegacycdr');
+		$useinfiledb = $input->getOption('useinfiledb');
 		$remote = $input->getOption('externbackup');
 		$dumpextern = $input->getOption('dumpextern');
 		$transaction = $input->getOption('transaction');
@@ -277,6 +279,12 @@ class Backup extends Command {
 					$restoreHandler = new Handler\Restore\Multiple($this->freepbx,$restore,$transactionid, posix_getpid());
 				}
 				if($backupType === 'legacy'){
+					if(isset($useinfiledb)){
+						$useinmemory = false;
+						$output->writeln("Legacy Restore is using filebased sqlite ");
+					}else {
+						$useinmemory = true;
+					}
 					if(isset($restorelegacycdr) && $restorelegacycdr ==1) {
 						$restorelegacycdr = 1;
 						$restorelegacycdrenabled = 'SELECTED';
@@ -294,7 +302,12 @@ class Backup extends Command {
 					$restoreHandler->setSpecificRestore(explode(",",$input->getOption('modules')));
 				}
 				$output->writeln(sprintf('Starting restore job with file: %s',$restore));
-				$restoreHandler->process();
+				if($backupType === 'legacy'){
+					$restoreHandler->process($useinmemory);
+				} else { 
+					//current version 
+					$restoreHandler->process();
+				}
 
 				$errors = $restoreHandler->getErrors();
 				$warnings = $restoreHandler->getWarnings();

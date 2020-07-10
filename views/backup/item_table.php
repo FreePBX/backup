@@ -37,7 +37,7 @@ $html	.= 'template_tr["file"] = '	. json_encode($file) . PHP_EOL;
 $html	.= 'template_tr["dir"] = ' . json_encode($dir) . PHP_EOL;
 $html	.= '</script>'. PHP_EOL;
 $data 	= array(
-			'' => '== ' . _('chose') . ' ==',
+			'' => '== ' . _('choose') . ' ==',
 			'file' => 'File',
 			'dir' => 'Directory',
 			);

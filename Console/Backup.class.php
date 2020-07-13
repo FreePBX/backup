@@ -279,7 +279,7 @@ class Backup extends Command {
 					$restoreHandler = new Handler\Restore\Multiple($this->freepbx,$restore,$transactionid, posix_getpid());
 				}
 				if($backupType === 'legacy'){
-					if(isset($useinfiledb)){
+					if($useinfiledb){
 						$useinmemory = false;
 						$output->writeln("Legacy Restore is using filebased sqlite ");
 					}else {

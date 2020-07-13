@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-08 05:08+0000\n"
+"POT-Creation-Date: 2020-07-13 05:18+0000\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Lónyai Gergely <alephlg@gmail.com>\n"
 "Language-Team: Magyar <support@freepbx.hu>\n"
@@ -170,7 +170,7 @@ msgid ""
 msgstr ""
 
 #: views/backup/form.php:292
-msgid "Append BackupJobName Directory into Storage path"
+msgid "Append Backup Name as a directory to the Storage path"
 msgstr ""
 
 #: views/backup/warmspare.php:176
@@ -1658,7 +1658,7 @@ msgid "astDb's"
 msgstr ""
 
 #: views/backup/item_table.php:40
-msgid "chose"
+msgid "choose"
 msgstr ""
 
 #: Monolog/Swift.php:55

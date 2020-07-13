@@ -289,7 +289,7 @@ if (!empty($bkjobs)) {
 									<div class="form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="backup_addbjname">
-												<?php echo _("Append BackupJobName Directory into Storage path") ?>
+												<?php echo _("Append Backup Name as a directory to the Storage path") ?>
 											</label>
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="backup_addbjname"></i>
 										</div>

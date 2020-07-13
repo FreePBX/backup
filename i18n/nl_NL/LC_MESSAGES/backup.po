@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-08 05:08+0000\n"
+"POT-Creation-Date: 2020-07-13 05:18+0000\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -163,7 +163,7 @@ msgid ""
 msgstr ""
 
 #: views/backup/form.php:292
-msgid "Append BackupJobName Directory into Storage path"
+msgid "Append Backup Name as a directory to the Storage path"
 msgstr ""
 
 #: views/backup/warmspare.php:176
@@ -1656,8 +1656,8 @@ msgid "astDb's"
 msgstr "astDB's"
 
 #: views/backup/item_table.php:40
-msgid "chose"
-msgstr "kies"
+msgid "choose"
+msgstr ""
 
 #: Monolog/Swift.php:55
 msgid "success"
@@ -1667,6 +1667,9 @@ msgstr ""
 #, php-format
 msgid "type is %s"
 msgstr ""
+
+#~ msgid "chose"
+#~ msgstr "kies"
 
 #~ msgid "Backup Module"
 #~ msgstr "Reservekopie module"

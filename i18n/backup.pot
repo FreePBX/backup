@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-08 05:08+0000\n"
+"POT-Creation-Date: 2020-07-13 05:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -164,7 +164,7 @@ msgid ""
 msgstr ""
 
 #: views/backup/form.php:292
-msgid "Append BackupJobName Directory into Storage path"
+msgid "Append Backup Name as a directory to the Storage path"
 msgstr ""
 
 #: views/backup/warmspare.php:176
@@ -1718,7 +1718,7 @@ msgid "astDb's"
 msgstr ""
 
 #: views/backup/item_table.php:40
-msgid "chose"
+msgid "choose"
 msgstr ""
 
 #: Monolog/Swift.php:55

@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>16.0.18</version>
+	<version>16.0.19</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*16.0.19* Fixing FREEI-1896 
 		*16.0.18* FREEI-1882 Control inmemory true false option via fwconsole backup command 
 		*16.0.17* FREEI-1764 
 		*16.0.16* FREEI-1764 show the hook file name 

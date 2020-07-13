@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-13 05:18+0000\n"
+"POT-Creation-Date: 2020-07-13 05:20+0000\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -368,7 +368,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: RestoreBase.php:548
+#: RestoreBase.php:550
 #, php-format
 msgid "Column '%s' does not exist in %s, skipping"
 msgstr ""

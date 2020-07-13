@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.10.22</version>
+	<version>15.0.10.23</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.10.23* Avoid restore errors when modules use foreign key constraints. 
 		*15.0.10.22* Fixing FREEI-1896 
 		*15.0.10.21* FREEI-1882 Control inmemory true false option via fwconsole backup command 
 		*15.0.10.20* Packaging of ver 15.0.10.20

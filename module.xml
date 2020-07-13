@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>16.0.20</version>
+	<version>16.0.21</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -17,6 +17,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*16.0.21* FREEI-1905 default taking file based operation during restore 
 		*16.0.20* Avoid restore errors when modules use foreign key constraints. 
 		*16.0.19* Fixing FREEI-1896 
 		*16.0.18* FREEI-1882 Control inmemory true false option via fwconsole backup command 

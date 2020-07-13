@@ -538,7 +538,9 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 
 		if($delete) {
 			$this->log("Cleaning table: $table");
+			$this->FreePBX->Database->query("SET FOREIGN_KEY_CHECKS=0");
 			$this->FreePBX->Database->query("TRUNCATE TABLE $table");
+			$this->FreePBX->Database->query("SET FOREIGN_KEY_CHECKS=1");
 		}
 
 		foreach($data as $row) {

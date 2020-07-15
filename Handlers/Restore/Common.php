@@ -307,6 +307,9 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 				}
 			}
 		}
+		$agibin  = $this->freepbx->Config->get('ASTAGIDIR');
+		$cmd = "chmod 775 $agibin/* -R";
+		exec($cmd);
 	}
 
 	public function recurseCopy($src, $dst, $legacy= false) {

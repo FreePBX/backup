@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-13 05:20+0000\n"
+"POT-Creation-Date: 2020-07-16 03:18+0000\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -176,11 +176,11 @@ msgstr ""
 msgid "Apply Configs"
 msgstr ""
 
-#: assets/js/backup.js:204 assets/js/backup.js:243
+#: assets/js/backup.js:210 assets/js/backup.js:249
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
 
-#: assets/js/backup.js:229 assets/js/backup.js:270
+#: assets/js/backup.js:235 assets/js/backup.js:276
 msgid "Are you sure, you want to restore this backup?"
 msgstr ""
 
@@ -317,7 +317,7 @@ msgstr ""
 msgid "Can't find the module data for %s"
 msgstr ""
 
-#: assets/js/backup.js:205 assets/js/backup.js:244
+#: assets/js/backup.js:211 assets/js/backup.js:250
 msgid "Cancel"
 msgstr ""
 
@@ -425,7 +425,7 @@ msgstr ""
 
 #: Backup.class.php:207 views/backup/item_table.php:14
 #: views/restore/landing.php:49 views/restore/landing.php:93
-#: assets/js/backup.js:205 assets/js/backup.js:244
+#: assets/js/backup.js:211 assets/js/backup.js:250
 msgid "Delete"
 msgstr ""
 
@@ -514,8 +514,8 @@ msgid ""
 "restore on a Standby system"
 msgstr ""
 
-#: assets/js/backup.js:363 assets/js/backup.js:382 assets/js/backup.js:401
-#: assets/js/backup.js:493
+#: assets/js/backup.js:369 assets/js/backup.js:388 assets/js/backup.js:407
+#: assets/js/backup.js:499
 msgid "Error"
 msgstr ""
 
@@ -846,7 +846,7 @@ msgstr ""
 msgid "List Backups"
 msgstr ""
 
-#: assets/js/backup.js:418
+#: assets/js/backup.js:424
 msgid "Loading Please Wait"
 msgstr ""
 
@@ -891,7 +891,7 @@ msgstr ""
 msgid "Modules"
 msgstr ""
 
-#: assets/js/backup.js:6 assets/js/backup.js:313
+#: assets/js/backup.js:6 assets/js/backup.js:319
 msgid "Modules ("
 msgstr ""
 
@@ -929,7 +929,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: assets/js/backup.js:286
+#: assets/js/backup.js:292
 msgid "No Storage Locations"
 msgstr ""
 
@@ -945,13 +945,13 @@ msgstr ""
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
-#: assets/js/backup.js:309
+#: assets/js/backup.js:92 assets/js/backup.js:315
 msgid ""
-"No module is selected for Backup. Please ensure you are selecting atleast "
-"one module for Backup"
+"No module has selected for this Backup. Please ensure you are selecting "
+"atleast Custom files"
 msgstr ""
 
-#: assets/js/backup.js:334 assets/js/backup.js:341
+#: assets/js/backup.js:340 assets/js/backup.js:347
 msgid ""
 "No storage location selected for Backup. Please select atleast one storage "
 "location to save the backup"
@@ -1169,7 +1169,7 @@ msgstr ""
 msgid "Run Restore & Legacy CDR "
 msgstr ""
 
-#: assets/js/backup.js:560
+#: assets/js/backup.js:566
 msgid "Run the following in the CLI"
 msgstr ""
 
@@ -1364,7 +1364,7 @@ msgstr ""
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
 
-#: assets/js/backup.js:96
+#: assets/js/backup.js:101
 #, perl-format
 msgid "The Backup job name %s is already in used, please use a different name."
 msgstr ""
@@ -1556,7 +1556,7 @@ msgstr ""
 msgid "Version in Backup"
 msgstr ""
 
-#: assets/js/backup.js:192
+#: assets/js/backup.js:198
 msgid "View backup log"
 msgstr ""
 

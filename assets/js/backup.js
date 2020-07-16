@@ -88,7 +88,12 @@ $(document).ready(function () {
 			}
 		}
 	}
-        });
+        if (!$('#backupmodules').bootstrapTable('getSelections').length && $('#template_table tr:last').index() ==0) {
+			alert(_("No module has selected for this Backup. Please ensure you are selecting atleast Custom files"));
+			return false;
+		}		
+		
+		});
 
         $("#backup_name").on('input', function() {
                 var bkjob_name = $("#backup_name").val().trim();
@@ -97,6 +102,7 @@ $(document).ready(function () {
                         return false;
                 }
         });
+
 
 });
 //end ready
@@ -306,8 +312,7 @@ modulesettings = {};
 $('#itemsSave').on('click', function (e) {
 	e.preventDefault();
 	if (!$('#backupmodules').bootstrapTable('getSelections').length) {
-		alert(_("No module is selected for Backup. Please ensure you are selecting atleast one module for Backup"));
-		return false;
+		alert(_("No module has selected for this Backup. Please ensure you are selecting atleast Custom files"));
 	}
         $('#backupmodules').bootstrapTable('resetSearch');
 	$('#backup_items').val(JSON.stringify(processItems()));

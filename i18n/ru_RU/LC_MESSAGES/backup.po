@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-16 03:18+0000\n"
+"POT-Creation-Date: 2020-07-16 08:58+0530\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -273,6 +273,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Пункты бекапа"
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "Модуль резервного копирования"
+
 #: views/backup/form.php:48 views/restore/landing.php:71
 #: views/restore/landing.php:115
 msgid "Backup Name"
@@ -493,6 +497,10 @@ msgstr ""
 #: views/backup/form.php:25
 msgid "Edit"
 msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
+msgstr "E-mail "
 
 #: views/backup/form.php:218
 msgid "Email Type"
@@ -1154,7 +1162,7 @@ msgid "Restoring custom directory to %s"
 msgstr ""
 
 #: Handlers/Restore/Common.php:257 Handlers/Restore/Common.php:276
-#: Handlers/Restore/Common.php:298 Handlers/Restore/Common.php:332
+#: Handlers/Restore/Common.php:298 Handlers/Restore/Common.php:335
 #, php-format
 msgid "Restoring custom file to %s"
 msgstr ""
@@ -1308,7 +1316,7 @@ msgstr ""
 msgid "Should the warm spare feature be enabled"
 msgstr ""
 
-#: Handlers/Restore/Common.php:323
+#: Handlers/Restore/Common.php:326
 #, php-format
 msgid "Skipping directory %s"
 msgstr ""
@@ -1380,6 +1388,10 @@ msgstr ""
 #, perl-format
 msgid "The Backup job name %s is already in used, please use a different name."
 msgstr ""
+
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr "Форма: поле для e-mail's, когда используется функция backup e-mail."
 
 #: views/backup/warmspare.php:433
 msgid "The address of the remote server."
@@ -1689,15 +1701,6 @@ msgstr ""
 
 #~ msgid "chose"
 #~ msgstr "выбрать"
-
-#~ msgid "Backup Module"
-#~ msgstr "Модуль резервного копирования"
-
-#~ msgid "Email "
-#~ msgstr "E-mail "
-
-#~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr "Форма: поле для e-mail's, когда используется функция backup e-mail."
 
 #~ msgid "Backup & Restore - Servers"
 #~ msgstr "Резервное копирование и восстановление - Серверы"

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-16 03:18+0000\n"
+"POT-Creation-Date: 2020-07-16 08:58+0530\n"
 "PO-Revision-Date: 2010-01-23 14:24+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -267,6 +267,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr ""
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr ""
+
 #: views/backup/form.php:48 views/restore/landing.php:71
 #: views/restore/landing.php:115
 msgid "Backup Name"
@@ -484,6 +488,10 @@ msgstr ""
 
 #: views/backup/form.php:25
 msgid "Edit"
+msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
 msgstr ""
 
 #: views/backup/form.php:218
@@ -1142,7 +1150,7 @@ msgid "Restoring custom directory to %s"
 msgstr ""
 
 #: Handlers/Restore/Common.php:257 Handlers/Restore/Common.php:276
-#: Handlers/Restore/Common.php:298 Handlers/Restore/Common.php:332
+#: Handlers/Restore/Common.php:298 Handlers/Restore/Common.php:335
 #, php-format
 msgid "Restoring custom file to %s"
 msgstr ""
@@ -1296,7 +1304,7 @@ msgstr ""
 msgid "Should the warm spare feature be enabled"
 msgstr ""
 
-#: Handlers/Restore/Common.php:323
+#: Handlers/Restore/Common.php:326
 #, php-format
 msgid "Skipping directory %s"
 msgstr ""
@@ -1367,6 +1375,10 @@ msgstr ""
 #: assets/js/backup.js:101
 #, perl-format
 msgid "The Backup job name %s is already in used, please use a different name."
+msgstr ""
+
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 
 #: views/backup/warmspare.php:433

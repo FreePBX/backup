@@ -41,6 +41,7 @@ class Storage extends CommonFile {
 		$storage_ids = $this->Backup->getStorageById($this->id);
 		$storage_ids = count($storages)> 0?$storages:$storage_ids;
 		$this->log(_("Saving to selected Filestore locations"));
+		$tmpfiledelete = true;
 		foreach ($storage_ids as $location) {
 			if(empty(trim($location))){
 				continue;
@@ -62,6 +63,12 @@ class Storage extends CommonFile {
 						$this->freepbx->Filestore->makeDirectory($id, $this->backupInfo['backup_name']);
 					}
 				}
+				if($info['driver'] == 'Local'){
+					$localpath = rtrim($Rpath,'/').'/'.$Rfile;
+					if($this->file == $localpath){
+						$tmpfiledelete = false;
+					}
+				}
 				$this->Filestore->upload($id,$this->file,$Rfile);
 				$this->log("\t".sprintf(_("Saving to: %s:'%s' instance ,File location: %s/%s "),$info['driver'],$info['name'],$Rpath,$Rfile),'DEBUG');
 			} catch (\Exception $e) {
@@ -70,7 +77,7 @@ class Storage extends CommonFile {
             	$this->addError($e->getMessage());
 			}
 		}
-  		if(empty($err)){
+		if(empty($err) && $tmpfiledelete == true){
 			unlink($this->file);
 		} 
 		$this->log(_("Finished Saving to selected Filestore locations"));

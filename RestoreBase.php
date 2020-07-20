@@ -441,7 +441,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 					continue;
 				}
 				$r['type'] = $b['type'];
-				$r['val'] = $b['val'];
+				$r['val'] = $b['content'];
 			}
 			switch($r['type']) {
 				case 'json-obj':
@@ -497,7 +497,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 					continue;
 				}
 				$r['type'] = $b['type'];
-				$r['val'] = $b['val'];
+				$r['val'] = $b['content'];
 			}
 			switch($r['type']) {
 				case 'json-obj':

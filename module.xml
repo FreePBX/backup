@@ -8,6 +8,7 @@
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Admin</category>
 	<description>Backup &amp; Restore for your FreePBX environment</description>
+	<more-info>https://wiki.freepbx.org/display/F2/Backup+and+Restore+Module</more-info>
 	<menuitems>
 		<backup needsenginedb="yes">Backup &amp; Restore</backup>
 		<backup_servers hidden="true" needsenginedb="yes">Backup &amp; Restore - Servers</backup_servers>

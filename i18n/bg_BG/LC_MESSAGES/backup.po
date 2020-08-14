@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-03 16:20+0000\n"
+"POT-Creation-Date: 2020-08-14 07:12+0000\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -241,10 +241,6 @@ msgstr "Архива е Заключен!"
 #: functions.inc.php:70
 msgid "Backup Log:"
 msgstr "Лог на Архива:"
-
-#: backup.i18n.php:20
-msgid "Backup Module"
-msgstr "Модул за Архиви"
 
 #: views/backup/backup.php:17 views/backup/backups.php:97
 msgid "Backup Name"
@@ -521,10 +517,6 @@ msgstr ""
 #: views/backup/backup.php:121
 msgid "Drop Here"
 msgstr "Пуснете Тук"
-
-#: backup.i18n.php:18
-msgid "Email "
-msgstr "Email "
 
 #: views/servers/email.php:64
 msgid "Email Address"
@@ -1535,10 +1527,6 @@ msgstr "Шаблони"
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr ""
 
-#: backup.i18n.php:22
-msgid "The From: field for emails when using the backup email feature."
-msgstr "Поле От: за  email-и когато използвате услугата архив към  email."
-
 #: page.backup_restore.php:191
 msgid "The Restore script Finished You can close this window"
 msgstr ""
@@ -1804,6 +1792,15 @@ msgstr ""
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr ""
+
+#~ msgid "Backup Module"
+#~ msgstr "Модул за Архиви"
+
+#~ msgid "Email "
+#~ msgstr "Email "
+
+#~ msgid "The From: field for emails when using the backup email feature."
+#~ msgstr "Поле От: за  email-и когато използвате услугата архив към  email."
 
 #~ msgid "Apply Configs"
 #~ msgstr "Приложи Настройки"

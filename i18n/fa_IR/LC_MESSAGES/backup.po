@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-03 16:20+0000\n"
+"POT-Creation-Date: 2020-08-14 07:12+0000\n"
 "PO-Revision-Date: 2019-08-13 11:55+0000\n"
 "Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://*/projects/freepbx/backup/fa/>\n"
@@ -235,10 +235,6 @@ msgstr "به وجود آمدن قفل پشتیبان گیری!"
 #: functions.inc.php:70
 msgid "Backup Log:"
 msgstr "لاگ پشتیبان گیری:"
-
-#: backup.i18n.php:20
-msgid "Backup Module"
-msgstr "ماژول پشتیبان گیری"
 
 #: views/backup/backup.php:17 views/backup/backups.php:97
 msgid "Backup Name"
@@ -523,10 +519,6 @@ msgstr "برای اضافه کردن قالب ها به جدول، آن ها ر�
 #: views/backup/backup.php:121
 msgid "Drop Here"
 msgstr "اینجا بیندازید"
-
-#: backup.i18n.php:18
-msgid "Email "
-msgstr "ایمیل "
 
 #: views/servers/email.php:64
 msgid "Email Address"
@@ -1564,11 +1556,6 @@ msgstr "قالب ها"
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr "سیستم فایل از نوع سرور FTP . اگر مطمئن نیستید به صورت خودکارتنظیم کنید"
 
-#: backup.i18n.php:22
-msgid "The From: field for emails when using the backup email feature."
-msgstr ""
-"از طرف: فیلد مبدا ایمیل ها وقتی از قابلیت ارسال ایمیل پشتیبان استفاده می شود."
-
 #: page.backup_restore.php:191
 msgid "The Restore script Finished You can close this window"
 msgstr "اسکریپت بازگردانی تمام شد شما می توانید این پنجره را ببندید"
@@ -1849,6 +1836,17 @@ msgstr "انتظار برای قفل..."
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{سروری در دسترس نیست}"
+
+#~ msgid "Backup Module"
+#~ msgstr "ماژول پشتیبان گیری"
+
+#~ msgid "Email "
+#~ msgstr "ایمیل "
+
+#~ msgid "The From: field for emails when using the backup email feature."
+#~ msgstr ""
+#~ "از طرف: فیلد مبدا ایمیل ها وقتی از قابلیت ارسال ایمیل پشتیبان استفاده می "
+#~ "شود."
 
 #~ msgid "Apply Configs"
 #~ msgstr "اعمال تنظیمات"

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-03 16:20+0000\n"
+"POT-Creation-Date: 2020-08-14 07:12+0000\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -236,10 +236,6 @@ msgstr ""
 
 #: functions.inc.php:70
 msgid "Backup Log:"
-msgstr ""
-
-#: backup.i18n.php:20
-msgid "Backup Module"
 msgstr ""
 
 #: views/backup/backup.php:17 views/backup/backups.php:97
@@ -514,10 +510,6 @@ msgstr ""
 
 #: views/backup/backup.php:121
 msgid "Drop Here"
-msgstr ""
-
-#: backup.i18n.php:18
-msgid "Email "
 msgstr ""
 
 #: views/servers/email.php:64
@@ -1528,10 +1520,6 @@ msgstr ""
 
 #: views/servers/ftp.php:123
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
-msgstr ""
-
-#: backup.i18n.php:22
-msgid "The From: field for emails when using the backup email feature."
 msgstr ""
 
 #: page.backup_restore.php:191

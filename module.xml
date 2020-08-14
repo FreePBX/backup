@@ -2,12 +2,13 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.10.28</version>
+	<version>15.0.10.29</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Admin</category>
 	<description>Backup &amp; Restore for your FreePBX environment</description>
+	<more-info>https://wiki.freepbx.org/display/F2/Backup+and+Restore+Module</more-info>
 	<menuitems>
 		<backup needsenginedb="yes">Backup &amp; Restore</backup>
 		<backup_restore hidden="true" needsenginedb="yes">Backup &amp; Restore - Restore</backup_restore>
@@ -17,6 +18,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.10.29* Packaging of ver 15.0.10.29
 		*15.0.10.28* FREEI-1939 Legacy backup restore on FreePBX 15 not restoring the firewall module's trusted networks 
 		*15.0.10.27* FREEI-1927 Backup file not getting saved if the local path is set to "/var/spool/asterisk/backup" 
 		*15.0.10.26* FREEPBX-21664 Warm Spare backup removes executable permission on AGI scripts 

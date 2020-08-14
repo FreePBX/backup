@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 18:14+0530\n"
+"POT-Creation-Date: 2020-08-14 07:10+0000\n"
 "PO-Revision-Date: 2017-03-08 21:01+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -183,9 +183,17 @@ msgstr "Backup"
 msgid "Backup & Restore"
 msgstr "Backup & Restauração"
 
-#: backup.i18n.php:12
+#: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
 msgstr "Backup & Restauração - Restauração"
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Servers"
+msgstr "Backup & Restauração - Servidores"
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Templates"
+msgstr "Backup & Restauração - Modelos"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -222,10 +230,6 @@ msgstr "Bloqueio de Backup adquirido!"
 #: functions.inc.php:70
 msgid "Backup Log:"
 msgstr "Log do Backup:"
-
-#: backup.i18n.php:16
-msgid "Backup Module"
-msgstr "Módulo de Backup"
 
 #: views/backup/backup.php:17 views/backup/backups.php:97
 msgid "Backup Name"
@@ -515,10 +519,6 @@ msgstr ""
 #: views/backup/backup.php:121
 msgid "Drop Here"
 msgstr "Solte Aqui"
-
-#: backup.i18n.php:14
-msgid "Email "
-msgstr "Email "
 
 #: views/servers/email.php:64
 msgid "Email Address"
@@ -1536,10 +1536,6 @@ msgstr ""
 "Tipo de sistema de arquivos do Servidor de FTP. Se não tiver certeza, defina "
 "esta opção para Auto"
 
-#: backup.i18n.php:18
-msgid "The From: field for emails when using the backup email feature."
-msgstr "O campo De: Campo para e-mails ao usar o recurso de e-mail do backup ."
-
 #: page.backup_restore.php:191
 msgid "The Restore script Finished You can close this window"
 msgstr "O script de Restauração Finalizou. Você pode fechar esta janela"
@@ -1814,11 +1810,15 @@ msgstr "esperando por bloqueio..."
 msgid "{no servers available}"
 msgstr "{sem servidores disponíveis}"
 
-#~ msgid "Backup & Restore - Servers"
-#~ msgstr "Backup & Restauração - Servidores"
+#~ msgid "Backup Module"
+#~ msgstr "Módulo de Backup"
 
-#~ msgid "Backup & Restore - Templates"
-#~ msgstr "Backup & Restauração - Modelos"
+#~ msgid "Email "
+#~ msgstr "Email "
+
+#~ msgid "The From: field for emails when using the backup email feature."
+#~ msgstr ""
+#~ "O campo De: Campo para e-mails ao usar o recurso de e-mail do backup ."
 
 #~ msgid "Apply Configs"
 #~ msgstr "Aplicar Configurações"

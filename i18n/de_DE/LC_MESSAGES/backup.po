@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 18:14+0530\n"
+"POT-Creation-Date: 2020-08-14 07:10+0000\n"
 "PO-Revision-Date: 2018-02-16 19:51+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -184,9 +184,17 @@ msgstr "Sicherung"
 msgid "Backup & Restore"
 msgstr "Sichern & Wiederherstellen"
 
-#: backup.i18n.php:12
+#: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
 msgstr "Sichern & Wiederherstellen - Wiederherstellen"
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Servers"
+msgstr "Sichern & Wiederherstellen - Server"
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Templates"
+msgstr "Sichern & Wiederherstellen - Vorlagen"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -223,10 +231,6 @@ msgstr "Sicherungssperre erworben!"
 #: functions.inc.php:70
 msgid "Backup Log:"
 msgstr "Sicherungsprotokoll:"
-
-#: backup.i18n.php:16
-msgid "Backup Module"
-msgstr "Sicherungsmodule"
 
 #: views/backup/backup.php:17 views/backup/backups.php:97
 msgid "Backup Name"
@@ -514,10 +518,6 @@ msgstr ""
 #: views/backup/backup.php:121
 msgid "Drop Here"
 msgstr "Hier reinziehen"
-
-#: backup.i18n.php:14
-msgid "Email "
-msgstr "E-Mail "
 
 #: views/servers/email.php:64
 msgid "Email Address"
@@ -1548,10 +1548,6 @@ msgstr ""
 "Der Dateisystemtyp des FTP-Servers. Wenn Sie nicht sicher sind, stellen Sie "
 "dies auf Auto"
 
-#: backup.i18n.php:18
-msgid "The From: field for emails when using the backup email feature."
-msgstr "Von: Ein Feld für E-Mails, wenn Sie das E-Mail-Feature verwenden."
-
 #: page.backup_restore.php:191
 msgid "The Restore script Finished You can close this window"
 msgstr ""
@@ -1832,11 +1828,14 @@ msgstr "warte auf Sperrung..."
 msgid "{no servers available}"
 msgstr "{keine Server Verfügbar}"
 
-#~ msgid "Backup & Restore - Servers"
-#~ msgstr "Sichern & Wiederherstellen - Server"
+#~ msgid "Backup Module"
+#~ msgstr "Sicherungsmodule"
 
-#~ msgid "Backup & Restore - Templates"
-#~ msgstr "Sichern & Wiederherstellen - Vorlagen"
+#~ msgid "Email "
+#~ msgstr "E-Mail "
+
+#~ msgid "The From: field for emails when using the backup email feature."
+#~ msgstr "Von: Ein Feld für E-Mails, wenn Sie das E-Mail-Feature verwenden."
 
 #~ msgid "Apply Configs"
 #~ msgstr "Konfigurationen anwenden"

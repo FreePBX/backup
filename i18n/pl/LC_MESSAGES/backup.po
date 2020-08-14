@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 18:14+0530\n"
+"POT-Creation-Date: 2020-08-14 07:10+0000\n"
 "PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/backup/pl/"
@@ -175,9 +175,17 @@ msgstr "Kopa zapasowa"
 msgid "Backup & Restore"
 msgstr "Kopia zapasowa & Przywracanie"
 
-#: backup.i18n.php:12
+#: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
 msgstr "Kopia zapasowa & Przywracanie - Przywracanie"
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Servers"
+msgstr "Kopia zapasowa & Przywracanie - Serwery"
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Templates"
+msgstr "Kopia zapasowa & Przywracanie - Szblony"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -215,10 +223,6 @@ msgstr "Backup Lock wymagany!"
 #, fuzzy
 msgid "Backup Log:"
 msgstr "Backup Log:"
-
-#: backup.i18n.php:16
-msgid "Backup Module"
-msgstr "Moduł kopii zapasowej"
 
 #: views/backup/backup.php:17 views/backup/backups.php:97
 msgid "Backup Name"
@@ -505,10 +509,6 @@ msgstr ""
 #: views/backup/backup.php:121
 msgid "Drop Here"
 msgstr "Upuść tutaj"
-
-#: backup.i18n.php:14
-msgid "Email "
-msgstr "Email "
 
 #: views/servers/email.php:64
 msgid "Email Address"
@@ -1504,12 +1504,6 @@ msgstr ""
 "Typ plików systemu serwera FTP. Jeśli nie jesteś pewny, ustaw to na "
 "automatyczne"
 
-#: backup.i18n.php:18
-msgid "The From: field for emails when using the backup email feature."
-msgstr ""
-"Pole od: dla wiadomości e-mail podczas korzystania z funkcji tworzenia kopii "
-"zapasowej poczty e-mail."
-
 #: page.backup_restore.php:191
 msgid "The Restore script Finished You can close this window"
 msgstr "Zakończono przywracanie skryptu. Można zamknąć to okno"
@@ -1783,11 +1777,16 @@ msgstr "oczekiwanie na blokadę..."
 msgid "{no servers available}"
 msgstr "{brak dostępnych serwerów}"
 
-#~ msgid "Backup & Restore - Servers"
-#~ msgstr "Kopia zapasowa & Przywracanie - Serwery"
+#~ msgid "Backup Module"
+#~ msgstr "Moduł kopii zapasowej"
 
-#~ msgid "Backup & Restore - Templates"
-#~ msgstr "Kopia zapasowa & Przywracanie - Szblony"
+#~ msgid "Email "
+#~ msgstr "Email "
+
+#~ msgid "The From: field for emails when using the backup email feature."
+#~ msgstr ""
+#~ "Pole od: dla wiadomości e-mail podczas korzystania z funkcji tworzenia "
+#~ "kopii zapasowej poczty e-mail."
 
 #~ msgid "Apply Configs"
 #~ msgstr "Zastosuj konfiguracje"

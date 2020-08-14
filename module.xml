@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>13.0.27.24</version>
+	<version>13.0.27.25</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -20,6 +20,7 @@
 		<version>13.0.5</version>
 	</depends>
 	<changelog>
+		*13.0.27.25* Packaging of ver 13.0.27.25
 		*13.0.27.24* FREEI-890 Fix XSS Bootstrap Datatable Issues 
 		*13.0.27.23* FREEPBX-18571 
 		*13.0.27.22* FREEPBX-17567 

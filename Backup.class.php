@@ -608,8 +608,10 @@ public function GraphQL_Access_token($request) {
 		return $retrun;
 	}
 	public function triggerWarmSpareGqlAPI($item , $filename,$transactionid,$sparefilepath) {
-		if(substr($sparefilepath,-1) =='/') {
-			$filename = $sparefilepath.''.$filename;
+		$sparefilepath = rtrim($sparefilepath,'/');
+		if ($item['backup_addbjname'] == 'yes') {
+			$foldername = $item['backup_name'];
+			$filename = $sparefilepath.'/'.$foldername.'/'.$filename;
 		} else {
 			$filename = $sparefilepath.'/'.$filename;
 		}
@@ -1070,10 +1072,19 @@ public function GraphQL_Access_token($request) {
 			}
 
 			$value = $this->getReqUnsafe($col,'');
+			if($col == 'backup_name'){
+				$value = str_replace(' ', '-', $value); 
+				$value = preg_replace('/[^A-Za-z0-9\-]/', '', $value);
+			}
 			$this->updateBackupSetting($data['id'], $col, $value);
 		}
-		$description = $this->getReq('backup_description',sprintf(_('Backup %s'),$this->getReq('backup_name')));
-		$this->setConfig($data['id'],array('id' => $data['id'], 'name' => $this->getReq('backup_name',''), 'description' => $description),'backupList');
+		//remove all special charaters
+		$backup_name = $this->getReq('backup_name','');
+		$backup_name = str_replace(' ', '-', $backup_name); 
+		$backup_name = preg_replace('/[^A-Za-z0-9\-]/', '', $backup_name);
+		
+		$description = $this->getReq('backup_description',sprintf(_('Backup %s'),$backup_name));
+		$this->setConfig($data['id'],array('id' => $data['id'], 'name' => $backup_name, 'description' => $description),'backupList');
 		//We expect this to be JSON so we don't sanitize it.
 		$data['backup_items'] = $this->getReqUnsafe('backup_items', 'unchanged');
 

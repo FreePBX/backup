@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-18 05:24+0000\n"
+"POT-Creation-Date: 2020-08-20 02:32+0000\n"
 "PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/backup/pl/"
@@ -56,11 +56,11 @@ msgstr ""
 msgid "%s is now loaded into memory"
 msgstr ""
 
-#: Backup.class.php:1390
+#: Backup.class.php:1401
 msgid "/path/to/dir"
 msgstr "/ścieżka/do/katalogu"
 
-#: Backup.class.php:1378
+#: Backup.class.php:1389
 msgid "/path/to/file"
 msgstr "/ścieżka/do/pliku"
 
@@ -172,7 +172,7 @@ msgstr ""
 msgid "Are you sure, you want to restore this backup?"
 msgstr ""
 
-#: Backup.class.php:1349
+#: Backup.class.php:1360
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -187,7 +187,7 @@ msgstr "KOPIA ZAPASOWA NIE DOŁĄCZONA"
 msgid "Backup"
 msgstr "Kopa zapasowa"
 
-#: Backup.class.php:1075
+#: Backup.class.php:1086
 #, php-format
 msgid "Backup %s"
 msgstr ""
@@ -386,7 +386,7 @@ msgstr ""
 msgid "Could not locate the manifest for this file"
 msgstr ""
 
-#: Backup.class.php:710 Backup.class.php:778
+#: Backup.class.php:712 Backup.class.php:780
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
@@ -427,7 +427,7 @@ msgstr ""
 msgid "Delete After Runs"
 msgstr ""
 
-#: Backup.class.php:1403
+#: Backup.class.php:1414
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr "Usuń ten wpis. Nie zapomnij kliknąć 'Zatwierdź' aby zapisać zmiany!"
 
@@ -450,7 +450,7 @@ msgstr ""
 msgid "Determining backup file type..."
 msgstr ""
 
-#: Backup.class.php:1385
+#: Backup.class.php:1396
 msgid "Directory"
 msgstr "Książka adresowa"
 
@@ -494,7 +494,7 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1255 views/backup/form.php:334
+#: Backup.class.php:1266 views/backup/form.php:334
 msgid "Enabled"
 msgstr ""
 
@@ -618,7 +618,7 @@ msgstr ""
 msgid "Failure"
 msgstr ""
 
-#: Backup.class.php:1373
+#: Backup.class.php:1384
 msgid "File"
 msgstr "Plik"
 
@@ -724,11 +724,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1334
+#: Backup.class.php:1345
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1340
+#: Backup.class.php:1351
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -791,7 +791,7 @@ msgstr ""
 msgid "Installing  %s"
 msgstr ""
 
-#: Backup.class.php:640
+#: Backup.class.php:642
 msgid "Invalid Backup ID"
 msgstr ""
 
@@ -931,7 +931,7 @@ msgstr ""
 msgid "No file provided"
 msgstr ""
 
-#: Backup.class.php:699
+#: Backup.class.php:701
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
@@ -960,7 +960,7 @@ msgstr "Powiadmienia"
 msgid "Only Restoring %s"
 msgstr ""
 
-#: Backup.class.php:1398
+#: Backup.class.php:1409
 msgid "PATTERNs, one per line"
 msgstr ""
 
@@ -1335,7 +1335,7 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: Backup.class.php:692
+#: Backup.class.php:694
 msgid "System Transfer"
 msgstr ""
 
@@ -1497,7 +1497,7 @@ msgstr ""
 msgid "Unable to upload file to the remote server"
 msgstr "Nie można przesłać pliku na serwer zdalny"
 
-#: Backup.class.php:1255
+#: Backup.class.php:1266
 msgid "Uninstalled or Disabled"
 msgstr ""
 

@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-20 02:32+0000\n"
+"POT-Creation-Date: 2020-08-20 03:18+0000\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -1069,7 +1069,7 @@ msgstr ""
 msgid "Remote User"
 msgstr ""
 
-#: Handlers/Backup/Maintenance.php:138 Handlers/Backup/Maintenance.php:158
+#: Handlers/Backup/Maintenance.php:139 Handlers/Backup/Maintenance.php:159
 #: Handlers/Backup/Multiple.php:187 Handlers/Backup/Single.php:55
 #, php-format
 msgid "Removing %s"

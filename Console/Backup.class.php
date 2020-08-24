@@ -35,6 +35,7 @@ class Backup extends Command {
 				new InputOption('b64import', '', InputOption::VALUE_REQUIRED, ''),
 				new InputOption('fallback', '', InputOption::VALUE_NONE, ''),
 				new InputOption('useinfiledb', '', InputOption::VALUE_NONE, 'Option --useinfiledb to restore Legacy backup using file based sqlite, By default system uses inmemory'),
+				new InputOption('skiprestorehooks', '', InputOption::VALUE_NONE, 'Option --skiprestorehooks skip postrestore hooks on restore'),
 		))
 		->setHelp('Run a backup: fwconsole backup --backup [backup-id]'.PHP_EOL
 		.'Run a restore: fwconsole backup --restore [/path/to/restore-xxxxxx.tar.gz]'.PHP_EOL
@@ -81,6 +82,7 @@ class Backup extends Command {
 		$backupsingle = $input->getOption('backupsingle');
 		$restoresingle = $input->getOption('restoresingle');
 		$b64import = $input->getOption('b64import');
+		$skiprestorehooks = $input->getOption('skiprestorehooks');
 		if($b64import){
 			return $this->addBackupByString($b64import);
 		}
@@ -295,6 +297,11 @@ class Backup extends Command {
 					$output->writeln("Legacy CDR Restore Option: $restorelegacycdr ");
 					$restoreHandler = new Handler\Restore\Legacy($this->freepbx,$restore, $transactionid, posix_getpid(),$restorelegacycdr);
 				}
+				if($skiprestorehooks){
+					$skiphooks = true;
+				}else {
+					$skiphooks = false;
+				}
 				if($input->getOption('fallback')){
 					$restoreHandler->setDefaultFallback(true);
 				}
@@ -306,7 +313,7 @@ class Backup extends Command {
 					$restoreHandler->process($useinmemory);
 				} else { 
 					//current version 
-					$restoreHandler->process();
+					$restoreHandler->process($skiphooks);
 				}
 
 				$errors = $restoreHandler->getErrors();

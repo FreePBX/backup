@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-20 03:19+0000\n"
+"POT-Creation-Date: 2020-08-24 07:21+0000\n"
 "PO-Revision-Date: 2017-03-08 21:01+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -271,7 +271,7 @@ msgstr ""
 msgid "Backup Wizard"
 msgstr "Assistente de Backup"
 
-#: Console/Backup.class.php:115 Console/Backup.class.php:208
+#: Console/Backup.class.php:117 Console/Backup.class.php:210
 msgid "Backup completed successfully"
 msgstr ""
 
@@ -451,7 +451,7 @@ msgstr "Descrição"
 msgid "Detected file %s as the PBX (Asterisk) database. Attempting restore"
 msgstr ""
 
-#: Console/Backup.class.php:271
+#: Console/Backup.class.php:273
 msgid "Determining backup file type..."
 msgstr ""
 
@@ -468,7 +468,7 @@ msgstr "O diretório '%s' não existe e não foi possível criá-lo"
 msgid "Disable Remote Trunks"
 msgstr ""
 
-#: Console/Backup.class.php:257 Handlers/Restore/Common.php:127
+#: Console/Backup.class.php:259 Handlers/Restore/Common.php:127
 #: Handlers/Restore/Legacy.php:236
 msgid "Done"
 msgstr ""
@@ -649,7 +649,7 @@ msgstr ""
 msgid "Files"
 msgstr "Arquivos"
 
-#: Handlers/Restore/Legacy.php:284 Handlers/Restore/Multiple.php:91
+#: Handlers/Restore/Legacy.php:284 Handlers/Restore/Multiple.php:95
 #: Handlers/Restore/Single.php:34
 msgid "Finished"
 msgstr ""
@@ -658,11 +658,11 @@ msgstr ""
 msgid "Finished Cleaning up"
 msgstr ""
 
-#: Console/Backup.class.php:195
+#: Console/Backup.class.php:197
 msgid "Finished Local Maintenance"
 msgstr ""
 
-#: Console/Backup.class.php:198
+#: Console/Backup.class.php:200
 msgid "Finished Remote Maintenance"
 msgstr ""
 
@@ -984,11 +984,11 @@ msgstr ""
 msgid "Path: %s"
 msgstr ""
 
-#: Console/Backup.class.php:193
+#: Console/Backup.class.php:195
 msgid "Performing Local Maintenance"
 msgstr ""
 
-#: Console/Backup.class.php:196
+#: Console/Backup.class.php:198
 msgid "Performing Remote Maintenance"
 msgstr ""
 
@@ -1082,7 +1082,7 @@ msgstr ""
 msgid "Resetting %s module data"
 msgstr ""
 
-#: Console/Backup.class.php:242
+#: Console/Backup.class.php:244
 msgid "Response from Warmspare backup Server API"
 msgstr ""
 
@@ -1094,7 +1094,7 @@ msgstr "Restaurar"
 msgid "Restore Information"
 msgstr ""
 
-#: Console/Backup.class.php:142 Console/Backup.class.php:315
+#: Console/Backup.class.php:144 Console/Backup.class.php:322
 msgid "Restore completed successfully"
 msgstr ""
 
@@ -1152,7 +1152,7 @@ msgstr ""
 msgid "Restoring from %s [%s]"
 msgstr ""
 
-#: Console/Backup.class.php:254
+#: Console/Backup.class.php:256
 #, php-format
 msgid "Retrieving %s from %s:%s..."
 msgstr ""
@@ -1207,11 +1207,11 @@ msgstr ""
 msgid "Running Backup ID: %s"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:283 Handlers/Restore/Multiple.php:90
+#: Handlers/Restore/Legacy.php:283 Handlers/Restore/Multiple.php:94
 msgid "Running Post Restore Hooks DONE"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:281 Handlers/Restore/Multiple.php:88
+#: Handlers/Restore/Legacy.php:281 Handlers/Restore/Multiple.php:89
 msgid ""
 "Running Post Restore Hooks.. Please note that hook will restart httpd "
 "service so please refresh your page (using new ports) "
@@ -1294,6 +1294,10 @@ msgstr ""
 
 #: views/backup/warmspare.php:38
 msgid "Should the warm spare feature be enabled"
+msgstr ""
+
+#: Handlers/Restore/Multiple.php:92
+msgid "Skipped Post Restore Hooks.."
 msgstr ""
 
 #: Handlers/Restore/Common.php:326
@@ -1423,19 +1427,19 @@ msgstr ""
 msgid "There was nothing to cleanup"
 msgstr ""
 
-#: Console/Backup.class.php:119 Console/Backup.class.php:213
+#: Console/Backup.class.php:121 Console/Backup.class.php:215
 msgid "There were errors during the backup process"
 msgstr ""
 
-#: Console/Backup.class.php:145 Console/Backup.class.php:318
+#: Console/Backup.class.php:147 Console/Backup.class.php:325
 msgid "There were errors during the restore process"
 msgstr ""
 
-#: Console/Backup.class.php:125 Console/Backup.class.php:219
+#: Console/Backup.class.php:127 Console/Backup.class.php:221
 msgid "There were warnings during the backup process"
 msgstr ""
 
-#: Console/Backup.class.php:151 Console/Backup.class.php:324
+#: Console/Backup.class.php:153 Console/Backup.class.php:331
 msgid "There were warnings during the restore process"
 msgstr ""
 
@@ -1458,7 +1462,7 @@ msgstr ""
 msgid "This table will be empty on backups created prior to version 15"
 msgstr ""
 
-#: Console/Backup.class.php:98
+#: Console/Backup.class.php:100
 #, php-format
 msgid "Transaction ID is: %s"
 msgstr ""
@@ -1584,11 +1588,11 @@ msgid ""
 "and Above"
 msgstr ""
 
-#: Console/Backup.class.php:236
+#: Console/Backup.class.php:238
 msgid "Warmspare enabled for this backup"
 msgstr ""
 
-#: Console/Backup.class.php:239
+#: Console/Backup.class.php:241
 msgid "We Have triggered an API to restore the backup on Spare Server"
 msgstr ""
 
@@ -1670,7 +1674,7 @@ msgstr ""
 msgid "success"
 msgstr ""
 
-#: Console/Backup.class.php:276
+#: Console/Backup.class.php:278
 #, php-format
 msgid "type is %s"
 msgstr ""

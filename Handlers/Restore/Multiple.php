@@ -12,7 +12,7 @@ use function FreePBX\modules\Backup\Json\json_encode;
 class Multiple extends Common {
 	private $restoreModules;
 
-	public function process() {
+	public function process($skiphooks=false) {
 		if(!file_exists($this->file)) {
 			throw new \Exception(sprintf(_('%s does not exist'),$this->file));
 		}
@@ -85,8 +85,12 @@ class Multiple extends Common {
 		$rmcommand = "rm -rf $this->tmp";
 		shell_exec($rmcommand);
 		$this->freepbx->Backup->postrestoreModulehook($this->transactionId,$backupinfo);
-		$this->log(_('Running Post Restore Hooks.. Please note that hook will restart httpd service so please refresh your page (using new ports) '));
-		$this->postRestoreHooks();
+		if($skiphooks==false){
+			$this->log(_('Running Post Restore Hooks.. Please note that hook will restart httpd service so please refresh your page (using new ports) '));
+			$this->postRestoreHooks();
+		}else {
+			$this->log(_('Skipped Post Restore Hooks..'));
+		}
 		$this->log(_('Running Post Restore Hooks DONE'));
 		$this->log(_('Finished'));
 	}

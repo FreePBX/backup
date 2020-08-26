@@ -67,6 +67,7 @@ class Storage extends CommonFile {
 					$localpath = rtrim($Rpath,'/').'/'.$Rfile;
 					if($this->file == $localpath){
 						$tmpfiledelete = false;
+						continue;
 					}
 				}
 				$this->Filestore->upload($id,$this->file,$Rfile);

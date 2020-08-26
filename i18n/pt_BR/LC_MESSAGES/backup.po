@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-24 07:21+0000\n"
+"POT-Creation-Date: 2020-08-26 06:30+0000\n"
 "PO-Revision-Date: 2017-03-08 21:01+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -666,7 +666,7 @@ msgstr ""
 msgid "Finished Remote Maintenance"
 msgstr ""
 
-#: Handlers/Storage.php:83
+#: Handlers/Storage.php:84
 msgid "Finished Saving to selected Filestore locations"
 msgstr ""
 
@@ -1245,7 +1245,7 @@ msgstr "Salvando arquivo no ftp remoto"
 msgid "Saving to selected Filestore locations"
 msgstr ""
 
-#: Handlers/Storage.php:73
+#: Handlers/Storage.php:74
 #, php-format
 msgid "Saving to: %s:'%s' instance ,File location: %s/%s "
 msgstr ""

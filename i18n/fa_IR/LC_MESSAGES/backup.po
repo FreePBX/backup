@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-24 07:21+0000\n"
+"POT-Creation-Date: 2020-08-26 06:30+0000\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -664,7 +664,7 @@ msgstr ""
 msgid "Finished Remote Maintenance"
 msgstr ""
 
-#: Handlers/Storage.php:83
+#: Handlers/Storage.php:84
 msgid "Finished Saving to selected Filestore locations"
 msgstr ""
 
@@ -1243,7 +1243,7 @@ msgstr "ذخیره فایل در FTP راه دور"
 msgid "Saving to selected Filestore locations"
 msgstr ""
 
-#: Handlers/Storage.php:73
+#: Handlers/Storage.php:74
 #, php-format
 msgid "Saving to: %s:'%s' instance ,File location: %s/%s "
 msgstr ""

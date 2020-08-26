@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-24 07:21+0000\n"
+"POT-Creation-Date: 2020-08-26 06:30+0000\n"
 "PO-Revision-Date: 2010-01-23 14:24+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -666,7 +666,7 @@ msgstr ""
 msgid "Finished Remote Maintenance"
 msgstr ""
 
-#: Handlers/Storage.php:83
+#: Handlers/Storage.php:84
 msgid "Finished Saving to selected Filestore locations"
 msgstr ""
 
@@ -1245,7 +1245,7 @@ msgstr ""
 msgid "Saving to selected Filestore locations"
 msgstr ""
 
-#: Handlers/Storage.php:73
+#: Handlers/Storage.php:74
 #, php-format
 msgid "Saving to: %s:'%s' instance ,File location: %s/%s "
 msgstr ""

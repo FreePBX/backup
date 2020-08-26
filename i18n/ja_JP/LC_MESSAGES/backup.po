@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-24 07:21+0000\n"
+"POT-Creation-Date: 2020-08-26 06:30+0000\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -687,7 +687,7 @@ msgstr ""
 msgid "Finished Remote Maintenance"
 msgstr ""
 
-#: Handlers/Storage.php:83
+#: Handlers/Storage.php:84
 msgid "Finished Saving to selected Filestore locations"
 msgstr ""
 
@@ -1266,7 +1266,7 @@ msgstr ""
 msgid "Saving to selected Filestore locations"
 msgstr ""
 
-#: Handlers/Storage.php:73
+#: Handlers/Storage.php:74
 #, php-format
 msgid "Saving to: %s:'%s' instance ,File location: %s/%s "
 msgstr ""

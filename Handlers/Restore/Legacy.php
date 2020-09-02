@@ -256,7 +256,7 @@ class Legacy extends Common {
 			}, ARRAY_FILTER_USE_KEY);
 		}
 		foreach ($moduleList as $module => $tables) {
-			if($module === 'unknown' || $module === 'cdr' || $module === 'cel' || $module === 'queuelog'){
+			if($module === 'unknown' || $module === 'cdr' || $module === 'cel' || $module === 'queuelog' || ($this->moduleName && $module != strtolower(trim($this->moduleName)))){
 				continue;
 			}
 			$this->log(sprintf(_("Processing %s"),$module),'INFO');
@@ -272,7 +272,9 @@ class Legacy extends Common {
 		}
 		//end of all modules so unlock it
 		$this->log(_('Restore processing for modules are finished successfully'));
-		$this->setCustomFiles($this->data['manifest']);
+		if(!$this->moduleName) {
+			$this->setCustomFiles($this->data['manifest']);
+		}
 		$this->setRestoreEnd();
 		$this->displayportschanges();
 		$this->freepbx->Backup->postrestoreModulehook($this->transactionId, $backupinfo=[]);

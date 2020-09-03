@@ -532,7 +532,7 @@ function linkFormatter(value, row, index) {
 		html += `&nbsp;<a class="clickable run" data-item="${value}"><i class="fa fa-play"></i></a>`;
 	}
 	html += `&nbsp;<a data-item="${value}" class="clicmd clickable"><i class="fa fa-terminal"></i></a>`;
-	html += `&nbsp;<a data-item="${value}" data-index="${index}" class="clickable delete"><i class="fa fa-trash"></i></a>`;
+	html += `&nbsp;<a data-item="${value}" data-index="${index}" class="clickable delete"><i class="fa fa-trash-o"></i></a>`;
 	return html;
 }
 
@@ -564,14 +564,14 @@ $(document).on('click', '.clicmd', function (e) {
 function localLinkFormatter(value, row, index) {
 	var html = '<a class="clickable run" data-id="' + row.id + '"><i class="fa fa-play"></i></a>';
 	html += '<a href="/admin/api/backup/localdownload?id=' + row.id + '" class="localdownload"><i class="fa fa-download"></i></a>';
-	html += '&nbsp;<a href="#" id="' + row.id + '" class="localDelete"><i class="fa fa-trash"></i></a>';
+	html += '&nbsp;<a href="#" id="' + row.id + '" class="localDelete"><i class="fa fa-trash-o"></i></a>';
 	return html;
 }
 
 function remoteFormatter(value, row, index) {
 	var html = '<a class="clickable run" data-id="' + row.id + '" data-filepath="' + row.file + '"><i class="fa fa-play"></i></a>';
 	html += `<a href="/admin/api/backup/remotedownload?id=${row.id}&filepath=${row.file}" class="remotedownload"><i class="fa fa-download"></i></a>`;
-	html += `<a href="#" data-id = "${row.id}" data-file = "${row.file}" class="remoteDelete delitem"><i class = "fa fa-trash"></i></a>`;
+	html += `<a href="#" data-id = "${row.id}" data-file = "${row.file}" class="remoteDelete delitem"><i class = "fa fa-trash-o"></i></a>`;
 
 	return html;
 }

@@ -230,25 +230,23 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
   </div>
   <!--END Exclude Trunks-->
   <!-- there are two ways to do this 1.Legacy way using ssh And 2. Using Oauth2 API  -->
-<!--Enable-->
-<!-- hiding this option
   <div class="element-container warmspare">
     <div class="row">
       <div class="form-group">
         <div class="col-md-3">
           <label class="control-label" for="warmsparewayofrestore">
-            <?php // echo _("Connect Warm Spare Server Over") ?>
+            <?php  echo _("Connect Warm Spare Server Over") ?>
           </label>
           <i class="fa fa-question-circle fpbx-help-icon" data-for="warmsparewayofrestore"></i>
         </div>
         <div class="col-md-9 radioset">
-          <input type="hidden" name="warmsparewayofrestore" id="warmsparewayofrestoreapi" value="API" <?php echo ($warmsparewayofrestore=="API" ?"CHECKED": "CHECKED") ?>>
+          <input  type="radio" name="warmsparewayofrestore" id="warmsparewayofrestoreapi" value="API" <?php echo ($warmsparewayofrestore=="API" ?"CHECKED": "") ?>>
           <label for="warmsparewayofrestoreapi">
-            <?php //echo _("API");?>
+            <?php echo _("API");?>
           </label>
-          <input type="hidden" name="warmsparewayofrestore" id="warmsparewayofrestoressh" value="API" <?php echo ($warmsparewayofrestore=="SSH" ? "": "") ?>  >
+          <input  type="radio" name="warmsparewayofrestore" id="warmsparewayofrestoressh" value="SSH" <?php echo ($warmsparewayofrestore=="SSH" ? "CHECKED": "") ?>  >
           <label for="warmsparewayofrestoressh">
-            <?php //echo _("SSH");?>
+            <?php echo _("SSH");?>
           </label>
         </div>
       </div>
@@ -256,11 +254,11 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
     <div class="row">
       <div class="col-md-12">
         <span id="warmsparewayofrestore-help" class="help-block fpbx-help-block">
-          <?php //echo _("Way to Connect Warm spare Server")?>
+          <?php echo _("Way to Connect Warm spare Server")?>
         </span>
       </div>
     </div>
-  </div> -->
+  </div>
   <!--END Enable-->
   <div class="element-container warmspare warmspareapi">
     <div class="row">
@@ -412,55 +410,33 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
   </div>
   <!--END Refresh token -->
   <!--Remote IP-->
-  <!-- hiding SSH
+  <!-- hiding SSH-->
   <div class="element-container warmspare warmsparessh">
     <div class="row">
       <div class="form-group">
         <div class="col-md-3">
-          <label class="control-label" for="warmspare_remoteip">
-            <?php echo _("Remote IP") ?>
+          <label class="control-label" for="warmspare_remotessh_filestoreid">
+            <?php echo _("Warm Spare Server") ?>
           </label>
-          <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remoteip"></i>
+          <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remotessh_filestoreid"></i>
         </div>
         <div class="col-md-9">
-          <input type="text" class="form-control" id="warmspare_remoteip" name="warmspare_remoteip" value="<?php echo isset($warmspare_remoteip)?$warmspare_remoteip:''?>">
+		<select id="warmspare_remotessh_filestoreid" name="warmspare_remotessh_filestoreid" class="form-control">
+			<option value="" ><?php echo _("Select Warm Spare server")?> </option>
+			<?php foreach($filestoressh as $servers) {?>
+			<option value="<?php echo $servers['value']?>" <?php echo $servers['selected'] ? 'selected' : '' ?>><?php echo $servers['label']?> </option>
+			<?php } ?>
+			</select>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <span id="warmspare_remoteip-help" class="help-block fpbx-help-block">
-          <?php echo _("The address of the remote server.")?>
-        </span>
-      </div>
-    </div>
-  </div>-->
-  <!--END Remote IP-->
-  <!--Remote User-->
-  <!--
-  <div class="element-container warmspare warmsparessh" >
-    <div class="row">
-      <div class="form-group">
-        <div class="col-md-3">
-          <label class="control-label" for="warmspare_user">
-            <?php echo _("Remote User") ?>
-          </label>
-          <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_user"></i>
-        </div>
-        <div class="col-md-9">
-          <input type="text" class="form-control" id="warmspare_user" name="warmspare_user" value="<?php echo isset($warmspare_user) ? $warmspare_user : '' ?>">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <span id="warmspare_user-help" class="help-block fpbx-help-block">
-          <?php echo _("User on remote system with proper permissions, usually root.")?>
+        <span id="warmspare_remotessh_filestoreid-help" class="help-block fpbx-help-block">
+          <?php echo _("Warm Spare server needs to add to filestore, And it should be a FreePBX 15 and Above")?>
         </span>
       </div>
     </div>
   </div>
-  -->
-  <!--Remote User-->
-  <input type="hidden" name="warmsparewayofrestore" id="warmsparewayofrestoreapi" value="API">
+  <!--END Remote IP-->
 </div>

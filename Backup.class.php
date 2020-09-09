@@ -62,6 +62,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 		'warmspare_remoteapi_secret',
 		'warmspare_remoteapi_gql',
 		'warmspare_excludetrunks',
+		'warmspare_remotessh_filestoreid',
 		'custom_files',
 		'prebu_hook',
 		'postbu_hook',
@@ -630,6 +631,35 @@ public function GraphQL_Access_token($request) {
 		$response = $client->json($query, $variables, $headers);
 		return $response;
 	}
+	
+	public function RunRestoreusingSSH($item , $filename,$transactionid) {
+		//get SSH details from filestore
+		$filestoteid = substr($item['warmspare_remotessh_filestoreid'],4);
+		$filestore = $this->freepbx->Filestore->getItemById($filestoteid);
+		$key = $filestore['key'];
+		$user = $filestore['user'];
+		$host = $filestore['host'];
+		$sparefilepath = $filestore['path'];
+		$sparefilepath = rtrim($sparefilepath,'/');
+		if ($item['backup_addbjname'] == 'yes') {
+			$foldername = $item['backup_name'];
+			$filename = $sparefilepath.'/'.$foldername.'/'.$filename;
+		} else {
+			$filename = $sparefilepath.'/'.$filename;
+		}
+		$command = "ssh -t -i $key $user@$host '/usr/sbin/fwconsole backup --restore $path$filename --transaction=$transactionid'";
+		$process = new Process($command);
+		try {
+			$process->setTimeout(null);
+			$process->mustRun();
+			$return['status'] = true;
+			$return['msg']= _('Backup Restored Successfully');
+		} catch (ProcessFailedException $e) {
+			$return['msg']= _('Error running Restore on Spare Server');
+			$return['status'] = false;
+		}
+		return $return;
+	}
 
 	//Display stuff
 
@@ -682,11 +712,25 @@ public function GraphQL_Access_token($request) {
 									'selected' => $select
 								];
 							}
+							if ($driver != 'SSH') {
+								continue;
+							}
+							foreach ($locations as $location) {
+								$name = isset($location['displayname'])?$location['displayname']:$location ['name'];
+								$select = ($driver.'_'.$location['id']== $vars['warmspare_remotessh_filestoreid'])? true : '';
+								$sshoptgroup[] = [
+									'label'    => $name,
+									'value'    => $driver.'_'.$location['id'],
+									'selected' => $select
+								];
+							}
 						}
 						$vars['filestores'] = is_array($optgroup) ? $optgroup : [];
+						$vars['filestoressh'] = is_array($sshoptgroup) ? $sshoptgroup : [];
 					} catch (\Exception $e) {
 						$vars['filestores'] = false;
 					}
+					
 					$vars['warmspare'] = load_view(__DIR__.'/views/backup/warmspare.php',$vars);
 				}
 				$vars['transfer'] = '';

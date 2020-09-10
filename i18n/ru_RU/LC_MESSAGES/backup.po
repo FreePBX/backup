@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-26 06:30+0000\n"
+"POT-Creation-Date: 2020-09-10 09:03+0530\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -273,6 +273,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Пункты бекапа"
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "Модуль резервного копирования"
+
 #: views/backup/form.php:48 views/restore/landing.php:71
 #: views/restore/landing.php:115
 msgid "Backup Name"
@@ -493,6 +497,10 @@ msgstr ""
 #: views/backup/form.php:25
 msgid "Edit"
 msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
+msgstr "E-mail "
 
 #: views/backup/form.php:218
 msgid "Email Type"
@@ -1385,6 +1393,10 @@ msgstr ""
 msgid "The Backup job name %s is already in used, please use a different name."
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr "Форма: поле для e-mail's, когда используется функция backup e-mail."
+
 #: views/backup/warmspare.php:433
 msgid "The address of the remote server."
 msgstr ""
@@ -1690,15 +1702,6 @@ msgstr ""
 #, php-format
 msgid "type is %s"
 msgstr ""
-
-#~ msgid "Backup Module"
-#~ msgstr "Модуль резервного копирования"
-
-#~ msgid "Email "
-#~ msgstr "E-mail "
-
-#~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr "Форма: поле для e-mail's, когда используется функция backup e-mail."
 
 #~ msgid "chose"
 #~ msgstr "выбрать"

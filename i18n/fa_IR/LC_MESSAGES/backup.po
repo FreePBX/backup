@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-26 06:30+0000\n"
+"POT-Creation-Date: 2020-09-10 09:03+0530\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -258,6 +258,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr "انتخاب موارد جهت تهیه پشتیبان"
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "ماژول پشتیبان گیری"
+
 #: views/backup/form.php:48 views/restore/landing.php:71
 #: views/restore/landing.php:115
 msgid "Backup Name"
@@ -479,6 +483,10 @@ msgstr ""
 #: views/backup/form.php:25
 msgid "Edit"
 msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
+msgstr "ایمیل "
 
 #: views/backup/form.php:218
 msgid "Email Type"
@@ -1371,6 +1379,11 @@ msgstr ""
 msgid "The Backup job name %s is already in used, please use a different name."
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr ""
+"از طرف: فیلد مبدا ایمیل ها وقتی از قابلیت ارسال ایمیل پشتیبان استفاده می شود."
+
 #: views/backup/warmspare.php:433
 msgid "The address of the remote server."
 msgstr ""
@@ -1676,17 +1689,6 @@ msgstr ""
 #, php-format
 msgid "type is %s"
 msgstr ""
-
-#~ msgid "Backup Module"
-#~ msgstr "ماژول پشتیبان گیری"
-
-#~ msgid "Email "
-#~ msgstr "ایمیل "
-
-#~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr ""
-#~ "از طرف: فیلد مبدا ایمیل ها وقتی از قابلیت ارسال ایمیل پشتیبان استفاده می "
-#~ "شود."
 
 #~ msgid "chose"
 #~ msgstr "انتخاب"

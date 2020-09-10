@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-26 06:30+0000\n"
+"POT-Creation-Date: 2020-09-10 09:03+0530\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -261,6 +261,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Reservekopie onderdelen"
 
+#: backup.i18n.php:16
+msgid "Backup Module"
+msgstr "Reservekopie module"
+
 #: views/backup/form.php:48 views/restore/landing.php:71
 #: views/restore/landing.php:115
 msgid "Backup Name"
@@ -483,6 +487,10 @@ msgstr ""
 #: views/backup/form.php:25
 msgid "Edit"
 msgstr ""
+
+#: backup.i18n.php:14
+msgid "Email "
+msgstr "e-mail: "
 
 #: views/backup/form.php:218
 msgid "Email Type"
@@ -1372,6 +1380,12 @@ msgstr ""
 msgid "The Backup job name %s is already in used, please use a different name."
 msgstr ""
 
+#: backup.i18n.php:18
+msgid "The From: field for emails when using the backup email feature."
+msgstr ""
+"Het Van: veld voor e-mails wanneer gebruik wordt gemaakt van de reservekopie "
+"e-mail functie."
+
 #: views/backup/warmspare.php:433
 msgid "The address of the remote server."
 msgstr ""
@@ -1671,17 +1685,6 @@ msgstr ""
 #, php-format
 msgid "type is %s"
 msgstr ""
-
-#~ msgid "Backup Module"
-#~ msgstr "Reservekopie module"
-
-#~ msgid "Email "
-#~ msgstr "e-mail: "
-
-#~ msgid "The From: field for emails when using the backup email feature."
-#~ msgstr ""
-#~ "Het Van: veld voor e-mails wanneer gebruik wordt gemaakt van de "
-#~ "reservekopie e-mail functie."
 
 #~ msgid "chose"
 #~ msgstr "kies"

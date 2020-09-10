@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.10.34</version>
+	<version>15.0.10.35</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,6 +18,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.10.35* FREEI-2062 Restore to 15 from a 13/14 backup not restoring POMPS backup settings 
 		*15.0.10.34* Packaging of ver 15.0.10.34
 		*15.0.10.33* FREEI-2076 15 Backup Erroring with SoundLang 
 		*15.0.10.32* FREEI-2066  added option to skip post restore hooks 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-10 09:03+0530\n"
+"POT-Creation-Date: 2020-09-15 09:27+0000\n"
 "PO-Revision-Date: 2017-03-08 21:01+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -258,10 +258,6 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Itens de Backup"
 
-#: backup.i18n.php:16
-msgid "Backup Module"
-msgstr "Módulo de Backup"
-
 #: views/backup/form.php:48 views/restore/landing.php:71
 #: views/restore/landing.php:115
 msgid "Backup Name"
@@ -484,10 +480,6 @@ msgstr ""
 #: views/backup/form.php:25
 msgid "Edit"
 msgstr ""
-
-#: backup.i18n.php:14
-msgid "Email "
-msgstr "Email "
 
 #: views/backup/form.php:218
 msgid "Email Type"
@@ -1381,10 +1373,6 @@ msgstr ""
 msgid "The Backup job name %s is already in used, please use a different name."
 msgstr ""
 
-#: backup.i18n.php:18
-msgid "The From: field for emails when using the backup email feature."
-msgstr "O campo De: Campo para e-mails ao usar o recurso de e-mail do backup ."
-
 #: views/backup/warmspare.php:433
 msgid "The address of the remote server."
 msgstr ""
@@ -1690,6 +1678,16 @@ msgstr ""
 #, php-format
 msgid "type is %s"
 msgstr ""
+
+#~ msgid "Backup Module"
+#~ msgstr "Módulo de Backup"
+
+#~ msgid "Email "
+#~ msgstr "Email "
+
+#~ msgid "The From: field for emails when using the backup email feature."
+#~ msgstr ""
+#~ "O campo De: Campo para e-mails ao usar o recurso de e-mail do backup ."
 
 #~ msgid "chose"
 #~ msgstr "selecione"

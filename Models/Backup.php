@@ -12,6 +12,21 @@ class Backup extends ModelBase {
 		parent::__construct($freepbx, $backupModVer, $logger, $transactionId, $modData, $defaultFallback);
 	}
 
+	/* set moddata 
+	 * this method to set skip_rest to true 
+	 * to avoid resetting the mdoule while restore
+	 */
+	public function setskipreset(){
+		foreach($this->data as $key => $data) {
+		if($key == 'skip_reset'){
+				$modData[$key] = true;
+			}else{
+				$modData[$key] = $data;
+			}
+		}
+		$this->data = $modData;
+	}
+
 	/**
 	 * Add Multiple files as an array
 	 *

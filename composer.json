@@ -7,6 +7,6 @@
         ]
     },
     "require": {
-        "euautomation/graphql-client": "^0.2.0"
+        "euautomation/graphql-client": "0.3.0"
     }
 }

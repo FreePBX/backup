@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2b472f9cd5d9d34a946c373f7714d19",
+    "content-hash": "132ae3d2d9b47872cc828717be6af7f6",
     "packages": [
         {
             "name": "euautomation/graphql-client",
-            "version": "0.2",
+            "version": "v0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/euautomation/graphql-client.git",
-                "reference": "113ca864986a99c20c3132408469a2089c5ff7a6"
+                "reference": "e26f54338de46dc861c3db950662405158a5be85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/euautomation/graphql-client/zipball/113ca864986a99c20c3132408469a2089c5ff7a6",
-                "reference": "113ca864986a99c20c3132408469a2089c5ff7a6",
+                "url": "https://api.github.com/repos/euautomation/graphql-client/zipball/e26f54338de46dc861c3db950662405158a5be85",
+                "reference": "e26f54338de46dc861c3db950662405158a5be85",
                 "shasum": ""
             },
             "require": {
@@ -53,7 +53,7 @@
                 "graphql",
                 "php"
             ],
-            "time": "2016-11-11T10:09:23+00:00"
+            "time": "2020-01-05T14:54:17+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -340,5 +340,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

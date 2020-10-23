@@ -55,7 +55,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	 *
 	 * @return void
 	 */
-	public function process() {
+	public function process($useinmemory) {
 		throw new \Exception("Nothing to process!");
 	}
 

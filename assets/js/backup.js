@@ -428,7 +428,7 @@ function toggle_warmspare() {
 	if ($('input[name="warmspareenabled"]:checked').val() == 'yes') {
 		$(".warmspare").slideDown();
 		$(".warmsparessh").slideUp();
-		//toggle_warmspareconnection();
+		toggle_warmspareconnection();
 	} else {
 		$(".warmspareapi").slideUp();
 		$(".warmsparessh").slideUp();
@@ -439,8 +439,8 @@ function toggle_warmspareconnection() {
 	if ($('input[name="warmsparewayofrestore"]:checked').val() == 'API') {
 		$(".warmspareapi").slideDown();
 		$(".warmsparessh").slideUp();
-	} else {//once ssh is implimented we need to change the slidup/slideDown
-		$(".warmsparessh").slideUp();
+	} else {
+		$(".warmsparessh").slideDown();
 		$(".warmspareapi").slideUp();
 	}
 }

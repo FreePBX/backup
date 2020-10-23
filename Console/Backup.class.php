@@ -245,6 +245,14 @@ class Backup extends Command {
 						$output->writeln("clientMutationId :".$data->clientMutationId);
 						$output->writeln("Restorestatus :".$data->restorestatus);
 					}
+					if($item['warmsparewayofrestore'] == 'SSH') {
+						$output->writeln(_("Warmspare enabled for this backup"));
+						$output->writeln(_("We are running Restore command on Spare Server"));
+						$resp = $this->freepbx->Backup->RunRestoreusingSSH($item,basename($backupHandler->getFile()),$transactionid);
+						$output->writeln(_("Response from Warmspare Server "));
+						$output->writeln("backup transactionid:".$transactionid);
+						$output->writeln("Restorestatus :".$resp['msg']);
+					}
 				}
 				return;
 			break;

@@ -1,17 +1,17 @@
 [
     {
         "name": "euautomation/graphql-client",
-        "version": "0.2",
-        "version_normalized": "0.2.0.0",
+        "version": "v0.3.0",
+        "version_normalized": "0.3.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/euautomation/graphql-client.git",
-            "reference": "113ca864986a99c20c3132408469a2089c5ff7a6"
+            "reference": "e26f54338de46dc861c3db950662405158a5be85"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/euautomation/graphql-client/zipball/113ca864986a99c20c3132408469a2089c5ff7a6",
-            "reference": "113ca864986a99c20c3132408469a2089c5ff7a6",
+            "url": "https://api.github.com/repos/euautomation/graphql-client/zipball/e26f54338de46dc861c3db950662405158a5be85",
+            "reference": "e26f54338de46dc861c3db950662405158a5be85",
             "shasum": ""
         },
         "require": {
@@ -21,7 +21,7 @@
             "mockery/mockery": "~0.9",
             "phpunit/phpunit": "~5.0"
         },
-        "time": "2016-11-11T10:09:23+00:00",
+        "time": "2020-01-05T14:54:17+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

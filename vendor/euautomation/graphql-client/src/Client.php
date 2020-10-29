@@ -3,7 +3,6 @@
 namespace EUAutomation\GraphQL;
 
 use EUAutomation\GraphQL\Exceptions\GraphQLInvalidResponse;
-use EUAutomation\GraphQL\Exceptions\GraphQLMissingData;
 
 class Client
 {
@@ -79,7 +78,6 @@ class Client
      * @return mixed
      *
      * @throws GraphQLInvalidResponse
-     * @throws GraphQLMissingData
      */
     public function json($query, $variables = [], $headers = [], $assoc = false)
     {
@@ -89,8 +87,6 @@ class Client
 
         if ($responseJson === null) {
             throw new GraphQLInvalidResponse('GraphQL did not provide a valid JSON response. Please make sure you are pointing at the correct URL.');
-        } else if (!isset($responseJson->data)) {
-            throw new GraphQLMissingData('There was an error with the GraphQL response, no data key was found.');
         }
 
         return $responseJson;

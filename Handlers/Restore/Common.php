@@ -245,41 +245,45 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	}
 
 
-	public function setCustomFiles($manifest= false) {
-		if(!$manifest) {
+public function setCustomFiles($manifest = NULL) {
+		if($manifest == NULL) {
 			$restoredata = $this->getMasterManifest();
-			$custom_files = json_decode($restoredata['backupInfo']['custom_files'], true);
-			if(!empty($custom_files)) {
-				foreach($custom_files as $files) {
-					if($files['type'] == 'file') {
-						$fdstpath = $this->Backup->getPath($files['path']);
-						if(file_exists($this->tmp.'/customfiles'.$fdstpath)) {
-							$this->log(sprintf(_('Restoring custom file to %s'),$fdstpath),'DEBUG');
-							try {
-								copy($this->tmp.'/customfiles'.$fdstpath, $fdstpath);
-							} catch(\Exception $e) {
-								$this->log(sprintf(_($e->getMessage()),'DEBUG'));
+			if (!empty($restoredata['backupInfo']['custom_files']))
+			{
+				$custom_files = json_decode($restoredata['backupInfo']['custom_files'], true);
+				$custom_files = isset($custom_files) ? trim($custom_files) : false;
+				if(!empty($custom_files)) {
+					foreach($custom_files as $files) {
+						if($files['type'] == 'file') {
+							$fdstpath = $this->Backup->getPath($files['path']);
+							if(file_exists($this->tmp.'/customfiles'.$fdstpath)) {
+								$this->log(sprintf(_('Restoring custom file to %s'),$fdstpath),'DEBUG');
+								try {
+									copy($this->tmp.'/customfiles'.$fdstpath, $fdstpath);
+								} catch(\Exception $e) {
+									$this->log(sprintf(_($e->getMessage()),'DEBUG'));
+								}
 							}
 						}
-					}
-					if($files['type'] == 'dir') {
-						$dstpath = $this->Backup->getPath($files['path']);
-						if(file_exists($this->tmp.'/customdir'.$dstpath)) {
-							$this->log(sprintf(_('Restoring custom directory to %s'),$dstpath),'DEBUG');
-							if($dstpath == "/etc/asterisk" || $dstpath == "/etc/asterisk/") {
-								$files = glob("$this->tmp/customdir/etc/asterisk/*_custom.conf");
-								foreach($files as $fval) {
-									$src = $fval;
-									$dst = '/etc/asterisk/' . basename($fval);
-									try {
-										copy($src, $dst);
-										$this->log(sprintf(_('Restoring custom file to %s'),$dst),'DEBUG');
-									} catch(\Exception $e) {
-										$this->log(sprintf(_($e->getMessage()),'DEBUG'));
+						if($files['type'] == 'dir') {
+							$dstpath = $this->Backup->getPath($files['path']);
+							if(file_exists($this->tmp.'/customdir'.$dstpath)) {
+								$this->log(sprintf(_('Restoring custom directory to %s'),$dstpath),'DEBUG');
+								if($dstpath == "/etc/asterisk" || $dstpath == "/etc/asterisk/") {
+									$files = glob("$this->tmp/customdir/etc/asterisk/*_custom.conf");
+									foreach($files as $fval) {
+										$src = $fval;
+										$dst = '/etc/asterisk/' . basename($fval);
+										try {
+											copy($src, $dst);
+											$this->log(sprintf(_('Restoring custom file to %s'),$dst),'DEBUG');
+										} catch(\Exception $e) {
+											$this->log(sprintf(_($e->getMessage()),'DEBUG'));
+										}
 									}
+								} else {
+									$this->recurseCopy($this->tmp.'/customdir'.$dstpath, $dstpath, false);
 								}
-							} else {
-								$this->recurseCopy($this->tmp.'/customdir'.$dstpath, $dstpath, false);
 							}
 						}
 					}

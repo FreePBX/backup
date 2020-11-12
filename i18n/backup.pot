@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 05:43+0000\n"
+"POT-Creation-Date: 2020-11-12 02:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1193,15 +1193,15 @@ msgstr ""
 msgid "Restoring %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:268
+#: Handlers/Restore/Common.php:271
 #, php-format
 msgid "Restoring custom directory to %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:257
-#: Handlers/Restore/Common.php:276
-#: Handlers/Restore/Common.php:298
-#: Handlers/Restore/Common.php:335
+#: Handlers/Restore/Common.php:260
+#: Handlers/Restore/Common.php:279
+#: Handlers/Restore/Common.php:302
+#: Handlers/Restore/Common.php:339
 #, php-format
 msgid "Restoring custom file to %s"
 msgstr ""
@@ -1367,7 +1367,7 @@ msgstr ""
 msgid "Skipped Post Restore Hooks.."
 msgstr ""
 
-#: Handlers/Restore/Common.php:326
+#: Handlers/Restore/Common.php:330
 #, php-format
 msgid "Skipping directory %s"
 msgstr ""

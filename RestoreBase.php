@@ -558,7 +558,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 			foreach($row as $col => $data) {
 				$find_chr		= array('\n', '\"', "\'" );
 				$replace_chr	= array("\n", '"' , "'" );
-				$final['`'.$col.'`'] = str_replace($find_chr, $replace_chr, $data);
+				$final['`'.$col.'`'] = is_null($data) ? $data : str_replace($find_chr, $replace_chr, $data);
 			}
 
 			try {

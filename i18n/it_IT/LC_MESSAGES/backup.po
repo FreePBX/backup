@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-14 07:12+0000\n"
-"PO-Revision-Date: 2020-11-17 20:12+0000\n"
+"PO-Revision-Date: 2020-11-17 20:27+0000\n"
 "Last-Translator: Danilo Smaldone <dsmaldone@sangoma.com>\n"
 "Language-Team: Italian <http://weblate.freepbx.org/projects/freepbx/backup/"
 "it/>\n"
@@ -225,7 +225,7 @@ msgstr "Descrizione Backup"
 
 #: functions.inc/class.backup.php:410
 msgid "Backup ERROR (exceeded SMTP limits)"
-msgstr "Backup ERROR (exceeded SMTP limits)"
+msgstr "ERRORE Backup (superati limiti SMTP)"
 
 #: functions.inc/class.backup.php:413
 msgid "Backup ERROR (exceeded soft limit)"

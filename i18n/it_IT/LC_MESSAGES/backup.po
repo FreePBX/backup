@@ -20,15 +20,16 @@ msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-14 07:12+0000\n"
-"PO-Revision-Date: 2018-05-28 14:10+0000\n"
-"Last-Translator: Stell0 <stefano.fancello@nethesis.it>\n"
-"Language-Team: Italian <http://*/projects/freepbx/backup/it/>\n"
+"PO-Revision-Date: 2020-11-17 20:12+0000\n"
+"Last-Translator: Danilo Smaldone <dsmaldone@sangoma.com>\n"
+"Language-Team: Italian <http://weblate.freepbx.org/projects/freepbx/backup/"
+"it/>\n"
 "Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19.1\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Poedit-Language: Italian\n"
 "X-Poedit-Country: ITALY\n"
 
@@ -155,7 +156,7 @@ msgstr "Aprile"
 
 #: bin/restore.php:124
 msgid "Archive coorect."
-msgstr ""
+msgstr "Archivio corretto."
 
 #: views/restore/browseserver.php:21
 msgid "AstDB's"
@@ -236,7 +237,7 @@ msgstr "Frequenza di backup"
 
 #: Console/Backup.class.php:20
 msgid "Backup History"
-msgstr ""
+msgstr "Cronologia backup"
 
 #: views/backup/backups.php:58
 msgid "Backup Items"
@@ -510,7 +511,7 @@ msgstr "Disabilita Trunks registrati"
 
 #: bin/backup.php:191
 msgid "Disabling registered trunks... "
-msgstr ""
+msgstr "Disattivazione dei trunk registrati... "
 
 #: bin/restore.php:548
 msgid "Done!"
@@ -570,7 +571,7 @@ msgstr ""
 
 #: Console/Backup.class.php:47
 msgid "End"
-msgstr ""
+msgstr "Fine"
 
 #: functions.inc/class.backup.php:471 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
@@ -703,7 +704,7 @@ msgstr "File"
 
 #: Console/Backup.class.php:47
 msgid "File Count"
-msgstr ""
+msgstr "Conteggio file"
 
 #: functions.inc/restore.php:424
 msgid "File not found! "
@@ -732,7 +733,7 @@ msgstr "Gratuito PBX"
 #: bin/restore.php:119
 #, php-format
 msgid "Freepbx version %s, Archive version %s"
-msgstr ""
+msgstr "Versione FreePBX %s1, Versione archivio %s2"
 
 #: views/cron.php:33 assets/js/backup.js:83
 msgid "Friday"
@@ -868,11 +869,11 @@ msgstr "Gennaio"
 
 #: Console/Backup.class.php:47
 msgid "Job ID"
-msgstr ""
+msgstr "ID Processo"
 
 #: Console/Backup.class.php:47
 msgid "Job Name"
-msgstr ""
+msgstr "Nome Processo"
 
 #: views/cron.php:50
 msgid "July"
@@ -914,7 +915,7 @@ msgstr "Manutenzione"
 
 #: Console/Backup.class.php:17
 msgid "Manage Backup jobs"
-msgstr ""
+msgstr "Gestisci i processi di Backup"
 
 #: views/cron.php:46
 msgid "March"
@@ -1079,7 +1080,7 @@ msgstr "Altri database MySQL"
 
 #: Console/Backup.class.php:19
 msgid "Output in JSON"
-msgstr ""
+msgstr "Output in JSON"
 
 #: functions.inc/templates.php:259
 msgid "PATTERNs, one per line"
@@ -1252,7 +1253,7 @@ msgstr "Azzerare"
 
 #: bin/restore.php:121
 msgid "Restoration canceled."
-msgstr ""
+msgstr "Ripristino dati annullato."
 
 #: page.backup_restore.php:201 views/restore/backup_list.php:46
 #: views/restore/browseserver.php:4 views/restore/restore.php:34
@@ -1529,7 +1530,7 @@ msgstr ""
 
 #: Console/Backup.class.php:47
 msgid "Start"
-msgstr ""
+msgstr "Avvio"
 
 #: views/backup/backup.php:65 views/backup/backups.php:291
 msgid "Status Email"
@@ -1601,7 +1602,7 @@ msgstr "Lo script di ripristino è ancora in esecuzione"
 #: bin/restore.php:120
 #, php-format
 msgid "The archive must be come from a release like this: %s.%s"
-msgstr ""
+msgstr "L'archivio deve provenire da una versione come questa:%s1.%s2"
 
 #: functions.inc/class.backup.php:411
 msgid ""
@@ -1639,6 +1640,7 @@ msgstr ""
 #: bin/restore.php:118
 msgid "This archive cannot be used, because the version is not correct!!!"
 msgstr ""
+"Questo archivio non può essere utilizzato, perché la versione è errata!!!"
 
 #: views/servers/ftp.php:166
 msgid ""

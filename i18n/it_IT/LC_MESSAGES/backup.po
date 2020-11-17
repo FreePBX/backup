@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-14 07:12+0000\n"
-"PO-Revision-Date: 2020-11-17 20:27+0000\n"
-"Last-Translator: Stell0 <stefano.fancello@nethesis.it>\n"
+"PO-Revision-Date: 2020-11-18 21:00+0000\n"
+"Last-Translator: Danilo Smaldone <dsmaldone@sangoma.com>\n"
 "Language-Team: Italian <http://weblate.freepbx.org/projects/freepbx/backup/"
 "it/>\n"
 "Language: it_IT\n"
@@ -56,19 +56,19 @@ msgstr ""
 
 #: views/backup/backup.php:197
 msgid "A script to be run AFTER a backup is completed."
-msgstr "Uno script da eseguire DOPO che un backup è completato."
+msgstr "Script da eseguire DOPO che un backup è stato completato."
 
 #: views/backup/backup.php:245
 msgid "A script to be run AFTER a backup is restored."
-msgstr "Uno script da eseguire DOPO un backup viene ripristinato."
+msgstr "Script da eseguire DOPO che un backup è stato ripristinato."
 
 #: views/backup/backup.php:221
 msgid "A script to be run BEFORE a backup is restored."
-msgstr "Uno script da eseguire PRIMA di ripristinare un backup."
+msgstr "Script da eseguire PRIMA di ripristinare un backup."
 
 #: views/backup/backup.php:173
 msgid "A script to be run BEFORE a backup is started."
-msgstr "Uno script da eseguire PRIMA di avviare un backup."
+msgstr "Script da eseguire PRIMA di eseguire un backup."
 
 #: views/backup/backups.php:154 assets/js/backup.js:93 assets/js/backup.js:105
 msgid "AT"
@@ -84,7 +84,7 @@ msgstr "Server AWS S3 "
 
 #: views/servers/awss3.php:58
 msgid "AWS Secret"
-msgstr "Segreto AWS"
+msgstr "Secret AWS"
 
 #: views/backup/backups.php:11 views/servers/servers.php:22
 #: views/templates/templates.php:9
@@ -97,11 +97,11 @@ msgstr "Attivo"
 
 #: views/servers/servers.php:4
 msgid "Add Server"
-msgstr "Server Aggiunto"
+msgstr "Aggiungi Server"
 
 #: bin/backup.php:54
 msgid "Adding items..."
-msgstr "Aggiungendo oggetti ..."
+msgstr "Aggiungo oggetti ..."
 
 #: backup.i18n.php:6
 msgid "Admin"
@@ -113,9 +113,9 @@ msgid ""
 "to prevent the Primary and Standby systems from \"fighting\" for the "
 "registration, resulting in some calls routed to the Standby system."
 msgstr ""
-"Dopo un ripristino, disabilitare qualsiasi trunk che utilizza la "
-"registrazione. Ciò è utile per impedire ai sistemi Primario e Standby di "
-"\"combattere\" per la registrazione, con il conseguente invio di alcune "
+"Dopo un ripristino, disabilitare tutti i trunk che utilizzano la "
+"registrazione. Ciò è utile per evitare che i server Primario e Standby \""
+"combattano\" per la registrazione, provocando l'instradamento di alcune "
 "chiamate al sistema Standby."
 
 #: views/cron.php:27 views/cron.php:43 views/cron.php:65
@@ -135,8 +135,8 @@ msgid ""
 "All system audio - including IVR prompts and Music On Hold. DOES NOT BACKUP "
 "VOICEMAIL"
 msgstr ""
-"Tutto l'audio del sistema - inclusi i messaggi IVR e Music On Hold. NON "
-"ESEGUIRE IL BACKUP VOICEMAIL"
+"Tutti gli audio di sistema - inclusi i messaggi IVR e Music On Hold. NON "
+"EFFETTUA IL BACKUP VOICEMAIL"
 
 #: functions.inc/servers.php:280
 msgid "Amazon S3 Server "
@@ -144,7 +144,7 @@ msgstr "Server Amazon S3 "
 
 #: views/servers/awss3.php:4
 msgid "Amazon S3&trade; Server"
-msgstr "Server Amazon S3&trade; 1"
+msgstr "Server Amazon S3&trade;1"
 
 #: views/cron.php:8
 msgid "Annually"
@@ -160,11 +160,11 @@ msgstr "Archivio corretto."
 
 #: views/restore/browseserver.php:21
 msgid "AstDB's"
-msgstr "AstDB di"
+msgstr "AstDB"
 
 #: functions.inc/templates.php:295
 msgid "Asterisk DB"
-msgstr "Asterisco DB"
+msgstr "DB Asterisk"
 
 #: views/cron.php:51
 msgid "August"
@@ -184,7 +184,7 @@ msgstr "B"
 
 #: functions.inc.php:67
 msgid "BACKUP LOG ATTACHED"
-msgstr "LOG DI BACKUP ALLEGATO"
+msgstr "LOG DEL BACKUP ALLEGATO"
 
 #: functions.inc/class.backup.php:411 functions.inc/class.backup.php:414
 msgid "BACKUP NOT ATTACHED"
@@ -193,7 +193,7 @@ msgstr "BACKUP NON ALLEGATO"
 #: Backup.class.php:321 functions.inc/backup.php:81
 #: functions.inc/class.backup.php:405 views/backup/backup.php:6
 msgid "Backup"
-msgstr "Supporto"
+msgstr "Backup"
 
 #: backup.i18n.php:4 backup.i18n.php:10
 msgid "Backup & Restore"
@@ -201,7 +201,7 @@ msgstr "Backup & Ripristino"
 
 #: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
-msgstr "Backup e ripristino - Ripristino"
+msgstr "Backup e Ripristino - Ripristino"
 
 #: backup.i18n.php:12
 msgid "Backup & Restore - Servers"
@@ -217,7 +217,7 @@ msgstr "Backup e Ripristino per il tuo ambiente FreePBX"
 
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
-msgstr "CDR di backup e dati di registrazione delle chiamate?"
+msgstr "Archiviare CDR e dati del registro delle chiamate?"
 
 #: views/backup/backups.php:121
 msgid "Backup Description"
@@ -229,19 +229,19 @@ msgstr "ERRORE Backup (superati limiti SMTP)"
 
 #: functions.inc/class.backup.php:413
 msgid "Backup ERROR (exceeded soft limit)"
-msgstr "ERRORE di backup (superamento dei limiti SMTP)"
+msgstr "ERRORE di backup (limite soft superato)"
 
 #: views/backup/backups.php:49
 msgid "Backup Frequency"
-msgstr "Frequenza di backup"
+msgstr "Frequenza di Backup"
 
 #: Console/Backup.class.php:20
 msgid "Backup History"
-msgstr "Cronologia backup"
+msgstr "Cronologia Backup"
 
 #: views/backup/backups.php:58
 msgid "Backup Items"
-msgstr "Oggetti di Backup"
+msgstr "Oggetti del Backup"
 
 #: bin/backup.php:49
 msgid "Backup Lock acquired!"
@@ -253,11 +253,11 @@ msgstr "Log di Backup:"
 
 #: views/backup/backup.php:17 views/backup/backups.php:97
 msgid "Backup Name"
-msgstr "Nome di Backup"
+msgstr "Nome del Backup"
 
 #: views/backup/backup.php:490
 msgid "Backup Schedule"
-msgstr "Programma di Backup"
+msgstr "Pianificazione Backup"
 
 #: views/backup/backup.php:267
 msgid "Backup Server"
@@ -273,11 +273,11 @@ msgstr "Modello di Backup"
 
 #: views/backup/backups.php:2
 msgid "Backup Wizard"
-msgstr "Backup guidato"
+msgstr "Procedura guidata di Backup"
 
 #: page.backup.php:116
 msgid "Backup and Restore"
-msgstr "Ripristino e Backup"
+msgstr "Backup e Ripristino"
 
 #: bin/backup.php:156 bin/backup.php:211
 msgid "Backup completed with errors!"
@@ -289,8 +289,8 @@ msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
 "backup from server [%s]."
 msgstr ""
-"Backup non riuscito dumping del database SQL [%s1] nel file [%s2], si ha un "
-"backup danneggiato dal server [%s3]."
+"Il backup non è riuscito a eseguire il dump del database SQL [%s1] nel file "
+"[%s2], hai un backup danneggiato dal server [%s3]."
 
 #: bin/restore.php:104
 msgid "Backup file not found! Aborting."
@@ -298,11 +298,11 @@ msgstr "File di backup non trovato! Interruzione."
 
 #: functions.inc/class.backup.php:499
 msgid "Backup file uploaded to the remote server"
-msgstr "File di backup caricato sul server remoto"
+msgstr "File di Backup caricato sul server remoto"
 
 #: bin/backup.php:12
 msgid "Backup module not found or is disabled. Aborting!"
-msgstr "Modulo di Backup non trovato o è disabilitato . Interruzione!"
+msgstr "Modulo di Backup non trovato o disabilitato. Interruzione!"
 
 #: bin/backup.php:158 bin/backup.php:213
 msgid "Backup successfully completed!"
@@ -310,32 +310,32 @@ msgstr "Backup completato con successo!"
 
 #: views/rnav/main.php:3
 msgid "Backups"
-msgstr "I backup"
+msgstr "Backup"
 
 #: views/backup/backups.php:88
 msgid "Basic Backup Information"
-msgstr "Informazioni base di Backup"
+msgstr "Informazioni di Base del Backup"
 
 #: views/backup/backups.php:40
 msgid "Basic Information"
-msgstr "Informazioni base"
+msgstr "Informazioni di Base"
 
 #: views/restore/restore.php:7 views/restore/restore.php:23
 msgid "Browse"
-msgstr "Navigare"
+msgstr "Sfoglia"
 
 #: page.backup_restore.php:184
 msgid "Browser reconnected realtime updates are unavailable."
 msgstr ""
-"Gli aggiornamenti in tempo reale riconnessi al browser non sono disponibili."
+"Browser ricollegato, Gli aggiornamenti in tempo reale non sono disponibili."
 
 #: views/servers/awss3.php:14
 msgid "Bucket Name"
-msgstr "Nome del secchio"
+msgstr "Nome del bucket"
 
 #: bin/backup.php:57
 msgid "Building manifest..."
-msgstr "Edificio manifesto..."
+msgstr "Creazione manifesto..."
 
 #: views/backup/backups.php:233
 msgid "CDR and Call Log Data"
@@ -351,11 +351,11 @@ msgstr "CDR di"
 
 #: install.php:153
 msgid "Call Detail Records"
-msgstr "Record Dettaglio Chiamata"
+msgstr "Registro Dettaglio Chiamate"
 
 #: views/backup/backups.php:206
 msgid "Call Recordings"
-msgstr "Registrazioni Chiamata"
+msgstr "Registrazioni Chiamate"
 
 #: install.php:70
 msgid "Can not create backup tables"
@@ -388,12 +388,12 @@ msgstr "Creato"
 
 #: bin/backup.php:62
 msgid "Creating backup..."
-msgstr "Creazione di backup ..."
+msgstr "Creazione del backup ..."
 
 #: functions.inc/class.backup.php:477
 #, php-format
 msgid "Creating directory '%s'"
-msgstr "Creazione cartella '%s 1'"
+msgstr "Creazione cartella '%s1'"
 
 #: views/cron.php:10
 msgid "Custom"
@@ -409,7 +409,7 @@ msgstr "Quotidiano"
 
 #: assets/js/backup.js:99
 msgid "Day each month"
-msgstr "Giorno ogni mese"
+msgstr "Giorno di ogni mese"
 
 #: views/cron.php:227
 msgid "Day of Week"
@@ -437,7 +437,7 @@ msgstr "Predefinito"
 
 #: install.php:273
 msgid "Default backup; automatically installed"
-msgstr "Backup predefiniti ; installato automaticamente"
+msgstr "Backup predefinito; installato automaticamente"
 
 #: Backup.class.php:38 Backup.class.php:207 page.backup.php:47
 #: page.backup_servers.php:36 page.backup_templates.php:20
@@ -455,18 +455,18 @@ msgid ""
 "Please note that deletes aren't time based and will only happen after a "
 "backup was run. Setting the value to 0 will disable any deleting"
 msgstr ""
-"Elimina questo backup dopo X quantità di minuti / ore / giorni / settimane / "
-"mesi / anni. Si noti che le eliminazioni non sono basate sul tempo e "
-"avverranno solo dopo l'esecuzione di un backup. Impostando il valore su 0 si "
-"disabiliterà qualsiasi cancellazione"
+"Elimina questo backup dopo X quantità di minuti/ore/giorni/settimane/mesi/"
+"anni. Le eliminazioni non sono basate su tempo e verranno eseguite solo dopo "
+"che è stato eseguito un backup. Impostandone a 0 il valore, disabiliterà "
+"qualsiasi rimozione"
 
 #: views/backup/backup.php:564
 msgid ""
 "Delete this backup after X amount of runs. Setting the value to 0 will "
 "disable any deleting"
 msgstr ""
-"Elimina questo backup dopo X quantità di esecuzioni. Impostando il valore su "
-"0 si disabilita qualsiasi cancellazione"
+"Elimina questo backup dopo X esecuzioni. Impostando il valore su 0 si "
+"disabilita qualsiasi rimozione"
 
 #: functions.inc/templates.php:309
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
@@ -1443,7 +1443,7 @@ msgstr "Aiuto Programmato"
 
 #: views/restore/browseserver.php:12
 msgid "Select a file and click go"
-msgstr "Aiuto programmato"
+msgstr "Seleziona un file e fai clic su Va"
 
 #: views/cron.php:76
 msgid ""

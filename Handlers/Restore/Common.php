@@ -251,7 +251,7 @@ public function setCustomFiles($manifest = NULL) {
 			if (!empty($restoredata['backupInfo']['custom_files']))
 			{
 				$custom_files = json_decode($restoredata['backupInfo']['custom_files'], true);
-				$custom_files = isset($custom_files) ? trim($custom_files) : false;
+				$custom_files = isset($custom_files) ? $custom_files : false;
 				if(!empty($custom_files)) {
 					foreach($custom_files as $files) {
 						if($files['type'] == 'file') {

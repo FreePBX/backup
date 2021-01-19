@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>14.0.10.11</version>
+	<version>14.0.10.12</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -20,6 +20,7 @@
 		<version>13.0.5</version>
 	</depends>
 	<changelog>
+		*14.0.10.12* Packaging of ver 14.0.10.12
 		*14.0.10.11* Packaging of ver 14.0.10.11
 		*14.0.10.10* FREEPBX-20551 use filtered request variables
 		*14.0.10.9* FREEI-890 Fix XSS Bootstrap Datatable Issues 

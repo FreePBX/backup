@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-12 02:14+0000\n"
+"POT-Creation-Date: 2021-01-20 10:32+0000\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -619,7 +619,7 @@ msgstr ""
 msgid "Exporting Advanced settings from %s"
 msgstr ""
 
-#: BackupBase.php:125
+#: BackupBase.php:128
 #, php-format
 msgid "Exporting Databases from %s"
 msgstr ""
@@ -629,12 +629,12 @@ msgstr ""
 msgid "Exporting Feature Codes from %s"
 msgstr ""
 
-#: BackupBase.php:156
+#: BackupBase.php:164
 #, php-format
 msgid "Exporting KVStore based on ids  %s"
 msgstr ""
 
-#: BackupBase.php:154
+#: BackupBase.php:162
 #, php-format
 msgid "Exporting KVStore from %s"
 msgstr ""

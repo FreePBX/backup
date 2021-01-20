@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-12 02:14+0000\n"
+"POT-Creation-Date: 2021-01-20 10:32+0000\n"
 "PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/backup/pl/"
@@ -597,7 +597,7 @@ msgstr ""
 msgid "Exporting Advanced settings from %s"
 msgstr ""
 
-#: BackupBase.php:125
+#: BackupBase.php:128
 #, php-format
 msgid "Exporting Databases from %s"
 msgstr ""
@@ -607,12 +607,12 @@ msgstr ""
 msgid "Exporting Feature Codes from %s"
 msgstr ""
 
-#: BackupBase.php:156
+#: BackupBase.php:164
 #, php-format
 msgid "Exporting KVStore based on ids  %s"
 msgstr ""
 
-#: BackupBase.php:154
+#: BackupBase.php:162
 #, php-format
 msgid "Exporting KVStore from %s"
 msgstr ""

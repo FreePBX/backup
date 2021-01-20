@@ -74,7 +74,7 @@ class BackupBase extends Model\Backup{
 	*  $modulename
 	*   $under_score = true or false search with like modulename_
 	*/
-	public function dumpDBTables($modename,$under_score=true) {
+	public function dumpDBTables($modename,$under_score=true,$ignoretables=[]) {
 		if(!$under_score) {
 			$query = "SELECT table_name FROM information_schema.tables WHERE table_name LIKE '".$modename."%'";
 		} else {
@@ -84,6 +84,9 @@ class BackupBase extends Model\Backup{
 		$ret = [];
 		foreach($tables as $table) {
 			$tname = (string)$table['table_name'];
+			if(in_array($tname,$ignoretables)){
+				continue;
+			}
 			$ret[$tname] = $this->FreePBX->Database->query("SELECT * FROM $tname")->fetchAll(\PDO::FETCH_ASSOC);
 		}
 		return $ret;
@@ -120,7 +123,7 @@ class BackupBase extends Model\Backup{
 	 *
 	 * @return array
 	 */
-	public function dumpTables($under_score=false) {
+	public function dumpTables($under_score=false,$ignoretables = []) {
 		$module = strtolower($this->data['module']);
 		$this->log(sprintf(_("Exporting Databases from %s"), $module));
 		$dir = $this->FreePBX->Config->get('AMPWEBROOT').'/admin/modules/'.$module;
@@ -129,11 +132,16 @@ class BackupBase extends Model\Backup{
 		}
 		$xml = simplexml_load_file($dir.'/module.xml');
 		$tables = [];
-		$tables = $this->dumpDBTables($module, $under_score);
+		$tables = $this->dumpDBTables($module, $under_score,$ignoretables);
 
 		if(is_object($xml->database->table)) {
 			foreach($xml->database->table as $table) {
 				$tname = (string)$table->attributes()->name;
+				//ignore tables
+				if(in_array($tname,$ignoretables)) {
+					continue;
+				}
+
 				if(array_key_exists($tname,$tables)) {
 					continue;
 				} else {

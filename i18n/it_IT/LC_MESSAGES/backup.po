@@ -19,14 +19,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-20 10:32+0000\n"
-"PO-Revision-Date: 2010-01-23 14:24+0100\n"
-"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
-"Language-Team: Italian\n"
-"Language: \n"
+"POT-Creation-Date: 2021-01-21 10:41+0000\n"
+"PO-Revision-Date: 2020-11-18 21:00+0000\n"
+"Last-Translator: Danilo Smaldone <dsmaldone@sangoma.com>\n"
+"Language-Team: Italian <http://weblate.freepbx.org/projects/freepbx/backup/"
+"it/>\n"
+"Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Poedit-Language: Italian\n"
 "X-Poedit-Country: ITALY\n"
 
@@ -70,11 +73,11 @@ msgstr ""
 
 #: Backup.class.php:1445
 msgid "/path/to/dir"
-msgstr ""
+msgstr "/path/to/dir"
 
 #: Backup.class.php:1433
 msgid "/path/to/file"
-msgstr ""
+msgstr "/path/to/file"
 
 #: views/backup/form.php:60
 msgid "A name used to identify your backups"
@@ -82,19 +85,19 @@ msgstr ""
 
 #: views/backup/form.php:518
 msgid "A script to be run AFTER a backup is completed."
-msgstr ""
+msgstr "Script da eseguire DOPO che un backup è stato completato."
 
 #: views/backup/form.php:566
 msgid "A script to be run AFTER a backup is restored."
-msgstr ""
+msgstr "Script da eseguire DOPO che un backup è stato ripristinato."
 
 #: views/backup/form.php:542
 msgid "A script to be run BEFORE a backup is restored."
-msgstr ""
+msgstr "Script da eseguire PRIMA di ripristinare un backup."
 
 #: views/backup/form.php:494
 msgid "A script to be run BEFORE a backup is started."
-msgstr ""
+msgstr "Script da eseguire PRIMA di eseguire un backup."
 
 #: views/backup/warmspare.php:245
 msgid "API"
@@ -111,7 +114,7 @@ msgstr ""
 #: views/backup/grid.php:26 views/restore/landing.php:74
 #: views/restore/landing.php:119
 msgid "Actions"
-msgstr ""
+msgstr "Azioni"
 
 #: views/backup/form.php:25
 msgid "Add"
@@ -161,7 +164,7 @@ msgstr ""
 
 #: backup.i18n.php:6
 msgid "Admin"
-msgstr ""
+msgstr "Amministratore"
 
 #: views/restore/processRestore.php:28
 msgid "After the restore you might reload with the apply config button"
@@ -178,7 +181,7 @@ msgstr ""
 
 #: views/backup/warmspare.php:176
 msgid "Apply Configs"
-msgstr ""
+msgstr "Applica Configurazioni"
 
 #: assets/js/backup.js:210 assets/js/backup.js:249
 msgid "Are you sure you wish to delete this file? This cannot be undone"
@@ -197,11 +200,11 @@ msgstr ""
 
 #: functions.inc/class.backup.php:411 functions.inc/class.backup.php:414
 msgid "BACKUP NOT ATTACHED"
-msgstr ""
+msgstr "BACKUP NON ALLEGATO"
 
 #: functions.inc/class.backup.php:405 views/landing.php:13
 msgid "Backup"
-msgstr ""
+msgstr "Backup"
 
 #: Backup.class.php:1130
 #, php-format
@@ -224,11 +227,11 @@ msgstr "Backup & Ripristino"
 
 #: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
-msgstr ""
+msgstr "Backup e Ripristino - Ripristino"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
-msgstr ""
+msgstr "Backup e Ripristino per il tuo ambiente FreePBX"
 
 #: views/restore/landing.php:72 views/restore/landing.php:116
 msgid "Backup Date"
@@ -240,15 +243,15 @@ msgstr ""
 
 #: views/backup/form.php:72
 msgid "Backup Description"
-msgstr ""
+msgstr "Descrizione Backup"
 
 #: functions.inc/class.backup.php:410
 msgid "Backup ERROR (exceeded SMTP limits)"
-msgstr ""
+msgstr "ERRORE Backup (superati limiti SMTP)"
 
 #: functions.inc/class.backup.php:413
 msgid "Backup ERROR (exceeded soft limit)"
-msgstr ""
+msgstr "ERRORE di backup (limite soft superato)"
 
 #: views/restore/landing.php:16
 msgid "Backup File"
@@ -269,12 +272,12 @@ msgstr ""
 
 #: views/backup/form.php:96
 msgid "Backup Items"
-msgstr ""
+msgstr "Oggetti del Backup"
 
 #: views/backup/form.php:48 views/restore/landing.php:71
 #: views/restore/landing.php:115
 msgid "Backup Name"
-msgstr ""
+msgstr "Nome del Backup"
 
 #: Backup.class.php:656
 msgid "Backup Restored Successfully"
@@ -286,7 +289,7 @@ msgstr ""
 
 #: views/backup/grid.php:6
 msgid "Backup Wizard"
-msgstr ""
+msgstr "Procedura guidata di Backup"
 
 #: Console/Backup.class.php:117 Console/Backup.class.php:210
 msgid "Backup completed successfully"
@@ -298,10 +301,12 @@ msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
 "backup from server [%s]."
 msgstr ""
+"Il backup non è riuscito a eseguire il dump del database SQL [%s1] nel file "
+"[%s2], hai un backup danneggiato dal server [%s3]."
 
 #: functions.inc/class.backup.php:499
 msgid "Backup file uploaded to the remote server"
-msgstr ""
+msgstr "File di Backup caricato sul server remoto"
 
 #: Backup.class.php:457
 msgid "Backup running"
@@ -314,7 +319,7 @@ msgstr ""
 
 #: views/backup/form.php:38
 msgid "Basic Information"
-msgstr ""
+msgstr "Informazioni di Base"
 
 #: views/backup/form.php:238
 msgid "Both"
@@ -398,7 +403,7 @@ msgstr ""
 #: functions.inc/class.backup.php:841
 #, php-format
 msgid "Could not find %s on the remote system"
-msgstr ""
+msgstr "Impossibile trovare %s1 sul sistema remoto"
 
 #: Backup.class.php:416 Backup.class.php:424
 msgid "Could not find a file for the id supplied"
@@ -414,12 +419,12 @@ msgstr ""
 
 #: functions.inc/class.backup.php:398
 msgid "Created"
-msgstr ""
+msgstr "Creato"
 
 #: functions.inc/class.backup.php:477
 #, php-format
 msgid "Creating directory '%s'"
-msgstr ""
+msgstr "Creazione cartella '%s1'"
 
 #: views/backup/form.php:121
 msgid "Custom Files"
@@ -439,7 +444,7 @@ msgstr ""
 #: views/restore/landing.php:49 views/restore/landing.php:93
 #: assets/js/backup.js:211 assets/js/backup.js:250
 msgid "Delete"
-msgstr ""
+msgstr "Elimina"
 
 #: views/backup/form.php:423
 msgid "Delete After Days"
@@ -452,6 +457,8 @@ msgstr ""
 #: Backup.class.php:1458
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr ""
+"Elimina questa voce. Non dimenticare di fare clic su Invia per salvare le "
+"modifiche!"
 
 #: Handlers/Backup/Multiple.php:114
 #, php-format
@@ -461,7 +468,7 @@ msgstr ""
 #: views/backup/grid.php:25 views/restore/processRestore.php:15
 #: views/rnav.php:9
 msgid "Description"
-msgstr ""
+msgstr "Descrizione"
 
 #: Handlers/Restore/Legacy.php:83
 #, php-format
@@ -474,12 +481,12 @@ msgstr ""
 
 #: Backup.class.php:1440
 msgid "Directory"
-msgstr ""
+msgstr "Cartella"
 
 #: functions.inc/class.backup.php:481
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
-msgstr ""
+msgstr "Cartella '%s 1' non esisteva e non potevamo crearlo"
 
 #: views/backup/warmspare.php:50
 msgid "Disable Remote Trunks"
@@ -525,6 +532,8 @@ msgid ""
 "Equivalence of clicking the red button, will happen automatically after a "
 "restore on a Standby system"
 msgstr ""
+"L'equivalenza del clic sul pulsante rosso avverrà automaticamente dopo un "
+"ripristino su un sistema di standby"
 
 #: assets/js/backup.js:369 assets/js/backup.js:388 assets/js/backup.js:407
 #: assets/js/backup.js:499
@@ -538,12 +547,12 @@ msgstr ""
 
 #: functions.inc/class.backup.php:471
 msgid "Error creating the FTP object"
-msgstr ""
+msgstr "Errore durante la creazione dell'oggetto FTP"
 
 #: functions.inc/class.backup.php:848
 #, php-format
 msgid "Error deleting %s"
-msgstr ""
+msgstr "Errore eliminazione %s1"
 
 #: Handlers/Restore/Legacy.php:167
 #, php-format
@@ -566,7 +575,7 @@ msgstr ""
 
 #: views/backup/item_table.php:11
 msgid "Exclude"
-msgstr ""
+msgstr "Escludere"
 
 #: views/backup/warmspare.php:112
 msgid "Exclude Bind Address"
@@ -574,11 +583,11 @@ msgstr ""
 
 #: views/backup/warmspare.php:145
 msgid "Exclude DNS"
-msgstr ""
+msgstr "Escludere DNS"
 
 #: views/backup/warmspare.php:81
 msgid "Exclude NAT settings"
-msgstr ""
+msgstr "Escludere impostazioni NAT"
 
 #: views/backup/warmspare.php:207
 msgid "Exclude Trunks"
@@ -589,18 +598,26 @@ msgid ""
 "Explicitly exclude any machine-specific Bindaddres. This allows you to have "
 "a warm-spare machine with a different IP address."
 msgstr ""
+"Escludere esplicitamente qualsiasi Bindaddres specifico della macchina. Ciò "
+"consente di avere una macchina con riserva di calore con un indirizzo IP "
+"diverso."
 
 #: views/backup/warmspare.php:164
 msgid ""
 "Explicitly exclude any machine-specific DNS. This allows you to have a warm-"
 "spare machine with a different DNS."
 msgstr ""
+"Escludere esplicitamente qualsiasi DNS specifico della macchina. Questo ti "
+"permette di avere una macchina con riserva di calore con un DNS diverso."
 
 #: views/backup/warmspare.php:100
 msgid ""
 "Explicitly exclude any machine-specific IP settings. This allows you to have "
 "a warm-spare machine with a different IP address."
 msgstr ""
+"Escludere esplicitamente le impostazioni IP specifiche della macchina. Ciò "
+"consente di avere una macchina con riserva di calore con un indirizzo IP "
+"diverso."
 
 #: BackupBase.php:53
 #, php-format
@@ -646,7 +663,7 @@ msgstr ""
 
 #: Backup.class.php:1428
 msgid "File"
-msgstr ""
+msgstr "File"
 
 #: Backup.class.php:316
 msgid "File Deleted"
@@ -663,7 +680,7 @@ msgstr ""
 
 #: functions.inc/class.backup.php:399
 msgid "Files"
-msgstr ""
+msgstr "I File"
 
 #: Handlers/Restore/Legacy.php:284 Handlers/Restore/Multiple.php:95
 #: Handlers/Restore/Single.php:34
@@ -736,7 +753,7 @@ msgstr ""
 
 #: views/backup/form.php:473
 msgid "Hooks"
-msgstr ""
+msgstr "Ganci"
 
 #: views/backup/form.php:466
 msgid ""
@@ -835,7 +852,7 @@ msgstr ""
 
 #: views/backup/form.php:128
 msgid "Items"
-msgstr ""
+msgstr "Oggetti"
 
 #: Handlers/Restore/Legacy.php:71
 #, php-format
@@ -925,7 +942,7 @@ msgstr ""
 
 #: functions.inc/class.backup.php:400
 msgid "Mysql Db's"
-msgstr ""
+msgstr "Db di Mysql"
 
 #: Handlers/Restore/Common.php:117
 #, php-format
@@ -935,7 +952,7 @@ msgstr ""
 #: functions.inc/class.backup.php:397 views/backup/grid.php:24
 #: views/restore/processRestore.php:14 views/rnav.php:8
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: views/backup/form.php:198 views/backup/form.php:305
 #: views/backup/form.php:347 views/backup/warmspare.php:30
@@ -943,7 +960,7 @@ msgstr ""
 #: views/backup/warmspare.php:125 views/backup/warmspare.php:156
 #: views/backup/warmspare.php:187 views/backup/warmspare.php:218
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: assets/js/backup.js:292
 msgid "No Storage Locations"
@@ -979,7 +996,7 @@ msgstr ""
 
 #: views/backup/form.php:149
 msgid "Notifications"
-msgstr ""
+msgstr "Notifiche"
 
 #: Handlers/Restore/Legacy.php:253 Handlers/Restore/Multiple.php:47
 #, php-format
@@ -988,7 +1005,7 @@ msgstr ""
 
 #: Backup.class.php:1453
 msgid "PATTERNs, one per line"
-msgstr ""
+msgstr "modelli , uno per riga"
 
 #: Handlers/Restore/Legacy.php:50
 msgid ""
@@ -998,7 +1015,7 @@ msgstr ""
 #: functions.inc/class.backup.php:837 functions.inc/class.backup.php:838
 #, php-format
 msgid "Path: %s"
-msgstr ""
+msgstr "Percorso: %s1"
 
 #: Console/Backup.class.php:195
 msgid "Performing Local Maintenance"
@@ -1016,19 +1033,19 @@ msgstr ""
 
 #: views/backup/form.php:506
 msgid "Post-Backup Hook"
-msgstr ""
+msgstr "Gancio post-backup"
 
 #: views/backup/form.php:554
 msgid "Post-Restore Hook"
-msgstr ""
+msgstr "Gancio post-ripristino"
 
 #: views/backup/form.php:482
 msgid "Pre-Backup Hook"
-msgstr ""
+msgstr "Gancio pre-backup"
 
 #: views/backup/form.php:530
 msgid "Pre-Restore Hook"
-msgstr ""
+msgstr "Gancio pre-ripristino"
 
 #: Backup.class.php:532
 msgid "Process is no longer running"
@@ -1078,7 +1095,7 @@ msgstr ""
 
 #: Backup.class.php:193 views/backup/form.php:634
 msgid "Reset"
-msgstr ""
+msgstr "Azzerare"
 
 #: Handlers/Restore/Legacy.php:232
 #, php-format
@@ -1100,7 +1117,7 @@ msgstr ""
 
 #: views/landing.php:18
 msgid "Restore"
-msgstr ""
+msgstr "Ripristino"
 
 #: views/restore/processRestore.php:23
 msgid "Restore Information"
@@ -1235,15 +1252,15 @@ msgstr ""
 
 #: functions.inc/class.backup.php:500
 msgid "Running maintenance.."
-msgstr ""
+msgstr "Manutenzione in corso .."
 
 #: views/backup/warmspare.php:249
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 #: Backup.class.php:198
 msgid "Save"
-msgstr ""
+msgstr "Salvataggio"
 
 #: views/backup/form.php:640
 msgid "Save Changes"
@@ -1251,11 +1268,11 @@ msgstr ""
 
 #: Backup.class.php:203
 msgid "Save and Run"
-msgstr ""
+msgstr "Salva ed esegui"
 
 #: functions.inc/class.backup.php:488
 msgid "Saving file to remote ftp"
-msgstr ""
+msgstr "Salvataggio del file su ftp remoto"
 
 #: Handlers/Storage.php:43
 msgid "Saving to selected Filestore locations"
@@ -1400,6 +1417,9 @@ msgid ""
 "attempted to be sent. Please shrink your backup, or use a different method "
 "of transferring your backup."
 msgstr ""
+"Il file di backup ha superato i limiti SMTP massimi di 25 MB. Non è stato "
+"tentato di essere inviato. Riduci il backup o utilizza un metodo diverso per "
+"il trasferimento del backup."
 
 #: functions.inc/class.backup.php:414
 #, php-format
@@ -1408,6 +1428,10 @@ msgid ""
 "bytes). It was not attempted to be sent. Please shrink your backup, or use a "
 "different method of transferring your backup."
 msgstr ""
+"Il file di backup ha superato il limite flessibile impostato nella "
+"configurazione SMTP (%s1 byte). Non è stato tentato di essere inviato. "
+"Riduci il backup o utilizza un metodo diverso per il trasferimento del "
+"backup."
 
 #: Handlers/Restore/Common.php:104
 #, php-format
@@ -1490,11 +1514,11 @@ msgstr ""
 #: functions.inc/class.backup.php:493
 #, php-format
 msgid "Trying to upload %s to %s"
-msgstr ""
+msgstr "Cercando di caricare %s1 su %s2"
 
 #: views/backup/item_table.php:5
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: Migration/Servers.php:86
 #, php-format
@@ -1520,7 +1544,7 @@ msgstr ""
 
 #: functions.inc/class.backup.php:491
 msgid "Unable to upload file to the remote server"
-msgstr ""
+msgstr "Impossibile caricare il file sul server remoto"
 
 #: Backup.class.php:1310
 msgid "Uninstalled or Disabled"
@@ -1651,7 +1675,7 @@ msgstr ""
 #: views/backup/warmspare.php:120 views/backup/warmspare.php:152
 #: views/backup/warmspare.php:183 views/backup/warmspare.php:214
 msgid "Yes"
-msgstr ""
+msgstr "Si"
 
 #: assets/js/backup.js:72
 msgid "You must enter a valid Warm Spare Access Token URL"
@@ -1684,7 +1708,7 @@ msgstr ""
 
 #: functions.inc/class.backup.php:401
 msgid "astDb's"
-msgstr ""
+msgstr "astDb di"
 
 #: views/backup/item_table.php:40
 msgid "choose"
@@ -1699,29 +1723,502 @@ msgstr ""
 msgid "type is %s"
 msgstr ""
 
+#~ msgid "%s Backup Wizard"
+#~ msgstr "%s1 procedura guidata di backup"
+
+#~ msgid ""
+#~ "A full backup of core settings and web files, doesn't include system "
+#~ "sounds or recordings."
+#~ msgstr ""
+#~ "Un backup completo delle impostazioni di base e dei file Web, non include "
+#~ "suoni o registrazioni di sistema."
+
+#~ msgid "AT"
+#~ msgstr "AT"
+
+#~ msgid "AWS Access Key"
+#~ msgstr "Chiave di Accesso AWS"
+
+#~ msgid "AWS S3 Server "
+#~ msgstr "Server AWS S3 "
+
+#~ msgid "AWS Secret"
+#~ msgstr "Secret AWS"
+
+#~ msgid "Active"
+#~ msgstr "Attivo"
+
+#~ msgid "Add Server"
+#~ msgstr "Aggiungi Server"
+
+#~ msgid "Adding items..."
+#~ msgstr "Aggiungo oggetti ..."
+
+#~ msgid ""
+#~ "After a restore, disable any trunks that use registration. This is "
+#~ "helpful to prevent the Primary and Standby systems from \"fighting\" for "
+#~ "the registration, resulting in some calls routed to the Standby system."
+#~ msgstr ""
+#~ "Dopo un ripristino, disabilitare tutti i trunk che utilizzano la "
+#~ "registrazione. Ciò è utile per evitare che i server Primario e Standby "
+#~ "\"combattano\" per la registrazione, provocando l'instradamento di alcune "
+#~ "chiamate al sistema Standby."
+
+#~ msgid "All"
+#~ msgstr "Tutto"
+
+#~ msgid ""
+#~ "All PBX Configuration files and any Custom Sound Prompts are included in "
+#~ "the base backup"
+#~ msgstr ""
+#~ "Tutti i file di configurazione PBX e tutti i messaggi audio "
+#~ "personalizzati sono inclusi nel backup di base"
+
+#~ msgid ""
+#~ "All system audio - including IVR prompts and Music On Hold. DOES NOT "
+#~ "BACKUP VOICEMAIL"
+#~ msgstr ""
+#~ "Tutti gli audio di sistema - inclusi i messaggi IVR e Music On Hold. NON "
+#~ "EFFETTUA IL BACKUP VOICEMAIL"
+
+#~ msgid "Amazon S3 Server "
+#~ msgstr "Server Amazon S3 "
+
+#~ msgid "Amazon S3&trade; Server"
+#~ msgstr "Server Amazon S3&trade;1"
+
+#~ msgid "Annually"
+#~ msgstr "Annualmente"
+
 #~ msgid "April"
 #~ msgstr "Aprile"
+
+#~ msgid "Archive coorect."
+#~ msgstr "Archivio corretto."
+
+#~ msgid "AstDB's"
+#~ msgstr "AstDB"
+
+#~ msgid "Asterisk DB"
+#~ msgstr "DB Asterisk"
 
 #~ msgid "August"
 #~ msgstr "Agosto"
 
+#~ msgid "Auto"
+#~ msgstr "Auto"
+
+#~ msgid "Available Servers"
+#~ msgstr "Servers Disponibili"
+
+#~ msgid "B"
+#~ msgstr "B"
+
+#~ msgid "BACKUP LOG ATTACHED"
+#~ msgstr "LOG DEL BACKUP ALLEGATO"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Backup e Ripristino - Servers"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Backup e Ripristino - Modelli"
+
+#~ msgid "Backup CDR and call record data?"
+#~ msgstr "Archiviare CDR e dati del registro delle chiamate?"
+
+#~ msgid "Backup Frequency"
+#~ msgstr "Frequenza di Backup"
+
+#~ msgid "Backup History"
+#~ msgstr "Cronologia Backup"
+
+#~ msgid "Backup Lock acquired!"
+#~ msgstr "Backup Lock acquisito!"
+
+#~ msgid "Backup Log:"
+#~ msgstr "Log di Backup:"
+
+#~ msgid "Backup Schedule"
+#~ msgstr "Pianificazione Backup"
+
+#~ msgid "Backup Server"
+#~ msgstr "Server di Backup"
+
+#~ msgid "Backup Server not found!"
+#~ msgstr "Server di Backup non trovato!"
+
+#~ msgid "Backup Template"
+#~ msgstr "Modello di Backup"
+
+#~ msgid "Backup and Restore"
+#~ msgstr "Backup e Ripristino"
+
+#~ msgid "Backup completed with errors!"
+#~ msgstr "Backup completato con errori!"
+
+#~ msgid "Backup file not found! Aborting."
+#~ msgstr "File di backup non trovato! Interruzione."
+
+#~ msgid "Backup module not found or is disabled. Aborting!"
+#~ msgstr "Modulo di Backup non trovato o disabilitato. Interruzione!"
+
+#~ msgid "Backup successfully completed!"
+#~ msgstr "Backup completato con successo!"
+
+#~ msgid "Backups"
+#~ msgstr "Backup"
+
+#~ msgid "Basic Backup Information"
+#~ msgstr "Informazioni di Base del Backup"
+
+#~ msgid "Browse"
+#~ msgstr "Sfoglia"
+
+#~ msgid "Browser reconnected realtime updates are unavailable."
+#~ msgstr ""
+#~ "Browser ricollegato, Gli aggiornamenti in tempo reale non sono "
+#~ "disponibili."
+
+#~ msgid "Bucket Name"
+#~ msgstr "Nome del bucket"
+
+#~ msgid "Building manifest..."
+#~ msgstr "Creazione manifesto..."
+
+#~ msgid "CDR and Call Log Data"
+#~ msgstr "CDR e dati del registro delle chiamate"
+
+#~ msgid "CDR server, generally a local database server"
+#~ msgstr "Server CDR , generalmente un server di database locale"
+
+#~ msgid "CDR's"
+#~ msgstr "CDR di"
+
+#~ msgid "Call Detail Records"
+#~ msgstr "Registro Dettaglio Chiamate"
+
+#~ msgid "Call Recordings"
+#~ msgstr "Registrazioni Chiamate"
+
+#~ msgid "Can not create backup tables"
+#~ msgstr "Impossibile creare tabelle di backup"
+
+#~ msgid "Cleaning up..."
+#~ msgstr "Pulizia..."
+
+#~ msgid "Click 'Next' to continue."
+#~ msgstr "Fare clic su 'Avanti' per continuare."
+
+#~ msgid "Configurations only"
+#~ msgstr "Solo configurazioni"
+
+#~ msgid "Connecting to remote server..."
+#~ msgstr "Connessione al server remoto ..."
+
+#~ msgid "Creating backup..."
+#~ msgstr "Creazione del backup ..."
+
+#~ msgid "Custom"
+#~ msgstr "Personalizzato"
+
+#~ msgid "DB Name"
+#~ msgstr "Nome DB"
+
+#~ msgid "Daily"
+#~ msgstr "Quotidiano"
+
+#~ msgid "Day each month"
+#~ msgstr "Giorno di ogni mese"
+
+#~ msgid "Day of Week"
+#~ msgstr "Giorno della settimana"
+
 #~ msgid "Days"
 #~ msgstr "Giorni"
+
+#~ msgid "Days of Month"
+#~ msgstr "Giorni del mese"
+
+#~ msgid "Days of month to run"
+#~ msgstr "Giorni del mese per l'esecuzione"
 
 #~ msgid "December"
 #~ msgstr "Dicembre"
 
+#~ msgid "Default"
+#~ msgstr "Predefinito"
+
+#~ msgid "Default backup; automatically installed"
+#~ msgstr "Backup predefinito; installato automaticamente"
+
+#~ msgid "Delete After"
+#~ msgstr "Elimina dopo"
+
+#~ msgid ""
+#~ "Delete this backup after X amount of minutes/hours/days/weeks/months/"
+#~ "years. Please note that deletes aren't time based and will only happen "
+#~ "after a backup was run. Setting the value to 0 will disable any deleting"
+#~ msgstr ""
+#~ "Elimina questo backup dopo X quantità di minuti/ore/giorni/settimane/mesi/"
+#~ "anni. Le eliminazioni non sono basate su tempo e verranno eseguite solo "
+#~ "dopo che è stato eseguito un backup. Impostandone a 0 il valore, "
+#~ "disabiliterà qualsiasi rimozione"
+
+#~ msgid ""
+#~ "Delete this backup after X amount of runs. Setting the value to 0 will "
+#~ "disable any deleting"
+#~ msgstr ""
+#~ "Elimina questo backup dopo X esecuzioni. Impostando il valore su 0 si "
+#~ "disabilita qualsiasi rimozione"
+
+#~ msgid "Description or notes for this backup"
+#~ msgstr "Descrizione o note per questo backup"
+
+#~ msgid "Description or notes for this server"
+#~ msgstr "Descrizione o note per questo server"
+
+#~ msgid "Destination"
+#~ msgstr "Destinazione"
+
+#~ msgid "Disable Registered Trunks"
+#~ msgstr "Disabilita Trunks registrati"
+
+#~ msgid "Disabling registered trunks... "
+#~ msgstr "Disattivazione dei trunk registrati... "
+
+#~ msgid "Done!"
+#~ msgstr "Fatto!"
+
+#~ msgid "Download"
+#~ msgstr "Scaricare"
+
+#~ msgid ""
+#~ "Drag servers from the Available Servers list to add them as Storage "
+#~ "Servers"
+#~ msgstr ""
+#~ "Trascina i server dall'elenco Server disponibili per aggiungerli come "
+#~ "server di archiviazione"
+
+#~ msgid ""
+#~ "Drag templates and drop them in the items table to add the templates "
+#~ "items to the table"
+#~ msgstr ""
+#~ "Trascina i modelli e rilasciali nella tabella degli elementi per "
+#~ "aggiungere gli elementi dei modelli alla tabella"
+
+#~ msgid "Drop Here"
+#~ msgstr "Rilascia qui"
+
+#~ msgid "Email Address"
+#~ msgstr "Indirizzo Email"
+
+#~ msgid "Email Notifications"
+#~ msgstr "Notifiche Email"
+
+#~ msgid "Email Server"
+#~ msgstr "Server Email"
+
+#~ msgid "Email Server "
+#~ msgstr "Server Email "
+
+#~ msgid "Email address where backups should be emailed to"
+#~ msgstr "Indirizzo email dove i backup devono essere inviati via email"
+
+#~ msgid "Email notifications are set to Yes but no email provided"
+#~ msgstr "Le notifiche e-mail sono impostate su Sì ma nessuna e-mail fornita"
+
+#~ msgid "Email to send status messages to when this task is run"
+#~ msgstr ""
+#~ "Email per inviare messaggi di stato a quando viene eseguita questa "
+#~ "attività"
+
+#~ msgid "End"
+#~ msgstr "Fine"
+
+#~ msgid "Error uploading file!"
+#~ msgstr "Errore durante il caricamento del file!"
+
+#~ msgid "Error verifying uploaded file!"
+#~ msgstr "Errore durante la verifica del file caricato!"
+
+#~ msgid "Exclude BIND address"
+#~ msgstr "Escludere l'indirizzo BIND"
+
+#~ msgid ""
+#~ "Exclude Backup's settings so that they dont get restored, useful for a "
+#~ "remote restore"
+#~ msgstr ""
+#~ "Escludere le impostazioni di backup in modo che non vengano ripristinate, "
+#~ "utile per un ripristino remoto"
+
+#~ msgid "Explicitly skipping host-specific NAT settings"
+#~ msgstr "Salta esplicitamente le impostazioni NAT specifiche dell'host"
+
+#~ msgid "FTP"
+#~ msgstr "FTP"
+
+#~ msgid "FTP Password"
+#~ msgstr "Password FTP"
+
+#~ msgid "FTP Server"
+#~ msgstr "Server FTP"
+
+#~ msgid "FTP Server "
+#~ msgstr "Server FTP "
+
+#~ msgid "FTP Transfer type"
+#~ msgstr "Tipo di trasferimento FTP"
+
+#~ msgid "FTP Username"
+#~ msgstr "Username FTP"
+
+#~ msgid ""
+#~ "Failed converting asterisk.sql to proper format, renaming to mysql-db.sql "
+#~ "in current state"
+#~ msgstr ""
+#~ "Conversione fallita asterisco.sql nel formato corretto, rinominando mysql-"
+#~ "db.sql nello stato corrente"
+
+#~ msgid ""
+#~ "Failed converting asteriskcdr.sql to proper format, renaming to mysql-cdr."
+#~ "sql in current state"
+#~ msgstr ""
+#~ "Conversione fallita asteriskcdr.sql nel formato corretto, rinominazione "
+#~ "in mysql-cdr.sql nello stato corrente"
+
+#~ msgid "Failed to retrieve file from server!"
+#~ msgstr "Impossibile recuperare il file dal server!"
+
+#~ msgid "Family, one per line"
+#~ msgstr "Famiglia , uno per linea"
+
 #~ msgid "February"
 #~ msgstr "Febbraio"
+
+#~ msgid "File Count"
+#~ msgstr "Conteggio file"
+
+#~ msgid "File not found! "
+#~ msgstr "File non trovato! "
+
+#~ msgid "File restore complete!"
+#~ msgstr "Ripristino del file completato!"
+
+#~ msgid "File verification failed. "
+#~ msgstr "Verificazione File fallita. "
+
+#~ msgid "Filesystem Type"
+#~ msgstr "Tipo di filesystem"
+
+#~ msgid "FreePBX"
+#~ msgstr "Gratuito PBX"
+
+#~ msgid "Freepbx version %s, Archive version %s"
+#~ msgstr "Versione FreePBX %s1, Versione archivio %s2"
 
 #~ msgid "Friday"
 #~ msgstr "Venerdì"
 
+#~ msgid "Getting CDR size..."
+#~ msgstr "Ottenendo dimensioni CDR ..."
+
+#~ msgid "Give the server a descriptive name"
+#~ msgstr "Dare al server un nome descrittivo"
+
+#~ msgid "Give your backup a description"
+#~ msgstr "Dare al tuo backup una descrizione"
+
+#~ msgid "Give your backup a friendly name"
+#~ msgstr "Dai al tuo backup un nome descrittivo"
+
+#~ msgid "Go!"
+#~ msgstr "Vai!"
+
+#~ msgid ""
+#~ "Here are the first few lines of the file as sent by the remote server:"
+#~ msgstr "Ecco le prime righe del file inviate dal server remoto:"
+
+#~ msgid "Hostname"
+#~ msgstr "Nome host"
+
+#~ msgid "Hourly"
+#~ msgstr "ogni ora"
+
 #~ msgid "Hours"
 #~ msgstr "Ore"
 
+#~ msgid "How often should we backup?"
+#~ msgstr "Quanto spesso dovremmo fare il backup?"
+
+#~ msgid "IP Address or FQDN of your server"
+#~ msgstr "Indirizzo IP o FQDN del tuo Server"
+
+#~ msgid "IP address or FQDN of remote SSH server"
+#~ msgstr "Indirizzo IP o FQDN del server SSH remoto"
+
+#~ msgid "IP address or FQDN of remote ftp host"
+#~ msgstr "Indirizzo IP o FQDN host ftp remoto"
+
+#~ msgid "IP address or FQDN of remote mysql host"
+#~ msgstr "Indirizzo IP o FQDN host mysql remoto"
+
+#~ msgid ""
+#~ "If Randomize is selected, a similar frequency will be followed, only the "
+#~ "exact times will be randomized (avoiding peak business hours, when "
+#~ "possible). Please note: randomized schedules will be rescheduled "
+#~ "(randomly) every time ANY backup is saved"
+#~ msgstr ""
+#~ "Se Randomize è selezionato, verrà seguita una frequenza simile, solo i "
+#~ "tempi esatti saranno randomizzati (evitando gli orari di apertura, quando "
+#~ "possibile). Nota: i programmi randomizzati verranno riprogrammati (a "
+#~ "caso) ogni volta che viene salvato un backup"
+
+#~ msgid ""
+#~ "If a custom schedule is selected, any section not specified will be "
+#~ "considered to be \"any\" (aka: wildcard).\n"
+#~ "\t\t\t\t\tI.e. if Day of Month is set to 12 and Day of Week is not set, "
+#~ "the Backup will be run on ANY 12th of\n"
+#~ "\t\t\t\t\tthe month - regardless of the day of the week. If Day of Week "
+#~ "is set to, say, Monday, the Backup will run ONLY\n"
+#~ "\t\t\t\t\t on a Monday, and ONLY if it's the 12th of the month."
+#~ msgstr ""
+#~ "Se viene selezionata una pianificazione personalizzata, qualsiasi sezione "
+#~ "non specificata sarà considerata \"qualsiasi\" (ovvero: jolly).\n"
+#~ "Cioè se Day of Month è impostato su 12 e Day of Week non è impostato, il "
+#~ "backup verrà eseguito su QUALSIASI 12 ° di\n"
+#~ "il mese - indipendentemente dal giorno della settimana. Se Day of Week è "
+#~ "impostato su, ad esempio, lunedì, il backup verrà eseguito SOLO\n"
+#~ "di lunedì e SOLO se è il 12 del mese."
+
+#~ msgid "Import"
+#~ msgstr "Importare"
+
+#~ msgid "Initializing Backup"
+#~ msgstr "Inizializzazione del backup"
+
+#~ msgid "Initializing Restore..."
+#~ msgstr "Inizializzazione Ripristino ..."
+
+#~ msgid "Introduction"
+#~ msgstr "Introduzione"
+
+#~ msgid "Invalid Backup Name"
+#~ msgstr "Nome di backup non valido"
+
+#~ msgid "Invalid backup for or undefined error"
+#~ msgstr "Backup non valido o errore non definito"
+
+#~ msgid "Item"
+#~ msgstr "Oggetto"
+
 #~ msgid "January"
 #~ msgstr "Gennaio"
+
+#~ msgid "Job ID"
+#~ msgstr "ID Processo"
+
+#~ msgid "Job Name"
+#~ msgstr "Nome Processo"
 
 #~ msgid "July"
 #~ msgstr "Luglio"
@@ -1729,8 +2226,37 @@ msgstr ""
 #~ msgid "June"
 #~ msgstr "Giugno"
 
+#~ msgid "KB"
+#~ msgstr "KB"
+
+#~ msgid "Key"
+#~ msgstr "Chiave"
+
+#~ msgid "Local Server"
+#~ msgstr "Server locale"
+
+#~ msgid "Local Server "
+#~ msgstr "Server locale "
+
+#~ msgid "Location of ssh private key to be used when connecting to a host"
+#~ msgstr ""
+#~ "Posizione della chiave privata ssh da utilizzare durante la connessione a "
+#~ "un host"
+
+#~ msgid "MB"
+#~ msgstr "MB"
+
+#~ msgid "Maintenance"
+#~ msgstr "Manutenzione"
+
+#~ msgid "Manage Backup jobs"
+#~ msgstr "Gestisci i processi di Backup"
+
 #~ msgid "March"
 #~ msgstr "Marzo"
+
+#~ msgid "Max Email Size"
+#~ msgstr "Dimensione e-mail massima"
 
 #~ msgid "May"
 #~ msgstr "Maggio"
@@ -1741,32 +2267,643 @@ msgstr ""
 #~ msgid "Monday"
 #~ msgstr "Lunedì"
 
+#~ msgid "Monthly"
+#~ msgstr "Mensilmente"
+
 #~ msgid "Months"
 #~ msgstr "Mesi"
+
+#~ msgid "MySQL Server"
+#~ msgstr "Server MySQL"
+
+#~ msgid "Mysql"
+#~ msgstr "Mysql"
+
+#~ msgid "Mysql DB's"
+#~ msgstr "DB di Mysql"
+
+#~ msgid "Mysql Server "
+#~ msgstr "Server Mysql "
+
+#~ msgid "Name this Server"
+#~ msgstr "Nome del Server"
+
+#~ msgid "Name this backup"
+#~ msgstr "Nome questo backup"
+
+#~ msgid "Never"
+#~ msgstr "Mai"
+
+#~ msgid "Never will never run the backup automatically"
+#~ msgstr "Mai non eseguirò mai il backup automaticamente"
+
+#~ msgid "New Amazon S3 server"
+#~ msgstr "Nuovo server Amazon S3"
+
+#~ msgid "New Backup"
+#~ msgstr "Backup nuovo"
+
+#~ msgid "New Email server"
+#~ msgstr "Nuovo server di posta elettronica"
+
+#~ msgid "New FTP server"
+#~ msgstr "Nuovo server FTP"
+
+#~ msgid "New Local server"
+#~ msgstr "Nuovo server locale"
+
+#~ msgid "New MySQL server"
+#~ msgstr "Nuovo server MySQL"
+
+#~ msgid "New SSH server"
+#~ msgstr "Nuovo server SSH"
+
+#~ msgid "New Template"
+#~ msgstr "Nuovo modello"
+
+#~ msgid "Nightly"
+#~ msgstr "ogni notte"
+
+#~ msgid "No items in backup set. Aborting."
+#~ msgstr "Nessun elemento nel set di backup. Interruzione."
+
+#~ msgid "No storage servers found! Aborting."
+#~ msgstr "Nessun server di archiviazione trovato! Interruzione."
+
+#~ msgid "Nothing to restore!"
+#~ msgstr "Niente da ripristinare!"
 
 #~ msgid "November"
 #~ msgstr "Novembre"
 
+#~ msgid "ON"
+#~ msgstr "Acceso"
+
 #~ msgid "October"
 #~ msgstr "Ottobre"
+
+#~ msgid "On Failure Only"
+#~ msgstr "Solo in caso di fallimento"
+
+#~ msgid "On the"
+#~ msgstr "Sul"
+
+#~ msgid "Only send an email on failure"
+#~ msgstr "Invia solo una email in caso di errore"
+
+#~ msgid "Optional description or notes for this backup temnplate."
+#~ msgstr "Descrizione facoltativa o note per questo modello di backup."
+
+#~ msgid "Other MySQL databases"
+#~ msgstr "Altri database MySQL"
+
+#~ msgid "Output in JSON"
+#~ msgstr "Output in JSON"
+
+#~ msgid "PBX Settings"
+#~ msgstr "Impostazioni PBX"
+
+#~ msgid "PBX config server, generally a local database server"
+#~ msgstr ""
+#~ "Server di configurazione PBX, generalmente un server di database locale"
+
+#~ msgid "Passive"
+#~ msgstr "Passivo"
+
+#~ msgid "Password"
+#~ msgstr "Password"
+
+#~ msgid "Path"
+#~ msgstr "Percorso"
+
+#~ msgid "Path on remote server"
+#~ msgstr "Percorso su server remoto"
+
+#~ msgid ""
+#~ "Path on remote server. This must be a COMPLETE PATH, starting with a / - "
+#~ "for example, <tt>/home/backups/freepbx</tt>. A path without a leading "
+#~ "slash will not work, and will behave in unexpected ways."
+#~ msgstr ""
+#~ "Percorso sul server remoto. Questo deve essere un PERCORSO COMPLETO, che "
+#~ "inizia con un /- ad esempio, <tt> 1 / home / backups / freepbx </tt> 2. "
+#~ "Un percorso senza una barra iniziale non funzionerà e si comporterà in "
+#~ "modi imprevisti."
+
+#~ msgid "Path to ssh key, example /home/asterisk/.ssh/id_rsa"
+#~ msgstr "Percorso per la chiave ssh, esempio /home/asterisk/.ssh/id_rsa"
+
+#~ msgid "Path/DB"
+#~ msgstr "Percorso/DB"
+
+#~ msgid "Please wait"
+#~ msgstr "Attendere prego"
+
+#~ msgid "Please wait, loading..."
+#~ msgstr "Si prega di attendere, caricamento in corso ..."
+
+#~ msgid "Port"
+#~ msgstr "Porta"
+
+#~ msgid "Preserving local Bind address"
+#~ msgstr "Conservazione dell'indirizzo di binding locale"
+
+#~ msgid "Preserving local DNS settings"
+#~ msgstr "Conservazione delle impostazioni DNS locali"
+
+#~ msgid "Preserving local NAT settings"
+#~ msgstr "Conservazione delle impostazioni NAT locali"
+
+#~ msgid "Processed %s%% of CDRs (%s of %s lines)"
+#~ msgstr "Elaborato%s1 %%2 di CDR (%s3 di %s4 righe)"
+
+#~ msgid "Processed %s%% of Settings (%s of %s lines)"
+#~ msgstr "Elaborato %s1 %%2 di Impostazioni (%s3 di%s4 righe)"
+
+#~ msgid "Processing received file..."
+#~ msgstr "Elaborazione del file ricevuto ..."
+
+#~ msgid "Provide the name for this server"
+#~ msgstr "Fornire il nome per questo server"
+
+#~ msgid "Randomize"
+#~ msgstr "Randomizza"
+
+#~ msgid "Reboot"
+#~ msgstr "Riavvia"
+
+#~ msgid "Reloading..."
+#~ msgstr "Ricaricamento..."
+
+#~ msgid "Remote Database Name"
+#~ msgstr "Nome database remoto"
+
+#~ msgid "Remote MySQL Port"
+#~ msgstr "Porta MySQL Remote"
+
+#~ msgid "Remote Path"
+#~ msgstr "Percorso remoto"
+
+#~ msgid "Remote SSH Port"
+#~ msgstr "Porta SSH remoto"
+
+#~ msgid "Remote Save"
+#~ msgstr "Salvataggio remoto"
+
+#~ msgid "Remote Server Settings?"
+#~ msgstr "Impostazioni del server remoto?"
+
+#~ msgid "Remote Server Type"
+#~ msgstr "Tipi Server remoto"
+
+#~ msgid "Remote Server type"
+#~ msgstr "Tipo di server remoto"
+
+#~ msgid "Remote save options"
+#~ msgstr "Opzioni di salvataggio remoto"
+
+#~ msgid "Remote save path, blank for default"
+#~ msgstr "Percorso di salvataggio remoto, vuoto per impostazione predefinita"
+
+#~ msgid "Restoration canceled."
+#~ msgstr "Ripristino dati annullato."
+
+#~ msgid "Restore CDR records stored in this backup"
+#~ msgstr "Ripristina i record CDR memorizzati in questo backup"
+
+#~ msgid "Restore Here"
+#~ msgstr "Ripristina qui"
+
+#~ msgid "Restore MySQL databases stored in the backup"
+#~ msgstr "Ripristina i database MySQL archiviati nel backup"
+
+#~ msgid "Restore all setting stored in the database"
+#~ msgstr "Ripristina tutte le impostazioni memorizzate nel database"
+
+#~ msgid "Restore backup to this server after the backup is complete"
+#~ msgstr "Ripristina il backup su questo server al termine del backup"
+
+#~ msgid "Restore complete!"
+#~ msgstr "Ripristino completato!"
+
+#~ msgid "Restored Database"
+#~ msgstr "Database ripristinato"
+
+#~ msgid "Restoring Bindaddres Settings"
+#~ msgstr "Ripristino delle impostazioni di Bindaddres"
+
+#~ msgid "Restoring CDRs complete"
+#~ msgstr "Ripristino dei CDR completi"
+
+#~ msgid "Restoring CDRs..."
+#~ msgstr "Ripristino dei CDR ..."
+
+#~ msgid "Restoring DNS settings"
+#~ msgstr "Ripristino delle impostazioni DNS"
+
+#~ msgid "Restoring Database..."
+#~ msgstr "Ripristino del database ..."
+
+#~ msgid "Restoring NAT settings"
+#~ msgstr "Ripristino delle impostazioni NAT"
+
+#~ msgid "Restoring Settings complete"
+#~ msgstr "Ripristino delle impostazioni complete"
+
+#~ msgid "Restoring all files (this may take some time)..."
+#~ msgstr "Ripristino di tutti i file (potrebbe richiedere del tempo) ..."
+
+#~ msgid "Restoring astDB..."
+#~ msgstr "Ripristino di astDB ..."
+
+#~ msgid "Restoring backup..."
+#~ msgstr "Ripristino backup ..."
+
+#~ msgid "Restoring files (this may take some time)..."
+#~ msgstr "Ripristino dei file (potrebbe richiedere del tempo) ..."
+
+#~ msgid "Run Automatically"
+#~ msgstr "Esegui automaticamente"
+
+#~ msgid ""
+#~ "Run at startup of the server OR of the cron deamon (i.e. after every "
+#~ "<code>service cron restart</code>)"
+#~ msgstr ""
+#~ "Esegui all'avvio del server OR del demone cron (ad es. Dopo ogni <code> 1 "
+#~ "servizio cron restart </code> 2)"
+
+#~ msgid "Run now"
+#~ msgstr "Esegui ora"
+
+#~ msgid "Run once a day, at midnight"
+#~ msgstr "Esegui una volta al giorno , a mezzanotte"
+
+#~ msgid "Run once a month, midnight, first of month"
+#~ msgstr "Esegui una volta al mese, a mezzanotte, il primo del mese"
+
+#~ msgid "Run once a week, midnight on Sun"
+#~ msgstr "Esegui una volta a settimana, a mezzanotte il sole"
+
+#~ msgid "Run once a year, midnight, Jan. 1"
+#~ msgstr "Esegui una volta all'anno, a mezzanotte, il 1 gennaio"
+
+#~ msgid "Run once an hour, beginning of hour"
+#~ msgstr "Esegui una volta all'ora, all'inizio dell'ora"
+
+#~ msgid "Running post restore script..."
+#~ msgstr "Esecuzione di script di post-ripristino ..."
+
+#~ msgid "Running post-backup hooks..."
+#~ msgstr "Esecuzione di hook post-backup ..."
+
+#~ msgid "Running post-restore hooks, if any..."
+#~ msgstr "Esecuzione di hook post ripristino, se presenti ..."
+
+#~ msgid "Running pre-backup hooks..."
+#~ msgstr "Esecuzione di hook pre-backup ..."
+
+#~ msgid "Running pre-restore hooks, if any..."
+#~ msgstr "Esecuzione di hook pre-ripristino, se presenti ..."
+
+#~ msgid "Running pre-restore scripts..."
+#~ msgstr "Esecuzione di script di pre-ripristino ..."
+
+#~ msgid "Runs"
+#~ msgstr "Eseguzioni"
+
+#~ msgid "SSH Key Path"
+#~ msgstr "Percorso chiave SSH"
+
+#~ msgid "SSH Server"
+#~ msgstr "Server SSH"
+
+#~ msgid "SSH Server "
+#~ msgstr "Server SSH "
+
+#~ msgid "SSH Username"
+#~ msgstr "Username SSH"
 
 #~ msgid "Saturday"
 #~ msgstr "Sabato"
 
+#~ msgid "Schedule Help"
+#~ msgstr "Aiuto Programmato"
+
+#~ msgid "Select a file and click go"
+#~ msgstr "Seleziona un file e fai clic su Va"
+
+#~ msgid ""
+#~ "Select how often to run this backup. The following schedule will be "
+#~ "followed for all but custom."
+#~ msgstr ""
+#~ "Seleziona la frequenza con cui eseguire questo backup. Il seguente "
+#~ "programma verrà seguito per tutti tranne che personalizzati."
+
+#~ msgid "Select items to restore"
+#~ msgstr "Seleziona gli oggetti da ripristinare"
+
+#~ msgid ""
+#~ "Select the server to be backed up (this server, or any other SSH server)"
+#~ msgstr ""
+#~ "Seleziona il server di cui eseguire il backup (questo server o qualsiasi "
+#~ "altro server SSH)"
+
 #~ msgid "September"
 #~ msgstr "Settembre"
+
+#~ msgid "Server"
+#~ msgstr "Server"
+
+#~ msgid "Server Address"
+#~ msgstr "Indirizzo Server"
+
+#~ msgid "Server Name"
+#~ msgstr "Nome Server"
+
+#~ msgid "Server Name can not be blank"
+#~ msgstr "Nome server non può essere vuoto"
+
+#~ msgid "Server Port"
+#~ msgstr "Porta Server"
+
+#~ msgid "Server Port, leave blank for default"
+#~ msgstr "Porta del server, lasciare vuoto per impostazione predefinita"
+
+#~ msgid "Server Username"
+#~ msgstr "Username Server"
+
+#~ msgid "Server address can not be blank"
+#~ msgstr "L'indirizzo del server non può essere vuoto"
+
+#~ msgid "Servers"
+#~ msgstr "I Server"
+
+#~ msgid "Skip Bindaddrss is Enabled... "
+#~ msgstr "Skip Bindaddrss è abilitato ... "
+
+#~ msgid "Skip DNS is Enabled... "
+#~ msgstr "Skip DNS è abilitato ... "
+
+#~ msgid "Skipping host-specific Bind address"
+#~ msgstr "Saltare l'indirizzo Bind specifico dell'host"
+
+#~ msgid "Skipping host-specific DNS"
+#~ msgstr "Saltare il DNS specifico dell'host"
+
+#~ msgid "Something went wrong when connecting to remote server. Aborting!"
+#~ msgstr ""
+#~ "Qualcosa è andato storto durante la connessione al server remoto. "
+#~ "Interruzione!"
+
+#~ msgid "Start"
+#~ msgstr "Avvio"
+
+#~ msgid "Status Email"
+#~ msgstr "Stato email"
+
+#~ msgid "Step 1"
+#~ msgstr "Passo 1"
+
+#~ msgid "Step 2"
+#~ msgstr "Passo 2"
+
+#~ msgid "Step 3"
+#~ msgstr "Passo 3"
+
+#~ msgid "Step 4"
+#~ msgstr "Passo 4"
+
+#~ msgid "Step 5"
+#~ msgstr "Passo 5"
+
+#~ msgid "Storage Servers"
+#~ msgstr "Server di archiviazione"
+
+#~ msgid "Storage location for backups"
+#~ msgstr "Luogo di archiviazione per i backup"
+
+#~ msgid "Storing backup..."
+#~ msgstr "Archiviazione del backup ..."
 
 #~ msgid "Sunday"
 #~ msgstr "Domenica"
 
+#~ msgid "Supply a server name"
+#~ msgstr "Fornire un nome server"
+
+#~ msgid "Template Name"
+#~ msgstr "Nome Modello"
+
+#~ msgid "Templates"
+#~ msgstr "Modelli"
+
+#~ msgid ""
+#~ "The FTP Server's file system type. If you are unsure set this to Auto"
+#~ msgstr ""
+#~ "Il tipo di file system del server FTP. Se non si è sicuri, impostare su "
+#~ "Auto"
+
+#~ msgid "The Restore script Finished You can close this window"
+#~ msgstr ""
+#~ "Lo script di ripristino completato È possibile chiudere questa finestra"
+
+#~ msgid "The Restore script is still running"
+#~ msgstr "Lo script di ripristino è ancora in esecuzione"
+
+#~ msgid "The archive must be come from a release like this: %s.%s"
+#~ msgstr "L'archivio deve provenire da una versione come questa:%s1.%s2"
+
+#~ msgid ""
+#~ "The maximum size a backup can be and still be emailed. Some email servers "
+#~ "limit the size of email attachments, this will make sure that files "
+#~ "larger than the max size are not sent."
+#~ msgstr ""
+#~ "La dimensione massima di un backup può essere e ancora essere inviata via "
+#~ "email. Alcuni server di posta elettronica limitano la dimensione degli "
+#~ "allegati di posta elettronica, questo farà sì che i file più grandi della "
+#~ "dimensione massima non vengano inviati."
+
+#~ msgid "This archive cannot be used, because the version is not correct!!!"
+#~ msgstr ""
+#~ "Questo archivio non può essere utilizzato, perché la versione è errata!!!"
+
+#~ msgid ""
+#~ "This defaults to 'Passive'. If your FTP server is behind a seperate NAT "
+#~ "or Firewall to this VoIP server, you should select 'Active'. In 'Active' "
+#~ "mode, the FTP server establishes a connection back to the VoIP server to "
+#~ "receive the data. In 'Passive' mode, the VoIP server connects to the FTP "
+#~ "Server to send data."
+#~ msgstr ""
+#~ "Questo valore predefinito è 'Passivo'. Se il tuo server FTP si trova "
+#~ "dietro un NAT o firewall separato a questo server VoIP, devi selezionare "
+#~ "'Attivo'. Nella modalità 'Attiva', il server FTP stabilisce una "
+#~ "connessione al server VoIP per ricevere i dati. Nella modalità 'Passiva', "
+#~ "il server VoIP si connette al server FTP per inviare i dati."
+
+#~ msgid "This has a maximum size of 25MB."
+#~ msgstr "Questo ha una dimensione massima di 25 MB."
+
+#~ msgid "This server"
+#~ msgstr "Questo Server"
+
+#~ msgid ""
+#~ "This wizard can be used to add a basic backup task for your %s system"
+#~ msgstr ""
+#~ "Questa procedura guidata può essere utilizzata per aggiungere un'attività "
+#~ "di backup di base per il sistema %s1"
+
 #~ msgid "Thursday"
 #~ msgstr "Giovedì"
+
+#~ msgid "Transfer Mode"
+#~ msgstr "Modalità di trasferimento"
+
+#~ msgid "Transfer Type"
+#~ msgstr "Tpo di traferimento"
 
 #~ msgid "Tuesday"
 #~ msgstr "Martedì"
 
+#~ msgid "Unix/Linux"
+#~ msgstr "Unix/Linux"
+
+#~ msgid "Updated Job %s with new custom sounds directory"
+#~ msgstr "Lavoro aggiornato %s1 con nuova directory di suoni personalizzati"
+
+#~ msgid "Updated System Recordings template"
+#~ msgstr "Modello di registrazioni di sistema aggiornato"
+
+#~ msgid "Upload File"
+#~ msgstr "Caricare un file"
+
+#~ msgid "User Name"
+#~ msgstr "Nome Utente"
+
+#~ msgid "Username"
+#~ msgstr "Nome utente"
+
+#~ msgid "Verifying received file..."
+#~ msgstr "Verifica del file ricevuto ..."
+
+#~ msgid "Voice Mail Storage"
+#~ msgstr "Memorizzazione della posta vocale"
+
+#~ msgid "Voicemails"
+#~ msgstr "messaggi vocali"
+
+#~ msgid "WARNING!"
+#~ msgstr "ATTENZIONE!"
+
+#~ msgid "Web Root restore not detected, not restoring module table"
+#~ msgstr ""
+#~ "Ripristino Web Root non rilevato, non ripristino della tabella dei moduli"
+
 #~ msgid "Wednesday"
 #~ msgstr "Mercoledì"
+
+#~ msgid "Week Days"
+#~ msgstr "giorni della settimana"
+
+#~ msgid "Weekly"
+#~ msgstr "Settimanalmente"
+
+#~ msgid "Weeks"
+#~ msgstr "Settimanalmente"
+
+#~ msgid "Welcome to the Backup Wizard"
+#~ msgstr "Benvenuto nella procedura guidata di backup"
+
+#~ msgid "What should we backup?"
+#~ msgstr "Cosa dovremmo fare il backup?"
+
+#~ msgid "What's this?"
+#~ msgstr "Che cos'è ?"
+
+#~ msgid "Where should status emails for this job be sent?"
+#~ msgstr ""
+#~ "Dove dovrebbero essere inviate le e-mail di stato per questo lavoro?"
+
+#~ msgid "Which Days of the week to run"
+#~ msgstr "Quali giorni della settimana eseguire"
+
+#~ msgid "Which Hours to run."
+#~ msgstr "Quali ore di esecuzione."
+
+#~ msgid "Which Months to run"
+#~ msgstr "Quali mesi di esecuzione"
+
+#~ msgid "Which minutes to run"
+#~ msgstr "Quali minuti di esecuzione"
+
+#~ msgid "Windows"
+#~ msgstr "finestre"
+
+#~ msgid "Wizard"
+#~ msgstr "procedura guidata"
+
+#~ msgid "Would you like an email when this job runs?"
+#~ msgstr ""
+#~ "Desideri un messaggio di posta elettronica quando viene eseguito questo "
+#~ "lavoro?"
+
+#~ msgid "Would you like notifications?"
+#~ msgstr "Vuoi le notifiche?"
+
+#~ msgid "Would you like to backup recordings?"
+#~ msgstr "Vorresti effettuare il backup delle registrazioni?"
+
+#~ msgid "Would you like voicemails backded up."
+#~ msgstr "Volete i backup dei messaggi di posta elettronica."
+
+#~ msgid "Years"
+#~ msgstr "Anni"
+
+#~ msgid "You should run \"%s\" to ensure system integrity"
+#~ msgstr "Dovresti eseguire \"%s1\" per garantire l'integrità del sistema"
+
+#~ msgid "Your backup will be saved locally to /var/spool/asterisk/backup"
+#~ msgstr ""
+#~ "Il backup verrà salvato localmente su / var / spool / asterisk / backup"
+
+#~ msgid "added default backup servers"
+#~ msgstr "aggiunti server di backup predefiniti"
+
+#~ msgid "added default backup templates"
+#~ msgstr "aggiunti modelli di backup predefiniti"
+
+#~ msgid "chose"
+#~ msgstr "Scegli"
+
+#~ msgid "error/not found!"
+#~ msgstr "errore/non trovato!"
+
+#~ msgid "manifest not found"
+#~ msgstr "manifesto non trovato"
+
+#~ msgid "table names, one per line"
+#~ msgstr "nomi di tabelle, uno per riga"
+
+#~ msgid "waiting for lock..."
+#~ msgstr "in attesa di blocco ..."
+
+#~ msgid "{no servers available}"
+#~ msgstr "{nessun server disponibile}"
+
+#~ msgid "Backup Module"
+#~ msgstr "Moduli di Backup"
+
+#~ msgid "Email "
+#~ msgstr "Email "
+
+#~ msgid "The From: field for emails when using the backup email feature."
+#~ msgstr ""
+#~ "Il campo Da: per le e-mail quando si utilizza la funzione di e-mail di "
+#~ "backup."
+
+#~ msgid "Processed %s%% of external database %s (%s of %s lines)"
+#~ msgstr "Elaborato %s1 %%2 del database esterno %s3 (%s4 di %s5 righe)"
+
+#~ msgid "Restoring Database %s..."
+#~ msgstr "Ripristino del database %s1..."
 
 #~ msgid "failed"
 #~ msgstr "fallito"
@@ -1779,9 +2916,6 @@ msgstr ""
 
 #~ msgid "Add Backup Schedule"
 #~ msgstr "Aggiungi Pianificazione Backup"
-
-#~ msgid "All"
-#~ msgstr "Tutto"
 
 #~ msgid "Backup the Operator Panel (HTML and Database)"
 #~ msgstr "Esegue il Backup del Pannello Operatore (HTML e Database)"

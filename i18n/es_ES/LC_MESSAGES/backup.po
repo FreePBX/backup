@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-14 07:12+0000\n"
-"PO-Revision-Date: 2021-01-20 09:06+0000\n"
-"Last-Translator: Kapil Gupta <kgupta+freepbx@sangoma.com>\n"
+"PO-Revision-Date: 2021-01-24 00:00+0000\n"
+"Last-Translator: Walter Moon <wmoon@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
 "es/>\n"
 "Language: es_ES\n"
@@ -571,7 +571,7 @@ msgstr "Correo para enviar mensajes de estado cuando esta tarea sea ejecutada"
 
 #: Console/Backup.class.php:47
 msgid "End"
-msgstr ""
+msgstr "Fin"
 
 #: functions.inc/class.backup.php:471 functions.inc/restore.php:117
 #: functions.inc/restore.php:366

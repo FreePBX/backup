@@ -339,6 +339,7 @@ class Legacy extends Common {
 							}
 
 							//discard keys we dont need them for this
+							$query = preg_replace('/(CONSTRAINT|constraint)\s`.*`\s(FOREIGN|foreign)/', "",$query);
 							$query = preg_replace('/((?:PRIMARY|UNIQUE)?\s+KEY .*),?/', "", $query);
 							$query = preg_replace('/(CHARACTER SET|character set) [^ ]+[ ,]/', "",$query);
 							$query = preg_replace("/(ON|on) (UPDATE|update) (CURRENT_TIMESTAMP|current_timestamp)(\(\))?/", "",$query);

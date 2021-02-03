@@ -293,9 +293,12 @@ public function setCustomFiles($manifest = NULL) {
 			$fileList = $manifest['file_list'];
 			if(!empty($fileList)) {
 				if($fileList['etc']['asterisk']) {
-					$files = glob("$this->tmp/etc/asterisk/*_custom.conf");
+					$files = glob("$this->tmp/etc/asterisk/*_custom*.conf");
 					foreach($files as $fval) {
 						$src = $fval;
+						$cont = file_get_contents($src);
+						$newcont = preg_replace('/#include \"(.*)\"$/', '#include $1', $cont);
+						file_put_contents($src, $newcont);
 						$dst = '/etc/asterisk/' . basename($fval);
 						try {
 							copy($src, $dst);

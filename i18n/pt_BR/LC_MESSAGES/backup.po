@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-20 10:32+0000\n"
+"POT-Creation-Date: 2021-02-03 03:49+0000\n"
 "PO-Revision-Date: 2017-03-08 21:01+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -1154,7 +1154,7 @@ msgid "Restoring custom directory to %s"
 msgstr ""
 
 #: Handlers/Restore/Common.php:260 Handlers/Restore/Common.php:279
-#: Handlers/Restore/Common.php:302 Handlers/Restore/Common.php:339
+#: Handlers/Restore/Common.php:305 Handlers/Restore/Common.php:342
 #, php-format
 msgid "Restoring custom file to %s"
 msgstr ""
@@ -1316,7 +1316,7 @@ msgstr ""
 msgid "Skipped Post Restore Hooks.."
 msgstr ""
 
-#: Handlers/Restore/Common.php:330
+#: Handlers/Restore/Common.php:333
 #, php-format
 msgid "Skipping directory %s"
 msgstr ""

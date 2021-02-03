@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-20 10:32+0000\n"
+"POT-Creation-Date: 2021-02-03 03:49+0000\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -1166,7 +1166,7 @@ msgid "Restoring custom directory to %s"
 msgstr ""
 
 #: Handlers/Restore/Common.php:260 Handlers/Restore/Common.php:279
-#: Handlers/Restore/Common.php:302 Handlers/Restore/Common.php:339
+#: Handlers/Restore/Common.php:305 Handlers/Restore/Common.php:342
 #, php-format
 msgid "Restoring custom file to %s"
 msgstr ""
@@ -1328,7 +1328,7 @@ msgstr ""
 msgid "Skipped Post Restore Hooks.."
 msgstr ""
 
-#: Handlers/Restore/Common.php:330
+#: Handlers/Restore/Common.php:333
 #, php-format
 msgid "Skipping directory %s"
 msgstr ""

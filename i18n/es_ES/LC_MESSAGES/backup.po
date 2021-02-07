@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-14 07:12+0000\n"
-"PO-Revision-Date: 2021-01-24 00:00+0000\n"
-"Last-Translator: Walter Moon <wmoon@sangoma.com>\n"
+"PO-Revision-Date: 2021-02-08 22:00+0000\n"
+"Last-Translator: Javier Pastor <jpastor@cerebelum.net>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
 "es/>\n"
 "Language: es_ES\n"
@@ -380,7 +380,7 @@ msgstr "Conectando a Servidor remoto..."
 #: functions.inc/class.backup.php:841
 #, php-format
 msgid "Could not find %s on the remote system"
-msgstr ""
+msgstr "No se pudo encontrar %s en el sistema remoto"
 
 #: functions.inc/class.backup.php:398 views/restore/browseserver.php:18
 msgid "Created"
@@ -510,7 +510,7 @@ msgstr "Deshabilitar Troncales Registrados"
 
 #: bin/backup.php:191
 msgid "Disabling registered trunks... "
-msgstr ""
+msgstr "Desactivando troncales registrados... "
 
 #: bin/restore.php:548
 msgid "Done!"
@@ -597,7 +597,7 @@ msgstr "Excluir"
 
 #: views/backup/backup.php:380
 msgid "Exclude BIND address"
-msgstr ""
+msgstr "Excluir dirección BIND"
 
 #: install.php:180
 msgid ""
@@ -609,7 +609,7 @@ msgstr ""
 
 #: views/backup/backup.php:409
 msgid "Exclude DNS"
-msgstr ""
+msgstr "Excluir DNS"
 
 #: views/backup/backup.php:353
 msgid "Exclude NAT settings"
@@ -699,7 +699,7 @@ msgstr "Archivo"
 
 #: Console/Backup.class.php:47
 msgid "File Count"
-msgstr ""
+msgstr "Número de Archivos"
 
 #: functions.inc/restore.php:424
 msgid "File not found! "
@@ -728,7 +728,7 @@ msgstr "FreePBX"
 #: bin/restore.php:119
 #, php-format
 msgid "Freepbx version %s, Archive version %s"
-msgstr ""
+msgstr "Freepbx versión %s, versión de archivo %s"
 
 #: views/cron.php:33 assets/js/backup.js:83
 msgid "Friday"
@@ -867,11 +867,11 @@ msgstr "Enero"
 
 #: Console/Backup.class.php:47
 msgid "Job ID"
-msgstr ""
+msgstr "ID de Trabajo"
 
 #: Console/Backup.class.php:47
 msgid "Job Name"
-msgstr ""
+msgstr "Nombre del Trabajo"
 
 #: views/cron.php:50
 msgid "July"
@@ -912,7 +912,7 @@ msgstr "Mantenimiento"
 
 #: Console/Backup.class.php:17
 msgid "Manage Backup jobs"
-msgstr ""
+msgstr "Administrar Trabajos de Respaldo"
 
 #: views/cron.php:46
 msgid "March"
@@ -1073,11 +1073,11 @@ msgstr "Descripcion opcional o notas para esta plantilla de respaldo."
 
 #: views/restore/backup_list.php:37
 msgid "Other MySQL databases"
-msgstr ""
+msgstr "Otras bases de datos MySQL"
 
 #: Console/Backup.class.php:19
 msgid "Output in JSON"
-msgstr ""
+msgstr "Salida en JSON"
 
 #: functions.inc/templates.php:259
 msgid "PATTERNs, one per line"
@@ -1132,7 +1132,7 @@ msgstr "Camino/BD"
 #: functions.inc/class.backup.php:837 functions.inc/class.backup.php:838
 #, php-format
 msgid "Path: %s"
-msgstr ""
+msgstr "Ruta: %s"
 
 #: assets/js/backup.js:150
 msgid "Please wait"
@@ -1250,7 +1250,7 @@ msgstr "Reiniciar"
 
 #: bin/restore.php:121
 msgid "Restoration canceled."
-msgstr ""
+msgstr "Restauración cancelada."
 
 #: page.backup_restore.php:201 views/restore/backup_list.php:46
 #: views/restore/browseserver.php:4 views/restore/restore.php:34
@@ -1268,7 +1268,7 @@ msgstr "Restaurar aqui"
 
 #: views/restore/backup_list.php:37
 msgid "Restore MySQL databases stored in the backup"
-msgstr ""
+msgstr "Restaurar bases de datos MySQL almacenadas en la copia de seguridad"
 
 #: views/restore/backup_list.php:22
 msgid "Restore all setting stored in the database"
@@ -1368,7 +1368,7 @@ msgstr "Ejecutar una vez cada hora, a inicio de la hora"
 
 #: functions.inc/class.backup.php:500
 msgid "Running maintenance.."
-msgstr ""
+msgstr "Ejecutando mantenimiento.."
 
 #: bin/restore.php:494
 msgid "Running post restore script..."
@@ -1452,7 +1452,7 @@ msgstr ""
 
 #: views/restore/backup_list.php:7
 msgid "Select items to restore"
-msgstr ""
+msgstr "Seleccionar elementos para restaurar"
 
 #: views/backup/backup.php:281
 msgid ""
@@ -1633,6 +1633,7 @@ msgstr ""
 #: bin/restore.php:118
 msgid "This archive cannot be used, because the version is not correct!!!"
 msgstr ""
+"¡¡¡Este archivo no se puede utilizar porque la versión no es correcta!!!"
 
 #: views/servers/ftp.php:166
 msgid ""
@@ -1678,7 +1679,7 @@ msgstr "Tipo de Transferencia"
 #: functions.inc/class.backup.php:493
 #, php-format
 msgid "Trying to upload %s to %s"
-msgstr ""
+msgstr "Intentando subir %s a %s"
 
 #: views/cron.php:30 assets/js/backup.js:83
 msgid "Tuesday"

@@ -2,7 +2,7 @@
 $(document).ready(function () {
 	toggle_warmspare();
 	setTimeout(function(){
-			$('#backup_items').val(JSON.stringify(processItems()));
+			$('#backup_items').val(JSON.stringify(processItems(undefined, {})));
 			$('#backup_modules').text(_("Modules ("+$('#backupmodules').bootstrapTable('getSelections').length+')'));
 	}, 1000);
 
@@ -314,8 +314,7 @@ $('#itemsSave').on('click', function (e) {
 	if (!$('#backupmodules').bootstrapTable('getSelections').length) {
 		alert(_("No module has selected for this Backup. Please ensure you are selecting atleast Custom files"));
 	}
-        $('#backupmodules').bootstrapTable('resetSearch');
-	$('#backup_items').val(JSON.stringify(processItems()));
+	$('#backupmodules').bootstrapTable('resetSearch');
 	$('#backup_modules').text(_("Modules ("+$('#backupmodules').bootstrapTable('getSelections').length+')'))
 
 	$("#itemsModal").modal('hide');
@@ -327,6 +326,7 @@ $('#itemsModal').on('show.bs.modal', function (e) {
 $('#itemsReset').on('click', function (e) {
 	e.preventDefault();
 	$('#backupmodules').bootstrapTable('refresh',{silent: true});
+	$('#backup_items').val(JSON.stringify(processItems('reset', {})));
 })
 $('[name="warmspareenabled"]').change(function () {
 	toggle_warmspare();
@@ -514,19 +514,20 @@ function getStatus(type, id, transaction, pid) {
 		}
 	}, false);
 }
-
-function processItems() {
-	let items = $('#backupmodules').bootstrapTable('getData');
-	let selected = items.filter(function (el) {
-		return el.selected == true;
-	})
-	$.each(selected, function (i, v) {
-		v.settings = $("#modulesetting_"+v.modulename).serializeArray();
-		if (v.hasOwnProperty('settingdisplay')) {
-			delete v.settingdisplay;
-		}		
+let checkedModule = {}
+function processItems(type, obj) {
+	let items = $('#backupmodules').bootstrapTable('getSelections');
+	checkedModule = {
+		...checkedModule,
+		...obj
+	}
+	$.each(items, function (i, v) {
+		if(Object.keys(checkedModule).length === 0 || checkedModule[v.modulename] === undefined)
+			v.settings = type ? [] : $("#modulesetting_"+v.modulename).serializeArray();
+		else
+			v.settings = type ? [] : checkedModule[v.modulename];
 	});
-	return selected;
+	return items;
 }
 /** bootstrap tables formatters */
 function linkFormatter(value, row, index) {

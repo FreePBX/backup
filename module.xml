@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>16.0.37</version>
+	<version>16.0.38</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,6 +18,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*16.0.38* FREEI-3039 
 		*16.0.37* FREEPBX-22218 asterisk older version syntax was causing the issue 
 		*16.0.36* FREEPBX-22218 Can't restore v12 backup on v15 
 		*16.0.35* FREEI-2667 Backup fails with PHP Fatal error: Allowed memory size 

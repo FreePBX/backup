@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-03 03:49+0000\n"
+"POT-Creation-Date: 2021-03-15 07:40+0000\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -919,7 +919,7 @@ msgstr ""
 msgid "Modules"
 msgstr ""
 
-#: assets/js/backup.js:6 assets/js/backup.js:319
+#: assets/js/backup.js:6 assets/js/backup.js:318
 msgid "Modules ("
 msgstr ""
 
@@ -1193,7 +1193,7 @@ msgstr ""
 msgid "Run Restore & Legacy CDR "
 msgstr ""
 
-#: assets/js/backup.js:566
+#: assets/js/backup.js:567
 msgid "Run the following in the CLI"
 msgstr ""
 

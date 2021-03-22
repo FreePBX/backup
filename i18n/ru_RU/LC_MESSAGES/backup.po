@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-15 07:40+0000\n"
+"POT-Creation-Date: 2021-03-22 08:39+0000\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -536,8 +536,8 @@ msgstr ""
 "Эквивалентно нажатию на красную кнопку, происходит автоматически после "
 "восстановления на резервной системе"
 
-#: assets/js/backup.js:369 assets/js/backup.js:388 assets/js/backup.js:407
-#: assets/js/backup.js:499
+#: assets/js/backup.js:370 assets/js/backup.js:389 assets/js/backup.js:408
+#: assets/js/backup.js:500
 msgid "Error"
 msgstr ""
 
@@ -874,7 +874,7 @@ msgstr ""
 msgid "List Backups"
 msgstr ""
 
-#: assets/js/backup.js:424
+#: assets/js/backup.js:425
 msgid "Loading Please Wait"
 msgstr ""
 
@@ -919,7 +919,7 @@ msgstr ""
 msgid "Modules"
 msgstr ""
 
-#: assets/js/backup.js:6 assets/js/backup.js:318
+#: assets/js/backup.js:6 assets/js/backup.js:319
 msgid "Modules ("
 msgstr ""
 
@@ -979,7 +979,7 @@ msgid ""
 "atleast Custom files"
 msgstr ""
 
-#: assets/js/backup.js:340 assets/js/backup.js:347
+#: assets/js/backup.js:341 assets/js/backup.js:348
 msgid ""
 "No storage location selected for Backup. Please select atleast one storage "
 "location to save the backup"
@@ -1193,7 +1193,7 @@ msgstr ""
 msgid "Run Restore & Legacy CDR "
 msgstr ""
 
-#: assets/js/backup.js:567
+#: assets/js/backup.js:568
 msgid "Run the following in the CLI"
 msgstr ""
 
@@ -1447,7 +1447,7 @@ msgstr ""
 msgid "The module %s returned no data, No backup created"
 msgstr ""
 
-#: assets/js/backup.js:499
+#: assets/js/backup.js:500
 #, perl-format
 msgid "There was an error during %s"
 msgstr ""
@@ -1695,7 +1695,7 @@ msgstr ""
 msgid "You must set a valid job name for this backup"
 msgstr ""
 
-#: assets/js/backup.js:496
+#: assets/js/backup.js:497
 #, perl-format
 msgid "Your %s has finished"
 msgstr ""

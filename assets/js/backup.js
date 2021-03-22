@@ -314,6 +314,7 @@ $('#itemsSave').on('click', function (e) {
 	if (!$('#backupmodules').bootstrapTable('getSelections').length) {
 		alert(_("No module has selected for this Backup. Please ensure you are selecting atleast Custom files"));
 	}
+	$('#backup_items').val(JSON.stringify(processItems(undefined, {})));
 	$('#backupmodules').bootstrapTable('resetSearch');
 	$('#backup_modules').text(_("Modules ("+$('#backupmodules').bootstrapTable('getSelections').length+')'))
 

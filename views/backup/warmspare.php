@@ -52,14 +52,14 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
           <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remotetrunks"></i>
         </div>
         <div class="col-md-9 radioset">
-          <input type="radio" name="warmspare_remotetrunks" id="warmspare_remotetrunksyes" value="yes" <?php echo ($warmspare_remotetrunks == "yes" ? "CHECKED" : "") ?>>
+          <input type="radio"  disabled>
           <label for="warmspare_remotetrunksyes">
             <?php echo _("Yes"); ?>
           </label>
-          <input type="radio" name="warmspare_remotetrunks" id="warmspare_remotetrunksno" <?php echo ($warmspare_remotetrunks == "yes" ? "" : "CHECKED")?>>
+          <input type="radio" disabled>
           <label for="warmspare_remotetrunksno">
             <?php echo _("No"); ?>
-          </label>
+          </label> <?php echo _("This option has moved to Backup Items -> Core (Disable Trunks on Restore?) "); ?>
         </div>
       </div>
     </div>

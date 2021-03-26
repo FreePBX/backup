@@ -44,7 +44,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 		'backup_addbjname',
 		'immortal',
 		'warmspareenabled',
-		'warmspare_remotetrunks',
 		'warmspare_remotenat',
 		'warmspare_remotebind',
 		'warmspare_remotenat',

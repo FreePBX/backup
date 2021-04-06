@@ -1068,7 +1068,7 @@ public function GraphQL_Access_token($request) {
 		$sbin = $this->freepbx->Config->get('AMPSBIN');
 		if($id !== 'all'){
 			$enabled = $this->getBackupSetting($id, 'schedule_enabled');
-			$warmspare = $this->getConfig('warmspareenabled', $buid) === 'yes';
+			$warmspare = $this->getConfig('warmspareenabled', $id) === 'yes';
 			if($enabled === 'yes'){
 				$schedule = $this->getBackupSetting($id, 'backup_schedule');
 				$command  = sprintf($sbin.'/fwconsole backup --backup=%s %s > /dev/null 2>&1',$id, $warmspare ? '--warmspare' : '');
@@ -1122,19 +1122,41 @@ public function GraphQL_Access_token($request) {
 			}
 			$this->updateBackupSetting($data['id'], $col, $value);
 		}
-		//remove all special charaters
+
 		$backup_name = $this->getReq('backup_name','');
 		$backup_name = str_replace(' ', '-', $backup_name); 
 		$backup_name = preg_replace('/[^A-Za-z0-9\-]/', '', $backup_name);
-		
 		$description = $this->getReq('backup_description',sprintf(_('Backup %s'),$backup_name));
+		$data['backup_items'] = $this->getReqUnsafe('backup_items', 'unchanged');
+		$backup_items = json_decode(html_entity_decode($this->getReq('backup_items',[])),true);
+		$cftype = $this->getReq('type');
+		$path = $this->getReq('path');
+		$exclude = $this->getReq('exclude');
+
+		return $this->performBackup($data,$backup_name,$description,$backup_items,$cftype,$path,$exclude);
+	}
+	
+	/**
+	 * performBackup
+	 *
+	 * @param  mixed $data
+	 * @param  mixed $backup_name
+	 * @param  mixed $description
+	 * @param  mixed $backup_items
+	 * @param  mixed $cftyp
+	 * @param  mixed $path
+	 * @param  mixed $exclude
+	 * @return void
+	 */
+	public function performBackup($data,$backup_name,$description,$backup_items,$cftype,$path,$exclude){
+		//remove all special charaters
+		$id = $data['id'];
 		$this->setConfig($data['id'],array('id' => $data['id'], 'name' => $backup_name, 'description' => $description),'backupList');
 		//We expect this to be JSON so we don't sanitize it.
-		$data['backup_items'] = $this->getReqUnsafe('backup_items', 'unchanged');
-
+	
 		if($data['backup_items'] !== 'unchanged') {
 			$processibleSettings = [];
-			$backup_items = json_decode(html_entity_decode($this->getReq('backup_items',[])),true);
+
 			foreach($backup_items as &$item) {
 				if(isset($item['settings'])) {
 					$processibleSettings[$item['modulename']] = $item['settings'];
@@ -1144,9 +1166,7 @@ public function GraphQL_Access_token($request) {
 			$this->setModulesById($data['id'], $backup_items);
 			$this->processBackupSettings($data['id'], $processibleSettings);
 		}
-		$cftype = $this->getReq('type');
-		$path = $this->getReq('path');
-		$exclude = $this->getReq('exclude');
+		
 		$saved = array();
 		if (is_array($cftype)) {
 			foreach ($cftype as $e_id => $type) {

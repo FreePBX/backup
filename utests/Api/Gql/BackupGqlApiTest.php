@@ -1,0 +1,202 @@
+<?php 
+namespace FreepPBX\backup\utests;
+
+require_once('../api/utests/ApiBaseTestCase.php');
+
+use FreePBX\modules\backup;
+use Exception;
+use FreePBX\modules\Api\utests\ApiBaseTestCase;
+
+class BackupGqlApiTest extends ApiBaseTestCase {
+   protected static $backup;
+        
+   /**
+   * setUpBeforeClass
+   *
+   * @return void
+   */
+  public static function setUpBeforeClass() {
+    parent::setUpBeforeClass();
+    self::$backup = self::$freepbx->backup;
+  }
+        
+   /**
+   * tearDownAfterClass
+   *
+   * @return void
+   */
+  public static function tearDownAfterClass() {
+    parent::tearDownAfterClass();
+  }
+  
+  /**
+   * test_addBackup_required_paramater_not_given_should_return_false
+   *
+   * @return void
+   */
+  public function test_addBackup_required_paramater_not_given_should_return_false(){
+    $response = $this->request("mutation{
+      addBackup(input : {
+        name: \"testbackup\"
+        description: \"testing backup to add a backup\"
+        backupModules: \"{'adv_recovery','amd'}\"
+        notificationEmail: \"test@test.com\"    
+      }){
+        status message
+      }
+   }");
+      
+   $json = (string)$response->getBody();
+   $this->assertEquals('{"errors":[{"message":"Field addBackupInput.storageLocation of required type String! was not provided.","status":false}]}',$json);
+      
+   $this->assertEquals(400, $response->getStatusCode());
+  }
+  
+  /**
+   * test_addBackup_all_good_should_return_true
+   *
+   * @return void
+   */
+  public function test_addBackup_all_good_should_return_true(){
+
+     $mockHelper = $this->getMockBuilder(\Freepbx\modules\Backup::class)
+       ->disableOriginalConstructor()
+       ->setMethods(array('updateBackupSetting','performBackup'))
+       ->getMock();
+
+    $mockHelper->method('performBackup')
+      ->willReturn('12345');
+  
+    $mockHelper->method('updateBackupSetting')
+      ->willReturn(true);
+
+    self::$freepbx->backup = $mockHelper;  
+
+    $response = $this->request("mutation{
+      addBackup(input : {
+        name: \"testbackup\"
+        description: \"testing backup to add a backup\"
+        backupModules: \"all\"
+        storageLocation: \"{'dropbox_wqeqwe'}\"    
+      }){
+        status message id
+      }
+    }");
+      
+   $json = (string)$response->getBody();
+   $this->assertEquals('{"data":{"addBackup":{"status":true,"message":"Backup has been performed\/schedules","id":"12345"}}}',$json);
+      
+   $this->assertEquals(200, $response->getStatusCode());
+  }
+ 
+  /**
+   * test_fetchBackupFiles_all_good_should_return_true
+   *
+   * @return void
+   */
+  public function test_fetchBackupFiles_all_good_should_return_true(){
+
+    $mockHelper = $this->getMockBuilder(\Freepbx\modules\Backup::class)
+       ->disableOriginalConstructor()
+       ->setMethods(array('getAllRemote'))
+       ->getMock();
+
+    $mockHelper->method('getAllRemote')
+      ->willReturn(["id" => "SSH_8e734b7c-180a-f445-fr4r-2345_12324324345436","type"=>"SSH","file" => "20214324-212343-15234-15.0.16.51-1234234.tar.gz","framework" => "15.0.16.51","timestamp" => "1588606202","name" => "20214324-212343-15234-15.0.16.51-1234234.tar.gz","instancename" => "warmspare"]);
+
+    self::$freepbx->backup = $mockHelper;  
+
+    $response = $this->request("query{
+      fetchBackupFiles{
+        status message fileDetails
+      }
+    }");
+
+   $json = (string)$response->getBody();
+   $this->assertEquals('{"data":{"fetchBackupFiles":{"status":true,"message":"List of backup files","fileDetails":"{\"id\":\"SSH_8e734b7c-180a-f445-fr4r-2345_12324324345436\",\"type\":\"SSH\",\"file\":\"20214324-212343-15234-15.0.16.51-1234234.tar.gz\",\"framework\":\"15.0.16.51\",\"timestamp\":\"1588606202\",\"name\":\"20214324-212343-15234-15.0.16.51-1234234.tar.gz\",\"instancename\":\"warmspare\"}"}}}',$json);
+      
+   $this->assertEquals(200, $response->getStatusCode());
+  }
+  
+  /**
+   * test_restoreBackup_when_not_sent_filename_should_return_false
+   *
+   * @return void
+   */
+  public function test_restoreBackup_when_not_sent_filename_should_return_false(){
+    $response = $this->request("mutation{
+      restoreBackup(input : {
+        
+       }){
+        status message
+       }
+    }");
+      
+   $json = (string)$response->getBody();
+   $this->assertEquals('{"errors":[{"message":"Field restoreBackupInput.name of required type String! was not provided.","status":false}]}',$json);
+      
+   $this->assertEquals(400, $response->getStatusCode());
+  }
+  
+  /**
+   * test_restoreBackup_when_sent_filename_and_return_false_should_return_false
+   *
+   * @return void
+   */
+  public function test_restoreBackup_when_sent_filename_and_return_false_should_return_false(){
+    
+     $mockHelper = $this->getMockBuilder(Freepbx\framework\amp_conf\htdocs\admin\libraries\BMO\Hooks::class)
+       ->disableOriginalConstructor()
+       ->setMethods(array('runModuleSystemHook'))
+       ->getMock();
+
+      $mockHelper->method('runModuleSystemHook')
+      ->willReturn(false);
+
+    self::$freepbx->sysadmin()->setRunHook($mockHelper);  
+
+    $response = $this->request("mutation{
+      restoreBackup(input : {
+          name: \"testbackup\"
+       }){
+        status message
+       }
+    }");
+      
+   $json = (string)$response->getBody();
+   $this->assertEquals('{"errors":[{"message":"Sorry failed to perform restore","status":false}]}',$json);
+      
+   $this->assertEquals(400, $response->getStatusCode());
+  }
+  
+  /**
+   * test_restoreBackup_when_sent_filename_and_return_true_should_return_true
+   *
+   * @return void
+   */
+  public function test_restoreBackup_when_sent_filename_and_return_true_should_return_true(){
+    
+    $mockHelper = $this->getMockBuilder(Freepbx\framework\amp_conf\htdocs\admin\libraries\BMO\Hooks::class)
+      ->disableOriginalConstructor()
+      ->setMethods(array('runModuleSystemHook'))
+      ->getMock();
+
+    $mockHelper->method('runModuleSystemHook')
+      ->willReturn(true);
+
+    self::$freepbx->sysadmin()->setRunHook($mockHelper);  
+
+    $response = $this->request("mutation{
+      restoreBackup(input : {
+          name: \"testbackup\"
+       }){
+        status message
+       }
+    }");
+      
+   $json = (string)$response->getBody();
+   $this->assertEquals('{"data":{"restoreBackup":{"status":true,"message":"Restore process has been initiated. Kindly check the fetchApiStatus api with the transaction id."}}}',$json);
+      
+   $this->assertEquals(200, $response->getStatusCode());
+  }
+}

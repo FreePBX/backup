@@ -1,0 +1,46 @@
+#!/usr/bin/php -q
+<?php
+
+error_reporting(E_ALL);
+date_default_timezone_set('UTC');
+
+	require '/usr/lib/sysadmin/includes.php';
+
+   $filename = $argv[1]; 
+   $txn_id  = "";
+
+   if (isset($argv[1])) {
+      // Underp the base64
+      $b = str_replace('_', '/', $argv[1]);
+      $settings = @json_decode(gzuncompress(@base64_decode($b)), true);
+      if (is_array($settings)) {
+         $filename = $settings[0];
+         $txn_id = $settings[1];
+      }
+    }
+
+	$command = "fwconsole backup --restore $filename --skiprestorehooks";
+	$message = $status = "";
+	$process = new Process($command);
+
+	try {
+		$process->setTimeout(null);
+		$process->mustRun();
+		$out = $process->getOutput();
+		$status = 'Executed'; 
+		$message = 'Restore Done';
+	} catch (ProcessFailedException $e) {
+		$message = 'Restore Errored'; 
+		$status = 'Failed'; 
+	}
+
+	$db = \Sysadmin\FreePBX::Database();
+   $sql = ("UPDATE IGNORE api_asynchronous_transaction_history SET event_status = :event_status , failure_reason =:failure_reason, process_end_time =:end_time WHERE `txn_id` = :txn_id");
+	$sth = $db->prepare($sql);
+	$sth->execute([
+		":event_status" => $status,
+		":failure_reason" => $message,
+		":end_time" => time(),
+		":txn_id" => $txn_id
+	]);
+?>

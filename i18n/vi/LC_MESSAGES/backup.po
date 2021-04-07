@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-31 10:47+0000\n"
+"POT-Creation-Date: 2021-04-07 05:37+0000\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -59,15 +59,15 @@ msgstr ""
 msgid "%s is now loaded into memory"
 msgstr ""
 
-#: Backup.class.php:1444
+#: Backup.class.php:1464
 msgid "/path/to/dir"
 msgstr "/path/to/dir"
 
-#: Backup.class.php:1432
+#: Backup.class.php:1452
 msgid "/path/to/file"
 msgstr "/path/to/file"
 
-#: views/backup/form.php:60
+#: Api/Gql/Backup.php:173 views/backup/form.php:60
 msgid "A name used to identify your backups"
 msgstr ""
 
@@ -112,7 +112,7 @@ msgstr ""
 msgid "Add Backup"
 msgstr ""
 
-#: views/backup/form.php:84
+#: Api/Gql/Backup.php:177 views/backup/form.php:84
 msgid "Add a description for your backup"
 msgstr ""
 
@@ -179,7 +179,7 @@ msgstr ""
 msgid "Are you sure, you want to restore this backup?"
 msgstr ""
 
-#: Backup.class.php:1403
+#: Backup.class.php:1423
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -194,7 +194,7 @@ msgstr "SAO LƯU KHÔNG ĐƯỢC ĐÍNH KÈM"
 msgid "Backup"
 msgstr "Sao lưu"
 
-#: Backup.class.php:1129
+#: Backup.class.php:1128
 #, php-format
 msgid "Backup %s"
 msgstr ""
@@ -295,6 +295,10 @@ msgstr ""
 #: functions.inc/class.backup.php:499
 msgid "Backup file uploaded to the remote server"
 msgstr "Sao lưu tệp đã được tải đến máy chủ từ xa"
+
+#: Api/Gql/Backup.php:356
+msgid "Backup has been performed/schedules"
+msgstr ""
 
 #: Backup.class.php:456
 msgid "Backup running"
@@ -442,7 +446,7 @@ msgstr ""
 msgid "Delete After Runs"
 msgstr ""
 
-#: Backup.class.php:1457
+#: Backup.class.php:1477
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr "Xóa mục nhập này. Đừng quên kích Gửi đi để lưu các thay đổi!"
 
@@ -465,7 +469,7 @@ msgstr ""
 msgid "Determining backup file type..."
 msgstr ""
 
-#: Backup.class.php:1439
+#: Backup.class.php:1459
 msgid "Directory"
 msgstr "Thư mục"
 
@@ -495,7 +499,7 @@ msgstr ""
 msgid "Email Type"
 msgstr ""
 
-#: views/backup/form.php:171
+#: Api/Gql/Backup.php:185 views/backup/form.php:171
 msgid ""
 "Email address to send notifications, Multiple email addresses need to be "
 "separated by comma"
@@ -509,7 +513,11 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Backup.class.php:1309 views/backup/form.php:334
+#: Api/Gql/Backup.php:205
+msgid "Enable scheduled backups, default false"
+msgstr ""
+
+#: Backup.class.php:1329 views/backup/form.php:334
 msgid "Enabled"
 msgstr ""
 
@@ -643,7 +651,7 @@ msgstr ""
 msgid "Failure"
 msgstr ""
 
-#: Backup.class.php:1427
+#: Backup.class.php:1447
 msgid "File"
 msgstr "Tệp"
 
@@ -737,23 +745,23 @@ msgstr ""
 msgid "Hooks"
 msgstr "Các điểm neo"
 
-#: views/backup/form.php:466
+#: Api/Gql/Backup.php:217 views/backup/form.php:466
 msgid ""
 "How long to maintain backups. Example 30 will delete anything older than 30 "
 "days."
 msgstr ""
 
-#: views/backup/form.php:411
+#: Api/Gql/Backup.php:213 views/backup/form.php:411
 msgid ""
 "How many updates to keep. If this number is 3, the last 3 will be kept. 0 is "
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1388
+#: Backup.class.php:1408
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1394
+#: Backup.class.php:1414
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -861,6 +869,14 @@ msgstr ""
 msgid "List Backups"
 msgstr ""
 
+#: Api/Gql/Backup.php:142
+msgid "List of backuo files"
+msgstr ""
+
+#: Api/Gql/Backup.php:87
+msgid "List of backup files"
+msgstr ""
+
 #: assets/js/backup.js:425
 msgid "Loading Please Wait"
 msgstr ""
@@ -884,6 +900,10 @@ msgstr ""
 
 #: views/backup/form.php:389
 msgid "Maintinence"
+msgstr ""
+
+#: Api/Gql/Backup.php:121 Api/Gql/Backup.php:134
+msgid "Message for the request"
 msgstr ""
 
 #: Backup.class.php:111
@@ -918,6 +938,10 @@ msgstr ""
 msgid "Modules to Backup"
 msgstr ""
 
+#: Api/Gql/Backup.php:181
+msgid "Modules to backup"
+msgstr ""
+
 #: Backup.class.php:112
 msgid "Moving servers to filestore"
 msgstr ""
@@ -935,6 +959,10 @@ msgstr ""
 #: views/restore/processRestore.php:14 views/rnav.php:8
 msgid "Name"
 msgstr "Tên"
+
+#: Api/Gql/Backup.php:235
+msgid "Name of the Restore input file"
+msgstr ""
 
 #: views/backup/form.php:198 views/backup/form.php:305
 #: views/backup/form.php:347 views/backup/warmspare.php:30
@@ -985,7 +1013,7 @@ msgstr "Các thông báo"
 msgid "Only Restoring %s"
 msgstr ""
 
-#: Backup.class.php:1452
+#: Backup.class.php:1472
 msgid "PATTERNs, one per line"
 msgstr "Chuỗi mẫu, 1 chuỗi trên 1 dòng"
 
@@ -1101,6 +1129,10 @@ msgstr ""
 msgid "Restore"
 msgstr "Khôi phục"
 
+#: Api/Gql/Backup.php:61
+msgid "Restore Backup"
+msgstr ""
+
 #: views/restore/processRestore.php:23
 msgid "Restore Information"
 msgstr ""
@@ -1127,6 +1159,12 @@ msgid ""
 "Restore process failed due to corrupted manifest file present in provided "
 "backup file. Please ensure your backup file is proper or regenerate the new "
 "backup file to proceed further."
+msgstr ""
+
+#: Api/Gql/Backup.php:373
+msgid ""
+"Restore process has been initiated. Kindly check the fetchApiStatus api with "
+"the transaction id."
 msgstr ""
 
 #: Handlers/Restore/Legacy.php:274 Handlers/Restore/Multiple.php:67
@@ -1285,7 +1323,7 @@ msgstr ""
 msgid "Select items to backup"
 msgstr ""
 
-#: views/backup/form.php:281
+#: Api/Gql/Backup.php:197 views/backup/form.php:281
 msgid ""
 "Select one or more storage locations. Storage locations can be added/"
 "configured with the Filestore module"
@@ -1299,6 +1337,10 @@ msgstr ""
 msgid "Server Mode"
 msgstr ""
 
+#: Api/Gql/Backup.php:51
+msgid "Set Backup Configurations"
+msgstr ""
+
 #: views/backup/warmspare.php:69
 msgid "Should the remote trunks be Disabled"
 msgstr ""
@@ -1309,6 +1351,10 @@ msgstr ""
 
 #: views/backup/warmspare.php:38
 msgid "Should the warm spare feature be enabled"
+msgstr ""
+
+#: Api/Gql/Backup.php:221
+msgid "Should the warm spare feature be enabled, default false"
 msgstr ""
 
 #: Handlers/Restore/Multiple.php:92
@@ -1335,6 +1381,14 @@ msgstr ""
 msgid "Something failed."
 msgstr ""
 
+#: Api/Gql/Backup.php:375
+msgid "Sorry failed to perform restore"
+msgstr ""
+
+#: Api/Gql/Backup.php:89
+msgid "Sorry unable to find the filestore types"
+msgstr ""
+
 #: Handlers/Backup/Multiple.php:182
 msgid "Starting Cleaning up"
 msgstr ""
@@ -1350,6 +1404,14 @@ msgstr ""
 
 #: views/restore/processRestore.php:50
 msgid "Status"
+msgstr ""
+
+#: Api/Gql/Backup.php:138
+msgid "Status for the request"
+msgstr ""
+
+#: Api/Gql/Backup.php:117
+msgid "Status of the request"
 msgstr ""
 
 #: views/backup/form.php:257
@@ -1510,6 +1572,10 @@ msgstr "Kiểu"
 msgid "Unable to map '%s' of type '%s"
 msgstr ""
 
+#: Api/Gql/Backup.php:358
+msgid "Unable to perform backup"
+msgstr ""
+
 #: RestoreBase.php:276
 #, php-format
 msgid ""
@@ -1531,7 +1597,7 @@ msgstr ""
 msgid "Unable to upload file to the remote server"
 msgstr "Không thể tải tệp đến máy chủ từ xa"
 
-#: Backup.class.php:1309
+#: Backup.class.php:1329
 msgid "Uninstalled or Disabled"
 msgstr ""
 
@@ -1635,18 +1701,35 @@ msgid ""
 "'filestore-path/backup-file'"
 msgstr ""
 
+#: Api/Gql/Backup.php:201
+msgid ""
+"When set to Yes , Backp files will store like filestore-path/backup-job-name/"
+"backup-file and if set to NO then backup file will store into filestore-path/"
+"backup-file,default false"
+msgstr ""
+
 #: views/backup/form.php:207
 msgid ""
 "When set to Yes logs will be added to the body of the email, when set to No "
 "logs will be added as an attachment"
 msgstr ""
 
-#: views/backup/form.php:379
+#: Api/Gql/Backup.php:189
+msgid ""
+"When set to Yes logs will be added to the body of the email, when set to No "
+"logs will be added as an attachment, default no"
+msgstr ""
+
+#: Api/Gql/Backup.php:209 views/backup/form.php:379
 msgid "When should this backup run"
 msgstr ""
 
 #: views/backup/form.php:247
 msgid "When to email"
+msgstr ""
+
+#: Api/Gql/Backup.php:193
+msgid "When to email default both"
 msgstr ""
 
 #: Handlers/Backup/Common.php:72
@@ -1691,12 +1774,20 @@ msgstr ""
 msgid "Your %s has finished"
 msgstr ""
 
+#: Api/Gql/Backup.php:50
+msgid "addBackup"
+msgstr ""
+
 #: functions.inc/class.backup.php:401
 msgid "astDb's"
 msgstr "Các dữ liệu Asterisk (astDb's)"
 
 #: views/backup/item_table.php:40
 msgid "choose"
+msgstr ""
+
+#: Api/Gql/Backup.php:60
+msgid "restoreBackup"
 msgstr ""
 
 #: Monolog/Swift.php:55

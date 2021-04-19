@@ -72,7 +72,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		$this->log(sprintf(_("Working with %s module"), $module['rawname']));
 		// Skip modules backup if system is not activated
 		$skipModule = array("vqplus");
-		if(!defined('ZEND_LICENSE_LOADED') && in_array($module['rawname'], $skipModule)) {
+		if((!defined('ZEND_LICENSE_LOADED') && !defined('IONCUBE_LICENSE_FOUND')) && in_array($module['rawname'], $skipModule)) {
 			$msg = sprintf(_("System is not Activated,Skipping %s module"),$module['rawname']);
 			$this->log($msg,'WARNING');
 			$this->addWarning($msg);

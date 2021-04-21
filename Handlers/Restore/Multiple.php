@@ -51,7 +51,12 @@ class Multiple extends Common {
 		}
 
 		foreach($restoreModules as $mod) {
+			if($mod['module'] == 'certman' && $bkinfo['warmspareenabled'] == 'yes' && $bkinfo['warmspare_cert'] =='yes' ){
+				$this->log(_('Skipping CertMan module Restore , Warmspare skip Certificate enabled'),'INFO');
+				continue;
+			}
 			$this->log(sprintf(_("Processing %s"),$mod['module']),'INFO');
+			
 			try {
 				$this->processModule($mod['module'],$mod['version']);
 			} catch(\Exception $e) {

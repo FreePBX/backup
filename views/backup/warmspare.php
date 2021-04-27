@@ -72,6 +72,38 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
     </div>
   </div>
   <!--END Enable Remote Trunks-->
+   <!--Exclude CERT settings-->
+  <div class="element-container warmspare">
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-3">
+          <label class="control-label" for="warmspare_cert">
+            <?php echo _("Exclude CERTIFICATE settings") ?>
+          </label>
+          <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_cert"></i>
+        </div>
+        <div class="col-md-9 radioset">
+          <input type="radio" name="warmspare_cert" id="warmspare_certyes" value="yes" <?php echo ($warmspare_cert == "yes" ? "CHECKED" : "") ?>>
+          <label for="warmspare_certyes">
+            <?php echo _("Yes"); ?>
+          </label>
+          <input type="radio" name="warmspare_cert" id="warmspare_certno" <?php echo ($warmspare_cert == "yes" ? "" : "CHECKED")?>>
+          <label for="warmspare_certno">
+            <?php echo _("No"); ?>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <span id="warmspare_cert-help" class="help-block fpbx-help-block">
+          <?php echo _("If this option is set to yes then certificate will not be restored which require HTTPS config to be rebuild manually with spare server certificate.") ?>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!--Exclude CERT settings-->
+   
     <!--Exclude NAT settings-->
   <div class="element-container warmspare">
     <div class="row">

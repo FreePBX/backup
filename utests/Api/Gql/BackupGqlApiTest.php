@@ -39,7 +39,7 @@ class BackupGqlApiTest extends ApiBaseTestCase {
       addBackup(input : {
         name: \"testbackup\"
         description: \"testing backup to add a backup\"
-        backupModules: \"{'adv_recovery','amd'}\"
+        backupModules: [\"adv_recovery\",\"amd\"]
         notificationEmail: \"test@test.com\"    
       }){
         status message
@@ -47,7 +47,7 @@ class BackupGqlApiTest extends ApiBaseTestCase {
    }");
       
    $json = (string)$response->getBody();
-   $this->assertEquals('{"errors":[{"message":"Field addBackupInput.storageLocation of required type String! was not provided.","status":false}]}',$json);
+   $this->assertEquals('{"errors":[{"message":"Field addBackupInput.storageLocation of required type [String]! was not provided.","status":false}]}',$json);
       
    $this->assertEquals(400, $response->getStatusCode());
   }
@@ -76,7 +76,7 @@ class BackupGqlApiTest extends ApiBaseTestCase {
       addBackup(input : {
         name: \"testbackup\"
         description: \"testing backup to add a backup\"
-        backupModules: \"all\"
+        backupModules: [\"all\"]
         storageLocation: \"{'dropbox_wqeqwe'}\"    
       }){
         status message id
@@ -198,5 +198,49 @@ class BackupGqlApiTest extends ApiBaseTestCase {
    $this->assertEquals('{"data":{"restoreBackup":{"status":true,"message":"Restore process has been initiated. Kindly check the fetchApiStatus api with the transaction id."}}}',$json);
       
    $this->assertEquals(200, $response->getStatusCode());
+  }
+  
+  /**
+   * test_addBackup_when_enableBackupSchedule_is_true_but_scheduleBackup_not_given_should_return_false
+   *
+   * @return void
+   */
+  public function test_addBackup_when_enableBackupSchedule_is_true_but_scheduleBackup_not_given_should_return_false(){
+    $response = $this->request("mutation{
+      addBackup(input : {
+        name: \"testbackup\"
+        description: \"testing backup to add a backup\"
+        backupModules: [\"adv_recovery\",\"amd\"]
+        notificationEmail: \"test@test.com\"   
+        storageLocation: [\"Email_234324-234-43241-234-2342345\"]
+        enableBackupSchedule : true
+      }){
+        status message
+      }
+   }");
+      
+   $json = (string)$response->getBody();
+   $this->assertEquals('{"errors":[{"message":"You have enabled enableBackupSchedule so please add scheduleBackup","status":false}]}',$json);
+      
+   $this->assertEquals(400, $response->getStatusCode());
+  }
+  
+  public function test_addBackup_when_invalid_module_name_given_should_return_false(){
+    $response = $this->request("mutation{
+      addBackup(input : {
+        name: \"testbackup\"
+        description: \"testing backup to add a backup\"
+        backupModules: [\"advrecovery\"]
+        notificationEmail: \"test@test.com\"   
+        storageLocation: [\"Email_234324-234-43241-234-2342345\"]
+      }){
+        status message
+      }
+   }");
+      
+   $json = (string)$response->getBody();
+   $this->assertEquals('{"errors":[{"message":"Sorry Module name advrecovery is invalid","status":false}]}',$json);
+      
+   $this->assertEquals(400, $response->getStatusCode());
   }
 }

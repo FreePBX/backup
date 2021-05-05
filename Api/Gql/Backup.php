@@ -53,6 +53,9 @@ class Backup extends Base {
 						'outputFields' => $this->getAddBackupOutputFields(),
 						'mutateAndGetPayload' => function ($input) {
 							$input = $this->resolveNames($input);
+							if($input['schedule_enabled'] == 'yes' && empty($input['backup_schedule'])){
+								return ['message' => _('You have enabled enableBackupSchedule so please add scheduleBackup'), 'status' => false];
+							}
 							return $this->addBackup($input);
 						}
 					]),
@@ -177,7 +180,7 @@ class Backup extends Base {
 				'description' => _('Add a description for your backup')
 			],
 			'backupModules' => [
-				'type' => Type::nonNull(Type::String()),
+				'type' => Type::nonNull(Type::listOf(Type::String())),
 				'description' => _('Modules to backup')
 			],
 			'notificationEmail' => [
@@ -193,7 +196,7 @@ class Backup extends Base {
 				'description' => _('When to email default both')
 			],
 			'storageLocation' => [
-				'type' => Type::nonNull(Type::string()),
+				'type' => Type::nonNull(Type::listOf(Type::String())),
 				'description' => _('Select one or more storage locations. Storage locations can be added/configured with the Filestore module')
 			],
 			'appendBackupName' => [
@@ -259,7 +262,7 @@ class Backup extends Base {
 			'id' => [
 				'type' => Type::string(),
 				'resolve' => function ($payload) {
-					return $payload['id'];
+					return isset($payload['id']) ? $payload['id'] : null;
 				}
 			],
 		];
@@ -325,6 +328,29 @@ class Backup extends Base {
 	private function addBackup($input){
 		$data = [];
 		$data['id'] = isset($input['id']) ? $input['id'] : $this->freepbx->backup->generateID();
+		$data['backup_items'] = $backup_items = isset($input['backupModules']) ? $input['backupModules'] : ['all'];
+			$newbackup = array();
+		if($backup_items[0] == 'all'){
+			$backup =  $this->freepbx->backup->getModules();
+			foreach($backup as $bckup){
+				array_push($newbackup,array('modulename' => $bckup['rawname'], 'selected' => true, 'settings' => array()));
+			}
+		}else{
+			$validiModuleNames = array();
+			$backupModules = $this->freepbx->backup->getModules();
+			foreach($backupModules as $module){
+				array_push($validiModuleNames,$module['rawname']);
+			}
+			foreach($backup_items as $item){
+				if(in_array($item,$validiModuleNames)){
+					array_push($newbackup,array('modulename' => $item, 'selected' => true, 'settings' => array()));
+				}else{
+					return ['message' => _('Sorry Module name '. $item .' is invalid'), 'status' => false];
+				}
+			}
+		}
+		$data['backup_items'] = $backup_items = $newbackup;
+
 		foreach ($this->freepbx->backup->backupFields as $col) {
 		 	//This will be set independently
 			if($col == 'immortal'){
@@ -343,17 +369,13 @@ class Backup extends Base {
 		$backup_name = str_replace(' ', '-', $backup_name); 
 		$backup_name = preg_replace('/[^A-Za-z0-9\-]/', '', $backup_name);
 		$description = isset($input['description']) ? $input['description'] : ''; 
-		$data['backup_items'] = $backup_items = isset($input['backupModules']) ? $input['backupModules'] : 'all';
-		if($backup_items == 'all'){
-			$data['backup_items'] = $backup_items = 'unchanged';
-		}
 		$cftype = isset($input['type']) ? $input['type'] : ''; 
 		$path = isset($input['path']) ? $input['path'] : ''; 
 		$exclude = isset($input['exclude']) ? $input['exclude'] : ''; 
 
 		$res = $this->freepbx->backup->performBackup($data,$backup_name,$description,$backup_items,$cftype,$path,$exclude);
 	  	if($res){
-			return ['message' => _('Backup has been performed/schedules'), 'status'=> true, 'id' => $res] ;
+			return ['message' => _('Backup has been performed/schedules'), 'status'=> true, 'id' => $res];
 		}else{
 			return ['message' => _('Unable to perform backup'), 'status' => false];
 		}

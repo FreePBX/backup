@@ -82,14 +82,26 @@ class Backup extends Base {
 		if($this->checkAllReadScope()) {
 			return function() {
 				return [
-					'fetchBackupFiles' => [
+					'fetchAllBackups' => [
 						'type' => $this->typeContainer->get('backup')->getConnectionType(),
-						'resolve' => function($root, $args) {
-                     $res = $this->freepbx->backup->getAllRemote();
-							if(!empty($res)){
-								return ['message' => _("List of backup files"), 'status' => true , 'fileDetails' => json_encode($res)];
-							}else{
-								return ['message' => _('Sorry unable to find the filestore types'), 'status' => false];
+						'resolve' => function ($root, $args) {
+							$res = $this->freepbx->backup->getAllRemote();
+							if (!empty($res)) {
+								return ['message' => _("List of backup files"), 'status' => true, 'response' => $res];
+							} else {
+								return ['message' => _('Sorry unable to find the backup files'), 'status' => false];
+							}
+						}
+					],
+					'fetchAllBackupConfigurations' => [
+						'type' => $this->typeContainer->get('backup')->getConnectionType(),
+						'resolve' => function ($root, $args) {
+							$res = $this->freepbx->backup->listBackups();
+							dbug($res);
+							if (!empty($res)) {
+								return ['message' => _("List of backup configurations"), 'status' => true, 'response' => $res];
+							} else {
+								return ['message' => _('Sorry unable to find the backup configurations'), 'status' => false];
 							}
 						}
 					],
@@ -108,12 +120,13 @@ class Backup extends Base {
 
 		$user->addFieldCallback(function() {
 			return [
-				'id' => Relay::globalIdField('backup', function($row) {
-					return $row['id'];
-				}),
+				'id' => [
+					'type' => Type::String(),
+					'description' => _('Returns backup id')
+				],
 				'name' => [
-					'type' => Type::nonNull(Type::string()),
-					'description' => 'Warm spare Backup file name is required',
+					'type' => Type::String(),
+					'description' => _('Return backup name')
 				],
 				'status' =>[
 					'type' => Type::boolean(),
@@ -122,7 +135,32 @@ class Backup extends Base {
 				'message' =>[
 					'type' => Type::String(),
 					'description' => _('Message for the request')
-				]
+				],
+				'type' => [
+					'type' => Type::String(),
+					'description' => _('Returns backup type')
+				],
+				'file' => [
+					'type' => Type::String(),
+					'description' => _('Return backup file name')
+				],
+				'framework' => [
+					'type' => Type::String(),
+					'description' => _('Return backup framework')
+				],
+				'timestamp' => [
+					'type' => Type::String(),
+					'description' => _('Return backup timestamp')
+				],
+				'description' => [
+					'type' => Type::String(),
+					'description' => _('Return backup description')
+				],
+				'instancename' => [
+					'type' => Type::String(),
+					'description' => _('Return backup instancename')
+				],
+				
 			];
 		});
 
@@ -141,8 +179,14 @@ class Backup extends Base {
 					'description' => _('Status for the request')
 				],
 				'fileDetails' => [
-					'type' => Type::string(),
-					'description' => _('List of backuo files')
+					'type' => Type::listOf($this->typeContainer->get('backup')->getObject()),
+					'description' => _('List of bakup files'),
+					'resolve' => function ($root, $args) {
+						$data = array_map(function ($row) {
+							return $row;
+						}, isset($root['response']) ? $root['response'] : []);
+						return $data;
+					}
 				]
 			];
 		});

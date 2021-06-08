@@ -102,20 +102,87 @@ class BackupGqlApiTest extends ApiBaseTestCase {
        ->getMock();
 
     $mockHelper->method('getAllRemote')
-      ->willReturn(["id" => "SSH_8e734b7c-180a-f445-fr4r-2345_12324324345436","type"=>"SSH","file" => "20214324-212343-15234-15.0.16.51-1234234.tar.gz","framework" => "15.0.16.51","timestamp" => "1588606202","name" => "20214324-212343-15234-15.0.16.51-1234234.tar.gz","instancename" => "warmspare"]);
+      ->willReturn(array(array("id" => "SSH_8e734b7c-180a-f445-fr4r-2345_12324324345436", "type" => "SSH", "file" => "20214324-212343-15234-15.0.16.51-1234234.tar.gz", "framework" => "15.0.16.51", "timestamp" => "1588606202", "name" => "20214324-212343-15234-15.0.16.51-1234234.tar.gz", "instancename" => "warmspare")));
 
     self::$freepbx->backup = $mockHelper;  
 
-    $response = $this->request("query{
-      fetchBackupFiles{
-        status message fileDetails
-      }
-    }");
+    $response = $this->request(
+    "query{
+				fetchAllBackups{
+				status message fileDetails{
+					id
+					type
+					file
+					framework
+					timestamp
+					name
+					instancename
+					}
+				}
+      }");
 
    $json = (string)$response->getBody();
-   $this->assertEquals('{"data":{"fetchBackupFiles":{"status":true,"message":"List of backup files","fileDetails":"{\"id\":\"SSH_8e734b7c-180a-f445-fr4r-2345_12324324345436\",\"type\":\"SSH\",\"file\":\"20214324-212343-15234-15.0.16.51-1234234.tar.gz\",\"framework\":\"15.0.16.51\",\"timestamp\":\"1588606202\",\"name\":\"20214324-212343-15234-15.0.16.51-1234234.tar.gz\",\"instancename\":\"warmspare\"}"}}}',$json);
+   $this->assertEquals('{"data":{"fetchAllBackups":{"status":true,"message":"List of backup files","fileDetails":[{"id":"SSH_8e734b7c-180a-f445-fr4r-2345_12324324345436","type":"SSH","file":"20214324-212343-15234-15.0.16.51-1234234.tar.gz","framework":"15.0.16.51","timestamp":"1588606202","name":"20214324-212343-15234-15.0.16.51-1234234.tar.gz","instancename":"warmspare"}]}}}',$json);
       
    $this->assertEquals(200, $response->getStatusCode());
+  }
+
+  public function test_fetchBackupFiles_when_wrong_parameter_sent_should_return_error_and_false()
+  {
+
+    $response = $this->request("query{
+				fetchAllBackups{
+				status message fileDetails{
+					id
+					type
+					file
+					framework
+					timestamp
+					name
+					lorem
+					}
+				}
+				}");
+
+    $json = (string)$response->getBody();
+
+    $this->assertEquals('{"errors":[{"message":"Cannot query field \"lorem\" on type \"backup\".","status":false}]}', $json);
+
+    $this->assertEquals(400, $response->getStatusCode());
+  }
+
+  public function test_fetchBackupFiles_when_backups_not_return_should_return_false()
+  {
+
+    $mockHelper = $this->getMockBuilder(\Freepbx\modules\Backup::class)
+      ->disableOriginalConstructor()
+      ->setMethods(array('getAllRemote'))
+      ->getMock();
+
+    $mockHelper->method('getAllRemote')
+    ->willReturn(array());
+
+    self::$freepbx->backup = $mockHelper;
+
+    $response = $this->request("query{
+				fetchAllBackups{
+				status message fileDetails{
+					id
+					type
+					file
+					framework
+					timestamp
+					name
+					instancename
+					}
+				}
+				}");
+
+    $json = (string)$response->getBody();
+
+    $this->assertEquals('{"errors":[{"message":"Sorry unable to find the backup files","status":false}]}', $json);
+
+    $this->assertEquals(400, $response->getStatusCode());
   }
   
   /**
@@ -242,5 +309,86 @@ class BackupGqlApiTest extends ApiBaseTestCase {
    $this->assertEquals('{"errors":[{"message":"Sorry Module name advrecovery is invalid","status":false}]}',$json);
       
    $this->assertEquals(400, $response->getStatusCode());
+  }
+  public function test_fetchAllBackupConfigurations_all_good_should_return_true()
+  {
+
+    $mockHelper = $this->getMockBuilder(\Freepbx\modules\Backup::class)
+    ->disableOriginalConstructor()
+    ->setMethods(array('listBackups'))
+    ->getMock();
+
+    $mockHelper->method('listBackups')
+    ->willReturn(array(array("id" => "SSH_8e734b7c-180a-f445-fr4r-2345_12324324345436", "name" => "SSH", "description" => "20214324-212343-15234-15.0.16.51-1234234.tar.gz")));
+
+    self::$freepbx->backup = $mockHelper;
+
+    $response = $this->request(
+      "query{
+				fetchAllBackupConfigurations{
+          status message fileDetails{
+            id
+            name
+            description
+          }
+        }
+      }");
+
+    $json = (string)$response->getBody();
+
+    $this->assertEquals('{"data":{"fetchAllBackupConfigurations":{"status":true,"message":"List of backup configurations","fileDetails":[{"id":"SSH_8e734b7c-180a-f445-fr4r-2345_12324324345436","name":"SSH","description":"20214324-212343-15234-15.0.16.51-1234234.tar.gz"}]}}}', $json);
+
+    $this->assertEquals(200, $response->getStatusCode());
+  }
+
+  public function test_fetchAllBackupConfigurations_when_wrong_parameter_sent_should_return_error_and_false()
+  {
+
+    $response = $this->request("query{
+      fetchAllBackupConfigurations{
+        status message fileDetails{
+            id
+            name
+            description
+            lorem 
+          }
+        }
+      }");
+
+    $json = (string)$response->getBody();
+
+    $this->assertEquals('{"errors":[{"message":"Cannot query field \"lorem\" on type \"backup\".","status":false}]}', $json);
+
+    $this->assertEquals(400, $response->getStatusCode());
+  }
+
+  public function test_fetchAllBackupConfigurations_when_backups_not_return_should_return_false()
+  {
+
+    $mockHelper = $this->getMockBuilder(\Freepbx\modules\Backup::class)
+      ->disableOriginalConstructor()
+      ->setMethods(array('listBackups'))
+      ->getMock();
+
+    $mockHelper->method('listBackups')
+    ->willReturn(array());
+
+    self::$freepbx->backup = $mockHelper;
+
+    $response = $this->request("query{
+      fetchAllBackupConfigurations{
+				status message fileDetails{
+					id
+					name
+					description
+					}
+				}
+      }");
+
+    $json = (string)$response->getBody();
+
+    $this->assertEquals('{"errors":[{"message":"Sorry unable to find the backup configurations","status":false}]}', $json);
+
+    $this->assertEquals(400, $response->getStatusCode());
   }
 }

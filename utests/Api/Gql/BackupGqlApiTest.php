@@ -319,7 +319,7 @@ class BackupGqlApiTest extends ApiBaseTestCase {
     ->getMock();
 
     $mockHelper->method('listBackups')
-    ->willReturn(array(array("id" => "SSH_8e734b7c-180a-f445-fr4r-2345_12324324345436", "name" => "SSH", "description" => "20214324-212343-15234-15.0.16.51-1234234.tar.gz")));
+    ->willReturn(array(array("id" => "12324324345436", "name" => "Testing Backup", "description" => "Testing Backup Description")));
 
     self::$freepbx->backup = $mockHelper;
 
@@ -336,7 +336,7 @@ class BackupGqlApiTest extends ApiBaseTestCase {
 
     $json = (string)$response->getBody();
 
-    $this->assertEquals('{"data":{"fetchAllBackupConfigurations":{"status":true,"message":"List of backup configurations","fileDetails":[{"id":"SSH_8e734b7c-180a-f445-fr4r-2345_12324324345436","name":"SSH","description":"20214324-212343-15234-15.0.16.51-1234234.tar.gz"}]}}}', $json);
+    $this->assertEquals('{"data":{"fetchAllBackupConfigurations":{"status":true,"message":"List of backup configurations","fileDetails":[{"id":"12324324345436","name":"Testing Backup","description":"Testing Backup Description"}]}}}', $json);
 
     $this->assertEquals(200, $response->getStatusCode());
   }

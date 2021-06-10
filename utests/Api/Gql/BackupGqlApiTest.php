@@ -326,7 +326,7 @@ class BackupGqlApiTest extends ApiBaseTestCase {
     $response = $this->request(
       "query{
 				fetchAllBackupConfigurations{
-          status message fileDetails{
+          status message backupConfigurations{
             id
             name
             description
@@ -336,7 +336,7 @@ class BackupGqlApiTest extends ApiBaseTestCase {
 
     $json = (string)$response->getBody();
 
-    $this->assertEquals('{"data":{"fetchAllBackupConfigurations":{"status":true,"message":"List of backup configurations","fileDetails":[{"id":"12324324345436","name":"Testing Backup","description":"Testing Backup Description"}]}}}', $json);
+    $this->assertEquals('{"data":{"fetchAllBackupConfigurations":{"status":true,"message":"List of backup configurations","backupConfigurations":[{"id":"12324324345436","name":"Testing Backup","description":"Testing Backup Description"}]}}}', $json);
 
     $this->assertEquals(200, $response->getStatusCode());
   }
@@ -346,7 +346,7 @@ class BackupGqlApiTest extends ApiBaseTestCase {
 
     $response = $this->request("query{
       fetchAllBackupConfigurations{
-        status message fileDetails{
+        status message backupConfigurations{
             id
             name
             description
@@ -377,7 +377,7 @@ class BackupGqlApiTest extends ApiBaseTestCase {
 
     $response = $this->request("query{
       fetchAllBackupConfigurations{
-				status message fileDetails{
+				status message backupConfigurations{
 					id
 					name
 					description

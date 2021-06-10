@@ -7,7 +7,7 @@ use GraphQL\Type\Definition\Type;
 use FreePBX\modules\Api\Gql\Base;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
-
+use GraphQL\Error\FormattedError;
 class Backup extends Base {
 	protected $module = 'backup';
 
@@ -50,13 +50,30 @@ class Backup extends Base {
 						'name' => _('addBackup'),
 						'description' => _('Set Backup Configurations'),
 						'inputFields' => $this->getAddBackupInputFields(),
-						'outputFields' => $this->getAddBackupOutputFields(),
+						'outputFields' => $this->getBackupOutputFields(),
 						'mutateAndGetPayload' => function ($input) {
 							$input = $this->resolveNames($input);
+							if(strpos($input['backup_name'], ' ') !== false || preg_match('/[^A-Za-z0-9\-]/',$input['backup_name'])){
+								return ['message' => _('Name contains whitespaces/special characters use - instead'), 'status' => false];
+							}
 							if($input['schedule_enabled'] == 'yes' && empty($input['backup_schedule'])){
 								return ['message' => _('You have enabled enableBackupSchedule so please add scheduleBackup'), 'status' => false];
 							}
 							return $this->addBackup($input);
+						}
+					]),
+					'updateBackup' => Relay::mutationWithClientMutationId([
+						'name' => _('updateBackup'),
+						'description' => _('Update Backup Configurations'),
+						'inputFields' => $this->getUpdateBackupInputFields(),
+						'outputFields' => $this->getBackupOutputFields(),
+						'mutateAndGetPayload' => function ($input) {
+							$input = $this->resolveNames($input);
+							if(strpos($input['backup_name'], ' ') !== false || preg_match('/[^A-Za-z0-9\-]/',$input['backup_name'])){
+								return ['message' => _('Name contains whitespaces/special characters use - instead'), 'status' => false];
+							}
+							$res = $this->updateBackup($input);
+							return $res;
 						}
 					]),
 					'restoreBackup' => Relay::mutationWithClientMutationId([
@@ -105,6 +122,32 @@ class Backup extends Base {
 							}
 						}
 					],
+					'deleteBackup' => [
+						'type' => $this->typeContainer->get('backup')->getConnectionType(),
+						'args' => [
+							'backupId' => [
+								'type' => Type::id(),
+								'description' => _('The Backup Id to delete'),
+							]
+						],
+						'resolve' => function ($root, $args) {
+							$backupDetails = $this->freepbx->backup->getBackup($args['backupId']);
+							if (isset($backupDetails)) {
+								$res = $this->freepbx->backup->deleteBackup($args['backupId']);
+								try {
+									if (!empty($res)) {
+										return ['response' => $res, 'status' => true, 'message' => _('Backup deleted successfully')];
+									} else {
+										return ['status' => false, 'message' => _('Backup does not exists')];
+									}
+								} catch (\Exception $ex) {
+									FormattedError::setInternalErrorMessage($ex->getMessage());
+								}
+							} else {
+								return ['status' => false, 'message' => _('Backup does not exists')];
+							}
+						}
+					]
             ];
 			};
 	   }
@@ -269,7 +312,74 @@ class Backup extends Base {
 			],
 		];
 	}
-	
+
+	/**
+	 * getUpdateBackupInputFields
+	 *
+	 * @return void
+	 */
+	private function getUpdateBackupInputFields()
+	{
+		return [
+			'id' => [
+				'type' => Type::nonNull(Type::string()),
+				'description' => _('A id used to identify your backups')
+			],
+			'name' => [
+				'type' => Type::string(),
+				'description' => _('A name used to identify your backups')
+			],
+			'description' => [
+				'type' => Type::string(),
+				'description' => _('Add a description for your backup')
+			],
+			'backupModules' => [
+				'type' => Type::listOf(Type::String()),
+				'description' => _('Modules to backup')
+			],
+			'notificationEmail' => [
+				'type' => Type::string(),
+				'description' => _('Email address to send notifications, Multiple email addresses need to be separated by comma')
+			],
+			'inlineLogs' => [
+				'type' => Type::string(),
+				'description' => _('When set to Yes logs will be added to the body of the email, when set to No logs will be added as an attachment, default no')
+			],
+			'emailType' => [
+				'type' => Type::string(),
+				'description' => _('When to email default both')
+			],
+			'storageLocation' => [
+				'type' => Type::listOf(Type::String()),
+				'description' => _('Select one or more storage locations. Storage locations can be added/configured with the Filestore module')
+			],
+			'appendBackupName' => [
+				'type' => Type::boolean(),
+				'description' => _('When set to Yes , Backp files will store like filestore-path/backup-job-name/backup-file and if set to NO then backup file will store into filestore-path/backup-file,default false')
+			],
+			'enableBackupSchedule' => [
+				'type' => Type::boolean(),
+				'description' => _('Enable scheduled backups, default false')
+			],
+			'scheduleBackup' => [
+				'type' => Type::string(),
+				'description' => _('When should this backup run')
+			],
+			'updatesToKeep' => [
+				'type' => Type::id(),
+				'description' => _('How many updates to keep. If this number is 3, the last 3 will be kept. 0 is unlimited')
+			],
+			'backupDaysToKeep' => [
+				'type' => Type::id(),
+				'description' => _('How long to maintain backups. Example 30 will delete anything older than 30 days.')
+			],
+			'warmSpace' => [
+				'type' => Type::boolean(),
+				'description' => _('Should the warm spare feature be enabled, default false')
+			],
+		];
+	}
+
 	/**
 	 * getRestoreInputFields
 	 *
@@ -283,13 +393,14 @@ class Backup extends Base {
 			]
 		];
 	}
-	
+
 	/**
-	 * getAddBackupOutputFields
+	 * getBackupOutputFields
 	 *
 	 * @return void
 	 */
-	private function getAddBackupOutputFields(){
+	private function getBackupOutputFields()
+	{
 		return [
 			'status' => [
 				'type' => Type::boolean(),
@@ -439,6 +550,86 @@ class Backup extends Base {
 			return ['message' => _('Restore process has been initiated. Kindly check the fetchApiStatus api with the transaction id.'),'status' => true , 'transaction_id' => $txnId];
 		}else{
 			return ['message' => _('Sorry failed to perform restore'),'status' => false];
+		}
+	}
+
+	/**
+	 * updateBackup
+	 *
+	 * @param  mixed $extensionExists
+	 * @param  mixed $users
+	 * @param  mixed $userman
+	 * @param  mixed $input
+	 * @return void
+	 */
+	private function updateBackup($input)
+	{
+		$backupDetails = $this->freepbx->backup->getBackup($input['id']);
+
+		if ($backupDetails) {
+			$data['id'] = $input['id'];
+			$data['backup_name'] = !empty($input['backup_name']) ? $input['backup_name'] : $backupDetails['backup_name'];
+			$data['backup_description'] = !empty($input['backup_description']) ? $input['backup_description'] : $backupDetails['backup_description'];
+			if (count($input['backupModules']) > 0) {
+				$data['backup_items'] = $input['backupModules'];
+			} else {
+				$modulesList = json_decode($backupDetails['backup_items'], true);
+				if (isset($modulesList)) {
+					$data['backup_items'] = $modulesList;
+				} else {
+					return ['message' => _('Backup Modules Required'), 'status' => false];
+				}
+			}
+			$newbackup = array();
+			if ($data['backup_items'][0] == 'all') {
+				$backup =  $this->freepbx->backup->getModules();
+				foreach ($backup as $bckup) {
+					array_push($newbackup, array('modulename' => $bckup['rawname'], 'selected' => true, 'settings' => array()));
+				}
+			} else {
+				$validiModuleNames = array();
+				$backupModules = $this->freepbx->backup->getModules();
+				foreach ($backupModules as $module) {
+					array_push($validiModuleNames, $module['rawname']);
+				}
+				foreach ($data['backup_items'] as $item) {
+					if (in_array($item, $validiModuleNames)) {
+						array_push($newbackup, array('modulename' => $item, 'selected' => true, 'settings' => array()));
+					} else {
+						return ['message' => _('Sorry module name ' . $item . ' is invalid'), 'status' => false];
+					}
+				}
+			}
+			$data['backup_items'] = count($input['backupModules']) > 0 ? $input['backupModules'] : json_decode($backupDetails['backup_items'], true);
+			$data['backup_email'] = !empty($input['backup_email']) ? $input['backup_email'] : $backupDetails['backup_email'];
+			$data['backup_emailinline'] = !empty($input['backup_emailinline']) ? $input['backup_emailinline'] : $backupDetails['backup_emailinline'];
+			$data['backup_emailtype'] = !empty($input['backup_emailtype']) ? $input['backup_emailtype'] : $backupDetails['backup_emailtype'];
+			if (count($input['backup_storage']) > 0) {
+				$data['backup_storage'] = $input['backup_storage'];
+			} else {
+				if (count($backupDetails['backup_storage']) > 0) {
+					$data['backup_storage'] = $backupDetails['backup_storage'];
+				} else {
+					return ['message' => _('Backup Storage Location Required'), 'status' => false];
+				}
+			}
+			$data['backup_addbjname'] = !empty($input['backup_addbjname']) ? $input['backup_addbjname'] : $backupDetails['backup_addbjname'];
+			$data['schedule_enabled'] = !empty($input['schedule_enabled']) ? $input['schedule_enabled'] : $backupDetails['schedule_enabled'];
+			$data['backup_schedule'] = !empty($input['backup_schedule']) ? $input['backup_schedule'] : $backupDetails['backup_schedule'];
+			$data['maintruns'] = !empty($input['maintruns']) ? $input['maintruns'] : $backupDetails['maintruns'];
+			$data['maintage'] = !empty($input['maintage']) ? $input['maintage'] : $backupDetails['maintage'];
+			$data['warmspareenabled'] = !empty($input['warmspareenabled']) ? $input['warmspareenabled'] : $backupDetails['warmspareenabled'];
+			if ($data['schedule_enabled'] == 'yes' && empty($data['backup_schedule'])) {
+				return ['message' => _('You have enabled enableBackupSchedule so please add scheduleBackup'), 'status' => false];
+			}
+			$res = $this->freepbx->backup->updateGQLBackup($data);
+			if ($res) {
+				return ['message' => _('Backup has been updated'), 'status' => true, 'id' => $res];
+			} else {
+				return ['message' => _('Unable to update backup'), 'status' => false];
+			}
+		} else {
+			return ['message' => _('Backup does not found'), 'status' => false];
 		}
 	}
 }

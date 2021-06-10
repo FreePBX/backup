@@ -187,6 +187,16 @@ class Backup extends Base {
 						}, isset($root['response']) ? $root['response'] : []);
 						return $data;
 					}
+				],
+				'backupConfigurations' => [
+					'type' => Type::listOf($this->typeContainer->get('backup')->getObject()),
+					'description' => _('List of bakup files'),
+					'resolve' => function ($root, $args) {
+						$data = array_map(function ($row) {
+							return $row;
+						}, isset($root['response']) ? $root['response'] : []);
+						return $data;
+					}
 				]
 			];
 		});

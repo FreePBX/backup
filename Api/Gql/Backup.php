@@ -285,8 +285,8 @@ class Backup extends Base {
 				'description' => _('Email address to send notifications, Multiple email addresses need to be separated by comma')
 			],
 			'inlineLogs' => [
-				'type' => Type::string(),
-				'description' => _('When set to Yes logs will be added to the body of the email, when set to No logs will be added as an attachment, default no')
+				'type' => Type::boolean(),
+				'description' => _('When set to true logs will be added to the body of the email, when set to false logs will be added as an attachment, default false')
 			],
 			'emailType' => [
 				'type' => Type::string(),
@@ -298,7 +298,7 @@ class Backup extends Base {
 			],
 			'appendBackupName' => [
 				'type' => Type::boolean(),
-				'description' => _('When set to Yes , Backp files will store like filestore-path/backup-job-name/backup-file and if set to NO then backup file will store into filestore-path/backup-file,default false')
+				'description' => _('When set to true , Backp files will store like filestore-path/backup-job-name/backup-file and if set to false then backup file will store into filestore-path/backup-file,default false')
 			],
 			'enableBackupSchedule' => [
 				'type' => Type::boolean(),
@@ -352,7 +352,7 @@ class Backup extends Base {
 				'description' => _('Email address to send notifications, Multiple email addresses need to be separated by comma')
 			],
 			'inlineLogs' => [
-				'type' => Type::string(),
+				'type' => Type::boolean(),
 				'description' => _('When set to Yes logs will be added to the body of the email, when set to No logs will be added as an attachment, default no')
 			],
 			'emailType' => [
@@ -494,7 +494,7 @@ class Backup extends Base {
 		$data = [];
 		$data['id'] = isset($input['id']) ? $input['id'] : $this->freepbx->backup->generateID();
 		$data['backup_items'] = $backup_items = isset($input['backupModules']) ? $input['backupModules'] : ['all'];
-			$newbackup = array();
+		$newbackup = array();
 		if($backup_items[0] == 'all'){
 			$backup =  $this->freepbx->backup->getModules();
 			foreach($backup as $bckup){

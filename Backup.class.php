@@ -1135,7 +1135,40 @@ public function GraphQL_Access_token($request) {
 
 		return $this->performBackup($data,$backup_name,$description,$backup_items,$cftype,$path,$exclude);
 	}
-	
+
+	/**
+	 * Update a backup item from GQL. Note the only difference is weather we generate an ID
+	 * @param  array $data an array of the items needed.
+	 * @return string the backup id
+	 */
+	public function updateGQLBackup($input)
+	{
+		$data = [];
+		$data['id'] = $input['id'];
+		foreach ($this->backupFields as $col) {
+			//This will be set independently
+			if ($col == 'immortal') {
+				continue;
+			}
+			if (array_key_exists($col, $input)) {
+				$value = $input[$col];
+				if ($col == 'backup_name') {
+					$value = str_replace(' ', '-', $value);
+					$value = preg_replace('/[^A-Za-z0-9\-]/', '', $value);
+				}
+				$this->updateBackupSetting($data['id'], $col, $value);
+			}
+		}
+		$backup_name = $input['backup_name'];
+		$description = $input['backup_description'];
+		$data['backup_items'] = $input['backup_items'];
+		$backup_items = $input['backup_items'];
+		$cftype = isset($input['type']) ? $input['type'] : '';
+		$path = isset($input['path']) ? $input['path'] : '';
+		$exclude = isset($input['exclude']) ? $input['exclude'] : '';
+		return $this->performBackup($data, $backup_name, $description, $backup_items, $cftype, $path, $exclude);
+	}
+
 	/**
 	 * performBackup
 	 *

@@ -68,6 +68,7 @@ class Backup extends Base {
 						'inputFields' => $this->getUpdateBackupInputFields(),
 						'outputFields' => $this->getBackupOutputFields(),
 						'mutateAndGetPayload' => function ($input) {
+							
 							$input = $this->resolveNames($input);
 							if(strpos($input['backup_name'], ' ') !== false || preg_match('/[^A-Za-z0-9\-]/',$input['backup_name'])){
 								return ['message' => _('Name contains whitespaces/special characters use - instead'), 'status' => false];
@@ -580,18 +581,8 @@ class Backup extends Base {
 			$data['id'] = $input['id'];
 			$data['backup_name'] = !empty($input['backup_name']) ? $input['backup_name'] : $backupDetails['backup_name'];
 			$data['backup_description'] = !empty($input['backup_description']) ? $input['backup_description'] : $backupDetails['backup_description'];
-			if (count($input['backupModules']) > 0) {
-				$data['backup_items'] = $input['backupModules'];
-			} else {
-				$modulesList = json_decode($backupDetails['backup_items'], true);
-				if (isset($modulesList)) {
-					$data['backup_items'] = $modulesList;
-				} else {
-					return ['message' => _('Backup Modules Required'), 'status' => false];
-				}
-			}
 			$newbackup = array();
-			if ($data['backup_items'][0] == 'all') {
+			if ($input['backupModules'][0] == 'all') {
 				$backup =  $this->freepbx->backup->getModules();
 				foreach ($backup as $bckup) {
 					array_push($newbackup, array('modulename' => $bckup['rawname'], 'selected' => true, 'settings' => array()));
@@ -602,7 +593,7 @@ class Backup extends Base {
 				foreach ($backupModules as $module) {
 					array_push($validiModuleNames, $module['rawname']);
 				}
-				foreach ($data['backup_items'] as $item) {
+				foreach ($input['backupModules'] as $item) {
 					if (in_array($item, $validiModuleNames)) {
 						array_push($newbackup, array('modulename' => $item, 'selected' => true, 'settings' => array()));
 					} else {
@@ -610,7 +601,7 @@ class Backup extends Base {
 					}
 				}
 			}
-			$data['backup_items'] = count($input['backupModules']) > 0 ? $input['backupModules'] : json_decode($backupDetails['backup_items'], true);
+			$data['backup_items'] = $input['backupModules'] = $newbackup;
 			$data['backup_email'] = !empty($input['backup_email']) ? $input['backup_email'] : $backupDetails['backup_email'];
 			$data['backup_emailinline'] = !empty($input['backup_emailinline']) ? $input['backup_emailinline'] : $backupDetails['backup_emailinline'];
 			$data['backup_emailtype'] = !empty($input['backup_emailtype']) ? $input['backup_emailtype'] : $backupDetails['backup_emailtype'];

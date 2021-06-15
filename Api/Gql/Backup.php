@@ -515,7 +515,21 @@ class Backup extends Base {
 			}
 		}
 		$data['backup_items'] = $backup_items = $newbackup;
-
+		/**
+		 * Validating invalid storage Location
+		 */
+		$validStorageLocations = array();
+		$res = $this->freepbx->filestore->listLocations();
+		foreach ($res['locations'] as $key => $locations) {
+			foreach ($locations as $location) {
+				array_push($validStorageLocations, $key . "_" . $location['id']);
+			}
+		}
+		foreach ($input['storageLocation'] as $givenLocation) {
+			if (!in_array($givenLocation, $validStorageLocations)) {
+				return ['message' => _('Sorry location ' . $givenLocation . ' is invalid'), 'status' => false];
+			}
+		}
 		foreach ($this->freepbx->backup->backupFields as $col) {
 		 	//This will be set independently
 			if($col == 'immortal'){
@@ -621,6 +635,21 @@ class Backup extends Base {
 					$data['backup_storage'] = $backupDetails['backup_storage'];
 				} else {
 					return ['message' => _('Backup Storage Location Required'), 'status' => false];
+				}
+			}
+			/**
+			 * Validating invalid storage Location
+			 */
+			$validStorageLocations = array();
+			$res = $this->freepbx->filestore->listLocations();
+			foreach ($res['locations'] as $key => $locations) {
+				foreach ($locations as $location) {
+					array_push($validStorageLocations, $key . "_" . $location['id']);
+				}
+			}
+			foreach ($input['storageLocation'] as $givenLocation) {
+				if (!in_array($givenLocation, $validStorageLocations)) {
+					return ['message' => _('Sorry location ' . $givenLocation . ' is invalid'), 'status' => false];
 				}
 			}
 			$data['backup_addbjname'] = !empty($input['backup_addbjname']) ? $input['backup_addbjname'] : $backupDetails['backup_addbjname'];

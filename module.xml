@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>16.0.47</version>
+	<version>16.0.48</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,6 +18,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*16.0.48* FREEI-3441 Fixing addBackup and updateBackup GQL API 
 		*16.0.47* FREEI-3435 updateBackup and deleteBackup GQL API 
 		*16.0.46* FREEI-3432 changing fetch fileDetails to backupConfigurations in fetchAllBackupConfigurations API 
 		*16.0.45* FREEI-3392 Created GQL API to fetchAllBackups and Unit tests 

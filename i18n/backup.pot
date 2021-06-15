@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-11 03:55+0000\n"
+"POT-Creation-Date: 2021-06-15 02:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1884,7 +1884,6 @@ msgid ""
 "'filestore-path/backup-file'"
 msgstr ""
 
-#: Api/Gql/Backup.php:301
 #: Api/Gql/Backup.php:368
 msgid ""
 "When set to Yes , Backp files will store like filestore-path/backup-job-name/"
@@ -1898,11 +1897,23 @@ msgid ""
 "logs will be added as an attachment"
 msgstr ""
 
-#: Api/Gql/Backup.php:289
 #: Api/Gql/Backup.php:356
 msgid ""
 "When set to Yes logs will be added to the body of the email, when set to No "
 "logs will be added as an attachment, default no"
+msgstr ""
+
+#: Api/Gql/Backup.php:301
+msgid ""
+"When set to true , Backp files will store like filestore-path/backup-job-"
+"name/backup-file and if set to false then backup file will store into "
+"filestore-path/backup-file,default false"
+msgstr ""
+
+#: Api/Gql/Backup.php:289
+msgid ""
+"When set to true logs will be added to the body of the email, when set to "
+"false logs will be added as an attachment, default false"
 msgstr ""
 
 #: Api/Gql/Backup.php:309

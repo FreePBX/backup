@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-15 02:53+0000\n"
+"POT-Creation-Date: 2021-06-16 02:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,20 +61,20 @@ msgstr ""
 msgid "%s is now loaded into memory"
 msgstr ""
 
-#: Backup.class.php:1498
+#: Backup.class.php:1501
 msgid "/path/to/dir"
 msgstr ""
 
-#: Backup.class.php:1486
+#: Backup.class.php:1489
 msgid "/path/to/file"
 msgstr ""
 
-#: Api/Gql/Backup.php:336
+#: Api/Gql/Backup.php:337
 msgid "A id used to identify your backups"
 msgstr ""
 
-#: Api/Gql/Backup.php:273
-#: Api/Gql/Backup.php:340
+#: Api/Gql/Backup.php:274
+#: Api/Gql/Backup.php:341
 #: views/backup/form.php:60
 msgid "A name used to identify your backups"
 msgstr ""
@@ -122,8 +122,8 @@ msgstr ""
 msgid "Add Backup"
 msgstr ""
 
-#: Api/Gql/Backup.php:277
-#: Api/Gql/Backup.php:344
+#: Api/Gql/Backup.php:278
+#: Api/Gql/Backup.php:345
 #: views/backup/form.php:84
 msgid "Add a description for your backup"
 msgstr ""
@@ -193,7 +193,7 @@ msgstr ""
 msgid "Are you sure, you want to restore this backup?"
 msgstr ""
 
-#: Backup.class.php:1457
+#: Backup.class.php:1460
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -281,10 +281,6 @@ msgstr ""
 msgid "Backup Items"
 msgstr ""
 
-#: Api/Gql/Backup.php:590
-msgid "Backup Modules Required"
-msgstr ""
-
 #: views/backup/form.php:48
 #: views/restore/landing.php:71
 #: views/restore/landing.php:115
@@ -295,7 +291,7 @@ msgstr ""
 msgid "Backup Restored Successfully"
 msgstr ""
 
-#: Api/Gql/Backup.php:623
+#: Api/Gql/Backup.php:614
 msgid "Backup Storage Location Required"
 msgstr ""
 
@@ -312,16 +308,16 @@ msgstr ""
 msgid "Backup completed successfully"
 msgstr ""
 
-#: Api/Gql/Backup.php:139
+#: Api/Gql/Backup.php:140
 msgid "Backup deleted successfully"
 msgstr ""
 
-#: Api/Gql/Backup.php:141
-#: Api/Gql/Backup.php:147
+#: Api/Gql/Backup.php:142
+#: Api/Gql/Backup.php:148
 msgid "Backup does not exists"
 msgstr ""
 
-#: Api/Gql/Backup.php:642
+#: Api/Gql/Backup.php:633
 msgid "Backup does not found"
 msgstr ""
 
@@ -336,11 +332,11 @@ msgstr ""
 msgid "Backup file uploaded to the remote server"
 msgstr ""
 
-#: Api/Gql/Backup.php:543
+#: Api/Gql/Backup.php:544
 msgid "Backup has been performed/schedules"
 msgstr ""
 
-#: Api/Gql/Backup.php:637
+#: Api/Gql/Backup.php:628
 msgid "Backup has been updated"
 msgstr ""
 
@@ -497,7 +493,7 @@ msgstr ""
 msgid "Delete After Runs"
 msgstr ""
 
-#: Backup.class.php:1511
+#: Backup.class.php:1514
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr ""
 
@@ -521,7 +517,7 @@ msgstr ""
 msgid "Determining backup file type..."
 msgstr ""
 
-#: Backup.class.php:1493
+#: Backup.class.php:1496
 msgid "Directory"
 msgstr ""
 
@@ -552,8 +548,8 @@ msgstr ""
 msgid "Email Type"
 msgstr ""
 
-#: Api/Gql/Backup.php:285
-#: Api/Gql/Backup.php:352
+#: Api/Gql/Backup.php:286
+#: Api/Gql/Backup.php:353
 #: views/backup/form.php:171
 msgid ""
 "Email address to send notifications, Multiple email addresses need to be "
@@ -568,12 +564,12 @@ msgstr ""
 msgid "Enable scheduled backups"
 msgstr ""
 
-#: Api/Gql/Backup.php:305
-#: Api/Gql/Backup.php:372
+#: Api/Gql/Backup.php:306
+#: Api/Gql/Backup.php:373
 msgid "Enable scheduled backups, default false"
 msgstr ""
 
-#: Backup.class.php:1363
+#: Backup.class.php:1366
 #: views/backup/form.php:334
 msgid "Enabled"
 msgstr ""
@@ -708,7 +704,7 @@ msgstr ""
 msgid "Failure"
 msgstr ""
 
-#: Backup.class.php:1481
+#: Backup.class.php:1484
 msgid "File"
 msgstr ""
 
@@ -805,27 +801,27 @@ msgstr ""
 msgid "Hooks"
 msgstr ""
 
-#: Api/Gql/Backup.php:317
-#: Api/Gql/Backup.php:384
+#: Api/Gql/Backup.php:318
+#: Api/Gql/Backup.php:385
 #: views/backup/form.php:466
 msgid ""
 "How long to maintain backups. Example 30 will delete anything older than 30 "
 "days."
 msgstr ""
 
-#: Api/Gql/Backup.php:313
-#: Api/Gql/Backup.php:380
+#: Api/Gql/Backup.php:314
+#: Api/Gql/Backup.php:381
 #: views/backup/form.php:411
 msgid ""
 "How many updates to keep. If this number is 3, the last 3 will be kept. 0 is "
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1442
+#: Backup.class.php:1445
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1448
+#: Backup.class.php:1451
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -944,16 +940,16 @@ msgstr ""
 msgid "List Backups"
 msgstr ""
 
-#: Api/Gql/Backup.php:119
+#: Api/Gql/Backup.php:120
 msgid "List of backup configurations"
 msgstr ""
 
-#: Api/Gql/Backup.php:107
+#: Api/Gql/Backup.php:108
 msgid "List of backup files"
 msgstr ""
 
-#: Api/Gql/Backup.php:226
-#: Api/Gql/Backup.php:236
+#: Api/Gql/Backup.php:227
+#: Api/Gql/Backup.php:237
 msgid "List of bakup files"
 msgstr ""
 
@@ -982,8 +978,8 @@ msgstr ""
 msgid "Maintinence"
 msgstr ""
 
-#: Api/Gql/Backup.php:180
-#: Api/Gql/Backup.php:218
+#: Api/Gql/Backup.php:181
+#: Api/Gql/Backup.php:219
 msgid "Message for the request"
 msgstr ""
 
@@ -1021,8 +1017,8 @@ msgstr ""
 msgid "Modules to Backup"
 msgstr ""
 
-#: Api/Gql/Backup.php:281
-#: Api/Gql/Backup.php:348
+#: Api/Gql/Backup.php:282
+#: Api/Gql/Backup.php:349
 msgid "Modules to backup"
 msgstr ""
 
@@ -1047,11 +1043,11 @@ msgid "Name"
 msgstr ""
 
 #: Api/Gql/Backup.php:57
-#: Api/Gql/Backup.php:73
+#: Api/Gql/Backup.php:74
 msgid "Name contains whitespaces/special characters use - instead"
 msgstr ""
 
-#: Api/Gql/Backup.php:402
+#: Api/Gql/Backup.php:403
 msgid "Name of the Restore input file"
 msgstr ""
 
@@ -1113,7 +1109,7 @@ msgstr ""
 msgid "Only Restoring %s"
 msgstr ""
 
-#: Backup.class.php:1506
+#: Backup.class.php:1509
 msgid "PATTERNs, one per line"
 msgstr ""
 
@@ -1235,7 +1231,7 @@ msgstr ""
 msgid "Restore"
 msgstr ""
 
-#: Api/Gql/Backup.php:81
+#: Api/Gql/Backup.php:82
 msgid "Restore Backup"
 msgstr ""
 
@@ -1268,7 +1264,7 @@ msgid ""
 "backup file to proceed further."
 msgstr ""
 
-#: Api/Gql/Backup.php:560
+#: Api/Gql/Backup.php:561
 msgid ""
 "Restore process has been initiated. Kindly check the fetchApiStatus api with "
 "the transaction id."
@@ -1318,35 +1314,35 @@ msgstr ""
 msgid "Retrieving %s from %s:%s..."
 msgstr ""
 
-#: Api/Gql/Backup.php:200
+#: Api/Gql/Backup.php:201
 msgid "Return backup description"
 msgstr ""
 
-#: Api/Gql/Backup.php:188
+#: Api/Gql/Backup.php:189
 msgid "Return backup file name"
 msgstr ""
 
-#: Api/Gql/Backup.php:192
+#: Api/Gql/Backup.php:193
 msgid "Return backup framework"
 msgstr ""
 
-#: Api/Gql/Backup.php:204
+#: Api/Gql/Backup.php:205
 msgid "Return backup instancename"
 msgstr ""
 
-#: Api/Gql/Backup.php:172
+#: Api/Gql/Backup.php:173
 msgid "Return backup name"
 msgstr ""
 
-#: Api/Gql/Backup.php:196
+#: Api/Gql/Backup.php:197
 msgid "Return backup timestamp"
 msgstr ""
 
-#: Api/Gql/Backup.php:168
+#: Api/Gql/Backup.php:169
 msgid "Returns backup id"
 msgstr ""
 
-#: Api/Gql/Backup.php:184
+#: Api/Gql/Backup.php:185
 msgid "Returns backup type"
 msgstr ""
 
@@ -1470,8 +1466,8 @@ msgstr ""
 msgid "Select items to backup"
 msgstr ""
 
-#: Api/Gql/Backup.php:297
-#: Api/Gql/Backup.php:364
+#: Api/Gql/Backup.php:298
+#: Api/Gql/Backup.php:365
 #: views/backup/form.php:281
 msgid ""
 "Select one or more storage locations. Storage locations can be added/"
@@ -1502,8 +1498,8 @@ msgstr ""
 msgid "Should the warm spare feature be enabled"
 msgstr ""
 
-#: Api/Gql/Backup.php:321
-#: Api/Gql/Backup.php:388
+#: Api/Gql/Backup.php:322
+#: Api/Gql/Backup.php:389
 msgid "Should the warm spare feature be enabled, default false"
 msgstr ""
 
@@ -1536,23 +1532,23 @@ msgstr ""
 msgid "Something failed."
 msgstr ""
 
-#: Api/Gql/Backup.php:513
+#: Api/Gql/Backup.php:514
 msgid "Sorry Module name "
 msgstr ""
 
-#: Api/Gql/Backup.php:562
+#: Api/Gql/Backup.php:563
 msgid "Sorry failed to perform restore"
 msgstr ""
 
-#: Api/Gql/Backup.php:609
+#: Api/Gql/Backup.php:600
 msgid "Sorry module name "
 msgstr ""
 
-#: Api/Gql/Backup.php:121
+#: Api/Gql/Backup.php:122
 msgid "Sorry unable to find the backup configurations"
 msgstr ""
 
-#: Api/Gql/Backup.php:109
+#: Api/Gql/Backup.php:110
 msgid "Sorry unable to find the backup files"
 msgstr ""
 
@@ -1573,11 +1569,11 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: Api/Gql/Backup.php:222
+#: Api/Gql/Backup.php:223
 msgid "Status for the request"
 msgstr ""
 
-#: Api/Gql/Backup.php:176
+#: Api/Gql/Backup.php:177
 msgid "Status of the request"
 msgstr ""
 
@@ -1612,7 +1608,7 @@ msgstr ""
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
 
-#: Api/Gql/Backup.php:130
+#: Api/Gql/Backup.php:131
 msgid "The Backup Id to delete"
 msgstr ""
 
@@ -1742,7 +1738,7 @@ msgstr ""
 msgid "Unable to map '%s' of type '%s"
 msgstr ""
 
-#: Api/Gql/Backup.php:545
+#: Api/Gql/Backup.php:546
 msgid "Unable to perform backup"
 msgstr ""
 
@@ -1763,7 +1759,7 @@ msgstr ""
 msgid "Unable to send backup email!"
 msgstr ""
 
-#: Api/Gql/Backup.php:639
+#: Api/Gql/Backup.php:630
 msgid "Unable to update backup"
 msgstr ""
 
@@ -1771,7 +1767,7 @@ msgstr ""
 msgid "Unable to upload file to the remote server"
 msgstr ""
 
-#: Backup.class.php:1363
+#: Backup.class.php:1366
 msgid "Uninstalled or Disabled"
 msgstr ""
 
@@ -1884,7 +1880,7 @@ msgid ""
 "'filestore-path/backup-file'"
 msgstr ""
 
-#: Api/Gql/Backup.php:368
+#: Api/Gql/Backup.php:369
 msgid ""
 "When set to Yes , Backp files will store like filestore-path/backup-job-name/"
 "backup-file and if set to NO then backup file will store into filestore-path/"
@@ -1897,27 +1893,27 @@ msgid ""
 "logs will be added as an attachment"
 msgstr ""
 
-#: Api/Gql/Backup.php:356
+#: Api/Gql/Backup.php:357
 msgid ""
 "When set to Yes logs will be added to the body of the email, when set to No "
 "logs will be added as an attachment, default no"
 msgstr ""
 
-#: Api/Gql/Backup.php:301
+#: Api/Gql/Backup.php:302
 msgid ""
 "When set to true , Backp files will store like filestore-path/backup-job-"
 "name/backup-file and if set to false then backup file will store into "
 "filestore-path/backup-file,default false"
 msgstr ""
 
-#: Api/Gql/Backup.php:289
+#: Api/Gql/Backup.php:290
 msgid ""
 "When set to true logs will be added to the body of the email, when set to "
 "false logs will be added as an attachment, default false"
 msgstr ""
 
-#: Api/Gql/Backup.php:309
-#: Api/Gql/Backup.php:376
+#: Api/Gql/Backup.php:310
+#: Api/Gql/Backup.php:377
 #: views/backup/form.php:379
 msgid "When should this backup run"
 msgstr ""
@@ -1926,8 +1922,8 @@ msgstr ""
 msgid "When to email"
 msgstr ""
 
-#: Api/Gql/Backup.php:293
-#: Api/Gql/Backup.php:360
+#: Api/Gql/Backup.php:294
+#: Api/Gql/Backup.php:361
 msgid "When to email default both"
 msgstr ""
 
@@ -1951,7 +1947,7 @@ msgid "Yes"
 msgstr ""
 
 #: Api/Gql/Backup.php:60
-#: Api/Gql/Backup.php:633
+#: Api/Gql/Backup.php:624
 msgid "You have enabled enableBackupSchedule so please add scheduleBackup"
 msgstr ""
 
@@ -1996,7 +1992,7 @@ msgstr ""
 msgid "choose"
 msgstr ""
 
-#: Api/Gql/Backup.php:80
+#: Api/Gql/Backup.php:81
 msgid "restoreBackup"
 msgstr ""
 

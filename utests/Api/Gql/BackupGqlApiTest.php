@@ -70,14 +70,42 @@ class BackupGqlApiTest extends ApiBaseTestCase {
     $mockHelper->method('updateBackupSetting')
       ->willReturn(true);
 
-    self::$freepbx->backup = $mockHelper;  
+    self::$freepbx->backup = $mockHelper;
+
+    /**
+     * Get File Store Locations
+     */
+    $mockfilestore = $this->getMockBuilder(\FreePBX\modules\filestore\Filestore::class)
+    ->disableOriginalConstructor()
+    ->disableOriginalClone()
+    ->setMethods(array('listLocations'))
+    ->getMock();
+
+    $mockfilestore->method('listLocations')
+    ->willReturn(array('locations' => array('Email' => array(array('id' => '123456789')), 'SSH' => array(array('id' => '987654321'), array('id' => '1122334455')))));
+
+    self::$freepbx->filestore = $mockfilestore;
+
+    $response = $this->request("query{
+      fetchFilestoreLocations{
+        status message locations
+      }
+    }");
+
+    $storage = "";
+
+    $fileLocations = json_decode($response->getBody(), true);
+
+    if (count($fileLocations) > 0) {
+      $storage = $fileLocations['data']['fetchFilestoreLocations']['locations'][0];
+    }
 
     $response = $this->request("mutation{
       addBackup(input : {
         name: \"testbackup\"
         description: \"testing backup to add a backup\"
         backupModules: [\"all\"]
-        storageLocation: \"{'dropbox_wqeqwe'}\"    
+        storageLocation: [\"$storage\"]    
       }){
         status message id
       }
@@ -415,12 +443,41 @@ class BackupGqlApiTest extends ApiBaseTestCase {
 
     self::$freepbx->backup = $mockHelper;
 
+    /**
+     * Get File Store Locations
+     */
+    $mockfilestore = $this->getMockBuilder(\FreePBX\modules\filestore\Filestore::class)
+    ->disableOriginalConstructor()
+    ->disableOriginalClone()
+    ->setMethods(array('listLocations'))
+    ->getMock();
+
+    $mockfilestore->method('listLocations')
+    ->willReturn(array('locations' => array('Email' => array(array('id' => '123456789')), 'SSH' => array(array('id' => '987654321'), array('id' => '1122334455')))));
+
+    self::$freepbx->filestore = $mockfilestore;
+
+    $response = $this->request("query{
+      fetchFilestoreLocations{
+        status message locations
+      }
+    }");
+
+    $fileLocations = json_decode($response->getBody(), true);
+
+    $storage = "";
+
+    if (count($fileLocations) > 0) {
+      $storage = $fileLocations['data']['fetchFilestoreLocations']['locations'][0];
+    }
+
     $response = $this->request("mutation{
       updateBackup(input : {
         id:\"12345\",
         name: \"testbackupupdated\"
         description: \"testing backup to add a backup updated\"
         backupModules: [\"amd\"]
+        storageLocation:[\"$storage\"]
         notificationEmail: \"test@test.com\"    
       }){
         status message
@@ -466,12 +523,41 @@ class BackupGqlApiTest extends ApiBaseTestCase {
    */
   public function test_updateBackup_when_invalid_id_is_sent_should_return_false()
   {
+    /**
+     * Get File Store Locations
+     */
+    $mockfilestore = $this->getMockBuilder(\FreePBX\modules\filestore\Filestore::class)
+      ->disableOriginalConstructor()
+      ->disableOriginalClone()
+      ->setMethods(array('listLocations'))
+      ->getMock();
+
+    $mockfilestore->method('listLocations')
+    ->willReturn(array('locations' => array('Email' => array(array('id' => '123456789')), 'SSH' => array(array('id' => '987654321'), array('id' => '1122334455')))));
+
+    self::$freepbx->filestore = $mockfilestore;
+
+    $response = $this->request("query{
+      fetchFilestoreLocations{
+        status message locations
+      }
+    }");
+
+    $storage = "";
+
+    $fileLocations = json_decode($response->getBody(), true);
+
+    if (count($fileLocations) > 0) {
+      $storage = $fileLocations['data']['fetchFilestoreLocations']['locations'][0];
+    }
+
     $response = $this->request("mutation{
       updateBackup(input : {
         id:\"1111\"
         name: \"testbackup\"
         description: \"testing backup to add a backup\"
         backupModules: [\"amd\"]
+        storageLocation: \"$storage\"    
         notificationEmail: \"test@test.com\"    
       }){
         status message
@@ -624,6 +710,119 @@ class BackupGqlApiTest extends ApiBaseTestCase {
    $this->assertEquals('{"errors":[{"message":"Name contains whitespaces\/special characters use - instead","status":false}]}',$json);
       
    $this->assertEquals(400, $response->getStatusCode());
+  }
+
+  /**
+   * test_addBackup_when_invalid_storage_locations_are_sent_should_return_false
+   *
+   * @return void
+   */
+  public function test_addBackup_when_invalid_storage_locations_are_sent_should_return_false()
+  {
+    $mockHelper = $this->getMockBuilder(\Freepbx\modules\Backup::class)
+      ->disableOriginalConstructor()
+      ->setMethods(array('updateBackupSetting', 'performBackup', 'getBackup'))
+      ->getMock();
+
+    $mockHelper->method('performBackup')
+      ->willReturn('12345');
+
+    $mockHelper->method('updateBackupSetting')
+      ->willReturn(true);
+
+    $mockHelper->method('getBackup')
+      ->willReturn(true);
+
+    self::$freepbx->backup = $mockHelper;
+
+    /**
+     * Get File Store Locations
+     */
+    $mockfilestore = $this->getMockBuilder(\FreePBX\modules\filestore\Filestore::class)
+      ->disableOriginalConstructor()
+      ->disableOriginalClone()
+      ->setMethods(array('listLocations'))
+      ->getMock();
+
+    $mockfilestore->method('listLocations')
+      ->willReturn(array('locations' => array('Email' => array(array('id' => '123456789')), 'SSH' => array(array('id' => '987654321'), array('id' => '1122334455')))));
+
+    self::$freepbx->filestore = $mockfilestore;
+
+    $response = $this->request("mutation{
+      addBackup(input : {
+        name: \"testbackup\"
+        description: \"testing backup to add a backup\"
+        backupModules: [\"amd\"]
+        storageLocation: [\"FTP_dsd-2f0e-404e-9011-2a441dc1c475\"]
+        notificationEmail: \"test@test.com\"    
+      }){
+        status message
+      }
+   }");
+
+    $json = (string)$response->getBody();
+
+    $this->assertEquals('{"errors":[{"message":"Sorry location FTP_dsd-2f0e-404e-9011-2a441dc1c475 is invalid","status":false}]}', $json);
+
+    $this->assertEquals(400, $response->getStatusCode());
+  }
+
+  /**
+   * test_updateBackup_when_invalid_storage_locations_are_sent_should_return_false
+   *
+   * @return void
+   */
+  public function test_updateBackup_when_invalid_storage_locations_are_sent_should_return_false()
+  {
+    $mockHelper = $this->getMockBuilder(\Freepbx\modules\Backup::class)
+      ->disableOriginalConstructor()
+      ->setMethods(array('updateBackupSetting', 'performBackup', 'getBackup'))
+      ->getMock();
+
+    $mockHelper->method('performBackup')
+      ->willReturn('12345');
+
+    $mockHelper->method('updateBackupSetting')
+      ->willReturn(true);
+
+    $mockHelper->method('getBackup')
+      ->willReturn(true);
+
+    self::$freepbx->backup = $mockHelper;
+
+    /**
+     * Get File Store Locations
+     */
+    $mockfilestore = $this->getMockBuilder(\FreePBX\modules\filestore\Filestore::class)
+      ->disableOriginalConstructor()
+      ->disableOriginalClone()
+      ->setMethods(array('listLocations'))
+      ->getMock();
+
+    $mockfilestore->method('listLocations')
+      ->willReturn(array('locations' => array('Email' => array(array('id' => '123456789')), 'SSH' => array(array('id' => '987654321'), array('id' => '1122334455')))));
+
+    self::$freepbx->filestore = $mockfilestore;
+
+    $response = $this->request("mutation{
+      updateBackup(input : {
+        id:\"12345\"
+        name: \"testbackup\"
+        description: \"testing backup to update a backup\"
+        backupModules: [\"amd\"]
+        storageLocation: [\"FTP_8f08dsadasbedddd6-2f0e-404e-9011-2a441dc1c475\"]
+        notificationEmail: \"test@test.com\"    
+      }){
+        status message
+      }
+   }");
+
+    $json = (string)$response->getBody();
+
+    $this->assertEquals('{"errors":[{"message":"Sorry location FTP_8f08dsadasbedddd6-2f0e-404e-9011-2a441dc1c475 is invalid","status":false}]}', $json);
+
+    $this->assertEquals(400, $response->getStatusCode());
   }
   
 }

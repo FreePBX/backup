@@ -1156,6 +1156,9 @@ public function GraphQL_Access_token($request) {
 					$value = str_replace(' ', '-', $value);
 					$value = preg_replace('/[^A-Za-z0-9\-]/', '', $value);
 				}
+				if ($col == 'backup_items') {
+					$value = json_encode($value);
+				}
 				$this->updateBackupSetting($data['id'], $col, $value);
 			}
 		}

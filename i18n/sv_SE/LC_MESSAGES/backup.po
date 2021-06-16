@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-16 02:49+0000\n"
+"POT-Creation-Date: 2021-06-16 03:24+0000\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -284,7 +284,7 @@ msgstr ""
 msgid "Backup Restored Successfully"
 msgstr ""
 
-#: Api/Gql/Backup.php:614
+#: Api/Gql/Backup.php:628
 msgid "Backup Storage Location Required"
 msgstr ""
 
@@ -308,7 +308,7 @@ msgstr ""
 msgid "Backup does not exists"
 msgstr ""
 
-#: Api/Gql/Backup.php:633
+#: Api/Gql/Backup.php:662
 msgid "Backup does not found"
 msgstr ""
 
@@ -323,11 +323,11 @@ msgstr ""
 msgid "Backup file uploaded to the remote server"
 msgstr ""
 
-#: Api/Gql/Backup.php:544
+#: Api/Gql/Backup.php:558
 msgid "Backup has been performed/schedules"
 msgstr ""
 
-#: Api/Gql/Backup.php:628
+#: Api/Gql/Backup.php:657
 msgid "Backup has been updated"
 msgstr ""
 
@@ -1205,7 +1205,7 @@ msgid ""
 "backup file to proceed further."
 msgstr ""
 
-#: Api/Gql/Backup.php:561
+#: Api/Gql/Backup.php:575
 msgid ""
 "Restore process has been initiated. Kindly check the fetchApiStatus api with "
 "the transaction id."
@@ -1465,11 +1465,15 @@ msgstr ""
 msgid "Sorry Module name "
 msgstr ""
 
-#: Api/Gql/Backup.php:563
+#: Api/Gql/Backup.php:577
 msgid "Sorry failed to perform restore"
 msgstr ""
 
-#: Api/Gql/Backup.php:600
+#: Api/Gql/Backup.php:531 Api/Gql/Backup.php:643
+msgid "Sorry location "
+msgstr ""
+
+#: Api/Gql/Backup.php:614
 msgid "Sorry module name "
 msgstr ""
 
@@ -1663,7 +1667,7 @@ msgstr ""
 msgid "Unable to map '%s' of type '%s"
 msgstr ""
 
-#: Api/Gql/Backup.php:546
+#: Api/Gql/Backup.php:560
 msgid "Unable to perform backup"
 msgstr ""
 
@@ -1684,7 +1688,7 @@ msgstr ""
 msgid "Unable to send backup email!"
 msgstr ""
 
-#: Api/Gql/Backup.php:630
+#: Api/Gql/Backup.php:659
 msgid "Unable to update backup"
 msgstr ""
 
@@ -1858,7 +1862,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: Api/Gql/Backup.php:60 Api/Gql/Backup.php:624
+#: Api/Gql/Backup.php:60 Api/Gql/Backup.php:653
 msgid "You have enabled enableBackupSchedule so please add scheduleBackup"
 msgstr ""
 

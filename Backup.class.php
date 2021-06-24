@@ -67,7 +67,8 @@ class Backup extends FreePBX_Helpers implements BMO {
 		'prebu_hook',
 		'postbu_hook',
 		'prere_hook',
-		'postre_hook'
+		'postre_hook',
+		'core_disabletrunks'
 	];
 	public $loggingHooks = null;
 

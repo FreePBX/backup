@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.10.60</version>
+	<version>15.0.10.61</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,6 +18,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*15.0.10.61* FREEI-3477 backup restore issue 
 		*15.0.10.60* FREEI-3436 Added validation and written unit test cases to check invalidStorage location 
 		*15.0.10.59* FREEI-3452 Refactored updateBackup function 
 		*15.0.10.58* FREEI-3441 Changed inlineLogs field type from string to boolean in addBackup and updateBackup GQL API 

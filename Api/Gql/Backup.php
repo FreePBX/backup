@@ -164,10 +164,9 @@ class Backup extends Base {
 
 		$user->addFieldCallback(function() {
 			return [
-				'id' => [
-					'type' => Type::String(),
-					'description' => _('Returns backup id')
-				],
+				'id' => Relay::globalIdField('backup', function($row) {
+					return isset($row['id']) ? $row['id'] : null;
+				}),
 				'name' => [
 					'type' => Type::String(),
 					'description' => _('Return backup name')

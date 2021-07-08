@@ -431,7 +431,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 				}
 				$jobid   = $this->generateId();
 				$location = $this->freepbx->Config->get('ASTLOGDIR');
-				$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup '.$args.' --transaction='.escapeshellarg($jobid);
+				$command = 'fwconsole backup '.$args.' --transaction='.escapeshellarg($jobid);
 				file_put_contents($location.'/restore_'.$jobid.'_out.log','Running with: '.$command.PHP_EOL);
 				$process = new Process($command.' >> '.$location.'/restore_'.$jobid.'_out.log 2> '.$location.'/restore_'.$jobid.'_err.log & echo $!');
 				$process->mustRun();

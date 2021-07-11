@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-14 07:12+0000\n"
-"PO-Revision-Date: 2021-02-08 22:00+0000\n"
+"PO-Revision-Date: 2021-07-11 20:53+0000\n"
 "Last-Translator: Javier Pastor <jpastor@cerebelum.net>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
 "es/>\n"
@@ -1168,7 +1168,7 @@ msgstr ""
 
 #: bin/restore.php:342
 msgid "Preserving local DNS settings"
-msgstr ""
+msgstr "Preservando configuración de DNS local"
 
 #: bin/restore.php:328
 msgid "Preserving local NAT settings"
@@ -1300,7 +1300,7 @@ msgstr "restaurando CDRs..."
 
 #: bin/restore.php:449
 msgid "Restoring DNS settings"
-msgstr ""
+msgstr "Restaurando configuración DNS"
 
 #: bin/restore.php:384
 msgid "Restoring Database..."
@@ -1509,7 +1509,7 @@ msgstr ""
 
 #: bin/backup.php:197
 msgid "Skip DNS is Enabled... "
-msgstr ""
+msgstr "Omitir DNS habilitado... "
 
 #: bin/restore.php:73
 msgid "Skipping host-specific Bind address"
@@ -1525,7 +1525,7 @@ msgstr "Algo salio mal conectándose al servidor remoto. Abortando!"
 
 #: Console/Backup.class.php:47
 msgid "Start"
-msgstr ""
+msgstr "Inicio"
 
 #: views/backup/backup.php:65 views/backup/backups.php:291
 msgid "Status Email"
@@ -1596,7 +1596,7 @@ msgstr "El script de Restauración aun esta corriendo"
 #: bin/restore.php:120
 #, php-format
 msgid "The archive must be come from a release like this: %s.%s"
-msgstr ""
+msgstr "El archivo debe provenir de una versión como esta: %s1.%s2"
 
 #: functions.inc/class.backup.php:411
 msgid ""

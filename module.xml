@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>16.0.50.2</version>
+	<version>16.0.50.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,6 +18,7 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
+		*16.0.50.3* FREEI-3770 GQL API - Added new test cases and removed base64 encoding on id while returning id 
 		*16.0.50.2* FREEI-3477 backup restore issue 
 		*16.0.50.1* bump 
 		*16.0.50* FREEI-3436 Adding validation for BackupJob GQL API 

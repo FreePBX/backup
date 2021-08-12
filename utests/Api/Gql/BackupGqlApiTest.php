@@ -825,4 +825,202 @@ class BackupGqlApiTest extends ApiBaseTestCase {
     $this->assertEquals(400, $response->getStatusCode());
   }
   
+  /**
+   * test_adding_Backup_with_new_ftp_instance_Should_return_true
+   *
+   * @return void
+   */
+  public function test_adding_Backup_with_new_ftp_instance_Should_return_true()
+  {
+    /**
+     * Add FTP instance
+     */
+    $mockfilestore = $this->getMockBuilder(\FreePBX\modules\filestore\Filestore::class)
+                          ->disableOriginalConstructor()
+                          ->disableOriginalClone()
+                          ->setMethods(array('addItem','listLocations'))
+                          ->getMock();
+
+    $mockfilestore->method('addItem')
+                  ->willReturn('123456789');
+
+		$mockfilestore->method('listLocations')
+                  ->willReturn(array('locations' => array('FTP' => array(array('id' => '123456789', 'name' => "Testing", "description" => "Testing Lorem")))));
+		
+    self::$freepbx->filestore = $mockfilestore;
+
+    $response = $this->request("mutation{
+                                addFTPInstance(input : {
+                                    serverName: \"testGql\"
+                                    hostName: \"100.100.100.100\"
+                                    userName: \"testGql\"
+                                    password: \"testGql\"    
+                                }){
+                                  status message id
+                                }
+                              }");
+
+    $json = (string)$response->getBody();
+
+    /**
+     * Get File Stores
+     */
+   
+		$response = $this->request("query{
+                                  fetchAllFilestores{
+                                    status message filestores{
+                                      id
+                                      name
+                                      description
+                                      filestoreType
+                                    }
+                                  }
+                                }");
+		
+		$json = (string)$response->getBody();
+    $filestoreDetails = json_decode($json,true);
+
+    $storageList = $filestoreDetails['data']['fetchAllFilestores']['filestores'];
+    $storage = current($storageList)['id'];
+
+    /**
+     * Adding Backup using filestore
+     */
+   
+    $mockHelperBackup = $this->getMockBuilder(\Freepbx\modules\Backup::class)
+                              ->disableOriginalConstructor()
+                              ->disableOriginalClone()
+                              ->setMethods(array('updateBackupSetting','performBackup'))
+                              ->getMock();
+
+    $mockHelperBackup->method('performBackup')
+                     ->willReturn('12345');
+  
+    $mockHelperBackup->method('updateBackupSetting')
+                     ->willReturn(true);
+
+    self::$freepbx->backup = $mockHelperBackup;
+
+    $response = $this->request("mutation{
+                                  addBackup(input : {
+                                    name: \"testbackup\"
+                                    description: \"testing backup to add a backup\"
+                                    backupModules: [\"all\"]
+                                    storageLocation: [\"$storage\"]    
+                                  }){
+                                    status message id
+                                  }
+                                }");
+      
+   $json = (string)$response->getBody();
+
+   $this->assertEquals('{"data":{"addBackup":{"status":true,"message":"Backup has been performed\/schedules","id":"12345"}}}',$json);
+      
+   $this->assertEquals(200, $response->getStatusCode());
+
+  }
+
+  
+  /**
+   * test_updating_backup_based_on_fetchAllFilestores_results_Should_return_true
+   *
+   * @return void
+   */
+  public function test_updating_backup_based_on_fetchAllFilestores_results_Should_return_true()
+  {
+    /**
+     * Get File Stores
+     */
+   $mockfilestore = $this->getMockBuilder(\FreePBX\modules\filestore\Filestore::class)
+                          ->disableOriginalConstructor()
+                          ->disableOriginalClone()
+                          ->setMethods(array('listLocations'))
+                          ->getMock();
+
+		$mockfilestore->method('listLocations')
+                  ->willReturn(array('locations' => array('FTP' => array(array('id' => '123456789', 'name' => "Testing", "description" => "Testing Lorem")))));
+		
+    self::$freepbx->filestore = $mockfilestore;
+
+		$response = $this->request("query{
+                                  fetchAllFilestores{
+                                    status message filestores{
+                                      id
+                                      name
+                                      description
+                                      filestoreType
+                                    }
+                                  }
+                                }");
+		
+		$json = (string)$response->getBody();
+    $filestoreDetails = json_decode($json,true);
+
+    $storageList = $filestoreDetails['data']['fetchAllFilestores']['filestores'];
+    $storage = current($storageList)['id'];
+
+    /**
+     * Fetching Backup Configurations
+     */
+   
+    $mockHelperBackup = $this->getMockBuilder(\Freepbx\modules\Backup::class)
+                              ->disableOriginalConstructor()
+                              ->disableOriginalClone()
+                              ->setMethods(array('updateBackupSetting','performBackup','listBackups','getBackup'))
+                              ->getMock();
+
+    $mockHelperBackup->method('performBackup')
+                     ->willReturn('12345');
+  
+    $mockHelperBackup->method('updateBackupSetting')
+                     ->willReturn(true);
+
+    $mockHelperBackup->method('getBackup')
+                     ->willReturn(true);
+
+    $mockHelperBackup->method('listBackups')
+                     ->willReturn(array(array("id" => "12345", "name" => "Testing Backup", "description" => "Testing Backup Description")));
+
+    self::$freepbx->backup = $mockHelperBackup;
+
+    $response = $this->request(
+                              "query{
+                                fetchAllBackupConfigurations{
+                                  status message backupConfigurations{
+                                    id
+                                    name
+                                    description
+                                  }
+                                }
+                              }");
+
+    $backupConfigurations = (string)$response->getBody();
+
+    $backupDetails = json_decode($backupConfigurations,true)['data']['fetchAllBackupConfigurations']['backupConfigurations'];
+    $backupId = current($backupDetails)['id'];
+
+    /**
+     * Updating Backup Configurations
+     */
+
+    $response = $this->request("mutation{
+                                  updateBackup(input : {
+                                    id:\"$backupId\",
+                                    name: \"testbackupupdated\"
+                                    description: \"testing backup to add a backup updated\"
+                                    backupModules: [\"amd\"]
+                                    storageLocation:[\"$storage\"]
+                                    notificationEmail: \"test@test.com\"    
+                                  }){
+                                    status message
+                                  }
+                              }");
+
+    $json = (string)$response->getBody();
+
+    $this->assertEquals('{"data":{"updateBackup":{"status":true,"message":"Backup has been updated"}}}', $json);
+
+    $this->assertEquals(200, $response->getStatusCode());
+
+  }
 }

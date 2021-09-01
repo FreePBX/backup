@@ -36,13 +36,14 @@ class Servers extends Common {
 				$server['data'] = unserialize($server['data']);
 			}
 			$final['server_' . $server['id']]['server'] = $server;
-
 		}
 		foreach ($serverDetails as $data) {
 			$value = $this->processValue($data['value']);
 			$final['server_' . $data['server_id']]['server'][$data['key']] = $value;
 		}
-		$this->Backup->setMultiConfig($final, 'migratedservers');
+		foreach($final as $key => $ser) {
+			$this->Backup->setConfig($key, $ser, 'migratedservers');
+		}
 		$this->servers = $final;
 	}
 
@@ -89,7 +90,7 @@ class Servers extends Common {
 			}
 			if(!empty($uuid)) {
 				$item = $this->freepbx->Filestore->getItemById($uuid);
-				$mapping[$server['id']] = $item['driver'].'_'.$uuid;
+				$mapping[$server['id']] = $uuid;
 			}
 		}
 		return $mapping;

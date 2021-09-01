@@ -42,7 +42,9 @@ class Backupjobs extends Common{
 			$item['exclude'] = unserialize($item['exclude']);
 			$final['bu_' . $item['backup_id']]['items'][] = $item;
 		}
-		$this->Backup->setMultiConfig($final, 'migratedbackups');
+		foreach($final  as $key=>$backup){
+			$this->Backup->setConfig($key,$backup, 'migratedbackups');
+		}
 		$this->backupJobs = $final;
 		return $this;
 	}

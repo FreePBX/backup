@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-02 05:56+0000\n"
+"POT-Creation-Date: 2021-09-02 06:04+0000\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -1666,7 +1666,7 @@ msgstr ""
 msgid "Type"
 msgstr "نوع"
 
-#: Migration/Servers.php:86
+#: Migration/Servers.php:87
 #, php-format
 msgid "Unable to map '%s' of type '%s"
 msgstr ""

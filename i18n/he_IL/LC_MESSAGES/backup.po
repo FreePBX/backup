@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-02 05:56+0000\n"
+"POT-Creation-Date: 2021-09-02 06:04+0000\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -1660,7 +1660,7 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
-#: Migration/Servers.php:86
+#: Migration/Servers.php:87
 #, php-format
 msgid "Unable to map '%s' of type '%s"
 msgstr ""

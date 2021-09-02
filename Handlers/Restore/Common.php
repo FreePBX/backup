@@ -221,6 +221,12 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		} else {
 			$this->log('post Restore hooks failed !!!!!');
 		}
+		//run backup releated hooks
+		$filename = "/var/spool/asterisk/incron/backup.clearunuseddevices";
+		if (file_exists($filename)) {
+			 @unlink($filename);
+		}
+		@fclose(@fopen($filename, "w"));
 	}
 
 

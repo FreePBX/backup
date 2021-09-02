@@ -1,0 +1,8 @@
+#!/usr/bin/php -q
+<?php
+error_reporting(E_ALL);
+date_default_timezone_set('UTC');
+$command = "fwconsole util clearunuseddevices";
+exec($command);
+
+?>

@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.10.63</version>
+	<version>15.0.10.64</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -15,9 +15,10 @@
 	</menuitems>
 	<depends>
 		<module>filestore ge 15.0.2</module>
-		<version>15.0.6.9</version>
+		<version>15.0.17.52</version>
 	</depends>
 	<changelog>
+		*15.0.10.64* FREEI-3830 PBXact 16 - Extension license count is not showing properly
 		*15.0.10.63* FREEI-3770 Added new test cases and removed base64 encoding on id while returning id 
 		*15.0.10.62* FREEI-3538 Changed id field type from STRING to ID in gql api 
 		*15.0.10.61* FREEI-3477 backup restore issue 

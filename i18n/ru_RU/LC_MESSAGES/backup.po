@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-02 05:58+0000\n"
+"POT-Creation-Date: 2021-09-02 06:04+0000\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -1680,7 +1680,7 @@ msgstr ""
 msgid "Type"
 msgstr "Тип"
 
-#: Migration/Servers.php:86
+#: Migration/Servers.php:87
 #, php-format
 msgid "Unable to map '%s' of type '%s"
 msgstr ""

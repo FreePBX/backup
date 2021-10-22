@@ -1073,7 +1073,8 @@ public function GraphQL_Access_token($request) {
 			if($enabled === 'yes'){
 				$schedule = $this->getBackupSetting($id, 'backup_schedule');
 				$command  = sprintf($sbin.'/fwconsole backup --backup=%s %s > /dev/null 2>&1',$id, $warmspare ? '--warmspare' : '');
-				$this->freepbx->Cron->removeAll($command);
+				$backupOptionWithId  = '--backup=' . $id;
+				$this->freepbx->Cron->removeAll($backupOptionWithId);
 				$this->freepbx->Cron->add($schedule.' '.$command);
 				return true;
 			}
@@ -1093,7 +1094,8 @@ public function GraphQL_Access_token($request) {
 			if($enabled === 'yes'){
 				$schedule = $this->getBackupSetting($key, 'backup_schedule');
 				$command  = sprintf($sbin.'/fwconsole backup --backup=%s %s> /dev/null 2>&1',$key, $warmspare ? '--warmspare' : '');
-				$this->freepbx->Cron->removeAll($command);
+				$backupOptionWithId  = '--backup=' . $id;
+				$this->freepbx->Cron->removeAll($backupOptionWithId);
 				$this->freepbx->Cron->add($schedule.' '.$command);
 			}
 		}

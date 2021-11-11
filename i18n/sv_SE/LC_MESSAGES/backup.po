@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-27 03:03+0000\n"
+"POT-Creation-Date: 2021-11-11 09:07+0000\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -867,7 +867,7 @@ msgstr ""
 msgid "Invalid ID Provided"
 msgstr ""
 
-#: Handlers/Backup/Maintenance.php:97 Handlers/Storage.php:53
+#: Handlers/Backup/Maintenance.php:98 Handlers/Storage.php:53
 msgid "Invalid filestore location"
 msgstr ""
 
@@ -1136,7 +1136,7 @@ msgstr ""
 msgid "Reloading...... DONE"
 msgstr ""
 
-#: Handlers/Backup/Maintenance.php:139 Handlers/Backup/Maintenance.php:159
+#: Handlers/Backup/Maintenance.php:140 Handlers/Backup/Maintenance.php:161
 #: Handlers/Backup/Multiple.php:187 Handlers/Backup/Single.php:55
 #, php-format
 msgid "Removing %s"

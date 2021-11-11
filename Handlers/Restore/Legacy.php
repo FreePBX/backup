@@ -368,7 +368,10 @@ class Legacy extends Common {
 							//$query = preg_replace('/\\\\/', "\\_", $query);
 
 							# single quotes are escaped by another single quote
+							# skip this condition for sms_messages table
+							if(!preg_match('/sms_messages/',$query)) {
 							$query = preg_replace("/\\\'/", "\\\''", $query);
+							}
 							$query = preg_replace('/\\"/', "\"", $query);
 							$query = preg_replace('/\\n/', "\n", $query);
 							$query = preg_replace('/\\r/', "\r", $query);

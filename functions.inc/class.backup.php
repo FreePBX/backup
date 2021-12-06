@@ -46,7 +46,7 @@ class Backup {
 	 */
 	public $t;
 
-	function __construct($b, $s, $t = '') {
+	function __construct($b, $s, $vars= array()) {
 		global $amp_conf, $db, $cdrdb;
 		$this->b			= $b;
 		$this->s			= $s;
@@ -161,7 +161,7 @@ class Backup {
 		}
 	}
 
-	function add_items() {
+	function add_items($vars) {
 		foreach ($this->b['items'] as $i) {
 			switch ($i['type']) {
 				case 'file':
@@ -267,14 +267,52 @@ class Backup {
 					$cmd = array();
 					//build command
 					$s = str_replace('server-', '', $i['path']);
+					backup_log('server -'.$s);
 					$sql_file = $this->b['_tmpdir'] . '/' . 'mysql-' . $s . '.sql.gz';
-					$cmd[] = fpbx_which('mysqldump');
-					$cmd[] = '--host='	. backup__($this->s[$s]['host']);
-					$cmd[] = '--port='	. backup__($this->s[$s]['port']);
-					$cmd[] = '--user='	. backup__($this->s[$s]['user']);
-					$cmd[] = '--password='	. backup__($this->s[$s]['password']);
-					$cmd[] = backup__($this->s[$s]['dbname']);
-
+					if($s != 3){
+						$cmd[] = fpbx_which('mysqldump');
+						$cmd[] = '--host='	. backup__($this->s[$s]['host']);
+						$cmd[] = '--port='	. backup__($this->s[$s]['port']);
+						$cmd[] = '--user='	. backup__($this->s[$s]['user']);
+						$cmd[] = '--password='	. backup__($this->s[$s]['password']);
+						$cmd[] = backup__($this->s[$s]['dbname']);
+					}else if($s == 3){ // backup to take from a date  for CEL and CDR
+						if (!empty($vars['cdrfrom']) && !empty($vars['cdrto'])) {
+							$cmd[] = fpbx_which('mysqldump');
+							$cmd[] = '--host='	. backup__($this->s[$s]['host']);
+							$cmd[] = '--port='	. backup__($this->s[$s]['port']);
+							$cmd[] = '--user='	. backup__($this->s[$s]['user']);
+							$cmd[] = '--password='	. backup__($this->s[$s]['password']);
+							$cmd[] = backup__($this->s[$s]['dbname']);
+							$cmd[] = " --ignore-table=cel --ignore-table=queuelog ";
+							$query = 'calldate between "' . $vars['cdrfrom'] . '" and "' . $vars['cdrto'] . '"';
+							$cmd[] = "cdr --where='" . $query . "'";
+						}
+						if (!empty($vars['celfrom'])  && !empty($vars['celto'])) {
+							$cmd[] = "|";
+							$cmd[] = fpbx_which('mysqldump');
+							$cmd[] = '--host='	. backup__($this->s[$s]['host']);
+							$cmd[] = '--port='	. backup__($this->s[$s]['port']);
+							$cmd[] = '--user='	. backup__($this->s[$s]['user']);
+							$cmd[] = '--password='	. backup__($this->s[$s]['password']);
+							$cmd[] = backup__($this->s[$s]['dbname']);
+							$cmd[] = " --ignore-table=cdr --ignore-table=queuelog ";
+							$query = 'eventtime between "' . $vars['celfrom'] . '" and "' . $vars['celto'] . '"';
+							$cmd[] = "cel --where='" . $query . "'";
+						}
+						if (!empty($vars['queuefrom'])  && !empty($vars['queueto'])) {
+							$cmd[] = "|";
+							$cmd[] = fpbx_which('mysqldump');
+							$cmd[] = '--host='	. backup__($this->s[$s]['host']);
+							$cmd[] = '--port='	. backup__($this->s[$s]['port']);
+							$cmd[] = '--user='	. backup__($this->s[$s]['user']);
+							$cmd[] = '--password='	. backup__($this->s[$s]['password']);
+							$cmd[] = backup__($this->s[$s]['dbname']);
+							$cmd[] = " --ignore-table=cel --ignore-table=cdr ";
+							$query = 'time between "' . $vars['queuefrom'] . '" and "' . $vars['queueto'] . '"';
+							$cmd[] = "queuelog --where='" . $query . "'";
+						}
+					}
 					if ($i['exclude']) {
 						foreach ($i['exclude'] as $x) {
 							$cmd[] = '--ignore-table=' . backup__($this->s[$s]['dbname'])
@@ -285,13 +323,15 @@ class Backup {
 					$cmd[] = ' | ' . fpbx_which('gzip');
 					$cmd[] = ' > ' . $sql_file;
 
-					exec(implode(' ', $cmd), $file, $status);
+					backup_log(implode(' ', $cmd));
 					unset($cmd, $file);
 
 					// remove file and log error information if it failed.
 					//
 					if ($status !== 0) {
-						unlink($sql_file);
+						if(file_exists($file)) {
+							unlink($sql_file);
+						}
 						$error_string = sprintf(
 							_("Backup failed dumping SQL database [%s] to file [%s], "
 							. "you have a corrupted backup from server [%s]."),
@@ -823,7 +863,9 @@ class Backup {
 		foreach($delete as $key => $file) {
 			switch($type) {
 				case 'local':
-					@unlink(backup__($data['path']) . '/' . $this->b['_dirname'] . '/' . $file);
+					if(file_exists(backup__($data['path']) . '/' . $this->b['_dirname'] . '/' . $file)){
+						unlink(backup__($data['path']) . '/' . $this->b['_dirname'] . '/' . $file);
+					}
 					unset($delete[$key]);
 					break;
 				case 'ftp':
@@ -932,4 +974,5 @@ class Backup {
 		}
 		return $files;
 	}
+
 }

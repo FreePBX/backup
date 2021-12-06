@@ -30,16 +30,37 @@ if (isset($vars['id']) && $vars['id']) {
 	//s= servers
 	//b= backup object
 	if ($bu = backup_get_backup($vars['id'])) {
+
+		if(isset($bu['cdrStartDate'])){
+			$vars['cdrfrom'] = $bu['cdrStartDate'];
+		}
+		if(isset($bu['cdrEndDate'])){
+			$vars['cdrto'] =  $bu['cdrEndDate'];
+		}
+		if(isset($bu['celStartDate'])){
+			$vars['celfrom'] =  $bu['celStartDate'];
+		}
+		if(isset($bu['celEndDate'])){
+			$vars['celto'] =  $bu['celEndDate'];
+		}
+		if(isset($bu['queueLogStartDate'])){
+			$vars['queuefrom'] =  $bu['queueLogStartDate'];
+		}
+		if(isset($bu['queueLogEndDate'])){
+			$vars['queueto'] =  $bu['queueLogEndDate'];
+		}
+
 		//dont run if no storage servers were found
 		if (!isset($bu['storage_servers']) || count($bu['storage_servers']) < 1) {
 			backup_log(_('No storage servers found! Aborting.'));
 			exit();
 		}
 		$s = backup_get_server('all_detailed');
-		$b = new FreePBX\modules\Backup\Backup($bu, $s);
+		$b = new FreePBX\modules\Backup\Backup($bu, $s, $vars);
 		backup_log(_('Initializing Backup') . ' ' .$vars['id']);
 		backup_clear_log();
 		$b->init();
+
 		if ($b->b['bu_server'] == "0") {
 			// lock to prevent backups from being run concurrently
 			while (!$b->acquire_lock()) {
@@ -50,9 +71,9 @@ if (isset($vars['id']) && $vars['id']) {
 
 			backup_log(_('Running pre-backup hooks...'));
 			$b->run_hooks('pre-backup');
-
+			
 			backup_log(_('Adding items...'));
-			$b->add_items();
+			$b->add_items($vars);
 
 			backup_log(_('Building manifest...'));
 			$b->build_manifest();
@@ -157,6 +178,7 @@ if (isset($vars['id']) && $vars['id']) {
 			} else {
 				backup_log(_('Backup successfully completed!'));
 			}
+			
 		} else {
 			if (isset($b->b['restore']) && ($b->b['restore'] == "on" || $b->b['restore'] == "true")) {
 				if (isset($b->b['manifest']['file_list'])) {

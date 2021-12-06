@@ -290,8 +290,27 @@ function backup_put_backup($var) {
 					$data[] = array($var['id'],  $key, $index++, $v);
 				}
 				break;
+			case 'cdrStartDate':
+				$data[] = array($var['id'],  $key, '', $value);
+				break;
+			case 'cdrEndDate':
+				$data[] = array($var['id'],  $key, '', $value);
+				break;
+			case 'celStartDate':
+				$data[] = array($var['id'],  $key, '', $value);
+				break;
+			case 'celEndDate':
+				$data[] = array($var['id'],  $key, '', $value);
+				break;
+			case 'queueLogStartDate':
+				$data[] = array($var['id'],  $key, '', $value);
+				break;
+			case 'queueLogEndDate':
+				$data[] = array($var['id'],  $key, '', $value);
+				break;
 		}
 	}
+	
 	//then insert fresh
 	$sql = $db->prepare('INSERT INTO backup_details (backup_id, `key`, `index`, value) VALUES (?, ?, ?, ?)');
 	$ret = $db->executeMultiple($sql, $data);

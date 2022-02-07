@@ -1,10 +1,6 @@
 //put all document ready stuff here... One listener to rule them all
 $(document).ready(function () {
 	toggle_warmspare();
-	setTimeout(function(){
-			$('#backup_items').val(JSON.stringify(processItems(undefined, {})));
-			$('#backup_modules').text(_("Modules ("+$('#backupmodules').bootstrapTable('getSelections').length+')'));
-	}, 1000);
 
 	if($('#uploadrestore').length){
 		var dz = new Dropzone("#uploadrestore",{
@@ -590,4 +586,12 @@ function timestampFormatter(value, row, index) {
 
 $("#backup-side").on("click-row.bs.table", function(event, row) {
 	window.location = "?display=backup&view=editbackup&id="+row.id;
+});
+
+$('#backup_modules').text(_("Loading ..."));
+$('#backupmodules').bootstrapTable({
+    onLoadSuccess: function() {
+		$('#backup_items').val(JSON.stringify(processItems(undefined, {})));
+		$('#backup_modules').text(_("Modules ("+$('#backupmodules').bootstrapTable('getSelections').length+')'));
+    }
 });

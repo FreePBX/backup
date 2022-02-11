@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-14 07:12+0000\n"
-"PO-Revision-Date: 2022-02-10 18:15+0000\n"
+"PO-Revision-Date: 2022-02-11 16:11+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/backup/"
 "ru/>\n"
@@ -427,7 +427,7 @@ msgstr "Дни месяца"
 
 #: views/cron.php:289
 msgid "Days of month to run"
-msgstr "Дни месяца когда запускать"
+msgstr "Дни месяца для запуска"
 
 #: views/cron.php:55
 msgid "December"
@@ -1309,7 +1309,7 @@ msgstr "Восстановленние базы данных..."
 
 #: bin/restore.php:434
 msgid "Restoring NAT settings"
-msgstr "Восстановление NAT-установок"
+msgstr "Восстановление установок NAT"
 
 #: bin/restore.php:485
 msgid "Restoring Settings complete"
@@ -1321,7 +1321,7 @@ msgstr "Восстановление всех файлов (это может з
 
 #: bin/restore.php:475
 msgid "Restoring astDB..."
-msgstr "Восстановление  astDB..."
+msgstr "Восстановление astDB..."
 
 #: bin/backup.php:177
 msgid "Restoring backup..."
@@ -1357,11 +1357,11 @@ msgstr "Запустить единожды в один из месяцев, в 
 
 #: views/cron.php:88
 msgid "Run once a week, midnight on Sun"
-msgstr "Запустить единожды  в одну  из недель , в полночь, в воскресенье"
+msgstr "Запустить единожды в одну из недель, в полночь, в воскресенье"
 
 #: views/cron.php:96
 msgid "Run once a year, midnight, Jan. 1"
-msgstr "Запустить единожды в один из годов , в полночь 1-го Янв"
+msgstr "Запустить единожды в один из годов, в полночь 1-го Янв"
 
 #: views/cron.php:80
 msgid "Run once an hour, beginning of hour"
@@ -1373,30 +1373,29 @@ msgstr "Текущее техническое обслуживание.."
 
 #: bin/restore.php:494
 msgid "Running post restore script..."
-msgstr "Запускается  скрипт после окончания процедуры восстановления..."
+msgstr "Запускается скрипт после окончания процедуры восстановления..."
 
 #: bin/backup.php:151 bin/backup.php:207
 msgid "Running post-backup hooks..."
-msgstr "Запускаются   обработчики после создания резервной копии..."
+msgstr "Запускаются обработчики после создания резервной копии..."
 
 #: bin/restore.php:498
 msgid "Running post-restore hooks, if any..."
 msgstr ""
-"Запускаются   обработчики после окончания процедуры восстановления, если "
-"что ..."
+"Запускаются обработчики после окончания процедуры восстановления, если что "
+"..."
 
 #: bin/backup.php:51
 msgid "Running pre-backup hooks..."
-msgstr "Запускаются  обработчики перед процедурой создания резервной копии ..."
+msgstr "Запускаются обработчики перед процедурой создания резервной копии ..."
 
 #: bin/restore.php:131
 msgid "Running pre-restore hooks, if any..."
-msgstr ""
-"Запускаются  обработчики перед процедурой  восстановления, если что ..."
+msgstr "Запускаются обработчики перед процедурой восстановления, если что ..."
 
 #: bin/restore.php:128
 msgid "Running pre-restore scripts..."
-msgstr "Запускаются  скрипты  перед процедурой  восстановления ...."
+msgstr "Запускаются скрипты перед процедурой восстановления ...."
 
 #: views/backup/backup.php:557
 msgid "Runs"
@@ -1503,7 +1502,7 @@ msgstr "Имя сервера не может быть пустым"
 
 #: page.backup_servers.php:80 views/rnav/main.php:5
 msgid "Servers"
-msgstr "Сервера"
+msgstr "Серверы"
 
 #: bin/backup.php:185
 msgid "Skip Bindaddrss is Enabled... "
@@ -1535,23 +1534,23 @@ msgstr "Статусный Email"
 
 #: views/backup/backups.php:39
 msgid "Step 1"
-msgstr "Шаг1"
+msgstr "Шаг 1"
 
 #: views/backup/backups.php:48
 msgid "Step 2"
-msgstr "Шаг2"
+msgstr "Шаг 2"
 
 #: views/backup/backups.php:57
 msgid "Step 3"
-msgstr "Шаг3"
+msgstr "Шаг 3"
 
 #: views/backup/backups.php:66
 msgid "Step 4"
-msgstr "Шаг4"
+msgstr "Шаг 4"
 
 #: views/backup/backups.php:75
 msgid "Step 5"
-msgstr "Шаг5"
+msgstr "Шаг 5"
 
 #: views/backup/backup.php:445
 msgid "Storage Servers"

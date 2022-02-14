@@ -354,4 +354,34 @@ class Backup implements \BMO {
 			break;
 		}
 	}
+	
+	/**
+	 * Get Backup By Name
+	 */
+	public function getBackupByName($name) {
+		$sql = 'SELECT * FROM backup where name="'.$name.'"';
+		$stmt = $this->db->prepare($sql);
+		$stmt->execute();
+		return $stmt->fetch(\PDO::FETCH_ASSOC);
+	}
+
+	/**
+	 * Store Backup
+	 */
+	public function storeBackup($vars) {
+		if(!function_exists('backup_put_backup')){
+			include __DIR__.'/functions.inc/backup.php';
+		}
+		return backup_put_backup($vars);
+	}
+
+	/**
+	 * Delete Backup
+	 */
+	public function deleteBackup($id) {
+		if(!function_exists('backup_del_backup')){
+			include __DIR__.'/functions.inc/backup.php';
+		}
+		return backup_del_backup($id);
+	}
 }

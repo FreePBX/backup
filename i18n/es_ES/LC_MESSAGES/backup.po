@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-14 07:10+0000\n"
+"POT-Creation-Date: 2022-02-14 05:40+0000\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -100,7 +100,7 @@ msgstr "Activo"
 msgid "Add Server"
 msgstr "Agregar Servidor"
 
-#: bin/backup.php:54
+#: bin/backup.php:75
 msgid "Adding items..."
 msgstr "Agregando elementos..."
 
@@ -183,12 +183,12 @@ msgstr "B"
 msgid "BACKUP LOG ATTACHED"
 msgstr "BITACORA DE RESPALDOS ANEXADA"
 
-#: functions.inc/class.backup.php:407 functions.inc/class.backup.php:410
+#: functions.inc/class.backup.php:447 functions.inc/class.backup.php:450
 msgid "BACKUP NOT ATTACHED"
 msgstr "RESPALDO NO ANEXO"
 
 #: Backup.class.php:321 functions.inc/backup.php:81
-#: functions.inc/class.backup.php:401 views/backup/backup.php:6
+#: functions.inc/class.backup.php:441 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Respaldo"
 
@@ -196,17 +196,9 @@ msgstr "Respaldo"
 msgid "Backup & Restore"
 msgstr "Copias de seguridad"
 
-#: backup.i18n.php:16
+#: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
 msgstr "Respalda & Restaura - Restaura"
-
-#: backup.i18n.php:12
-msgid "Backup & Restore - Servers"
-msgstr "Respalda & Restaura - Servidores"
-
-#: backup.i18n.php:14
-msgid "Backup & Restore - Templates"
-msgstr "Respaldar & Restaurar - Plantillas"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -220,11 +212,11 @@ msgstr "Respaldar CDR y datos de grabación de llamadas?"
 msgid "Backup Description"
 msgstr "Descripción de Respaldo"
 
-#: functions.inc/class.backup.php:406
+#: functions.inc/class.backup.php:446
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr "ERROR respaldo (excedio los limites SMTP)"
 
-#: functions.inc/class.backup.php:409
+#: functions.inc/class.backup.php:449
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr "ERROR respaldo (excede limites blandos)"
 
@@ -236,7 +228,7 @@ msgstr "Frecuencia de Respaldo"
 msgid "Backup Items"
 msgstr "Respaldar Elementos"
 
-#: bin/backup.php:49
+#: bin/backup.php:70
 msgid "Backup Lock acquired!"
 msgstr "Bloqueo de copia de seguridad adquirida!"
 
@@ -272,11 +264,11 @@ msgstr "Asistente de Respaldo"
 msgid "Backup and Restore"
 msgstr "Respaldo y Restauración"
 
-#: bin/backup.php:156 bin/backup.php:211
+#: bin/backup.php:177 bin/backup.php:233
 msgid "Backup completed with errors!"
 msgstr "Respaldo completado con errores!"
 
-#: functions.inc/class.backup.php:292
+#: functions.inc/class.backup.php:332
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -289,7 +281,7 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr "Archivo de Respaldo no encontrado!. Abortando."
 
-#: functions.inc/class.backup.php:495
+#: functions.inc/class.backup.php:535
 msgid "Backup file uploaded to the remote server"
 msgstr ""
 
@@ -297,7 +289,7 @@ msgstr ""
 msgid "Backup module not found or is disabled. Aborting!"
 msgstr "Modulo de Respaldo  no encontrado o esta deshabilitado. Abortando!"
 
-#: bin/backup.php:158 bin/backup.php:213
+#: bin/backup.php:179 bin/backup.php:235
 msgid "Backup successfully completed!"
 msgstr "Respaldo satisfactoriamente completado!"
 
@@ -325,7 +317,7 @@ msgstr "Navegador re-conectado actualizaciones en tiempo real no disponibles."
 msgid "Bucket Name"
 msgstr "Nombre del Bucket"
 
-#: bin/backup.php:57
+#: bin/backup.php:78
 msgid "Building manifest..."
 msgstr "Construyendo manifiesto ..."
 
@@ -365,24 +357,24 @@ msgstr "Oprima \"Próximo\" para Continuar."
 msgid "Configurations only"
 msgstr "Solo Configuraciones"
 
-#: bin/backup.php:79
+#: bin/backup.php:100
 msgid "Connecting to remote server..."
 msgstr "Conectando a Servidor remoto..."
 
-#: functions.inc/class.backup.php:837
+#: functions.inc/class.backup.php:879
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
 
-#: functions.inc/class.backup.php:394 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:434 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Creado"
 
-#: bin/backup.php:62
+#: bin/backup.php:83
 msgid "Creating backup..."
 msgstr "Creando respaldo ..."
 
-#: functions.inc/class.backup.php:473
+#: functions.inc/class.backup.php:513
 #, php-format
 msgid "Creating directory '%s'"
 msgstr "Creando Directorio '%s'"
@@ -491,7 +483,7 @@ msgstr "Destino"
 msgid "Directory"
 msgstr "Directorio"
 
-#: functions.inc/class.backup.php:477
+#: functions.inc/class.backup.php:517
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr "Directorio '%s' no existe y no pudo ser creado"
@@ -500,7 +492,7 @@ msgstr "Directorio '%s' no existe y no pudo ser creado"
 msgid "Disable Registered Trunks"
 msgstr "Deshabilitar Troncales Registrados"
 
-#: bin/backup.php:191
+#: bin/backup.php:213
 msgid "Disabling registered trunks... "
 msgstr ""
 
@@ -561,12 +553,12 @@ msgstr ""
 msgid "Email to send status messages to when this task is run"
 msgstr "Correo para enviar mensajes de estado cuando esta tarea sea ejecutada"
 
-#: functions.inc/class.backup.php:467 functions.inc/restore.php:117
+#: functions.inc/class.backup.php:507 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
 msgstr "Error creando el objeto FTP"
 
-#: functions.inc/class.backup.php:844
+#: functions.inc/class.backup.php:886
 #, php-format
 msgid "Error deleting %s"
 msgstr "Error borrando %s"
@@ -693,11 +685,11 @@ msgstr "Archivo no encontrado! "
 msgid "File restore complete!"
 msgstr "Restauración de Archivo Completada!"
 
-#: bin/backup.php:129
+#: bin/backup.php:150
 msgid "File verification failed. "
 msgstr "Verificación de Archivo Fallida. "
 
-#: functions.inc/class.backup.php:395 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:435 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Archivos"
 
@@ -733,7 +725,7 @@ msgstr "Asigne a su respaldo un nombre amigable"
 msgid "Go!"
 msgstr "Ir!"
 
-#: bin/backup.php:130
+#: bin/backup.php:151
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr ""
 "Estas son las primeras líneas del archivo como fue enviado por el servidor "
@@ -810,7 +802,7 @@ msgstr ""
 msgid "Import"
 msgstr "Importar"
 
-#: bin/backup.php:40
+#: bin/backup.php:60
 msgid "Initializing Backup"
 msgstr "Iniciando Respaldo"
 
@@ -920,7 +912,7 @@ msgstr "\"Mysql\""
 msgid "Mysql DB's"
 msgstr "BD's Mysql"
 
-#: functions.inc/class.backup.php:396
+#: functions.inc/class.backup.php:436
 msgid "Mysql Db's"
 msgstr "Bd's Mysql"
 
@@ -928,7 +920,7 @@ msgstr "Bd's Mysql"
 msgid "Mysql Server "
 msgstr "Servidor Mysql "
 
-#: functions.inc/class.backup.php:393 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:433 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Nombre"
 
@@ -993,11 +985,11 @@ msgstr "Nocturno"
 msgid "No"
 msgstr "No"
 
-#: bin/backup.php:74
+#: bin/backup.php:95
 msgid "No items in backup set. Aborting."
 msgstr "No hay elementos en el conjunto de respaldo. Abortando..."
 
-#: bin/backup.php:35
+#: bin/backup.php:55
 msgid "No storage servers found! Aborting."
 msgstr "No se encontraron servidores de almacenamiento. Abortando..."
 
@@ -1091,7 +1083,7 @@ msgstr "camino a llave ssh, ejemplo /home/asterisk/.ssh/id_rsa"
 msgid "Path/DB"
 msgstr "Camino/BD"
 
-#: functions.inc/class.backup.php:833 functions.inc/class.backup.php:834
+#: functions.inc/class.backup.php:875 functions.inc/class.backup.php:876
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1151,7 +1143,7 @@ msgstr "Procesado %s%% de Ajustes (%s de  %s líneas)"
 msgid "Processed %s%% of external database %s (%s of %s lines)"
 msgstr ""
 
-#: bin/backup.php:143
+#: bin/backup.php:164
 msgid "Processing received file..."
 msgstr "Procesando archivo recibido..."
 
@@ -1290,7 +1282,7 @@ msgstr "Restaurando todos los archivos (esto puede tomar un tiempo)..."
 msgid "Restoring astDB..."
 msgstr "restaurando astDB..."
 
-#: bin/backup.php:177
+#: bin/backup.php:199
 msgid "Restoring backup..."
 msgstr "Restaurando respaldo..."
 
@@ -1334,7 +1326,7 @@ msgstr "Ejecutar una vez al año, medianoche, 01 de enero"
 msgid "Run once an hour, beginning of hour"
 msgstr "Ejecutar una vez cada hora, a inicio de la hora"
 
-#: functions.inc/class.backup.php:496
+#: functions.inc/class.backup.php:536
 msgid "Running maintenance.."
 msgstr ""
 
@@ -1342,7 +1334,7 @@ msgstr ""
 msgid "Running post restore script..."
 msgstr "Corriendo Script post-restauración..."
 
-#: bin/backup.php:151 bin/backup.php:207
+#: bin/backup.php:172 bin/backup.php:229
 msgid "Running post-backup hooks..."
 msgstr "Corriendo enganches post-respaldo..."
 
@@ -1350,7 +1342,7 @@ msgstr "Corriendo enganches post-respaldo..."
 msgid "Running post-restore hooks, if any..."
 msgstr "Corriendo enganches post-restauración, si hay alguno..."
 
-#: bin/backup.php:51
+#: bin/backup.php:72
 msgid "Running pre-backup hooks..."
 msgstr "Corriendo enganches pre-respaldo..."
 
@@ -1398,7 +1390,7 @@ msgstr "Salvar"
 msgid "Save and Run"
 msgstr "Guardar y Ejecutar"
 
-#: functions.inc/class.backup.php:484
+#: functions.inc/class.backup.php:524
 msgid "Saving file to remote ftp"
 msgstr "Guardando archivo en ftp remoto"
 
@@ -1471,11 +1463,11 @@ msgstr "Direccion de servidor no puede estar en blanco"
 msgid "Servers"
 msgstr "Servidores"
 
-#: bin/backup.php:185
+#: bin/backup.php:207
 msgid "Skip Bindaddrss is Enabled... "
 msgstr ""
 
-#: bin/backup.php:197
+#: bin/backup.php:219
 msgid "Skip DNS is Enabled... "
 msgstr ""
 
@@ -1487,7 +1479,7 @@ msgstr ""
 msgid "Skipping host-specific DNS"
 msgstr ""
 
-#: bin/backup.php:107
+#: bin/backup.php:128
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr "Algo salio mal conectándose al servidor remoto. Abortando!"
 
@@ -1523,7 +1515,7 @@ msgstr "Servidores de Almacenaje"
 msgid "Storage location for backups"
 msgstr "Localidad de almacenamiento para respaldos"
 
-#: bin/backup.php:148
+#: bin/backup.php:169
 msgid "Storing backup..."
 msgstr "Almacenando Respaldo..."
 
@@ -1557,7 +1549,7 @@ msgstr "El script de restauración Finalizado Puede cerrar esta ventana"
 msgid "The Restore script is still running"
 msgstr "El script de Restauración aun esta corriendo"
 
-#: functions.inc/class.backup.php:407
+#: functions.inc/class.backup.php:447
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
@@ -1567,7 +1559,7 @@ msgstr ""
 "se intentó ser enviados. Por favor, encoger la copia de seguridad, o "
 "utilizar un método diferente de transferencia de la copia de seguridad."
 
-#: functions.inc/class.backup.php:410
+#: functions.inc/class.backup.php:450
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1630,7 +1622,7 @@ msgstr "Modo Transferencia"
 msgid "Transfer Type"
 msgstr "Tipo de Transferencia"
 
-#: functions.inc/class.backup.php:489
+#: functions.inc/class.backup.php:529
 #, php-format
 msgid "Trying to upload %s to %s"
 msgstr ""
@@ -1643,7 +1635,7 @@ msgstr "Martes"
 msgid "Type"
 msgstr "Tipo"
 
-#: functions.inc/class.backup.php:487
+#: functions.inc/class.backup.php:527
 msgid "Unable to upload file to the remote server"
 msgstr "No se puede subir el archivo al servidor remoto"
 
@@ -1674,7 +1666,7 @@ msgstr "Nombre de usuario"
 msgid "Username"
 msgstr "Usuario"
 
-#: bin/backup.php:114
+#: bin/backup.php:135
 msgid "Verifying received file..."
 msgstr "Verificando archivo recibido..."
 
@@ -1800,7 +1792,7 @@ msgstr "Añadidos servidores de respaldo por defecto"
 msgid "added default backup templates"
 msgstr "Añadidas plantillas de respaldo por defecto"
 
-#: functions.inc/class.backup.php:397
+#: functions.inc/class.backup.php:437
 msgid "astDb's"
 msgstr "\"astDb's\""
 
@@ -1820,13 +1812,19 @@ msgstr "manifiesto no encontrado"
 msgid "table names, one per line"
 msgstr "nombres de tablas, una por linea"
 
-#: bin/backup.php:46
+#: bin/backup.php:67
 msgid "waiting for lock..."
 msgstr "esperando por bloqueo..."
 
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "(no servidores disponibles)"
+
+#~ msgid "Backup & Restore - Servers"
+#~ msgstr "Respalda & Restaura - Servidores"
+
+#~ msgid "Backup & Restore - Templates"
+#~ msgstr "Respaldar & Restaurar - Plantillas"
 
 #~ msgid "Backup Module"
 #~ msgstr "Modulo de Respaldo"

@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-14 07:12+0000\n"
+"POT-Creation-Date: 2022-02-14 05:42+0000\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -115,7 +115,7 @@ msgstr ""
 msgid "Add Server"
 msgstr ""
 
-#: bin/backup.php:54
+#: bin/backup.php:75
 msgid "Adding items..."
 msgstr "アイテムを追加中…"
 
@@ -196,12 +196,12 @@ msgstr ""
 msgid "BACKUP LOG ATTACHED"
 msgstr "バックアップのログを送ります"
 
-#: functions.inc/class.backup.php:411 functions.inc/class.backup.php:414
+#: functions.inc/class.backup.php:451 functions.inc/class.backup.php:454
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
 #: Backup.class.php:321 functions.inc/backup.php:81
-#: functions.inc/class.backup.php:405 views/backup/backup.php:6
+#: functions.inc/class.backup.php:445 views/backup/backup.php:6
 msgid "Backup"
 msgstr "バックアップ"
 
@@ -233,11 +233,11 @@ msgstr ""
 msgid "Backup Description"
 msgstr ""
 
-#: functions.inc/class.backup.php:410
+#: functions.inc/class.backup.php:450
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr ""
 
-#: functions.inc/class.backup.php:413
+#: functions.inc/class.backup.php:453
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr ""
 
@@ -253,7 +253,7 @@ msgstr ""
 msgid "Backup Items"
 msgstr "バックアップ アイテム"
 
-#: bin/backup.php:49
+#: bin/backup.php:70
 msgid "Backup Lock acquired!"
 msgstr "バックアップロックを取得しました。"
 
@@ -289,11 +289,11 @@ msgstr ""
 msgid "Backup and Restore"
 msgstr "バックアップと復元"
 
-#: bin/backup.php:156 bin/backup.php:211
+#: bin/backup.php:177 bin/backup.php:233
 msgid "Backup completed with errors!"
 msgstr "バックアップは完了しましたが一部エラーが発生しました。"
 
-#: functions.inc/class.backup.php:296
+#: functions.inc/class.backup.php:336
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -306,7 +306,7 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr "バックアップファイルが見つかりません。中断します。"
 
-#: functions.inc/class.backup.php:499
+#: functions.inc/class.backup.php:539
 msgid "Backup file uploaded to the remote server"
 msgstr ""
 
@@ -316,7 +316,7 @@ msgstr ""
 "バックアップモジュールはインストールされていないか、無効になっています。中断"
 "します。"
 
-#: bin/backup.php:158 bin/backup.php:213
+#: bin/backup.php:179 bin/backup.php:235
 msgid "Backup successfully completed!"
 msgstr "バックアップが正常に完了しました。"
 
@@ -344,7 +344,7 @@ msgstr ""
 msgid "Bucket Name"
 msgstr ""
 
-#: bin/backup.php:57
+#: bin/backup.php:78
 msgid "Building manifest..."
 msgstr ""
 
@@ -384,24 +384,24 @@ msgstr ""
 msgid "Configurations only"
 msgstr "設定のみ"
 
-#: bin/backup.php:79
+#: bin/backup.php:100
 msgid "Connecting to remote server..."
 msgstr "リモートサーバーに接続中..."
 
-#: functions.inc/class.backup.php:841
+#: functions.inc/class.backup.php:883
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
 
-#: functions.inc/class.backup.php:398 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:438 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "作成日時"
 
-#: bin/backup.php:62
+#: bin/backup.php:83
 msgid "Creating backup..."
 msgstr "バックアップを作成中…"
 
-#: functions.inc/class.backup.php:477
+#: functions.inc/class.backup.php:517
 #, php-format
 msgid "Creating directory '%s'"
 msgstr ""
@@ -508,7 +508,7 @@ msgstr ""
 msgid "Directory"
 msgstr "ディレクトリ"
 
-#: functions.inc/class.backup.php:481
+#: functions.inc/class.backup.php:521
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr ""
@@ -517,7 +517,7 @@ msgstr ""
 msgid "Disable Registered Trunks"
 msgstr "登録されたトランクを無効にする"
 
-#: bin/backup.php:191
+#: bin/backup.php:213
 msgid "Disabling registered trunks... "
 msgstr ""
 
@@ -580,12 +580,12 @@ msgstr ""
 msgid "End"
 msgstr ""
 
-#: functions.inc/class.backup.php:471 functions.inc/restore.php:117
+#: functions.inc/class.backup.php:511 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:848
+#: functions.inc/class.backup.php:890
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -711,11 +711,11 @@ msgstr "ファイルが見つかりません！ "
 msgid "File restore complete!"
 msgstr "ファイルの復元が完了しました！"
 
-#: bin/backup.php:129
+#: bin/backup.php:150
 msgid "File verification failed. "
 msgstr "ファイル検証は失敗しました。 "
 
-#: functions.inc/class.backup.php:399 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:439 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "ファイル"
 
@@ -756,7 +756,7 @@ msgstr ""
 msgid "Go!"
 msgstr "実行"
 
-#: bin/backup.php:130
+#: bin/backup.php:151
 msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr "リモートサーバーが送ったファイルの最初の数行は以下のとおり："
 
@@ -820,7 +820,7 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
-#: bin/backup.php:40
+#: bin/backup.php:60
 msgid "Initializing Backup"
 msgstr ""
 
@@ -941,7 +941,7 @@ msgstr "MySQL"
 msgid "Mysql DB's"
 msgstr "MySQLデータベース"
 
-#: functions.inc/class.backup.php:400
+#: functions.inc/class.backup.php:440
 msgid "Mysql Db's"
 msgstr "MySQL DB"
 
@@ -949,7 +949,7 @@ msgstr "MySQL DB"
 msgid "Mysql Server "
 msgstr "MySQLサーバー "
 
-#: functions.inc/class.backup.php:397 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:437 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "名前"
 
@@ -1014,11 +1014,11 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: bin/backup.php:74
+#: bin/backup.php:95
 msgid "No items in backup set. Aborting."
 msgstr "バックアップセットは空です。中断します。"
 
-#: bin/backup.php:35
+#: bin/backup.php:55
 msgid "No storage servers found! Aborting."
 msgstr "ストレージサーバーが見つからないため中断します。"
 
@@ -1111,7 +1111,7 @@ msgstr ""
 msgid "Path/DB"
 msgstr "パス/データベース"
 
-#: functions.inc/class.backup.php:837 functions.inc/class.backup.php:838
+#: functions.inc/class.backup.php:879 functions.inc/class.backup.php:880
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1166,7 +1166,7 @@ msgstr ""
 msgid "Processed %s%% of Settings (%s of %s lines)"
 msgstr ""
 
-#: bin/backup.php:143
+#: bin/backup.php:164
 msgid "Processing received file..."
 msgstr "受信したファイルを処理中…"
 
@@ -1304,7 +1304,7 @@ msgstr "全てのファイルを復元しています（時間がかかる場合
 msgid "Restoring astDB..."
 msgstr "astDBを復元中..."
 
-#: bin/backup.php:177
+#: bin/backup.php:199
 msgid "Restoring backup..."
 msgstr "バックアップを復元中…"
 
@@ -1346,7 +1346,7 @@ msgstr ""
 msgid "Run once an hour, beginning of hour"
 msgstr ""
 
-#: functions.inc/class.backup.php:500
+#: functions.inc/class.backup.php:540
 msgid "Running maintenance.."
 msgstr ""
 
@@ -1354,7 +1354,7 @@ msgstr ""
 msgid "Running post restore script..."
 msgstr "復元後のスクリプトを実行中..."
 
-#: bin/backup.php:151 bin/backup.php:207
+#: bin/backup.php:172 bin/backup.php:229
 msgid "Running post-backup hooks..."
 msgstr "バックアップ後フック実行中..."
 
@@ -1362,7 +1362,7 @@ msgstr "バックアップ後フック実行中..."
 msgid "Running post-restore hooks, if any..."
 msgstr "復元後のフックがある場合は実行します。"
 
-#: bin/backup.php:51
+#: bin/backup.php:72
 msgid "Running pre-backup hooks..."
 msgstr "バックアップ前フックを実行中..."
 
@@ -1410,7 +1410,7 @@ msgstr "保存"
 msgid "Save and Run"
 msgstr ""
 
-#: functions.inc/class.backup.php:488
+#: functions.inc/class.backup.php:528
 msgid "Saving file to remote ftp"
 msgstr ""
 
@@ -1481,11 +1481,11 @@ msgstr ""
 msgid "Servers"
 msgstr "サーバー"
 
-#: bin/backup.php:185
+#: bin/backup.php:207
 msgid "Skip Bindaddrss is Enabled... "
 msgstr ""
 
-#: bin/backup.php:197
+#: bin/backup.php:219
 msgid "Skip DNS is Enabled... "
 msgstr ""
 
@@ -1497,7 +1497,7 @@ msgstr ""
 msgid "Skipping host-specific DNS"
 msgstr ""
 
-#: bin/backup.php:107
+#: bin/backup.php:128
 msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr "リモートサーバー接続中にエラーが発生しました。中断します。"
 
@@ -1537,7 +1537,7 @@ msgstr "ストレージサーバー"
 msgid "Storage location for backups"
 msgstr "バックアップストレージの場所"
 
-#: bin/backup.php:148
+#: bin/backup.php:169
 msgid "Storing backup..."
 msgstr "バックアップを保存中…"
 
@@ -1575,14 +1575,14 @@ msgstr ""
 msgid "The archive must be come from a release like this: %s.%s"
 msgstr ""
 
-#: functions.inc/class.backup.php:411
+#: functions.inc/class.backup.php:451
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
 "of transferring your backup."
 msgstr ""
 
-#: functions.inc/class.backup.php:414
+#: functions.inc/class.backup.php:454
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1638,7 +1638,7 @@ msgstr "転送モード"
 msgid "Transfer Type"
 msgstr ""
 
-#: functions.inc/class.backup.php:493
+#: functions.inc/class.backup.php:533
 #, php-format
 msgid "Trying to upload %s to %s"
 msgstr ""
@@ -1651,7 +1651,7 @@ msgstr "火曜日"
 msgid "Type"
 msgstr "タイプ"
 
-#: functions.inc/class.backup.php:491
+#: functions.inc/class.backup.php:531
 msgid "Unable to upload file to the remote server"
 msgstr ""
 
@@ -1681,7 +1681,7 @@ msgstr "ユーザー名"
 msgid "Username"
 msgstr ""
 
-#: bin/backup.php:114
+#: bin/backup.php:135
 msgid "Verifying received file..."
 msgstr "受信したファイルを検証中…"
 
@@ -1804,7 +1804,7 @@ msgstr "デフォルトバックアップサーバーを追加しました。"
 msgid "added default backup templates"
 msgstr "デフォルトバックアップテンプレートを追加しました。"
 
-#: functions.inc/class.backup.php:401
+#: functions.inc/class.backup.php:441
 msgid "astDb's"
 msgstr "astDb"
 
@@ -1824,7 +1824,7 @@ msgstr "manifestが見つかりません"
 msgid "table names, one per line"
 msgstr "テーブル名、各行に1つ"
 
-#: bin/backup.php:46
+#: bin/backup.php:67
 msgid "waiting for lock..."
 msgstr "ロックを待機中…"
 

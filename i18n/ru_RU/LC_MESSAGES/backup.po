@@ -24,17 +24,17 @@ msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-14 07:12+0000\n"
-"PO-Revision-Date: 2016-07-11 13:48+0000\n"
-"Last-Translator: Weblate Admin <admin@postmet.com>\n"
-"Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
-"ru_RU/>\n"
+"PO-Revision-Date: 2022-02-11 16:11+0000\n"
+"Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
+"Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/backup/"
+"ru/>\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: views/backup/backups.php:23
 #, php-format
@@ -159,15 +159,15 @@ msgstr "Апрель"
 
 #: bin/restore.php:124
 msgid "Archive coorect."
-msgstr ""
+msgstr "Архив правильный."
 
 #: views/restore/browseserver.php:21
 msgid "AstDB's"
-msgstr "АстБД"
+msgstr "AstDB"
 
 #: functions.inc/templates.php:295
 msgid "Asterisk DB"
-msgstr "Астериск БД"
+msgstr "БД Asterisk"
 
 #: views/cron.php:51
 msgid "August"
@@ -175,7 +175,7 @@ msgstr "Август"
 
 #: views/servers/ftp.php:113
 msgid "Auto"
-msgstr ""
+msgstr "Авто"
 
 #: views/backup/backup.php:468
 msgid "Available Servers"
@@ -220,8 +220,7 @@ msgstr "Резервное копирование и восстановлени�
 
 #: views/backup/backups.php:248
 msgid "Backup CDR and call record data?"
-msgstr ""
-"Произвести резервное копирование CDR-файлов  и файлов записей разговоров?"
+msgstr "Произвести резервное копирование CDR и данных записей разговоров?"
 
 #: views/backup/backups.php:121
 msgid "Backup Description"
@@ -229,7 +228,7 @@ msgstr "Описание резервной копии"
 
 #: functions.inc/class.backup.php:410
 msgid "Backup ERROR (exceeded SMTP limits)"
-msgstr "ОШИБКА при отсылке резервной копии (превышен лимит SMTP)"
+msgstr "ОШИБКА при отправке резервной копии (превышен лимит SMTP)"
 
 #: functions.inc/class.backup.php:413
 msgid "Backup ERROR (exceeded soft limit)"
@@ -241,7 +240,7 @@ msgstr "Частота выполнения резервного копиров�
 
 #: Console/Backup.class.php:20
 msgid "Backup History"
-msgstr ""
+msgstr "История резервных копий"
 
 #: views/backup/backups.php:58
 msgid "Backup Items"
@@ -277,11 +276,11 @@ msgstr "Образец резервной копии"
 
 #: views/backup/backups.php:2
 msgid "Backup Wizard"
-msgstr "Мастер создания  резервной копии"
+msgstr "Мастер создания резервной копии"
 
 #: page.backup.php:116
 msgid "Backup and Restore"
-msgstr "Резервное копирование и  восстановление"
+msgstr "Резервное копирование и восстановление"
 
 #: bin/backup.php:156 bin/backup.php:211
 msgid "Backup completed with errors!"
@@ -293,7 +292,7 @@ msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
 "backup from server [%s]."
 msgstr ""
-"Не удалось резервное копирование дампа SQL базы [%s] в файл [%s]. У вас есть "
+"Не удалось резервное копирование дампа базы SQL [%s] в файл [%s]. У вас есть "
 "поврежденная резервная копия с сервера [%s]."
 
 #: bin/restore.php:104
@@ -302,7 +301,7 @@ msgstr "Файл бекапа не найден! Прерывание."
 
 #: functions.inc/class.backup.php:499
 msgid "Backup file uploaded to the remote server"
-msgstr ""
+msgstr "Файл резервной копии загружен на удаленный сервер"
 
 #: bin/backup.php:12
 msgid "Backup module not found or is disabled. Aborting!"
@@ -314,7 +313,7 @@ msgstr "Резервное копирование выполнено успеш�
 
 #: views/rnav/main.php:3
 msgid "Backups"
-msgstr "Бекапы"
+msgstr "Резервные копии"
 
 #: views/backup/backups.php:88
 msgid "Basic Backup Information"
@@ -330,7 +329,7 @@ msgstr "Просмотр"
 
 #: page.backup_restore.php:184
 msgid "Browser reconnected realtime updates are unavailable."
-msgstr ""
+msgstr "Обновления в реальном времени, переподключенные к браузеру, недоступны."
 
 #: views/servers/awss3.php:14
 msgid "Bucket Name"
@@ -350,7 +349,7 @@ msgstr "CDR сервер, обычно локальная БД"
 
 #: views/restore/backup_list.php:30
 msgid "CDR's"
-msgstr "Дтл. звонков"
+msgstr "Детализация записи звонков"
 
 #: install.php:153
 msgid "Call Detail Records"
@@ -383,7 +382,7 @@ msgstr "Соединение с удаленным сервером..."
 #: functions.inc/class.backup.php:841
 #, php-format
 msgid "Could not find %s on the remote system"
-msgstr ""
+msgstr "Не удалось найти %s на удаленной системе"
 
 #: functions.inc/class.backup.php:398 views/restore/browseserver.php:18
 msgid "Created"
@@ -396,7 +395,7 @@ msgstr "Создание бекапа..."
 #: functions.inc/class.backup.php:477
 #, php-format
 msgid "Creating directory '%s'"
-msgstr ""
+msgstr "Создание каталога '%s'"
 
 #: views/cron.php:10
 msgid "Custom"
@@ -428,7 +427,7 @@ msgstr "Дни месяца"
 
 #: views/cron.php:289
 msgid "Days of month to run"
-msgstr "Дни месяца когда запускать"
+msgstr "Дни месяца для запуска"
 
 #: views/cron.php:55
 msgid "December"
@@ -504,7 +503,7 @@ msgstr "Каталог"
 #: functions.inc/class.backup.php:481
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
-msgstr ""
+msgstr "Каталог '%s' не существовал и мы не смогли его создать"
 
 #: views/backup/backup.php:326
 msgid "Disable Registered Trunks"
@@ -512,7 +511,7 @@ msgstr "Отключить зарегистрированные транки"
 
 #: bin/backup.php:191
 msgid "Disabling registered trunks... "
-msgstr ""
+msgstr "Отключение зарегистрированных транков... "
 
 #: bin/restore.php:548
 msgid "Done!"
@@ -573,17 +572,17 @@ msgstr ""
 
 #: Console/Backup.class.php:47
 msgid "End"
-msgstr ""
+msgstr "Завершение"
 
 #: functions.inc/class.backup.php:471 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
-msgstr ""
+msgstr "Ошибка при создании объекта FTP"
 
 #: functions.inc/class.backup.php:848
 #, php-format
 msgid "Error deleting %s"
-msgstr ""
+msgstr "Ошибка удаления %s"
 
 #: page.backup_restore.php:41
 msgid "Error uploading file!"
@@ -599,7 +598,7 @@ msgstr "Исключить"
 
 #: views/backup/backup.php:380
 msgid "Exclude BIND address"
-msgstr ""
+msgstr "Исключить адрес ПРИВЯЗКИ"
 
 #: install.php:180
 msgid ""
@@ -611,7 +610,7 @@ msgstr ""
 
 #: views/backup/backup.php:409
 msgid "Exclude DNS"
-msgstr ""
+msgstr "Исключить DNS"
 
 #: views/backup/backup.php:353
 msgid "Exclude NAT settings"
@@ -622,12 +621,16 @@ msgid ""
 "Explicitly exclude any machine-specific Bindaddres. This allows you to have "
 "a warm-spare machine with a different IP address."
 msgstr ""
+"Явно исключите любой прослушиваемый адрес для конкретной машины. Это "
+"позволяет иметь машину горячего резервирования с другим IP-адресом."
 
 #: views/backup/backup.php:424
 msgid ""
 "Explicitly exclude any machine-specific DNS. This allows you to have a warm-"
 "spare machine with a different DNS."
 msgstr ""
+"Явно исключите любой DNS, зависящий от компьютера. Это позволяет иметь "
+"машину горячего резервирования с другим DNS."
 
 #: views/backup/backup.php:368
 msgid ""
@@ -700,7 +703,7 @@ msgstr "Файл"
 
 #: Console/Backup.class.php:47
 msgid "File Count"
-msgstr ""
+msgstr "Количество файлов"
 
 #: functions.inc/restore.php:424
 msgid "File not found! "
@@ -720,7 +723,7 @@ msgstr "Файлы"
 
 #: views/servers/ftp.php:108
 msgid "Filesystem Type"
-msgstr ""
+msgstr "Тип файловой системы"
 
 #: page.backup.php:53
 msgid "FreePBX"
@@ -729,7 +732,7 @@ msgstr "Система FreePBX"
 #: bin/restore.php:119
 #, php-format
 msgid "Freepbx version %s, Archive version %s"
-msgstr ""
+msgstr "Версия FreePBX %s, версия архива %s"
 
 #: views/cron.php:33 assets/js/backup.js:83
 msgid "Friday"
@@ -828,7 +831,7 @@ msgstr ""
 
 #: views/restore/restore.php:6
 msgid "Import"
-msgstr ""
+msgstr "Импорт"
 
 #: bin/backup.php:40
 msgid "Initializing Backup"
@@ -865,11 +868,11 @@ msgstr "Январь"
 
 #: Console/Backup.class.php:47
 msgid "Job ID"
-msgstr ""
+msgstr "ID задания"
 
 #: Console/Backup.class.php:47
 msgid "Job Name"
-msgstr ""
+msgstr "Название задания"
 
 #: views/cron.php:50
 msgid "July"
@@ -910,7 +913,7 @@ msgstr "Сопровождение"
 
 #: Console/Backup.class.php:17
 msgid "Manage Backup jobs"
-msgstr ""
+msgstr "Управление заданиями резервного копирования"
 
 #: views/cron.php:46
 msgid "March"
@@ -1055,7 +1058,7 @@ msgstr "Октябрь"
 
 #: views/backup/backup.php:89
 msgid "On Failure Only"
-msgstr ""
+msgstr "Только в случае неудачи"
 
 #: assets/js/backup.js:101
 msgid "On the"
@@ -1063,7 +1066,7 @@ msgstr "На"
 
 #: views/backup/backup.php:104
 msgid "Only send an email on failure"
-msgstr ""
+msgstr "Отправлять электронное письмо только в случае сбоя"
 
 #: views/templates/template.php:48
 msgid "Optional description or notes for this backup temnplate."
@@ -1071,11 +1074,11 @@ msgstr "Опциональное описание или заметки для �
 
 #: views/restore/backup_list.php:37
 msgid "Other MySQL databases"
-msgstr ""
+msgstr "Другие базы данных MySQL"
 
 #: Console/Backup.class.php:19
 msgid "Output in JSON"
-msgstr ""
+msgstr "Вывод в формате JSON"
 
 #: functions.inc/templates.php:259
 msgid "PATTERNs, one per line"
@@ -1113,6 +1116,9 @@ msgid ""
 "example, <tt>/home/backups/freepbx</tt>. A path without a leading slash will "
 "not work, and will behave in unexpected ways."
 msgstr ""
+"Путь на удаленном сервере. Это должен быть ПОЛНЫЙ ПУТЬ, начинающийся с / - "
+"например, <tt>/home/backups/freepbx</tt>. Путь без ведущей косой черты не "
+"будет работать и будет вести себя неожиданным образом."
 
 #: views/backup/backups.php:557
 msgid "Path to ssh key, example /home/asterisk/.ssh/id_rsa"
@@ -1125,7 +1131,7 @@ msgstr "Путь/DB"
 #: functions.inc/class.backup.php:837 functions.inc/class.backup.php:838
 #, php-format
 msgid "Path: %s"
-msgstr ""
+msgstr "Путь: %s"
 
 #: assets/js/backup.js:150
 msgid "Please wait"
@@ -1157,11 +1163,11 @@ msgstr "Обработчик перед началом восстановлен�
 
 #: bin/restore.php:349
 msgid "Preserving local Bind address"
-msgstr ""
+msgstr "Сохранение локального прослушиваемого адреса"
 
 #: bin/restore.php:342
 msgid "Preserving local DNS settings"
-msgstr ""
+msgstr "Сохранение локальных настроек DNS"
 
 #: bin/restore.php:328
 msgid "Preserving local NAT settings"
@@ -1243,7 +1249,7 @@ msgstr "Сброс"
 
 #: bin/restore.php:121
 msgid "Restoration canceled."
-msgstr ""
+msgstr "Восстановление отменено."
 
 #: page.backup_restore.php:201 views/restore/backup_list.php:46
 #: views/restore/browseserver.php:4 views/restore/restore.php:34
@@ -1261,7 +1267,7 @@ msgstr "Восстановить здесь"
 
 #: views/restore/backup_list.php:37
 msgid "Restore MySQL databases stored in the backup"
-msgstr ""
+msgstr "Восстановление баз данных MySQL, хранящихся в резервной копии"
 
 #: views/restore/backup_list.php:22
 msgid "Restore all setting stored in the database"
@@ -1283,7 +1289,7 @@ msgstr "Восстановленная база данных"
 
 #: bin/restore.php:455
 msgid "Restoring Bindaddres Settings"
-msgstr ""
+msgstr "Восстановление настроек прослушиваемого адреса"
 
 #: bin/restore.php:282
 msgid "Restoring CDRs complete"
@@ -1295,7 +1301,7 @@ msgstr "Восстановление CDR-файлов..."
 
 #: bin/restore.php:449
 msgid "Restoring DNS settings"
-msgstr ""
+msgstr "Восстановление настроек DNS"
 
 #: bin/restore.php:384
 msgid "Restoring Database..."
@@ -1303,7 +1309,7 @@ msgstr "Восстановленние базы данных..."
 
 #: bin/restore.php:434
 msgid "Restoring NAT settings"
-msgstr "Восстановление NAT-установок"
+msgstr "Восстановление установок NAT"
 
 #: bin/restore.php:485
 msgid "Restoring Settings complete"
@@ -1315,7 +1321,7 @@ msgstr "Восстановление всех файлов (это может з
 
 #: bin/restore.php:475
 msgid "Restoring astDB..."
-msgstr "Восстановление  astDB..."
+msgstr "Восстановление astDB..."
 
 #: bin/backup.php:177
 msgid "Restoring backup..."
@@ -1351,11 +1357,11 @@ msgstr "Запустить единожды в один из месяцев, в 
 
 #: views/cron.php:88
 msgid "Run once a week, midnight on Sun"
-msgstr "Запустить единожды  в одну  из недель , в полночь, в воскресенье"
+msgstr "Запустить единожды в одну из недель, в полночь, в воскресенье"
 
 #: views/cron.php:96
 msgid "Run once a year, midnight, Jan. 1"
-msgstr "Запустить единожды в один из годов , в полночь 1-го Янв"
+msgstr "Запустить единожды в один из годов, в полночь 1-го Янв"
 
 #: views/cron.php:80
 msgid "Run once an hour, beginning of hour"
@@ -1363,34 +1369,33 @@ msgstr "Запустить единожды в один из часов , нач
 
 #: functions.inc/class.backup.php:500
 msgid "Running maintenance.."
-msgstr ""
+msgstr "Текущее техническое обслуживание.."
 
 #: bin/restore.php:494
 msgid "Running post restore script..."
-msgstr "Запускается  скрипт после окончания процедуры восстановления..."
+msgstr "Запускается скрипт после окончания процедуры восстановления..."
 
 #: bin/backup.php:151 bin/backup.php:207
 msgid "Running post-backup hooks..."
-msgstr "Запускаются   обработчики после создания резервной копии..."
+msgstr "Запускаются обработчики после создания резервной копии..."
 
 #: bin/restore.php:498
 msgid "Running post-restore hooks, if any..."
 msgstr ""
-"Запускаются   обработчики после окончания процедуры восстановления, если "
-"что ..."
+"Запускаются обработчики после окончания процедуры восстановления, если что "
+"..."
 
 #: bin/backup.php:51
 msgid "Running pre-backup hooks..."
-msgstr "Запускаются  обработчики перед процедурой создания резервной копии ..."
+msgstr "Запускаются обработчики перед процедурой создания резервной копии ..."
 
 #: bin/restore.php:131
 msgid "Running pre-restore hooks, if any..."
-msgstr ""
-"Запускаются  обработчики перед процедурой  восстановления, если что ..."
+msgstr "Запускаются обработчики перед процедурой восстановления, если что ..."
 
 #: bin/restore.php:128
 msgid "Running pre-restore scripts..."
-msgstr "Запускаются  скрипты  перед процедурой  восстановления ...."
+msgstr "Запускаются скрипты перед процедурой восстановления ...."
 
 #: views/backup/backup.php:557
 msgid "Runs"
@@ -1430,7 +1435,7 @@ msgstr "Сохранить и запустить"
 
 #: functions.inc/class.backup.php:488
 msgid "Saving file to remote ftp"
-msgstr ""
+msgstr "Сохранение файла на удаленный ftp"
 
 #: views/cron.php:74
 msgid "Schedule Help"
@@ -1448,7 +1453,7 @@ msgstr "Выбрать как часто запускать эту процед�
 
 #: views/restore/backup_list.php:7
 msgid "Select items to restore"
-msgstr ""
+msgstr "Выберите элементы для восстановления"
 
 #: views/backup/backup.php:281
 msgid ""
@@ -1463,7 +1468,7 @@ msgstr "Сентябрь"
 
 #: views/restore/restore.php:56
 msgid "Server"
-msgstr ""
+msgstr "Сервер"
 
 #: views/backup/backups.php:398
 msgid "Server Address"
@@ -1497,23 +1502,23 @@ msgstr "Имя сервера не может быть пустым"
 
 #: page.backup_servers.php:80 views/rnav/main.php:5
 msgid "Servers"
-msgstr "Сервера"
+msgstr "Серверы"
 
 #: bin/backup.php:185
 msgid "Skip Bindaddrss is Enabled... "
-msgstr ""
+msgstr "Пропуск прослушиваемого адреса включен... "
 
 #: bin/backup.php:197
 msgid "Skip DNS is Enabled... "
-msgstr ""
+msgstr "Пропуск DNS включен... "
 
 #: bin/restore.php:73
 msgid "Skipping host-specific Bind address"
-msgstr ""
+msgstr "Пропуск прослушиваемого адреса для конкретного хоста"
 
 #: bin/restore.php:79
 msgid "Skipping host-specific DNS"
-msgstr ""
+msgstr "Пропуск DNS для конкретного узла"
 
 #: bin/backup.php:107
 msgid "Something went wrong when connecting to remote server. Aborting!"
@@ -1521,7 +1526,7 @@ msgstr "Что-то пошло не так при подключении к уд
 
 #: Console/Backup.class.php:47
 msgid "Start"
-msgstr ""
+msgstr "Начало"
 
 #: views/backup/backup.php:65 views/backup/backups.php:291
 msgid "Status Email"
@@ -1529,23 +1534,23 @@ msgstr "Статусный Email"
 
 #: views/backup/backups.php:39
 msgid "Step 1"
-msgstr "Шаг1"
+msgstr "Шаг 1"
 
 #: views/backup/backups.php:48
 msgid "Step 2"
-msgstr "Шаг2"
+msgstr "Шаг 2"
 
 #: views/backup/backups.php:57
 msgid "Step 3"
-msgstr "Шаг3"
+msgstr "Шаг 3"
 
 #: views/backup/backups.php:66
 msgid "Step 4"
-msgstr "Шаг4"
+msgstr "Шаг 4"
 
 #: views/backup/backups.php:75
 msgid "Step 5"
-msgstr "Шаг5"
+msgstr "Шаг 5"
 
 #: views/backup/backup.php:445
 msgid "Storage Servers"
@@ -1579,19 +1584,21 @@ msgstr "Образцы"
 #: views/servers/ftp.php:123
 msgid "The FTP Server's file system type. If you are unsure set this to Auto"
 msgstr ""
+"Тип файловой системы FTP-сервера. Если вы не уверены, установите для этого "
+"значение Авто"
 
 #: page.backup_restore.php:191
 msgid "The Restore script Finished You can close this window"
-msgstr ""
+msgstr "После завершения сценария восстановления Вы можете закрыть это окно"
 
 #: page.backup_restore.php:188
 msgid "The Restore script is still running"
-msgstr ""
+msgstr "Сценарий восстановления все еще выполняется"
 
 #: bin/restore.php:120
 #, php-format
 msgid "The archive must be come from a release like this: %s.%s"
-msgstr ""
+msgstr "Архив должен быть взят для выпуска, подобного этому: %s.%s"
 
 #: functions.inc/class.backup.php:411
 msgid ""
@@ -1625,7 +1632,7 @@ msgstr ""
 
 #: bin/restore.php:118
 msgid "This archive cannot be used, because the version is not correct!!!"
-msgstr ""
+msgstr "Этот архив нельзя использовать, потому что версия неверна!!!"
 
 #: views/servers/ftp.php:166
 msgid ""
@@ -1671,7 +1678,7 @@ msgstr "Тип передачи"
 #: functions.inc/class.backup.php:493
 #, php-format
 msgid "Trying to upload %s to %s"
-msgstr ""
+msgstr "Попытка загрузить %s в %s"
 
 #: views/cron.php:30 assets/js/backup.js:83
 msgid "Tuesday"
@@ -1683,11 +1690,11 @@ msgstr "Тип"
 
 #: functions.inc/class.backup.php:491
 msgid "Unable to upload file to the remote server"
-msgstr ""
+msgstr "Не удалось загрузить файл на удаленный сервер"
 
 #: views/servers/ftp.php:115
 msgid "Unix/Linux"
-msgstr ""
+msgstr "Unix/Linux"
 
 #: install.php:333
 #, php-format
@@ -1700,7 +1707,7 @@ msgstr "Обновлённый шаблон системных записей"
 
 #: views/restore/restore.php:19
 msgid "Upload File"
-msgstr ""
+msgstr "Загрузить файл"
 
 #: views/servers/mysql.php:112
 msgid "User Name"
@@ -1782,7 +1789,7 @@ msgstr "В какие минуты запускать"
 
 #: views/servers/ftp.php:117
 msgid "Windows"
-msgstr ""
+msgstr "Windows"
 
 #: Backup.class.php:67
 msgid "Wizard"

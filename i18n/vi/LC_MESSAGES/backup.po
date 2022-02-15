@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-11 09:07+0000\n"
+"POT-Creation-Date: 2022-02-15 03:08+0000\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -175,11 +175,11 @@ msgstr ""
 msgid "Apply Configs"
 msgstr "Áp dụng các cấu hình"
 
-#: assets/js/backup.js:210 assets/js/backup.js:249
+#: assets/js/backup.js:206 assets/js/backup.js:245
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
 
-#: assets/js/backup.js:235 assets/js/backup.js:276
+#: assets/js/backup.js:231 assets/js/backup.js:272
 msgid "Are you sure, you want to restore this backup?"
 msgstr ""
 
@@ -346,7 +346,7 @@ msgstr ""
 msgid "Can't find the module data for %s"
 msgstr ""
 
-#: assets/js/backup.js:211 assets/js/backup.js:250
+#: assets/js/backup.js:207 assets/js/backup.js:246
 msgid "Cancel"
 msgstr ""
 
@@ -458,7 +458,7 @@ msgstr ""
 
 #: Backup.class.php:209 views/backup/item_table.php:14
 #: views/restore/landing.php:49 views/restore/landing.php:93
-#: assets/js/backup.js:211 assets/js/backup.js:250
+#: assets/js/backup.js:207 assets/js/backup.js:246
 msgid "Delete"
 msgstr "Xóa"
 
@@ -553,8 +553,8 @@ msgstr ""
 "Sự tương đương của việc nhấp vào nút màu đỏ, sẽ xảy ra tự động sau khi khôi "
 "phục trên một hệ thống dự phòng"
 
-#: assets/js/backup.js:370 assets/js/backup.js:389 assets/js/backup.js:408
-#: assets/js/backup.js:500
+#: assets/js/backup.js:366 assets/js/backup.js:385 assets/js/backup.js:404
+#: assets/js/backup.js:496
 msgid "Error"
 msgstr ""
 
@@ -915,7 +915,11 @@ msgstr ""
 msgid "List of bakup files"
 msgstr ""
 
-#: assets/js/backup.js:425
+#: assets/js/backup.js:591
+msgid "Loading ..."
+msgstr ""
+
+#: assets/js/backup.js:421
 msgid "Loading Please Wait"
 msgstr ""
 
@@ -964,7 +968,7 @@ msgstr ""
 msgid "Modules"
 msgstr ""
 
-#: assets/js/backup.js:6 assets/js/backup.js:319
+#: assets/js/backup.js:315 assets/js/backup.js:595
 msgid "Modules ("
 msgstr ""
 
@@ -1015,7 +1019,7 @@ msgstr ""
 msgid "No"
 msgstr "Không"
 
-#: assets/js/backup.js:292
+#: assets/js/backup.js:288
 msgid "No Storage Locations"
 msgstr ""
 
@@ -1031,13 +1035,13 @@ msgstr ""
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
-#: assets/js/backup.js:92 assets/js/backup.js:315
+#: assets/js/backup.js:88 assets/js/backup.js:311
 msgid ""
 "No module has selected for this Backup. Please ensure you are selecting "
 "atleast Custom files"
 msgstr ""
 
-#: assets/js/backup.js:341 assets/js/backup.js:348
+#: assets/js/backup.js:337 assets/js/backup.js:344
 msgid ""
 "No storage location selected for Backup. Please select atleast one storage "
 "location to save the backup"
@@ -1110,7 +1114,7 @@ msgstr ""
 msgid "Processing %s"
 msgstr ""
 
-#: assets/js/backup.js:30
+#: assets/js/backup.js:26
 msgid "Processing..."
 msgstr ""
 
@@ -1293,7 +1297,7 @@ msgstr ""
 msgid "Run Restore & Legacy CDR "
 msgstr ""
 
-#: assets/js/backup.js:568
+#: assets/js/backup.js:564
 msgid "Run the following in the CLI"
 msgstr ""
 
@@ -1544,7 +1548,7 @@ msgstr ""
 msgid "The Backup Id to delete"
 msgstr ""
 
-#: assets/js/backup.js:101
+#: assets/js/backup.js:97
 #, perl-format
 msgid "The Backup job name %s is already in used, please use a different name."
 msgstr ""
@@ -1594,7 +1598,7 @@ msgstr ""
 msgid "The module %s returned no data, No backup created"
 msgstr ""
 
-#: assets/js/backup.js:500
+#: assets/js/backup.js:496
 #, perl-format
 msgid "There was an error during %s"
 msgstr ""
@@ -1725,7 +1729,7 @@ msgstr ""
 msgid "Upload your restore files"
 msgstr ""
 
-#: assets/js/backup.js:20
+#: assets/js/backup.js:16
 msgid "Uploading..."
 msgstr ""
 
@@ -1755,11 +1759,11 @@ msgstr ""
 msgid "Version in Backup"
 msgstr ""
 
-#: assets/js/backup.js:198
+#: assets/js/backup.js:194
 msgid "View backup log"
 msgstr ""
 
-#: assets/js/backup.js:51
+#: assets/js/backup.js:47
 msgid "View running restore"
 msgstr ""
 
@@ -1870,31 +1874,31 @@ msgstr "Có"
 msgid "You have enabled enableBackupSchedule so please add scheduleBackup"
 msgstr ""
 
-#: assets/js/backup.js:72
+#: assets/js/backup.js:68
 msgid "You must enter a valid Warm Spare Access Token URL"
 msgstr ""
 
-#: assets/js/backup.js:77
+#: assets/js/backup.js:73
 msgid "You must enter a valid Warm Spare Server API Client ID"
 msgstr ""
 
-#: assets/js/backup.js:82
+#: assets/js/backup.js:78
 msgid "You must enter a valid Warm Spare Server API Client Secret"
 msgstr ""
 
-#: assets/js/backup.js:87
+#: assets/js/backup.js:83
 msgid "You must enter a valid Warm Spare Server API GraphQL URL"
 msgstr ""
 
-#: assets/js/backup.js:67
+#: assets/js/backup.js:63
 msgid "You must select a valid Warm Spare Server"
 msgstr ""
 
-#: assets/js/backup.js:59
+#: assets/js/backup.js:55
 msgid "You must set a valid job name for this backup"
 msgstr ""
 
-#: assets/js/backup.js:497
+#: assets/js/backup.js:493
 #, perl-format
 msgid "Your %s has finished"
 msgstr ""

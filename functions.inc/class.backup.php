@@ -840,7 +840,7 @@ class Backup {
 					if(empty($f)){
 						$this->b['error'] = sprintf(_("Could not find %s on the remote system"),$fullfile);
 						backup_log($this->b['error']);
-						continue;
+						continue 2;
 					}
 					try{
 						$handle->delete($f);

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-11 09:07+0000\n"
+"POT-Creation-Date: 2022-03-01 10:05+0000\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -44,7 +44,7 @@ msgstr ""
 msgid "%s Days (%s Months)"
 msgstr ""
 
-#: Handlers/Restore/Multiple.php:17
+#: Handlers/Backup/Common.php:169 Handlers/Restore/Multiple.php:17
 #, php-format
 msgid "%s does not exist"
 msgstr ""
@@ -124,7 +124,7 @@ msgstr ""
 msgid "Add custom files in backup"
 msgstr ""
 
-#: Handlers/Backup/Common.php:204
+#: Handlers/Backup/Common.php:208
 #, php-format
 msgid "Adding custom directory to tar: %s"
 msgstr ""
@@ -143,6 +143,10 @@ msgstr ""
 #, php-format
 msgid "Adding file to tar: %s"
 msgstr ""
+
+#: bin/backup.php:75
+msgid "Adding items..."
+msgstr "Adicionando Itens..."
 
 #: Handlers/Backup/Multiple.php:138
 #, php-format
@@ -194,7 +198,8 @@ msgstr ""
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
-#: functions.inc/class.backup.php:405 views/landing.php:13
+#: functions.inc/backup.php:81 functions.inc/class.backup.php:405
+#: views/landing.php:13
 msgid "Backup"
 msgstr "Cópia de Segurança"
 
@@ -266,6 +271,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Itens da Cópia de Segurança"
 
+#: bin/backup.php:70
+msgid "Backup Lock acquired!"
+msgstr "Bloqueio de Cópia de Segurança adquirido!"
+
 #: views/backup/form.php:48 views/restore/landing.php:71
 #: views/restore/landing.php:115
 msgid "Backup Name"
@@ -290,6 +299,10 @@ msgstr ""
 #: Console/Backup.class.php:117 Console/Backup.class.php:210
 msgid "Backup completed successfully"
 msgstr ""
+
+#: bin/backup.php:177 bin/backup.php:233
+msgid "Backup completed with errors!"
+msgstr "Cópia de Segurança terminada com erros!"
 
 #: Api/Gql/Backup.php:140
 msgid "Backup deleted successfully"
@@ -324,9 +337,17 @@ msgstr ""
 msgid "Backup has been updated"
 msgstr ""
 
+#: bin/backup.php:12
+msgid "Backup module not found or is disabled. Aborting!"
+msgstr "Módulo de Cópia de Segurança não encontrado ou inativo. Abortando!"
+
 #: Backup.class.php:458
 msgid "Backup running"
 msgstr ""
+
+#: bin/backup.php:179 bin/backup.php:235
+msgid "Backup successfully completed!"
+msgstr "Cópia de Segurança terminada com sucesso!"
 
 #: Handlers/Restore/Common.php:122
 #, php-format
@@ -339,6 +360,10 @@ msgstr ""
 
 #: views/backup/form.php:238
 msgid "Both"
+msgstr ""
+
+#: bin/backup.php:78
+msgid "Building manifest..."
 msgstr ""
 
 #: Handlers/Restore/Common.php:87
@@ -404,6 +429,10 @@ msgstr ""
 msgid "Connect Warm Spare Server Over"
 msgstr ""
 
+#: bin/backup.php:100
+msgid "Connecting to remote server..."
+msgstr "Conectando ao servidor remoto..."
+
 #: Handlers/Backup/Multiple.php:125
 #, php-format
 msgid ""
@@ -437,6 +466,10 @@ msgstr ""
 msgid "Created"
 msgstr "Criado"
 
+#: bin/backup.php:83
+msgid "Creating backup..."
+msgstr "Criando Cópia de Segurança..."
+
 #: functions.inc/class.backup.php:477
 #, php-format
 msgid "Creating directory '%s'"
@@ -446,12 +479,12 @@ msgstr ""
 msgid "Custom Files"
 msgstr ""
 
-#: Handlers/Backup/Common.php:210
+#: Handlers/Backup/Common.php:218
 #, php-format
 msgid "Custom directory not exists: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:170
+#: Handlers/Backup/Common.php:174
 #, php-format
 msgid "Custom file not exists: %s"
 msgstr ""
@@ -505,6 +538,10 @@ msgstr ""
 
 #: views/backup/warmspare.php:50
 msgid "Disable Remote Trunks"
+msgstr ""
+
+#: bin/backup.php:213
+msgid "Disabling registered trunks... "
 msgstr ""
 
 #: Console/Backup.class.php:267 Handlers/Restore/Common.php:127
@@ -691,6 +728,10 @@ msgstr ""
 msgid "File reached the server but could not be processed"
 msgstr ""
 
+#: bin/backup.php:150
+msgid "File verification failed. "
+msgstr "Verificação de ficheiro falhou. "
+
 #: functions.inc/class.backup.php:399
 msgid "Files"
 msgstr "Ficheiros"
@@ -719,6 +760,11 @@ msgstr ""
 #: Handlers/Backup/Multiple.php:198 Handlers/Backup/Single.php:63
 #, php-format
 msgid "Finished created backup file: %s"
+msgstr ""
+
+#: Handlers/Backup/Common.php:212
+#, php-format
+msgid "Folder %s does not exist"
 msgstr ""
 
 #: Handlers/Restore/Legacy.php:64
@@ -763,6 +809,12 @@ msgstr ""
 #: views/backup/warmspare.php:412
 msgid "GraphQL URL of the Warm Spare server."
 msgstr ""
+
+#: bin/backup.php:151
+msgid "Here are the first few lines of the file as sent by the remote server:"
+msgstr ""
+"Aqui se apresentam as primeiras linhas do ficheiro conforme enviado pelo "
+"servidor remoto:"
 
 #: views/backup/form.php:473
 msgid "Hooks"
@@ -842,6 +894,10 @@ msgstr ""
 
 #: Handlers/Backup/Single.php:40 Handlers/Restore/Single.php:26
 msgid "In single restores mode dependencies are NOT processed"
+msgstr ""
+
+#: bin/backup.php:60
+msgid "Initializing Backup"
 msgstr ""
 
 #: views/backup/form.php:183
@@ -1026,6 +1082,10 @@ msgstr ""
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
+#: bin/backup.php:95
+msgid "No items in backup set. Aborting."
+msgstr "Conjunto de cópia de segurança sem itens. Abortando."
+
 #: assets/js/backup.js:92 assets/js/backup.js:315
 msgid ""
 "No module has selected for this Backup. Please ensure you are selecting "
@@ -1037,6 +1097,10 @@ msgid ""
 "No storage location selected for Backup. Please select atleast one storage "
 "location to save the backup"
 msgstr ""
+
+#: bin/backup.php:55
+msgid "No storage servers found! Aborting."
+msgstr "Nenhum servidor de armazenamento encontrado! Abortando."
 
 #: views/backup/form.php:159
 msgid "Notification Email"
@@ -1104,6 +1168,10 @@ msgstr ""
 #, php-format
 msgid "Processing %s"
 msgstr ""
+
+#: bin/backup.php:164
+msgid "Processing received file..."
+msgstr "Processando ficheiro recebido..."
 
 #: assets/js/backup.js:30
 msgid "Processing..."
@@ -1222,6 +1290,10 @@ msgstr ""
 #, php-format
 msgid "Restoring %s"
 msgstr ""
+
+#: bin/backup.php:199
+msgid "Restoring backup..."
+msgstr "Restaurando a cópia de segurança..."
 
 #: Handlers/Restore/Common.php:277
 #, php-format
@@ -1344,6 +1416,14 @@ msgstr ""
 msgid "Running maintenance.."
 msgstr ""
 
+#: bin/backup.php:172 bin/backup.php:229
+msgid "Running post-backup hooks..."
+msgstr "Executando ganchos pós cópia de segurança..."
+
+#: bin/backup.php:72
+msgid "Running pre-backup hooks..."
+msgstr "Executando ganchos pré cópia de segurança..."
+
 #: views/backup/warmspare.php:281
 msgid "SSH"
 msgstr ""
@@ -1427,6 +1507,14 @@ msgstr ""
 msgid "Should the warm spare feature be enabled, default false"
 msgstr ""
 
+#: bin/backup.php:207
+msgid "Skip Bindaddrss is Enabled... "
+msgstr ""
+
+#: bin/backup.php:219
+msgid "Skip DNS is Enabled... "
+msgstr ""
+
 #: Handlers/Restore/Multiple.php:97
 msgid "Skipped Post Restore Hooks.."
 msgstr ""
@@ -1454,6 +1542,10 @@ msgstr ""
 #: Backup.class.php:310
 msgid "Something failed."
 msgstr ""
+
+#: bin/backup.php:128
+msgid "Something went wrong when connecting to remote server. Aborting!"
+msgstr "Algo correu mal ao conectar ao servidor remoto. Abortando!"
 
 #: Api/Gql/Backup.php:514
 msgid "Sorry Module name "
@@ -1511,6 +1603,10 @@ msgstr ""
 #: views/backup/form.php:267
 msgid "Storage Location"
 msgstr ""
+
+#: bin/backup.php:169
+msgid "Storing backup..."
+msgstr "Armazenando a cópia de segurança..."
 
 #: views/backup/form.php:228
 msgid "Success"
@@ -1741,6 +1837,10 @@ msgstr ""
 msgid "Utilizing file based sqlite at %s, This is SLOW"
 msgstr ""
 
+#: bin/backup.php:135
+msgid "Verifying received file..."
+msgstr "Verificando ficheiro recebido..."
+
 #: views/restore/processRestore.php:49
 msgid "Version in Backup"
 msgstr ""
@@ -1918,6 +2018,10 @@ msgstr ""
 msgid "updateBackup"
 msgstr ""
 
+#: bin/backup.php:67
+msgid "waiting for lock..."
+msgstr "aguardando bloqueio..."
+
 #~ msgid "Backup Module"
 #~ msgstr "Módulo de Cópia de Segurança"
 
@@ -1992,9 +2096,6 @@ msgstr ""
 #~ "Uma cópia de segurança completa às configurações core e ficheiros web, "
 #~ "não inclui audios e gravações de sistema."
 
-#~ msgid "Adding items..."
-#~ msgstr "Adicionando Itens..."
-
 #~ msgid ""
 #~ "All system audio - including IVR prompts and Music On Hold. DOES NOT "
 #~ "BACKUP VOICEMAIL"
@@ -2023,9 +2124,6 @@ msgstr ""
 #~ msgid "BACKUP LOG ATTACHED"
 #~ msgstr "REGISTO DE BACKUP ANEXO"
 
-#~ msgid "Backup Lock acquired!"
-#~ msgstr "Bloqueio de Cópia de Segurança adquirido!"
-
 #~ msgid "Backup Log:"
 #~ msgstr "Log de Cópia de Segurança:"
 
@@ -2038,17 +2136,8 @@ msgstr ""
 #~ msgid "Backup Server not found!"
 #~ msgstr "Servidor da Cópia de Segurança não encontrado!"
 
-#~ msgid "Backup completed with errors!"
-#~ msgstr "Cópia de Segurança terminada com erros!"
-
 #~ msgid "Backup file not found! Aborting."
 #~ msgstr "Ficheiro de Cópia de Segurança não encontrado! Abortando."
-
-#~ msgid "Backup module not found or is disabled. Aborting!"
-#~ msgstr "Módulo de Cópia de Segurança não encontrado ou inativo. Abortando!"
-
-#~ msgid "Backup successfully completed!"
-#~ msgstr "Cópia de Segurança terminada com sucesso!"
 
 #~ msgid "Backups"
 #~ msgstr "Cópias de Segurança"
@@ -2070,12 +2159,6 @@ msgstr ""
 
 #~ msgid "Configurations only"
 #~ msgstr "Somente configurações"
-
-#~ msgid "Connecting to remote server..."
-#~ msgstr "Conectando ao servidor remoto..."
-
-#~ msgid "Creating backup..."
-#~ msgstr "Criando Cópia de Segurança..."
 
 #~ msgid "Custom"
 #~ msgstr "Personalizar"
@@ -2177,9 +2260,6 @@ msgstr ""
 #~ msgid "File restore complete!"
 #~ msgstr "Restauro de ficheiro terminado!"
 
-#~ msgid "File verification failed. "
-#~ msgstr "Verificação de ficheiro falhou. "
-
 #~ msgid "Friday"
 #~ msgstr "Sexta-feira"
 
@@ -2188,12 +2268,6 @@ msgstr ""
 
 #~ msgid "Go!"
 #~ msgstr "Executar!"
-
-#~ msgid ""
-#~ "Here are the first few lines of the file as sent by the remote server:"
-#~ msgstr ""
-#~ "Aqui se apresentam as primeiras linhas do ficheiro conforme enviado pelo "
-#~ "servidor remoto:"
 
 #~ msgid "Hourly"
 #~ msgstr "Cada Hora"
@@ -2270,12 +2344,6 @@ msgstr ""
 #~ msgid "New Template"
 #~ msgstr "Novo Modelo"
 
-#~ msgid "No items in backup set. Aborting."
-#~ msgstr "Conjunto de cópia de segurança sem itens. Abortando."
-
-#~ msgid "No storage servers found! Aborting."
-#~ msgstr "Nenhum servidor de armazenamento encontrado! Abortando."
-
 #~ msgid "Nothing to restore!"
 #~ msgstr "Nada a restaurar!"
 
@@ -2303,9 +2371,6 @@ msgstr ""
 
 #~ msgid "Processed %s%% of Settings (%s of %s lines)"
 #~ msgstr "%s%% configurações processadas (%s de %s linhas)"
-
-#~ msgid "Processing received file..."
-#~ msgstr "Processando ficheiro recebido..."
 
 #~ msgid "Randomize"
 #~ msgstr "Aleatório"
@@ -2352,9 +2417,6 @@ msgstr ""
 #~ msgid "Restoring astDB..."
 #~ msgstr "Restaurando astDB..."
 
-#~ msgid "Restoring backup..."
-#~ msgstr "Restaurando a cópia de segurança..."
-
 #~ msgid "Restoring files (this may take some time)..."
 #~ msgstr "Restaurando ficheiros (poderá demorar algum tempo)..."
 
@@ -2367,14 +2429,8 @@ msgstr ""
 #~ msgid "Running post restore script..."
 #~ msgstr "Executando script pós restauro..."
 
-#~ msgid "Running post-backup hooks..."
-#~ msgstr "Executando ganchos pós cópia de segurança..."
-
 #~ msgid "Running post-restore hooks, if any..."
 #~ msgstr "Excutando ganchos pós restauro, caso existam..."
-
-#~ msgid "Running pre-backup hooks..."
-#~ msgstr "Executando ganchos pré cópia de segurança..."
 
 #~ msgid "Running pre-restore hooks, if any..."
 #~ msgstr "Executando ganchos pré restauro, caso existam..."
@@ -2403,9 +2459,6 @@ msgstr ""
 #~ msgid "Servers"
 #~ msgstr "Servidores"
 
-#~ msgid "Something went wrong when connecting to remote server. Aborting!"
-#~ msgstr "Algo correu mal ao conectar ao servidor remoto. Abortando!"
-
 #~ msgid "Status Email"
 #~ msgstr "Email de Estado"
 
@@ -2414,9 +2467,6 @@ msgstr ""
 
 #~ msgid "Storage location for backups"
 #~ msgstr "Localização do armazenamento para as cópias de segurança"
-
-#~ msgid "Storing backup..."
-#~ msgstr "Armazenando a cópia de segurança..."
 
 #~ msgid "Sunday"
 #~ msgstr "Domingo"
@@ -2438,9 +2488,6 @@ msgstr ""
 
 #~ msgid "Tuesday"
 #~ msgstr "Terça-feira"
-
-#~ msgid "Verifying received file..."
-#~ msgstr "Verificando ficheiro recebido..."
 
 #~ msgid "Voice Mail Storage"
 #~ msgstr "Armazenamento de Correio de Voz"
@@ -2477,9 +2524,6 @@ msgstr ""
 
 #~ msgid "table names, one per line"
 #~ msgstr "nomes das tabelas, uma por linha"
-
-#~ msgid "waiting for lock..."
-#~ msgstr "aguardando bloqueio..."
 
 #~ msgid "{no servers available}"
 #~ msgstr "{nenhum servidor disponível}"

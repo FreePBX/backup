@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-11 09:07+0000\n"
+"POT-Creation-Date: 2022-03-01 10:05+0000\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -59,7 +59,7 @@ msgstr ""
 msgid "%s Days (%s Months)"
 msgstr ""
 
-#: Handlers/Restore/Multiple.php:17
+#: Handlers/Backup/Common.php:169 Handlers/Restore/Multiple.php:17
 #, php-format
 msgid "%s does not exist"
 msgstr ""
@@ -139,7 +139,7 @@ msgstr ""
 msgid "Add custom files in backup"
 msgstr ""
 
-#: Handlers/Backup/Common.php:204
+#: Handlers/Backup/Common.php:208
 #, php-format
 msgid "Adding custom directory to tar: %s"
 msgstr ""
@@ -158,6 +158,10 @@ msgstr ""
 #, php-format
 msgid "Adding file to tar: %s"
 msgstr ""
+
+#: bin/backup.php:75
+msgid "Adding items..."
+msgstr "Добавление элементов..."
 
 #: Handlers/Backup/Multiple.php:138
 #, php-format
@@ -209,7 +213,8 @@ msgstr ""
 msgid "BACKUP NOT ATTACHED"
 msgstr "АРХИВ НЕ ПРИСОЕДИНЁН"
 
-#: functions.inc/class.backup.php:405 views/landing.php:13
+#: functions.inc/backup.php:81 functions.inc/class.backup.php:405
+#: views/landing.php:13
 msgid "Backup"
 msgstr "Бекап"
 
@@ -281,6 +286,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Пункты бекапа"
 
+#: bin/backup.php:70
+msgid "Backup Lock acquired!"
+msgstr "Блокировка бекапа установлена!"
+
 #: views/backup/form.php:48 views/restore/landing.php:71
 #: views/restore/landing.php:115
 msgid "Backup Name"
@@ -305,6 +314,10 @@ msgstr "Мастер создания  резервной копии"
 #: Console/Backup.class.php:117 Console/Backup.class.php:210
 msgid "Backup completed successfully"
 msgstr ""
+
+#: bin/backup.php:177 bin/backup.php:233
+msgid "Backup completed with errors!"
+msgstr "Резервное копирование завершилось с ошибками!"
 
 #: Api/Gql/Backup.php:140
 msgid "Backup deleted successfully"
@@ -339,9 +352,17 @@ msgstr ""
 msgid "Backup has been updated"
 msgstr ""
 
+#: bin/backup.php:12
+msgid "Backup module not found or is disabled. Aborting!"
+msgstr "Модуль резервного копирования не найден или отключен. Прерывание!"
+
 #: Backup.class.php:458
 msgid "Backup running"
 msgstr ""
+
+#: bin/backup.php:179 bin/backup.php:235
+msgid "Backup successfully completed!"
+msgstr "Резервное копирование выполнено успешно!"
 
 #: Handlers/Restore/Common.php:122
 #, php-format
@@ -355,6 +376,10 @@ msgstr "Базовая информация"
 #: views/backup/form.php:238
 msgid "Both"
 msgstr ""
+
+#: bin/backup.php:78
+msgid "Building manifest..."
+msgstr "Генерируется манифест..."
 
 #: Handlers/Restore/Common.php:87
 #, php-format
@@ -419,6 +444,10 @@ msgstr ""
 msgid "Connect Warm Spare Server Over"
 msgstr ""
 
+#: bin/backup.php:100
+msgid "Connecting to remote server..."
+msgstr "Соединение с удаленным сервером..."
+
 #: Handlers/Backup/Multiple.php:125
 #, php-format
 msgid ""
@@ -452,6 +481,10 @@ msgstr ""
 msgid "Created"
 msgstr "Создано"
 
+#: bin/backup.php:83
+msgid "Creating backup..."
+msgstr "Создание бекапа..."
+
 #: functions.inc/class.backup.php:477
 #, php-format
 msgid "Creating directory '%s'"
@@ -461,12 +494,12 @@ msgstr ""
 msgid "Custom Files"
 msgstr ""
 
-#: Handlers/Backup/Common.php:210
+#: Handlers/Backup/Common.php:218
 #, php-format
 msgid "Custom directory not exists: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:170
+#: Handlers/Backup/Common.php:174
 #, php-format
 msgid "Custom file not exists: %s"
 msgstr ""
@@ -519,6 +552,10 @@ msgstr ""
 
 #: views/backup/warmspare.php:50
 msgid "Disable Remote Trunks"
+msgstr ""
+
+#: bin/backup.php:213
+msgid "Disabling registered trunks... "
 msgstr ""
 
 #: Console/Backup.class.php:267 Handlers/Restore/Common.php:127
@@ -709,6 +746,10 @@ msgstr ""
 msgid "File reached the server but could not be processed"
 msgstr ""
 
+#: bin/backup.php:150
+msgid "File verification failed. "
+msgstr "Проверка файла не удалась. "
+
 #: functions.inc/class.backup.php:399
 msgid "Files"
 msgstr "Файлы"
@@ -737,6 +778,11 @@ msgstr ""
 #: Handlers/Backup/Multiple.php:198 Handlers/Backup/Single.php:63
 #, php-format
 msgid "Finished created backup file: %s"
+msgstr ""
+
+#: Handlers/Backup/Common.php:212
+#, php-format
+msgid "Folder %s does not exist"
 msgstr ""
 
 #: Handlers/Restore/Legacy.php:64
@@ -781,6 +827,10 @@ msgstr ""
 #: views/backup/warmspare.php:412
 msgid "GraphQL URL of the Warm Spare server."
 msgstr ""
+
+#: bin/backup.php:151
+msgid "Here are the first few lines of the file as sent by the remote server:"
+msgstr "Вот первые несколько строк файла, посланного удаленным сервером:"
 
 #: views/backup/form.php:473
 msgid "Hooks"
@@ -861,6 +911,10 @@ msgstr ""
 #: Handlers/Backup/Single.php:40 Handlers/Restore/Single.php:26
 msgid "In single restores mode dependencies are NOT processed"
 msgstr ""
+
+#: bin/backup.php:60
+msgid "Initializing Backup"
+msgstr "Инициализация резервного копирования"
 
 #: views/backup/form.php:183
 msgid "Inline Logs"
@@ -1044,6 +1098,10 @@ msgstr ""
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
+#: bin/backup.php:95
+msgid "No items in backup set. Aborting."
+msgstr "Нет элементов в резервной копии . Завершение."
+
 #: assets/js/backup.js:92 assets/js/backup.js:315
 msgid ""
 "No module has selected for this Backup. Please ensure you are selecting "
@@ -1055,6 +1113,10 @@ msgid ""
 "No storage location selected for Backup. Please select atleast one storage "
 "location to save the backup"
 msgstr ""
+
+#: bin/backup.php:55
+msgid "No storage servers found! Aborting."
+msgstr "Не найден сервер хранения! Завершение."
 
 #: views/backup/form.php:159
 msgid "Notification Email"
@@ -1122,6 +1184,10 @@ msgstr ""
 #, php-format
 msgid "Processing %s"
 msgstr ""
+
+#: bin/backup.php:164
+msgid "Processing received file..."
+msgstr "Обработка принятого файла..."
 
 #: assets/js/backup.js:30
 msgid "Processing..."
@@ -1240,6 +1306,10 @@ msgstr ""
 #, php-format
 msgid "Restoring %s"
 msgstr ""
+
+#: bin/backup.php:199
+msgid "Restoring backup..."
+msgstr "Восстановление резервной копии ..."
 
 #: Handlers/Restore/Common.php:277
 #, php-format
@@ -1362,6 +1432,14 @@ msgstr ""
 msgid "Running maintenance.."
 msgstr ""
 
+#: bin/backup.php:172 bin/backup.php:229
+msgid "Running post-backup hooks..."
+msgstr "Запускаются   обработчики после создания резервной копии..."
+
+#: bin/backup.php:72
+msgid "Running pre-backup hooks..."
+msgstr "Запускаются  обработчики перед процедурой создания резервной копии ..."
+
 #: views/backup/warmspare.php:281
 msgid "SSH"
 msgstr "SSH"
@@ -1445,6 +1523,14 @@ msgstr ""
 msgid "Should the warm spare feature be enabled, default false"
 msgstr ""
 
+#: bin/backup.php:207
+msgid "Skip Bindaddrss is Enabled... "
+msgstr ""
+
+#: bin/backup.php:219
+msgid "Skip DNS is Enabled... "
+msgstr ""
+
 #: Handlers/Restore/Multiple.php:97
 msgid "Skipped Post Restore Hooks.."
 msgstr ""
@@ -1472,6 +1558,10 @@ msgstr ""
 #: Backup.class.php:310
 msgid "Something failed."
 msgstr ""
+
+#: bin/backup.php:128
+msgid "Something went wrong when connecting to remote server. Aborting!"
+msgstr "Что-то пошло не так при подключении к удалённому серверу. Завершаем!"
 
 #: Api/Gql/Backup.php:514
 msgid "Sorry Module name "
@@ -1529,6 +1619,10 @@ msgstr ""
 #: views/backup/form.php:267
 msgid "Storage Location"
 msgstr ""
+
+#: bin/backup.php:169
+msgid "Storing backup..."
+msgstr "Сохранение резервной копии..."
 
 #: views/backup/form.php:228
 msgid "Success"
@@ -1765,6 +1859,10 @@ msgstr ""
 msgid "Utilizing file based sqlite at %s, This is SLOW"
 msgstr ""
 
+#: bin/backup.php:135
+msgid "Verifying received file..."
+msgstr "Проверка принятого файла..."
+
 #: views/restore/processRestore.php:49
 msgid "Version in Backup"
 msgstr ""
@@ -1942,6 +2040,10 @@ msgstr ""
 msgid "updateBackup"
 msgstr ""
 
+#: bin/backup.php:67
+msgid "waiting for lock..."
+msgstr "ожидание блокировки..."
+
 #~ msgid "Backup Module"
 #~ msgstr "Модуль резервного копирования"
 
@@ -2112,9 +2214,6 @@ msgstr ""
 #~ msgid "Add Server"
 #~ msgstr "Добавить сервер"
 
-#~ msgid "Adding items..."
-#~ msgstr "Добавление элементов..."
-
 #~ msgid ""
 #~ "After a restore, disable any trunks that use registration. This is "
 #~ "helpful to prevent the Primary and Standby systems from \"fighting\" for "
@@ -2170,9 +2269,6 @@ msgstr ""
 #~ msgid "Backup Frequency"
 #~ msgstr "Частота выполнения резервного копирования"
 
-#~ msgid "Backup Lock acquired!"
-#~ msgstr "Блокировка бекапа установлена!"
-
 #~ msgid "Backup Log:"
 #~ msgstr "Лог бекапа:"
 
@@ -2191,17 +2287,8 @@ msgstr ""
 #~ msgid "Backup and Restore"
 #~ msgstr "Резервное копирование и  восстановление"
 
-#~ msgid "Backup completed with errors!"
-#~ msgstr "Резервное копирование завершилось с ошибками!"
-
 #~ msgid "Backup file not found! Aborting."
 #~ msgstr "Файл бекапа не найден! Прерывание."
-
-#~ msgid "Backup module not found or is disabled. Aborting!"
-#~ msgstr "Модуль резервного копирования не найден или отключен. Прерывание!"
-
-#~ msgid "Backup successfully completed!"
-#~ msgstr "Резервное копирование выполнено успешно!"
 
 #~ msgid "Backups"
 #~ msgstr "Бекапы"
@@ -2211,9 +2298,6 @@ msgstr ""
 
 #~ msgid "Browse"
 #~ msgstr "Просмотр"
-
-#~ msgid "Building manifest..."
-#~ msgstr "Генерируется манифест..."
 
 #~ msgid "CDR and Call Log Data"
 #~ msgstr "CDR и логи звонков"
@@ -2241,12 +2325,6 @@ msgstr ""
 
 #~ msgid "Configurations only"
 #~ msgstr "Только конфигурация"
-
-#~ msgid "Connecting to remote server..."
-#~ msgstr "Соединение с удаленным сервером..."
-
-#~ msgid "Creating backup..."
-#~ msgstr "Создание бекапа..."
 
 #~ msgid "Custom"
 #~ msgstr "Особое"
@@ -2398,9 +2476,6 @@ msgstr ""
 #~ msgid "File restore complete!"
 #~ msgstr "Восстановление файла завершено!"
 
-#~ msgid "File verification failed. "
-#~ msgstr "Проверка файла не удалась. "
-
 #~ msgid "FreePBX"
 #~ msgstr "Система FreePBX"
 
@@ -2421,10 +2496,6 @@ msgstr ""
 
 #~ msgid "Go!"
 #~ msgstr "Погнали!"
-
-#~ msgid ""
-#~ "Here are the first few lines of the file as sent by the remote server:"
-#~ msgstr "Вот первые несколько строк файла, посланного удаленным сервером:"
 
 #~ msgid "Hourly"
 #~ msgstr "Ежечасно"
@@ -2469,9 +2540,6 @@ msgstr ""
 #~ "от дня недели.Если день недели установлен,скажем в понедельник, то "
 #~ "резервное копирование будет запущено только 12о-го числа и если это "
 #~ "понедельник."
-
-#~ msgid "Initializing Backup"
-#~ msgstr "Инициализация резервного копирования"
 
 #~ msgid "Initializing Restore..."
 #~ msgstr "Инициализация восстановления..."
@@ -2566,12 +2634,6 @@ msgstr ""
 #~ msgid "Nightly"
 #~ msgstr "Каждую ночь"
 
-#~ msgid "No items in backup set. Aborting."
-#~ msgstr "Нет элементов в резервной копии . Завершение."
-
-#~ msgid "No storage servers found! Aborting."
-#~ msgstr "Не найден сервер хранения! Завершение."
-
 #~ msgid "Nothing to restore!"
 #~ msgstr "Нет ничего для восстановления!"
 
@@ -2620,9 +2682,6 @@ msgstr ""
 
 #~ msgid "Processed %s%% of Settings (%s of %s lines)"
 #~ msgstr "Обработано  %s%% настроек (%s  %s строк)"
-
-#~ msgid "Processing received file..."
-#~ msgstr "Обработка принятого файла..."
 
 #~ msgid "Randomize"
 #~ msgstr "Случайный"
@@ -2695,9 +2754,6 @@ msgstr ""
 #~ msgid "Restoring astDB..."
 #~ msgstr "Восстановление  astDB..."
 
-#~ msgid "Restoring backup..."
-#~ msgstr "Восстановление резервной копии ..."
-
 #~ msgid "Restoring files (this may take some time)..."
 #~ msgstr "Восстановление файлов (это может занять некоторое время)..."
 
@@ -2732,17 +2788,10 @@ msgstr ""
 #~ msgid "Running post restore script..."
 #~ msgstr "Запускается  скрипт после окончания процедуры восстановления..."
 
-#~ msgid "Running post-backup hooks..."
-#~ msgstr "Запускаются   обработчики после создания резервной копии..."
-
 #~ msgid "Running post-restore hooks, if any..."
 #~ msgstr ""
 #~ "Запускаются   обработчики после окончания процедуры восстановления, если "
 #~ "что ..."
-
-#~ msgid "Running pre-backup hooks..."
-#~ msgstr ""
-#~ "Запускаются  обработчики перед процедурой создания резервной копии ..."
 
 #~ msgid "Running pre-restore hooks, if any..."
 #~ msgstr ""
@@ -2804,10 +2853,6 @@ msgstr ""
 #~ msgid "Servers"
 #~ msgstr "Сервера"
 
-#~ msgid "Something went wrong when connecting to remote server. Aborting!"
-#~ msgstr ""
-#~ "Что-то пошло не так при подключении к удалённому серверу. Завершаем!"
-
 #~ msgid "Status Email"
 #~ msgstr "Статусный Email"
 
@@ -2831,9 +2876,6 @@ msgstr ""
 
 #~ msgid "Storage location for backups"
 #~ msgstr "Расположение хранилища резервных копий"
-
-#~ msgid "Storing backup..."
-#~ msgstr "Сохранение резервной копии..."
 
 #~ msgid "Sunday"
 #~ msgstr "Воскресенье"
@@ -2884,9 +2926,6 @@ msgstr ""
 
 #~ msgid "Updated System Recordings template"
 #~ msgstr "Обновлённый шаблон системных записей"
-
-#~ msgid "Verifying received file..."
-#~ msgstr "Проверка принятого файла..."
 
 #~ msgid "Voice Mail Storage"
 #~ msgstr "Хранилище голосовой почты"
@@ -2976,9 +3015,6 @@ msgstr ""
 
 #~ msgid "table names, one per line"
 #~ msgstr "имена таблицы, одно на строку"
-
-#~ msgid "waiting for lock..."
-#~ msgstr "ожидание блокировки..."
 
 #~ msgid "{no servers available}"
 #~ msgstr "{сервера не доступны}"

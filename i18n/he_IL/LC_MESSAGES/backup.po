@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-11 09:07+0000\n"
+"POT-Creation-Date: 2022-03-01 10:05+0000\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "%s Days (%s Months)"
 msgstr ""
 
-#: Handlers/Restore/Multiple.php:17
+#: Handlers/Backup/Common.php:169 Handlers/Restore/Multiple.php:17
 #, php-format
 msgid "%s does not exist"
 msgstr ""
@@ -130,7 +130,7 @@ msgstr ""
 msgid "Add custom files in backup"
 msgstr ""
 
-#: Handlers/Backup/Common.php:204
+#: Handlers/Backup/Common.php:208
 #, php-format
 msgid "Adding custom directory to tar: %s"
 msgstr ""
@@ -148,6 +148,10 @@ msgstr ""
 #: Handlers/Backup/Common.php:141
 #, php-format
 msgid "Adding file to tar: %s"
+msgstr ""
+
+#: bin/backup.php:75
+msgid "Adding items..."
 msgstr ""
 
 #: Handlers/Backup/Multiple.php:138
@@ -200,7 +204,8 @@ msgstr ""
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
-#: functions.inc/class.backup.php:405 views/landing.php:13
+#: functions.inc/backup.php:81 functions.inc/class.backup.php:405
+#: views/landing.php:13
 msgid "Backup"
 msgstr ""
 
@@ -272,6 +277,10 @@ msgstr ""
 msgid "Backup Items"
 msgstr ""
 
+#: bin/backup.php:70
+msgid "Backup Lock acquired!"
+msgstr ""
+
 #: views/backup/form.php:48 views/restore/landing.php:71
 #: views/restore/landing.php:115
 msgid "Backup Name"
@@ -295,6 +304,10 @@ msgstr ""
 
 #: Console/Backup.class.php:117 Console/Backup.class.php:210
 msgid "Backup completed successfully"
+msgstr ""
+
+#: bin/backup.php:177 bin/backup.php:233
+msgid "Backup completed with errors!"
 msgstr ""
 
 #: Api/Gql/Backup.php:140
@@ -328,8 +341,16 @@ msgstr ""
 msgid "Backup has been updated"
 msgstr ""
 
+#: bin/backup.php:12
+msgid "Backup module not found or is disabled. Aborting!"
+msgstr ""
+
 #: Backup.class.php:458
 msgid "Backup running"
+msgstr ""
+
+#: bin/backup.php:179 bin/backup.php:235
+msgid "Backup successfully completed!"
 msgstr ""
 
 #: Handlers/Restore/Common.php:122
@@ -343,6 +364,10 @@ msgstr ""
 
 #: views/backup/form.php:238
 msgid "Both"
+msgstr ""
+
+#: bin/backup.php:78
+msgid "Building manifest..."
 msgstr ""
 
 #: Handlers/Restore/Common.php:87
@@ -408,6 +433,10 @@ msgstr ""
 msgid "Connect Warm Spare Server Over"
 msgstr ""
 
+#: bin/backup.php:100
+msgid "Connecting to remote server..."
+msgstr ""
+
 #: Handlers/Backup/Multiple.php:125
 #, php-format
 msgid ""
@@ -441,6 +470,10 @@ msgstr ""
 msgid "Created"
 msgstr ""
 
+#: bin/backup.php:83
+msgid "Creating backup..."
+msgstr ""
+
 #: functions.inc/class.backup.php:477
 #, php-format
 msgid "Creating directory '%s'"
@@ -450,12 +483,12 @@ msgstr ""
 msgid "Custom Files"
 msgstr ""
 
-#: Handlers/Backup/Common.php:210
+#: Handlers/Backup/Common.php:218
 #, php-format
 msgid "Custom directory not exists: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:170
+#: Handlers/Backup/Common.php:174
 #, php-format
 msgid "Custom file not exists: %s"
 msgstr ""
@@ -509,6 +542,10 @@ msgstr ""
 
 #: views/backup/warmspare.php:50
 msgid "Disable Remote Trunks"
+msgstr ""
+
+#: bin/backup.php:213
+msgid "Disabling registered trunks... "
 msgstr ""
 
 #: Console/Backup.class.php:267 Handlers/Restore/Common.php:127
@@ -695,6 +732,10 @@ msgstr ""
 msgid "File reached the server but could not be processed"
 msgstr ""
 
+#: bin/backup.php:150
+msgid "File verification failed. "
+msgstr ""
+
 #: functions.inc/class.backup.php:399
 msgid "Files"
 msgstr ""
@@ -723,6 +764,11 @@ msgstr ""
 #: Handlers/Backup/Multiple.php:198 Handlers/Backup/Single.php:63
 #, php-format
 msgid "Finished created backup file: %s"
+msgstr ""
+
+#: Handlers/Backup/Common.php:212
+#, php-format
+msgid "Folder %s does not exist"
 msgstr ""
 
 #: Handlers/Restore/Legacy.php:64
@@ -766,6 +812,10 @@ msgstr ""
 
 #: views/backup/warmspare.php:412
 msgid "GraphQL URL of the Warm Spare server."
+msgstr ""
+
+#: bin/backup.php:151
+msgid "Here are the first few lines of the file as sent by the remote server:"
 msgstr ""
 
 #: views/backup/form.php:473
@@ -846,6 +896,10 @@ msgstr ""
 
 #: Handlers/Backup/Single.php:40 Handlers/Restore/Single.php:26
 msgid "In single restores mode dependencies are NOT processed"
+msgstr ""
+
+#: bin/backup.php:60
+msgid "Initializing Backup"
 msgstr ""
 
 #: views/backup/form.php:183
@@ -1030,6 +1084,10 @@ msgstr ""
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
+#: bin/backup.php:95
+msgid "No items in backup set. Aborting."
+msgstr ""
+
 #: assets/js/backup.js:92 assets/js/backup.js:315
 msgid ""
 "No module has selected for this Backup. Please ensure you are selecting "
@@ -1040,6 +1098,10 @@ msgstr ""
 msgid ""
 "No storage location selected for Backup. Please select atleast one storage "
 "location to save the backup"
+msgstr ""
+
+#: bin/backup.php:55
+msgid "No storage servers found! Aborting."
 msgstr ""
 
 #: views/backup/form.php:159
@@ -1107,6 +1169,10 @@ msgstr ""
 #: Handlers/Restore/Multiple.php:58
 #, php-format
 msgid "Processing %s"
+msgstr ""
+
+#: bin/backup.php:164
+msgid "Processing received file..."
 msgstr ""
 
 #: assets/js/backup.js:30
@@ -1225,6 +1291,10 @@ msgstr ""
 #: views/restore/processRestore.php:2
 #, php-format
 msgid "Restoring %s"
+msgstr ""
+
+#: bin/backup.php:199
+msgid "Restoring backup..."
 msgstr ""
 
 #: Handlers/Restore/Common.php:277
@@ -1348,6 +1418,14 @@ msgstr ""
 msgid "Running maintenance.."
 msgstr ""
 
+#: bin/backup.php:172 bin/backup.php:229
+msgid "Running post-backup hooks..."
+msgstr ""
+
+#: bin/backup.php:72
+msgid "Running pre-backup hooks..."
+msgstr ""
+
 #: views/backup/warmspare.php:281
 msgid "SSH"
 msgstr ""
@@ -1431,6 +1509,14 @@ msgstr ""
 msgid "Should the warm spare feature be enabled, default false"
 msgstr ""
 
+#: bin/backup.php:207
+msgid "Skip Bindaddrss is Enabled... "
+msgstr ""
+
+#: bin/backup.php:219
+msgid "Skip DNS is Enabled... "
+msgstr ""
+
 #: Handlers/Restore/Multiple.php:97
 msgid "Skipped Post Restore Hooks.."
 msgstr ""
@@ -1457,6 +1543,10 @@ msgstr ""
 
 #: Backup.class.php:310
 msgid "Something failed."
+msgstr ""
+
+#: bin/backup.php:128
+msgid "Something went wrong when connecting to remote server. Aborting!"
 msgstr ""
 
 #: Api/Gql/Backup.php:514
@@ -1514,6 +1604,10 @@ msgstr ""
 
 #: views/backup/form.php:267
 msgid "Storage Location"
+msgstr ""
+
+#: bin/backup.php:169
+msgid "Storing backup..."
 msgstr ""
 
 #: views/backup/form.php:228
@@ -1745,6 +1839,10 @@ msgstr ""
 msgid "Utilizing file based sqlite at %s, This is SLOW"
 msgstr ""
 
+#: bin/backup.php:135
+msgid "Verifying received file..."
+msgstr ""
+
 #: views/restore/processRestore.php:49
 msgid "Version in Backup"
 msgstr ""
@@ -1920,6 +2018,10 @@ msgstr ""
 
 #: Api/Gql/Backup.php:66
 msgid "updateBackup"
+msgstr ""
+
+#: bin/backup.php:67
+msgid "waiting for lock..."
 msgstr ""
 
 #~ msgid "All"

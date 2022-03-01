@@ -165,7 +165,11 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 				if(file_exists($srcpath)) {
 					$destpath = $this->Backup->getPath('customfiles/' . ltrim($srcpath, '/'));
 					$this->log("\t".sprintf(_('Adding custom file to tar: %s'),$destpath),'DEBUG');
-					$this->tar->addFile($srcpath, $destpath);
+					if (!file_exists($srcpath)) {
+						$this->log("\t".sprintf(_('%s does not exist'),$srcpath),'DEBUG');
+					}else {
+						$this->tar->addFile($srcpath, $destpath);
+					}
 				} else {
 					$this->log("\t".sprintf(_('Custom file not exists: %s'),$srcpath),'DEBUG');
 				}
@@ -204,7 +208,11 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 					$this->log("\t".sprintf(_('Adding custom directory to tar: %s'),$fdir),'DEBUG');
 					$fileList = $this->getFileList("$dst/");
 					foreach($fileList as $file) {
-						$this->tar->addFile($dst.'/'.$file, $fdir.'/'.$file);
+						if (!file_exists($dst.'/'.$file)) {
+							$this->log("\t".sprintf(_('Folder %s does not exist'),$file),'DEBUG');
+						}else {
+							$this->tar->addFile($dst.'/'.$file, $fdir.'/'.$file);
+						}
 					}
 				} else {
 					$this->log("\t".sprintf(_('Custom directory not exists: %s'),$dir),'DEBUG');

@@ -81,7 +81,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	 * @param string $version The module version the backup references
 	 * @return void
 	 */
-	protected function processModule($module, $version) {
+	protected function processModule($module, $version,$cliarguments=array()) {
 		$modData = $this->getModuleManifest($module);
 		if(empty($modData)) {
 			$msg = sprintf(_("Can't find the module data for %s"),$module);
@@ -89,6 +89,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 			$this->addWarning($msg);
 			return;
 		}
+		$modData['cliarguments'] = $cliarguments;
 		$modData['module'] = $module;
 		$modData['version'] = $version;
 		$modData['pbx_version'] = null;
@@ -109,14 +110,17 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 			$className = 'FreePBX\modules\Backup\RestoreBase';
 		}
 		$class = new $className($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp, $this->defaultFallback);
+		$NotReset = false;
+		if (method_exists($class,'getResetInfo')) {
+			$NotReset = $class->getResetInfo();
+		}
 		//Change the Text Domain
-		$this->log(sprintf(_('Resetting %s module data'),$module));
 		modgettext::push_textdomain($module);
-		//FREEPBX-20646 Warm spare backup,  resets will clear all data so the extenalip ,nat,bindaddress we can not preserve
-		if ($module === 'sipsettings' && $modData['backupInfo']['backupInfo']['warmspareenabled'] == 'yes' || $module === 'zulu' || ($modData['backupInfo']['backupInfo']['warmspareenabled'] == 'yes' && $modData['backupInfo']['backupInfo']['warmspare_excludetrunks'] == 'yes' && $module === 'core')) {
+		if ($module === 'zulu' || $NotReset) {
 			$this->log(sprintf(_('NOT Resetting %s module data'),$module));
 		} else {
 			if(!$skipModuleReset){
+				$this->log(sprintf(_('Resetting %s module data'),$module));
 				$class->reset();
 			}else {
 				$this->log(sprintf(_('Based on Module settings We are NOT Resetting %s module data'),$module));

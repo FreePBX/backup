@@ -28,6 +28,7 @@ class Backup extends Command {
 				new InputOption('filestore', '', InputOption::VALUE_REQUIRED, 'Use filestore ID to restore a file'),
 				new InputOption('restore', '', InputOption::VALUE_REQUIRED, 'Restore File'),
 				new InputOption('restorelegacycdr', '', InputOption::VALUE_NONE, 'pass the Option --restorelegacycdr to restore LegacyCDR'),
+				new InputOption('ignoremodules', '', InputOption::VALUE_REQUIRED, 'pass the Option --ignoremodules get ignore modules names'),
 				new InputOption('modules', '', InputOption::VALUE_REQUIRED, 'Specific Modules to restore from using --restore, separate each module by a comma'),
 				new InputOption('restoresingle', '', InputOption::VALUE_REQUIRED, 'Module backup to restore'),
 				new InputOption('backupsingle', '', InputOption::VALUE_REQUIRED, 'Module to backup'),
@@ -36,6 +37,9 @@ class Backup extends Command {
 				new InputOption('fallback', '', InputOption::VALUE_NONE, ''),
 				new InputOption('useinfiledb', '', InputOption::VALUE_NONE, 'Option --useinfiledb to restore Legacy backup using file based sqlite, By default system uses inmemory'),
 				new InputOption('skiprestorehooks', '', InputOption::VALUE_NONE, 'Option --skiprestorehooks skip postrestore hooks on restore'),
+				new InputOption('skipbindport', '', InputOption::VALUE_NONE, 'Option --skipbindport skip bindport on restore'),
+				new InputOption('skipdns', '', InputOption::VALUE_NONE, 'Option --skipdns skip dns on restore'),
+				new InputOption('skipremotenat', '', InputOption::VALUE_NONE, 'Option --skipremotenat skip remotenat on restore'),
 		))
 		->setHelp('Run a backup: fwconsole backup --backup [backup-id]'.PHP_EOL
 		.'Run a restore: fwconsole backup --restore [/path/to/restore-xxxxxx.tar.gz]'.PHP_EOL
@@ -83,6 +87,12 @@ class Backup extends Command {
 		$restoresingle = $input->getOption('restoresingle');
 		$b64import = $input->getOption('b64import');
 		$skiprestorehooks = $input->getOption('skiprestorehooks');
+		$cliarguments = array();
+		$cliarguments['ignoremodules'] = (trim($input->getOption('ignoremodules')) !='')? explode(',',$input->getOption('ignoremodules')) : array();
+		$cliarguments['skipbindport'] = $input->getOption('skipbindport');
+		$cliarguments['skipdns'] = $input->getOption('skipdns');
+		$cliarguments['skipremotenat'] = $input->getOption('skipremotenat');
+
 		if($b64import){
 			return $this->addBackupByString($b64import);
 		}
@@ -317,11 +327,11 @@ class Backup extends Command {
 					$restoreHandler->setSpecificRestore(explode(",",$input->getOption('modules')));
 				}
 				$output->writeln(sprintf('Starting restore job with file: %s',$restore));
-				if($backupType === 'legacy'){
-					$restoreHandler->process($useinmemory);
+				if ($backupType === 'legacy') {
+					$restoreHandler->process($useinmemory, $cliarguments);
 				} else { 
 					//current version 
-					$restoreHandler->process($skiphooks);
+					$restoreHandler->process($skiphooks, $cliarguments);
 				}
 
 				$errors = $restoreHandler->getErrors();

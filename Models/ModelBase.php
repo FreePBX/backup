@@ -20,6 +20,7 @@ class ModelBase {
 	];
 	protected $defaultFallback = false;
 	protected $getBackupManifestBackupInfo = [];
+	protected $cliarguments = [];
 
 	public function __construct($freepbx, $backupModVer, $logger, $transactionId, $modData, $defaultFallback){
 		$this->FreePBX = $freepbx;
@@ -28,6 +29,7 @@ class ModelBase {
 		$this->transactionId = $transactionId;
 		$this->defaultFallback = $defaultFallback;
 		$this->getBackupManifestBackupInfo = $modData['backupInfo']['backupInfo'];
+		$this->cliarguments = isset($modData['cliarguments'])? $modData['cliarguments']:array();
 		foreach($this->data as $key => $data) {
 			if(!isset($modData[$key])) {
 				$modData[$key] = $data;
@@ -130,6 +132,10 @@ class ModelBase {
 	/* Return the backupmainfest backupinfo when the module request*/
 	public function getBackupInfo() {
 		return $this->getBackupManifestBackupInfo;
+	}
+
+	public function getCliarguments() {
+		return $this->cliarguments;
 	}
 	/**
 	 * Logging functionality

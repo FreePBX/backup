@@ -11,9 +11,11 @@ use FreePBX\modules\Backup\Handlers\FreePBXModule;
 class Legacy extends Common {
 	private $data;
 	private $inMemory = true; //use in memory sqlite (much faster)
+	private $cliarguments = array();
 
-	public function process($useinmemory){
+	public function process($useinmemory, $cliarguments = array()){
 		$this->inMemory = $useinmemory;
+		$this->cliarguments = $cliarguments;
 		$this->extractFile();
 		$this->buildData();
 		$this->parseSQL();
@@ -228,10 +230,19 @@ class Legacy extends Common {
 				'features' => $dbh->query("SELECT `featurename`, `customcode`, `enabled` FROM featurecodes WHERE modulename = ".$dbh->quote($module))->fetchAll(\PDO::FETCH_GROUP|\PDO::FETCH_ASSOC|\PDO::FETCH_UNIQUE)
 			]
 		];
+		$modData['cliarguments'] = $this->cliarguments;
 		$class = new $className($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp, $this->defaultFallback);
-		$this->log(sprintf(_("Resetting %s"), $module));
-		$class->reset();
-		$this->log(sprintf(_("Restoring from %s [%s]"), $module, get_class($class)));
+		$NotReset = false;
+		if (method_exists($class,'getResetInfo')) {
+			$NotReset = $class->getResetInfo();
+		}
+		if ($NotReset) {
+			$this->log(sprintf(_("Not Resetting %s"),$module),'INFO');
+		} else {
+			$this->log(sprintf(_("Resetting %s"), $module));
+			$class->reset();
+			$this->log(sprintf(_("Restoring from %s [%s]"), $module, get_class($class)));
+		}
 		$class->processLegacy($dbh, $this->data, $tables, $tableMap['unknown']);
 		$this->log(_("Done"));
 	}
@@ -259,6 +270,13 @@ class Legacy extends Common {
 			if($module === 'unknown' || $module === 'cdr' || $module === 'cel' || $module === 'queuelog'){
 				continue;
 			}
+			if(isset($this->cliarguments['ignoremodules']) && is_array($this->cliarguments['ignoremodules']) && count($this->cliarguments['ignoremodules'])> 0) {
+				if(in_array($module,$this->cliarguments['ignoremodules'])) {
+					$this->log(sprintf(_("MODULE SKIPED %s"),$module),'INFO');
+					continue;
+				}
+			}
+			
 			$this->log(sprintf(_("Processing %s"),$module),'INFO');
 			try {
 				$this->processLegacyModule($module, $versions[$module], $dbh, $tables, $tableMap);
@@ -366,7 +384,6 @@ class Legacy extends Common {
 
 						} elseif(preg_match('/INSERT INTO `([^`]*)` VALUES (.*)/',$query)) {
 							//$query = preg_replace('/\\\\/', "\\_", $query);
-
 							# single quotes are escaped by another single quote
 							$query = preg_replace("/\\\'/", "\\\''", $query);
 							$query = preg_replace('/\\"/', "\"", $query);

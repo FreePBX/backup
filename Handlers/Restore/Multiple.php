@@ -12,7 +12,7 @@ use function FreePBX\modules\Backup\Json\json_encode;
 class Multiple extends Common {
 	private $restoreModules;
 
-	public function process($skiphooks=false) {
+	public function process($skiphooks=false, $cliarguments = array()) {
 		if(!file_exists($this->file)) {
 			throw new \Exception(sprintf(_('%s does not exist'),$this->file));
 		}
@@ -55,10 +55,17 @@ class Multiple extends Common {
 				$this->log(_('Skipping CertMan module Restore , Warmspare skip Certificate enabled'),'INFO');
 				continue;
 			}
+
+			if(isset($cliarguments['ignoremodules']) && is_array($cliarguments['ignoremodules']) && count($cliarguments['ignoremodules'])> 0) {
+				if(in_array($mod['module'],$cliarguments['ignoremodules'])) {
+					$this->log(sprintf(_("MODULE SKIPED %s"),$mod['module']),'INFO');
+					continue;
+				}
+			}
 			$this->log(sprintf(_("Processing %s"),$mod['module']),'INFO');
 			
 			try {
-				$this->processModule($mod['module'],$mod['version']);
+				$this->processModule($mod['module'],$mod['version'],$cliarguments);
 			} catch(\Exception $e) {
 				$this->log($e->getMessage(). ' on line '.$e->getLine().' of file '.$e->getFile(),'ERROR');
 				$this->log($e->getTraceAsString());

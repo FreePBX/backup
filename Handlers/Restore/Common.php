@@ -99,9 +99,8 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		} else {
 			$className = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($module));
 		}
-
 		if(!class_exists($className)) {
-			$this->log(sprintf(_("The module %s does not seem to support restores."), $module));
+			$this->log(sprintf(_("The module %s does not seem to support restore or is not installed on this system."), $module));
 			if($module === 'framework' || !$this->defaultFallback) {
 				return;
 			}

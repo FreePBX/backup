@@ -211,7 +211,7 @@ class Legacy extends Common {
 			$className = sprintf('\\FreePBX\\modules\\%s\\Restore', ucfirst($module));
 		}
 		if(!class_exists($className)) {
-			$this->log(sprintf(_("The module %s does not support restores"), $module),'WARNING');
+			$this->log(sprintf(_("The module %s does not support restore or is not installed on this system"), $module),'WARNING');
 			if($module === 'framework' || !$this->defaultFallback) {
 				return;
 			}

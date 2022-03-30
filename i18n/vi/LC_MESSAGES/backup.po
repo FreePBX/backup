@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-01 10:09+0000\n"
+"POT-Creation-Date: 2022-03-30 08:46+0000\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -162,7 +162,7 @@ msgstr "Quản trị viên"
 msgid "After the restore you might reload with the apply config button"
 msgstr ""
 
-#: Handlers/Restore/Common.php:182
+#: Handlers/Restore/Common.php:181
 msgid ""
 "Apache will Restart now... And your GUI may die if the ports are changed !!!!"
 msgstr ""
@@ -328,7 +328,7 @@ msgstr ""
 msgid "Backup running"
 msgstr ""
 
-#: Handlers/Restore/Common.php:122
+#: Handlers/Restore/Common.php:121
 #, php-format
 msgid "Based on Module settings We are NOT Resetting %s module data"
 msgstr ""
@@ -425,7 +425,7 @@ msgstr "Không thể tìm thấy  %s trên hệ thống từ xa"
 msgid "Could not find a file for the id supplied"
 msgstr ""
 
-#: Handlers/Restore/Common.php:169
+#: Handlers/Restore/Common.php:168
 msgid "Could not locate the manifest for this file"
 msgstr ""
 
@@ -506,7 +506,7 @@ msgstr "Thư mục '%s' không tồn tại và chúng tôi không thể tạo n�
 msgid "Disable Remote Trunks"
 msgstr ""
 
-#: Console/Backup.class.php:267 Handlers/Restore/Common.php:127
+#: Console/Backup.class.php:267 Handlers/Restore/Common.php:126
 #: Handlers/Restore/Legacy.php:236
 msgid "Done"
 msgstr ""
@@ -666,7 +666,7 @@ msgstr ""
 msgid "Extracting Backup"
 msgstr ""
 
-#: Handlers/Restore/Common.php:147
+#: Handlers/Restore/Common.php:146
 msgid "Extracting backup..."
 msgstr ""
 
@@ -997,7 +997,7 @@ msgstr ""
 msgid "Mysql Db's"
 msgstr "Các dữ liệu Mysql"
 
-#: Handlers/Restore/Common.php:117
+#: Handlers/Restore/Common.php:116
 #, php-format
 msgid "NOT Resetting %s module data"
 msgstr ""
@@ -1164,7 +1164,7 @@ msgstr "Cài đặt lại"
 msgid "Resetting %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:113
+#: Handlers/Restore/Common.php:112
 #, php-format
 msgid "Resetting %s module data"
 msgstr ""
@@ -1237,18 +1237,18 @@ msgstr ""
 msgid "Restoring %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:277
+#: Handlers/Restore/Common.php:276
 #, php-format
 msgid "Restoring custom directory to %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:266 Handlers/Restore/Common.php:285
-#: Handlers/Restore/Common.php:311 Handlers/Restore/Common.php:348
+#: Handlers/Restore/Common.php:265 Handlers/Restore/Common.php:284
+#: Handlers/Restore/Common.php:310 Handlers/Restore/Common.php:347
 #, php-format
 msgid "Restoring custom file to %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:125 Handlers/Restore/Legacy.php:234
+#: Handlers/Restore/Common.php:124 Handlers/Restore/Legacy.php:234
 #, php-format
 msgid "Restoring from %s [%s]"
 msgstr ""
@@ -1449,7 +1449,7 @@ msgstr ""
 msgid "Skipping CertMan module Restore , Warmspare skip Certificate enabled"
 msgstr ""
 
-#: Handlers/Restore/Common.php:339
+#: Handlers/Restore/Common.php:338
 #, php-format
 msgid "Skipping directory %s"
 msgstr ""
@@ -1583,14 +1583,17 @@ msgstr ""
 "bytes). Nó đã không thể được gửi đi . Vui lòng nén sao lưu của bạn, hoặc sử "
 "dụng cách để truyền sao lưu."
 
-#: Handlers/Restore/Common.php:104
+#: Handlers/Restore/Common.php:103
 #, php-format
-msgid "The module %s does not seem to support restores."
+msgid ""
+"The module %s does not seem to support restore or is not installed on this "
+"system."
 msgstr ""
 
 #: Handlers/Restore/Legacy.php:214
 #, php-format
-msgid "The module %s does not support restores"
+msgid ""
+"The module %s does not support restore or is not installed on this system"
 msgstr ""
 
 #: Handlers/Backup/Common.php:89
@@ -1746,7 +1749,7 @@ msgstr ""
 msgid "Using default restore strategy"
 msgstr ""
 
-#: Handlers/Restore/Common.php:108
+#: Handlers/Restore/Common.php:107
 msgid "Using fallback restore strategy"
 msgstr ""
 

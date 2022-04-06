@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-30 08:46+0000\n"
+"POT-Creation-Date: 2022-04-06 05:37+0000\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -67,7 +67,7 @@ msgstr ""
 msgid "%s does not implement KVStore"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:135
+#: Handlers/Restore/Legacy.php:137
 #, php-format
 msgid "%s is now loaded into memory"
 msgstr ""
@@ -175,7 +175,7 @@ msgstr "Админ"
 msgid "After the restore you might reload with the apply config button"
 msgstr ""
 
-#: Handlers/Restore/Common.php:181
+#: Handlers/Restore/Common.php:185
 msgid ""
 "Apache will Restart now... And your GUI may die if the ports are changed !!!!"
 msgstr ""
@@ -300,7 +300,7 @@ msgstr ""
 msgid "Backup Wizard"
 msgstr "Помощник за Архивиране"
 
-#: Console/Backup.class.php:117 Console/Backup.class.php:210
+#: Console/Backup.class.php:127 Console/Backup.class.php:220
 msgid "Backup completed successfully"
 msgstr ""
 
@@ -339,7 +339,7 @@ msgstr ""
 msgid "Backup running"
 msgstr ""
 
-#: Handlers/Restore/Common.php:121
+#: Handlers/Restore/Common.php:125
 #, php-format
 msgid "Based on Module settings We are NOT Resetting %s module data"
 msgstr ""
@@ -436,7 +436,7 @@ msgstr ""
 msgid "Could not find a file for the id supplied"
 msgstr ""
 
-#: Handlers/Restore/Common.php:168
+#: Handlers/Restore/Common.php:172
 msgid "Could not locate the manifest for this file"
 msgstr ""
 
@@ -497,12 +497,12 @@ msgstr ""
 msgid "Description"
 msgstr "Описание"
 
-#: Handlers/Restore/Legacy.php:83
+#: Handlers/Restore/Legacy.php:85
 #, php-format
 msgid "Detected file %s as the PBX (Asterisk) database. Attempting restore"
 msgstr ""
 
-#: Console/Backup.class.php:281
+#: Console/Backup.class.php:291
 msgid "Determining backup file type..."
 msgstr ""
 
@@ -519,8 +519,8 @@ msgstr ""
 msgid "Disable Remote Trunks"
 msgstr ""
 
-#: Console/Backup.class.php:267 Handlers/Restore/Common.php:126
-#: Handlers/Restore/Legacy.php:236
+#: Console/Backup.class.php:277 Handlers/Restore/Common.php:130
+#: Handlers/Restore/Legacy.php:247
 msgid "Done"
 msgstr ""
 
@@ -583,7 +583,7 @@ msgstr ""
 msgid "Error deleting %s"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:167
+#: Handlers/Restore/Legacy.php:169
 #, php-format
 msgid "Error in processing legacy cdr sql restore process....  %s %s %s  "
 msgstr ""
@@ -673,11 +673,11 @@ msgstr ""
 msgid "Extracting Backup"
 msgstr ""
 
-#: Handlers/Restore/Common.php:146
+#: Handlers/Restore/Common.php:150
 msgid "Extracting backup..."
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:125
+#: Handlers/Restore/Legacy.php:127
 #, php-format
 msgid "Extracting supplied database file %s"
 msgstr ""
@@ -694,7 +694,7 @@ msgstr "Файл"
 msgid "File Deleted"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:77
+#: Handlers/Restore/Legacy.php:79
 #, php-format
 msgid "File named: %s"
 msgstr ""
@@ -707,7 +707,7 @@ msgstr ""
 msgid "Files"
 msgstr "Файлове"
 
-#: Handlers/Restore/Legacy.php:284 Handlers/Restore/Multiple.php:100
+#: Handlers/Restore/Legacy.php:302 Handlers/Restore/Multiple.php:107
 #: Handlers/Restore/Single.php:34
 msgid "Finished"
 msgstr ""
@@ -716,11 +716,11 @@ msgstr ""
 msgid "Finished Cleaning up"
 msgstr ""
 
-#: Console/Backup.class.php:197
+#: Console/Backup.class.php:207
 msgid "Finished Local Maintenance"
 msgstr ""
 
-#: Console/Backup.class.php:200
+#: Console/Backup.class.php:210
 msgid "Finished Remote Maintenance"
 msgstr ""
 
@@ -738,7 +738,7 @@ msgstr ""
 msgid "Folder %s does not exist"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:64
+#: Handlers/Restore/Legacy.php:66
 #, php-format
 msgid "Found %s database files in the backup."
 msgstr ""
@@ -865,7 +865,7 @@ msgstr ""
 msgid "Inline Logs"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:179 Handlers/Restore/Legacy.php:191
+#: Handlers/Restore/Legacy.php:181 Handlers/Restore/Legacy.php:193
 #, php-format
 msgid "Installing  %s"
 msgstr ""
@@ -890,7 +890,7 @@ msgstr ""
 msgid "Items"
 msgstr "Елементи"
 
-#: Handlers/Restore/Legacy.php:71
+#: Handlers/Restore/Legacy.php:73
 #, php-format
 msgid ""
 "Legacy CDR Restore Opted. we are processing , It may take long time to "
@@ -935,21 +935,26 @@ msgstr ""
 msgid "Loading Please Wait"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:39
+#: Handlers/Restore/Legacy.php:41
 msgid "Loading astdb to memory"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:31
+#: Handlers/Restore/Legacy.php:33
 msgid "Loading manifest to memory"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:133
+#: Handlers/Restore/Legacy.php:135
 #, php-format
 msgid "Loading supplied database file %s"
 msgstr ""
 
 #: Backup.class.php:531
 msgid "Log file is missing but process is still running!"
+msgstr ""
+
+#: Handlers/Restore/Legacy.php:275 Handlers/Restore/Multiple.php:61
+#, php-format
+msgid "MODULE SKIPED %s"
 msgstr ""
 
 #: views/backup/form.php:389
@@ -1004,7 +1009,7 @@ msgstr ""
 msgid "Mysql Db's"
 msgstr "Mysql БД"
 
-#: Handlers/Restore/Common.php:116
+#: Handlers/Restore/Common.php:119
 #, php-format
 msgid "NOT Resetting %s module data"
 msgstr ""
@@ -1059,6 +1064,11 @@ msgid ""
 "location to save the backup"
 msgstr ""
 
+#: Handlers/Restore/Legacy.php:240
+#, php-format
+msgid "Not Resetting %s"
+msgstr ""
+
 #: views/backup/form.php:159
 msgid "Notification Email"
 msgstr ""
@@ -1067,7 +1077,7 @@ msgstr ""
 msgid "Notifications"
 msgstr "Известия"
 
-#: Handlers/Restore/Legacy.php:253 Handlers/Restore/Multiple.php:47
+#: Handlers/Restore/Legacy.php:264 Handlers/Restore/Multiple.php:47
 #, php-format
 msgid "Only Restoring %s"
 msgstr ""
@@ -1076,7 +1086,7 @@ msgstr ""
 msgid "PATTERNs, one per line"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:50
+#: Handlers/Restore/Legacy.php:52
 msgid ""
 "Parsing out SQL tables. This may take a moment depending on backup size."
 msgstr ""
@@ -1086,15 +1096,15 @@ msgstr ""
 msgid "Path: %s"
 msgstr ""
 
-#: Console/Backup.class.php:195
+#: Console/Backup.class.php:205
 msgid "Performing Local Maintenance"
 msgstr ""
 
-#: Console/Backup.class.php:198
+#: Console/Backup.class.php:208
 msgid "Performing Remote Maintenance"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:161
+#: Handlers/Restore/Legacy.php:163
 msgid ""
 "Please note that, legacy cdr sql restoration process may take a long time "
 "depends on cdr sql file size "
@@ -1120,8 +1130,8 @@ msgstr ""
 msgid "Process is no longer running"
 msgstr ""
 
-#: Handlers/Backup/Single.php:36 Handlers/Restore/Legacy.php:262
-#: Handlers/Restore/Multiple.php:58
+#: Handlers/Backup/Single.php:36 Handlers/Restore/Legacy.php:280
+#: Handlers/Restore/Multiple.php:65
 #, php-format
 msgid "Processing %s"
 msgstr ""
@@ -1147,7 +1157,7 @@ msgstr ""
 msgid "Recipient"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:280 Handlers/Restore/Multiple.php:88
+#: Handlers/Restore/Legacy.php:298 Handlers/Restore/Multiple.php:95
 msgid "Reloading...... DONE"
 msgstr ""
 
@@ -1166,21 +1176,21 @@ msgstr ""
 msgid "Reset"
 msgstr "Изчисти"
 
-#: Handlers/Restore/Legacy.php:232
+#: Handlers/Restore/Legacy.php:242
 #, php-format
 msgid "Resetting %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:112
+#: Handlers/Restore/Common.php:122
 #, php-format
 msgid "Resetting %s module data"
 msgstr ""
 
-#: Console/Backup.class.php:252
+#: Console/Backup.class.php:262
 msgid "Response from Warmspare Server "
 msgstr ""
 
-#: Console/Backup.class.php:244
+#: Console/Backup.class.php:254
 msgid "Response from Warmspare backup Server API"
 msgstr ""
 
@@ -1196,7 +1206,7 @@ msgstr ""
 msgid "Restore Information"
 msgstr ""
 
-#: Console/Backup.class.php:144 Console/Backup.class.php:330
+#: Console/Backup.class.php:154 Console/Backup.class.php:340
 msgid "Restore completed successfully"
 msgstr ""
 
@@ -1208,12 +1218,12 @@ msgstr ""
 msgid "Restore from the cloud"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:165
+#: Handlers/Restore/Legacy.php:167
 #, php-format
 msgid "Restore of legacy cdr sql process done....  %s  "
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:34
+#: Handlers/Restore/Legacy.php:36
 msgid ""
 "Restore process failed due to corrupted manifest file present in provided "
 "backup file. Please ensure your backup file is proper or regenerate the new "
@@ -1226,7 +1236,7 @@ msgid ""
 "the transaction id."
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:274 Handlers/Restore/Multiple.php:72
+#: Handlers/Restore/Legacy.php:292 Handlers/Restore/Multiple.php:79
 msgid "Restore processing for modules are finished successfully"
 msgstr ""
 
@@ -1234,7 +1244,7 @@ msgstr ""
 msgid "Restore running"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:181 Handlers/Restore/Legacy.php:193
+#: Handlers/Restore/Legacy.php:183 Handlers/Restore/Legacy.php:195
 #, php-format
 msgid "Restored module %s [%s]"
 msgstr ""
@@ -1244,23 +1254,23 @@ msgstr ""
 msgid "Restoring %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:276
+#: Handlers/Restore/Common.php:280
 #, php-format
 msgid "Restoring custom directory to %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:265 Handlers/Restore/Common.php:284
-#: Handlers/Restore/Common.php:310 Handlers/Restore/Common.php:347
+#: Handlers/Restore/Common.php:269 Handlers/Restore/Common.php:288
+#: Handlers/Restore/Common.php:314 Handlers/Restore/Common.php:351
 #, php-format
 msgid "Restoring custom file to %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:124 Handlers/Restore/Legacy.php:234
+#: Handlers/Restore/Common.php:128 Handlers/Restore/Legacy.php:244
 #, php-format
 msgid "Restoring from %s [%s]"
 msgstr ""
 
-#: Console/Backup.class.php:264
+#: Console/Backup.class.php:274
 #, php-format
 msgid "Retrieving %s from %s:%s..."
 msgstr ""
@@ -1347,11 +1357,11 @@ msgstr ""
 msgid "Running Backup ID: %s"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:283 Handlers/Restore/Multiple.php:99
+#: Handlers/Restore/Legacy.php:301 Handlers/Restore/Multiple.php:106
 msgid "Running Post Restore Hooks DONE"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:281 Handlers/Restore/Multiple.php:94
+#: Handlers/Restore/Legacy.php:299 Handlers/Restore/Multiple.php:101
 msgid ""
 "Running Post Restore Hooks.. Please note that hook will restart httpd "
 "service so please refresh your page (using new ports) "
@@ -1448,7 +1458,7 @@ msgstr ""
 msgid "Should the warm spare feature be enabled, default false"
 msgstr ""
 
-#: Handlers/Restore/Multiple.php:97
+#: Handlers/Restore/Multiple.php:104
 msgid "Skipped Post Restore Hooks.."
 msgstr ""
 
@@ -1456,7 +1466,7 @@ msgstr ""
 msgid "Skipping CertMan module Restore , Warmspare skip Certificate enabled"
 msgstr ""
 
-#: Handlers/Restore/Common.php:338
+#: Handlers/Restore/Common.php:342
 #, php-format
 msgid "Skipping directory %s"
 msgstr ""
@@ -1509,7 +1519,7 @@ msgstr ""
 msgid "Starting backup %s"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:158
+#: Handlers/Restore/Legacy.php:160
 msgid "Starting legacy cdr sql restore process"
 msgstr ""
 
@@ -1585,14 +1595,14 @@ msgid ""
 "different method of transferring your backup."
 msgstr ""
 
-#: Handlers/Restore/Common.php:103
+#: Handlers/Restore/Common.php:104
 #, php-format
 msgid ""
 "The module %s does not seem to support restore or is not installed on this "
 "system."
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:214
+#: Handlers/Restore/Legacy.php:216
 #, php-format
 msgid ""
 "The module %s does not support restore or is not installed on this system"
@@ -1617,19 +1627,19 @@ msgstr ""
 msgid "There was nothing to cleanup"
 msgstr ""
 
-#: Console/Backup.class.php:121 Console/Backup.class.php:215
+#: Console/Backup.class.php:131 Console/Backup.class.php:225
 msgid "There were errors during the backup process"
 msgstr ""
 
-#: Console/Backup.class.php:147 Console/Backup.class.php:333
+#: Console/Backup.class.php:157 Console/Backup.class.php:343
 msgid "There were errors during the restore process"
 msgstr ""
 
-#: Console/Backup.class.php:127 Console/Backup.class.php:221
+#: Console/Backup.class.php:137 Console/Backup.class.php:231
 msgid "There were warnings during the backup process"
 msgstr ""
 
-#: Console/Backup.class.php:153 Console/Backup.class.php:339
+#: Console/Backup.class.php:163 Console/Backup.class.php:349
 msgid "There were warnings during the restore process"
 msgstr ""
 
@@ -1657,7 +1667,7 @@ msgstr ""
 msgid "This table will be empty on backups created prior to version 15"
 msgstr ""
 
-#: Console/Backup.class.php:100
+#: Console/Backup.class.php:110
 #, php-format
 msgid "Transaction ID is: %s"
 msgstr ""
@@ -1747,20 +1757,20 @@ msgstr ""
 msgid "Using default backup strategy"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:218
+#: Handlers/Restore/Legacy.php:220
 msgid "Using default restore strategy"
 msgstr ""
 
-#: Handlers/Restore/Common.php:107
+#: Handlers/Restore/Common.php:108
 msgid "Using fallback restore strategy"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:301
+#: Handlers/Restore/Legacy.php:319
 #, php-format
 msgid "Utilizing cached based sqlite at %s. The data might be stale!"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:305
+#: Handlers/Restore/Legacy.php:323
 #, php-format
 msgid "Utilizing file based sqlite at %s, This is SLOW"
 msgstr ""
@@ -1791,7 +1801,7 @@ msgid ""
 "and Above"
 msgstr ""
 
-#: Console/Backup.class.php:238 Console/Backup.class.php:249
+#: Console/Backup.class.php:248 Console/Backup.class.php:259
 msgid "Warmspare enabled for this backup"
 msgstr ""
 
@@ -1799,11 +1809,11 @@ msgstr ""
 msgid "Way to Connect Warm spare Server"
 msgstr ""
 
-#: Console/Backup.class.php:241
+#: Console/Backup.class.php:251
 msgid "We Have triggered an API to restore the backup on Spare Server"
 msgstr ""
 
-#: Console/Backup.class.php:250
+#: Console/Backup.class.php:260
 msgid "We are running Restore command on Spare Server"
 msgstr ""
 
@@ -1933,7 +1943,7 @@ msgstr ""
 msgid "success"
 msgstr ""
 
-#: Console/Backup.class.php:286
+#: Console/Backup.class.php:296
 #, php-format
 msgid "type is %s"
 msgstr ""

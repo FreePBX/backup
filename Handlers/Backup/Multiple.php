@@ -94,58 +94,60 @@ class Multiple extends Common {
 			$this->dependencies[$mod] = $validMods[$mod]['version'];
 			$processQueue->enqueue(['rawname' => $mod, 'ucfirst' => ucfirst($mod)]);
 		}
-		if($processQueue->isEmpty()) {
-			$msg = "No Module selected for this backup";
+		if($processQueue->isEmpty() && empty($this->backupInfo['custom_files'])) {
+			$msg = _("No Module or Custom files selected for this backup");
 			$this->log($msg,'WARNING');
 			$this->addWarning($msg);
 			return false;
 		}
 
 		//Process the Queue
-		foreach($processQueue as $mod) {
-			$moddata = $this->processModule($this->id, $mod);
-			if(empty($moddata)) {
-				$manifest['skipped'][] = $mod['ucfirst'];
-			}
-			if(!empty($moddata['dependencies'])) {
-				$moddeps = array_map('strtolower', $moddata['dependencies']);
-				foreach($moddeps as $depend){
-					if(empty($depend)) {
-						$msg = sprintf(_("Depend field was blank for %s. Skipping because not sure what to do"), $mod['rawname']);
-						$this->log("\t".$msg,'WARNING');
-						continue;
-					}
-					if($depend === 'framework') {
-						$msg = sprintf(_("Skpping %s which depends on framework because framework is a system requirement. Framework should be removed as a dependency"), $mod['rawname']);
-						$this->log("\t".$msg,'WARNING');
-						continue;
-					}
-					if(!isset($validMods[$depend])) {
-						$manifest['skipped'][] = ucfirst($depend);
-						$msg = sprintf(_("Could not backup module %s because it depends on %s which is not enabled. Please enable %s"),$mod['rawname'], $depend, $depend);
-						$this->log("\t".$msg,'WARNING');
-						$this->addWarning($msg);
-						continue;
-					}
-					// Add the dependency to the top of the lineup
-					$this->prioritizeDependency($validMods[$depend]['rawname'],$validMods[$depend]['version']);
-
-					//If we are already backing up the module we don't need to put it in the queue If we haven't implimented backup it won't be there anyway
-					if(in_array($depend, $selectedmods)){
-						continue;
-					}
-
-					$this->log("\t".sprintf(_("Adding module %s to queue because %s depends on it"),$depend, $mod['rawname']),'DEBUG');
-					$selectedmods[] = $depend;
-					$processQueue->enqueue(['rawname' => $validMods[$depend]['rawname'], 'ucfirst' => ucfirst($validMods[$depend]['rawname'])]);
+		if(!$processQueue->isEmpty()) {
+			foreach($processQueue as $mod) {
+				$moddata = $this->processModule($this->id, $mod);
+				if(empty($moddata)) {
+					$manifest['skipped'][] = $mod['ucfirst'];
 				}
-			}
+				if(!empty($moddata['dependencies'])) {
+					$moddeps = array_map('strtolower', $moddata['dependencies']);
+					foreach($moddeps as $depend){
+						if(empty($depend)) {
+							$msg = sprintf(_("Depend field was blank for %s. Skipping because not sure what to do"), $mod['rawname']);
+							$this->log("\t".$msg,'WARNING');
+							continue;
+						}
+						if($depend === 'framework') {
+							$msg = sprintf(_("Skpping %s which depends on framework because framework is a system requirement. Framework should be removed as a dependency"), $mod['rawname']);
+							$this->log("\t".$msg,'WARNING');
+							continue;
+						}
+						if(!isset($validMods[$depend])) {
+							$manifest['skipped'][] = ucfirst($depend);
+							$msg = sprintf(_("Could not backup module %s because it depends on %s which is not enabled. Please enable %s"),$mod['rawname'], $depend, $depend);
+							$this->log("\t".$msg,'WARNING');
+							$this->addWarning($msg);
+							continue;
+						}
+						// Add the dependency to the top of the lineup
+						$this->prioritizeDependency($validMods[$depend]['rawname'],$validMods[$depend]['version']);
 
-			if(!empty($moddata['garbage'])) {
-				$cleanup[$mod['ucfirst']] = $moddata['garbage'];
+						//If we are already backing up the module we don't need to put it in the queue If we haven't implimented backup it won't be there anyway
+						if(in_array($depend, $selectedmods)){
+							continue;
+						}
+
+						$this->log("\t".sprintf(_("Adding module %s to queue because %s depends on it"),$depend, $mod['rawname']),'DEBUG');
+						$selectedmods[] = $depend;
+						$processQueue->enqueue(['rawname' => $validMods[$depend]['rawname'], 'ucfirst' => ucfirst($validMods[$depend]['rawname'])]);
+					}
+				}
+
+				if(!empty($moddata['garbage'])) {
+					$cleanup[$mod['ucfirst']] = $moddata['garbage'];
+				}
+				$modInfo = $this->freepbx->Modules->getInfo($mod['rawname']);
+				$manifest['modules'][] = ['module' => $mod['rawname'], 'version' => $modInfo[$mod['rawname']]['version']];
 			}
-			$modInfo = $this->freepbx->Modules->getInfo($mod['rawname']);
-			$manifest['modules'][] = ['module' => $mod['rawname'], 'version' => $modInfo[$mod['rawname']]['version']];
 		}
 
 		//Needs to look the same as ['modules']
@@ -162,20 +164,20 @@ class Multiple extends Common {
 		//putting restapps to end of the process order
 		$processorder = $manifest['processorder'];
 		unset($manifest['processorder']);
-		foreach ($processorder as $order) {
-			if($order['module'] == 'restapps'){
-				$lastentry = $order;
-			} else {
-				$rearragedorder[] = $order;
+		if(!empty($processorder)) {
+			foreach ($processorder as $order) {
+				if($order['module'] == 'restapps'){
+					$lastentry = $order;
+				} else {
+					$rearragedorder[] = $order;
+				}
 			}
+			if(isset($lastentry) && is_array($lastentry)) {
+				$rearragedorder[] = $lastentry;
+			}
+			$manifest['processorder'] = $rearragedorder;
+			$tar->addData('metadata.json', json_encode($manifest,JSON_PRETTY_PRINT));
 		}
-		if(isset($lastentry) && is_array($lastentry)) {
-			$rearragedorder[] = $lastentry;
-		}
-		$manifest['processorder'] = $rearragedorder;
-
-
-		$tar->addData('metadata.json', json_encode($manifest,JSON_PRETTY_PRINT));
 
 		$this->closeFile();
 

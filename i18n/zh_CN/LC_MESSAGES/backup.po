@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-14 05:40+0000\n"
+"POT-Creation-Date: 2022-04-25 08:37+0000\n"
 "PO-Revision-Date: 2015-11-17 12:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -160,12 +160,12 @@ msgstr ""
 msgid "BACKUP LOG ATTACHED"
 msgstr ""
 
-#: functions.inc/class.backup.php:447 functions.inc/class.backup.php:450
+#: functions.inc/class.backup.php:453 functions.inc/class.backup.php:456
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
 #: Backup.class.php:321 functions.inc/backup.php:81
-#: functions.inc/class.backup.php:441 views/backup/backup.php:6
+#: functions.inc/class.backup.php:447 views/backup/backup.php:6
 msgid "Backup"
 msgstr ""
 
@@ -173,8 +173,16 @@ msgstr ""
 msgid "Backup & Restore"
 msgstr "备份&还原"
 
-#: backup.i18n.php:12
+#: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
+msgstr ""
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Servers"
+msgstr ""
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Templates"
 msgstr ""
 
 #: backup.i18n.php:8
@@ -189,11 +197,11 @@ msgstr ""
 msgid "Backup Description"
 msgstr ""
 
-#: functions.inc/class.backup.php:446
+#: functions.inc/class.backup.php:452
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr ""
 
-#: functions.inc/class.backup.php:449
+#: functions.inc/class.backup.php:455
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr ""
 
@@ -245,7 +253,7 @@ msgstr "备份还原"
 msgid "Backup completed with errors!"
 msgstr "备份错误！"
 
-#: functions.inc/class.backup.php:332
+#: functions.inc/class.backup.php:335
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -256,7 +264,7 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr ""
 
-#: functions.inc/class.backup.php:535
+#: functions.inc/class.backup.php:541
 msgid "Backup file uploaded to the remote server"
 msgstr ""
 
@@ -336,12 +344,12 @@ msgstr "仅配置"
 msgid "Connecting to remote server..."
 msgstr "连接到远端服务器。。。"
 
-#: functions.inc/class.backup.php:879
+#: functions.inc/class.backup.php:885
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
 
-#: functions.inc/class.backup.php:434 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:440 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "已创建"
 
@@ -349,7 +357,7 @@ msgstr "已创建"
 msgid "Creating backup..."
 msgstr "创建清理。。。"
 
-#: functions.inc/class.backup.php:513
+#: functions.inc/class.backup.php:519
 #, php-format
 msgid "Creating directory '%s'"
 msgstr ""
@@ -451,7 +459,7 @@ msgstr ""
 msgid "Directory"
 msgstr ""
 
-#: functions.inc/class.backup.php:517
+#: functions.inc/class.backup.php:523
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr ""
@@ -515,12 +523,12 @@ msgstr ""
 msgid "Email to send status messages to when this task is run"
 msgstr ""
 
-#: functions.inc/class.backup.php:507 functions.inc/restore.php:117
+#: functions.inc/class.backup.php:513 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:886
+#: functions.inc/class.backup.php:892
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -642,7 +650,7 @@ msgstr "还原文件成功！"
 msgid "File verification failed. "
 msgstr "文件验证错误。 "
 
-#: functions.inc/class.backup.php:435 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:441 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "文件"
 
@@ -850,7 +858,7 @@ msgstr ""
 msgid "Mysql DB's"
 msgstr ""
 
-#: functions.inc/class.backup.php:436
+#: functions.inc/class.backup.php:442
 msgid "Mysql Db's"
 msgstr ""
 
@@ -858,7 +866,7 @@ msgstr ""
 msgid "Mysql Server "
 msgstr ""
 
-#: functions.inc/class.backup.php:433 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:439 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "名称"
 
@@ -1016,7 +1024,7 @@ msgstr ""
 msgid "Path/DB"
 msgstr ""
 
-#: functions.inc/class.backup.php:875 functions.inc/class.backup.php:876
+#: functions.inc/class.backup.php:881 functions.inc/class.backup.php:882
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1257,7 +1265,7 @@ msgstr ""
 msgid "Run once an hour, beginning of hour"
 msgstr ""
 
-#: functions.inc/class.backup.php:536
+#: functions.inc/class.backup.php:542
 msgid "Running maintenance.."
 msgstr ""
 
@@ -1321,7 +1329,7 @@ msgstr "保存"
 msgid "Save and Run"
 msgstr "保存运行"
 
-#: functions.inc/class.backup.php:524
+#: functions.inc/class.backup.php:530
 msgid "Saving file to remote ftp"
 msgstr ""
 
@@ -1446,6 +1454,11 @@ msgstr ""
 msgid "Storing backup..."
 msgstr ""
 
+#: functions.inc/class.backup.php:342
+#, php-format
+msgid "Successfully dumped SQL database [%s] to file [%s]"
+msgstr ""
+
 #: views/cron.php:28 assets/js/backup.js:83
 msgid "Sunday"
 msgstr "Domingo"
@@ -1475,14 +1488,14 @@ msgstr ""
 msgid "The Restore script is still running"
 msgstr ""
 
-#: functions.inc/class.backup.php:447
+#: functions.inc/class.backup.php:453
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
 "of transferring your backup."
 msgstr ""
 
-#: functions.inc/class.backup.php:450
+#: functions.inc/class.backup.php:456
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1531,7 +1544,7 @@ msgstr "传输模式"
 msgid "Transfer Type"
 msgstr "测试类型"
 
-#: functions.inc/class.backup.php:529
+#: functions.inc/class.backup.php:535
 #, php-format
 msgid "Trying to upload %s to %s"
 msgstr ""
@@ -1544,7 +1557,7 @@ msgstr "星期二"
 msgid "Type"
 msgstr ""
 
-#: functions.inc/class.backup.php:527
+#: functions.inc/class.backup.php:533
 msgid "Unable to upload file to the remote server"
 msgstr ""
 
@@ -1696,7 +1709,7 @@ msgstr ""
 msgid "added default backup templates"
 msgstr ""
 
-#: functions.inc/class.backup.php:437
+#: functions.inc/class.backup.php:443
 msgid "astDb's"
 msgstr ""
 

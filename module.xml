@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>13.0.27.27</version>
+	<version>13.0.28</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -20,6 +20,7 @@
 		<version>13.0.5</version>
 	</depends>
 	<changelog>
+		*13.0.28* bump 
 		*13.0.27.27* FREEI-4763 
 		*13.0.27.26* FREEI-4266 Modified backup module which will accept input dates and folders for database (CDR,CEL,QueueLog ) and Call Recording 
 		*13.0.27.25* Packaging of ver 13.0.27.25

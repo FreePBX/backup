@@ -265,14 +265,8 @@ class Backup {
 					$s = str_replace('server-', '', $i['path']);
 					backup_log('server -'.$s);
 					$sql_file = $this->b['_tmpdir'] . '/' . 'mysql-' . $s . '.sql.gz';
-					if($s != 3){
-						$cmd[] = fpbx_which('mysqldump');
-						$cmd[] = '--host='	. backup__($this->s[$s]['host']);
-						$cmd[] = '--port='	. backup__($this->s[$s]['port']);
-						$cmd[] = '--user='	. backup__($this->s[$s]['user']);
-						$cmd[] = '--password='	. backup__($this->s[$s]['password']);
-						$cmd[] = backup__($this->s[$s]['dbname']);
-					}else if($s == 3){ // backup to take from a date  for CEL and CDR
+					if($s == 3 && ((!empty($vars['cdrfrom']) && !empty($vars['cdrto'])) || (!empty($vars['celfrom']) && !empty($vars['celto'])) || (!empty($vars['queuefrom']) && !empty($vars['queueto'])))){
+						# Particular duration cel, cdr, and queueLog backup 
 						if (!empty($vars['cdrfrom']) && !empty($vars['cdrto'])) {
 							$cmd[] = fpbx_which('mysqldump');
 							$cmd[] = '--host='	. backup__($this->s[$s]['host']);
@@ -309,6 +303,15 @@ class Backup {
 							$cmd[] = "queuelog --where='" . $query . "'";
 						}
 					}
+					else{
+						$cmd[] = fpbx_which('mysqldump');
+						$cmd[] = '--host='	. backup__($this->s[$s]['host']);
+						$cmd[] = '--port='	. backup__($this->s[$s]['port']);
+						$cmd[] = '--user='	. backup__($this->s[$s]['user']);
+						$cmd[] = '--password='	. backup__($this->s[$s]['password']);
+						$cmd[] = backup__($this->s[$s]['dbname']);
+					}
+					
 					if ($i['exclude']) {
 						foreach ($i['exclude'] as $x) {
 							$cmd[] = '--ignore-table=' . backup__($this->s[$s]['dbname'])
@@ -318,12 +321,12 @@ class Backup {
 					$cmd[] = '--opt --compact --skip-lock-tables --add-drop-table --default-character-set=utf8';
 					$cmd[] = ' | ' . fpbx_which('gzip');
 					$cmd[] = ' > ' . $sql_file;
-
+						
 					backup_log(implode(' ', $cmd));
+					exec(implode(' ', $cmd), $file, $status);
 					unset($cmd, $file);
 
 					// remove file and log error information if it failed.
-					//
 					if ($status !== 0) {
 						if(file_exists($file)) {
 							unlink($sql_file);
@@ -335,6 +338,9 @@ class Backup {
 						);
 						backup_log($error_string);
 						freepbx_log(FPBX_LOG_FATAL, $error_string);
+					}else{
+						$message = sprintf(_("Successfully dumped SQL database [%s] to file [%s]"),backup__($this->s[$s]['dbname']), $sql_file);
+						backup_log($message);
 					}
 					break;
 				case 'astdb':

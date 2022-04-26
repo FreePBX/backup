@@ -268,9 +268,12 @@ class Backup {
 					//build command
 					$s = str_replace('server-', '', $i['path']);
 					backup_log('server -'.$s);
-					$sql_file = $this->b['_tmpdir'] . '/' . 'mysql-' . $s . '.sql.gz';
+					
 					if($s == 3 && ((!empty($vars['cdrfrom']) && !empty($vars['cdrto'])) || (!empty($vars['celfrom']) && !empty($vars['celto'])) || (!empty($vars['queuefrom']) && !empty($vars['queueto'])))){
-						# Particular duration cel, cdr, and queueLog backup 
+						# Sql file name without gz extension
+						$sql_file = $this->b['_tmpdir'] . '/' . 'mysql-' . $s . '.sql';
+						
+						# Particular duration CDR Table Backup 
 						if (!empty($vars['cdrfrom']) && !empty($vars['cdrto'])) {
 							$cmd[] = fpbx_which('mysqldump');
 							$cmd[] = '--host='	. backup__($this->s[$s]['host']);
@@ -278,58 +281,88 @@ class Backup {
 							$cmd[] = '--user='	. backup__($this->s[$s]['user']);
 							$cmd[] = '--password='	. backup__($this->s[$s]['password']);
 							$cmd[] = backup__($this->s[$s]['dbname']);
-							$cmd[] = " --ignore-table=cel --ignore-table=queuelog ";
+							$cmd[] = " --ignore-table=".backup__($this->s[$s]['dbname']).".cel --ignore-table=".backup__($this->s[$s]['dbname']).".queuelog ";
 							$query = 'calldate between "' . $vars['cdrfrom'] . '" and "' . $vars['cdrto'] . '"';
 							$cmd[] = "cdr --where='" . $query . "'";
+							$cmd[] = '--opt --compact --skip-lock-tables --add-drop-table --default-character-set=utf8';
+							$cmd[] = ' > ' . $sql_file;
+
+							backup_log(implode(' ', $cmd));
+							exec(implode(' ', $cmd), $file, $status);
 						}
+
+						# Particular duration CEL Table Backup 
 						if (!empty($vars['celfrom'])  && !empty($vars['celto'])) {
-							$cmd[] = "|";
+							$cmd = array();
 							$cmd[] = fpbx_which('mysqldump');
 							$cmd[] = '--host='	. backup__($this->s[$s]['host']);
 							$cmd[] = '--port='	. backup__($this->s[$s]['port']);
 							$cmd[] = '--user='	. backup__($this->s[$s]['user']);
 							$cmd[] = '--password='	. backup__($this->s[$s]['password']);
 							$cmd[] = backup__($this->s[$s]['dbname']);
-							$cmd[] = " --ignore-table=cdr --ignore-table=queuelog ";
+							$cmd[] = " --ignore-table=".backup__($this->s[$s]['dbname']).".cdr --ignore-table=".backup__($this->s[$s]['dbname']).".queuelog ";
 							$query = 'eventtime between "' . $vars['celfrom'] . '" and "' . $vars['celto'] . '"';
 							$cmd[] = "cel --where='" . $query . "'";
+							$cmd[] = '--opt --compact --skip-lock-tables --add-drop-table --default-character-set=utf8';
+							$cmd[] = ' >> ' . $sql_file;
+
+							backup_log(implode(' ', $cmd));
+							exec(implode(' ', $cmd), $file, $status);
 						}
+
+						# Particular duration QUEUELOG Table Backup 
 						if (!empty($vars['queuefrom'])  && !empty($vars['queueto'])) {
-							$cmd[] = "|";
+							$cmd = array();
 							$cmd[] = fpbx_which('mysqldump');
 							$cmd[] = '--host='	. backup__($this->s[$s]['host']);
 							$cmd[] = '--port='	. backup__($this->s[$s]['port']);
 							$cmd[] = '--user='	. backup__($this->s[$s]['user']);
 							$cmd[] = '--password='	. backup__($this->s[$s]['password']);
 							$cmd[] = backup__($this->s[$s]['dbname']);
-							$cmd[] = " --ignore-table=cel --ignore-table=cdr ";
+							$cmd[] = " --ignore-table=".backup__($this->s[$s]['dbname']).".cel --ignore-table=".backup__($this->s[$s]['dbname']).".cdr ";
 							$query = 'time between "' . $vars['queuefrom'] . '" and "' . $vars['queueto'] . '"';
 							$cmd[] = "queuelog --where='" . $query . "'";
+							$cmd[] = '--opt --compact --skip-lock-tables --add-drop-table --default-character-set=utf8';
+							$cmd[] = ' >> ' . $sql_file;
+														
+							backup_log(implode(' ', $cmd));
+							exec(implode(' ', $cmd), $file, $status);
+
 						}
+
+						# Zip all dumped files
+						$cmd =  fpbx_which('gzip')." ".$sql_file;
+						backup_log($cmd);
+						exec($cmd, $file, $status);
+					
+						# Sql file name with gz extension
+						$sql_file = $this->b['_tmpdir'] . '/' . 'mysql-' . $s . '.sql.gz';
 					}
 					else{
+						$sql_file = $this->b['_tmpdir'] . '/' . 'mysql-' . $s . '.sql.gz';
+
 						$cmd[] = fpbx_which('mysqldump');
 						$cmd[] = '--host='	. backup__($this->s[$s]['host']);
 						$cmd[] = '--port='	. backup__($this->s[$s]['port']);
 						$cmd[] = '--user='	. backup__($this->s[$s]['user']);
 						$cmd[] = '--password='	. backup__($this->s[$s]['password']);
 						$cmd[] = backup__($this->s[$s]['dbname']);
+
+						if ($i['exclude']) {
+							foreach ($i['exclude'] as $x) {
+								$cmd[] = '--ignore-table=' . backup__($this->s[$s]['dbname'])
+										. '.' . backup__($x);
+							}
+						}
+						$cmd[] = '--opt --compact --skip-lock-tables --add-drop-table --default-character-set=utf8';
+						$cmd[] = ' | ' . fpbx_which('gzip');
+						$cmd[] = ' > ' . $sql_file;
+					
+						backup_log(implode(' ', $cmd));
+						exec(implode(' ', $cmd), $file, $status);
 					}
 					
-					if ($i['exclude']) {
-						foreach ($i['exclude'] as $x) {
-							$cmd[] = '--ignore-table=' . backup__($this->s[$s]['dbname'])
-									. '.' . backup__($x);
-						}
-					}
-					$cmd[] = '--opt --compact --skip-lock-tables --add-drop-table --default-character-set=utf8';
-					$cmd[] = ' | ' . fpbx_which('gzip');
-					$cmd[] = ' > ' . $sql_file;
-						
-					backup_log(implode(' ', $cmd));
-					exec(implode(' ', $cmd), $file, $status);
 					unset($cmd, $file);
-
 					// remove file and log error information if it failed.
 					if ($status !== 0) {
 						if(file_exists($file)) {
@@ -346,6 +379,7 @@ class Backup {
 						$message = sprintf(_("Successfully dumped SQL database [%s] to file [%s]"),backup__($this->s[$s]['dbname']), $sql_file);
 						backup_log($message);
 					}
+
 					break;
 				case 'astdb':
 					$hard_exclude	= array('RG', 'BLKVM', 'FM', 'dundi');

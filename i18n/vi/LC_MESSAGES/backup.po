@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-25 08:37+0000\n"
+"POT-Creation-Date: 2022-04-26 08:56+0000\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -169,12 +169,12 @@ msgstr "B"
 msgid "BACKUP LOG ATTACHED"
 msgstr "SAO LƯU NHẬT KÝ ĐÍNH KÈM"
 
-#: functions.inc/class.backup.php:453 functions.inc/class.backup.php:456
+#: functions.inc/class.backup.php:487 functions.inc/class.backup.php:490
 msgid "BACKUP NOT ATTACHED"
 msgstr "SAO LƯU KHÔNG ĐƯỢC ĐÍNH KÈM"
 
 #: Backup.class.php:321 functions.inc/backup.php:81
-#: functions.inc/class.backup.php:447 views/backup/backup.php:6
+#: functions.inc/class.backup.php:481 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Sao lưu"
 
@@ -206,11 +206,11 @@ msgstr "Sao lưu CDR và ghi dữ liệu?"
 msgid "Backup Description"
 msgstr "Sao lưu Mô tả"
 
-#: functions.inc/class.backup.php:452
+#: functions.inc/class.backup.php:486
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr "Sao lưu LỖI ( Vượt quá giới hạn SMTP)"
 
-#: functions.inc/class.backup.php:455
+#: functions.inc/class.backup.php:489
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr "Sao lưu LỖI ( Vượt quá giới hạn mềm)"
 
@@ -262,7 +262,7 @@ msgstr "Sao lưu & Khôi phục"
 msgid "Backup completed with errors!"
 msgstr "Sao lưu hoàn thành nhưng bị các lỗi!"
 
-#: functions.inc/class.backup.php:335
+#: functions.inc/class.backup.php:368
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -275,7 +275,7 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr "Không tìm thấy sao lưu tệp! Hủy bỏ."
 
-#: functions.inc/class.backup.php:541
+#: functions.inc/class.backup.php:575
 msgid "Backup file uploaded to the remote server"
 msgstr "Sao lưu tệp đã được tải đến máy chủ từ xa"
 
@@ -355,12 +355,12 @@ msgstr "Chỉ các cấu hình"
 msgid "Connecting to remote server..."
 msgstr "Đang kết nối tới máy chủ từ xa..."
 
-#: functions.inc/class.backup.php:885
+#: functions.inc/class.backup.php:919
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr "Không thể tìm thấy  %s trên hệ thống từ xa"
 
-#: functions.inc/class.backup.php:440 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:474 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Đã tạo"
 
@@ -368,7 +368,7 @@ msgstr "Đã tạo"
 msgid "Creating backup..."
 msgstr "Đang tạo sao lưu..."
 
-#: functions.inc/class.backup.php:519
+#: functions.inc/class.backup.php:553
 #, php-format
 msgid "Creating directory '%s'"
 msgstr "Đang tạo chỉ dẫn '%s'"
@@ -476,7 +476,7 @@ msgstr "Điểm đến"
 msgid "Directory"
 msgstr "Thư mục"
 
-#: functions.inc/class.backup.php:523
+#: functions.inc/class.backup.php:557
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr "Thư mục '%s' không tồn tại và chúng tôi không thể tạo nó"
@@ -544,12 +544,12 @@ msgstr ""
 msgid "Email to send status messages to when this task is run"
 msgstr "Gửi email để thông báo trạng thái đến khi tác vụ này được chạy"
 
-#: functions.inc/class.backup.php:513 functions.inc/restore.php:117
+#: functions.inc/class.backup.php:547 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
 msgstr "Lỗi khi đang tạo đối tượng FTP"
 
-#: functions.inc/class.backup.php:892
+#: functions.inc/class.backup.php:926
 #, php-format
 msgid "Error deleting %s"
 msgstr "Lỗi khi đang xóa  %s"
@@ -681,7 +681,7 @@ msgstr "Khôi phục tệp thành công!"
 msgid "File verification failed. "
 msgstr "Xác nhận tệp không thành công. "
 
-#: functions.inc/class.backup.php:441 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:475 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Các tệp"
 
@@ -900,7 +900,7 @@ msgstr "Hệ quản trị dữ liệu Mysql"
 msgid "Mysql DB's"
 msgstr "Các dữ liệu Mysql"
 
-#: functions.inc/class.backup.php:442
+#: functions.inc/class.backup.php:476
 msgid "Mysql Db's"
 msgstr "Các dữ liệu Mysql"
 
@@ -908,7 +908,7 @@ msgstr "Các dữ liệu Mysql"
 msgid "Mysql Server "
 msgstr "Máy chủ Mysql "
 
-#: functions.inc/class.backup.php:439 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:473 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Tên"
 
@@ -1070,7 +1070,7 @@ msgstr "Đường dẫn đến khóa ssh, ví dụ /home/asterisk/.ssh/id_rsa"
 msgid "Path/DB"
 msgstr "Đường dẫn/DB"
 
-#: functions.inc/class.backup.php:881 functions.inc/class.backup.php:882
+#: functions.inc/class.backup.php:915 functions.inc/class.backup.php:916
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1313,7 +1313,7 @@ msgstr "Chạy 1 lần 1 năm/ vào nửa đêm ngày 1 tháng 1"
 msgid "Run once an hour, beginning of hour"
 msgstr "Chạy 1 lần 1 giờ, vào lúc bắt đầu của giờ đó"
 
-#: functions.inc/class.backup.php:542
+#: functions.inc/class.backup.php:576
 msgid "Running maintenance.."
 msgstr "Đang chạy bảo dưỡng..."
 
@@ -1377,7 +1377,7 @@ msgstr "Lưu"
 msgid "Save and Run"
 msgstr "Lưu và chạy"
 
-#: functions.inc/class.backup.php:530
+#: functions.inc/class.backup.php:564
 msgid "Saving file to remote ftp"
 msgstr "Đang lưu tệp tới ftp từ xa"
 
@@ -1505,7 +1505,7 @@ msgstr "Vị trí lưu trữ cho các sao lưu"
 msgid "Storing backup..."
 msgstr "Đang lưu trữ sao lưu..."
 
-#: functions.inc/class.backup.php:342
+#: functions.inc/class.backup.php:375
 #, php-format
 msgid "Successfully dumped SQL database [%s] to file [%s]"
 msgstr ""
@@ -1541,7 +1541,7 @@ msgstr "Việc khôi phục kịch bản đã hoàn thành, bạn có thể đó
 msgid "The Restore script is still running"
 msgstr "Việc khôi phục kịch bản vẫn đang chạy"
 
-#: functions.inc/class.backup.php:453
+#: functions.inc/class.backup.php:487
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
@@ -1550,7 +1550,7 @@ msgstr ""
 "Tệp sao lưu vượt quá giới hạn SMTP cho phép là 25MB.  Nó đã không thể được "
 "gửi đi . Vui lòng nén sao lưu của bạn, hoặc sử dụng cách để truyền sao lưu."
 
-#: functions.inc/class.backup.php:456
+#: functions.inc/class.backup.php:490
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1612,7 +1612,7 @@ msgstr "Chế độ truyền"
 msgid "Transfer Type"
 msgstr "Kiểu truyền"
 
-#: functions.inc/class.backup.php:535
+#: functions.inc/class.backup.php:569
 #, php-format
 msgid "Trying to upload %s to %s"
 msgstr "Đang cố gắng tải lên %s đến %s"
@@ -1625,7 +1625,7 @@ msgstr "Thứ Ba"
 msgid "Type"
 msgstr "Kiểu"
 
-#: functions.inc/class.backup.php:533
+#: functions.inc/class.backup.php:567
 msgid "Unable to upload file to the remote server"
 msgstr "Không thể tải tệp đến máy chủ từ xa"
 
@@ -1778,7 +1778,7 @@ msgstr "Các máy chủ sao lưu mặc định đã thêm"
 msgid "added default backup templates"
 msgstr "Các mẫu sao lưu mặc định đã thêm"
 
-#: functions.inc/class.backup.php:443
+#: functions.inc/class.backup.php:477
 msgid "astDb's"
 msgstr "Các dữ liệu Asterisk (astDb's)"
 

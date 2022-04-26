@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>14.0.11</version>
+	<version>14.0.12</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -20,6 +20,7 @@
 		<version>13.0.5</version>
 	</depends>
 	<changelog>
+		*14.0.12* FREEI-4765 
 		*14.0.11* FREEI-4763 
 		*14.0.10.13* Packaging of ver 14.0.10.13
 		*14.0.10.12* Packaging of ver 14.0.10.12

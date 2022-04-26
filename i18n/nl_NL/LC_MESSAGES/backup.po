@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-25 08:38+0000\n"
+"POT-Creation-Date: 2022-04-26 08:57+0000\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -171,12 +171,12 @@ msgstr ""
 msgid "BACKUP LOG ATTACHED"
 msgstr "RESERVEKOPIE LOG TOEGEVOEGD"
 
-#: functions.inc/class.backup.php:457 functions.inc/class.backup.php:460
+#: functions.inc/class.backup.php:491 functions.inc/class.backup.php:494
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
 #: Backup.class.php:321 functions.inc/backup.php:81
-#: functions.inc/class.backup.php:451 views/backup/backup.php:6
+#: functions.inc/class.backup.php:485 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Reservekopie"
 
@@ -208,11 +208,11 @@ msgstr ""
 msgid "Backup Description"
 msgstr ""
 
-#: functions.inc/class.backup.php:456
+#: functions.inc/class.backup.php:490
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr ""
 
-#: functions.inc/class.backup.php:459
+#: functions.inc/class.backup.php:493
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr ""
 
@@ -268,7 +268,7 @@ msgstr ""
 msgid "Backup completed with errors!"
 msgstr "Reservekopie voltooid met fouten!"
 
-#: functions.inc/class.backup.php:339
+#: functions.inc/class.backup.php:372
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -281,7 +281,7 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr "Reservekopie bestand niet gevonden! Afgebroken."
 
-#: functions.inc/class.backup.php:545
+#: functions.inc/class.backup.php:579
 msgid "Backup file uploaded to the remote server"
 msgstr ""
 
@@ -362,12 +362,12 @@ msgstr "Alleen configuraties"
 msgid "Connecting to remote server..."
 msgstr "Verbinden met andere server..."
 
-#: functions.inc/class.backup.php:889
+#: functions.inc/class.backup.php:923
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
 
-#: functions.inc/class.backup.php:444 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:478 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Gemaakt"
 
@@ -375,7 +375,7 @@ msgstr "Gemaakt"
 msgid "Creating backup..."
 msgstr "Aanmaken reservekopie..."
 
-#: functions.inc/class.backup.php:523
+#: functions.inc/class.backup.php:557
 #, php-format
 msgid "Creating directory '%s'"
 msgstr ""
@@ -485,7 +485,7 @@ msgstr ""
 msgid "Directory"
 msgstr "Map"
 
-#: functions.inc/class.backup.php:527
+#: functions.inc/class.backup.php:561
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr ""
@@ -557,12 +557,12 @@ msgstr ""
 msgid "End"
 msgstr ""
 
-#: functions.inc/class.backup.php:517 functions.inc/restore.php:117
+#: functions.inc/class.backup.php:551 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:896
+#: functions.inc/class.backup.php:930
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -693,7 +693,7 @@ msgstr "Bestand terugzetten uitgevoerd!"
 msgid "File verification failed. "
 msgstr "Bestandsverificatie mislukt. "
 
-#: functions.inc/class.backup.php:445 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:479 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "Bestanden"
 
@@ -924,7 +924,7 @@ msgstr "MySQL"
 msgid "Mysql DB's"
 msgstr "MySQL DB's"
 
-#: functions.inc/class.backup.php:446
+#: functions.inc/class.backup.php:480
 msgid "Mysql Db's"
 msgstr "MySQL DB's"
 
@@ -932,7 +932,7 @@ msgstr "MySQL DB's"
 msgid "Mysql Server "
 msgstr "MySQL server "
 
-#: functions.inc/class.backup.php:443 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:477 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Naam"
 
@@ -1094,7 +1094,7 @@ msgstr ""
 msgid "Path/DB"
 msgstr "Pad/DB"
 
-#: functions.inc/class.backup.php:885 functions.inc/class.backup.php:886
+#: functions.inc/class.backup.php:919 functions.inc/class.backup.php:920
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1329,7 +1329,7 @@ msgstr ""
 msgid "Run once an hour, beginning of hour"
 msgstr ""
 
-#: functions.inc/class.backup.php:546
+#: functions.inc/class.backup.php:580
 msgid "Running maintenance.."
 msgstr ""
 
@@ -1393,7 +1393,7 @@ msgstr "Opslaan"
 msgid "Save and Run"
 msgstr ""
 
-#: functions.inc/class.backup.php:534
+#: functions.inc/class.backup.php:568
 msgid "Saving file to remote ftp"
 msgstr ""
 
@@ -1526,7 +1526,7 @@ msgstr "Opslaglocatie voor reservekopieën"
 msgid "Storing backup..."
 msgstr "Reservekopie opslaan..."
 
-#: functions.inc/class.backup.php:346
+#: functions.inc/class.backup.php:379
 #, php-format
 msgid "Successfully dumped SQL database [%s] to file [%s]"
 msgstr ""
@@ -1565,14 +1565,14 @@ msgstr ""
 msgid "The archive must be come from a release like this: %s.%s"
 msgstr ""
 
-#: functions.inc/class.backup.php:457
+#: functions.inc/class.backup.php:491
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
 "of transferring your backup."
 msgstr ""
 
-#: functions.inc/class.backup.php:460
+#: functions.inc/class.backup.php:494
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1628,7 +1628,7 @@ msgstr "Verzend type"
 msgid "Transfer Type"
 msgstr ""
 
-#: functions.inc/class.backup.php:539
+#: functions.inc/class.backup.php:573
 #, php-format
 msgid "Trying to upload %s to %s"
 msgstr ""
@@ -1641,7 +1641,7 @@ msgstr "Dinsdag"
 msgid "Type"
 msgstr "Type"
 
-#: functions.inc/class.backup.php:537
+#: functions.inc/class.backup.php:571
 msgid "Unable to upload file to the remote server"
 msgstr ""
 
@@ -1796,7 +1796,7 @@ msgstr "Standaard reservekopie servers toegevoegd"
 msgid "added default backup templates"
 msgstr "Standaard reservekopie sjablonen toegevoegd"
 
-#: functions.inc/class.backup.php:447
+#: functions.inc/class.backup.php:481
 msgid "astDb's"
 msgstr "astDB's"
 

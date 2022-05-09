@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-25 08:33+0000\n"
+"POT-Creation-Date: 2022-05-09 02:14+0000\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -970,6 +970,10 @@ msgstr ""
 msgid "Missing id or transaction or pid"
 msgstr ""
 
+#: views/runModal.php:5
+msgid "Modal title"
+msgstr ""
+
 #: views/backup/form.php:626 views/restore/processRestore.php:48
 msgid "Module"
 msgstr ""
@@ -986,7 +990,7 @@ msgstr ""
 msgid "Modules in this backup"
 msgstr ""
 
-#: views/backup/form.php:601
+#: views/backup/form.php:598
 msgid "Modules to Backup"
 msgstr ""
 

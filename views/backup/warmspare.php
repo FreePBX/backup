@@ -12,8 +12,8 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
 <div class="section" data-id="backup-warmspare">
   <!--Enable-->
   <div class="element-container">
-    <div class="row">
-      <div class="form-group">
+    <div class="">
+      <div class="row form-group">
         <div class="col-md-3">
           <label class="control-label" for="warmspareenabled">
             <?php echo _("Enable") ?>
@@ -43,8 +43,8 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
   <!--END Enable-->
   <!--Enable Remote Trunks-->
   <div class="element-container warmspare">
-    <div class="row">
-      <div class="form-group">
+    <div class="">
+      <div class="row form-group">
         <div class="col-md-3">
           <label class="control-label" for="warmspare_remotetrunks">
             <?php echo _("Disable Remote Trunks") ?>
@@ -74,8 +74,8 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
   <!--END Enable Remote Trunks-->
    <!--Exclude CERT settings-->
   <div class="element-container warmspare">
-    <div class="row">
-      <div class="form-group">
+    <div class="">
+      <div class="row form-group">
         <div class="col-md-3">
           <label class="control-label" for="warmspare_cert">
             <?php echo _("Exclude CERTIFICATE settings") ?>
@@ -106,8 +106,8 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
    
     <!--Exclude NAT settings-->
   <div class="element-container warmspare">
-    <div class="row">
-      <div class="form-group">
+    <div class="">
+      <div class="row form-group">
         <div class="col-md-3">
           <label class="control-label" for="warmspare_remotenat">
             <?php echo _("Exclude NAT settings") ?>
@@ -137,8 +137,8 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
   <!--Exclude NAT settings-->
     <!--Exclude Bind Address-->
   <div class="element-container warmspare">
-    <div class="row">
-      <div class="form-group">
+    <div class="">
+      <div class="row form-group">
         <div class="col-md-3">
           <label class="control-label" for="warmspare_remotebind">
             <?php echo _("Exclude Bind Address") ?>
@@ -170,8 +170,8 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
   <!--Exclude Bind Address-->
     <!--Exclude DNS-->
   <div class="element-container warmspare">
-    <div class="row">
-      <div class="form-group">
+    <div class="">
+      <div class="row form-group">
         <div class="col-md-3">
           <label class="control-label" for="warmspare_remotedns">
             <?php echo _("Exclude DNS") ?>
@@ -201,8 +201,8 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
   <!--Exclude DNS-->
     <!--Exclude DNS-->
   <div class="element-container warmspare">
-    <div class="row">
-      <div class="form-group">
+    <div class="">
+      <div class="row form-group">
         <div class="col-md-3">
           <label class="control-label" for="warmspare_remoteapply">
             <?php echo _("Apply Configs") ?>
@@ -232,8 +232,8 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
   <!--Apply Configs-->
   <!--Exclude Trunks-->
   <div class="element-container warmspare">
-    <div class="row">
-      <div class="form-group">
+    <div class="">
+      <div class="row form-group">
         <div class="col-md-3">
 	  <label class="control-label" for="warmspare_excludetrunks">
 	    <?php echo _("Exclude Trunks") ?>
@@ -263,8 +263,8 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
   <!--END Exclude Trunks-->
   <!-- there are two ways to do this 1.Legacy way using ssh And 2. Using Oauth2 API  -->
   <div class="element-container warmspare">
-    <div class="row">
-      <div class="form-group">
+    <div class="">
+      <div class="row form-group">
         <div class="col-md-3">
           <label class="control-label" for="warmsparewayofrestore">
             <?php  echo _("Connect Warm Spare Server Over") ?>
@@ -293,8 +293,8 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
   </div>
   <!--END Enable-->
   <div class="element-container warmspare warmspareapi">
-    <div class="row">
-      <div class="form-group">
+    <div class="">
+      <div class="row form-group">
         <div class="col-md-3">
           <label class="control-label" for="warmspare_remoteapi_filestoreid">
             <?php echo _("Warm Spare Server") ?>
@@ -321,8 +321,8 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
   </div>
    <!--Remote API key -->
   <div class="element-container warmspare warmspareapi">
-    <div class="row">
-      <div class="form-group">
+    <div class="">
+      <div class="row form-group">
         <div class="col-md-3">
           <label class="control-label" for="warmspare_remoteapi_accesstokenurl">
             <?php echo _("Access Token URL") ?>
@@ -345,8 +345,8 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
   <!--END Remote API-->
    <!--Remote client id -->
   <div class="element-container warmspare warmspareapi">
-    <div class="row">
-      <div class="form-group">
+    <div class="">
+      <div class="row form-group">
         <div class="col-md-3">
           <label class="control-label" for="warmspare_remoteapi_clientid">
             <?php echo _("Client ID") ?>
@@ -369,8 +369,8 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
   <!--END ClientID-->
    <!--Remote API Secret -->
   <div class="element-container warmspare warmspareapi">
-    <div class="row">
-      <div class="form-group">
+    <div class="">
+      <div class="row form-group">
         <div class="col-md-3">
           <label class="control-label" for="warmspare_remoteapi_secret">
             <?php echo _("Client Secret") ?>
@@ -393,8 +393,8 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
   <!--END Secret-->
   <!--Remote GraphQL URL -->
   <div class="element-container warmspare warmspareapi">
-    <div class="row">
-      <div class="form-group">
+    <div class="">
+      <div class="row form-group">
         <div class="col-md-3">
           <label class="control-label" for="warmspare_remoteapi_gql">
             <?php echo _("GraphQL URL") ?>
@@ -417,8 +417,8 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
   <!--END GraphQL URL-->
   <!--Remote Refresh Token -->
   <div class="element-container warmspare warmspareapi">
-    <div class="row">
-      <div class="form-group">
+    <div class="">
+      <div class="row form-group">
         <div class="col-md-3">
           <label class="control-label" for="warmspare_remoteapi_refreshtoken">
             <?php echo _("Client Access Token") ?>
@@ -444,8 +444,8 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
   <!--Remote IP-->
   <!-- hiding SSH-->
   <div class="element-container warmspare warmsparessh">
-    <div class="row">
-      <div class="form-group">
+    <div class="">
+      <div class="row form-group">
         <div class="col-md-3">
           <label class="control-label" for="warmspare_remotessh_filestoreid">
             <?php echo _("Warm Spare Server") ?>

@@ -41,8 +41,8 @@ if (!empty($bkjobs)) {
 						<div class="section" data-id="backup-basic">
 							<!--Backup Name-->
 							<div class="element-container">
-								<div class="row">
-									<div class="form-group">
+								<div class="">
+									<div class="row form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="backup_name">
 												<?php echo _("Backup Name") ?>
@@ -65,8 +65,8 @@ if (!empty($bkjobs)) {
 							<!--END Backup Name-->
 							<!--Backup Description-->
 							<div class="element-container">
-								<div class="row">
-									<div class="form-group">
+								<div class="">
+									<div class="row form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="backup_description">
 												<?php echo _("Backup Description") ?>
@@ -89,8 +89,8 @@ if (!empty($bkjobs)) {
 							<!--END Backup Description-->
 							<!--Backup Items-->
 							<div class="element-container">
-								<div class="row">
-									<div class="form-group">
+								<div class="">
+									<div class="row form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="backup_items">
 												<?php echo _("Backup Items") ?>
@@ -114,8 +114,8 @@ if (!empty($bkjobs)) {
 							</div>
 							<!--END Backup Items-->
 							<div class="element-container">
-								<div class="row">
-									<div class="form-group">
+								<div class="">
+									<div class="row form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="custom_files">
 												<?php echo _("Custom Files") ?>
@@ -152,8 +152,8 @@ if (!empty($bkjobs)) {
 						<div class="section" data-id="backup-notify">
 							<!--Notification Email-->
 							<div class="element-container">
-								<div class="row">
-									<div class="form-group">
+								<div class="">
+									<div class="row form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="backup_email">
 												<?php echo _("Notification Email") ?>
@@ -176,8 +176,8 @@ if (!empty($bkjobs)) {
 							<!--END Notification Email-->
 							<!--Notification Email-->
 							<div class="element-container">
-								<div class="row">
-									<div class="form-group">
+								<div class="">
+									<div class="row form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="backup_emailinline">
 												<?php echo _("Inline Logs") ?>
@@ -211,8 +211,8 @@ if (!empty($bkjobs)) {
 							</div>
 							<!--Notification Email-->
 							<div class="element-container">
-								<div class="row">
-									<div class="form-group">
+								<div class="">
+									<div class="row form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="backup_emailtype">
 												<?php echo _("Email Type") ?>
@@ -260,8 +260,8 @@ if (!empty($bkjobs)) {
 						<div class="section" data-id="backup-storage">
 							<!--Storage Location-->
 							<div class="element-container">
-								<div class="row">
-									<div class="form-group">
+								<div class="">
+									<div class="row form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="backup_storage">
 												<?php echo _("Storage Location") ?>
@@ -285,8 +285,8 @@ if (!empty($bkjobs)) {
 							</div>
 							<!--END Storage Location-->
 							<div class="element-container">
-								<div class="row">
-									<div class="form-group">
+								<div class="">
+									<div class="row form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="backup_addbjname">
 												<?php echo _("Append Backup Name as a directory to the Storage path") ?>
@@ -327,8 +327,8 @@ if (!empty($bkjobs)) {
 						<div class="section" data-id="backup-schedule">
 							<!--Enabled-->
 							<div class="element-container">
-								<div class="row">
-									<div class="form-group">
+								<div class="">
+									<div class="row form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="schedule_enabled">
 												<?php echo _("Enabled") ?>
@@ -360,8 +360,8 @@ if (!empty($bkjobs)) {
 							<!--END Enabled-->
 							<!--Scheduleing-->
 							<div class="element-container">
-								<div class="row">
-									<div class="form-group">
+								<div class="">
+									<div class="row form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="backup_schedule">
 												<?php echo _("Scheduling") ?>
@@ -392,8 +392,8 @@ if (!empty($bkjobs)) {
 						<div class="section" data-id="backup-schedule">
 							<!--Delete After Runs-->
 							<div class="element-container">
-								<div class="row">
-									<div class="form-group">
+								<div class="">
+									<div class="row form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="maintruns">
 												<?php echo _("Delete After Runs") ?>
@@ -416,8 +416,8 @@ if (!empty($bkjobs)) {
 							<!--END Delete After Runs-->
 							<!--Delete After Days-->
 							<div class="element-container">
-								<div class="row">
-									<div class="form-group">
+								<div class="">
+									<div class="row form-group">
 										<div class="col-md-3">
 											<label class="control-label" for="maintage">
 												<?php echo _("Delete After Days") ?>
@@ -476,8 +476,8 @@ if (!empty($bkjobs)) {
 								<div class="element-container">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="row">
-												<div class="form-group">
+											<div class="">
+												<div class="row form-group">
 													<div class="col-md-3">
 														<label class="control-label" for="prebu_hook"><?php echo _("Pre-Backup Hook") ?></label>
 														<i class="fa fa-question-circle fpbx-help-icon" data-for="prebu_hook"></i>
@@ -500,8 +500,8 @@ if (!empty($bkjobs)) {
 								<div class="element-container">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="row">
-												<div class="form-group">
+											<div class="">
+												<div class="row form-group">
 													<div class="col-md-3">
 														<label class="control-label" for="postbu_hook"><?php echo _("Post-Backup Hook") ?></label>
 														<i class="fa fa-question-circle fpbx-help-icon" data-for="postbu_hook"></i>
@@ -524,8 +524,8 @@ if (!empty($bkjobs)) {
 								<div class="element-container">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="row">
-												<div class="form-group">
+											<div class="">
+												<div class="row form-group">
 													<div class="col-md-3">
 														<label class="control-label" for="prere_hook"><?php echo _("Pre-Restore Hook") ?></label>
 															<i class="fa fa-question-circle fpbx-help-icon" data-for="prere_hook"></i>
@@ -548,8 +548,8 @@ if (!empty($bkjobs)) {
 								<div class="element-container">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="row">
-												<div class="form-group">
+											<div class="">
+												<div class="row form-group">
 													<div class="col-md-3">
 														<label class="control-label" for="postre_hook"><?php echo _("Post-Restore Hook") ?></label>
 														<i class="fa fa-question-circle fpbx-help-icon" data-for="postre_hook"></i>
@@ -594,12 +594,12 @@ if (!empty($bkjobs)) {
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
+				<h4 class="modal-title mr-auto">
+					<?php echo _("Modules to Backup")?>
+				</h4>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<h4 class="modal-title">
-					<?php echo _("Modules to Backup")?>
-				</h4>
 			</div>
 			<div class="modal-body">
 				<?php

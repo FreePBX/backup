@@ -1,7 +1,7 @@
 <!--Public Key-->
 <div class="element-container">
-	<div class="row">
-		<div class="form-group">
+	<div class="">
+		<div class="row form-group">
 			<div class="col-md-3">
 				<label class="control-label" for="publickey"><?php echo _("Public Key") ?></label>
 				<i class="fa fa-question-circle fpbx-help-icon" data-for="publickey"></i>

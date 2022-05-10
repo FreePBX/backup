@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-05 09:11+0000\n"
+"POT-Creation-Date: 2022-05-10 10:01+0000\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -205,9 +205,17 @@ msgstr "バックアップ"
 msgid "Backup & Restore"
 msgstr "バックアップと復元"
 
-#: backup.i18n.php:12
+#: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
 msgstr "バックアップと復元：復元"
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Servers"
+msgstr "バックアップとリストア：サーバー"
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Templates"
+msgstr "バックアップと復元：テンプレート"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -1783,12 +1791,6 @@ msgstr "ロックを待機中…"
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{サーバーはありません}"
-
-#~ msgid "Backup & Restore - Servers"
-#~ msgstr "バックアップとリストア：サーバー"
-
-#~ msgid "Backup & Restore - Templates"
-#~ msgstr "バックアップと復元：テンプレート"
 
 #~ msgid "Backup Module"
 #~ msgstr "バックアップモジュール"

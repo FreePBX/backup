@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-05 09:11+0000\n"
+"POT-Creation-Date: 2022-05-10 10:01+0000\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -198,9 +198,17 @@ msgstr "Бекап"
 msgid "Backup & Restore"
 msgstr "Резервное копирование и восстановление"
 
-#: backup.i18n.php:12
+#: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
 msgstr "Резервное копирование и восстановление - Восстановление"
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Servers"
+msgstr "Резервное копирование и восстановление - Серверы"
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Templates"
+msgstr "Резервное копирование и восстановление - Шаблоны"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -1815,12 +1823,6 @@ msgstr "ожидание блокировки..."
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{сервера не доступны}"
-
-#~ msgid "Backup & Restore - Servers"
-#~ msgstr "Резервное копирование и восстановление - Серверы"
-
-#~ msgid "Backup & Restore - Templates"
-#~ msgstr "Резервное копирование и восстановление - Шаблоны"
 
 #~ msgid "Backup Module"
 #~ msgstr "Модуль резервного копирования"

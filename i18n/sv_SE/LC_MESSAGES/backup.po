@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-05 09:11+0000\n"
+"POT-Creation-Date: 2022-05-10 10:01+0000\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -182,8 +182,16 @@ msgstr ""
 msgid "Backup & Restore"
 msgstr "Säkerhetskopiering"
 
-#: backup.i18n.php:12
+#: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
+msgstr ""
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Servers"
+msgstr ""
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Templates"
 msgstr ""
 
 #: backup.i18n.php:8

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-05 09:11+0000\n"
+"POT-Creation-Date: 2022-05-10 10:01+0000\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -177,9 +177,17 @@ msgstr "Cópia de Segurança"
 msgid "Backup & Restore"
 msgstr "Cópia de Segurança & Restauro"
 
-#: backup.i18n.php:12
+#: backup.i18n.php:16
 msgid "Backup & Restore - Restore"
 msgstr "Cópia de Segurança & Restauro - Restauro"
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Servers"
+msgstr "Cópia de Segurança & Restauro - Servidores"
+
+#: backup.i18n.php:14
+msgid "Backup & Restore - Templates"
+msgstr "Cópia de Segurança & Restauro - Modelos"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
@@ -1754,12 +1762,6 @@ msgstr "aguardando bloqueio..."
 #: functions.inc/templates.php:280
 msgid "{no servers available}"
 msgstr "{nenhum servidor disponível}"
-
-#~ msgid "Backup & Restore - Servers"
-#~ msgstr "Cópia de Segurança & Restauro - Servidores"
-
-#~ msgid "Backup & Restore - Templates"
-#~ msgstr "Cópia de Segurança & Restauro - Modelos"
 
 #~ msgid "Backup Module"
 #~ msgstr "Módulo de Cópia de Segurança"

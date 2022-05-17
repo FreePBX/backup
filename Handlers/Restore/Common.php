@@ -213,7 +213,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	protected function postRestoreHooks(){
 		// Trigger sysadmin to reload/regen any settings if available
 		if (is_dir("/var/spool/asterisk/incron")) {
-			$triggers = array('update-dns', 'config-postfix', 'update-ftp', 'fail2ban-generate', 'update-mdadm', 'update-ports', 'update-ups', 'update-sslconf');
+			$triggers = array('update-dns', 'config-postfix', 'update-ftp', 'fail2ban-generate', 'update-mdadm','update-timezone-no-restart', 'update-ports', 'update-ups', 'update-sslconf');
 			foreach ($triggers as $f) {
 				 $filename = "/var/spool/asterisk/incron/sysadmin.$f";
 				 if (file_exists($filename)) {

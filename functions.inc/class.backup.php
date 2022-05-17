@@ -361,7 +361,7 @@ class Backup {
 					//see here for a posible solution:
 					//http://ca3.php.net/manual/en/function.fopen.php#37791
 					$cmd = array(
-						fpbx_which('cp'),
+						fpbx_which('mv'),
 						$this->b['_tmpfile'],
 						$path . '/' . $this->b['_file'] . '.tgz'
 					);

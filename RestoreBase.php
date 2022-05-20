@@ -288,7 +288,29 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 				$res = $sth->fetchAll();
 				if(!empty($res)) {
 					$this->log(sprintf(_("Importing table '%s' from legacy %s"),$tname, $module));
-					$this->addDataToTableFromArray($tname, $res);
+					if(version_compare($this->data["pbx_version"], "2.12", "<")){
+						$this->log(_("Setting up chan_sip only."), 'INFO');
+						$this->FreePBX->Database->prepare("UPDATE freepbx_settings SET `value` = 'chan_sip' WHERE `keyword` = 'ASTSIPDRIVER'")->execute();
+						$this->addDataToTableFromArray($tname, $res);
+						$driver = $this->FreePBX->Config()->get_conf_setting('ASTSIPDRIVER');
+						switch($module){
+							case "sipsettings":								
+								if($tname == "sipsettings" && $driver == "chan_sip"){
+									$this->log(sprintf(_("Updateing bindport in table '%s'"),$tname), 'INFO');
+									if(!$this->fixSipSettingsTableLeacy()){
+										$this->log(_("An error occurred fixing bindport. Please check Advanced SIP settings modules."), 'WARNING');
+									}						
+								}
+								elseif($tname == "sipsettings" && $driver != "chan_sip") {
+									$this->log(sprintf(_("Chan_sip must be selected only. Skipping '%s' table."),$tname), 'WARNING');
+									continue;
+								}
+							break;
+						}
+					}
+					else{
+						$this->addDataToTableFromArray($tname, $res);
+					}
 				} else {
 					$this->log(sprintf(_("Table '%s' is empty from legacy %s, skipping"),$tname, $module), 'WARNING');
 				}
@@ -569,5 +591,29 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 			}
 
 		}
+	}
+
+	/**
+	 * fixSipSettingsTableLeacy
+	 *
+	 * @return void
+	 */
+	public function fixSipSettingsTableLeacy(){
+		$status = true;
+		try {
+			$query = "SELECT data AS port FROM `sipsettings` WHERE `keyword` = 'bindport'";
+			$sipSet = $this->FreePBX->Database->query($query)->fetchall(\PDO::FETCH_ASSOC);
+
+			$bindport = empty($sipSet) || $sipSet["port"] == "" ? "5060" : $sipSet["port"];
+			$this->log(sprintf(_("Bindport set to %s."),$bindport), 'INFO');
+			
+			$query = "UPDATE `sipsettings` SET `data` = :port WHERE `keyword` = 'bindport'";
+			$this->FreePBX->Database->prepare($query)->execute(array(":port" => $bindport));
+		} catch(\Exception $e) {
+			$this->log($e->getMessage(),'ERROR');
+			$status = false;
+		}
+		
+		return $status;
 	}
 }

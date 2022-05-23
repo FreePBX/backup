@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-18 12:31+0000\n"
+"POT-Creation-Date: 2022-05-23 09:40+0000\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -554,8 +554,8 @@ msgstr ""
 "پس از کلیک بر روی دکمه قرمز رنگ، هم ارزی به صورت خودکار پس از بازیابی بر روی "
 "سیستم فرعی انجام خواهد شد"
 
-#: assets/js/backup.js:365 assets/js/backup.js:384 assets/js/backup.js:403
-#: assets/js/backup.js:495
+#: assets/js/backup.js:366 assets/js/backup.js:385 assets/js/backup.js:404
+#: assets/js/backup.js:496
 msgid "Error"
 msgstr ""
 
@@ -919,11 +919,11 @@ msgstr ""
 msgid "List of bakup files"
 msgstr ""
 
-#: assets/js/backup.js:590
+#: assets/js/backup.js:591
 msgid "Loading ..."
 msgstr ""
 
-#: assets/js/backup.js:420
+#: assets/js/backup.js:421
 msgid "Loading Please Wait"
 msgstr ""
 
@@ -969,10 +969,6 @@ msgstr ""
 msgid "Missing id or transaction or pid"
 msgstr ""
 
-#: views/runModal.php:5
-msgid "Modal title"
-msgstr ""
-
 #: views/backup/form.php:626 views/restore/processRestore.php:48
 msgid "Module"
 msgstr ""
@@ -981,7 +977,7 @@ msgstr ""
 msgid "Modules"
 msgstr ""
 
-#: assets/js/backup.js:314 assets/js/backup.js:594
+#: assets/js/backup.js:315 assets/js/backup.js:595
 msgid "Modules ("
 msgstr ""
 
@@ -989,7 +985,7 @@ msgstr ""
 msgid "Modules in this backup"
 msgstr ""
 
-#: views/backup/form.php:598
+#: views/backup/form.php:601
 msgid "Modules to Backup"
 msgstr ""
 
@@ -1058,7 +1054,7 @@ msgid ""
 "atleast Custom files"
 msgstr ""
 
-#: assets/js/backup.js:336 assets/js/backup.js:343
+#: assets/js/backup.js:337 assets/js/backup.js:344
 msgid ""
 "No storage location selected for Backup. Please select atleast one storage "
 "location to save the backup"
@@ -1319,7 +1315,7 @@ msgstr ""
 msgid "Run Restore & Legacy CDR "
 msgstr ""
 
-#: assets/js/backup.js:563
+#: assets/js/backup.js:564
 msgid "Run the following in the CLI"
 msgstr ""
 
@@ -1624,7 +1620,7 @@ msgstr ""
 msgid "The module %s returned no data, No backup created"
 msgstr ""
 
-#: assets/js/backup.js:495
+#: assets/js/backup.js:496
 #, perl-format
 msgid "There was an error during %s"
 msgstr ""
@@ -1924,7 +1920,7 @@ msgstr ""
 msgid "You must set a valid job name for this backup"
 msgstr ""
 
-#: assets/js/backup.js:492
+#: assets/js/backup.js:493
 #, perl-format
 msgid "Your %s has finished"
 msgstr ""

@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>16.0.55</version>
+	<version>17.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,76 +18,9 @@
 		<version>15.0.6.9</version>
 	</depends>
 	<changelog>
-		*16.0.55* Packaging of ver 16.0.55
-		*16.0.54* FREEI-4878 Restoring backup not updating the timezone in sysadmin module 
-		*16.0.53* FREEI-4793 
-		*16.0.52* FREEPBX-23431 Backup with only custom items fixed 
-		*16.0.51*    bump 
-		*16.0.50.13* FREEI-4436 - Restore - Ability to select modules to ignore 
-		*16.0.50.12* FREEPBX-23356 
-		*16.0.50.11* FREEI-4610 Restore from UCC1 to UCC2 fails 
-		*16.0.50.10*  
-		*16.0.50.9* FREEPBX-23253 
-		*16.0.50.8* FREEPBX-22977 replaced asort function flag from SORT_NUMERIC to SORT_STRING 
-		*16.0.50.7* FREEI-4119 Issue restoring sms_messages table 
-		*16.0.50.6* FREEI-4077 Modified removeAll function parameter 
-		*16.0.50.5* FREEPBX-22783 Exception The given id seems invalid 
-		*16.0.50.4*  FREEI-3830 PBXact 16 - Extension license count is not showing properly 
-		*16.0.50.3* FREEI-3770 GQL API - Added new test cases and removed base64 encoding on id while returning id 
-		*16.0.50.2* FREEI-3477 backup restore issue 
-		*16.0.50.1* bump 
-		*16.0.50* FREEI-3436 Adding validation for BackupJob GQL API 
-		*16.0.49* FREEI-3452 Refactored updateBackup GQL API 
-		*16.0.48* FREEI-3441 Fixing addBackup and updateBackup GQL API 
-		*16.0.47* FREEI-3435 updateBackup and deleteBackup GQL API 
-		*16.0.46* FREEI-3432 changing fetch fileDetails to backupConfigurations in fetchAllBackupConfigurations API 
-		*16.0.45* FREEI-3392 Created GQL API to fetchAllBackups and Unit tests 
-		*16.0.44* FREEI-3089 bug fixes for all moduele and validation on invalid module name 
-		*16.0.43* FREEPBX-22335 
-		*16.0.42* Packaging of ver 16.0.42
-		*16.0.41* FREEI-3089 updated utest 
-		*16.0.40* Packaging of ver 16.0.40
-		*16.0.39* FREEI-3072-backup-modules-issue 
-		*16.0.38* FREEI-3039 
-		*16.0.37* FREEPBX-22218 asterisk older version syntax was causing the issue 
-		*16.0.36* FREEPBX-22218 Can't restore v12 backup on v15 
-		*16.0.35* FREEI-2667 Backup fails with PHP Fatal error: Allowed memory size 
-		*16.0.34* FREEPBX-22030 Restoring Queue fails if callconfirm_id, agentannounce_id or joinannounce_id is not set 
-		*16.0.33* FREEPBX-21932 Restore fails when no custom files selected 
-		*16.0.32* FREEPBX-21959 Legacy Restore Error 
-		*16.0.31* FREEI-2062 Restore to 15 from a 13/14 backup not restoring POMPS backup settings 
-		*16.0.30* FREEI-2076 15 Backup Erroring with SoundLang 
-		*16.0.29* FREEI-2066  added option to skip post restore hooks 
-		*16.0.28* FREEPBX-21755 Backup maintenance issue : deleting file if backupname appended as directory 
-		*16.0.27* FREEI-2036 Ticket#956628 - PBXact 15 - Warm Spare Restore Failing 
-		*16.0.26* Packaging of ver 16.0.26
-		*16.0.25* FREEI-1939 Legacy backup restore on FreePBX 15 not restoring the firewall module's trusted networks 
-		*16.0.24* FREEI-1927 Backup file not getting saved if the local path is set to "/var/spool/asterisk/backup" 
-		*16.0.23* FREEPBX-21664 Warm Spare backup removes executable permission on AGI scripts 
-		*16.0.22* FREEPBX-21660 FreePBX Backup Custom files/directories 
-		*16.0.21* FREEI-1905 default taking file based operation during restore 
-		*16.0.20* Avoid restore errors when modules use foreign key constraints. 
-		*16.0.19* Fixing FREEI-1896 
-		*16.0.18* FREEI-1882 Control inmemory true false option via fwconsole backup command 
-		*16.0.17* FREEI-1764 
-		*16.0.16* FREEI-1764 show the hook file name 
-		*16.0.15* FREEI-1858 FREEI-1857 
-		*16.0.14* FREEI-1836 Throwing error if restore process is not able to load the manifest file of backup 
-		*16.0.13* FREEI-1838  time out issue 
-		*16.0.12* FREEI-1838 Cdr restore timeout  issue 
-		*16.0.11* Fixing FREEI-1780 Improving code to 
-		*16.0.10* FREEI-1791 Issue restoring a backup to FPBX15 
-		*16.0.9* FREEI-1771 Adding by default /etc/asterisk directory while creating backup 
-		*16.0.8* FREEI-1717 Backup module not sending the failure mail when the backup got failed due to asterisk not running. 
-		*16.0.7* FREEI-1765 typo error 
-		*16.0.6* Added custom files functionality code 
-		*16.0.5* Fixing FREEI-1710 Increasing legacy cdr restore timeout to 5 hours 
-		*16.0.4* FREEI-1567 logs created by new freepbxc 15 backup appear to be unmanaged 
-		*16.0.3* FREEI-1551 https setup not replicating to warm spare 
-		*16.0.2* Fixing FREEPBX-21456 Adding backup file under "backup job name" directory 
-		*16.0.1alpha* 16.0.1 alpha release
+		*17.0.1alpha* 17.0.1 alpha release
 	</changelog>
 	<supported>
-		<version>16.0</version>
+		<version>17.0</version>
 	</supported>
 </module>

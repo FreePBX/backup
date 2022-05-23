@@ -311,7 +311,8 @@ $('#itemsSave').on('click', function (e) {
 		alert(_("No module has selected for this Backup. Please ensure you are selecting atleast Custom files"));
 	}
 	$('#backup_items').val(JSON.stringify(processItems(undefined, {})));
-	$('#backup_modules').text(_("Modules (" + $('#backupmodules').bootstrapTable('getSelections').length + ")"))
+	$('#backupmodules').bootstrapTable('resetSearch');
+	$('#backup_modules').text(_("Modules ("+$('#backupmodules').bootstrapTable('getSelections').length+')'))
 
 	$("#itemsModal").modal('hide');
 });

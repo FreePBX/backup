@@ -40,6 +40,7 @@ class Backup extends Command {
 				new InputOption('skipbindport', '', InputOption::VALUE_NONE, 'Option --skipbindport skip bindport on restore'),
 				new InputOption('skipdns', '', InputOption::VALUE_NONE, 'Option --skipdns skip dns on restore'),
 				new InputOption('skipremotenat', '', InputOption::VALUE_NONE, 'Option --skipremotenat skip remotenat on restore'),
+				new InputOption('skiptrunksandroutes', '', InputOption::VALUE_NONE, 'Option --skiptrunksandroutes skip trunks on restore'),
 		))
 		->setHelp('Run a backup: fwconsole backup --backup [backup-id]'.PHP_EOL
 		.'Run a restore: fwconsole backup --restore [/path/to/restore-xxxxxx.tar.gz]'.PHP_EOL
@@ -92,6 +93,7 @@ class Backup extends Command {
 		$cliarguments['skipbindport'] = $input->getOption('skipbindport');
 		$cliarguments['skipdns'] = $input->getOption('skipdns');
 		$cliarguments['skipremotenat'] = $input->getOption('skipremotenat');
+		$cliarguments['skiptrunksandroutes'] = $input->getOption('skiptrunksandroutes');
 
 		if($b64import){
 			return $this->addBackupByString($b64import);

@@ -12,6 +12,8 @@ use Monolog\Formatter;
  */
 class Single extends Common {
 
+	use Email;
+	
 	public function setModule($module) {
 		$this->module = $module;
 	}

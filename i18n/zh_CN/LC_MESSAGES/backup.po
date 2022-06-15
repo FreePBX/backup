@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-06 04:06+0000\n"
+"POT-Creation-Date: 2022-06-15 10:46+0000\n"
 "PO-Revision-Date: 2015-11-17 12:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -373,7 +373,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: Handlers/Backup/Single.php:53
+#: Handlers/Backup/Single.php:55
 msgid "Cleaning up"
 msgstr ""
 
@@ -738,7 +738,7 @@ msgstr "文件"
 msgid "Finished"
 msgstr ""
 
-#: Handlers/Backup/Multiple.php:198 Handlers/Backup/Single.php:58
+#: Handlers/Backup/Multiple.php:198 Handlers/Backup/Single.php:60
 msgid "Finished Cleaning up"
 msgstr ""
 
@@ -754,7 +754,7 @@ msgstr ""
 msgid "Finished Saving to selected Filestore locations"
 msgstr ""
 
-#: Handlers/Backup/Multiple.php:200 Handlers/Backup/Single.php:63
+#: Handlers/Backup/Multiple.php:200 Handlers/Backup/Single.php:65
 #, php-format
 msgid "Finished created backup file: %s"
 msgstr ""
@@ -887,7 +887,7 @@ msgstr ""
 msgid "Importing table '%s' from legacy %s"
 msgstr ""
 
-#: Handlers/Backup/Single.php:40 Handlers/Restore/Single.php:26
+#: Handlers/Backup/Single.php:42 Handlers/Restore/Single.php:26
 msgid "In single restores mode dependencies are NOT processed"
 msgstr ""
 
@@ -1172,7 +1172,7 @@ msgstr ""
 msgid "Process is no longer running"
 msgstr ""
 
-#: Handlers/Backup/Single.php:36 Handlers/Restore/Legacy.php:280
+#: Handlers/Backup/Single.php:38 Handlers/Restore/Legacy.php:280
 #: Handlers/Restore/Multiple.php:65
 #, php-format
 msgid "Processing %s"
@@ -1208,7 +1208,7 @@ msgid "Reloading...... DONE"
 msgstr ""
 
 #: Handlers/Backup/Maintenance.php:140 Handlers/Backup/Maintenance.php:161
-#: Handlers/Backup/Multiple.php:189 Handlers/Backup/Single.php:55
+#: Handlers/Backup/Multiple.php:189 Handlers/Backup/Single.php:57
 #, php-format
 msgid "Removing %s"
 msgstr ""
@@ -1697,7 +1697,7 @@ msgstr ""
 msgid "There was an error during %s"
 msgstr ""
 
-#: Handlers/Backup/Single.php:60
+#: Handlers/Backup/Single.php:62
 msgid "There was nothing to cleanup"
 msgstr ""
 
@@ -1802,7 +1802,7 @@ msgstr ""
 msgid "Uninstalled or Disabled"
 msgstr ""
 
-#: Handlers/Backup/Single.php:25
+#: Handlers/Backup/Single.php:27
 #, php-format
 msgid "Unknown module %s"
 msgstr ""

@@ -19,7 +19,7 @@ class Single extends Common {
 	 *
 	 * @return void
 	 */
-	public function process() {
+	public function process($phpcompatible_error='') {
 		$this->extractFile();
 		$restoreData = $this->getMasterManifest();
 

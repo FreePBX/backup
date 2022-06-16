@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-15 10:46+0000\n"
+"POT-Creation-Date: 2022-06-16 11:35+0000\n"
 "PO-Revision-Date: 2015-11-17 12:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -1459,7 +1459,7 @@ msgstr ""
 
 #: Handlers/Storage.php:74
 #, php-format
-msgid "Saving to: %s:'%s' instance ,File location: %s/%s "
+msgid "Saving to: %s:'%s' instance ,File location: %s%s "
 msgstr ""
 
 #: views/backup/form.php:324

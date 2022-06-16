@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-15 10:46+0000\n"
+"POT-Creation-Date: 2022-06-16 11:35+0000\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -1466,7 +1466,7 @@ msgstr ""
 
 #: Handlers/Storage.php:74
 #, php-format
-msgid "Saving to: %s:'%s' instance ,File location: %s/%s "
+msgid "Saving to: %s:'%s' instance ,File location: %s%s "
 msgstr ""
 
 #: views/backup/form.php:324

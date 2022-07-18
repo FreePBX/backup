@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-16 11:36+0000\n"
+"POT-Creation-Date: 2022-07-18 13:03+0000\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -713,7 +713,7 @@ msgstr ""
 msgid "Files"
 msgstr "Archivos"
 
-#: Handlers/Restore/Legacy.php:302 Handlers/Restore/Multiple.php:107
+#: Handlers/Restore/Legacy.php:302 Handlers/Restore/Multiple.php:110
 #: Handlers/Restore/Single.php:34
 msgid "Finished"
 msgstr ""
@@ -958,7 +958,7 @@ msgstr ""
 msgid "Log file is missing but process is still running!"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:275 Handlers/Restore/Multiple.php:61
+#: Handlers/Restore/Legacy.php:275 Handlers/Restore/Multiple.php:64
 #, php-format
 msgid "MODULE SKIPED %s"
 msgstr ""
@@ -1087,7 +1087,7 @@ msgstr ""
 msgid "Notifications"
 msgstr "Notificaciones"
 
-#: Handlers/Restore/Legacy.php:264 Handlers/Restore/Multiple.php:47
+#: Handlers/Restore/Legacy.php:264 Handlers/Restore/Multiple.php:50
 #, php-format
 msgid "Only Restoring %s"
 msgstr ""
@@ -1141,13 +1141,20 @@ msgid "Process is no longer running"
 msgstr ""
 
 #: Handlers/Backup/Single.php:38 Handlers/Restore/Legacy.php:280
-#: Handlers/Restore/Multiple.php:65
+#: Handlers/Restore/Multiple.php:68
 #, php-format
 msgid "Processing %s"
 msgstr ""
 
 #: assets/js/backup.js:26
 msgid "Processing..."
+msgstr ""
+
+#: Handlers/Restore/Multiple.php:35
+msgid ""
+"Provided backup file does not contain multiple modules. May be this is a "
+"single module backup file so please re-try with '--restoresingle' option to "
+"restore the backup from the CLI "
 msgstr ""
 
 #: views/backup/settings.php:6
@@ -1167,7 +1174,7 @@ msgstr ""
 msgid "Recipient"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:298 Handlers/Restore/Multiple.php:95
+#: Handlers/Restore/Legacy.php:298 Handlers/Restore/Multiple.php:98
 msgid "Reloading...... DONE"
 msgstr ""
 
@@ -1246,7 +1253,7 @@ msgid ""
 "the transaction id."
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:292 Handlers/Restore/Multiple.php:79
+#: Handlers/Restore/Legacy.php:292 Handlers/Restore/Multiple.php:82
 msgid "Restore processing for modules are finished successfully"
 msgstr ""
 
@@ -1367,11 +1374,11 @@ msgstr ""
 msgid "Running Backup ID: %s"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:301 Handlers/Restore/Multiple.php:106
+#: Handlers/Restore/Legacy.php:301 Handlers/Restore/Multiple.php:109
 msgid "Running Post Restore Hooks DONE"
 msgstr ""
 
-#: Handlers/Restore/Legacy.php:299 Handlers/Restore/Multiple.php:101
+#: Handlers/Restore/Legacy.php:299 Handlers/Restore/Multiple.php:104
 msgid ""
 "Running Post Restore Hooks.. Please note that hook will restart httpd "
 "service so please refresh your page (using new ports) "
@@ -1468,11 +1475,11 @@ msgstr ""
 msgid "Should the warm spare feature be enabled, default false"
 msgstr ""
 
-#: Handlers/Restore/Multiple.php:104
+#: Handlers/Restore/Multiple.php:107
 msgid "Skipped Post Restore Hooks.."
 msgstr ""
 
-#: Handlers/Restore/Multiple.php:55
+#: Handlers/Restore/Multiple.php:58
 msgid "Skipping CertMan module Restore , Warmspare skip Certificate enabled"
 msgstr ""
 

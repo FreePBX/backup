@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>16.0.59</version>
+	<version>16.0.60</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -14,10 +14,11 @@
 		<backup_restore hidden="true" needsenginedb="yes">Backup &amp; Restore - Restore</backup_restore>
 	</menuitems>
 	<depends>
-		<module>filestore ge 15.0.2</module>
-		<version>15.0.6.9</version>
+		<module>filestore ge 16.0.11</module>
+		<version>16.0.10.14</version>
 	</depends>
 	<changelog>
+		*16.0.60* Packaging of ver 16.0.60
 		*16.0.59* FREEPBX-23559 and FREEPBX-23552 
 		*16.0.58* FREEPBX-23552 
 		*16.0.57* FREEI-4830 skip restoring trunks and routes 

@@ -14,7 +14,7 @@
 		<backup_restore hidden="true" needsenginedb="yes">Backup &amp; Restore - Restore</backup_restore>
 	</menuitems>
 	<depends>
-		<module>filestore ge 15.0.3.28</module>
+		<module>filestore ge 15.0.3.32</module>
 		<version>15.0.23</version>
 	</depends>
 	<changelog>

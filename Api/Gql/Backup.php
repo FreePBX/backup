@@ -86,6 +86,42 @@ class Backup extends Base {
 							return $this->restoreBackup($input);
 						}
 					]),
+					'runBackup' => Relay::mutationWithClientMutationId([
+						'name' => _('runBackup'),
+						'description' => _('Run Backup'),
+						'inputFields' => [
+							'id' => [
+								'type' => Type::nonNull(Type::string()),
+								'description' => _('A id used to identify your backups')
+							]
+						],
+						'outputFields' => $this->runBackupOutputFields(),
+						'mutateAndGetPayload' => function ($input) {
+							if(!isset($input['id'])){
+								return ['status' => false, 'message' => _("No backup id provided") ,'transaction'=>'','backupid'=>'','pid'=>'','log'=>''];
+							}
+							$buid    = $input['id'];
+							// validate backup id
+							$backupInfo = $this->freepbx->backup->getBackup($buid);
+							if(!$backupInfo) {
+								return ['status' => false, 'message' => _("Invalid Backup id"),'transaction'=>'','backupid'=>'','pid'=>'','log'=>''];
+							}
+							$jobid   = $this->freepbx->backup->generateId();
+							$location = $this->freepbx->Config->get('ASTLOGDIR');
+							$warmspare = $this->freepbx->backup->getConfig('warmspareenabled', $buid) === 'yes';
+							if($warmspare){
+								$warm = ' --warmspare';
+							} else {
+								$warm = '';
+							}
+							$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup --backup=' . escapeshellarg($buid) . '' . $warm . ' --transaction=' . escapeshellarg($jobid) . ' >> '.$location.'/backup_'.$jobid.'_out.log 2> '.$location.'/backup_'.$jobid.'_err.log & echo $!';
+							file_put_contents($location.'/backup_'.$jobid.'_out.log','Running with: '.$command.PHP_EOL);
+							$process = new Process($command);
+							$process->mustRun();
+							$log = file_get_contents($location.'/backup_'.$jobid.'_out.log');
+							return ['status' => true, 'message' => _("Backup running"), 'transaction' => $jobid, 'backupid' => $buid, 'pid' => trim($process->getOutput()), 'log' => $log];
+						}
+					]),
 				];
 			};
 		}
@@ -661,5 +697,51 @@ class Backup extends Base {
 		} else {
 			return ['message' => _('Backup does not found'), 'status' => false];
 		}
+	}
+
+	/**
+	 * runBackupOutputFields
+	 *
+	 * @return void
+	 */
+	private function runBackupOutputFields(){
+		return [
+			'status' => [
+				'type' => Type::boolean(),
+				'resolve' => function ($payload) {
+					return $payload['status'];
+				}
+			],
+			'message' => [
+				'type' => Type::string(),
+				'resolve' => function ($payload) {
+					return $payload['message'];
+				}
+			],
+			'backupid' => [
+				'type' => Type::string(),
+				'resolve' => function ($payload) {
+					return $payload['backupid'];
+				}
+			],
+			'pid' => [
+				'type' => Type::string(),
+				'resolve' => function ($payload) {
+					return $payload['pid'];
+				}
+			],
+			'log' => [
+				'type' => Type::string(),
+				'resolve' => function ($payload) {
+					return $payload['log'];
+				}
+			],
+			'transaction' => [
+				'type' => Type::string(),
+				'resolve' => function ($payload) {
+					return isset($payload['transaction']) ? $payload['transaction']: '' ;
+				}
+			]
+		];
 	}
 }

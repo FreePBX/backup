@@ -1023,4 +1023,78 @@ class BackupGqlApiTest extends ApiBaseTestCase {
     $this->assertEquals(200, $response->getStatusCode());
 
   }
+
+  /**
+   * test_runbackup_when_all_good_Should_return_true
+   *
+   * @return void
+   */
+  public function test_runbackup_when_all_good_Should_return_true()
+  {
+    $mockHelper = $this->getMockBuilder(\Freepbx\modules\Backup::class)
+       ->disableOriginalConstructor()
+       ->setMethods(array('getBackup','generateId'))
+       ->getMock();
+
+    $mockHelper->method('getBackup')
+      ->willReturn(true);
+
+    $mockHelper->method('generateId')
+      ->willReturn('12345');
+
+    self::$freepbx->backup = $mockHelper;
+
+    $response = $this->request(
+    'mutation {
+      runBackup(input:{ id: "68baf123-db78-46b0-ad48-6d2fece23e16"})
+      {
+        status
+        message
+        transaction
+        backupid
+        log
+      }
+    }');
+
+   $json = (string)$response->getBody();
+   $this->assertEquals('{"data":{"runBackup":{"status":true,"message":"Backup running","transaction":"12345","backupid":"68baf123-db78-46b0-ad48-6d2fece23e16","log":"Running with: \/usr\/sbin\/fwconsole backup --backup='."'".'68baf123-db78-46b0-ad48-6d2fece23e16'."'".' --transaction='."'".'12345'."'".' >> \/var\/log\/asterisk\/backup_12345_out.log 2> \/var\/log\/asterisk\/backup_12345_err.log & echo $!\n"}}}',$json);
+   $this->assertEquals(200, $response->getStatusCode());
+
+  }
+
+  /**
+   * test_runbackup_invalid_id_passed_should_return_false
+   *
+   * @return void
+   */
+  public function test_runbackup_invalid_id_passed_should_return_false()
+  {
+    $mockHelper = $this->getMockBuilder(\Freepbx\modules\Backup::class)
+       ->disableOriginalConstructor()
+       ->setMethods(array('getBackup','generateId'))
+       ->getMock();
+
+    $mockHelper->method('getBackup')
+      ->willReturn([]);
+
+    self::$freepbx->backup = $mockHelper;
+
+    $response = $this->request(
+    'mutation {
+      runBackup(input:{ id: "68baf123-db78-46b0-ad48-6d2fece23e16123"})
+      {
+        status
+        message
+        transaction
+        backupid
+        log
+      }
+    }');
+
+   $json = (string)$response->getBody();
+   $this->assertEquals('{"errors":[{"message":"Invalid Backup id","status":false}]}',$json);
+   $this->assertEquals(400, $response->getStatusCode());
+
+  }
+
 }

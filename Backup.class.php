@@ -147,6 +147,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 				}
 			}
 		}
+		//backup_items  expects json string
+		$sql = "UPDATE kvstore_FreePBX_modules_Backup Set `val`='[]' WHERE `key`='backup_items' AND `val`='unchanged'";
+		$this->db->query($sql);
 	}
 
 	public function uninstall(){

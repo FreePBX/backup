@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-27 02:37+0000\n"
+"POT-Creation-Date: 2022-08-08 06:30+0000\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -324,7 +324,13 @@ msgstr ""
 msgid "Backup has been updated"
 msgstr ""
 
-#: Api/Gql/Backup.php:122 Backup.class.php:458
+#: Api/Gql/Backup.php:120
+msgid ""
+"Backup process has been initiated. Kindly check the fetchApiStatus api with "
+"the transaction id."
+msgstr ""
+
+#: Backup.class.php:458
 msgid "Backup running"
 msgstr ""
 
@@ -867,7 +873,7 @@ msgstr ""
 msgid "Invalid Backup ID"
 msgstr ""
 
-#: Api/Gql/Backup.php:107
+#: Api/Gql/Backup.php:106
 msgid "Invalid Backup id"
 msgstr ""
 
@@ -916,7 +922,7 @@ msgstr ""
 msgid "List of backup configurations"
 msgstr ""
 
-#: Api/Gql/Backup.php:144
+#: Api/Gql/Backup.php:145
 msgid "List of backup files"
 msgstr ""
 
@@ -1502,6 +1508,10 @@ msgstr ""
 msgid "Sorry Module name "
 msgstr ""
 
+#: Api/Gql/Backup.php:122
+msgid "Sorry failed to perform backup"
+msgstr ""
+
 #: Api/Gql/Backup.php:613
 msgid "Sorry failed to perform restore"
 msgstr ""
@@ -1518,7 +1528,7 @@ msgstr ""
 msgid "Sorry unable to find the backup configurations"
 msgstr ""
 
-#: Api/Gql/Backup.php:146
+#: Api/Gql/Backup.php:147
 msgid "Sorry unable to find the backup files"
 msgstr ""
 

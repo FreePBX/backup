@@ -100,26 +100,27 @@ class Backup extends Base {
 							if(!isset($input['id'])){
 								return ['status' => false, 'message' => _("No backup id provided") ,'transaction'=>'','backupid'=>'','pid'=>'','log'=>''];
 							}
-							$buid    = $input['id'];
 							// validate backup id
-							$backupInfo = $this->freepbx->backup->getBackup($buid);
+							$backupInfo = $this->freepbx->backup->getBackup($input['id']);
 							if(!$backupInfo) {
 								return ['status' => false, 'message' => _("Invalid Backup id"),'transaction'=>'','backupid'=>'','pid'=>'','log'=>''];
 							}
+							$txnId = $this->freepbx->api->addTransaction("Processing","backup","perform-backup");
 							$jobid   = $this->freepbx->backup->generateId();
 							$location = $this->freepbx->Config->get('ASTLOGDIR');
-							$warmspare = $this->freepbx->backup->getConfig('warmspareenabled', $buid) === 'yes';
+							$warmspare = $this->freepbx->backup->getConfig('warmspareenabled', $input['id']) === 'yes';
 							if($warmspare){
 								$warm = ' --warmspare';
 							} else {
 								$warm = '';
 							}
-							$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup --backup=' . escapeshellarg($buid) . '' . $warm . ' --transaction=' . escapeshellarg($jobid) . ' >> '.$location.'/backup_'.$jobid.'_out.log 2> '.$location.'/backup_'.$jobid.'_err.log & echo $!';
-							file_put_contents($location.'/backup_'.$jobid.'_out.log','Running with: '.$command.PHP_EOL);
-							$process = new Process($command);
-							$process->mustRun();
-							$log = file_get_contents($location.'/backup_'.$jobid.'_out.log');
-							return ['status' => true, 'message' => _("Backup running"), 'transaction' => $jobid, 'backupid' => $buid, 'pid' => trim($process->getOutput()), 'log' => $log];
+							$res = \FreePBX::Sysadmin()->ApiHooks()->runModuleSystemHook('backup','perform-backup',array($input['id'],$txnId,$jobid,$location,$warm));
+
+							if($res){
+								return ['message' => _('Backup process has been initiated. Kindly check the fetchApiStatus api with the transaction id.'),'status' => true , 'transaction_id' => $txnId];
+							}else{
+								return ['message' => _('Sorry failed to perform backup'),'status' => false];
+							}
 						}
 					]),
 				];
@@ -151,7 +152,6 @@ class Backup extends Base {
 						'type' => $this->typeContainer->get('backup')->getConnectionType(),
 						'resolve' => function ($root, $args) {
 							$res = $this->freepbx->backup->listBackups();
-							dbug($res);
 							if (!empty($res)) {
 								return ['message' => _("List of backup configurations"), 'status' => true, 'response' => $res];
 							} else {
@@ -718,28 +718,10 @@ class Backup extends Base {
 					return $payload['message'];
 				}
 			],
-			'backupid' => [
+			'transaction_id' => [
 				'type' => Type::string(),
 				'resolve' => function ($payload) {
-					return $payload['backupid'];
-				}
-			],
-			'pid' => [
-				'type' => Type::string(),
-				'resolve' => function ($payload) {
-					return $payload['pid'];
-				}
-			],
-			'log' => [
-				'type' => Type::string(),
-				'resolve' => function ($payload) {
-					return $payload['log'];
-				}
-			],
-			'transaction' => [
-				'type' => Type::string(),
-				'resolve' => function ($payload) {
-					return isset($payload['transaction']) ? $payload['transaction']: '' ;
+					return isset($payload['transaction_id']) ? $payload['transaction_id']: '' ;
 				}
 			]
 		];

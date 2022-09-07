@@ -70,6 +70,7 @@ if(isset($error) && !empty($error)){
 					<th data-checkbox="true"></th>
 					<th data-field="name"><?php echo _("Backup Name")?></th>
 					<th data-field="timestamp" data-formatter="timestampFormatter"><?php echo _("Backup Date")?></th>
+					<th data-field="size" data-formatter="sizeFormatter"><?php echo _("Size")?></th>
 					<th data-field="framework"><?php echo _("Framework")?></th>
 					<th data-field="id" data-formatter="localLinkFormatter"><?php echo _("Actions")?></th>
 				</tr>

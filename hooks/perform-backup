@@ -19,33 +19,21 @@ if (isset($argv[1])) {
 $command = '/usr/sbin/fwconsole backup --backup=' . escapeshellarg($buid) . '' . $warm . ' --transaction=' . escapeshellarg($jobid) . ' >> '.$location.'/backup_'.$jobid.'_out.log 2> '.$location.'/backup_'.$jobid.'_err.log & echo $!';
 $message = $status = "";
 exec($command);
-sleep(1);
-$fileNameLoc = '';
-$f = fopen($location.'/backup_'.$jobid.'_out.log', 'r');
-while (!feof($f)) {
-    $line = fgets($f);
-    if(strpos($line, 'File location:') !== false){
-        $words = explode(" ",$line);
-        foreach ($words as $value) {
-            if(strpos($value, '.tar.gz') !== false){
-                $fileNameLoc = $value;
-                break;
-            }
-        }
-    }
-}
-fclose($f);
-if($fileNameLoc) {
+$db = \Sysadmin\FreePBX::Database();
+$backupSql = "SELECT `key`,val FROM kvstore_FreePBX_modules_Backup WHERE `key`= :buid";
+$smt = $db->prepare($backupSql);
+$smt->execute([":buid" => $buid]);
+$result = $smt->fetch();
+if($result) {
     $status = 'Executed';
     $message = 'Backup Done';
-    $output['backup_file'] = $fileNameLoc;
+    $output = $result[1];
 } else {
     $message = 'Backup Errored';
     $status = 'Failed';
-    $output['backup_file'] = '';
+    $output = '';
 }
 
-$db = \Sysadmin\FreePBX::Database();
 $sql = ("UPDATE IGNORE api_asynchronous_transaction_history SET event_status = :event_status , failure_reason =:failure_reason, process_end_time =:end_time, event_output =:event_ouput WHERE `txn_id` = :txn_id");
 $sth = $db->prepare($sql);
 $sth->execute([
@@ -53,8 +41,7 @@ $sth->execute([
     ":failure_reason" => $message,
     ":end_time" => time(),
     ":txn_id" => $txn_id,
-    ":event_ouput" => json_encode($output)
+    ":event_ouput" => $output
 ]);
-
 exit();
 ?>

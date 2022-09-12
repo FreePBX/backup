@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-10 10:01+0000\n"
+"POT-Creation-Date: 2022-09-12 11:12+0000\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -355,7 +355,7 @@ msgstr "Chỉ các cấu hình"
 msgid "Connecting to remote server..."
 msgstr "Đang kết nối tới máy chủ từ xa..."
 
-#: functions.inc/class.backup.php:914
+#: functions.inc/class.backup.php:918
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr "Không thể tìm thấy  %s trên hệ thống từ xa"
@@ -549,7 +549,7 @@ msgstr "Gửi email để thông báo trạng thái đến khi tác vụ này đ
 msgid "Error creating the FTP object"
 msgstr "Lỗi khi đang tạo đối tượng FTP"
 
-#: functions.inc/class.backup.php:921
+#: functions.inc/class.backup.php:925
 #, php-format
 msgid "Error deleting %s"
 msgstr "Lỗi khi đang xóa  %s"
@@ -1070,7 +1070,7 @@ msgstr "Đường dẫn đến khóa ssh, ví dụ /home/asterisk/.ssh/id_rsa"
 msgid "Path/DB"
 msgstr "Đường dẫn/DB"
 
-#: functions.inc/class.backup.php:910 functions.inc/class.backup.php:911
+#: functions.inc/class.backup.php:914 functions.inc/class.backup.php:915
 #, php-format
 msgid "Path: %s"
 msgstr ""

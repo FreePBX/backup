@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-26 08:57+0000\n"
+"POT-Creation-Date: 2022-09-12 11:13+0000\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -358,7 +358,7 @@ msgstr "Somente configurações"
 msgid "Connecting to remote server..."
 msgstr "Conectando ao servidor remoto..."
 
-#: functions.inc/class.backup.php:923
+#: functions.inc/class.backup.php:927
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -556,7 +556,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:930
+#: functions.inc/class.backup.php:934
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -1085,7 +1085,7 @@ msgstr ""
 msgid "Path/DB"
 msgstr "Caminho/BD"
 
-#: functions.inc/class.backup.php:919 functions.inc/class.backup.php:920
+#: functions.inc/class.backup.php:923 functions.inc/class.backup.php:924
 #, php-format
 msgid "Path: %s"
 msgstr ""

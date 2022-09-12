@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-26 08:57+0000\n"
+"POT-Creation-Date: 2022-09-12 11:13+0000\n"
 "PO-Revision-Date: 2019-03-29 18:00+0000\n"
 "Last-Translator: jeremie cattan <freepbx@famillecattan.com>\n"
 "Language-Team: French <http://*/projects/freepbx/backup/fr/>\n"
@@ -375,7 +375,7 @@ msgstr "Configurations seulement"
 msgid "Connecting to remote server..."
 msgstr "Connexion au serveur distant..."
 
-#: functions.inc/class.backup.php:923
+#: functions.inc/class.backup.php:927
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr "Impossible de trouver %s sur le système distant"
@@ -576,7 +576,7 @@ msgstr "Fin"
 msgid "Error creating the FTP object"
 msgstr "Erreur lors de la création de l'objet FTP"
 
-#: functions.inc/class.backup.php:930
+#: functions.inc/class.backup.php:934
 #, php-format
 msgid "Error deleting %s"
 msgstr "Erreur lors de la suppression de %s"
@@ -1126,7 +1126,7 @@ msgstr "Chemin vers la clé ssh, exemple /home/asterisk/.ssh/id_rsa"
 msgid "Path/DB"
 msgstr "Chemin/BD"
 
-#: functions.inc/class.backup.php:919 functions.inc/class.backup.php:920
+#: functions.inc/class.backup.php:923 functions.inc/class.backup.php:924
 #, php-format
 msgid "Path: %s"
 msgstr "Chemin: %s"

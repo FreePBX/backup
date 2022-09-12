@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-26 08:57+0000\n"
+"POT-Creation-Date: 2022-09-12 11:13+0000\n"
 "PO-Revision-Date: 2019-02-20 10:42+0000\n"
 "Last-Translator: hammer125 <auswertung@mariner.at>\n"
 "Language-Team: German <http://*/projects/freepbx/backup/de/>\n"
@@ -364,7 +364,7 @@ msgstr "Nur Konfigurationen"
 msgid "Connecting to remote server..."
 msgstr "Verbindung zum Remote-Server ..."
 
-#: functions.inc/class.backup.php:923
+#: functions.inc/class.backup.php:927
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr "Konnte %s nicht auf dem entfernten System finden"
@@ -567,7 +567,7 @@ msgstr "Ende"
 msgid "Error creating the FTP object"
 msgstr "Fehler beim Erstellen des FTP-Objekts"
 
-#: functions.inc/class.backup.php:930
+#: functions.inc/class.backup.php:934
 #, php-format
 msgid "Error deleting %s"
 msgstr "Fehler %s löschen"
@@ -1122,7 +1122,7 @@ msgstr "Pfad zum SSH-Schlüssel (Beispiel /home/asterisk/.ssh/id_rsa)"
 msgid "Path/DB"
 msgstr "Pfad/DB"
 
-#: functions.inc/class.backup.php:919 functions.inc/class.backup.php:920
+#: functions.inc/class.backup.php:923 functions.inc/class.backup.php:924
 #, php-format
 msgid "Path: %s"
 msgstr "Pfad: %s"

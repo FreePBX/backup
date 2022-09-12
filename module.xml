@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>16.0.62.1</version>
+	<version>16.0.62.2</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,6 +18,7 @@
 		<version>16.0.10.14</version>
 	</depends>
 	<changelog>
+		*16.0.62.2* FREEI-5224 
 		*16.0.62.1* FREEI-5145 restorebackup api fixed
 		*16.0.62* FREEI-5103 force backup to run asynchronous 
 		*16.0.61* FREEI-5103 

@@ -441,7 +441,7 @@ class Backup {
 					//see here for a posible solution:
 					//http://ca3.php.net/manual/en/function.fopen.php#37791
 					$cmd = array(
-						fpbx_which('mv'),
+						fpbx_which('cp'),
 						$this->b['_tmpfile'],
 						$path . '/' . $this->b['_file'] . '.tgz'
 					);
@@ -664,6 +664,10 @@ class Backup {
 					break;
 			}
 		}
+		//remove the tmp file
+		 $cmd = array(fpbx_which('rm'),$this->b['_tmpfile']);
+                 exec(implode(' ', $cmd), $error, $status);
+		 backup_log("Removed backup tmp file ". $this->b['_tmpfile']);
 	}
 
 	function build_manifest() {

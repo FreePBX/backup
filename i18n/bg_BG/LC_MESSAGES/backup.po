@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-08 06:30+0000\n"
+"POT-Creation-Date: 2022-09-19 02:00+0000\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -433,7 +433,7 @@ msgstr ""
 msgid "Could not backup module %s because it is not enabled"
 msgstr ""
 
-#: functions.inc/class.backup.php:841
+#: functions.inc/class.backup.php:845
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
@@ -584,7 +584,7 @@ msgstr ""
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:848
+#: functions.inc/class.backup.php:852
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -1105,7 +1105,7 @@ msgid ""
 "Parsing out SQL tables. This may take a moment depending on backup size."
 msgstr ""
 
-#: functions.inc/class.backup.php:837 functions.inc/class.backup.php:838
+#: functions.inc/class.backup.php:841 functions.inc/class.backup.php:842
 #, php-format
 msgid "Path: %s"
 msgstr ""

@@ -19,12 +19,38 @@ if (isset($argv[1])) {
 $command = '/usr/sbin/fwconsole backup --backup=' . escapeshellarg($buid) . '' . $warm . ' --transaction=' . escapeshellarg($jobid) . ' >> '.$location.'/backup_'.$jobid.'_out.log 2> '.$location.'/backup_'.$jobid.'_err.log & echo $!';
 $message = $status = "";
 exec($command);
+
 $db = \Sysadmin\FreePBX::Database();
-$backupSql = "SELECT `key`,val FROM kvstore_FreePBX_modules_Backup WHERE `key`= :buid";
+//get backup process id
+$backupProcessSql = "SELECT `key`,val FROM kvstore_FreePBX_modules_Backup WHERE `key`= :buid AND id = :id";
+$smtbproc = $db->prepare($backupProcessSql);
+$smtbproc->execute([":buid" => $buid, ":id" => 'runningBackupJobs']);
+$processResult = $smtbproc->fetch();
+if($processResult) {
+    $pResult = json_decode($processResult[1],true);
+    $proccId = $pResult['pid'];
+} else {
+    $proccId = '';
+}
+$finished = false;
+$backupSql = "SELECT `key`,val FROM kvstore_FreePBX_modules_Backup WHERE `key`= :jobid AND id = :id";
 $smt = $db->prepare($backupSql);
-$smt->execute([":buid" => $buid]);
-$result = $smt->fetch();
-if($result) {
+while(!$finished) {
+    $smt->execute([":jobid" => $jobid, ":id" => 'runningBackupstatus']);
+    $result = $smt->fetch();
+    $resDetails = json_decode($result[1],true);
+    if($resDetails['status'] == 'FINISHED') {
+        $finished = true;
+        break;
+    }
+    if (!file_exists( "/proc/$proccId"))
+    {
+        $finished = false;
+        break;
+    }
+    sleep(5);
+}
+if($finished) {
     $status = 'Executed';
     $message = 'Backup Done';
     $output = $result[1];
@@ -33,7 +59,6 @@ if($result) {
     $status = 'Failed';
     $output = '';
 }
-
 $sql = ("UPDATE IGNORE api_asynchronous_transaction_history SET event_status = :event_status , failure_reason =:failure_reason, process_end_time =:end_time, event_output =:event_ouput WHERE `txn_id` = :txn_id");
 $sth = $db->prepare($sql);
 $sth->execute([

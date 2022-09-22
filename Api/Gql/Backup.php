@@ -86,6 +86,43 @@ class Backup extends Base {
 							return $this->restoreBackup($input);
 						}
 					]),
+					'runBackup' => Relay::mutationWithClientMutationId([
+						'name' => _('runBackup'),
+						'description' => _('Run Backup'),
+						'inputFields' => [
+							'id' => [
+								'type' => Type::nonNull(Type::string()),
+								'description' => _('A id used to identify your backups')
+							]
+						],
+						'outputFields' => $this->runBackupOutputFields(),
+						'mutateAndGetPayload' => function ($input) {
+							if(!isset($input['id'])){
+								return ['status' => false, 'message' => _("No backup id provided") ,'transaction'=>'','backupid'=>'','pid'=>'','log'=>''];
+							}
+							// validate backup id
+							$backupInfo = $this->freepbx->backup->getBackup($input['id']);
+							if(!$backupInfo) {
+								return ['status' => false, 'message' => _("Invalid Backup id"),'transaction'=>'','backupid'=>'','pid'=>'','log'=>''];
+							}
+							$txnId = $this->freepbx->api->addTransaction("Processing","backup","perform-backup");
+							$jobid   = $this->freepbx->backup->generateId();
+							$location = $this->freepbx->Config->get('ASTLOGDIR');
+							$warmspare = $this->freepbx->backup->getConfig('warmspareenabled', $input['id']) === 'yes';
+							if($warmspare){
+								$warm = ' --warmspare';
+							} else {
+								$warm = '';
+							}
+							$res = \FreePBX::Sysadmin()->ApiHooks()->runModuleSystemHook('backup','perform-backup',array($input['id'],$txnId,$jobid,$location,$warm));
+
+							if($res){
+								return ['message' => _('Backup process has been initiated. Kindly check the fetchApiStatus api with the transaction id.'),'status' => true , 'transaction_id' => $txnId];
+							}else{
+								return ['message' => _('Sorry failed to perform backup'),'status' => false];
+							}
+						}
+					]),
 				];
 			};
 		}
@@ -115,7 +152,6 @@ class Backup extends Base {
 						'type' => $this->typeContainer->get('backup')->getConnectionType(),
 						'resolve' => function ($root, $args) {
 							$res = $this->freepbx->backup->listBackups();
-							dbug($res);
 							if (!empty($res)) {
 								return ['message' => _("List of backup configurations"), 'status' => true, 'response' => $res];
 							} else {
@@ -661,5 +697,33 @@ class Backup extends Base {
 		} else {
 			return ['message' => _('Backup does not found'), 'status' => false];
 		}
+	}
+
+	/**
+	 * runBackupOutputFields
+	 *
+	 * @return void
+	 */
+	private function runBackupOutputFields(){
+		return [
+			'status' => [
+				'type' => Type::boolean(),
+				'resolve' => function ($payload) {
+					return $payload['status'];
+				}
+			],
+			'message' => [
+				'type' => Type::string(),
+				'resolve' => function ($payload) {
+					return $payload['message'];
+				}
+			],
+			'transaction_id' => [
+				'type' => Type::string(),
+				'resolve' => function ($payload) {
+					return isset($payload['transaction_id']) ? $payload['transaction_id']: '' ;
+				}
+			]
+		];
 	}
 }

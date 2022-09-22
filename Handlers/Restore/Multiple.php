@@ -31,7 +31,10 @@ class Multiple extends Common {
 		} else {
 			$restoreModules = $restoreData['modules'];
 		}
-
+		if (!is_array($restoreModules)) {
+			$this->log(_("Provided backup file does not contain multiple modules. May be this is a single module backup file so please re-try with '--restoresingle' option to restore the backup from the CLI "));
+			exit;
+		}
 		if($this->isAssoc($restoreModules)) {
 			$remapedRestoreModules = [];
 			foreach($restoreModules as $rawname => $version) {

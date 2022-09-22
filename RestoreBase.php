@@ -284,7 +284,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 			}
 			$tname = $table;
 			try {
-				$sth = $pdo->query("SELECT * FROM $tname",\PDO::FETCH_ASSOC);
+				$sth = $pdo->query(sprintf("SELECT * FROM `%s`", $tname),\PDO::FETCH_ASSOC);
 				$res = $sth->fetchAll();
 				if(!empty($res)) {
 					$this->log(sprintf(_("Importing table '%s' from legacy %s"),$tname, $module));
@@ -539,7 +539,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		if($delete) {
 			$this->log("Cleaning table: $table");
 			$this->FreePBX->Database->query("SET FOREIGN_KEY_CHECKS=0");
-			$this->FreePBX->Database->query("TRUNCATE TABLE $table");
+			$this->FreePBX->Database->query(sprintf("TRUNCATE TABLE `%s`", $table));
 			$this->FreePBX->Database->query("SET FOREIGN_KEY_CHECKS=1");
 		}
 

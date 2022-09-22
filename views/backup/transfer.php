@@ -1,7 +1,7 @@
 <!--Transfer Id-->
 <div class="element-container">
-  <div class="">
-    <div class="row form-group">
+  <div class="row">
+    <div class="form-group">
       <div class="col-md-3">
         <label class="control-label" for="transferId"><?php echo _("Transfer Id") ?></label>
         <i class="fa fa-question-circle fpbx-help-icon" data-for="transferId"></i>
@@ -20,8 +20,8 @@
 <!--END Transfer Id-->
 <!--Server Mode-->
 <div class="element-container">
-  <div class="">
-    <div class="row form-group">
+  <div class="row">
+    <div class="form-group">
       <div class="col-md-3">
         <label class="control-label" for="serverMode"><?php echo _("Server Mode") ?></label>
         <i class="fa fa-question-circle fpbx-help-icon" data-for="serverMode"></i>

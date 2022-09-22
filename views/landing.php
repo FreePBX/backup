@@ -7,19 +7,19 @@ $backupClass = FreePBX::Backup();
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="fpbx-container">
-					<ul class="nav nav-tabs pb-0" role="tablist">
-						<li role="presentation" data-name="backup" >
-							<a class="nav-link active" href="#backup" aria-controls="backup" data-name="backup" role="tab" data-toggle="tab">
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" data-name="backup" class="active">
+							<a href="#backup" aria-controls="backup" data-name="backup" role="tab" data-toggle="tab">
 								<?php echo _("Backup")?>
 							</a>
 						</li>
 						<li role="presentation" data-name="restore" class="change-tab">
-							<a class="nav-link" href="#restore" aria-controls="restore" data-name="restore" role="tab" data-toggle="tab">
+							<a href="#restore" aria-controls="restore" data-name="restore" role="tab" data-toggle="tab">
 								<?php echo _("Restore")?>
 							</a>
 						</li>
 						<li role="presentation" data-name="settings" class="change-tab">
-							<a class="nav-link" href="#settings" aria-controls="settings" data-name="settings" role="tab" data-toggle="tab">
+							<a href="#settings" aria-controls="settings" data-name="settings" role="tab" data-toggle="tab">
 								<?php echo _("Global Settings")?>
 							</a>
 						</li>

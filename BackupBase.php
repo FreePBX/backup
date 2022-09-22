@@ -87,7 +87,7 @@ class BackupBase extends Model\Backup{
 			if(in_array($tname,$ignoretables)){
 				continue;
 			}
-			$ret[$tname] = $this->FreePBX->Database->query("SELECT * FROM $tname")->fetchAll(\PDO::FETCH_ASSOC);
+			$ret[$tname] = $this->FreePBX->Database->query(sprintf("SELECT * FROM `%s`", $tname))->fetchAll(\PDO::FETCH_ASSOC);
 		}
 		return $ret;
 	}
@@ -145,7 +145,7 @@ class BackupBase extends Model\Backup{
 				if(array_key_exists($tname,$tables)) {
 					continue;
 				} else {
-					$tables[$tname] = $this->FreePBX->Database->query("SELECT * FROM $tname")->fetchAll(\PDO::FETCH_ASSOC);
+					$tables[$tname] = $this->FreePBX->Database->query(sprintf("SELECT * FROM `%s`", $tname))->fetchAll(\PDO::FETCH_ASSOC);
 				}
 			}
 		}

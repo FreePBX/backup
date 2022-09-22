@@ -21,15 +21,12 @@ date_default_timezone_set('UTC');
 
 	$command = "fwconsole backup --restore $filename --skiprestorehooks";
 	$message = $status = "";
-	$process = new Process($command);
 
 	try {
-		$process->setTimeout(null);
-		$process->mustRun();
-		$out = $process->getOutput();
+		exec($command);
 		$status = 'Executed'; 
 		$message = 'Restore Done';
-	} catch (ProcessFailedException $e) {
+	} catch (Exception $e) {
 		$message = 'Restore Errored'; 
 		$status = 'Failed'; 
 	}

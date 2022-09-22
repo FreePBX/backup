@@ -192,25 +192,26 @@ class Backup extends Command {
 				}
 
 				$this->freepbx->Backup->setConfig($buid,["pid" => posix_getpid(), "transaction" => $transactionid],"runningBackupJobs");
-
+				$this->freepbx->Backup->setConfig($transactionid,["buid" => $buid, "status"=>"BACKUPSTARTED","backupstatus"=>$bkstatus],"runningBackupstatus");
 				$backupHandler = new Handler\Backup\Multiple($this->freepbx, $buid, $transactionid, posix_getpid());
 				if($input->getOption('fallback')){
 					$backupHandler->setDefaultFallback(true);
 				}
-
+				$this->freepbx->Backup->setConfig($transactionid,["buid" => $buid, "status"=>"PROCESSINGMODULES","backupstatus"=>$bkstatus],"runningBackupstatus");
 				$val = $backupHandler->process();
 				if($val == "") {
 					$backupHandler->sendEmail(true);
 					return 0;
 				}
 				$maintenanceHandler = new Handler\Backup\Maintenance($this->freepbx, $buid, $transactionid, posix_getpid());
+				$this->freepbx->Backup->setConfig($transactionid,["buid" => $buid, "status"=>"PERMOFMINGMAINTENANCE","backupstatus"=>$bkstatus],"runningBackupstatus");
 				$output->writeln(_("Performing Local Maintenance"));
 				$maintenanceHandler->processLocal();
 				$output->writeln(_("Finished Local Maintenance"));
 				$output->writeln(_("Performing Remote Maintenance"));
 				$maintenanceHandler->processRemote();
 				$output->writeln(_("Finished Remote Maintenance"));
-
+				$this->freepbx->Backup->setConfig($transactionid,["buid" => $buid, "status"=>"PERMOFMINGSTORAGE","backupstatus"=>$bkstatus],"runningBackupstatus");
 				$storageHandler = new Handler\Storage($this->freepbx, $buid, $transactionid, posix_getpid(), $backupHandler->getFile());
 				$storageHandler->process();
 
@@ -244,6 +245,7 @@ class Backup extends Command {
 					$output->writeln(sprintf('Executing Post Backup Hook: %s',$postbu_hook));
 					exec($postbu_hook);
 				}
+				$this->freepbx->Backup->setConfig($transactionid,["buid" => $buid, "status"=>"FINISHED","backupstatus"=>$bkstatus,"backupfile"=>$backupHandler->getFile()],"runningBackupstatus");
 				//trigger Warmspare API
 				if($item['warmspareenabled'] == 'yes') {
 					if($item['warmsparewayofrestore'] == 'API') {

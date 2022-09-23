@@ -997,6 +997,7 @@ public function GraphQL_Access_token($request) {
 			$backupinfo['id']   = md5($k);
 			$backupinfo['name'] = $buname;
 			$backupinfo['timestamp'] = $backupinfo['timestamp'];
+			$backupinfo['size'] = $backupinfo['size'];
 			$files     []       = $backupinfo;
 		}
 		return $files;

@@ -31,10 +31,25 @@ class BackupSplFileInfo extends SplFileInfo{
 			'timestring' => $output_array[2],
 			'timestamp' => $output_array[3],
 			'framework' => $output_array[4],
-			'isCheckSum' => ($arraySize == 6)
+			'isCheckSum' => ($arraySize == 6),
+			'size' => $this->getSize(),
 		];
 	}
 
+	/**
+	* Get the size of the file
+	* 
+	* @return integer Returns the filesize in bytes for the file referenced or -1 if file not exist.
+	*/
+	public function getSize(){
+		$data_return = -1;
+		if (file_exists($this->getPathname()))
+		{
+			$data_return = parent::getSize();
+		}
+		return $data_return;
+	}
+	
 	/**
 	* Gets the manifest from the file
 	*

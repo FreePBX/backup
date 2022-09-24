@@ -584,9 +584,14 @@ function timestampFormatter(value, row, index) {
 }
 
 function sizeFormatter(value, row, index) {
-	if (value >= 0) {
+	if (!isNaN(value) && value >= 0)
+	{
 		var i = Math.floor( Math.log(value) / Math.log(1024) );
 		return ( value / Math.pow(1024, i) ).toFixed(2) * 1 + ' ' + ['B', 'KB', 'MB', 'GB', 'TB'][i];
+	}
+	else
+	{
+		value = _("NA");
 	}
 	return value
 }

@@ -17,13 +17,14 @@
         data-toggle="table"
         data-pagination="true"
         data-search="true"
-        data-escape="true" 
+        data-escape="true"
+        data-show-refresh="true" 
         class="table table-striped">
     <thead>
         <tr>
             <th data-field="name"><?php echo _("Name")?></th>
             <th data-field="description"><?php echo _("Description")?></th>
-            <th data-field="id" data-formatter="linkFormatter"><?php echo _("Actions")?></th>
+            <th data-field="id" data-formatter="linkFormatter" class="col_actions"><?php echo _("Actions")?></th>
         </tr>
     </thead>
 </table>

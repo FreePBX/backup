@@ -63,7 +63,8 @@ if(isset($error) && !empty($error)){
 			data-pagination="true"
 			data-search="true"
 			data-unique-id="id"
-			data-escape="true" 
+			data-escape="true"
+			data-show-refresh="true"
 			class="table table-striped">
 			<thead>
 				<tr>
@@ -72,7 +73,7 @@ if(isset($error) && !empty($error)){
 					<th data-field="timestamp" data-formatter="timestampFormatter"><?php echo _("Backup Date")?></th>
 					<th data-field="size" data-formatter="sizeFormatter"><?php echo _("Size")?></th>
 					<th data-field="framework"><?php echo _("Framework")?></th>
-					<th data-field="id" data-formatter="localLinkFormatter"><?php echo _("Actions")?></th>
+					<th data-field="id" data-formatter="localLinkFormatter" class="col_actions"><?php echo _("Actions")?></th>
 				</tr>
 			</thead>
 		</table>
@@ -108,7 +109,8 @@ if(isset($error) && !empty($error)){
 			data-pagination="true"
 			data-search="true"
 			data-unique-id="id" 
-			data-escape="true" 
+			data-escape="true"
+			data-show-refresh="true"
 			class="table table-striped">
 			<thead>
 				<tr>
@@ -117,7 +119,7 @@ if(isset($error) && !empty($error)){
 					<th data-field="timestamp" data-formatter="timestampFormatter"><?php echo _("Backup Date")?></th>
 					<th data-field="type"><?php echo _("Backup Type")?></th>
 					<th data-field="instancename"><?php echo _("Backup Instance")?></th>
-					<th data-field="id" data-formatter="remoteFormatter"><?php echo _("Actions")?></th>
+					<th data-field="id" data-formatter="remoteFormatter" class="col_actions"><?php echo _("Actions")?></th>
 				</tr>
 			</thead>
 		</table>

@@ -1398,6 +1398,7 @@ public function GraphQL_Access_token($request) {
 					if($info === false) {
 						continue; //not a backup file
 					}
+					$infoSize = $this->freepbx->Filestore->getSize($id, $file['path']);
 					$final[] = [
 						'id' => $dname.'_'.$id.'_'.sha1($file['path']),
 						'type' => $dname,
@@ -1405,7 +1406,8 @@ public function GraphQL_Access_token($request) {
 						'framework' => $info['framework'],
 						'timestamp' => $info['timestamp'],
 						'name' => $file['basename'],
-						'instancename' => $location['name']
+						'instancename' => $location['name'],
+						'size'     => $infoSize,
 					];
 				}
 			}

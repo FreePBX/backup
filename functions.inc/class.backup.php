@@ -584,6 +584,10 @@ class Backup {
 					break;
 			}
 		}
+		//remove the tmp file
+		 $cmd = array(fpbx_which('rm'),$this->b['_tmpfile']);
+                 exec(implode(' ', $cmd), $error, $status);
+		 backup_log("Removed backup tmp file ". $this->b['_tmpfile']);
 	}
 
 	function build_manifest() {

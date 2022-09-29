@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-28 09:50+0000\n"
+"POT-Creation-Date: 2022-09-29 07:02+0000\n"
 "PO-Revision-Date: 2015-04-25 00:40+0200\n"
 "Last-Translator: Paulo <paulop1975@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) <http://weblate.freepbx.org/projects/"
@@ -59,11 +59,11 @@ msgstr ""
 msgid "%s is now loaded into memory"
 msgstr ""
 
-#: Backup.class.php:1504
+#: Backup.class.php:1507
 msgid "/path/to/dir"
 msgstr "/path/to/dir"
 
-#: Backup.class.php:1492
+#: Backup.class.php:1495
 msgid "/path/to/file"
 msgstr "/path/to/file"
 
@@ -103,8 +103,8 @@ msgstr ""
 msgid "Access Token URL of Warm Spare server."
 msgstr ""
 
-#: views/backup/grid.php:26 views/restore/landing.php:74
-#: views/restore/landing.php:119
+#: views/backup/grid.php:27 views/restore/landing.php:76
+#: views/restore/landing.php:123
 msgid "Actions"
 msgstr ""
 
@@ -179,7 +179,7 @@ msgstr ""
 msgid "Are you sure, you want to restore this backup?"
 msgstr ""
 
-#: Backup.class.php:1463
+#: Backup.class.php:1466
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -194,7 +194,7 @@ msgstr ""
 msgid "Backup"
 msgstr "Cópia de Segurança"
 
-#: Backup.class.php:1132
+#: Backup.class.php:1133
 #, php-format
 msgid "Backup %s"
 msgstr ""
@@ -213,7 +213,7 @@ msgstr ""
 msgid "Backup & Restore"
 msgstr "Cópia de Segurança & Restauro"
 
-#: views/restore/landing.php:72 views/restore/landing.php:116
+#: views/restore/landing.php:73 views/restore/landing.php:119
 msgid "Backup Date"
 msgstr ""
 
@@ -246,7 +246,7 @@ msgstr ""
 msgid "Backup Info"
 msgstr ""
 
-#: views/restore/landing.php:118
+#: views/restore/landing.php:122
 msgid "Backup Instance"
 msgstr ""
 
@@ -254,8 +254,8 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Itens da Cópia de Segurança"
 
-#: views/backup/form.php:48 views/restore/landing.php:71
-#: views/restore/landing.php:115
+#: views/backup/form.php:48 views/restore/landing.php:72
+#: views/restore/landing.php:118
 msgid "Backup Name"
 msgstr "Nome da Cópia de Segurança"
 
@@ -267,7 +267,7 @@ msgstr ""
 msgid "Backup Storage Location Required"
 msgstr ""
 
-#: views/restore/landing.php:117
+#: views/restore/landing.php:121
 msgid "Backup Type"
 msgstr ""
 
@@ -451,7 +451,7 @@ msgid "Custom file not exists: %s"
 msgstr ""
 
 #: Backup.class.php:209 views/backup/item_table.php:14
-#: views/restore/landing.php:49 views/restore/landing.php:93
+#: views/restore/landing.php:49 views/restore/landing.php:95
 #: assets/js/backup.js:207 assets/js/backup.js:246
 msgid "Delete"
 msgstr "Eliminar"
@@ -464,7 +464,7 @@ msgstr ""
 msgid "Delete After Runs"
 msgstr ""
 
-#: Backup.class.php:1517
+#: Backup.class.php:1520
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr ""
 "Elimina esta entrada. Não esquecer de Submeter para guardar alterações!"
@@ -474,8 +474,8 @@ msgstr ""
 msgid "Depend field was blank for %s. Skipping because not sure what to do"
 msgstr ""
 
-#: views/backup/grid.php:25 views/restore/processRestore.php:15
-#: views/rnav.php:9
+#: views/backup/grid.php:26 views/restore/processRestore.php:15
+#: views/rnav.php:17
 msgid "Description"
 msgstr "Descrição"
 
@@ -488,7 +488,7 @@ msgstr ""
 msgid "Determining backup file type..."
 msgstr ""
 
-#: Backup.class.php:1499
+#: Backup.class.php:1502
 msgid "Directory"
 msgstr "Diretório"
 
@@ -536,7 +536,7 @@ msgstr ""
 msgid "Enable scheduled backups, default false"
 msgstr ""
 
-#: Backup.class.php:1369 views/backup/form.php:334
+#: Backup.class.php:1370 views/backup/form.php:334
 msgid "Enabled"
 msgstr ""
 
@@ -668,7 +668,7 @@ msgstr ""
 msgid "Failure"
 msgstr ""
 
-#: Backup.class.php:1487
+#: Backup.class.php:1490
 msgid "File"
 msgstr "Ficheiro"
 
@@ -725,7 +725,7 @@ msgstr ""
 msgid "Found %s database files in the backup."
 msgstr ""
 
-#: views/restore/landing.php:73
+#: views/restore/landing.php:75
 msgid "Framework"
 msgstr ""
 
@@ -779,11 +779,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1448
+#: Backup.class.php:1451
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1454
+#: Backup.class.php:1457
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -883,7 +883,7 @@ msgid ""
 "process %s "
 msgstr ""
 
-#: Models/BackupSplFileInfo.php:66
+#: Models/BackupSplFileInfo.php:81
 msgid "Legacy Restore"
 msgstr ""
 
@@ -911,10 +911,6 @@ msgstr ""
 
 #: Api/Gql/Backup.php:263 Api/Gql/Backup.php:273
 msgid "List of bakup files"
-msgstr ""
-
-#: assets/js/backup.js:591
-msgid "Loading ..."
 msgstr ""
 
 #: assets/js/backup.js:421
@@ -971,7 +967,7 @@ msgstr ""
 msgid "Modules"
 msgstr ""
 
-#: assets/js/backup.js:315 assets/js/backup.js:595
+#: assets/js/backup.js:315
 msgid "Modules ("
 msgstr ""
 
@@ -1000,8 +996,8 @@ msgstr "Bds Mysql"
 msgid "NOT Resetting %s module data"
 msgstr ""
 
-#: functions.inc/class.backup.php:397 views/backup/grid.php:24
-#: views/restore/processRestore.php:14 views/rnav.php:8
+#: functions.inc/class.backup.php:397 views/backup/grid.php:25
+#: views/restore/processRestore.php:14 views/rnav.php:16
 msgid "Name"
 msgstr "Nome"
 
@@ -1072,7 +1068,7 @@ msgstr ""
 msgid "Only Restoring %s"
 msgstr ""
 
-#: Backup.class.php:1512
+#: Backup.class.php:1515
 msgid "PATTERNs, one per line"
 msgstr "PADRÕES, um por linha"
 
@@ -1211,7 +1207,7 @@ msgstr ""
 msgid "Restore from local cache"
 msgstr ""
 
-#: views/restore/landing.php:82
+#: views/restore/landing.php:84
 msgid "Restore from the cloud"
 msgstr ""
 
@@ -1459,6 +1455,10 @@ msgstr ""
 msgid "Should the warm spare feature be enabled, default false"
 msgstr ""
 
+#: views/restore/landing.php:74 views/restore/landing.php:120
+msgid "Size"
+msgstr ""
+
 #: Handlers/Restore/Multiple.php:107
 msgid "Skipped Post Restore Hooks.."
 msgstr ""
@@ -1653,7 +1653,7 @@ msgid ""
 "This backup will be stored locally and is subject to maintenance settings"
 msgstr ""
 
-#: views/restore/landing.php:86
+#: views/restore/landing.php:88
 msgid ""
 "This feature requires filestore be setup and may not be availible on a clean "
 "install"
@@ -1729,7 +1729,7 @@ msgstr ""
 msgid "Unable to upload file to the remote server"
 msgstr ""
 
-#: Backup.class.php:1369
+#: Backup.class.php:1370
 msgid "Uninstalled or Disabled"
 msgstr ""
 

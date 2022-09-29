@@ -227,6 +227,12 @@ class Backup extends FreePBX_Helpers implements BMO {
 	 * @param [type] $setting [description]
 	 */
 	public function ajaxRequest($command, &$setting) {
+		// ** Allow remote consultation with Postman **
+		// ********************************************
+		// $setting['authenticate'] = false;
+		// $setting['allowremote'] = true;
+		// return true;
+		// ********************************************
 		switch ($command) {
 			case 'deleteMultipleRestores':
 			case 'backupGrid':
@@ -1383,7 +1389,7 @@ public function GraphQL_Access_token($request) {
 
 	public function getAllRemote(){
 		$final = [];
-		$ret = $this->freepbx->Filestore->listAllFiles();
+		$ret = $this->freepbx->Filestore->listAllFiles(true);
 		foreach($ret as $dname => $driver){
 			foreach($driver as $id => $location){
 				if(!isset($location['results'])){

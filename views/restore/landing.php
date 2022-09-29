@@ -115,7 +115,7 @@ if(isset($error) && !empty($error)){
 			<thead>
 				<tr>
 					<th data-checkbox="true"></th>
-					<th data-field="name"><?php echo _("Backup Name")?></th>
+					<th data-field="file"><?php echo _("Backup File Name")?></th>
 					<th data-field="timestamp" data-formatter="timestampFormatter"><?php echo _("Backup Date")?></th>
 					<th data-field="size" data-formatter="sizeFormatter"><?php echo _("Size")?></th>
 					<th data-field="type"><?php echo _("Backup Type")?></th>

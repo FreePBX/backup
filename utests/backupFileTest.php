@@ -18,10 +18,10 @@ class fooAddTest extends PHPUnit_Framework_TestCase{
         @unlink('/tmp/20180501-155236-1525215156-15.0.1alpha2-2097601499.tar.gz');
         @unlink('/tmp/20180501-155236-1525215156-15.tar.gz');
         $tar = new Tar();
-	$tar->create('/tmp/20180501-155236-1525215156-15.0.1alpha2-2097601499.tar.gz');
-	$tar->addData('metadata.json', base64_decode($metadata));
-	$tar->close();
-	unset($tar);
+	    $tar->create('/tmp/20180501-155236-1525215156-15.0.1alpha2-2097601499.tar.gz');
+	    $tar->addData('metadata.json', base64_decode($metadata));
+	    $tar->close();
+	    unset($tar);
 
         touch('/tmp/20180501-155236-1525215156-15.0.1alpha2-2097601499.tar.gz.sha256sum');
         touch('/tmp/somethingelse.tar.gz');
@@ -30,12 +30,14 @@ class fooAddTest extends PHPUnit_Framework_TestCase{
      * @covers ::backupData
      */
     public function testBackupData(){
-        $file = new BackupSplFileInfo('/tmp/20180501-155236-1525215156-15.0.1alpha2-2097601499.tar.gz');
+        $path_file = '/tmp/20180501-155236-1525215156-15.0.1alpha2-2097601499.tar.gz';
+        $file = new BackupSplFileInfo($path_file);
         $parsed = $file->backupData();
         $this->assertEquals('20180501', $parsed['datestring']);
         $this->assertEquals('155236', $parsed['timestring']);
         $this->assertEquals('1525215156', $parsed['timestamp']);
         $this->assertEquals('15.0.1alpha2', $parsed['framework']);
+        $this->assertEquals(filesize($path_file), $parsed['size']);
         $this->assertFalse($parsed['isCheckSum']);
     }
     public function testBackupChecksum(){

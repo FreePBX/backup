@@ -583,6 +583,18 @@ function timestampFormatter(value, row, index) {
 	return moment.unix(value).format(datetimeformat)
 }
 
+function sizeFormatter(value, row, index) {
+	if (!isNaN(value) && value >= 0)
+	{
+		var i = Math.floor( Math.log(value) / Math.log(1024) );
+		return ( value / Math.pow(1024, i) ).toFixed(2) * 1 + ' ' + ['B', 'KB', 'MB', 'GB', 'TB'][i];
+	}
+	else
+	{
+		value = _("NA");
+	}
+	return value
+}
 
 $("#backup-side").on("click-row.bs.table", function(event, row) {
 	window.location = "?display=backup&view=editbackup&id="+row.id;

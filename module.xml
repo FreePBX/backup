@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>15.0.21.3</version>
+	<version>15.0.21.4</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,6 +18,7 @@
 		<version>15.0.23</version>
 	</depends>
 	<changelog>
+		*15.0.21.4* FREEPBX-23678 
 		*15.0.21.3* FREEI-5224 runBackup Gql api status update 
 		*15.0.21.2* FREEI-5224 
 		*15.0.21.1* FREEI-5145 restorebackup api fixed

@@ -164,13 +164,30 @@ class Multiple extends Common {
 		//putting restapps to end of the process order
 		$processorder = $manifest['processorder'];
 		unset($manifest['processorder']);
+		$ivr = false;
+		$queue = false;
 		if(!empty($processorder)) {
-			foreach ($processorder as $order) {
+			foreach ($processorder as $key => $order) {
+				if($order['module'] == 'ivr'){
+					$ivr = true;
+					$ivrkey = $key;
+				}
+				if($order['module'] == 'queues'){
+					$queue = true;
+					$qkey = $key;
+				}
 				if($order['module'] == 'restapps'){
 					$lastentry = $order;
 				} else {
 					$rearragedorder[] = $order;
 				}
+			}
+			if(($ivr && $queue) && $qkey < $ivrkey) {// we need to process IVR before Queue
+				$qu = $rearragedorder[$qkey];
+				$ivr = $rearragedorder[$ivrkey];
+				//swap the values
+				$rearragedorder[$qkey] = $ivr;
+				$rearragedorder[$ivrkey] = $qu;
 			}
 			if(isset($lastentry) && is_array($lastentry)) {
 				$rearragedorder[] = $lastentry;

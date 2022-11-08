@@ -613,7 +613,7 @@ if (!empty($bkjobs)) {
 						data-detail-view="true"
 						data-detail-formatter="moduleSettingFormatter"
 						data-detail-filter="moduleSettingFilter"
-						data-maintain-selected="true"
+						data-maintain-meta-data="true"
 						data-escape="true" 
 						class="table table-striped"
 					>

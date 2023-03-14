@@ -138,8 +138,10 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 			$destpath = $this->Backup->getPath('files/' . ltrim($file['pathto'], '/'));
 			$destfile = $destpath .'/'. $file['filename'];
 			$files[$srcfile] = $destfile;
-			$this->log("\t".sprintf(_('Adding file to tar: %s'),$destfile),'DEBUG');
-			$this->tar->addFile($srcfile, $destfile);
+			if(file_exists($srcfile)) {
+				$this->log("\t".sprintf(_('Adding file to tar: %s'),$destfile),'DEBUG');
+				$this->tar->addFile($srcfile, $destfile);
+			}
 		}
 
 		$modjson = $this->tmp . '/modulejson/' . $module['ucfirst'] . '.json';

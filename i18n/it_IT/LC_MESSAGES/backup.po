@@ -966,7 +966,7 @@ msgid "MODULE SKIPED %s"
 msgstr ""
 
 #: views/backup/form.php:389
-msgid "Maintinence"
+msgid "Maintenance"
 msgstr ""
 
 #: Api/Gql/Backup.php:217 Api/Gql/Backup.php:255
@@ -1428,7 +1428,7 @@ msgid "Saving to: %s:'%s' instance ,File location: %s%s "
 msgstr ""
 
 #: views/backup/form.php:324
-msgid "Schedule and Maintinence"
+msgid "Schedule and Maintenance"
 msgstr ""
 
 #: views/backup/form.php:367
@@ -2525,9 +2525,6 @@ msgstr ""
 
 #~ msgid "MB"
 #~ msgstr "MB"
-
-#~ msgid "Maintenance"
-#~ msgstr "Manutenzione"
 
 #~ msgid "Manage Backup jobs"
 #~ msgstr "Gestisci i processi di Backup"

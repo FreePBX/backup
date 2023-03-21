@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for backup
-# Copyright (C) 2008-2022 Sangoma Technologies, Inc.
+# Copyright (C) 2008-2023 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-11 06:57+0000\n"
+"POT-Creation-Date: 2023-03-21 01:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -164,6 +164,10 @@ msgstr ""
 msgid "Adding module manifest for %s"
 msgstr ""
 
+#: backup.i18n.php:6
+msgid "Admin"
+msgstr ""
+
 #: views/restore/processRestore.php:28
 msgid "After the restore you might reload with the apply config button"
 msgstr ""
@@ -223,8 +227,18 @@ msgstr ""
 msgid "Backup %s success for %s"
 msgstr ""
 
+#: backup.i18n.php:4
+#: backup.i18n.php:10
 #: views/landing.php:5
 msgid "Backup & Restore"
+msgstr ""
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Restore"
+msgstr ""
+
+#: backup.i18n.php:8
+msgid "Backup & Restore for your FreePBX environment"
 msgstr ""
 
 #: views/restore/landing.php:73

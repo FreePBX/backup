@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-11 06:57+0000\n"
+"POT-Creation-Date: 2023-03-21 01:12+0000\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Lónyai Gergely <alephlg@gmail.com>\n"
 "Language-Team: Magyar <support@freepbx.hu>\n"
@@ -164,6 +164,10 @@ msgstr ""
 msgid "Adding module manifest for %s"
 msgstr ""
 
+#: backup.i18n.php:6
+msgid "Admin"
+msgstr ""
+
 #: views/restore/processRestore.php:28
 msgid "After the restore you might reload with the apply config button"
 msgstr ""
@@ -219,8 +223,16 @@ msgstr ""
 msgid "Backup %s success for %s"
 msgstr ""
 
-#: views/landing.php:5
+#: backup.i18n.php:4 backup.i18n.php:10 views/landing.php:5
 msgid "Backup & Restore"
+msgstr ""
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Restore"
+msgstr ""
+
+#: backup.i18n.php:8
+msgid "Backup & Restore for your FreePBX environment"
 msgstr ""
 
 #: views/restore/landing.php:73 views/restore/landing.php:119

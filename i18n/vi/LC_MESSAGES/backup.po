@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-11 06:57+0000\n"
+"POT-Creation-Date: 2023-03-21 01:12+0000\n"
 "PO-Revision-Date: 2017-06-20 13:27+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -154,6 +154,10 @@ msgstr ""
 msgid "Adding module manifest for %s"
 msgstr ""
 
+#: backup.i18n.php:6
+msgid "Admin"
+msgstr "Quản trị viên"
+
 #: views/restore/processRestore.php:28
 msgid "After the restore you might reload with the apply config button"
 msgstr ""
@@ -209,9 +213,17 @@ msgstr ""
 msgid "Backup %s success for %s"
 msgstr ""
 
-#: views/landing.php:5
+#: backup.i18n.php:4 backup.i18n.php:10 views/landing.php:5
 msgid "Backup & Restore"
 msgstr "Sao lưu và khôi phục"
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Restore"
+msgstr "Sao lưu và Khôi phục- Khôi phục"
+
+#: backup.i18n.php:8
+msgid "Backup & Restore for your FreePBX environment"
+msgstr "Sao lưu & Khôi phục cho môi trường FreePBX của bạn"
 
 #: views/restore/landing.php:73 views/restore/landing.php:119
 msgid "Backup Date"
@@ -1973,15 +1985,6 @@ msgstr ""
 #: Api/Gql/Backup.php:66
 msgid "updateBackup"
 msgstr ""
-
-#~ msgid "Admin"
-#~ msgstr "Quản trị viên"
-
-#~ msgid "Backup & Restore - Restore"
-#~ msgstr "Sao lưu và Khôi phục- Khôi phục"
-
-#~ msgid "Backup & Restore for your FreePBX environment"
-#~ msgstr "Sao lưu & Khôi phục cho môi trường FreePBX của bạn"
 
 #~ msgid "Backup Module"
 #~ msgstr "Sao lưu Mô đun"

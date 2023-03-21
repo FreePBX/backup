@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-11 06:57+0000\n"
+"POT-Creation-Date: 2023-03-21 01:12+0000\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -167,6 +167,10 @@ msgstr ""
 msgid "Adding module manifest for %s"
 msgstr ""
 
+#: backup.i18n.php:6
+msgid "Admin"
+msgstr "Administrador"
+
 #: views/restore/processRestore.php:28
 msgid "After the restore you might reload with the apply config button"
 msgstr ""
@@ -222,9 +226,17 @@ msgstr ""
 msgid "Backup %s success for %s"
 msgstr ""
 
-#: views/landing.php:5
+#: backup.i18n.php:4 backup.i18n.php:10 views/landing.php:5
 msgid "Backup & Restore"
 msgstr "Copias de seguridad"
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Restore"
+msgstr "Respalda & Restaura - Restaura"
+
+#: backup.i18n.php:8
+msgid "Backup & Restore for your FreePBX environment"
+msgstr "respaldar & restaurar para su ambiente FreePBX"
 
 #: views/restore/landing.php:73 views/restore/landing.php:119
 msgid "Backup Date"
@@ -1988,15 +2000,6 @@ msgstr ""
 #: Api/Gql/Backup.php:66
 msgid "updateBackup"
 msgstr ""
-
-#~ msgid "Admin"
-#~ msgstr "Administrador"
-
-#~ msgid "Backup & Restore - Restore"
-#~ msgstr "Respalda & Restaura - Restaura"
-
-#~ msgid "Backup & Restore for your FreePBX environment"
-#~ msgstr "respaldar & restaurar para su ambiente FreePBX"
 
 #~ msgid "Backup Module"
 #~ msgstr "Modulo de Respaldo"

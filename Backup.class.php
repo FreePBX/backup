@@ -991,7 +991,7 @@ public function GraphQL_Access_token($request) {
 		$this->delById('localfilepaths');
 		foreach($Iterator as $k => $v){
 			$path       = $v->getPathInfo()->getRealPath();
-			$buname     = $v->getPathInfo()->getBasename();
+			$buname     = $v->getFilename();
 			$buname     = str_replace('_',' ',$buname);
 			$backupFile = new BackupSplFileInfo($k);
 			$backupinfo = $backupFile->backupData();

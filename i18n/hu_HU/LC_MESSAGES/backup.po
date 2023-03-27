@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-11 06:39+0000\n"
+"POT-Creation-Date: 2023-03-27 10:31+0000\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Lónyai Gergely <alephlg@gmail.com>\n"
 "Language-Team: Magyar <support@freepbx.hu>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "%s Days (%s Months)"
 msgstr ""
 
-#: Handlers/Backup/Common.php:169 Handlers/Restore/Multiple.php:17
+#: Handlers/Backup/Common.php:171 Handlers/Restore/Multiple.php:17
 #, php-format
 msgid "%s does not exist"
 msgstr ""
@@ -67,6 +67,11 @@ msgstr ""
 #: Handlers/Restore/Legacy.php:137
 #, php-format
 msgid "%s is now loaded into memory"
+msgstr ""
+
+#: BackupBase.php:249
+#, php-format
+msgid "%s table Backup Error %s "
 msgstr ""
 
 #: Backup.class.php:1504
@@ -134,12 +139,12 @@ msgstr ""
 msgid "Add custom files in backup"
 msgstr ""
 
-#: Handlers/Backup/Common.php:208
+#: Handlers/Backup/Common.php:210
 #, php-format
 msgid "Adding custom directory to tar: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:167
+#: Handlers/Backup/Common.php:169
 #, php-format
 msgid "Adding custom file to tar: %s"
 msgstr ""
@@ -149,7 +154,7 @@ msgstr ""
 msgid "Adding directory to tar: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:141
+#: Handlers/Backup/Common.php:142
 #, php-format
 msgid "Adding file to tar: %s"
 msgstr ""
@@ -163,7 +168,7 @@ msgstr ""
 msgid "Adding module %s to queue because %s depends on it"
 msgstr ""
 
-#: Handlers/Backup/Common.php:147
+#: Handlers/Backup/Common.php:149
 #, php-format
 msgid "Adding module manifest for %s"
 msgstr ""
@@ -439,6 +444,11 @@ msgstr ""
 msgid "Complete Path"
 msgstr ""
 
+#: BackupBase.php:256
+#, php-format
+msgid "Completed mysql dumps of : %s"
+msgstr ""
+
 #: views/backup/warmspare.php:270
 msgid "Connect Warm Spare Server Over"
 msgstr ""
@@ -493,12 +503,12 @@ msgstr ""
 msgid "Custom Files"
 msgstr ""
 
-#: Handlers/Backup/Common.php:218
+#: Handlers/Backup/Common.php:220
 #, php-format
 msgid "Custom directory not exists: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:174
+#: Handlers/Backup/Common.php:176
 #, php-format
 msgid "Custom file not exists: %s"
 msgstr ""
@@ -682,27 +692,27 @@ msgid ""
 "a warm-spare machine with a different IP address."
 msgstr ""
 
-#: BackupBase.php:53
+#: BackupBase.php:57
 #, php-format
 msgid "Exporting Advanced settings from %s"
 msgstr ""
 
-#: BackupBase.php:128
+#: BackupBase.php:132
 #, php-format
 msgid "Exporting Databases from %s"
 msgstr ""
 
-#: BackupBase.php:67
+#: BackupBase.php:71
 #, php-format
 msgid "Exporting Feature Codes from %s"
 msgstr ""
 
-#: BackupBase.php:164
+#: BackupBase.php:168
 #, php-format
 msgid "Exporting KVStore based on ids  %s"
 msgstr ""
 
-#: BackupBase.php:162
+#: BackupBase.php:166
 #, php-format
 msgid "Exporting KVStore from %s"
 msgstr ""
@@ -775,7 +785,7 @@ msgstr ""
 msgid "Finished created backup file: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:212
+#: Handlers/Backup/Common.php:214
 #, php-format
 msgid "Folder %s does not exist"
 msgstr ""
@@ -1404,12 +1414,12 @@ msgstr ""
 msgid "Run the following in the CLI"
 msgstr ""
 
-#: BackupBase.php:23
+#: BackupBase.php:27
 #, php-format
 msgid "RunBackup method is not implemented in %s"
 msgstr ""
 
-#: BackupBase.php:20
+#: BackupBase.php:24
 #, php-format
 msgid "RunBackup method is not implemented in %s, using default fallback"
 msgstr ""
@@ -1626,6 +1636,11 @@ msgstr ""
 
 #: Handlers/Restore/Legacy.php:160
 msgid "Starting legacy cdr sql restore process"
+msgstr ""
+
+#: BackupBase.php:241
+#, php-format
+msgid "Starting mysql dumps of : %s"
 msgstr ""
 
 #: views/restore/processRestore.php:50

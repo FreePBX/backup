@@ -1,6 +1,8 @@
 <?php
 namespace FreePBX\modules\Backup;
 use PDO;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 use Exception;
 /**
  * This is a base class used when creating your modules "Restore.php" class
@@ -569,5 +571,64 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 			}
 
 		}
+	}
+
+	/**
+	 * Restore specific tables dump from file
+	 *
+	 * @param String $tableName
+	 * @param String $tmppath
+	 * @param Object $files
+	 * @return Boolean
+	 */
+	public function restoreDataFromDump($tableName, $tmppath, $files)
+	{
+		if (empty($files[0])) {
+			return false;
+		}
+
+		$dump = $files[0];
+		$dumpfile = $tmppath . '/files/' . ltrim($dump->getPathTo(), '/') . '/' . $dump->getFilename();
+		if (!file_exists($dumpfile)) {
+			return;
+		}
+
+		global $amp_conf;
+
+		$dbhost = $amp_conf['AMPDBHOST'];
+		$dbuser = $amp_conf['AMPDBUSER'];
+		$dbport = $amp_conf['AMPDBPORT'];
+		$dbpass = $amp_conf['AMPDBPASS'];
+		$dbname = $amp_conf['AMPDBNAME'];
+
+		$cdrDbTables = ['cdr', 'cel', 'queuelog'];
+		if (in_array(strtolower($tableName), $cdrDbTables)) {
+			$dbhost = $this->FreePBX->Config->get('CDRDBHOST') ? $this->FreePBX->Config->get('CDRDBHOST') : $amp_conf['AMPDBHOST'];
+			$dbuser = $this->FreePBX->Config->get('CDRDBUSER') ? $this->FreePBX->Config->get('CDRDBUSER') : $amp_conf['AMPDBUSER'];
+			$dbport = $this->FreePBX->Config->get('CDRDBPORT') ? $this->FreePBX->Config->get('CDRDBPORT') : $amp_conf['AMPDBPORT'];
+			$dbpass = $this->FreePBX->Config->get('CDRDBPASS') ? $this->FreePBX->Config->get('CDRDBPASS') : $amp_conf['AMPDBPASS'];
+			$dbname = $this->FreePBX->Config->get('CDRDBNAME') ? $this->FreePBX->Config->get('CDRDBNAME') : 'asteriskcdrdb';
+		}
+
+		$mysql = fpbx_which('mysql');
+
+		$dbhost = ($dbhost === 'localhost' || $dbhost === '127.0.0.1') ? '' : '-h ' . $dbhost;
+		$dbport = $dbport === '' ? '' : '-P ' . $dbport;
+
+		$restore = "{$mysql} {$dbport} {$dbhost} -u{$dbuser} -p{$dbpass} {$dbname} < {$dumpfile}";
+		$this->log(sprintf(_("Started restoring mysql dumps of : %s"), $tableName));
+
+		try {
+			$process = new Process($restore);
+			$process->setTimeout(3600);
+			$process->disableOutput();
+			$process->mustRun();
+		} catch (ProcessFailedException $e) {
+			$this->log(sprintf(_("%s table Restore Error %s "), $tableName, $e->getMessage()), 'ERROR');
+			return false;
+		}
+
+		$this->log(sprintf(_("Completed restoring mysql dumps of : %s"), $tableName));
+		return true;
 	}
 }

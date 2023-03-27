@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-21 01:12+0000\n"
+"POT-Creation-Date: 2023-03-27 10:31+0000\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -70,6 +70,11 @@ msgstr ""
 #: Handlers/Restore/Legacy.php:137
 #, php-format
 msgid "%s is now loaded into memory"
+msgstr ""
+
+#: BackupBase.php:249
+#, php-format
+msgid "%s table Backup Error %s "
 msgstr ""
 
 #: Backup.class.php:1513
@@ -422,6 +427,11 @@ msgstr ""
 msgid "Complete Path"
 msgstr ""
 
+#: BackupBase.php:256
+#, php-format
+msgid "Completed mysql dumps of : %s"
+msgstr ""
+
 #: views/backup/warmspare.php:270
 msgid "Connect Warm Spare Server Over"
 msgstr ""
@@ -659,27 +669,27 @@ msgstr ""
 "Esto le permite tener una máquina de repuesto para una dirección IP "
 "diferente."
 
-#: BackupBase.php:53
+#: BackupBase.php:57
 #, php-format
 msgid "Exporting Advanced settings from %s"
 msgstr ""
 
-#: BackupBase.php:128
+#: BackupBase.php:132
 #, php-format
 msgid "Exporting Databases from %s"
 msgstr ""
 
-#: BackupBase.php:67
+#: BackupBase.php:71
 #, php-format
 msgid "Exporting Feature Codes from %s"
 msgstr ""
 
-#: BackupBase.php:164
+#: BackupBase.php:168
 #, php-format
 msgid "Exporting KVStore based on ids  %s"
 msgstr ""
 
-#: BackupBase.php:162
+#: BackupBase.php:166
 #, php-format
 msgid "Exporting KVStore from %s"
 msgstr ""
@@ -1353,12 +1363,12 @@ msgstr ""
 msgid "Run the following in the CLI"
 msgstr ""
 
-#: BackupBase.php:23
+#: BackupBase.php:27
 #, php-format
 msgid "RunBackup method is not implemented in %s"
 msgstr ""
 
-#: BackupBase.php:20
+#: BackupBase.php:24
 #, php-format
 msgid "RunBackup method is not implemented in %s, using default fallback"
 msgstr ""
@@ -1559,6 +1569,11 @@ msgstr ""
 
 #: Handlers/Restore/Legacy.php:160
 msgid "Starting legacy cdr sql restore process"
+msgstr ""
+
+#: BackupBase.php:241
+#, php-format
+msgid "Starting mysql dumps of : %s"
 msgstr ""
 
 #: views/restore/processRestore.php:50

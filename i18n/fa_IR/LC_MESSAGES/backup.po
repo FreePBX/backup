@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-27 10:31+0000\n"
+"POT-Creation-Date: 2023-03-27 12:23+0000\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: RestoreBase.php:257
+#: RestoreBase.php:259
 #, php-format
 msgid " %s found no database definitions in module.xml"
 msgstr ""
@@ -49,7 +49,7 @@ msgstr ""
 msgid "%s does not exist"
 msgstr ""
 
-#: RestoreBase.php:191 RestoreBase.php:388
+#: RestoreBase.php:193 RestoreBase.php:390
 #, php-format
 msgid "%s does not implement KVStore"
 msgstr ""
@@ -62,6 +62,11 @@ msgstr ""
 #: BackupBase.php:249
 #, php-format
 msgid "%s table Backup Error %s "
+msgstr ""
+
+#: RestoreBase.php:627
+#, php-format
+msgid "%s table Restore Error %s "
 msgstr ""
 
 #: Backup.class.php:1504
@@ -427,7 +432,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: RestoreBase.php:550
+#: RestoreBase.php:552
 #, php-format
 msgid "Column '%s' does not exist in %s, skipping"
 msgstr ""
@@ -439,6 +444,11 @@ msgstr ""
 #: BackupBase.php:256
 #, php-format
 msgid "Completed mysql dumps of : %s"
+msgstr ""
+
+#: RestoreBase.php:631
+#, php-format
+msgid "Completed restoring mysql dumps of : %s"
 msgstr ""
 
 #: views/backup/warmspare.php:270
@@ -870,42 +880,42 @@ msgid ""
 "require HTTPS config to be rebuild manually with spare server certificate."
 msgstr ""
 
-#: RestoreBase.php:83 RestoreBase.php:363
+#: RestoreBase.php:85 RestoreBase.php:365
 #, php-format
 msgid "Importing Advanced Settings from %s"
 msgstr ""
 
-#: RestoreBase.php:157
+#: RestoreBase.php:159
 #, php-format
 msgid "Importing AstDB family %s from %s"
 msgstr ""
 
-#: RestoreBase.php:152
+#: RestoreBase.php:154
 #, php-format
 msgid "Importing AstDB family %s/%s  : %s"
 msgstr ""
 
-#: RestoreBase.php:280
+#: RestoreBase.php:282
 #, php-format
 msgid "Importing Databases from %s"
 msgstr ""
 
-#: RestoreBase.php:106
+#: RestoreBase.php:108
 #, php-format
 msgid "Importing Feature Codes from %s"
 msgstr ""
 
-#: RestoreBase.php:194
+#: RestoreBase.php:196
 #, php-format
 msgid "Importing KVStore from %s"
 msgstr ""
 
-#: RestoreBase.php:175
+#: RestoreBase.php:177
 #, php-format
 msgid "Importing Table %s from %s"
 msgstr ""
 
-#: RestoreBase.php:290
+#: RestoreBase.php:292
 #, php-format
 msgid "Importing table '%s' from legacy %s"
 msgstr ""
@@ -962,12 +972,12 @@ msgstr ""
 msgid "Legacy Restore"
 msgstr ""
 
-#: RestoreBase.php:41
+#: RestoreBase.php:43
 #, php-format
 msgid "Legacy Restore in %s is not implemented"
 msgstr ""
 
-#: RestoreBase.php:38
+#: RestoreBase.php:40
 #, php-format
 msgid "Legacy Restore in %s is not implemented, using default fallback"
 msgstr ""
@@ -1228,7 +1238,7 @@ msgstr ""
 msgid "Public SSH key to allow other servers to connect"
 msgstr ""
 
-#: RestoreBase.php:261
+#: RestoreBase.php:263
 #, php-format
 msgid "Reading Databases Table infromation using module name %s"
 msgstr ""
@@ -1421,21 +1431,21 @@ msgstr ""
 msgid "RunBackup method is not implemented in %s, using default fallback"
 msgstr ""
 
-#: RestoreBase.php:18
+#: RestoreBase.php:20
 #, php-format
 msgid ""
 "RunRestore method is not implemented in %s, but was backed up using default "
 "backup fallback, using default fallback"
 msgstr ""
 
-#: RestoreBase.php:21
+#: RestoreBase.php:23
 #, php-format
 msgid ""
 "RunRestore method is not implemented in %s, however there is default falback "
 "data, nothing to do"
 msgstr ""
 
-#: RestoreBase.php:23
+#: RestoreBase.php:25
 #, php-format
 msgid "RunRestore method is not implemented in %s, nothing to do"
 msgstr ""
@@ -1623,6 +1633,11 @@ msgstr ""
 msgid "Sorry unable to find the backup files"
 msgstr ""
 
+#: RestoreBase.php:619
+#, php-format
+msgid "Started restoring mysql dumps of : %s"
+msgstr ""
+
 #: Handlers/Backup/Multiple.php:201
 msgid "Starting Cleaning up"
 msgstr ""
@@ -1678,12 +1693,12 @@ msgstr ""
 msgid "System is not Activated,Skipping %s module"
 msgstr ""
 
-#: RestoreBase.php:296
+#: RestoreBase.php:298
 #, php-format
 msgid "Table '%s' does not exist in legacy %s, skipping"
 msgstr ""
 
-#: RestoreBase.php:293
+#: RestoreBase.php:295
 #, php-format
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
@@ -1827,14 +1842,14 @@ msgstr ""
 msgid "Unable to perform backup"
 msgstr ""
 
-#: RestoreBase.php:276
+#: RestoreBase.php:278
 #, php-format
 msgid ""
 "Unable to run restoreLegacyDatabase on %s because NO Database information "
 "provided"
 msgstr ""
 
-#: RestoreBase.php:252
+#: RestoreBase.php:254
 #, php-format
 msgid ""
 "Unable to run restoreLegacyDatabase on %s because module.xml was not found"

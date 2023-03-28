@@ -613,9 +613,14 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		$mysql = fpbx_which('mysql');
 
 		$dbhost = ($dbhost === 'localhost' || $dbhost === '127.0.0.1') ? '' : '-h ' . $dbhost;
-		$dbport = $dbport === '' ? '' : '-P ' . $dbport;
+		$dbport = (trim($dbport) === '' || $dbport === ' ' || $dbport === null)  ? '' : '-P ' . trim($dbport);
 
-		$restore = "{$mysql} {$dbport} {$dbhost} -u{$dbuser} -p{$dbpass} {$dbname} < {$dumpfile}";
+		if (strpos($dumpfile, '.gz') !== false) {
+			$restore = "gunzip < " . $dumpfile . " | " . "{$mysql} {$dbport} {$dbhost} -u{$dbuser} -p{$dbpass} {$dbname}";
+		} else {
+			$restore = "{$mysql} {$dbport} {$dbhost} -u{$dbuser} -p{$dbpass} {$dbname} < {$dumpfile}";
+		}
+		
 		$this->log(sprintf(_("Started restoring mysql dumps of : %s"), $tableName));
 
 		try {

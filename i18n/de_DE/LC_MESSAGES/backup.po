@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-27 12:23+0000\n"
+"POT-Creation-Date: 2023-03-30 02:15+0000\n"
 "PO-Revision-Date: 2017-03-06 03:04+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -64,7 +64,7 @@ msgstr ""
 msgid "%s table Backup Error %s "
 msgstr ""
 
-#: RestoreBase.php:627
+#: RestoreBase.php:632
 #, php-format
 msgid "%s table Restore Error %s "
 msgstr ""
@@ -425,7 +425,7 @@ msgstr ""
 msgid "Completed mysql dumps of : %s"
 msgstr ""
 
-#: RestoreBase.php:631
+#: RestoreBase.php:636
 #, php-format
 msgid "Completed restoring mysql dumps of : %s"
 msgstr ""
@@ -1554,7 +1554,7 @@ msgstr ""
 msgid "Sorry unable to find the backup files"
 msgstr ""
 
-#: RestoreBase.php:619
+#: RestoreBase.php:624
 #, php-format
 msgid "Started restoring mysql dumps of : %s"
 msgstr ""

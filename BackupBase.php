@@ -222,7 +222,7 @@ class BackupBase extends Model\Backup{
 		$tmpfile = "{$tmpdir}/{$moduleName}.{$fileExt}";
 
 		$dbhost = ($dbhost === 'localhost' || $dbhost === '127.0.0.1') ? '' : '-h ' . $dbhost;
-		$dbport = $dbport === '' ? '' : '-P ' . $dbport;
+		$dbport = empty(trim($dbport)) ? '' : '-P ' . $dbport;
 
 		$command = "{$mysqldump} {$dbport} {$dbhost} -u{$dbuser} -p{$dbpass} {$dbname} ";
 

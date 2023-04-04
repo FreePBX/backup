@@ -406,6 +406,9 @@ class Legacy extends Common {
 									$values = array();
 									foreach($rows as $row) {
 										$row = preg_replace('/(^\(|\);$)/', '', $row);
+										if($matches1[1] == 'sms_messages'){
+											$row = preg_replace("/\\\'',/", "\\\',", $row);
+										}
 										$values[] = '('.$row.')';
 									}
 									$insert = 'INSERT INTO `'.$matches1[1].'` VALUES '.implode(",",$values).";";

@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>16.0.64</version>
+	<version>16.0.65</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,6 +18,7 @@
 		<version>16.0.10.14</version>
 	</depends>
 	<changelog>
+		*16.0.65* FREEPBX-24115 
 		*16.0.64* Packaging of ver 16.0.64
 		*16.0.63* bump 
 		*16.0.62.12* Packaging of ver 16.0.62.12

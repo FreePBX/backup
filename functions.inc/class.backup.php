@@ -287,7 +287,6 @@ class Backup {
 							$cmd[] = '--opt --compact --skip-lock-tables --add-drop-table --default-character-set=utf8';
 							$cmd[] = ' > ' . $sql_file;
 
-							backup_log(implode(' ', $cmd));
 							exec(implode(' ', $cmd), $file, $status);
 						}
 
@@ -306,7 +305,6 @@ class Backup {
 							$cmd[] = '--opt --compact --skip-lock-tables --add-drop-table --default-character-set=utf8';
 							$cmd[] = ' >> ' . $sql_file;
 
-							backup_log(implode(' ', $cmd));
 							exec(implode(' ', $cmd), $file, $status);
 						}
 
@@ -325,7 +323,6 @@ class Backup {
 							$cmd[] = '--opt --compact --skip-lock-tables --add-drop-table --default-character-set=utf8';
 							$cmd[] = ' >> ' . $sql_file;
 														
-							backup_log(implode(' ', $cmd));
 							exec(implode(' ', $cmd), $file, $status);
 
 						}
@@ -358,7 +355,6 @@ class Backup {
 						$cmd[] = ' | ' . fpbx_which('gzip');
 						$cmd[] = ' > ' . $sql_file;
 					
-						backup_log(implode(' ', $cmd));
 						exec(implode(' ', $cmd), $file, $status);
 					}
 					

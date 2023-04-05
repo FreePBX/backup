@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-12 11:13+0000\n"
+"POT-Creation-Date: 2023-04-05 05:33+0000\n"
 "PO-Revision-Date: 2020-11-18 21:00+0000\n"
 "Last-Translator: Danilo Smaldone <dsmaldone@sangoma.com>\n"
 "Language-Team: Italian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -186,12 +186,12 @@ msgstr "B"
 msgid "BACKUP LOG ATTACHED"
 msgstr "LOG DEL BACKUP ALLEGATO"
 
-#: functions.inc/class.backup.php:491 functions.inc/class.backup.php:494
+#: functions.inc/class.backup.php:487 functions.inc/class.backup.php:490
 msgid "BACKUP NOT ATTACHED"
 msgstr "BACKUP NON ALLEGATO"
 
 #: Backup.class.php:321 functions.inc/backup.php:81
-#: functions.inc/class.backup.php:485 views/backup/backup.php:6
+#: functions.inc/class.backup.php:481 views/backup/backup.php:6
 msgid "Backup"
 msgstr "Backup"
 
@@ -223,11 +223,11 @@ msgstr "Archiviare CDR e dati del registro delle chiamate?"
 msgid "Backup Description"
 msgstr "Descrizione Backup"
 
-#: functions.inc/class.backup.php:490
+#: functions.inc/class.backup.php:486
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr "ERRORE Backup (superati limiti SMTP)"
 
-#: functions.inc/class.backup.php:493
+#: functions.inc/class.backup.php:489
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr "ERRORE di backup (limite soft superato)"
 
@@ -283,7 +283,7 @@ msgstr "Backup e Ripristino"
 msgid "Backup completed with errors!"
 msgstr "Backup completato con errori!"
 
-#: functions.inc/class.backup.php:372
+#: functions.inc/class.backup.php:368
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -296,7 +296,7 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr "File di backup non trovato! Interruzione."
 
-#: functions.inc/class.backup.php:579
+#: functions.inc/class.backup.php:575
 msgid "Backup file uploaded to the remote server"
 msgstr "File di Backup caricato sul server remoto"
 
@@ -377,12 +377,12 @@ msgstr "Solo configurazioni"
 msgid "Connecting to remote server..."
 msgstr "Connessione al server remoto ..."
 
-#: functions.inc/class.backup.php:927
+#: functions.inc/class.backup.php:923
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr "Impossibile trovare %s1 sul sistema remoto"
 
-#: functions.inc/class.backup.php:478 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:474 views/restore/browseserver.php:18
 msgid "Created"
 msgstr "Creato"
 
@@ -390,7 +390,7 @@ msgstr "Creato"
 msgid "Creating backup..."
 msgstr "Creazione del backup ..."
 
-#: functions.inc/class.backup.php:557
+#: functions.inc/class.backup.php:553
 #, php-format
 msgid "Creating directory '%s'"
 msgstr "Creazione cartella '%s1'"
@@ -500,7 +500,7 @@ msgstr "Destinazione"
 msgid "Directory"
 msgstr "Cartella"
 
-#: functions.inc/class.backup.php:561
+#: functions.inc/class.backup.php:557
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr "Cartella '%s 1' non esisteva e non potevamo crearlo"
@@ -573,12 +573,12 @@ msgstr ""
 msgid "End"
 msgstr "Fine"
 
-#: functions.inc/class.backup.php:551 functions.inc/restore.php:117
+#: functions.inc/class.backup.php:547 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
 msgstr "Errore durante la creazione dell'oggetto FTP"
 
-#: functions.inc/class.backup.php:934
+#: functions.inc/class.backup.php:930
 #, php-format
 msgid "Error deleting %s"
 msgstr "Errore eliminazione %s1"
@@ -718,7 +718,7 @@ msgstr "Ripristino del file completato!"
 msgid "File verification failed. "
 msgstr "Verificazione File fallita. "
 
-#: functions.inc/class.backup.php:479 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:475 views/restore/browseserver.php:19
 msgid "Files"
 msgstr "I File"
 
@@ -957,7 +957,7 @@ msgstr "Mysql"
 msgid "Mysql DB's"
 msgstr "DB di Mysql"
 
-#: functions.inc/class.backup.php:480
+#: functions.inc/class.backup.php:476
 msgid "Mysql Db's"
 msgstr "Db di Mysql"
 
@@ -965,7 +965,7 @@ msgstr "Db di Mysql"
 msgid "Mysql Server "
 msgstr "Server Mysql "
 
-#: functions.inc/class.backup.php:477 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:473 views/restore/browseserver.php:17
 msgid "Name"
 msgstr "Nome"
 
@@ -1132,7 +1132,7 @@ msgstr "Percorso per la chiave ssh, esempio /home/asterisk/.ssh/id_rsa"
 msgid "Path/DB"
 msgstr "Percorso/DB"
 
-#: functions.inc/class.backup.php:923 functions.inc/class.backup.php:924
+#: functions.inc/class.backup.php:919 functions.inc/class.backup.php:920
 #, php-format
 msgid "Path: %s"
 msgstr "Percorso: %s1"
@@ -1369,7 +1369,7 @@ msgstr "Esegui una volta all'anno, a mezzanotte, il 1 gennaio"
 msgid "Run once an hour, beginning of hour"
 msgstr "Esegui una volta all'ora, all'inizio dell'ora"
 
-#: functions.inc/class.backup.php:580
+#: functions.inc/class.backup.php:576
 msgid "Running maintenance.."
 msgstr "Manutenzione in corso .."
 
@@ -1433,7 +1433,7 @@ msgstr "Salvataggio"
 msgid "Save and Run"
 msgstr "Salva ed esegui"
 
-#: functions.inc/class.backup.php:568
+#: functions.inc/class.backup.php:564
 msgid "Saving file to remote ftp"
 msgstr "Salvataggio del file su ftp remoto"
 
@@ -1568,7 +1568,7 @@ msgstr "Luogo di archiviazione per i backup"
 msgid "Storing backup..."
 msgstr "Archiviazione del backup ..."
 
-#: functions.inc/class.backup.php:379
+#: functions.inc/class.backup.php:375
 #, php-format
 msgid "Successfully dumped SQL database [%s] to file [%s]"
 msgstr ""
@@ -1609,7 +1609,7 @@ msgstr "Lo script di ripristino è ancora in esecuzione"
 msgid "The archive must be come from a release like this: %s.%s"
 msgstr "L'archivio deve provenire da una versione come questa:%s1.%s2"
 
-#: functions.inc/class.backup.php:491
+#: functions.inc/class.backup.php:487
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
@@ -1619,7 +1619,7 @@ msgstr ""
 "tentato di essere inviato. Riduci il backup o utilizza un metodo diverso per "
 "il trasferimento del backup."
 
-#: functions.inc/class.backup.php:494
+#: functions.inc/class.backup.php:490
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1688,7 +1688,7 @@ msgstr "Modalità di trasferimento"
 msgid "Transfer Type"
 msgstr "Tpo di traferimento"
 
-#: functions.inc/class.backup.php:573
+#: functions.inc/class.backup.php:569
 #, php-format
 msgid "Trying to upload %s to %s"
 msgstr "Cercando di caricare %s1 su %s2"
@@ -1701,7 +1701,7 @@ msgstr "Martedì"
 msgid "Type"
 msgstr "Tipo"
 
-#: functions.inc/class.backup.php:571
+#: functions.inc/class.backup.php:567
 msgid "Unable to upload file to the remote server"
 msgstr "Impossibile caricare il file sul server remoto"
 
@@ -1857,7 +1857,7 @@ msgstr "aggiunti server di backup predefiniti"
 msgid "added default backup templates"
 msgstr "aggiunti modelli di backup predefiniti"
 
-#: functions.inc/class.backup.php:481
+#: functions.inc/class.backup.php:477
 msgid "astDb's"
 msgstr "astDb di"
 

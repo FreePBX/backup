@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>14.0.14</version>
+	<version>14.0.15</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -20,6 +20,7 @@
 		<version>13.0.5</version>
 	</depends>
 	<changelog>
+		*14.0.15* Packaging of ver 14.0.15
 		*14.0.14* FREEPBX-23713 
 		*14.0.13* Packaging of ver 14.0.13
 		*14.0.12* FREEI-4765 

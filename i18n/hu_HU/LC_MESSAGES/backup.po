@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-12 11:13+0000\n"
+"POT-Creation-Date: 2023-04-05 05:33+0000\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Lónyai Gergely <alephlg@gmail.com>\n"
 "Language-Team: Magyar <support@freepbx.hu>\n"
@@ -174,12 +174,12 @@ msgstr ""
 msgid "BACKUP LOG ATTACHED"
 msgstr ""
 
-#: functions.inc/class.backup.php:491 functions.inc/class.backup.php:494
+#: functions.inc/class.backup.php:487 functions.inc/class.backup.php:490
 msgid "BACKUP NOT ATTACHED"
 msgstr ""
 
 #: Backup.class.php:321 functions.inc/backup.php:81
-#: functions.inc/class.backup.php:485 views/backup/backup.php:6
+#: functions.inc/class.backup.php:481 views/backup/backup.php:6
 msgid "Backup"
 msgstr ""
 
@@ -211,11 +211,11 @@ msgstr ""
 msgid "Backup Description"
 msgstr ""
 
-#: functions.inc/class.backup.php:490
+#: functions.inc/class.backup.php:486
 msgid "Backup ERROR (exceeded SMTP limits)"
 msgstr ""
 
-#: functions.inc/class.backup.php:493
+#: functions.inc/class.backup.php:489
 msgid "Backup ERROR (exceeded soft limit)"
 msgstr ""
 
@@ -271,7 +271,7 @@ msgstr ""
 msgid "Backup completed with errors!"
 msgstr ""
 
-#: functions.inc/class.backup.php:372
+#: functions.inc/class.backup.php:368
 #, php-format
 msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
@@ -282,7 +282,7 @@ msgstr ""
 msgid "Backup file not found! Aborting."
 msgstr ""
 
-#: functions.inc/class.backup.php:579
+#: functions.inc/class.backup.php:575
 msgid "Backup file uploaded to the remote server"
 msgstr ""
 
@@ -362,12 +362,12 @@ msgstr ""
 msgid "Connecting to remote server..."
 msgstr ""
 
-#: functions.inc/class.backup.php:927
+#: functions.inc/class.backup.php:923
 #, php-format
 msgid "Could not find %s on the remote system"
 msgstr ""
 
-#: functions.inc/class.backup.php:478 views/restore/browseserver.php:18
+#: functions.inc/class.backup.php:474 views/restore/browseserver.php:18
 msgid "Created"
 msgstr ""
 
@@ -375,7 +375,7 @@ msgstr ""
 msgid "Creating backup..."
 msgstr ""
 
-#: functions.inc/class.backup.php:557
+#: functions.inc/class.backup.php:553
 #, php-format
 msgid "Creating directory '%s'"
 msgstr ""
@@ -477,7 +477,7 @@ msgstr ""
 msgid "Directory"
 msgstr ""
 
-#: functions.inc/class.backup.php:561
+#: functions.inc/class.backup.php:557
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
 msgstr ""
@@ -545,12 +545,12 @@ msgstr ""
 msgid "End"
 msgstr ""
 
-#: functions.inc/class.backup.php:551 functions.inc/restore.php:117
+#: functions.inc/class.backup.php:547 functions.inc/restore.php:117
 #: functions.inc/restore.php:366
 msgid "Error creating the FTP object"
 msgstr ""
 
-#: functions.inc/class.backup.php:934
+#: functions.inc/class.backup.php:930
 #, php-format
 msgid "Error deleting %s"
 msgstr ""
@@ -676,7 +676,7 @@ msgstr ""
 msgid "File verification failed. "
 msgstr ""
 
-#: functions.inc/class.backup.php:479 views/restore/browseserver.php:19
+#: functions.inc/class.backup.php:475 views/restore/browseserver.php:19
 msgid "Files"
 msgstr ""
 
@@ -902,7 +902,7 @@ msgstr ""
 msgid "Mysql DB's"
 msgstr ""
 
-#: functions.inc/class.backup.php:480
+#: functions.inc/class.backup.php:476
 msgid "Mysql Db's"
 msgstr ""
 
@@ -910,7 +910,7 @@ msgstr ""
 msgid "Mysql Server "
 msgstr ""
 
-#: functions.inc/class.backup.php:477 views/restore/browseserver.php:17
+#: functions.inc/class.backup.php:473 views/restore/browseserver.php:17
 msgid "Name"
 msgstr ""
 
@@ -1072,7 +1072,7 @@ msgstr ""
 msgid "Path/DB"
 msgstr ""
 
-#: functions.inc/class.backup.php:923 functions.inc/class.backup.php:924
+#: functions.inc/class.backup.php:919 functions.inc/class.backup.php:920
 #, php-format
 msgid "Path: %s"
 msgstr ""
@@ -1307,7 +1307,7 @@ msgstr ""
 msgid "Run once an hour, beginning of hour"
 msgstr ""
 
-#: functions.inc/class.backup.php:580
+#: functions.inc/class.backup.php:576
 msgid "Running maintenance.."
 msgstr ""
 
@@ -1371,7 +1371,7 @@ msgstr ""
 msgid "Save and Run"
 msgstr ""
 
-#: functions.inc/class.backup.php:568
+#: functions.inc/class.backup.php:564
 msgid "Saving file to remote ftp"
 msgstr ""
 
@@ -1500,7 +1500,7 @@ msgstr ""
 msgid "Storing backup..."
 msgstr ""
 
-#: functions.inc/class.backup.php:379
+#: functions.inc/class.backup.php:375
 #, php-format
 msgid "Successfully dumped SQL database [%s] to file [%s]"
 msgstr ""
@@ -1539,14 +1539,14 @@ msgstr ""
 msgid "The archive must be come from a release like this: %s.%s"
 msgstr ""
 
-#: functions.inc/class.backup.php:491
+#: functions.inc/class.backup.php:487
 msgid ""
 "The backup file exceeded the maximum SMTP limits of 25MB. It was not "
 "attempted to be sent. Please shrink your backup, or use a different method "
 "of transferring your backup."
 msgstr ""
 
-#: functions.inc/class.backup.php:494
+#: functions.inc/class.backup.php:490
 #, php-format
 msgid ""
 "The backup file exceeded the soft limit set in SMTP configuration (%s "
@@ -1599,7 +1599,7 @@ msgstr ""
 msgid "Transfer Type"
 msgstr ""
 
-#: functions.inc/class.backup.php:573
+#: functions.inc/class.backup.php:569
 #, php-format
 msgid "Trying to upload %s to %s"
 msgstr ""
@@ -1612,7 +1612,7 @@ msgstr "Kedd"
 msgid "Type"
 msgstr ""
 
-#: functions.inc/class.backup.php:571
+#: functions.inc/class.backup.php:567
 msgid "Unable to upload file to the remote server"
 msgstr ""
 
@@ -1764,7 +1764,7 @@ msgstr ""
 msgid "added default backup templates"
 msgstr ""
 
-#: functions.inc/class.backup.php:481
+#: functions.inc/class.backup.php:477
 msgid "astDb's"
 msgstr ""
 

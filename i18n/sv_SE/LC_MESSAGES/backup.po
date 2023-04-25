@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-30 02:15+0000\n"
+"POT-Creation-Date: 2023-04-25 01:14+0000\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -53,7 +53,7 @@ msgstr ""
 msgid "%s Days (%s Months)"
 msgstr ""
 
-#: Handlers/Backup/Common.php:169 Handlers/Restore/Multiple.php:17
+#: Handlers/Backup/Common.php:171 Handlers/Restore/Multiple.php:17
 #, php-format
 msgid "%s does not exist"
 msgstr ""
@@ -143,12 +143,12 @@ msgstr ""
 msgid "Add custom files in backup"
 msgstr ""
 
-#: Handlers/Backup/Common.php:208
+#: Handlers/Backup/Common.php:210
 #, php-format
 msgid "Adding custom directory to tar: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:167
+#: Handlers/Backup/Common.php:169
 #, php-format
 msgid "Adding custom file to tar: %s"
 msgstr ""
@@ -158,7 +158,7 @@ msgstr ""
 msgid "Adding directory to tar: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:141
+#: Handlers/Backup/Common.php:142
 #, php-format
 msgid "Adding file to tar: %s"
 msgstr ""
@@ -168,7 +168,7 @@ msgstr ""
 msgid "Adding module %s to queue because %s depends on it"
 msgstr ""
 
-#: Handlers/Backup/Common.php:147
+#: Handlers/Backup/Common.php:149
 #, php-format
 msgid "Adding module manifest for %s"
 msgstr ""
@@ -482,12 +482,12 @@ msgstr ""
 msgid "Custom Files"
 msgstr ""
 
-#: Handlers/Backup/Common.php:218
+#: Handlers/Backup/Common.php:220
 #, php-format
 msgid "Custom directory not exists: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:174
+#: Handlers/Backup/Common.php:176
 #, php-format
 msgid "Custom file not exists: %s"
 msgstr ""
@@ -756,7 +756,7 @@ msgstr ""
 msgid "Finished created backup file: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:212
+#: Handlers/Backup/Common.php:214
 #, php-format
 msgid "Folder %s does not exist"
 msgstr ""

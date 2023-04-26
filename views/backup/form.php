@@ -321,7 +321,7 @@ if (!empty($bkjobs)) {
 						<div class="section-title" data-for="backup-schedule">
 							<h3>
 								<i class="fa fa-minus"></i>
-								<?php echo _("Schedule and Maintinence") ?>
+								<?php echo _("Schedule and Maintenance") ?>
 							</h3>
 						</div>
 						<div class="section" data-id="backup-schedule">
@@ -386,7 +386,7 @@ if (!empty($bkjobs)) {
 						<div class="section-title" data-for="backup-maint">
 							<h3>
 								<i class="fa fa-minus"></i>
-								<?php echo _("Maintinence") ?>
+								<?php echo _("Maintenance") ?>
 							</h3>
 						</div>
 						<div class="section" data-id="backup-schedule">

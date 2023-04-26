@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-11 06:57+0000\n"
+"POT-Creation-Date: 2023-04-25 01:14+0000\n"
 "PO-Revision-Date: 2015-09-30 20:45+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -34,7 +34,7 @@ msgstr ""
 "X-Poedit-Country: BULGARIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: RestoreBase.php:257
+#: RestoreBase.php:259
 #, php-format
 msgid " %s found no database definitions in module.xml"
 msgstr ""
@@ -57,12 +57,12 @@ msgstr ""
 msgid "%s Days (%s Months)"
 msgstr ""
 
-#: Handlers/Backup/Common.php:169 Handlers/Restore/Multiple.php:17
+#: Handlers/Backup/Common.php:171 Handlers/Restore/Multiple.php:17
 #, php-format
 msgid "%s does not exist"
 msgstr ""
 
-#: RestoreBase.php:191 RestoreBase.php:388
+#: RestoreBase.php:193 RestoreBase.php:390
 #, php-format
 msgid "%s does not implement KVStore"
 msgstr ""
@@ -70,6 +70,16 @@ msgstr ""
 #: Handlers/Restore/Legacy.php:137
 #, php-format
 msgid "%s is now loaded into memory"
+msgstr ""
+
+#: BackupBase.php:249
+#, php-format
+msgid "%s table Backup Error %s "
+msgstr ""
+
+#: RestoreBase.php:632
+#, php-format
+msgid "%s table Restore Error %s "
 msgstr ""
 
 #: Backup.class.php:1513
@@ -137,12 +147,12 @@ msgstr ""
 msgid "Add custom files in backup"
 msgstr ""
 
-#: Handlers/Backup/Common.php:208
+#: Handlers/Backup/Common.php:210
 #, php-format
 msgid "Adding custom directory to tar: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:167
+#: Handlers/Backup/Common.php:169
 #, php-format
 msgid "Adding custom file to tar: %s"
 msgstr ""
@@ -152,7 +162,7 @@ msgstr ""
 msgid "Adding directory to tar: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:141
+#: Handlers/Backup/Common.php:142
 #, php-format
 msgid "Adding file to tar: %s"
 msgstr ""
@@ -162,10 +172,14 @@ msgstr ""
 msgid "Adding module %s to queue because %s depends on it"
 msgstr ""
 
-#: Handlers/Backup/Common.php:147
+#: Handlers/Backup/Common.php:149
 #, php-format
 msgid "Adding module manifest for %s"
 msgstr ""
+
+#: backup.i18n.php:6
+msgid "Admin"
+msgstr "Админ"
 
 #: views/restore/processRestore.php:28
 msgid "After the restore you might reload with the apply config button"
@@ -222,9 +236,17 @@ msgstr ""
 msgid "Backup %s success for %s"
 msgstr ""
 
-#: views/landing.php:5
+#: backup.i18n.php:4 backup.i18n.php:10 views/landing.php:5
 msgid "Backup & Restore"
 msgstr "Архивирай & Възстанови"
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Restore"
+msgstr "Архивирай & Възстанови - Възстановяване"
+
+#: backup.i18n.php:8
+msgid "Backup & Restore for your FreePBX environment"
+msgstr "Архивирай & Възстанови за вашата FreePBX система"
 
 #: views/restore/landing.php:73 views/restore/landing.php:119
 msgid "Backup Date"
@@ -399,13 +421,23 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: RestoreBase.php:550
+#: RestoreBase.php:552
 #, php-format
 msgid "Column '%s' does not exist in %s, skipping"
 msgstr ""
 
 #: views/backup/item_table.php:8
 msgid "Complete Path"
+msgstr ""
+
+#: BackupBase.php:256
+#, php-format
+msgid "Completed mysql dumps of : %s"
+msgstr ""
+
+#: RestoreBase.php:636
+#, php-format
+msgid "Completed restoring mysql dumps of : %s"
 msgstr ""
 
 #: views/backup/warmspare.php:270
@@ -454,12 +486,12 @@ msgstr ""
 msgid "Custom Files"
 msgstr ""
 
-#: Handlers/Backup/Common.php:218
+#: Handlers/Backup/Common.php:220
 #, php-format
 msgid "Custom directory not exists: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:174
+#: Handlers/Backup/Common.php:176
 #, php-format
 msgid "Custom file not exists: %s"
 msgstr ""
@@ -641,27 +673,27 @@ msgid ""
 "a warm-spare machine with a different IP address."
 msgstr ""
 
-#: BackupBase.php:53
+#: BackupBase.php:57
 #, php-format
 msgid "Exporting Advanced settings from %s"
 msgstr ""
 
-#: BackupBase.php:128
+#: BackupBase.php:132
 #, php-format
 msgid "Exporting Databases from %s"
 msgstr ""
 
-#: BackupBase.php:67
+#: BackupBase.php:71
 #, php-format
 msgid "Exporting Feature Codes from %s"
 msgstr ""
 
-#: BackupBase.php:164
+#: BackupBase.php:168
 #, php-format
 msgid "Exporting KVStore based on ids  %s"
 msgstr ""
 
-#: BackupBase.php:162
+#: BackupBase.php:166
 #, php-format
 msgid "Exporting KVStore from %s"
 msgstr ""
@@ -730,7 +762,7 @@ msgstr ""
 msgid "Finished created backup file: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:212
+#: Handlers/Backup/Common.php:214
 #, php-format
 msgid "Folder %s does not exist"
 msgstr ""
@@ -814,42 +846,42 @@ msgid ""
 "require HTTPS config to be rebuild manually with spare server certificate."
 msgstr ""
 
-#: RestoreBase.php:83 RestoreBase.php:363
+#: RestoreBase.php:85 RestoreBase.php:365
 #, php-format
 msgid "Importing Advanced Settings from %s"
 msgstr ""
 
-#: RestoreBase.php:157
+#: RestoreBase.php:159
 #, php-format
 msgid "Importing AstDB family %s from %s"
 msgstr ""
 
-#: RestoreBase.php:152
+#: RestoreBase.php:154
 #, php-format
 msgid "Importing AstDB family %s/%s  : %s"
 msgstr ""
 
-#: RestoreBase.php:280
+#: RestoreBase.php:282
 #, php-format
 msgid "Importing Databases from %s"
 msgstr ""
 
-#: RestoreBase.php:106
+#: RestoreBase.php:108
 #, php-format
 msgid "Importing Feature Codes from %s"
 msgstr ""
 
-#: RestoreBase.php:194
+#: RestoreBase.php:196
 #, php-format
 msgid "Importing KVStore from %s"
 msgstr ""
 
-#: RestoreBase.php:175
+#: RestoreBase.php:177
 #, php-format
 msgid "Importing Table %s from %s"
 msgstr ""
 
-#: RestoreBase.php:290
+#: RestoreBase.php:292
 #, php-format
 msgid "Importing table '%s' from legacy %s"
 msgstr ""
@@ -902,12 +934,12 @@ msgstr ""
 msgid "Legacy Restore"
 msgstr ""
 
-#: RestoreBase.php:41
+#: RestoreBase.php:43
 #, php-format
 msgid "Legacy Restore in %s is not implemented"
 msgstr ""
 
-#: RestoreBase.php:38
+#: RestoreBase.php:40
 #, php-format
 msgid "Legacy Restore in %s is not implemented, using default fallback"
 msgstr ""
@@ -955,7 +987,7 @@ msgid "MODULE SKIPED %s"
 msgstr ""
 
 #: views/backup/form.php:389
-msgid "Maintinence"
+msgid "Maintenance"
 msgstr ""
 
 #: Api/Gql/Backup.php:217 Api/Gql/Backup.php:255
@@ -1156,7 +1188,7 @@ msgstr ""
 msgid "Public SSH key to allow other servers to connect"
 msgstr ""
 
-#: RestoreBase.php:261
+#: RestoreBase.php:263
 #, php-format
 msgid "Reading Databases Table infromation using module name %s"
 msgstr ""
@@ -1335,31 +1367,31 @@ msgstr ""
 msgid "Run the following in the CLI"
 msgstr ""
 
-#: BackupBase.php:23
+#: BackupBase.php:27
 #, php-format
 msgid "RunBackup method is not implemented in %s"
 msgstr ""
 
-#: BackupBase.php:20
+#: BackupBase.php:24
 #, php-format
 msgid "RunBackup method is not implemented in %s, using default fallback"
 msgstr ""
 
-#: RestoreBase.php:18
+#: RestoreBase.php:20
 #, php-format
 msgid ""
 "RunRestore method is not implemented in %s, but was backed up using default "
 "backup fallback, using default fallback"
 msgstr ""
 
-#: RestoreBase.php:21
+#: RestoreBase.php:23
 #, php-format
 msgid ""
 "RunRestore method is not implemented in %s, however there is default falback "
 "data, nothing to do"
 msgstr ""
 
-#: RestoreBase.php:23
+#: RestoreBase.php:25
 #, php-format
 msgid "RunRestore method is not implemented in %s, nothing to do"
 msgstr ""
@@ -1417,7 +1449,7 @@ msgid "Saving to: %s:'%s' instance ,File location: %s%s "
 msgstr ""
 
 #: views/backup/form.php:324
-msgid "Schedule and Maintinence"
+msgid "Schedule and Maintenance"
 msgstr ""
 
 #: views/backup/form.php:367
@@ -1530,6 +1562,11 @@ msgstr ""
 msgid "Sorry unable to find the backup files"
 msgstr ""
 
+#: RestoreBase.php:624
+#, php-format
+msgid "Started restoring mysql dumps of : %s"
+msgstr ""
+
 #: Handlers/Backup/Multiple.php:201
 msgid "Starting Cleaning up"
 msgstr ""
@@ -1541,6 +1578,11 @@ msgstr ""
 
 #: Handlers/Restore/Legacy.php:160
 msgid "Starting legacy cdr sql restore process"
+msgstr ""
+
+#: BackupBase.php:241
+#, php-format
+msgid "Starting mysql dumps of : %s"
 msgstr ""
 
 #: views/restore/processRestore.php:50
@@ -1576,12 +1618,12 @@ msgstr ""
 msgid "System is not Activated,Skipping %s module"
 msgstr ""
 
-#: RestoreBase.php:296
+#: RestoreBase.php:298
 #, php-format
 msgid "Table '%s' does not exist in legacy %s, skipping"
 msgstr ""
 
-#: RestoreBase.php:293
+#: RestoreBase.php:295
 #, php-format
 msgid "Table '%s' is empty from legacy %s, skipping"
 msgstr ""
@@ -1719,14 +1761,14 @@ msgstr ""
 msgid "Unable to perform backup"
 msgstr ""
 
-#: RestoreBase.php:276
+#: RestoreBase.php:278
 #, php-format
 msgid ""
 "Unable to run restoreLegacyDatabase on %s because NO Database information "
 "provided"
 msgstr ""
 
-#: RestoreBase.php:252
+#: RestoreBase.php:254
 #, php-format
 msgid ""
 "Unable to run restoreLegacyDatabase on %s because module.xml was not found"
@@ -1975,15 +2017,6 @@ msgstr ""
 #: Api/Gql/Backup.php:66
 msgid "updateBackup"
 msgstr ""
-
-#~ msgid "Admin"
-#~ msgstr "Админ"
-
-#~ msgid "Backup & Restore - Restore"
-#~ msgstr "Архивирай & Възстанови - Възстановяване"
-
-#~ msgid "Backup & Restore for your FreePBX environment"
-#~ msgstr "Архивирай & Възстанови за вашата FreePBX система"
 
 #~ msgid "Backup Module"
 #~ msgstr "Модул за Архиви"
@@ -2385,9 +2418,6 @@ msgstr ""
 
 #~ msgid "Local Server "
 #~ msgstr "Локален Сървър "
-
-#~ msgid "Maintenance"
-#~ msgstr "Поддръжка"
 
 #~ msgid "March"
 #~ msgstr "Март"

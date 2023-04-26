@@ -1,5 +1,9 @@
 <?php
 namespace FreePBX\modules\Backup;
+
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Filesystem\Filesystem;
 use FreePBX\modules\Backup\Models as Model;
 /**
  * This is a base class used when creating your modules "Backup.php" class
@@ -175,5 +179,81 @@ class BackupBase extends Model\Backup{
 			$final[$id] = $this->FreePBX->$module->getAll($id);
 		}
 		return $final;
+	}
+
+	/**
+	 * Dump specific tables
+	 *
+	 * @param String $moduleName
+	 * @param String $tableName
+	 * @param Boolean $dumpOtherOptions
+	 * @param Boolean $zipDump
+	 * @return Object
+	 */
+	function dumpTableIntoFile($moduleName, $tableName, $dumpOtherOptions = false, $zipDump = false)
+	{
+		global $amp_conf;
+
+		$dbhost = $amp_conf['AMPDBHOST'];
+		$dbuser = $amp_conf['AMPDBUSER'];
+		$dbport = $amp_conf['AMPDBPORT'];
+		$dbpass = $amp_conf['AMPDBPASS'];
+		$dbname = $amp_conf['AMPDBNAME'];
+
+		$cdrDbTables = ['cdr', 'cel', 'queuelog'];
+		if (in_array($tableName, $cdrDbTables)) {
+			$dbhost = $this->FreePBX->Config->get('CDRDBHOST') ? $this->FreePBX->Config->get('CDRDBHOST') : $amp_conf['AMPDBHOST'];
+			$dbuser = $this->FreePBX->Config->get('CDRDBUSER') ? $this->FreePBX->Config->get('CDRDBUSER') : $amp_conf['AMPDBUSER'];
+			$dbport = $this->FreePBX->Config->get('CDRDBPORT') ? $this->FreePBX->Config->get('CDRDBPORT') : $amp_conf['AMPDBPORT'];
+			$dbpass = $this->FreePBX->Config->get('CDRDBPASS') ? $this->FreePBX->Config->get('CDRDBPASS') : $amp_conf['AMPDBPASS'];
+			$dbname = $this->FreePBX->Config->get('CDRDBNAME') ? $this->FreePBX->Config->get('CDRDBNAME') : 'asteriskcdrdb';
+		}
+
+		$fs = new Filesystem();
+		$tmpdir = sys_get_temp_dir() . "/{$moduleName}_dump";
+		if (is_dir($tmpdir)) {
+			$fs->remove($tmpdir);
+		}
+		$fs->mkdir($tmpdir);
+
+		$mysqldump = fpbx_which('mysqldump');
+		
+		$fileExt = $zipDump ? 'sql.gz' : 'sql';
+		$tmpfile = "{$tmpdir}/{$moduleName}.{$fileExt}";
+
+		$dbhost = ($dbhost === 'localhost' || $dbhost === '127.0.0.1') ? '' : '-h ' . $dbhost;
+		$dbport = empty(trim($dbport)) ? '' : '-P ' . $dbport;
+
+		$command = "{$mysqldump} {$dbport} {$dbhost} -u{$dbuser} -p{$dbpass} {$dbname} ";
+
+		if ($dumpOtherOptions) {
+			$command .= "{$dumpOtherOptions} ";
+		}
+
+		$command .= "{$tableName} ";
+		
+		if ($zipDump) {
+			$command .= "| gzip -9 > {$tmpfile}";
+		} else {
+			$command .= "--result-file={$tmpfile}";
+		}
+
+		$this->log(sprintf(_("Starting mysql dumps of : %s"), $tableName));
+
+		try {
+			$process = new Process($command);
+			$process->setTimeout(3600);
+			$process->disableOutput();
+			$process->mustRun();
+		} catch (ProcessFailedException $e) {
+			$this->log(sprintf(_("%s table Backup Error %s "), $tableName, $e->getMessage()), 'ERROR');
+			return false;
+		}
+		$fileObj = new \SplFileInfo($tmpfile);
+		$this->addSplFile($fileObj);
+		// deletes files, directories and symlinks
+		$this->addGarbage($tmpdir);
+		$this->log(sprintf(_("Completed mysql dumps of : %s"), $tableName));
+		return $fileObj;
 	}
 }

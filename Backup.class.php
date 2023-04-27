@@ -439,7 +439,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 				$location = $this->freepbx->Config->get('ASTLOGDIR');
 				$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup '.$args.' --transaction='.escapeshellarg($jobid);
 				file_put_contents($location.'/restore_'.$jobid.'_out.log','Running with: '.$command.PHP_EOL);
-				$process = new Process($command.' >> '.$location.'/restore_'.$jobid.'_out.log 2> '.$location.'/restore_'.$jobid.'_err.log & echo $!');
+				$process = Process::fromShellCommandline($command.' >> '.$location.'/restore_'.$jobid.'_out.log 2> '.$location.'/restore_'.$jobid.'_err.log & echo $!');
 				$process->mustRun();
 				$log = file_get_contents($location.'/restore_'.$jobid.'_out.log');
 				return ['status' => true, 'message' => _("Restore running"), 'transaction' => $jobid, 'restoreid' => $ruid, 'pid' => trim($process->getOutput()), 'log' => $log];
@@ -458,7 +458,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 				}
 				$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup --backup=' . escapeshellarg($buid) . '' . $warm . ' --transaction=' . escapeshellarg($jobid) . ' >> '.$location.'/backup_'.$jobid.'_out.log 2> '.$location.'/backup_'.$jobid.'_err.log & echo $!';
 				file_put_contents($location.'/backup_'.$jobid.'_out.log','Running with: '.$command.PHP_EOL);
-				$process = new Process($command);
+				$process = Process::fromShellCommandline($command);
 				$process->mustRun();
 				$log = file_get_contents($location.'/backup_'.$jobid.'_out.log');
 				return ['status' => true, 'message' => _("Backup running"), 'transaction' => $jobid, 'backupid' => $buid, 'pid' => trim($process->getOutput()), 'log' => $log];
@@ -655,7 +655,7 @@ public function GraphQL_Access_token($request) {
 			$filename = $sparefilepath.'/'.$filename;
 		}
 		$command = "ssh -t -i $key $user@$host '/usr/sbin/fwconsole backup --restore $path$filename --transaction=$transactionid'";
-		$process = new Process($command);
+		$process = Process::fromShellCommandline($command);
 		try {
 			$process->setTimeout(null);
 			$process->mustRun();
@@ -741,7 +741,7 @@ public function GraphQL_Access_token($request) {
 					$vars['warmspare'] = load_view(__DIR__.'/views/backup/warmspare.php',$vars);
 				}
 				$vars['transfer'] = '';
-				if(!$transferdisabled){
+				if (isset($transferdisabled) && !$transferdisabled) {
 					$vars['transfer'] = '<li role="presentation" class="'.(isset($_GET['view']) && $_GET['view'] == 'yes')?"active":"".'"><a href="?display=backup&view=transfer">'. _("System Transfer").'</a></li>';
 				}
 				return load_view(__DIR__.'/views/backup/form.php',$vars);

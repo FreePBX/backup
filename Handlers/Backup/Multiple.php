@@ -28,10 +28,10 @@ class Multiple extends Common {
 	 * @param array $extradata is passed from a secondparty module
 	 */
 	public function __construct($freepbx, $id, $transactionId, $pid,$extradata = []) {
-		$this->id = $extradata['id']?$extradata['id']:$id;
+		$this->id = !empty($extradata['id']) && $extradata['id'] ? $extradata['id'] : $id;
 		$spooldir = $freepbx->Config->get("ASTSPOOLDIR");
 		$this->backupInfo = $freepbx->Backup->getBackup($this->id);
-		$this->backupInfo = $extradata['backupInfo']?$extradata['backupInfo']:$this->backupInfo;
+		$this->backupInfo = !empty($extradata['backupInfo']) && $extradata['backupInfo']?$extradata['backupInfo']:$this->backupInfo;
 		$this->underscoreName = str_replace(' ', '_', $this->backupInfo['backup_name']);
 		$filePath = sprintf('%s/backup/%s',$spooldir,$this->underscoreName);
 

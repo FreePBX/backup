@@ -19,7 +19,7 @@ use BMO;
 use splitbrain\PHPArchive\Tar;
 use FreePBX\modules\Backup\Handlers\MonologSwift;
 use Hhxsv5\SSE\SSE;
-use Hhxsv5\SSE\Update;
+use Hhxsv5\SSE\Event;
 use function FreePBX\modules\Backup\Json\json_decode;
 use function FreePBX\modules\Backup\Json\json_encode;
 include __DIR__.'/vendor/autoload.php';
@@ -442,7 +442,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 				$process = Process::fromShellCommandline($command.' >> '.$location.'/restore_'.$jobid.'_out.log 2> '.$location.'/restore_'.$jobid.'_err.log & echo $!');
 				$process->mustRun();
 				$log = file_get_contents($location.'/restore_'.$jobid.'_out.log');
-				return ['status' => true, 'message' => _("Restore running"), 'transaction' => $jobid, 'restoreid' => $ruid, 'pid' => trim($process->getOutput()), 'log' => $log];
+				return ['status' => true, 'message' => _("Restore running"), 'transaction' => $jobid, 'restoreid' => $ruid, 'pid' => trim($process->getOutput() ?? ""), 'log' => $log];
 			case 'runBackup':
 				if(!isset($_GET['id'])){
 					return ['status' => false, 'message' => _("No backup id provided")];
@@ -461,7 +461,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 				$process = Process::fromShellCommandline($command);
 				$process->mustRun();
 				$log = file_get_contents($location.'/backup_'.$jobid.'_out.log');
-				return ['status' => true, 'message' => _("Backup running"), 'transaction' => $jobid, 'backupid' => $buid, 'pid' => trim($process->getOutput()), 'log' => $log];
+				return ['status' => true, 'message' => _("Backup running"), 'transaction' => $jobid, 'backupid' => $buid, 'pid' => trim($process->getOutput() ?? ""), 'log' => $log];
 			case 'backupGrid':
 				return array_values($this->listBackups());
 			case 'backupStorage':
@@ -519,8 +519,8 @@ class Backup extends FreePBX_Helpers implements BMO {
 				header('Access-Control-Allow-Credentials: true');
 				header('X-Accel-Buffering: no');//Nginx: unbuffered responses suitable for Comet and HTTP streaming applications
 				$location = $this->freepbx->Config->get('ASTLOGDIR');
-				(new SSE())->start(new Update(function () use ($location) {
-					if(!isset($_GET['id']) || !isset($_GET['transaction']) || !isset($_GET['pid'])){
+				$callback = function () use ($location) {
+					if (!isset($_GET['id']) || !isset($_GET['transaction']) || !isset($_GET['pid'])) {
 						return json_encode(['status' => 'stopped', 'error' => _("Missing id or transaction or pid")]);
 					}
 					$pid = $_GET['pid'];
@@ -529,34 +529,34 @@ class Backup extends FreePBX_Helpers implements BMO {
 
 					$type = $_REQUEST['command'] === 'restorestatus' ? 'restore' : 'backup';
 
-					$outFile = $location.'/'.$type.'_'.$job.'_out.log';
-					$errorFile = $location.'/'.$type.'_'.$job.'_err.log';
+					$outFile = $location . '/' . $type . '_' . $job . '_out.log';
+					$errorFile = $location . '/' . $type . '_' . $job . '_err.log';
 
-					if(!file_exists($outFile)) {
-						if(posix_getpgid($pid) !== false) {
+					if (!file_exists($outFile)) {
+						if (posix_getpgid($pid) !== false) {
 							return json_encode(['status' => 'errored', 'log' => _("Log file is missing but process is still running!")]);
 						} else {
 							return json_encode(['status' => 'stopped', 'log' => _("Process is no longer running")]);
 						}
-
 					}
 					$log = file_get_contents($outFile);
 
-					if(posix_getpgid($pid) !== false) {
+					if (posix_getpgid($pid) !== false) {
 						return json_encode(['status' => 'running', 'log' => $log]);
 					}
 
 					$error = file_get_contents($errorFile);
-					if(!empty($error)){
+					if (!empty($error)) {
 						@unlink($outFile);
 						@unlink($errorFile);
-						return json_encode(['status' => 'errored', 'log' => $log.$error]);
+						return json_encode(['status' => 'errored', 'log' => $log . $error]);
 					}
 
 					@unlink($outFile);
 					@unlink($errorFile);
 					return json_encode(['status' => 'stopped', 'log' => $log]);
-				}, 1), 'new-msgs', 1000);
+				};
+				(new SSE(new Event($callback, 'new-msgs')))->start(1000);
 				exit;
 			break;
 			case 'remotedownload':

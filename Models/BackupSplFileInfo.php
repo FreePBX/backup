@@ -41,7 +41,7 @@ class BackupSplFileInfo extends SplFileInfo{
 	* 
 	* @return integer Returns the filesize in bytes for the file referenced or -1 if file not exist.
 	*/
-	public function getSize(){
+	public function getSize(): int|false{
 		$data_return = -1;
 		if (file_exists($this->getPathname()))
 		{

@@ -112,7 +112,12 @@ class BackupBase extends Model\Backup{
 		$astdb 	= explode("\n",$astdb["data"]);
 		$result = array();
 		foreach($astdb as $line){
-			list($root, $value) = explode(":",$line);
+			$line = explode(":", $line);
+			if (count($line) > 1) {
+				list($root, $value) = $line;
+			} else {
+				$root = $line[0];
+			}
 			if(strpos($root, $family) !== False){
 				$children 	= substr(trim($root),1);
 				$children	= trim(substr(str_replace($family, "", $children),1));
@@ -241,7 +246,7 @@ class BackupBase extends Model\Backup{
 		$this->log(sprintf(_("Starting mysql dumps of : %s"), $tableName));
 
 		try {
-			$process = new Process($command);
+			$process = Process::fromShellCommandline($command);
 			$process->setTimeout(3600);
 			$process->disableOutput();
 			$process->mustRun();

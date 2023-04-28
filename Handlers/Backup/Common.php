@@ -11,6 +11,8 @@ use splitbrain\PHPArchive\Tar;
 use FreePBX\modules\Backup\Handlers\FreePBXModule;
 use Symfony\Component\Process\Process;
 use modgettext;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+
 abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	protected $tar;
 	protected $filename;
@@ -200,7 +202,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 						}
 					}
 					$cmd = fpbx_which('rsync')." $excludes -rlptgov $dir/ $dst/";
-					$process= new Process($cmd);
+					$process = Process::fromShellCommandline($cmd);
 					try {
 						$process->setTimeout(null);
 						$process->mustRun();

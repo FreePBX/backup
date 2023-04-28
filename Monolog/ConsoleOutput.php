@@ -16,7 +16,7 @@ class ConsoleOutput extends AbstractProcessingHandler {
 		$this->output = new SymfonyConsoleOutput();
 	}
 
-	protected function write(array $record) {
+	protected function write(array $record): void  {
 		switch($record['level']) {
 			case Logger::EMERGENCY:
 			case Logger::ALERT:

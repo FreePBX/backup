@@ -6,7 +6,7 @@
 </div>
 <?php
 //setting default API, untill SSH  is implimented
-$warmsparewayofrestore = $warmsparewayofrestore ? $warmsparewayofrestore : 'API';
+$warmsparewayofrestore = isset($warmsparewayofrestore) ? $warmsparewayofrestore : 'API';
 $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spare Token").'</a>';
 ?>
 <div class="section" data-id="backup-warmspare">
@@ -21,11 +21,11 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
           <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspareenabled"></i>
         </div>
         <div class="col-md-9 radioset">
-          <input type="radio" name="warmspareenabled" id="warmspareenabledyes" value="yes" <?php echo ($warmspareenabled=="yes" ?"CHECKED": "") ?>>
+          <input type="radio" name="warmspareenabled" id="warmspareenabledyes" value="yes" <?php echo (isset($warmspareenabled) && $warmspareenabled=="yes" ?"CHECKED": "") ?>>
           <label for="warmspareenabledyes">
             <?php echo _("Yes");?>
           </label>
-          <input type="radio" name="warmspareenabled" id="warmspareenabledno" <?php echo ($warmspareenabled=="yes" ? "": "CHECKED")?>>
+          <input type="radio" name="warmspareenabled" id="warmspareenabledno" <?php echo (isset($warmspareenabled) && $warmspareenabled=="yes" ? "": "CHECKED")?>>
           <label for="warmspareenabledno">
             <?php echo _("No");?>
           </label>
@@ -83,11 +83,11 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
           <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_cert"></i>
         </div>
         <div class="col-md-9 radioset">
-          <input type="radio" name="warmspare_cert" id="warmspare_certyes" value="yes" <?php echo ($warmspare_cert == "yes" ? "CHECKED" : "") ?>>
+          <input type="radio" name="warmspare_cert" id="warmspare_certyes" value="yes" <?php echo (isset($warmspare_cert) && $warmspare_cert == "yes" ? "CHECKED" : "") ?>>
           <label for="warmspare_certyes">
             <?php echo _("Yes"); ?>
           </label>
-          <input type="radio" name="warmspare_cert" id="warmspare_certno" <?php echo ($warmspare_cert == "yes" ? "" : "CHECKED")?>>
+          <input type="radio" name="warmspare_cert" id="warmspare_certno" <?php echo (isset($warmspare_cert) && $warmspare_cert == "yes" ? "" : "CHECKED")?>>
           <label for="warmspare_certno">
             <?php echo _("No"); ?>
           </label>
@@ -115,11 +115,11 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
           <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remotenat"></i>
         </div>
         <div class="col-md-9 radioset">
-          <input type="radio" name="warmspare_remotenat" id="warmspare_remotenatyes" value="yes" <?php echo ($warmspare_remotenat == "yes" ? "CHECKED" : "") ?>>
+          <input type="radio" name="warmspare_remotenat" id="warmspare_remotenatyes" value="yes" <?php echo (isset($warmspare_remotenat) && $warmspare_remotenat == "yes" ? "CHECKED" : "") ?>>
           <label for="warmspare_remotenatyes">
             <?php echo _("Yes"); ?>
           </label>
-          <input type="radio" name="warmspare_remotenat" id="warmspare_remotenatno" <?php echo ($warmspare_remotenat == "yes" ? "" : "CHECKED")?>>
+          <input type="radio" name="warmspare_remotenat" id="warmspare_remotenatno" <?php echo (isset($warmspare_remotenat) && $warmspare_remotenat == "yes" ? "" : "CHECKED")?>>
           <label for="warmspare_remotenatno">
             <?php echo _("No"); ?>
           </label>
@@ -146,12 +146,12 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
           <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remotebind"></i>
         </div>
         <div class="col-md-9 radioset">
-          <input type="radio" name="warmspare_remotebind" id="warmspare_remotebindyes" value="yes" <?php echo ($warmspare_remotebind == "yes" ?
+          <input type="radio" name="warmspare_remotebind" id="warmspare_remotebindyes" value="yes" <?php echo (isset($warmspare_remotebind) && $warmspare_remotebind == "yes" ?
                                                                                                     "CHECKED" : "") ?>>
           <label for="warmspare_remotebindyes">
             <?php echo _("Yes"); ?>
           </label>
-          <input type="radio" name="warmspare_remotebind" id="warmspare_remotebindno" <?php echo ($warmspare_remotebind == "yes" ? "" : "CHECKED")
+          <input type="radio" name="warmspare_remotebind" id="warmspare_remotebindno" <?php echo (isset($warmspare_remotebind) && $warmspare_remotebind == "yes" ? "" : "CHECKED")
                                                                                       ?>>
           <label for="warmspare_remotebindno">
             <?php echo _("No"); ?>
@@ -179,11 +179,11 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
           <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remotedns"></i>
         </div>
         <div class="col-md-9 radioset">
-          <input type="radio" name="warmspare_remotedns" id="warmspare_remotednsyes" value="yes" <?php echo ($warmspare_remotedns == "yes" ? "CHECKED" : "") ?>>
+          <input type="radio" name="warmspare_remotedns" id="warmspare_remotednsyes" value="yes" <?php echo (isset($warmspare_remotedns) && $warmspare_remotedns == "yes" ? "CHECKED" : "") ?>>
           <label for="warmspare_remotednsyes">
             <?php echo _("Yes"); ?>
           </label>
-          <input type="radio" name="warmspare_remotedns" id="warmspare_remotednsno" <?php echo ($warmspare_remotedns == "yes" ? "" : "CHECKED")?>>
+          <input type="radio" name="warmspare_remotedns" id="warmspare_remotednsno" <?php echo (isset($warmspare_remotedns) && $warmspare_remotedns == "yes" ? "" : "CHECKED")?>>
           <label for="warmspare_remotednsno">
             <?php echo _("No"); ?>
           </label>
@@ -210,11 +210,11 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
           <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remoteapply"></i>
         </div>
         <div class="col-md-9 radioset">
-          <input type="radio" name="warmspare_remoteapply" id="warmspare_remoteapplyyes" value="yes" <?php echo ($warmspare_remoteapply == "yes" ?"CHECKED" : "") ?>>
+          <input type="radio" name="warmspare_remoteapply" id="warmspare_remoteapplyyes" value="yes" <?php echo (isset($warmspare_remoteapply) && $warmspare_remoteapply == "yes" ?"CHECKED" : "") ?>>
           <label for="warmspare_remoteapplyyes">
             <?php echo _("Yes"); ?>
           </label>
-          <input type="radio" name="warmspare_remoteapply" id="warmspare_remoteapplyno" <?php echo ($warmspare_remoteapply == "yes" ? "" : "CHECKED")?>>
+          <input type="radio" name="warmspare_remoteapply" id="warmspare_remoteapplyno" <?php echo (isset($warmspare_remoteapply) && $warmspare_remoteapply == "yes" ? "" : "CHECKED")?>>
           <label for="warmspare_remoteapplyno">
             <?php echo _("No"); ?>
           </label>
@@ -241,11 +241,11 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
 	  <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_excludetrunks"></i>
 	</div>
 	<div class="col-md-9 radioset">
-	  <input type="radio" name="warmspare_excludetrunks" id="warmspare_excludetrunksyes" value="yes" <?php echo ($warmspare_excludetrunks == "yes" ? "CHECKED" : "") ?>>
+	  <input type="radio" name="warmspare_excludetrunks" id="warmspare_excludetrunksyes" value="yes" <?php echo (isset($warmspare_excludetrunks) && $warmspare_excludetrunks == "yes" ? "CHECKED" : "") ?>>
 	  <label for="warmspare_excludetrunksyes">
 	    <?php echo _("Yes"); ?>
 	  </label>
-	  <input type="radio" name="warmspare_excludetrunks" id="warmspare_excludetrunksno" <?php echo ($warmspare_excludetrunks == "yes" ? "" : "CHECKED")?>>
+	  <input type="radio" name="warmspare_excludetrunks" id="warmspare_excludetrunksno" <?php echo (isset($warmspare_excludetrunks) && $warmspare_excludetrunks == "yes" ? "" : "CHECKED")?>>
 	  <label for="warmspare_excludetrunksno">
 	    <?php echo _("No"); ?>
 	  </label>
@@ -272,11 +272,11 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
           <i class="fa fa-question-circle fpbx-help-icon" data-for="warmsparewayofrestore"></i>
         </div>
         <div class="col-md-9 radioset">
-          <input  type="radio" name="warmsparewayofrestore" id="warmsparewayofrestoreapi" value="API" <?php echo ($warmsparewayofrestore=="API" ?"CHECKED": "") ?>>
+          <input  type="radio" name="warmsparewayofrestore" id="warmsparewayofrestoreapi" value="API" <?php echo (isset($warmsparewayofrestore) && $warmsparewayofrestore=="API" ?"CHECKED": "") ?>>
           <label for="warmsparewayofrestoreapi">
             <?php echo _("API");?>
           </label>
-          <input  type="radio" name="warmsparewayofrestore" id="warmsparewayofrestoressh" value="SSH" <?php echo ($warmsparewayofrestore=="SSH" ? "CHECKED": "") ?>  >
+          <input  type="radio" name="warmsparewayofrestore" id="warmsparewayofrestoressh" value="SSH" <?php echo (isset($warmsparewayofrestore) && $warmsparewayofrestore=="SSH" ? "CHECKED": "") ?>  >
           <label for="warmsparewayofrestoressh">
             <?php echo _("SSH");?>
           </label>
@@ -304,9 +304,13 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
         <div class="col-md-9">
 		<select id="warmspare_remoteapi_filestoreid" name="warmspare_remoteapi_filestoreid" class="form-control">
 			<option value="" ><?php echo _("Select Warm Spare server")?> </option>
-			<?php foreach($filestores as $servers) {?>
-			<option value="<?php echo $servers['value']?>" <?php echo $servers['selected'] ? 'selected' : '' ?>><?php echo $servers['label']?> </option>
-			<?php } ?>
+			<?php
+        if(isset($filestores) && is_array($filestores)){ 
+          foreach($filestores as $servers) {?>
+            <option value="<?php echo $servers['value']?>" <?php echo $servers['selected'] ? 'selected' : '' ?>><?php echo $servers['label']?> </option>
+			<?php } 
+        }
+      ?>
 			</select>
         </div>
       </div>
@@ -455,9 +459,13 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
         <div class="col-md-9">
 		<select id="warmspare_remotessh_filestoreid" name="warmspare_remotessh_filestoreid" class="form-control">
 			<option value="" ><?php echo _("Select Warm Spare server")?> </option>
-			<?php foreach($filestoressh as $servers) {?>
-			<option value="<?php echo $servers['value']?>" <?php echo $servers['selected'] ? 'selected' : '' ?>><?php echo $servers['label']?> </option>
-			<?php } ?>
+			<?php
+      if(isset($filestoressh) && is_array($filestoressh)){ 
+        foreach($filestoressh as $servers) {?>
+          <option value="<?php echo $servers['value']?>" <?php echo $servers['selected'] ? 'selected' : '' ?>><?php echo $servers['label']?> </option>
+			<?php } 
+      }
+      ?>
 			</select>
         </div>
       </div>

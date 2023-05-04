@@ -270,7 +270,7 @@ if (!empty($bkjobs)) {
 										</div>
 										<div class="col-md-9">
 											<select class="form-control" id="backup_storage" name="backup_storage[]" multiple="multiple">
-												<?php echo $storageopts ?>
+												<?php echo $storageopts ?? "" ?>
 											</select>
 										</div>
 									</div>
@@ -336,12 +336,12 @@ if (!empty($bkjobs)) {
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="schedule_enabled"></i>
 										</div>
 										<div class="col-md-9 radioset">
-											<input type="radio" name="schedule_enabled" id="schedule_enabledyes" value="yes" <?php echo ($schedule_enabled=="yes" ?
+											<input type="radio" name="schedule_enabled" id="schedule_enabledyes" value="yes" <?php echo (isset($schedule_enabled) && $schedule_enabled=="yes" ?
 												"CHECKED": "") ?>>
 											<label for="schedule_enabledyes">
 												<?php echo _("Yes");?>
 											</label>
-											<input type="radio" name="schedule_enabled" id="schedule_enabledno" <?php echo ($schedule_enabled=="yes" ? "": "CHECKED")
+											<input type="radio" name="schedule_enabled" id="schedule_enabledno" <?php echo (isset($schedule_enabled) && $schedule_enabled=="yes" ? "": "CHECKED")
 												?>>
 											<label for="schedule_enabledno">
 												<?php echo _("No");?>
@@ -425,6 +425,7 @@ if (!empty($bkjobs)) {
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="maintage"></i>
 										</div>
 										<div class="col-md-9">
+											<?php $maintage = $maintage ?? ""; ?>
 											<select class="form-control" id="maintage" name="maintage">
 												<option>
 													<?php echo _("Unlimited")?>

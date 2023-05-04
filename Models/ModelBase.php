@@ -28,7 +28,7 @@ class ModelBase {
 		$this->logger = $logger;
 		$this->transactionId = $transactionId;
 		$this->defaultFallback = $defaultFallback;
-		$this->getBackupManifestBackupInfo = $modData['backupInfo']['backupInfo'];
+		$this->getBackupManifestBackupInfo = $modData['backupInfo']['backupInfo'] ?? [];
 		$this->cliarguments = isset($modData['cliarguments'])? $modData['cliarguments']:array();
 		foreach($this->data as $key => $data) {
 			if(!isset($modData[$key])) {

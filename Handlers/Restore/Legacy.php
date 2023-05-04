@@ -484,7 +484,7 @@ class Legacy extends Common {
 	 * @return SimpleXML
 	 */
 	public function loadModuleXML($module){
-		if($this->ModuleXML){
+		if (isset($this->moduleXML) && $this->moduleXML) {
 			return $this;
 		}
 		$dir = $this->freepbx->Config->get('AMPWEBROOT') . '/admin/modules/' . $module;

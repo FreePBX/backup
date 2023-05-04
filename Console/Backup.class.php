@@ -89,7 +89,7 @@ class Backup extends Command {
 		$b64import = $input->getOption('b64import');
 		$skiprestorehooks = $input->getOption('skiprestorehooks');
 		$cliarguments = array();
-		$cliarguments['ignoremodules'] = (trim($input->getOption('ignoremodules')) !='')? explode(',',$input->getOption('ignoremodules')) : array();
+		$cliarguments['ignoremodules'] = (trim($input->getOption('ignoremodules') ?? "") != '') ? explode(',', $input->getOption('ignoremodules')) : array();
 		$cliarguments['skipbindport'] = $input->getOption('skipbindport');
 		$cliarguments['skipdns'] = $input->getOption('skipdns');
 		$cliarguments['skipremotenat'] = $input->getOption('skipremotenat');
@@ -142,7 +142,7 @@ class Backup extends Command {
 						}
 					}
 				}
-				return;
+				return 0;
 			break;
 			case $restoresingle:
 				$restoreHandler = new Handler\Restore\Single($this->freepbx, $restoresingle, $transactionid, posix_getpid());
@@ -171,9 +171,10 @@ class Backup extends Command {
 			break;
 			case $list:
 				$this->listBackups();
-				return;
+				return 0;
 			break;
 			case $backup:
+				$bkstatus = '';
 				$buid = $input->getOption('backup');
 				$item = $this->freepbx->Backup->getBackup($buid);
 				if(empty($item)) {
@@ -268,7 +269,7 @@ class Backup extends Command {
 						$output->writeln("Restorestatus :".$resp['msg']);
 					}
 				}
-				return;
+				return 0;
 			break;
 			case $filestore:
 				$info = $this->freepbx->Filestore->getItemById($filestore);
@@ -362,11 +363,11 @@ class Backup extends Command {
 				$backupdata = $this->freepbx->Backup->getBackup($input->getOption('dumpextern'));
 				if(!$backupdata){
 					$output->writeln("Could not find the backup specified please check the id.");
-					return false;
+					return 1;
 				}
 				$backupdata['backup_items'] = $this->freepbx->Backup->getAll('modules_'.$input->getOption('dumpextern'));
 				$output->writeln(base64_encode(json_encode($backupdata)));
-				return true;
+				return 0;
 			break;
 			case $remote:
 				$job = $transaction?$transaction:$this->freepbx->Backup->generateID();
@@ -378,7 +379,7 @@ class Backup extends Command {
 				$output->writeln($this->getHelp());
 			break;
 		}
-
+		return 0;
 	}
 	public function listBackups(){
 		$this->output->writeln("fwconsole backup --backup [Backup ID]");

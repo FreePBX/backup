@@ -193,8 +193,8 @@ class Multiple extends Common {
 				$rearragedorder[] = $lastentry;
 			}
 			$manifest['processorder'] = $rearragedorder;
-			$tar->addData('metadata.json', json_encode($manifest,JSON_PRETTY_PRINT));
 		}
+		$tar->addData('metadata.json', json_encode($manifest, JSON_PRETTY_PRINT));
 
 		$this->closeFile();
 

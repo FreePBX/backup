@@ -31,7 +31,7 @@ class Backup extends Base {
 							//lets run the  restore command 'backupfilename'
 							$filename = $input['backupfilename'];
 							if(file_exists($filename)) {
-								$command = "fwconsole backup --restore $filename --skiprestorehooks";
+								$command = ['fwconsole', 'backup', '--restore', $filename, '--skiprestorehooks'];
 								$process = new Process($command);
 								try {
 									$process->setTimeout(null);

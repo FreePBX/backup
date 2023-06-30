@@ -624,7 +624,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		$this->log(sprintf(_("Started restoring mysql dumps of : %s"), $tableName));
 
 		try {
-			$process = new Process($restore);
+			$process =  Process::fromShellCommandline($restore);
 			$process->setTimeout(3600);
 			$process->disableOutput();
 			$process->mustRun();

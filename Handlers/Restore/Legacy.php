@@ -158,7 +158,7 @@ class Legacy extends Common {
 				$command = "mysql -u $fdbuser -p$fdbpass $dbname < $sql";
 			}
 			$this->log(_("Starting legacy cdr sql restore process"));
-			$process = new Process($command);
+			$process = Process::fromShellCommandline($command);
 			try {
 				$this->log(_("Please note that, legacy cdr sql restoration process may take a long time depends on cdr sql file size "));
 				$process->setTimeout(null);

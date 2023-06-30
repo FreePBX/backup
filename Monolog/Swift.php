@@ -144,7 +144,7 @@ class Swift extends MailHandler {
 
 			//now copy the content to backup.log(backup module standard file) and delete this unique file
 			$command = 'cat '.$location.'/backup-'.$records[0]['channel'].'.log >> '.$location.'/backup.log';
-			$process = new Process($command);
+			$process = Process::fromShellCommandline($command);
 			$process->setTimeout(50);
 			$process->mustRun();
 			unlink($location.'/backup-'.$records[0]['channel'].'.log');

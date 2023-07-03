@@ -125,7 +125,7 @@ class Legacy extends Common {
 
 		if($info->getExtension() === 'gz') {
 			$this->log(sprintf(_("Extracting supplied database file %s"), $info->getBasename()));
-			$process = new Process(['gunzip', $file]);
+			$process = \freepbx_get_process_obj(['gunzip', $file]);
 			$process->mustRun();
 			$extracted = $info->getPath().'/'.$info->getBasename('.' . $info->getExtension());
 		} else {
@@ -158,7 +158,7 @@ class Legacy extends Common {
 				$command = "mysql -u $fdbuser -p$fdbpass $dbname < $sql";
 			}
 			$this->log(_("Starting legacy cdr sql restore process"));
-			$process = Process::fromShellCommandline($command);
+			$process = \freepbx_get_process_obj($command);
 			try {
 				$this->log(_("Please note that, legacy cdr sql restoration process may take a long time depends on cdr sql file size "));
 				$process->setTimeout(null);

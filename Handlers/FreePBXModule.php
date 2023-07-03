@@ -29,7 +29,7 @@ class FreePBXModule{
 			throw new \Exception(sprintf(_('Error installing %s reason(s): %s'),$module,implode(",",$install)));
 		}
 		/*
-		$process = new Process(['fwconsole', 'ma', 'install', $module, '--force']);
+		$process = \freepbx_get_process_obj(['fwconsole', 'ma', 'install', $module, '--force']);
 		$process->mustRun();
 		*/
 		return true;
@@ -41,7 +41,7 @@ class FreePBXModule{
 			throw new \Exception(sprintf(_('Error uninstalling %s reason(s): %s'),$module,implode(",",$uninstall)));
 		}
 		/*
-		$process = new Process(['fwconsole', 'ma', 'uninstall', $module, '--force']);
+		$process = \freepbx_get_process_obj(['fwconsole', 'ma', 'uninstall', $module, '--force']);
 		$process->mustRun();
 		*/
 		return true;

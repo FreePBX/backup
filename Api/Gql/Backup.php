@@ -31,8 +31,8 @@ class Backup extends Base {
 							//lets run the  restore command 'backupfilename'
 							$filename = $input['backupfilename'];
 							if(file_exists($filename)) {
-								$command = ['fwconsole', 'backup', '--restore', $filename, '--skiprestorehooks'];
-								$process = new Process($command);
+								$command = "fwconsole backup --restore $filename --skiprestorehooks";
+								$process = \freepbx_get_process_obj($command);
 								try {
 									$process->setTimeout(null);
 									$process->mustRun();

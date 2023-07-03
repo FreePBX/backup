@@ -246,7 +246,7 @@ class BackupBase extends Model\Backup{
 		$this->log(sprintf(_("Starting mysql dumps of : %s"), $tableName));
 
 		try {
-			$process = Process::fromShellCommandline($command);
+			$process = \freepbx_get_process_obj($command);
 			$process->setTimeout(3600);
 			$process->disableOutput();
 			$process->mustRun();

@@ -439,7 +439,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 				$location = $this->freepbx->Config->get('ASTLOGDIR');
 				$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup '.$args.' --transaction='.escapeshellarg($jobid);
 				file_put_contents($location.'/restore_'.$jobid.'_out.log','Running with: '.$command.PHP_EOL);
-				$process = Process::fromShellCommandline($command.' >> '.$location.'/restore_'.$jobid.'_out.log 2> '.$location.'/restore_'.$jobid.'_err.log & echo $!');
+				$process = \freepbx_get_process_obj($command.' >> '.$location.'/restore_'.$jobid.'_out.log 2> '.$location.'/restore_'.$jobid.'_err.log & echo $!');
 				$process->mustRun();
 				$log = file_get_contents($location.'/restore_'.$jobid.'_out.log');
 				return ['status' => true, 'message' => _("Restore running"), 'transaction' => $jobid, 'restoreid' => $ruid, 'pid' => trim($process->getOutput() ?? ""), 'log' => $log];
@@ -458,7 +458,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 				}
 				$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup --backup=' . escapeshellarg($buid) . '' . $warm . ' --transaction=' . escapeshellarg($jobid) . ' >> '.$location.'/backup_'.$jobid.'_out.log 2> '.$location.'/backup_'.$jobid.'_err.log & echo $!';
 				file_put_contents($location.'/backup_'.$jobid.'_out.log','Running with: '.$command.PHP_EOL);
-				$process = Process::fromShellCommandline($command);
+				$process = \freepbx_get_process_obj($command);
 				$process->mustRun();
 				$log = file_get_contents($location.'/backup_'.$jobid.'_out.log');
 				return ['status' => true, 'message' => _("Backup running"), 'transaction' => $jobid, 'backupid' => $buid, 'pid' => trim($process->getOutput() ?? ""), 'log' => $log];
@@ -655,7 +655,7 @@ public function GraphQL_Access_token($request) {
 			$filename = $sparefilepath.'/'.$filename;
 		}
 		$command = "ssh -t -i $key $user@$host '/usr/sbin/fwconsole backup --restore $path$filename --transaction=$transactionid'";
-		$process = Process::fromShellCommandline($command);
+		$process = \freepbx_get_process_obj($command);
 		try {
 			$process->setTimeout(null);
 			$process->mustRun();

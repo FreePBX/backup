@@ -202,7 +202,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 						}
 					}
 					$cmd = fpbx_which('rsync')." $excludes -rlptgov $dir/ $dst/";
-					$process = Process::fromShellCommandline($cmd);
+					$process = \freepbx_get_process_obj($cmd);
 					try {
 						$process->setTimeout(null);
 						$process->mustRun();

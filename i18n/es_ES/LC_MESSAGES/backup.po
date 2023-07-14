@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-25 01:14+0000\n"
+"POT-Creation-Date: 2023-07-14 10:38+0000\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -44,20 +44,20 @@ msgstr ""
 msgid "%s Backup %s"
 msgstr ""
 
-#: views/backup/form.php:433 views/backup/form.php:436
-#: views/backup/form.php:439 views/backup/form.php:442
+#: views/backup/form.php:434 views/backup/form.php:437
+#: views/backup/form.php:440 views/backup/form.php:443
 #, php-format
 msgid "%s Days"
 msgstr ""
 
-#: views/backup/form.php:445 views/backup/form.php:448
-#: views/backup/form.php:451 views/backup/form.php:454
-#: views/backup/form.php:457
+#: views/backup/form.php:446 views/backup/form.php:449
+#: views/backup/form.php:452 views/backup/form.php:455
+#: views/backup/form.php:458
 #, php-format
 msgid "%s Days (%s Months)"
 msgstr ""
 
-#: Handlers/Backup/Common.php:171 Handlers/Restore/Multiple.php:17
+#: Handlers/Backup/Common.php:173 Handlers/Restore/Multiple.php:17
 #, php-format
 msgid "%s does not exist"
 msgstr ""
@@ -72,7 +72,7 @@ msgstr ""
 msgid "%s is now loaded into memory"
 msgstr ""
 
-#: BackupBase.php:249
+#: BackupBase.php:254
 #, php-format
 msgid "%s table Backup Error %s "
 msgstr ""
@@ -98,19 +98,19 @@ msgstr ""
 msgid "A name used to identify your backups"
 msgstr ""
 
-#: views/backup/form.php:518
+#: views/backup/form.php:519
 msgid "A script to be run AFTER a backup is completed."
 msgstr "Un script a ser ejecutado DESPUES que el respaldo sea completado."
 
-#: views/backup/form.php:566
+#: views/backup/form.php:567
 msgid "A script to be run AFTER a backup is restored."
 msgstr "Un Script a ser ejecutado DESPUES que el respaldo sea restaurado."
 
-#: views/backup/form.php:542
+#: views/backup/form.php:543
 msgid "A script to be run BEFORE a backup is restored."
 msgstr "Un Script a ser ejecutado ANTES que el respaldo sea restaurado."
 
-#: views/backup/form.php:494
+#: views/backup/form.php:495
 msgid "A script to be run BEFORE a backup is started."
 msgstr "Un Script a ser ejecutado ANTES que el respaldo de inicio."
 
@@ -118,16 +118,16 @@ msgstr "Un Script a ser ejecutado ANTES que el respaldo de inicio."
 msgid "API"
 msgstr ""
 
-#: views/backup/warmspare.php:328
+#: views/backup/warmspare.php:332
 msgid "Access Token URL"
 msgstr ""
 
-#: views/backup/warmspare.php:340
+#: views/backup/warmspare.php:344
 msgid "Access Token URL of Warm Spare server."
 msgstr ""
 
-#: views/backup/grid.php:27 views/restore/landing.php:76
-#: views/restore/landing.php:123
+#: views/backup/grid.php:27 views/restore/landing.php:60
+#: views/restore/landing.php:91
 msgid "Actions"
 msgstr "Acciones"
 
@@ -147,22 +147,22 @@ msgstr ""
 msgid "Add custom files in backup"
 msgstr ""
 
-#: Handlers/Backup/Common.php:210
+#: Handlers/Backup/Common.php:212
 #, php-format
 msgid "Adding custom directory to tar: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:169
+#: Handlers/Backup/Common.php:171
 #, php-format
 msgid "Adding custom file to tar: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:127
+#: Handlers/Backup/Common.php:129
 #, php-format
 msgid "Adding directory to tar: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:142
+#: Handlers/Backup/Common.php:144
 #, php-format
 msgid "Adding file to tar: %s"
 msgstr ""
@@ -172,7 +172,7 @@ msgstr ""
 msgid "Adding module %s to queue because %s depends on it"
 msgstr ""
 
-#: Handlers/Backup/Common.php:149
+#: Handlers/Backup/Common.php:151
 #, php-format
 msgid "Adding module manifest for %s"
 msgstr ""
@@ -248,7 +248,7 @@ msgstr "Respalda & Restaura - Restaura"
 msgid "Backup & Restore for your FreePBX environment"
 msgstr "respaldar & restaurar para su ambiente FreePBX"
 
-#: views/restore/landing.php:73 views/restore/landing.php:119
+#: views/restore/landing.php:57 views/restore/landing.php:87
 msgid "Backup Date"
 msgstr ""
 
@@ -272,7 +272,7 @@ msgstr "ERROR respaldo (excede limites blandos)"
 msgid "Backup File"
 msgstr ""
 
-#: views/restore/landing.php:118
+#: views/restore/landing.php:86
 msgid "Backup File Name"
 msgstr ""
 
@@ -285,7 +285,7 @@ msgstr ""
 msgid "Backup Info"
 msgstr ""
 
-#: views/restore/landing.php:122
+#: views/restore/landing.php:90
 msgid "Backup Instance"
 msgstr ""
 
@@ -293,7 +293,7 @@ msgstr ""
 msgid "Backup Items"
 msgstr "Respaldar Elementos"
 
-#: views/backup/form.php:48 views/restore/landing.php:72
+#: views/backup/form.php:48 views/restore/landing.php:56
 msgid "Backup Name"
 msgstr "Nombre del Respaldo"
 
@@ -305,7 +305,7 @@ msgstr ""
 msgid "Backup Storage Location Required"
 msgstr ""
 
-#: views/restore/landing.php:121
+#: views/restore/landing.php:89
 msgid "Backup Type"
 msgstr ""
 
@@ -313,7 +313,7 @@ msgstr ""
 msgid "Backup Wizard"
 msgstr "Asistente de Respaldo"
 
-#: Console/Backup.class.php:129 Console/Backup.class.php:223
+#: Console/Backup.class.php:129 Console/Backup.class.php:224
 msgid "Backup completed successfully"
 msgstr ""
 
@@ -399,27 +399,27 @@ msgstr ""
 msgid "Click to upload a backup file."
 msgstr ""
 
-#: views/backup/warmspare.php:424
+#: views/backup/warmspare.php:428
 msgid "Client Access Token"
 msgstr ""
 
-#: views/backup/warmspare.php:352
+#: views/backup/warmspare.php:356
 msgid "Client ID"
 msgstr ""
 
-#: views/backup/warmspare.php:376
+#: views/backup/warmspare.php:380
 msgid "Client Secret"
 msgstr ""
 
-#: views/backup/warmspare.php:388
+#: views/backup/warmspare.php:392
 msgid "Client Secret of the Warm Spare server."
 msgstr ""
 
-#: views/backup/warmspare.php:364
+#: views/backup/warmspare.php:368
 msgid "ClientID of the Warm Spare server."
 msgstr ""
 
-#: views/backup/form.php:637 views/runModal.php:12
+#: views/backup/form.php:638 views/runModal.php:12
 msgid "Close"
 msgstr ""
 
@@ -432,7 +432,7 @@ msgstr ""
 msgid "Complete Path"
 msgstr ""
 
-#: BackupBase.php:256
+#: BackupBase.php:261
 #, php-format
 msgid "Completed mysql dumps of : %s"
 msgstr ""
@@ -488,18 +488,18 @@ msgstr "Creando Directorio '%s'"
 msgid "Custom Files"
 msgstr ""
 
-#: Handlers/Backup/Common.php:220
+#: Handlers/Backup/Common.php:222
 #, php-format
 msgid "Custom directory not exists: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:176
+#: Handlers/Backup/Common.php:178
 #, php-format
 msgid "Custom file not exists: %s"
 msgstr ""
 
 #: Backup.class.php:209 views/backup/item_table.php:14
-#: views/restore/landing.php:49 views/restore/landing.php:95
+#: views/restore/landing.php:49 views/restore/landing.php:79
 #: assets/js/backup.js:207 assets/js/backup.js:246
 msgid "Delete"
 msgstr "Eliminar"
@@ -532,7 +532,7 @@ msgstr "Descripción"
 msgid "Detected file %s as the PBX (Asterisk) database. Attempting restore"
 msgstr ""
 
-#: Console/Backup.class.php:295
+#: Console/Backup.class.php:296
 msgid "Determining backup file type..."
 msgstr ""
 
@@ -549,7 +549,7 @@ msgstr "Directorio '%s' no existe y no pudo ser creado"
 msgid "Disable Remote Trunks"
 msgstr ""
 
-#: Console/Backup.class.php:281 Handlers/Restore/Common.php:130
+#: Console/Backup.class.php:282 Handlers/Restore/Common.php:130
 #: Handlers/Restore/Legacy.php:247
 msgid "Done"
 msgstr ""
@@ -684,7 +684,7 @@ msgstr ""
 msgid "Exporting Advanced settings from %s"
 msgstr ""
 
-#: BackupBase.php:132
+#: BackupBase.php:137
 #, php-format
 msgid "Exporting Databases from %s"
 msgstr ""
@@ -694,12 +694,12 @@ msgstr ""
 msgid "Exporting Feature Codes from %s"
 msgstr ""
 
-#: BackupBase.php:168
+#: BackupBase.php:173
 #, php-format
 msgid "Exporting KVStore based on ids  %s"
 msgstr ""
 
-#: BackupBase.php:166
+#: BackupBase.php:171
 #, php-format
 msgid "Exporting KVStore from %s"
 msgstr ""
@@ -751,11 +751,11 @@ msgstr ""
 msgid "Finished Cleaning up"
 msgstr ""
 
-#: Console/Backup.class.php:210
+#: Console/Backup.class.php:211
 msgid "Finished Local Maintenance"
 msgstr ""
 
-#: Console/Backup.class.php:213
+#: Console/Backup.class.php:214
 msgid "Finished Remote Maintenance"
 msgstr ""
 
@@ -768,7 +768,7 @@ msgstr ""
 msgid "Finished created backup file: %s"
 msgstr ""
 
-#: Handlers/Backup/Common.php:214
+#: Handlers/Backup/Common.php:216
 #, php-format
 msgid "Folder %s does not exist"
 msgstr ""
@@ -778,7 +778,7 @@ msgstr ""
 msgid "Found %s database files in the backup."
 msgstr ""
 
-#: views/restore/landing.php:75
+#: views/restore/landing.php:59
 msgid "Framework"
 msgstr ""
 
@@ -796,7 +796,7 @@ msgstr ""
 msgid "Generating Key Pair please standby"
 msgstr ""
 
-#: views/backup/warmspare.php:438
+#: views/backup/warmspare.php:442
 msgid "Get OAUTH2 Token for the Warm Spare server API."
 msgstr ""
 
@@ -808,19 +808,19 @@ msgstr ""
 msgid "Global Settings"
 msgstr ""
 
-#: views/backup/warmspare.php:400
+#: views/backup/warmspare.php:404
 msgid "GraphQL URL"
 msgstr ""
 
-#: views/backup/warmspare.php:412
+#: views/backup/warmspare.php:416
 msgid "GraphQL URL of the Warm Spare server."
 msgstr ""
 
-#: views/backup/form.php:473
+#: views/backup/form.php:474
 msgid "Hooks"
 msgstr "Ganchos"
 
-#: Api/Gql/Backup.php:354 Api/Gql/Backup.php:421 views/backup/form.php:466
+#: Api/Gql/Backup.php:354 Api/Gql/Backup.php:421 views/backup/form.php:467
 msgid ""
 "How long to maintain backups. Example 30 will delete anything older than 30 "
 "days."
@@ -1012,7 +1012,7 @@ msgstr ""
 msgid "Missing id or transaction or pid"
 msgstr ""
 
-#: views/backup/form.php:626 views/restore/processRestore.php:48
+#: views/backup/form.php:627 views/restore/processRestore.php:48
 msgid "Module"
 msgstr ""
 
@@ -1028,7 +1028,7 @@ msgstr ""
 msgid "Modules in this backup"
 msgstr ""
 
-#: views/backup/form.php:601
+#: views/backup/form.php:602
 msgid "Modules to Backup"
 msgstr ""
 
@@ -1135,11 +1135,11 @@ msgstr ""
 msgid "Path: %s"
 msgstr ""
 
-#: Console/Backup.class.php:208
+#: Console/Backup.class.php:209
 msgid "Performing Local Maintenance"
 msgstr ""
 
-#: Console/Backup.class.php:211
+#: Console/Backup.class.php:212
 msgid "Performing Remote Maintenance"
 msgstr ""
 
@@ -1149,19 +1149,19 @@ msgid ""
 "depends on cdr sql file size "
 msgstr ""
 
-#: views/backup/form.php:506
+#: views/backup/form.php:507
 msgid "Post-Backup Hook"
 msgstr "Gancho Post-Respaldo"
 
-#: views/backup/form.php:554
+#: views/backup/form.php:555
 msgid "Post-Restore Hook"
 msgstr "Gancho Post-Respaldo"
 
-#: views/backup/form.php:482
+#: views/backup/form.php:483
 msgid "Pre-Backup Hook"
 msgstr "Gancho Pre-Respaldo"
 
-#: views/backup/form.php:530
+#: views/backup/form.php:531
 msgid "Pre-Restore Hook"
 msgstr "Gancho Pre-Restaurar"
 
@@ -1218,7 +1218,7 @@ msgstr ""
 msgid "Removing table %s."
 msgstr ""
 
-#: Backup.class.php:194 views/backup/form.php:634
+#: Backup.class.php:194 views/backup/form.php:635
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -1232,11 +1232,11 @@ msgstr ""
 msgid "Resetting %s module data"
 msgstr ""
 
-#: Console/Backup.class.php:266
+#: Console/Backup.class.php:267
 msgid "Response from Warmspare Server "
 msgstr ""
 
-#: Console/Backup.class.php:258
+#: Console/Backup.class.php:259
 msgid "Response from Warmspare backup Server API"
 msgstr ""
 
@@ -1252,7 +1252,7 @@ msgstr ""
 msgid "Restore Information"
 msgstr ""
 
-#: Console/Backup.class.php:156 Console/Backup.class.php:344
+#: Console/Backup.class.php:156 Console/Backup.class.php:345
 msgid "Restore completed successfully"
 msgstr ""
 
@@ -1260,7 +1260,7 @@ msgstr ""
 msgid "Restore from local cache"
 msgstr ""
 
-#: views/restore/landing.php:84
+#: views/restore/landing.php:68
 msgid "Restore from the cloud"
 msgstr ""
 
@@ -1316,7 +1316,7 @@ msgstr ""
 msgid "Restoring from %s [%s]"
 msgstr ""
 
-#: Console/Backup.class.php:278
+#: Console/Backup.class.php:279
 #, php-format
 msgid "Retrieving %s from %s:%s..."
 msgstr ""
@@ -1433,7 +1433,7 @@ msgstr "SSH"
 msgid "Save"
 msgstr "Salvar"
 
-#: views/backup/form.php:640
+#: views/backup/form.php:641
 msgid "Save Changes"
 msgstr ""
 
@@ -1466,7 +1466,7 @@ msgstr ""
 msgid "See attachment"
 msgstr ""
 
-#: views/backup/warmspare.php:306 views/backup/warmspare.php:457
+#: views/backup/warmspare.php:306 views/backup/warmspare.php:461
 msgid "Select Warm Spare server"
 msgstr ""
 
@@ -1480,7 +1480,7 @@ msgid ""
 "configured with the Filestore module"
 msgstr ""
 
-#: views/backup/form.php:623
+#: views/backup/form.php:624
 msgid "Selected"
 msgstr "Seleccionados"
 
@@ -1508,7 +1508,7 @@ msgstr ""
 msgid "Should the warm spare feature be enabled, default false"
 msgstr ""
 
-#: views/restore/landing.php:74 views/restore/landing.php:120
+#: views/restore/landing.php:58 views/restore/landing.php:88
 msgid "Size"
 msgstr ""
 
@@ -1586,7 +1586,7 @@ msgstr ""
 msgid "Starting legacy cdr sql restore process"
 msgstr ""
 
-#: BackupBase.php:241
+#: BackupBase.php:246
 #, php-format
 msgid "Starting mysql dumps of : %s"
 msgstr ""
@@ -1619,7 +1619,7 @@ msgstr ""
 msgid "System Transfer"
 msgstr ""
 
-#: Handlers/Backup/Common.php:76
+#: Handlers/Backup/Common.php:78
 #, php-format
 msgid "System is not Activated,Skipping %s module"
 msgstr ""
@@ -1683,12 +1683,12 @@ msgid ""
 "The module %s does not support restore or is not installed on this system"
 msgstr ""
 
-#: Handlers/Backup/Common.php:89
+#: Handlers/Backup/Common.php:91
 #, php-format
 msgid "The module %s doesn't seem to support Backup"
 msgstr ""
 
-#: Handlers/Backup/Common.php:116
+#: Handlers/Backup/Common.php:118
 #, php-format
 msgid "The module %s returned no data, No backup created"
 msgstr ""
@@ -1702,19 +1702,19 @@ msgstr ""
 msgid "There was nothing to cleanup"
 msgstr ""
 
-#: Console/Backup.class.php:133 Console/Backup.class.php:228
+#: Console/Backup.class.php:133 Console/Backup.class.php:229
 msgid "There were errors during the backup process"
 msgstr ""
 
-#: Console/Backup.class.php:159 Console/Backup.class.php:347
+#: Console/Backup.class.php:159 Console/Backup.class.php:348
 msgid "There were errors during the restore process"
 msgstr ""
 
-#: Console/Backup.class.php:139 Console/Backup.class.php:234
+#: Console/Backup.class.php:139 Console/Backup.class.php:235
 msgid "There were warnings during the backup process"
 msgstr ""
 
-#: Console/Backup.class.php:165 Console/Backup.class.php:353
+#: Console/Backup.class.php:165 Console/Backup.class.php:354
 msgid "There were warnings during the restore process"
 msgstr ""
 
@@ -1723,7 +1723,7 @@ msgid ""
 "This backup will be stored locally and is subject to maintenance settings"
 msgstr ""
 
-#: views/restore/landing.php:88
+#: views/restore/landing.php:72
 msgid ""
 "This feature requires filestore be setup and may not be availible on a clean "
 "install"
@@ -1808,7 +1808,7 @@ msgstr ""
 msgid "Unknown module %s"
 msgstr ""
 
-#: views/backup/form.php:430
+#: views/backup/form.php:431
 msgid "Unlimited"
 msgstr ""
 
@@ -1828,7 +1828,7 @@ msgstr ""
 msgid "Uploading..."
 msgstr ""
 
-#: Handlers/Backup/Common.php:95
+#: Handlers/Backup/Common.php:97
 msgid "Using default backup strategy"
 msgstr ""
 
@@ -1866,17 +1866,17 @@ msgstr ""
 msgid "Warm Spare"
 msgstr ""
 
-#: views/backup/warmspare.php:300 views/backup/warmspare.php:451
+#: views/backup/warmspare.php:300 views/backup/warmspare.php:455
 msgid "Warm Spare Server"
 msgstr ""
 
-#: views/backup/warmspare.php:317 views/backup/warmspare.php:468
+#: views/backup/warmspare.php:321 views/backup/warmspare.php:476
 msgid ""
 "Warm Spare server needs to add to filestore, And it should be a FreePBX 15 "
 "and Above"
 msgstr ""
 
-#: Console/Backup.class.php:252 Console/Backup.class.php:263
+#: Console/Backup.class.php:253 Console/Backup.class.php:264
 msgid "Warmspare enabled for this backup"
 msgstr ""
 
@@ -1884,11 +1884,11 @@ msgstr ""
 msgid "Way to Connect Warm spare Server"
 msgstr ""
 
-#: Console/Backup.class.php:255
+#: Console/Backup.class.php:256
 msgid "We Have triggered an API to restore the backup on Spare Server"
 msgstr ""
 
-#: Console/Backup.class.php:264
+#: Console/Backup.class.php:265
 msgid "We are running Restore command on Spare Server"
 msgstr ""
 
@@ -1951,7 +1951,7 @@ msgstr ""
 msgid "When to email default both"
 msgstr ""
 
-#: Handlers/Backup/Common.php:72
+#: Handlers/Backup/Common.php:74
 #, php-format
 msgid "Working with %s module"
 msgstr ""
@@ -2022,7 +2022,7 @@ msgstr ""
 msgid "success"
 msgstr ""
 
-#: Console/Backup.class.php:300
+#: Console/Backup.class.php:301
 #, php-format
 msgid "type is %s"
 msgstr ""

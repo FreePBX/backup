@@ -95,5 +95,5 @@ if (isset($error) && !empty($error)) {
 	</div>
 </div>
 <script>
-	var runningRestore = <?php echo json_encode($runningRestore ?? ""); ?>;
+	var runningRestore = <?php echo json_encode($runningRestore ?? "", JSON_THROW_ON_ERROR); ?>;
 </script>

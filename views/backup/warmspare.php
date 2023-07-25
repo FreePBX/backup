@@ -6,7 +6,7 @@
 </div>
 <?php
 //setting default API, untill SSH  is implimented
-$warmsparewayofrestore = isset($warmsparewayofrestore) ? $warmsparewayofrestore : 'API';
+$warmsparewayofrestore ??= 'API';
 $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spare Token").'</a>';
 ?>
 <div class="section" data-id="backup-warmspare">
@@ -334,7 +334,7 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
           <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remoteapi_accesstokenurl"></i>
         </div>
         <div class="col-md-9">
-          <input type="text" class="form-control" id="warmspare_remoteapi_accesstokenurl" name="warmspare_remoteapi_accesstokenurl" value="<?php echo isset($warmspare_remoteapi_accesstokenurl)?$warmspare_remoteapi_accesstokenurl:''?>">
+          <input type="text" class="form-control" id="warmspare_remoteapi_accesstokenurl" name="warmspare_remoteapi_accesstokenurl" value="<?php echo $warmspare_remoteapi_accesstokenurl ?? ''?>">
         </div>
       </div>
     </div>
@@ -358,7 +358,7 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
           <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remoteapi_clientid"></i>
         </div>
         <div class="col-md-9">
-          <input type="text" class="form-control" id="warmspare_remoteapi_clientid" name="warmspare_remoteapi_clientid" value="<?php echo isset($warmspare_remoteapi_clientid)?$warmspare_remoteapi_clientid:''?>">
+          <input type="text" class="form-control" id="warmspare_remoteapi_clientid" name="warmspare_remoteapi_clientid" value="<?php echo $warmspare_remoteapi_clientid ?? ''?>">
         </div>
       </div>
     </div>
@@ -382,7 +382,7 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
           <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remoteapi_secret"></i>
         </div>
         <div class="col-md-9">
-          <input type="text" class="form-control" id="warmspare_remoteapi_secret" name="warmspare_remoteapi_secret" value="<?php echo isset($warmspare_remoteapi_secret)?$warmspare_remoteapi_secret:''?>">
+          <input type="text" class="form-control" id="warmspare_remoteapi_secret" name="warmspare_remoteapi_secret" value="<?php echo $warmspare_remoteapi_secret ?? ''?>">
         </div>
       </div>
     </div>
@@ -406,7 +406,7 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
           <i class="fa fa-question-circle fpbx-help-icon" data-for="warmspare_remoteapi_gql"></i>
         </div>
         <div class="col-md-9">
-          <input type="text" class="form-control" id="warmspare_remoteapi_gql" name="warmspare_remoteapi_gql" value="<?php echo isset($warmspare_remoteapi_gql)?$warmspare_remoteapi_gql:''?>">
+          <input type="text" class="form-control" id="warmspare_remoteapi_gql" name="warmspare_remoteapi_gql" value="<?php echo $warmspare_remoteapi_gql ?? ''?>">
         </div>
       </div>
     </div>
@@ -431,8 +431,8 @@ $button = '<button id="oauthbutton" class = "btn btn-default">'._("Get Warm Spar
 		  <?php echo $button; ?>
         </div>
         <div class="col-md-9">
-          <input type="text" class="form-control" id="warmspare_remoteapi_accesstoken" name="warmspare_remoteapi_accesstoken" value="<?php echo isset($warmspare_remoteapi_accesstoken)?$warmspare_remoteapi_accesstoken:''?>" readonly>
-		  <input type="hidden" class="form-control" id="warmspare_remoteapi_accesstoken_expire" name="warmspare_remoteapi_accesstoken_expire" value="<?php echo isset($warmspare_remoteapi_accesstoken_expire)?$warmspare_remoteapi_accesstoken_expire:''?>" >
+          <input type="text" class="form-control" id="warmspare_remoteapi_accesstoken" name="warmspare_remoteapi_accesstoken" value="<?php echo $warmspare_remoteapi_accesstoken ?? ''?>" readonly>
+		  <input type="hidden" class="form-control" id="warmspare_remoteapi_accesstoken_expire" name="warmspare_remoteapi_accesstoken_expire" value="<?php echo $warmspare_remoteapi_accesstoken_expire ?? ''?>" >
 		</div>
       </div>
     </div>

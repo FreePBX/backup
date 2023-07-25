@@ -28,4 +28,4 @@
         </tr>
     </thead>
 </table>
-<script>var runningBackupJobs = <?php echo json_encode($runningBackups)?>;</script>
+<script>var runningBackupJobs = <?php echo json_encode($runningBackups, JSON_THROW_ON_ERROR)?>;</script>

@@ -72,7 +72,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 	];
 	public $loggingHooks = null;
 
-	private $validModulesCache;
+	private ?array $validModulesCache = null;
 
 
 	public function __construct($freepbx = null) {
@@ -142,7 +142,7 @@ class Backup extends FreePBX_Helpers implements BMO {
           
 			$crons = $this->freepbx->Cron->getAll();
 			foreach($crons as $c) {
-				if(preg_match('/backup\.php/',$c,$matches)) {
+				if(preg_match('/backup\.php/',(string) $c,$matches)) {
 					$this->freepbx->Cron->remove($c);
 				}
 			}
@@ -295,7 +295,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 						foreach($files as $f) {
 							$server = $f['id'];
 							$file = $f['file'];
-							$server = explode('_', $server);
+							$server = explode('_', (string) $server);
 							if(!$this->deleteRemote($server[1], $file)){
 								return ['status' => false, "message" => _("Something failed, The file may need to be removed manually.")];
 							}
@@ -318,7 +318,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 			case 'deleteRemote':
 				$server = $id = $_REQUEST['id'];
 				$file = $_REQUEST['file'];
-				$server = explode('_', $server);
+				$server = explode('_', (string) $server);
 				if($this->deleteRemote($server[1], $file)){
 					return ['status' => true, "message" => _("File Deleted"), "id" => $id];
 				}
@@ -368,10 +368,10 @@ class Backup extends FreePBX_Helpers implements BMO {
   				if(file_exists($finalname)){
 					unlink($finalname);
 				}
-				$uuid_folders = array_diff(scandir($path), array('..', '.'));
+				$uuid_folders = array_diff(scandir($path), ['..', '.']);
 				foreach($uuid_folders as $target){
 					if(is_dir($path."/".$target)){
-						$uuid_content = array_diff(scandir($path."/".$target), array('..', '.'));
+						$uuid_content = array_diff(scandir($path."/".$target), ['..', '.']);
 						if(empty($uuid_content)){
 							@rmdir($path."/".$target);
 						}
@@ -390,7 +390,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 					for ($i = 0; $i <= $num_chunks - 1; $i++) {
 
 						$file = fopen($target_file . $i, 'rb');
-						$buff = fread($file, 2097152);
+						$buff = fread($file, 2_097_152);
 						fclose($file);
 
 						$final = fopen($finalname, 'ab');
@@ -417,12 +417,12 @@ class Backup extends FreePBX_Helpers implements BMO {
 				$legacycdrenable = isset($_REQUEST['legacycdrenable'])?1:0;
 				if(isset($_GET['filepath'])) {
 					//filestore
-					$parts = explode("_",$_GET['fileid']);
+					$parts = explode("_",(string) $_GET['fileid']);
 					$info = $this->freepbx->Filestore->getItemById($parts[1]);
 					if(empty($info)) {
 						return ['status' => false, 'message' => _("Could not find a file for the id supplied")];
 					} else {
-						$args = '--filestore='.escapeshellarg($parts[1]).' --restore='.escapeshellarg($_GET['filepath']);
+						$args = '--filestore='.escapeshellarg($parts[1]).' --restore='.escapeshellarg((string) $_GET['filepath']);
 					}
 				} else {
 					//local
@@ -430,7 +430,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 					if(!$file){
 						return ['status' => false, 'message' => _("Could not find a file for the id supplied")];
 					}
-					$args = '--restore='.escapeshellarg($file);
+					$args = '--restore='.escapeshellarg((string) $file);
 				}
 				if($legacycdrenable == 1) {
 					$args = $args. ' --restorelegacycdr';
@@ -456,7 +456,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 				} else {
 					$warm = '';
 				}
-				$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup --backup=' . escapeshellarg($buid) . '' . $warm . ' --transaction=' . escapeshellarg($jobid) . ' >> '.$location.'/backup_'.$jobid.'_out.log 2> '.$location.'/backup_'.$jobid.'_err.log & echo $!';
+				$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup --backup=' . escapeshellarg((string) $buid) . '' . $warm . ' --transaction=' . escapeshellarg($jobid) . ' >> '.$location.'/backup_'.$jobid.'_out.log 2> '.$location.'/backup_'.$jobid.'_err.log & echo $!';
 				file_put_contents($location.'/backup_'.$jobid.'_out.log','Running with: '.$command.PHP_EOL);
 				$process = \freepbx_get_process_obj($command);
 				$process->mustRun();
@@ -479,7 +479,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 							'children' => []
 						];
 						foreach ($locations as $location) {
-							$name = isset($location['displayname'])?$location['displayname']:$location ['name'];
+							$name = $location['displayname'] ?? $location ['name'];
 							$select       = in_array($driver.'_'.$location['id'], $storage_ids);
 							$optgroup['children'][] = [
 								'label'    => $name,
@@ -496,7 +496,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 				}
 			break;
 			case 'backupItems':
-				$id  = isset($_GET['id'])?$_GET['id']: '';
+				$id  = $_GET['id'] ?? '';
 				return $this->moduleItemsByBackupID($id);
 			default:
 				return false;
@@ -567,12 +567,12 @@ class Backup extends FreePBX_Helpers implements BMO {
 				}
 				if(!isset($filepath)){
 					$filepath = $this->getAll('localfilepaths');
-					$filepath = isset($filepath[$_REQUEST['id']])?$filepath[$_REQUEST['id']]:false;
+					$filepath = $filepath[$_REQUEST['id']] ?? false;
 				}
 				if(empty($filepath)){
 					return false;
 				}
-				header("Content-disposition: attachment; filename=".basename($filepath));
+				header("Content-disposition: attachment; filename=".basename((string) $filepath));
 				header("Content-type: application/octet-stream");
 				readfile($filepath);
 				exit;
@@ -592,12 +592,13 @@ class Backup extends FreePBX_Helpers implements BMO {
 		}
 	}
 public function GraphQL_Access_token($request) {
-		$client_id = $request['warmspare_remoteapi_clientid'];
+		$res = [];
+  $client_id = $request['warmspare_remoteapi_clientid'];
 		$client_secret = $request['warmspare_remoteapi_secret'];
 		$token_url = $request['warmspare_remoteapi_accesstokenurl'];
-		$content = array("grant_type"=>"client_credentials","scope"=>"gql:backup:write");
+		$content = ["grant_type"=>"client_credentials", "scope"=>"gql:backup:write"];
 		$authorization = base64_encode("$client_id:$client_secret");
-		$header = array("Authorization: Basic {$authorization}","Content-Type: application/x-www-form-urlencoded");
+		$header = ["Authorization: Basic {$authorization}", "Content-Type: application/x-www-form-urlencoded"];
 		$pest = new \Pest($token_url);
 		$pest->setupAuth($client_id,$client_secret);
 		$response = $pest->post($token_url, $content, $header);
@@ -616,7 +617,7 @@ public function GraphQL_Access_token($request) {
 		return $retrun;
 	}
 	public function triggerWarmSpareGqlAPI($item , $filename,$transactionid,$sparefilepath) {
-		$sparefilepath = rtrim($sparefilepath,'/');
+		$sparefilepath = rtrim((string) $sparefilepath,'/');
 		if ($item['backup_addbjname'] == 'yes') {
 			$foldername = $item['backup_name'];
 			$filename = $sparefilepath.'/'.$foldername.'/'.$filename;
@@ -633,21 +634,23 @@ public function GraphQL_Access_token($request) {
 		$access_token = $item['warmspare_remoteapi_accesstoken'];
 		$client = new \EUAutomation\GraphQL\Client($service_url);
 		$query = 'mutation{runWarmsparebackuprestore(input:{backupfilename:"'.$filename.'" clientMutationId:"'.$transactionid.'"}) {clientMutationId restorestatus}}';
-		$headers = array("Authorization"=> "Bearer {$access_token}", "Content-Type"=> "application/json");
+		$headers = ["Authorization"=> "Bearer {$access_token}", "Content-Type"=> "application/json"];
 		$variables = '';
 		$response = $client->json($query, $variables, $headers);
 		return $response;
 	}
 	
 	public function RunRestoreusingSSH($item , $filename,$transactionid) {
-		//get SSH details from filestore
-		$filestoteid = substr($item['warmspare_remotessh_filestoreid'],4);
+		$path = null;
+  $return = [];
+  //get SSH details from filestore
+		$filestoteid = substr((string) $item['warmspare_remotessh_filestoreid'],4);
 		$filestore = $this->freepbx->Filestore->getItemById($filestoteid);
 		$key = $filestore['key'];
 		$user = $filestore['user'];
 		$host = $filestore['host'];
 		$sparefilepath = $filestore['path'];
-		$sparefilepath = rtrim($sparefilepath,'/');
+		$sparefilepath = rtrim((string) $sparefilepath,'/');
 		if ($item['backup_addbjname'] == 'yes') {
 			$foldername = $item['backup_name'];
 			$filename = $sparefilepath.'/'.$foldername.'/'.$filename;
@@ -661,7 +664,7 @@ public function GraphQL_Access_token($request) {
 			$process->mustRun();
 			$return['status'] = true;
 			$return['msg']= _('Backup Restored Successfully');
-		} catch (ProcessFailedException $e) {
+		} catch (ProcessFailedException) {
 			$return['msg']= _('Error running Restore on Spare Server');
 			$return['status'] = false;
 		}
@@ -679,7 +682,7 @@ public function GraphQL_Access_token($request) {
 					return _("Invalid Backup ID");
 				}
 			case 'addbackup':
-				$randcron          = sprintf('59 23 * * %s',rand(0,6));
+				$randcron          = sprintf('59 23 * * %s',random_int(0,6));
 				$vars              = ['id' => ''];
 				$vars['backup_schedule'] = $randcron;
 				if(isset($backup)){
@@ -697,9 +700,9 @@ public function GraphQL_Access_token($request) {
 						'warmspare_enable' => 'no',
 					];
 					$settings = $this->getConfig('warmsparesettings');
-					$settings = $settings?$settings:[];
+					$settings = $settings ?: [];
 					foreach($warmsparedefaults as $key => $value){
-						$value = isset($settings[$key])?$settings[$key]:$value;
+						$value = $settings[$key] ?? $value;
 						$vars[$key]  = $value;
 					}
 					try {
@@ -711,7 +714,7 @@ public function GraphQL_Access_token($request) {
 								continue;
 							}
 							foreach ($locations as $location) {
-								$name = isset($location['displayname'])?$location['displayname']:$location ['name'];
+								$name = $location['displayname'] ?? $location ['name'];
 								$select = ($driver.'_'.$location['id']== $vars['warmspare_remoteapi_filestoreid'])? true : '';
 								$optgroup[] = [
 									'label'    => $name,
@@ -723,7 +726,7 @@ public function GraphQL_Access_token($request) {
 								continue;
 							}
 							foreach ($locations as $location) {
-								$name = isset($location['displayname'])?$location['displayname']:$location ['name'];
+								$name = $location['displayname'] ?? $location ['name'];
 								$select = ($driver.'_'.$location['id']== $vars['warmspare_remotessh_filestoreid'])? true : '';
 								$sshoptgroup[] = [
 									'label'    => $name,
@@ -734,7 +737,7 @@ public function GraphQL_Access_token($request) {
 						}
 						$vars['filestores'] = is_array($optgroup) ? $optgroup : [];
 						$vars['filestoressh'] = is_array($sshoptgroup) ? $sshoptgroup : [];
-					} catch (\Exception $e) {
+					} catch (\Exception) {
 						$vars['filestores'] = false;
 					}
 					
@@ -757,7 +760,7 @@ public function GraphQL_Access_token($request) {
 				}
 				if($_GET['type'] == 'remote'){
 					$path = $this->remoteToLocal($_GET['fileid'],$_GET['filepath']);
-					$fileid = md5($path);
+					$fileid = md5((string) $path);
 				}
 				if(empty($path)){
 					return load_view(__DIR__.'/views/restore/landing.php',['error' => _("Couldn't find your file, please try submitting your file again.")]);
@@ -818,7 +821,7 @@ public function GraphQL_Access_token($request) {
 				}
 				return load_view(__DIR__.'/views/backup/grid.php',['runningBackups' => $finalList]);
 			case 'restore':
-				$view = isset($_GET['view'])?$_GET['view']: 'default';
+				$view = $_GET['view'] ?? 'default';
 				$running = $this->freepbx->Backup->getConfig("runningRestoreJob");
 				if(empty($running) || !posix_getpgid($running['pid'])) {
 					if(!empty($running) && !posix_getpgid($running['pid'])) {
@@ -851,7 +854,7 @@ public function GraphQL_Access_token($request) {
 	public function getBackupSettingsDisplay($id = ''){
 		$modules = $this->freepbx->Hooks->processHooks($id);
 		foreach($modules as $module => &$data) {
-			$data = '<form id="modulesetting_'.strtolower($module).'">'. $data.'</form>';
+			$data = '<form id="modulesetting_'.strtolower((string) $module).'">'. $data.'</form>';
 		}
 		return $modules;
 	}
@@ -872,7 +875,7 @@ public function GraphQL_Access_token($request) {
 		}
 		$hookpath      = getenv('BACKUPHOOKDIR');
 		$homedir = $this->getAsteriskUserHomeDir();
-		$hookpath      = $hookpath?$hookpath:$homedir.'/Backup';
+		$hookpath      = $hookpath ?: $homedir.'/Backup';
 
 		if (!file_exists($hookpath)) {
 			return;
@@ -968,7 +971,7 @@ public function GraphQL_Access_token($request) {
 		}
 		$return = [];
 		foreach ($this->backupFields as $key) {
-			$return[$key] = isset($data[$key])?$data[$key]:'';
+			$return[$key] = $data[$key] ?? '';
 		}
 		return $return;
 	}
@@ -981,7 +984,7 @@ public function GraphQL_Access_token($request) {
 	public function getLocalFiles(){
 		$files     = [];
 		$base      = $this->freepbx->Config->get('ASTSPOOLDIR');
-		$base      = $base?$base:'/var/spool/asterisk';
+		$base      = $base ?: '/var/spool/asterisk';
 		$backupdir = $base . '/backup';
 
 		$this->fs->mkdir($backupdir);
@@ -992,15 +995,15 @@ public function GraphQL_Access_token($request) {
 		foreach($Iterator as $k => $v){
 			$path       = $v->getPathInfo()->getRealPath();
 			$buname     = $v->getFilename();
-			$buname     = str_replace('_',' ',$buname);
+			$buname     = str_replace('_',' ',(string) $buname);
 			$backupFile = new BackupSplFileInfo($k);
 			$backupinfo = $backupFile->backupData();
 			if(empty($backupinfo)){
 				continue;
 			}
-			$this->setConfig(md5($k),$k,'localfilepaths');
+			$this->setConfig(md5((string) $k),$k,'localfilepaths');
 			$backupinfo['path'] = $path;
-			$backupinfo['id']   = md5($k);
+			$backupinfo['id']   = md5((string) $k);
 			$backupinfo['name'] = $buname;
 			$backupinfo['timestamp'] = $backupinfo['timestamp'];
 			$backupinfo['size'] = $backupinfo['size'];
@@ -1062,8 +1065,8 @@ public function GraphQL_Access_token($request) {
 				'selected'   => empty($id) || in_array($module['rawname'], $selected),
 				'display' => $module['name']
 			];
-			if(isset($settingdisplays[ucfirst(strtolower($module['rawname']))])) {
-				$item['settingdisplay'] = $settingdisplays[ucfirst(strtolower($module['rawname']))];
+			if(isset($settingdisplays[ucfirst(strtolower((string) $module['rawname']))])) {
+				$item['settingdisplay'] = $settingdisplays[ucfirst(strtolower((string) $module['rawname']))];
 			}
 			$ret[] = $item;
 		}
@@ -1090,7 +1093,7 @@ public function GraphQL_Access_token($request) {
 		$allcrons = $this->freepbx->Cron->getAll();
 		$allcrons = is_array($allcrons)?$allcrons:[];
 		foreach ($allcrons as $cmd) {
-			if (strpos($cmd, 'fwconsole backup') !== false) {
+			if (str_contains((string) $cmd, 'fwconsole backup')) {
 				$this->freepbx->Cron->remove($cmd);
 			}
 		}
@@ -1127,18 +1130,18 @@ public function GraphQL_Access_token($request) {
 
 			$value = $this->getReqUnsafe($col,'');
 			if($col == 'backup_name'){
-				$value = str_replace(' ', '-', $value); 
+				$value = str_replace(' ', '-', (string) $value); 
 				$value = preg_replace('/[^A-Za-z0-9\-]/', '', $value);
 			}
 			$this->updateBackupSetting($data['id'], $col, $value);
 		}
 
 		$backup_name = $this->getReq('backup_name','');
-		$backup_name = str_replace(' ', '-', $backup_name); 
+		$backup_name = str_replace(' ', '-', (string) $backup_name); 
 		$backup_name = preg_replace('/[^A-Za-z0-9\-]/', '', $backup_name);
 		$description = $this->getReq('backup_description',sprintf(_('Backup %s'),$backup_name));
 		$data['backup_items'] = $this->getReqUnsafe('backup_items', 'unchanged');
-		$backup_items = json_decode(html_entity_decode($this->getReq('backup_items',[])),true);
+		$backup_items = json_decode(html_entity_decode((string) $this->getReq('backup_items',[])),true);
 		$cftype = $this->getReq('type');
 		$path = $this->getReq('path');
 		$exclude = $this->getReq('exclude');
@@ -1163,7 +1166,7 @@ public function GraphQL_Access_token($request) {
 			if (array_key_exists($col, $input)) {
 				$value = $input[$col];
 				if ($col == 'backup_name') {
-					$value = str_replace(' ', '-', $value);
+					$value = str_replace(' ', '-', (string) $value);
 					$value = preg_replace('/[^A-Za-z0-9\-]/', '', $value);
 				}
 				if ($col == 'backup_items') {
@@ -1176,28 +1179,23 @@ public function GraphQL_Access_token($request) {
 		$description = $input['backup_description'];
 		$data['backup_items'] = $input['backup_items'];
 		$backup_items = $input['backup_items'];
-		$cftype = isset($input['type']) ? $input['type'] : '';
-		$path = isset($input['path']) ? $input['path'] : '';
-		$exclude = isset($input['exclude']) ? $input['exclude'] : '';
+		$cftype = $input['type'] ?? '';
+		$path = $input['path'] ?? '';
+		$exclude = $input['exclude'] ?? '';
 		return $this->performBackup($data, $backup_name, $description, $backup_items, $cftype, $path, $exclude);
 	}
 
 	/**
-	 * performBackup
-	 *
-	 * @param  mixed $data
-	 * @param  mixed $backup_name
-	 * @param  mixed $description
-	 * @param  mixed $backup_items
-	 * @param  mixed $cftyp
-	 * @param  mixed $path
-	 * @param  mixed $exclude
-	 * @return void
-	 */
-	public function performBackup($data,$backup_name,$description,$backup_items,$cftype,$path,$exclude){
-		//remove all special charaters
+  * performBackup
+  *
+  * @param  mixed $cftyp
+  * @return void
+  */
+ public function performBackup(mixed $data,mixed $backup_name,mixed $description,mixed $backup_items,$cftype,mixed $path,mixed $exclude){
+		$values = [];
+  //remove all special charaters
 		$id = $data['id'];
-		$this->setConfig($data['id'],array('id' => $data['id'], 'name' => $backup_name, 'description' => $description),'backupList');
+		$this->setConfig($data['id'],['id' => $data['id'], 'name' => $backup_name, 'description' => $description],'backupList');
 		//We expect this to be JSON so we don't sanitize it.
 	
 		if($data['backup_items'] !== 'unchanged') {
@@ -1213,17 +1211,17 @@ public function GraphQL_Access_token($request) {
 			$this->processBackupSettings($data['id'], $processibleSettings);
 		}
 		
-		$saved = array();
+		$saved = [];
 		if (is_array($cftype)) {
 			foreach ($cftype as $e_id => $type) {
 				if (!isset($saved[$type], $saved[$type][$path[$e_id]])) {
 					$saved[$type][$path[$e_id]] = true;
-					$excludes = trim($exclude[$e_id]) ? explode("\n", $exclude[$e_id]) : array();
+					$excludes = trim((string) $exclude[$e_id]) ? explode("\n", (string) $exclude[$e_id]) : [];
 					foreach ($excludes as $my => $e) {
 						$excludes[$my] = trim($e);
 					}
 					$excludes  = array_unique($excludes);
-					$values[] = array('type' => $type, 'path'=> $path[$e_id], 'exclude'=> $excludes);
+					$values[] = ['type' => $type, 'path'=> $path[$e_id], 'exclude'=> $excludes];
 				}
 			}
 			$customVal = json_encode($values);
@@ -1235,14 +1233,14 @@ public function GraphQL_Access_token($request) {
 	}
 
 	public function processBackupSettings($id = '', $data = []){
-		$hooks = $this->freepbx->Hooks->returnHooksByClassMethod('FreePBX\modules\Backup', 'processBackupSettings');
+		$hooks = $this->freepbx->Hooks->returnHooksByClassMethod(\FreePBX\modules\Backup::class, 'processBackupSettings');
 		foreach($hooks as $hook) {
 			$module = $hook['module'];
-			if(empty($data[strtolower($module)])) {
+			if(empty($data[strtolower((string) $module)])) {
 				continue;
 			}
 			$tmp = [];
-			foreach($data[strtolower($module)] as $item) {
+			foreach($data[strtolower((string) $module)] as $item) {
 				$tmp[$item['name']] = $item['value'];
 			}
 			$method = $hook['method'];
@@ -1321,12 +1319,12 @@ public function GraphQL_Access_token($request) {
 		}
 		foreach($deps as $dep){
 
-			if($this->freepbx->Modules->getInfo(strtolower($dep),true)){
+			if($this->freepbx->Modules->getInfo(strtolower((string) $dep),true)){
 				continue;
 			}
 			try{
-				$this->mf->install(strtolower($dep),true);
-			}catch(\Exception $e){
+				$this->mf->install(strtolower((string) $dep),true);
+			}catch(\Exception){
 				$ret = false;
 				break;
 			}
@@ -1373,7 +1371,7 @@ public function GraphQL_Access_token($request) {
 		foreach($data['modules'] as $module){
 			$name    = $module['module'];
 			$version = $module['version'];
-			$status  = ($this->freepbx->Modules->checkStatus(strtolower($name)))?_("Enabled"):_("Uninstalled or Disabled");
+			$status  = ($this->freepbx->Modules->checkStatus(strtolower((string) $name)))?_("Enabled"):_("Uninstalled or Disabled");
 			$return[] = [
 				'modulename' => $name,
 				'version'    => $version,
@@ -1406,7 +1404,7 @@ public function GraphQL_Access_token($request) {
 					}
 					$infoSize = $this->freepbx->Filestore->getSize($id, $file['path']);
 					$final[] = [
-						'id' => $dname.'_'.$id.'_'.sha1($file['path']),
+						'id' => $dname.'_'.$id.'_'.sha1((string) $file['path']),
 						'type' => $dname,
 						'file' => $file['path'],
 						'framework' => $info['framework'],
@@ -1421,11 +1419,11 @@ public function GraphQL_Access_token($request) {
 		return $final;
 	}
 	public function remoteToLocal($location,$file){
-		$parts = explode('_',$location);
+		$parts = explode('_',(string) $location);
 		$info = $this->freepbx->Filestore->getItemById($parts[1]);
-		$fileparts = array_slice(explode('/',$file),-2);
+		$fileparts = array_slice(explode('/',(string) $file),-2);
 		$spooldir = $this->freepbx->Config->get("ASTSPOOLDIR").'/tmp';
-		$localpath = sprintf('%s/%s',$spooldir,basename($file));
+		$localpath = sprintf('%s/%s',$spooldir,basename((string) $file));
 		if(!file_exists($localpath)){
 			$this->freepbx->Filestore->download($parts[1],$file,$localpath);
 		}
@@ -1462,7 +1460,7 @@ public function GraphQL_Access_token($request) {
 			if (!$web) {
 				throw new \Exception(sprintf(_("I tried to find out about %s, but the system doesn't think that user exists"),$webuser));
 			}
-			$home = trim($web['dir']);
+			$home = trim((string) $web['dir']);
 			if (!is_dir($home)) {
 				// Well, that's handy. It doesn't exist. Let's use ASTSPOOLDIR instead, because
 				// that should exist and be writable.
@@ -1494,32 +1492,16 @@ public function GraphQL_Access_token($request) {
 		switch ($i['type']) {
 			case 'file':
 				$type = _('File') . form_hidden('type[' . $c . ']', 'file');
-				$path = array(
-							'name' => 'path[' . $c . ']',
-							'value' => $i['path'],
-							'required' => '',
-							'placeholder' => _('/path/to/file')
-						);
+				$path = ['name' => 'path[' . $c . ']', 'value' => $i['path'], 'required' => '', 'placeholder' => _('/path/to/file')];
 				$path = form_input($path);
 				$exclude = form_hidden('exclude[' . $c . ']', '');
 				break;
 
 			case 'dir':
 				$type = _('Directory') . form_hidden('type[' . $c . ']', 'dir');
-				$path = array(
-							'name' => 'path[' . $c . ']',
-							'value' => $i['path'],
-							'required' => '',
-							'placeholder' => _('/path/to/dir')
-						);
+				$path = ['name' => 'path[' . $c . ']', 'value' => $i['path'], 'required' => '', 'placeholder' => _('/path/to/dir')];
 				$path = form_input($path);
-				$exclude = array(
-							'name' => 'exclude[' . $c . ']',
-							'value' => implode("\n", $i['exclude']),
-							'rows' => count($i['exclude']),
-							'cols' => 20,
-							'placeholder' => _('PATTERNs, one per line')
-						);
+				$exclude = ['name' => 'exclude[' . $c . ']', 'value' => implode("\n", $i['exclude']), 'rows' => is_countable($i['exclude']) ? count($i['exclude']) : 0, 'cols' => 20, 'placeholder' => _('PATTERNs, one per line')];
 				$exclude = form_textarea($exclude);
 				break;
 		}
@@ -1533,7 +1515,7 @@ public function GraphQL_Access_token($request) {
 				. $exclude . '</td><td>'
 				. $delete . '</td></tr>';
 		} else {
-			return array('type' => $type, 'path' => $path, 'exclude' => $exclude, 'delete' => $delete);
+			return ['type' => $type, 'path' => $path, 'exclude' => $exclude, 'delete' => $delete];
 		}
 	}
 

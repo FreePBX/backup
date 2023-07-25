@@ -4,19 +4,19 @@ var runningRestore=false;
 var bkjob_names=[];
 <?php
 if(empty($id)) {
-	$dval[] = array("type" => "dir", "path" => "__ASTETCDIR__", "exclude" => array());
-	$custom_files = json_encode($dval);
+	$dval[] = ["type" => "dir", "path" => "__ASTETCDIR__", "exclude" => []];
+	$custom_files = json_encode($dval, JSON_THROW_ON_ERROR);
 }
-$items = array();
+$items = [];
 if(!empty($custom_files)) {
-	$items = json_decode($custom_files, true);
+	$items = json_decode((string) $custom_files, true, 512, JSON_THROW_ON_ERROR);
 }
 $bkjobs = FreePBX::Backup()->listBackups();
 if (!empty($bkjobs)) {
 	foreach ($bkjobs as $bk) {
 		$tmp_name_list[] = $bk['name'];
 	}
-	echo "bkjob_names = " . json_encode($tmp_name_list) . ";";
+	echo "bkjob_names = " . json_encode($tmp_name_list, JSON_THROW_ON_ERROR) . ";";
 }
 ?>
 </script>
@@ -50,7 +50,7 @@ if (!empty($bkjobs)) {
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="backup_name"></i>
 										</div>
 										<div class="col-md-9">
-											<input type="text" class="form-control" id="backup_name" name="backup_name" value="<?php echo isset($backup_name)?$backup_name:''?>">
+											<input type="text" class="form-control" id="backup_name" name="backup_name" value="<?php echo $backup_name ?? ''?>">
 										</div>
 									</div>
 								</div>
@@ -74,7 +74,7 @@ if (!empty($bkjobs)) {
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="backup_description"></i>
 										</div>
 										<div class="col-md-9">
-											<input type="text" class="form-control" id="backup_description" name="backup_description" value="<?php echo isset($backup_description)?$backup_description:''?>">
+											<input type="text" class="form-control" id="backup_description" name="backup_description" value="<?php echo $backup_description ?? ''?>">
 										</div>
 									</div>
 								</div>
@@ -128,7 +128,7 @@ if (!empty($bkjobs)) {
 													<h3 class="panel-title"><?php echo _("Items")?></h3>
 												</div>
 												<div class="panel-body">
-													<?php echo load_view(dirname(__FILE__) . '/item_table.php',array('items' => $items, 'immortal' => ''));?>
+													<?php echo load_view(__DIR__ . '/item_table.php',['items' => $items, 'immortal' => '']);?>
 												</div>
 											</div>
 										</div>
@@ -161,7 +161,7 @@ if (!empty($bkjobs)) {
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="backup_email"></i>
 										</div>
 										<div class="col-md-9">
-											<input type=text class="form-control" id="backup_email" name="backup_email" value="<?php echo isset($backup_email)?$backup_email:''?>">
+											<input type=text class="form-control" id="backup_email" name="backup_email" value="<?php echo $backup_email ?? ''?>">
 										</div>
 									</div>
 								</div>
@@ -186,7 +186,7 @@ if (!empty($bkjobs)) {
 										</div>
 										<div class="col-md-9">
 											<span class="radioset">
-												<?php $backup_emailinline = isset($backup_emailinline)?$backup_emailinline:'no';?>
+												<?php $backup_emailinline ??= 'no';?>
 												<input type="radio" name="backup_emailinline" id="backup_emailinline_success" value="yes" <?php echo ($backup_emailinline === 'yes'
 													? "CHECKED": "") ?>>
 												<label for="backup_emailinline_success">
@@ -221,7 +221,7 @@ if (!empty($bkjobs)) {
 										</div>
 										<div class="col-md-9">
 											<span class="radioset">
-												<?php $backup_emailtype = isset($backup_emailtype)?$backup_emailtype:'both';?>
+												<?php $backup_emailtype ??= 'both';?>
 												<input type="radio" name="backup_emailtype" id="backup_emailtype_success" value="success" <?php echo ($backup_emailtype=="success"
 													? "CHECKED": "") ?>>
 												<label for="backup_emailtype_success">
@@ -401,7 +401,7 @@ if (!empty($bkjobs)) {
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="maintruns"></i>
 										</div>
 										<div class="col-md-9">
-											<input type="number" min="0" class="form-control" id="maintruns" name="maintruns" value="<?php echo isset($maintruns)?$maintruns:0?>">
+											<input type="number" min="0" class="form-control" id="maintruns" name="maintruns" value="<?php echo $maintruns ?? 0?>">
 										</div>
 									</div>
 								</div>
@@ -425,7 +425,7 @@ if (!empty($bkjobs)) {
 											<i class="fa fa-question-circle fpbx-help-icon" data-for="maintage"></i>
 										</div>
 										<div class="col-md-9">
-											<?php $maintage = $maintage ?? ""; ?>
+											<?php $maintage ??= ""; ?>
 											<select class="form-control" id="maintage" name="maintage">
 												<option>
 													<?php echo _("Unlimited")?>
@@ -484,7 +484,7 @@ if (!empty($bkjobs)) {
 														<i class="fa fa-question-circle fpbx-help-icon" data-for="prebu_hook"></i>
 													</div>
 													<div class="col-md-9">
-														<input type="text" class="form-control" id="prebu_hook" name="prebu_hook" value="<?php echo isset($prebu_hook)?$prebu_hook:''?>">
+														<input type="text" class="form-control" id="prebu_hook" name="prebu_hook" value="<?php echo $prebu_hook ?? ''?>">
 													</div>
 												</div>
 											</div>
@@ -508,7 +508,7 @@ if (!empty($bkjobs)) {
 														<i class="fa fa-question-circle fpbx-help-icon" data-for="postbu_hook"></i>
 													</div>
 													<div class="col-md-9">
-														<input type="text" class="form-control" id="postbu_hook" name="postbu_hook" value="<?php echo isset($postbu_hook)?$postbu_hook:''?>">
+														<input type="text" class="form-control" id="postbu_hook" name="postbu_hook" value="<?php echo $postbu_hook ?? ''?>">
 													</div>
 												</div>
 											</div>
@@ -532,7 +532,7 @@ if (!empty($bkjobs)) {
 															<i class="fa fa-question-circle fpbx-help-icon" data-for="prere_hook"></i>
 													</div>
 													<div class="col-md-9">
-														<input type="text" class="form-control" id="prere_hook" name="prere_hook" value="<?php echo isset($prere_hook)?$prere_hook:''?>">
+														<input type="text" class="form-control" id="prere_hook" name="prere_hook" value="<?php echo $prere_hook ?? ''?>">
 													</div>
 												</div>
 											</div>
@@ -556,7 +556,7 @@ if (!empty($bkjobs)) {
 														<i class="fa fa-question-circle fpbx-help-icon" data-for="postre_hook"></i>
 													</div>
 													<div class="col-md-9">
-														<input type="text" class="form-control" id="postre_hook" name="postre_hook" value="<?php echo isset($postre_hook)?$postre_hook:''?>">	
+														<input type="text" class="form-control" id="postre_hook" name="postre_hook" value="<?php echo $postre_hook ?? ''?>">	
 													</div>
 												</div>
 											</div>

@@ -29,17 +29,13 @@ $html .= '<i class="fa fa-plus" style="cursor:pointer" title="Add Entry" id="add
 
 //include javascript variables for add button
 $html	.= '<script type="text/javascript">';
-$file	= $backupobj->backup_template_generate_tr('TR_UID', array('type' => 'file', 'path' => '', 'exclude' => array()), true);
-$dir	= $backupobj->backup_template_generate_tr('TR_UID', array('type' => 'dir', 'path' => '', 'exclude' => array()), true);
+$file	= $backupobj->backup_template_generate_tr('TR_UID', ['type' => 'file', 'path' => '', 'exclude' => []], true);
+$dir	= $backupobj->backup_template_generate_tr('TR_UID', ['type' => 'dir', 'path' => '', 'exclude' => []], true);
 
 $html	.= 'template_tr = new Array();';
-$html	.= 'template_tr["file"] = '	. json_encode($file) . PHP_EOL;
-$html	.= 'template_tr["dir"] = ' . json_encode($dir) . PHP_EOL;
+$html	.= 'template_tr["file"] = '	. json_encode($file, JSON_THROW_ON_ERROR) . PHP_EOL;
+$html	.= 'template_tr["dir"] = ' . json_encode($dir, JSON_THROW_ON_ERROR) . PHP_EOL;
 $html	.= '</script>'. PHP_EOL;
-$data 	= array(
-			'' => '== ' . _('choose') . ' ==',
-			'file' => 'File',
-			'dir' => 'Directory',
-			);
+$data 	= ['' => '== ' . _('choose') . ' ==', 'file' => 'File', 'dir' => 'Directory'];
 $html	.= form_dropdown('add_tr_select', $data, '', 'style="display:none"');
 echo $html;

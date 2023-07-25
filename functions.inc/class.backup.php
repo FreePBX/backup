@@ -27,41 +27,33 @@ class Backup {
 	 */
 	public $apps;
 
-
-	/**
-	 * Holds settings for this backup
-	 * @param var
-	 */
-	public $b;
-
-	/**
-	 * Holds a list of all servers
-	 * @param var
-	 */
-	public $s;
-
 	/**
 	 * Holds a list of all templates
 	 * @param var
 	 */
 	public $t;
 
-	function __construct($b, $s, $t = '') {
+	function __construct(/**
+  * Holds settings for this backup
+  * @param var
+  */
+ public $b, /**
+  * Holds a list of all servers
+  * @param var
+  */
+ public $s, $t = '') {
 		global $amp_conf, $db, $cdrdb;
-		$this->b			= $b;
-		$this->s			= $s;
 		//$this->t			= $t;
 		$this->amp_conf			= $amp_conf;
 
 		$this->b['_ctime']		= time();
-		$this->b['_file']		= date("Ymd-His-") . $this->b['_ctime'] . '-' . get_framework_version() . '-' . rand();
-		$this->b['_dirname']		= trim(preg_replace('/[^a-zA-Z0-9]+/', '_', $this->b['name']), '_');
+		$this->b['_file']		= date("Ymd-His-") . $this->b['_ctime'] . '-' . get_framework_version() . '-' . random_int(0, mt_getrandmax());
+		$this->b['_dirname']		= trim(preg_replace('/[^a-zA-Z0-9]+/', '_', (string) $this->b['name']), '_');
 		$this->db			= $db;
 		$this->cdrdb			= $cdrdb;
 
 		// If CDRDB vars aren't configured, we use the values from ASTDB.
-		$maps = array("CDRDBTYPE" => "AMPDBENGINE", "CDRDBHOST" => "AMPDBHOST", "CDRDBUSER" => "AMPDBUSER",
-			"CDRDBPASS" => "AMPDBPASS", "CDRDBPORT" => "AMPDBPORT");
+		$maps = ["CDRDBTYPE" => "AMPDBENGINE", "CDRDBHOST" => "AMPDBHOST", "CDRDBUSER" => "AMPDBUSER", "CDRDBPASS" => "AMPDBPASS", "CDRDBPORT" => "AMPDBPORT"];
 
 		foreach ($maps as $dst => $src) {
 			if (empty($this->amp_conf[$dst]) && !empty($this->amp_conf[$src])) {
@@ -73,11 +65,11 @@ class Backup {
 		}
 
 		//defualt properties
-		$this->b['prebu_hook']		= isset($b['prebu_hook'])	? $b['prebu_hook']	: '';
-		$this->b['postbu_hook']		= isset($b['postbu_hook'])	? $b['postbu_hook']	: '';
-		$this->b['prere_hook']		= isset($b['prere_hook'])	? $b['prere_hook']	: '';
-		$this->b['postre_hook']		= isset($b['postre_hook'])	? $b['postre_hook']	: '';
-		$this->b['email']		= isset($b['email'])		? $b['email']		: '';
+		$this->b['prebu_hook']		= $b['prebu_hook'] ?? '';
+		$this->b['postbu_hook']		= $b['postbu_hook'] ?? '';
+		$this->b['prere_hook']		= $b['prere_hook'] ?? '';
+		$this->b['postre_hook']		= $b['postre_hook'] ?? '';
+		$this->b['email']		= $b['email'] ?? '';
 		$this->b['error'] 		= false;
 
 		ksort($this->b);
@@ -97,7 +89,7 @@ class Backup {
 		}
 
 		if (is_dir($this->b['_tmpdir'])) {
-			$cmd = 'rm -rf ' . escapeshellarg($this->b['_tmpdir']);
+			$cmd = 'rm -rf ' . escapeshellarg((string) $this->b['_tmpdir']);
 			exec($cmd);
 		}
 
@@ -109,7 +101,7 @@ class Backup {
 		 */
 		$files = scandir($this->amp_conf['ASTSPOOLDIR'] . '/tmp/');
 		foreach ($files as $file) {
-			$f = explode('-', $file);
+			$f = explode('-', (string) $file);
 			if ($f[0] == 'backuptmp' && $f[2] < strtotime('yesterday')) {
 				unlink($this->amp_conf['ASTSPOOLDIR'] . '/tmp/' . $file);
 			}
@@ -176,7 +168,7 @@ class Backup {
 							break;
 						}
 						// Ahha! Wildcards! That's OK then.
-						$dest = $dest = $this->b['_tmpdir'].dirname($i['path']);
+						$dest = $dest = $this->b['_tmpdir'].dirname((string) $i['path']);
 						if (!is_dir($dest)) {
 							mkdir($dest, 0755, true);
 						}
@@ -231,7 +223,7 @@ class Backup {
 						$excludes .= "--exclude='.git' ";
 						if ($i['exclude']) {
 							if (!is_array($i['exclude'])) {
-								$xArr = explode("\n", $i['exclude']);
+								$xArr = explode("\n", (string) $i['exclude']);
 							} else {
 								$xArr = $i['exclude'];
 							}
@@ -264,9 +256,9 @@ class Backup {
 					}
 					break;
 				case 'mysql':
-					$cmd = array();
+					$cmd = [];
 					//build command
-					$s = str_replace('server-', '', $i['path']);
+					$s = str_replace('server-', '', (string) $i['path']);
 					$sql_file = $this->b['_tmpdir'] . '/' . 'mysql-' . $s . '.sql.gz';
 					$cmd[] = fpbx_which('mysqldump');
 					$cmd[] = '--host='	. backup__($this->s[$s]['host']);
@@ -302,7 +294,7 @@ class Backup {
 					}
 					break;
 				case 'astdb':
-					$hard_exclude	= array('RG', 'BLKVM', 'FM', 'dundi');
+					$hard_exclude	= ['RG', 'BLKVM', 'FM', 'dundi'];
 					$exclude	= array_merge($i['exclude'], $hard_exclude);
 					$astdb		= astdb_get($exclude);
 					file_put_contents($this->b['_tmpdir'] . '/astdb', serialize($astdb));
@@ -329,7 +321,7 @@ class Backup {
 	}
 
 	function create_backup_file($to_stdout = false) {
-		$cmd = array();
+		$cmd = [];
 		$cmd[] = fpbx_which('tar');
 		$cmd[] = 'zcf';
 		$cmd[] = $to_stdout ? '-' : $this->b['_tmpfile'];
@@ -360,11 +352,7 @@ class Backup {
 					//php doesnt support files > 2GB
 					//see here for a posible solution:
 					//http://ca3.php.net/manual/en/function.fopen.php#37791
-					$cmd = array(
-						fpbx_which('cp'),
-						$this->b['_tmpfile'],
-						$path . '/' . $this->b['_file'] . '.tgz'
-					);
+					$cmd = [fpbx_which('cp'), $this->b['_tmpfile'], $path . '/' . $this->b['_file'] . '.tgz'];
 
 					exec(implode(' ', $cmd), $error, $status);
 					unset($cmd, $error);
@@ -380,7 +368,7 @@ class Backup {
 				case 'email':
 
 					//TODO: set agent to something informative, including fpbx & backup versions
-					$email_options = array('useragent' => 'freepbx', 'protocol' => 'mail');
+					$email_options = ['useragent' => 'freepbx', 'protocol' => 'mail'];
 					$email = new \CI_Email();
 					//Generic email
 					$from = 'freepbx@freepbx.local';
@@ -406,7 +394,7 @@ class Backup {
 					$body = implode("\n", $msg);
 					// If the backup file is more than 25MB, yell
 					$encodedsize = ceil(filesize($this->b['_tmpfile'])/3)*4;
-					if ($encodedsize > 26214400) {
+					if ($encodedsize > 26_214_400) {
 						$email->subject($this->amp_conf['FREEPBX_SYSTEM_IDENT'] . ' ' . _('Backup ERROR (exceeded SMTP limits)') . ' ' . $this->b['name']);
 						$email->message(_('BACKUP NOT ATTACHED')."\n"._('The backup file exceeded the maximum SMTP limits of 25MB. It was not attempted to be sent. Please shrink your backup, or use a different method of transferring your backup.')."\n$body\n");
 					} elseif ($encodedsize > $s['maxsize']) {
@@ -426,8 +414,8 @@ class Backup {
 					$s['port'] = backup__($s['port']);
 					$s['user'] = backup__($s['user']);
 					$s['password'] = backup__($s['password']);
-					$s['path'] = rtrim(backup__($s['path']),'/');
-					$fstype = isset($s['fstype'])?$s['fstype']:'auto';
+					$s['path'] = rtrim((string) backup__($s['path']),'/');
+					$fstype = $s['fstype'] ?? 'auto';
 					$path = $s['path'] . '/' . $this->b['_dirname'];
 					$connection = new Connection($s['host'], $s['user'], $s['password'], $s['port'], 90, ($s['transfer'] == 'passive'));
 					try{
@@ -450,7 +438,7 @@ class Backup {
 						case 'auto':
 						default:
 							$ftptype = $wrapper->systype();
-							if(strtolower($ftptype) == "unix"){
+							if(strtolower((string) $ftptype) == "unix"){
 								$fsFactory = new FilesystemFactory($permFactory);
 							}else{
 								$fsFactory = new WindowsFilesystemFactory;
@@ -476,7 +464,7 @@ class Backup {
 					if(!$ftp->directoryExists(new Directory($path))){
 						backup_log(sprintf(_("Creating directory '%s'"),$path));
 						try{
-							$ftp->create(new Directory($path),array(FTP::RECURSIVE => true));
+							$ftp->create(new Directory($path),[FTP::RECURSIVE => true]);
 						}catch (\Exception $e){
 							$this->b['error'] = sprintf(_("Directory '%s' did not exist and we could not create it"),$path);
 							backup_log($this->b['error']);
@@ -557,8 +545,8 @@ class Backup {
 
 					exec($cmd, $output, $ret);
 					if ($ret !== 0) {
-						backup_log("SSH Error ($ret) - Received ".json_encode($output)." from $cmd");
-						$this->b['error'] = "SSH Error ($ret) - Received ".json_encode($output)." from $cmd";
+						backup_log("SSH Error ($ret) - Received ".json_encode($output, JSON_THROW_ON_ERROR)." from $cmd");
+						$this->b['error'] = "SSH Error ($ret) - Received ".json_encode($output, JSON_THROW_ON_ERROR)." from $cmd";
 					}
 
 					$output = null;
@@ -575,8 +563,8 @@ class Backup {
 					$cmd .= " ".$this->b['_tmpfile']." ".$s['user']."@$scphost:$destdir";
 					exec($cmd, $output, $ret);
 					if ($ret !== 0) {
-						backup_log("SCP Error ($ret) - Received ".json_encode($output)." from $cmd");
-						$this->b['error'] = "SCP Error ($ret) - Received ".json_encode($output)." from $cmd";
+						backup_log("SCP Error ($ret) - Received ".json_encode($output, JSON_THROW_ON_ERROR)." from $cmd");
+						$this->b['error'] = "SCP Error ($ret) - Received ".json_encode($output, JSON_THROW_ON_ERROR)." from $cmd";
 					}
 
 					//run maintenance on the directory
@@ -585,31 +573,13 @@ class Backup {
 			}
 		}
 		//remove the tmp file
-		 $cmd = array(fpbx_which('rm'),$this->b['_tmpfile']);
+		 $cmd = [fpbx_which('rm'), $this->b['_tmpfile']];
                  exec(implode(' ', $cmd), $error, $status);
 		 backup_log("Removed backup tmp file ". $this->b['_tmpfile']);
 	}
 
 	function build_manifest() {
-		$ret = array(
-			"manifest_version" => 10,
-			"hostname" => php_uname("n"),
-			"fpbx_db" => "",
-			"mysql" => "",
-			"astdb" => "",
-			"fpbx_cdrdb" => "",
-			"name" => $this->b['name'],
-			"ctime" => $this->b['_ctime'],
-			"pbx_framework_version" => get_framework_version(),
-			"backup_version" => modules_getversion('backup'),
-			"pbx_version" => getversion(),
-			"hooks"	=> array(
-				'pre_backup' => $this->b['prebu_hook'],
-				'post_backup' => $this->b['postbu_hook'],
-				'pre_restore' => $this->b['prere_hook'],
-				'post_restore' => $this->b['postre_hook'],
-			),
-		);
+		$ret = ["manifest_version" => 10, "hostname" => php_uname("n"), "fpbx_db" => "", "mysql" => "", "astdb" => "", "fpbx_cdrdb" => "", "name" => $this->b['name'], "ctime" => $this->b['_ctime'], "pbx_framework_version" => get_framework_version(), "backup_version" => modules_getversion('backup'), "pbx_version" => getversion(), "hooks"	=> ['pre_backup' => $this->b['prebu_hook'], 'post_backup' => $this->b['postbu_hook'], 'pre_restore' => $this->b['prere_hook'], 'post_restore' => $this->b['postre_hook']]];
 
 		// Actually generate the file list
 		$ret["file_list"] = $this->getDirContents($this->b['_tmpdir']);
@@ -632,7 +602,7 @@ class Backup {
 			}
 
 			// Is it a MySQL dump?
-			if (preg_match("/^mysql-(\d+).sql/", $file, $matches)) {
+			if (preg_match("/^mysql-(\d+).sql/", (string) $file, $matches)) {
 				//get server id
 				$s = $matches[1];
 
@@ -646,21 +616,14 @@ class Backup {
 				}
 
 				//build array on this server
-				$ret['mysql'][$s] = array(
-					'file'		=> $file,
-					'host'		=> backup__($this->s[$s]['host']),
-					'port'		=> backup__($this->s[$s]['port']),
-					'name'		=> backup__($this->s[$s]['name']),
-					'dbname'	=> backup__($this->s[$s]['dbname']),
-					'exclude'	=> $exclude
-				);
+				$ret['mysql'][$s] = ['file'		=> $file, 'host'		=> backup__($this->s[$s]['host']), 'port'		=> backup__($this->s[$s]['port']), 'name'		=> backup__($this->s[$s]['name']), 'dbname'	=> backup__($this->s[$s]['dbname']), 'exclude'	=> $exclude];
 
 				//if this server is freepbx's primary server datastore, record that
 				if ($ret['mysql'][$s]['dbname'] == $this->amp_conf['AMPDBNAME']) {
 
 					//localhost and 127.0.0.1 are intergangeable, so test both scenarios
-					if (in_array(strtolower($ret['mysql'][$s]['host']), array('localhost', '127.0.0.1'))
-						&& in_array(strtolower($this->amp_conf['AMPDBHOST']), array('localhost', '127.0.0.1'))
+					if (in_array(strtolower((string) $ret['mysql'][$s]['host']), ['localhost', '127.0.0.1'])
+						&& in_array(strtolower((string) $this->amp_conf['AMPDBHOST']), ['localhost', '127.0.0.1'])
 						|| $ret['mysql'][$s]['host'] == $this->amp_conf['AMPDBHOST']
 					) {
 						$ret['fpbx_db'] = 'mysql-' . $s;
@@ -669,8 +632,8 @@ class Backup {
 					//if this server is freepbx's primary cdr server datastore, record that
 				} elseif($ret['mysql'][$s]['dbname'] == $this->amp_conf['CDRDBNAME']) {
 					//localhost and 127.0.0.1 are intergangeable, so test both scenarios
-					if (in_array(strtolower($ret['mysql'][$s]['host']), array('localhost', '127.0.0.1'))
-						&& in_array(strtolower($this->amp_conf['CDRDBHOST']), array('localhost', '127.0.0.1'))
+					if (in_array(strtolower((string) $ret['mysql'][$s]['host']), ['localhost', '127.0.0.1'])
+						&& in_array(strtolower((string) $this->amp_conf['CDRDBHOST']), ['localhost', '127.0.0.1'])
 						|| $ret['mysql'][$s]['host'] == $this->amp_conf['CDRDBHOST']
 					) {
 						$ret['fpbx_cdrdb'] = 'mysql-' . $s;
@@ -694,8 +657,8 @@ class Backup {
 		}
 
 		$ret['file_count']	= count($ret['file_list'], COUNT_RECURSIVE);
-		$ret['mysql_count']	= $ret['mysql'] ? count($ret['mysql']) : 0;
-		$ret['astdb_count']	= $ret['astdb'] ? count($ret['astdb']) : 0;
+		$ret['mysql_count']	= $ret['mysql'] ? is_countable($ret['mysql']) ? count($ret['mysql']) : 0 : 0;
+		$ret['astdb_count']	= $ret['astdb'] ? is_countable($ret['astdb']) ? count($ret['astdb']) : 0 : 0;
 		$ret['ftime']		= time();//finish time
 
 		$this->b['manifest'] = $ret;
@@ -714,7 +677,7 @@ class Backup {
 
 				$sql = 'INSERT INTO backup_cache (id, manifest) VALUES (?, ?)';
 				$stmt = \FreePBX::Database()->prepare($sql);
-				$stmt->execute(array($this->b['_file'], serialize($manifest)));
+				$stmt->execute([$this->b['_file'], serialize($manifest)]);
 				$this->prune_backup_cache();
 				break;
 		}
@@ -742,10 +705,10 @@ class Backup {
 				continue;
 			}
 			// Explode it into sections. It's currently YYYYMMDD-HHMMSS-utime-....
-			$sections = explode("-", $id);
+			$sections = explode("-", (string) $id);
 			// If it's incorrectly formatted, or, its old, delete it.
 			if (!isset($sections[2]) || $sections[2] < $purgebefore) {
-				$delstmt->execute(array($id));
+				$delstmt->execute([$id]);
 			}
 		}
 	}
@@ -754,7 +717,7 @@ class Backup {
 		if (!isset($this->b['delete_time']) && !isset($this->b['delete_amount'])) {
 			return true;
 		}
-		$delete = $dir = $files = array();
+		$delete = $dir = $files = [];
 
 		//get file list
 		switch ($type) {
@@ -763,20 +726,13 @@ class Backup {
 				break;
 			case 'ftp':
 				$ftplist = $handle->findFilesystems(new Directory($data));
-				$dir = array();
+				$dir = [];
 				foreach($ftplist as $ftpitem){
-					$dir[] = basename($ftpitem->getRealpath());
+					$dir[] = basename((string) $ftpitem->getRealpath());
 				}
 				break;
 			case 'ssh':
-				$cmd = array(
-					fpbx_which('ssh'),
-					'-o StrictHostKeyChecking=no -i',
-					$data['key'],
-					$data['user'] . '\@' . $data['host'],
-					'-p ' . $data['port'],
-					'ls -1 ' . $data['path'] . '/' . $this->b['_dirname']
-				);
+				$cmd = [fpbx_which('ssh'), '-o StrictHostKeyChecking=no -i', $data['key'], $data['user'] . '\@' . $data['host'], '-p ' . $data['port'], 'ls -1 ' . $data['path'] . '/' . $this->b['_dirname']];
 				exec(implode(' ', $cmd), $dir);
 				unset($cmd);
 				break;
@@ -787,14 +743,14 @@ class Backup {
 				}
 				break;
 		}
-		$dir = is_array($dir)?$dir:array();
+		$dir = is_array($dir)?$dir:[];
 		//sanitize file list
 		foreach ($dir as $file) {
 			//dont include the current backup or special items
-			if (in_array($file, array('.', '..', $this->b['_file'])) || !preg_match("/\d+-\d+-\d+(?:-[0-9.]+(?:alpha|beta|rc|RC)?(?:\d+(?:\.[^\.]+)*))?-\d+.tgz/", $file)) {
+			if (in_array($file, ['.', '..', $this->b['_file']]) || !preg_match("/\d+-\d+-\d+(?:-[0-9.]+(?:alpha|beta|rc|RC)?(?:\d+(?:\.[^\.]+)*))?-\d+.tgz/", (string) $file)) {
 				continue;
 			}
-			$f = explode('-', $file);
+			$f = explode('-', (string) $file);
 
 			//remove file sufix
 			$files[$f[2]] = $file;
@@ -820,7 +776,7 @@ class Backup {
 			for ($i = 0; $i < $this->b['delete_amount']; $i++) {
 				array_pop($files);
 			}
-			$delete = array_merge($files, $delete);
+			$delete = [...$files, ...$delete];
 		}
 
 		//now delete the actual files
@@ -838,7 +794,7 @@ class Backup {
 					} catch (\Exception $e) {
 						$this->b['error'] = $e->getMessage();
 						backup_log($e->getMessage());
-						$this->b['error'] = sprintf(_("Path: %s",$fullfile));
+						$this->b['error'] = sprintf(_("Path: %s"));
 						backup_log(sprintf(_("Path: %s"),$fullfile));
 					}
 					if(empty($f)){
@@ -856,17 +812,10 @@ class Backup {
 					unset($delete[$key]);
 					break;
 				case 'awss3':
-					$handle->deleteObject($data['bucket'],baseName($file));
+					$handle->deleteObject($data['bucket'],baseName((string) $file));
 					break;
 				case 'ssh':
-					$cmd = array(
-					fpbx_which('ssh'),
-					'-o StrictHostKeyChecking=no -i',
-					$data['key'],
-					$data['user'] . '\@' . $data['host'],
-					'-p ' . $data['port'],
-					'rm ' . $data['path'] . '/' . '/' . $this->b['_dirname'] . '/' . $file,
-					);
+					$cmd = [fpbx_which('ssh'), '-o StrictHostKeyChecking=no -i', $data['key'], $data['user'] . '\@' . $data['host'], '-p ' . $data['port'], 'rm ' . $data['path'] . '/' . '/' . $this->b['_dirname'] . '/' . $file];
 					exec(implode(' ', $cmd));
 					unset($delete[$key]);
 					unset($cmd);
@@ -905,7 +854,7 @@ class Backup {
 
 	public function getDirContents($dir = false, $followsymlink = true) {
 
-		$files = array();
+		$files = [];
 
 		$d = new \DirectoryIterator($dir);
 		foreach ($d as $dent) {

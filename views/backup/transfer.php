@@ -7,7 +7,7 @@
         <i class="fa fa-question-circle fpbx-help-icon" data-for="transferId"></i>
       </div>
       <div class="col-md-9">
-        <input type="text" class="form-control" id="transferId" name="transferId" value="<?php echo isset($transferI)?$transferI:''?>">
+        <input type="text" class="form-control" id="transferId" name="transferId" value="<?php echo $transferI ?? ''?>">
       </div>
     </div>
   </div>

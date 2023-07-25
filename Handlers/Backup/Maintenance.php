@@ -11,11 +11,11 @@ class Maintenance extends \FreePBX\modules\Backup\Handlers\CommonBase {
 	private $dryrun = false;
 	private $backupInfo;
 	private $remoteStorage;
-	private $name;
+	private readonly array|string $name;
 	private $spooldir;
-	private $serverName;
-	private $localPath;
-	private $backupfiles;
+	private readonly array|string $serverName;
+	private readonly string $localPath;
+	private ?array $backupfiles = null;
 
 	public function __construct($freepbx, $id, $transactionId, $pid,$extradata = []) {
 		parent::__construct($freepbx, $transactionId, $pid);
@@ -31,9 +31,9 @@ class Maintenance extends \FreePBX\modules\Backup\Handlers\CommonBase {
 		} else {
 			$this->remoteStorage = $this->freepbx->Backup->getStorageById($this->id);
 		}
-		$this->name = str_replace(' ', '_', $this->backupInfo['backup_name']);
+		$this->name = str_replace(' ', '_', (string) $this->backupInfo['backup_name']);
 		$this->spooldir = $this->freepbx->Config->get("ASTSPOOLDIR");
-		$this->serverName = str_replace(' ', '_',$this->freepbx->Config->get('FREEPBX_SYSTEM_IDENT'));
+		$this->serverName = str_replace(' ', '_',(string) $this->freepbx->Config->get('FREEPBX_SYSTEM_IDENT'));
 		$this->localPath = sprintf('%s/backup/%s',$this->spooldir,$this->name);
 		$this->getBackupFileBasedonId();
 	}
@@ -91,7 +91,7 @@ class Maintenance extends \FreePBX\modules\Backup\Handlers\CommonBase {
 	public function processRemote(){
 		foreach ($this->remoteStorage as $location) {
 			$maintfiles = $files = [];
-			$id = explode('_', $location)[1];
+			$id = explode('_', (string) $location)[1];
 			try {
 				$info = $this->freepbx->Filestore->getItemById($id);
 				if(empty($info)) {
@@ -174,7 +174,7 @@ class Maintenance extends \FreePBX\modules\Backup\Handlers\CommonBase {
 
 	private function parseFile($filename){
 		//20171012-130011-1507838411-15.0.1alpha1-42886857.tar.gz
-		preg_match("/(\d{7})-(\d{6})-(\d{10,11})-(.*)-\d*\.tar\.gz/", $filename, $output_array);
+		preg_match("/(\d{7})-(\d{6})-(\d{10,11})-(.*)-\d*\.tar\.gz/", (string) $filename, $output_array);
 		$valid = false;
 		$arraySize = sizeof($output_array);
 		if($arraySize == 5){

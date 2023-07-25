@@ -24,7 +24,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	}
 
 	public function setnametodb($transactionId,$buid,$filename) {
-		$arr = array("backupid"=> $buid,"filename"=> $filename);
+		$arr = ["backupid"=> $buid, "filename"=> $filename];
 		$this->freepbx->Backup->SetConfig($transactionId,$arr,"filenames");
 	}
 	/**
@@ -51,7 +51,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	}
 
 	protected function openFile() {
-		$this->fs->mkdir(dirname($this->file));
+		$this->fs->mkdir(dirname((string) $this->file));
 		//setup and clean out the singlebackup folder
 		$this->fs->remove($this->tmp);
 		$this->fs->mkdir($this->tmp);
@@ -73,7 +73,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	protected function processModule($id, $module) {
 		$this->log(sprintf(_("Working with %s module"), $module['rawname']));
 		// Skip modules backup if system is not activated
-		$skipModule = array("vqplus");
+		$skipModule = ["vqplus"];
 		if((!defined('ZEND_LICENSE_LOADED') && !defined('IONCUBE_LICENSE_FOUND')) && in_array($module['rawname'], $skipModule)) {
 			$msg = sprintf(_("System is not Activated,Skipping %s module"),$module['rawname']);
 			$this->log($msg,'WARNING');
@@ -108,9 +108,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		$class = new $class($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->defaultFallback);
 		try {
 			$class->runBackup($id, $this->transactionId);
-		}  catch (\RuntimeException $e) {
-			$this->addError($e->getMessage());
-		}catch ( \Exception $e ) {
+		}  catch (\RuntimeException|\Exception $e) {
 			$this->addError($e->getMessage());
 		}
 		
@@ -125,19 +123,19 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 			if (empty($dir)) {
 				continue;
 			}
-			$fdir = $this->Backup->getPath('/' . ltrim($dir, '/'));
+			$fdir = $this->Backup->getPath('/' . ltrim((string) $dir, '/'));
 			$this->log("\t".sprintf(_('Adding directory to tar: %s'),$fdir),'DEBUG');
 			$this->fs->mkdir($this->tmp . '/' . $fdir);
 			$this->tar->addFile($this->tmp . '/' . $fdir, $fdir);
 		}
 
 		foreach ($class->getFiles() as $file) {
-			$srcpath = isset($file['pathto']) ? $file['pathto'] : '';
+			$srcpath = $file['pathto'] ?? '';
 			if (empty($srcpath)) {
 				continue;
 			}
 			$srcfile = $srcpath . '/' . $file['filename'];
-			$destpath = $this->Backup->getPath('files/' . ltrim($file['pathto'], '/'));
+			$destpath = $this->Backup->getPath('files/' . ltrim((string) $file['pathto'], '/'));
 			$destfile = $destpath .'/'. $file['filename'];
 			$files[$srcfile] = $destfile;
 			if(file_exists($srcfile)) {
@@ -167,7 +165,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 			if($cfvalue['type'] == 'file') {
 				$srcpath = $this->Backup->getPath($cfvalue['path']);
 				if(file_exists($srcpath)) {
-					$destpath = $this->Backup->getPath('customfiles/' . ltrim($srcpath, '/'));
+					$destpath = $this->Backup->getPath('customfiles/' . ltrim((string) $srcpath, '/'));
 					$this->log("\t".sprintf(_('Adding custom file to tar: %s'),$destpath),'DEBUG');
 					if (!file_exists($srcpath)) {
 						$this->log("\t".sprintf(_('%s does not exist'),$srcpath),'DEBUG');
@@ -181,7 +179,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 			if($cfvalue['type'] == 'dir') {
 				$dir = $this->Backup->getPath($cfvalue['path']);
 				if(is_dir($dir)) {
-					$fdir = $this->Backup->getPath('customdir/' . ltrim($dir, '/'));
+					$fdir = $this->Backup->getPath('customdir/' . ltrim((string) $dir, '/'));
 					$this->fs->mkdir($this->tmp . '/' . $fdir);
 					$dst = $this->tmp . '/' . $fdir;
 					$excludes = " --exclude='node_modules' ";
@@ -189,7 +187,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 					$excludes .= "--exclude='.git' ";
 					if($cfvalue['exclude']) {
 						if (!is_array($cfvalue['exclude'])) {
-							$xArr = explode("\n", $cfvalue['exclude']);
+							$xArr = explode("\n", (string) $cfvalue['exclude']);
 						} else {
 							$xArr = $cfvalue['exclude'];
 						}
@@ -242,8 +240,8 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	}
 
 	private function getFileList($dir) {
-		$retarr = array();
-		$this->recurseDirectory($dir, $retarr, strlen($dir)+1);
+		$retarr = [];
+		$this->recurseDirectory($dir, $retarr, strlen((string) $dir)+1);
 		return $retarr;
 	}
 

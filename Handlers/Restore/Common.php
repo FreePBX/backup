@@ -14,9 +14,8 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	protected $existingports = [];
 	protected $changedports = [];
 	protected $restorepid = '/var/run/asterisk/restore_running.lock';
-	protected $legacycdrrestore = 0;
 
-	public function __construct($freepbx, $file, $transactionId, $pid,$cdrlegacyrestore = 0) {
+	public function __construct($freepbx, $file, $transactionId, $pid,protected $legacycdrrestore = 0) {
 		parent::__construct($freepbx, $file, $transactionId, $pid);
 
 		$this->webroot = $this->freepbx->Config->get('AMPWEBROOT');
@@ -25,7 +24,6 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		}
 		//acquire the restore lock
 		$this->setRestoreStart();
-		$this->legacycdrrestore = $cdrlegacyrestore;
 	}
 
 	/**
@@ -81,7 +79,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	 * @param string $version The module version the backup references
 	 * @return void
 	 */
-	protected function processModule($module, $version,$cliarguments=array()) {
+	protected function processModule($module, $version,$cliarguments=[]) {
 		$modData = $this->getModuleManifest($module);
 		if(empty($modData)) {
 			$msg = sprintf(_("Can't find the module data for %s"),$module);
@@ -125,7 +123,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 				$this->log(sprintf(_('Based on Module settings We are NOT Resetting %s module data'),$module));
 			}
 		}
-		$this->log(sprintf(_("Restoring from %s [%s]"), $module, get_class($class)));
+		$this->log(sprintf(_("Restoring from %s [%s]"), $module, $class::class));
 		$this->runRestore($class);
 		$this->log(modgettext::_('Done','backup'));
 		modgettext::pop_textdomain();
@@ -185,7 +183,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 			$this->log(_("Apache will Restart now... And your GUI may die if the ports are changed !!!!"));
 			foreach($this->changedports as $key => $port){
 				if($key == 'acp' || $key == 'sslacp') {
-					if(!strpos($port, 'available')){
+					if(!strpos((string) $port, 'available')){
 						$this->log("New port for accessing $key = $port ");
 						$this->log($_SERVER['SERVER_ADDR'].":$port/admin/config.php?display=backup ");
 					}
@@ -213,7 +211,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	protected function postRestoreHooks(){
 		// Trigger sysadmin to reload/regen any settings if available
 		if (is_dir("/var/spool/asterisk/incron")) {
-			$triggers = array('update-dns', 'config-postfix', 'update-ftp', 'fail2ban-generate', 'update-mdadm','update-timezone-no-restart', 'update-ports', 'update-ups', 'update-sslconf');
+			$triggers = ['update-dns', 'config-postfix', 'update-ftp', 'fail2ban-generate', 'update-mdadm', 'update-timezone-no-restart', 'update-ports', 'update-ups', 'update-sslconf'];
 			foreach ($triggers as $f) {
 				 $filename = "/var/spool/asterisk/incron/sysadmin.$f";
 				 if (file_exists($filename)) {
@@ -260,7 +258,7 @@ public function setCustomFiles($manifest = NULL) {
 			if (!empty($restoredata['backupInfo']['custom_files']))
 			{
 				$custom_files = json_decode($restoredata['backupInfo']['custom_files'], true);
-				$custom_files = isset($custom_files) ? $custom_files : false;
+				$custom_files ??= false;
 				if(!empty($custom_files)) {
 					foreach($custom_files as $files) {
 						if($files['type'] == 'file') {
@@ -282,7 +280,7 @@ public function setCustomFiles($manifest = NULL) {
 									$files = glob("$this->tmp/customdir/etc/asterisk/*_custom.conf");
 									foreach($files as $fval) {
 										$src = $fval;
-										$dst = '/etc/asterisk/' . basename($fval);
+										$dst = '/etc/asterisk/' . basename((string) $fval);
 										try {
 											copy($src, $dst);
 											$this->log(sprintf(_('Restoring custom file to %s'),$dst),'DEBUG');
@@ -308,7 +306,7 @@ public function setCustomFiles($manifest = NULL) {
 						$cont = file_get_contents($src);
 						$newcont = preg_replace('/#include \"(.*)\"$/', '#include $1', $cont);
 						file_put_contents($src, $newcont);
-						$dst = '/etc/asterisk/' . basename($fval);
+						$dst = '/etc/asterisk/' . basename((string) $fval);
 						try {
 							copy($src, $dst);
 							$this->log(sprintf(_('Restoring custom file to %s'),$dst),'DEBUG');

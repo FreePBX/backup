@@ -14,7 +14,7 @@ class FreePBXModule{
 	}
 	public function reset($module,$version){
 		$developer = $this->freepbx->Config->get('DEVEL');
-		$module = \strtolower($module);
+		$module = \strtolower((string) $module);
 		$info = $this->mf->getInfo($module, false, true);
 		if(!empty($info[$module]) && ($info[$module]['status'] === MODULE_STATUS_ENABLED)) {
 			$uninstall = $this->uninstall($module);

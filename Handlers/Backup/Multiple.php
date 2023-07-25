@@ -32,7 +32,7 @@ class Multiple extends Common {
 		$spooldir = $freepbx->Config->get("ASTSPOOLDIR");
 		$this->backupInfo = $freepbx->Backup->getBackup($this->id);
 		$this->backupInfo = !empty($extradata['backupInfo']) && $extradata['backupInfo']?$extradata['backupInfo']:$this->backupInfo;
-		$this->underscoreName = str_replace(' ', '_', $this->backupInfo['backup_name']);
+		$this->underscoreName = str_replace(' ', '_', (string) $this->backupInfo['backup_name']);
 		$filePath = sprintf('%s/backup/%s',$spooldir,$this->underscoreName);
 
 		parent::__construct($freepbx, $filePath, $transactionId, $pid);
@@ -44,7 +44,10 @@ class Multiple extends Common {
 	 * @return void
 	 */
 	public function process($extenalBackupitems = []) {
-		if(empty($this->id)){
+		$qkey = null;
+  $ivrkey = null;
+  $rearragedorder = [];
+  if(empty($this->id)){
 			throw new \Exception("Backup id not provided", 500);
 		}
 
@@ -54,7 +57,7 @@ class Multiple extends Common {
 		$this->log(sprintf(_("Starting backup %s"),$this->underscoreName),'DEBUG');
 
 		//Use Legacy backup naming
-		$tarfilename = sprintf('%s%s-%s-%s',date("Ymd-His-"),time(),getVersion(),rand());
+		$tarfilename = sprintf('%s%s-%s-%s',date("Ymd-His-"),time(),getVersion(),random_int(0, mt_getrandmax()));
 		$targzname = sprintf('%s.tar.gz',$tarfilename);
 		$this->log(_("This backup will be stored locally and is subject to maintenance settings"),'DEBUG');
 		$this->log(sprintf(_("Backup File Name: %s"),$targzname));
@@ -138,7 +141,7 @@ class Multiple extends Common {
 
 						$this->log("\t".sprintf(_("Adding module %s to queue because %s depends on it"),$depend, $mod['rawname']),'DEBUG');
 						$selectedmods[] = $depend;
-						$processQueue->enqueue(['rawname' => $validMods[$depend]['rawname'], 'ucfirst' => ucfirst($validMods[$depend]['rawname'])]);
+						$processQueue->enqueue(['rawname' => $validMods[$depend]['rawname'], 'ucfirst' => ucfirst((string) $validMods[$depend]['rawname'])]);
 					}
 				}
 

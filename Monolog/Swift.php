@@ -7,6 +7,7 @@ use Monolog\Formatter\FormatterInterface;
 use Monolog\Formatter\LineFormatter;
 use Symfony\Component\Process\Process;
 use Swift as SwiftMailer;
+use Swift_Message;
 
 /**
  * SwiftMailerHandler uses Swift_Mailer to send the emails
@@ -26,7 +27,7 @@ class Swift extends MailHandler {
 	 * @param int				$level   The minimum logging level at which this handler will be triggered
 	 * @param Boolean			$bubble  Whether the messages that are handled can bubble up the stack or not
 	 */
-	public function __construct(\Swift_Mailer $mailer, \Swift_Message $message, $level = Logger::DEBUG, $bubble = true, $backupInfo) {
+	public function __construct(\Swift_Mailer $mailer, \Swift_Message $message, $level = Logger::DEBUG, $bubble = true, $backupInfo = []) {
 		parent::__construct($level, $bubble);
 		$this->backupInfo = $backupInfo;
 		$this->mailer = $mailer;
@@ -36,7 +37,7 @@ class Swift extends MailHandler {
 	/**
 	 * {@inheritdoc}
 	 */
-	protected function send($content, array $records) {
+	protected function send($content, array $records): void {
 		$location = \FreePBX::Config()->get('ASTLOGDIR');
 		$errors = false;
 		foreach ($records as $record) {
@@ -107,11 +108,12 @@ class Swift extends MailHandler {
 		$location = \FreePBX::Config()->get('ASTLOGDIR');
 		$message = null;
 
-		$message = \Swift_Message::newInstance()
-			->setSubject($this->messageTemplate->getSubject())
-			->setFrom($this->messageTemplate->getFrom())
-			->setTo($this->messageTemplate->getTo());
-		$message->generateId();
+		$message = new Swift_Message(); // Create a new Swift_Message object
+		$message->setSubject($this->messageTemplate->getSubject())
+				->setFrom($this->messageTemplate->getFrom())
+				->setTo($this->messageTemplate->getTo());
+
+		$message->setId(uniqid());
 
 		if (!$message instanceof \Swift_Message) {
 			throw new \InvalidArgumentException('Could not resolve message as instance of Swift_Message or a callable returning it');

@@ -12,7 +12,7 @@ use function FreePBX\modules\Backup\Json\json_encode;
 class Multiple extends Common {
 	private $restoreModules;
 
-	public function process($skiphooks=false, $cliarguments = array()) {
+	public function process($skiphooks=false, $cliarguments = []) {
 		if(!file_exists($this->file)) {
 			throw new \Exception(sprintf(_('%s does not exist'),$this->file));
 		}
@@ -22,7 +22,7 @@ class Multiple extends Common {
 
 		$restoreData = $this->getMasterManifest();
 		$bkinfo = $restoreData['backupInfo'];
-		if(isset($bkinfo['prere_hook']) && strlen(trim($bkinfo['prere_hook']))> 1){
+		if(isset($bkinfo['prere_hook']) && strlen(trim((string) $bkinfo['prere_hook']))> 1){
 			$this->log(sprintf('Executing Pre Restore Hook: %s',$bkinfo['prere_hook']));
 			exec($bkinfo['prere_hook']);
 		}
@@ -48,9 +48,7 @@ class Multiple extends Common {
 
 		if(!is_null($this->specificRestores)) {
 			$this->log(sprintf(_("Only Restoring %s"),implode(",",$this->specificRestores)),'WARNING');
-			$restoreModules = array_filter($restoreModules, function($arr){
-				return in_array($arr['module'],$this->specificRestores);
-			});
+			$restoreModules = array_filter($restoreModules, fn($arr) => in_array($arr['module'],$this->specificRestores));
 		}
 
 		foreach($restoreModules as $mod) {
@@ -85,7 +83,7 @@ class Multiple extends Common {
 		$this->displayportschanges();
 		$metadata = $this->getMasterManifest();
 		$backupinfo = $metadata['backupInfo'];
-		if(isset($backupinfo['postre_hook']) && strlen(trim($backupinfo['postre_hook']))> 1){
+		if(isset($backupinfo['postre_hook']) && strlen(trim((string) $backupinfo['postre_hook']))> 1){
 			$this->log(sprintf('Executing Post Restore Hook: %s',$backupinfo['postre_hook']));
 			exec($backupinfo['postre_hook']);
 		}
@@ -130,8 +128,8 @@ class Multiple extends Common {
 	}
 
 	private function isAssoc($arr) {
-		if (array() === $arr) return false;
-		return array_keys($arr) !== range(0, count($arr) - 1);
+		if ([] === $arr) return false;
+		return array_keys($arr) !== range(0, (is_countable($arr) ? count($arr) : 0) - 1);
 	}
 
 }

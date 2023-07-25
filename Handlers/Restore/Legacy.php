@@ -9,11 +9,11 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 use PDO;
 use FreePBX\modules\Backup\Handlers\FreePBXModule;
 class Legacy extends Common {
-	private $data;
+	private ?array $data = null;
 	private $inMemory = true; //use in memory sqlite (much faster)
-	private $cliarguments = array();
+	private $cliarguments = [];
 
-	public function process($useinmemory, $cliarguments = array()){
+	public function process($useinmemory, $cliarguments = []){
 		$this->inMemory = $useinmemory;
 		$this->cliarguments = $cliarguments;
 		$this->extractFile();
@@ -68,7 +68,7 @@ class Legacy extends Common {
 		if($this->legacycdrrestore == 1) {
 			foreach($files as $k => $file){
 				$dt = $this->data['manifest']['fpbx_cdrdb'];
-				$scndCndtn = preg_match("/$dt/i",$file);
+				$scndCndtn = preg_match("/$dt/i",(string) $file);
 				if(!empty($dt) && $scndCndtn){
 					$this->log(sprintf(_("Legacy CDR Restore Opted. we are processing , It may take long time to process %s "),$file));
 					$this->processLegacyCdr($file);
@@ -78,7 +78,7 @@ class Legacy extends Common {
 		foreach($files as $file){
 			$this->log(sprintf(_("File named: %s"),$file));
 			$dt = $this->data['manifest']['fpbx_cdrdb'];
-			$scndCndtn = preg_match("/$dt/i",$file);
+			$scndCndtn = preg_match("/$dt/i",(string) $file);
 			if(!empty($dt) && $scndCndtn){
 				//all ready processed
 			} else{
@@ -146,13 +146,14 @@ class Legacy extends Common {
 	 * @return void
 	 */
 	public function processLegacyCdr($sql){
-		global $amp_conf;
+		$out = null;
+  global $amp_conf;
 		$module = 'cdr';
 		if (file_exists($sql)) {
-			$fdbuser = $this->freepbx->Config->get('AMPDBUSER')?$this->freepbx->Config->get('AMPDBUSER'):$amp_conf['AMPDBUSER'];
-			$fdbpass = $this->freepbx->Config->get('AMPDBPASS')?$this->freepbx->Config->get('AMPDBPASS'):$amp_conf['AMPDBPASS'];
-			$dbname = $this->freepbx->Config->get('CDRDBNAME') ? $this->freepbx->Config->get('CDRDBNAME') : 'asteriskcdrdb';
-			$fdbpass = escapeshellarg($fdbpass);
+			$fdbuser = $this->freepbx->Config->get('AMPDBUSER') ?: $amp_conf['AMPDBUSER'];
+			$fdbpass = $this->freepbx->Config->get('AMPDBPASS') ?: $amp_conf['AMPDBPASS'];
+			$dbname = $this->freepbx->Config->get('CDRDBNAME') ?: 'asteriskcdrdb';
+			$fdbpass = escapeshellarg((string) $fdbpass);
 			$command = "zcat $sql | mysql -u $fdbuser -p$fdbpass $dbname";
 			if(version_compare_freepbx($this->data['manifest']['pbx_version'],"13","lt")) {
 				$command = "mysql -u $fdbuser -p$fdbpass $dbname < $sql";
@@ -165,7 +166,7 @@ class Legacy extends Common {
 				$process->mustRun();
 				$out = $process->getOutput();
 				$this->log(sprintf(_("Restore of legacy cdr sql process done....  %s  "), $out));
-			} catch (ProcessFailedException $e) {
+			} catch (ProcessFailedException) {
 					$this->log(sprintf(_("Error in processing legacy cdr sql restore process....  %s %s %s  "),$out, $process->getOutput(),$process->getErrorOutput()));
 					return;
 			}
@@ -180,7 +181,7 @@ class Legacy extends Common {
 			$class = new $className($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp, $this->defaultFallback);
 			$this->log(sprintf(_("Installing  %s"), $module));
 			$class->install($module);
-			$this->log(sprintf(_("Restored module %s [%s]"), $module, get_class($class)));
+			$this->log(sprintf(_("Restored module %s [%s]"), $module, $class::class));
 			//Install CEL
 			$module = 'cel';
 			$modData = [
@@ -192,7 +193,7 @@ class Legacy extends Common {
 			$class = new $className($this->freepbx, $this->backupModVer, $this->getLogger(), $this->transactionId, $modData, $this->tmp, $this->defaultFallback);
 			$this->log(sprintf(_("Installing  %s"), $module));
 			$class->install($module);
-			$this->log(sprintf(_("Restored module %s [%s]"), $module, get_class($class)));
+			$this->log(sprintf(_("Restored module %s [%s]"), $module, $class::class));
 		}
 	}
 
@@ -241,7 +242,7 @@ class Legacy extends Common {
 		} else {
 			$this->log(sprintf(_("Resetting %s"), $module));
 			$class->reset();
-			$this->log(sprintf(_("Restoring from %s [%s]"), $module, get_class($class)));
+			$this->log(sprintf(_("Restoring from %s [%s]"), $module, $class::class));
 		}
 		$class->processLegacy($dbh, $this->data, $tables, $tableMap['unknown']);
 		$this->log(_("Done"));
@@ -262,9 +263,7 @@ class Legacy extends Common {
 		$moduleList = $tableMap;
 		if(!is_null($this->specificRestores)) {
 			$this->log(sprintf(_("Only Restoring %s"),implode(",",$this->specificRestores)),'WARNING');
-			$moduleList = array_filter($moduleList, function($m){
-				return in_array($m,$this->specificRestores);
-			}, ARRAY_FILTER_USE_KEY);
+			$moduleList = array_filter($moduleList, fn($m) => in_array($m,$this->specificRestores), ARRAY_FILTER_USE_KEY);
 		}
 		foreach ($moduleList as $module => $tables) {
 			if($module === 'unknown' || $module === 'cdr' || $module === 'cel' || $module === 'queuelog'){
@@ -283,7 +282,7 @@ class Legacy extends Common {
 			} catch(\Exception $e) {
 				$this->log($e->getMessage(). ' on line '.$e->getLine().' of file '.$e->getFile(),'ERROR');
 				$this->log($e->getTraceAsString(),'ERROR');
-				$this->addError($e->getMessage(). ' on line '.$e->getLine().' of file '.$e->getFile(),'ERROR');
+				$this->addError($e->getMessage(). ' on line '.$e->getLine().' of file '.$e->getFile());
 				continue;
 			}
 			$this->log("",'INFO');
@@ -333,7 +332,7 @@ class Legacy extends Common {
 			$file = fopen($file, 'r');
 
 			if (is_resource($file) === true) {
-				$query = array();
+				$query = [];
 
 				while (feof($file) === false) {
 					$query[] = fgets($file);
@@ -342,7 +341,7 @@ class Legacy extends Common {
 						$query = trim(implode('', $query));
 
 						if(preg_match('/^DROP TABLE/',$query) || preg_match('/^\/\*.*\*\/;$/',$query)) {
-							$query = array();
+							$query = [];
 							continue;
 						}
 
@@ -399,13 +398,13 @@ class Legacy extends Common {
 							preg_match('/INSERT INTO `([^`]*)` VALUES (.*)/',$query, $matches1);
 
 							$splits = preg_split('/(\),\()/',$matches1[2]);
-							if(count($splits) > 400) {
+							if((is_countable($splits) ? count($splits) : 0) > 400) {
 								$offset = 0;
 								$amount = 1;
 								while($rows = array_slice($splits, $offset, $amount)) {
-									$values = array();
+									$values = [];
 									foreach($rows as $row) {
-										$row = preg_replace('/(^\(|\);$)/', '', $row);
+										$row = preg_replace('/(^\(|\);$)/', '', (string) $row);
 										if($matches1[1] == 'sms_messages'){
 											$row = preg_replace("/\\\'',/", "\\\',", $row);
 										}
@@ -443,7 +442,7 @@ class Legacy extends Common {
 					}
 
 					if (is_string($query) === true) {
-						$query = array();
+						$query = [];
 					}
 				}
 

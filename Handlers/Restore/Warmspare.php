@@ -12,14 +12,14 @@ class Warmspare extends Multiple {
 	private $backupdata = [];
 
 	public function process(){
-		$backupData = $this->getBackupString($this->id);
+		$backupData = $this->getBackupString();
 		$ssh = new FilestoreRemote();
 		$host = $this->backupdata['warmspare_remoteip'];
 		if(!$host){
 			return;
 		}
 		$ssh->createSSH($host);
-		$user = isset($this->backupdata['warmspare_user'])?$this->backupdata['warmspare_user']:'root';
+		$user = $this->backupdata['warmspare_user'] ?? 'root';
 		$homepath = '/home/'.$user;
 		if($user == 'root'){
 			$homepath = '/root';
@@ -37,6 +37,6 @@ class Warmspare extends Multiple {
 	public function getBackupString(){
 		$this->backupdata = $this->freepbx->Backup->getBackup($this->id);
 		$this->backupdata['backup_items'] = $this->freepbx->Backup->getAll('modules_' . $this->id);
-		return base64_encode(json_encode($this->backupdata));
+		return base64_encode((string) json_encode($this->backupdata));
 	}
 }

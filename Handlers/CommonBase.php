@@ -4,26 +4,22 @@ use Symfony\Component\Filesystem\Filesystem;
 use FreePBX\modules\Backup\Monolog\ConsoleOutput;
 use Monolog\Formatter as Formatter;
 abstract class CommonBase {
-	protected $freepbx;
 	protected $Backup;
 	protected $logpath;
 	protected $logger;
 	protected $backupModVer;
-	protected $pid;
 	protected $fs;
 	protected $tmp;
 	protected $errors = [];
 	protected $warnings = [];
 
-	public function __construct($freepbx, $transactionId, $pid) {
-		$this->freepbx = $freepbx;
+	public function __construct(protected $freepbx, $transactionId, protected $pid) {
 		$this->Backup = $freepbx->Backup;
 		$this->logpath = $this->freepbx->Config->get('ASTLOGDIR').'/backup-'.$transactionId.'.log';
 		//Get the version of the backup module currently in use
 		$this->backupModVer = (string)$this->freepbx->Modules->getInfo('backup')['backup']['version'];
 		$this->transactionId = $transactionId;
 		$this->fs = new Filesystem;
-		$this->pid = $pid;
 		//delete all OLD file which are not deleted
 		$rmcommand = 'rm -rf '.sys_get_temp_dir().'/backup/*';
 		shell_exec($rmcommand);
@@ -93,24 +89,15 @@ abstract class CommonBase {
 			$this->setupLogger();
 		}
 		$logger = $this->logger->withName($this->transactionId);
-		switch ($level) {
-			case 'DEBUG':
-				return $logger->debug($message);
-			case 'NOTICE':
-				return $logger->notice($message);
-			case 'WARNING':
-				return $logger->warning($message);
-			case 'ERROR':
-				return $logger->error($message);
-			case 'CRITICAL':
-				return $logger->critical($message);
-			case 'ALERT':
-				return $logger->alert($message);
-			case 'EMERGENCY':
-				return $logger->emergency($message);
-			case 'INFO':
-			default:
-				return $logger->info($message);
-		}
+		return match ($level) {
+      'DEBUG' => $logger->debug($message),
+      'NOTICE' => $logger->notice($message),
+      'WARNING' => $logger->warning($message),
+      'ERROR' => $logger->error($message),
+      'CRITICAL' => $logger->critical($message),
+      'ALERT' => $logger->alert($message),
+      'EMERGENCY' => $logger->emergency($message),
+      default => $logger->info($message),
+  };
 	}
 }

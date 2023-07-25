@@ -28,7 +28,7 @@ class Single extends Common {
 		}
 
 		//setup tarball format
-		$tarfilename = sprintf('%s-%s%s-%s-%s', $this->module, date("Ymd-His-"), time(), $moduleInfo['version'], rand());
+		$tarfilename = sprintf('%s-%s%s-%s-%s', $this->module, date("Ymd-His-"), time(), $moduleInfo['version'], random_int(0, mt_getrandmax()));
 		$targzname = sprintf('%s.tar.gz', $tarfilename);
 
 		$this->setFilename($targzname);
@@ -36,16 +36,13 @@ class Single extends Common {
 		$tar = $this->openFile();
 
 		$this->log(sprintf(_("Processing %s"),$this->module));
-		$moddata = $this->processModule('singlebackup', ['rawname' => $this->module, 'ucfirst' => ucfirst($this->module)]);
+		$moddata = $this->processModule('singlebackup', ['rawname' => $this->module, 'ucfirst' => ucfirst((string) $this->module)]);
 
 		if(!empty($moddata['dependencies'])) {
 			$this->log("***"._("In single restores mode dependencies are NOT processed")."***",'WARNING');
 		}
 
-		$manifest = array(
-			'moddata' => $moddata,
-			'module' => $moduleInfo
-		);
+		$manifest = ['moddata' => $moddata, 'module' => $moduleInfo];
 
 		$tar->addData('metadata.json', json_encode($manifest, JSON_PRETTY_PRINT));
 

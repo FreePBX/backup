@@ -15,7 +15,7 @@ trait Email {
 			return;
 		}
 
-		$emailList = explode(',', $email);
+		$emailList = explode(',', (string) $email);
 		$logger = $this->getLogger();
 
 		$this->freepbx->Mail->resetMessage();

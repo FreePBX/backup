@@ -2,7 +2,6 @@
 namespace FreePBX\modules\Backup\Handlers;
 use Symfony\Component\Filesystem\Filesystem;
 class Storage extends CommonFile {
-	private $id;
 	private $remotePath;
 	private $Filestore;
 	/**
@@ -12,16 +11,15 @@ class Storage extends CommonFile {
 	 * @param string $id The Backup ID
 	 * @param string $file The Backup File to use
 	 */
-	public function __construct($freepbx, $id, $transactionId, $pid, $file) {
+	public function __construct($freepbx, private $id, $transactionId, $pid, $file) {
 		parent::__construct($freepbx, $file, $transactionId, $pid);
-		$this->id = $id;
 		$this->backupInfo = $freepbx->Backup->getBackup($this->id);
 		$this->Filestore = $this->freepbx->Filestore;
 	}
 
 
 	protected function translatePath($path) {
-		if(preg_match("/(.*)__(.*)__(.*)/", $path, $matches) !== 1){
+		if(preg_match("/(.*)__(.*)__(.*)/", (string) $path, $matches) !== 1){
 			return $path;
 		}
 		$var = $this->freepbx->Config->get($matches[2]);
@@ -39,32 +37,32 @@ class Storage extends CommonFile {
 	 */
 	public function process($storages = []) {
 		$storage_ids = $this->Backup->getStorageById($this->id);
-		$storage_ids = count($storages)> 0?$storages:$storage_ids;
+		$storage_ids = (is_countable($storages) ? count($storages) : 0)> 0?$storages:$storage_ids;
 		$this->log(_("Saving to selected Filestore locations"));
 		$tmpfiledelete = true;
 		foreach ($storage_ids as $location) {
-			if(empty(trim($location))){
+			if(empty(trim((string) $location))){
 				continue;
 			}
 			try {
-				$id = explode('_', $location, 2)[1];
+				$id = explode('_', (string) $location, 2)[1];
 				$info = $this->Filestore->getItemById($id);
 				if(empty($info)) {
 					$this->log(_('Invalid filestore location'),'ERROR');
 					continue;
 				}
 				$Rpath = $this->translatePath($info['path']); 
-				$Rfile = basename($this->file);
+				$Rfile = basename((string) $this->file);
 				if ($this->backupInfo['backup_addbjname'] == 'yes') {
 					if ($info['driver'] == 'Email') {
-						$Rfile = basename($this->file);
+						$Rfile = basename((string) $this->file);
 					} else { 
-						$Rfile = $this->backupInfo['backup_name'].'/'.basename($this->file);
+						$Rfile = $this->backupInfo['backup_name'].'/'.basename((string) $this->file);
 						$this->freepbx->Filestore->makeDirectory($id, $this->backupInfo['backup_name']);
 					}
 				}
 				if($info['driver'] == 'Local'){
-					$localpath = rtrim($Rpath,'/').'/'.$Rfile;
+					$localpath = rtrim((string) $Rpath,'/').'/'.$Rfile;
 					if($this->file == $localpath){
 						$tmpfiledelete = false;
 						continue;

@@ -768,11 +768,11 @@ public function GraphQL_Access_token($request) {
 				$fileClass = new BackupSplFileInfo($path);
 				$manifest = $fileClass->getMetadata();
 				$vars['meta']     = $manifest;
-				$vars['timestamp']     = $manifest['date'];
+				$vars['timestamp']     = $manifest['date'] ?? '';
 				$vars['jsondata'] = $this->moduleJSONFromManifest($manifest);
-				$vars['id']       = $_GET['id'];
-				$vars['fileid']   = $fileid;
-				$vars['fileinfo'] = $fileClass;
+				$vars['id']       = $_GET['id'] ?? '';
+				$vars['fileid']   = $fileid ?? '';
+				$vars['fileinfo'] = $fileClass ?? '';
 				return load_view(__DIR__.'/views/restore/processRestore.php',$vars);
 			break;
 			default:
@@ -838,10 +838,10 @@ public function GraphQL_Access_token($request) {
 					$vars['meta']     = $manifest;
 					$vars['timestamp']     = $manifest['date'];
 					$vars['jsondata'] = $this->moduleJSONFromManifest($manifest);
-					$vars['id']       = $_GET['id'];
-					$vars['fileid']   = $fileid;
-					$vars['fileinfo'] = $fileClass;
-					$vars['runningRestore'] = $running;
+					$vars['id']       = $_GET['id'] ?? '';
+					$vars['fileid']   = $fileid ?? '';
+					$vars['fileinfo'] = $fileClass ?? '';
+					$vars['runningRestore'] = $running ?? '';
 					return load_view(__DIR__.'/views/restore/processRestore.php',$vars);
 				}
 

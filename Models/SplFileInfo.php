@@ -27,7 +27,7 @@ class SplFileInfo extends \SplFileInfo {
 	 *
 	 * @return string
 	 */
-	public function getType() {
+	public function getType(): string|false {
 		return $this->type;
 	}
 

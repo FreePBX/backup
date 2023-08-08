@@ -34,12 +34,14 @@ abstract class Restore extends ModelBase {
 		}
 
 		foreach($this->data['dirs'] as &$file) {
-			$file = new BackupFileSplFileInfo(
-				$this->tmpdir.'/files'.$file,
-				'dir',
-				$file,
-				''
-			);
+			if(!is_array($file)) {
+				$file = new BackupFileSplFileInfo(
+					$this->tmpdir.'/files'.$file,
+					'dir',
+					$file,
+					''
+				);
+			}
 		}
 	}
 

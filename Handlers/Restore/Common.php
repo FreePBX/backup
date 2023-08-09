@@ -226,8 +226,9 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		$filename = "/var/spool/asterisk/incron/backup.clearunuseddevices";
 		if (file_exists($filename)) {
 			 @unlink($filename);
+		} else {
+			@fclose(@fopen($filename, "w"));
 		}
-		@fclose(@fopen($filename, "w"));
 	}
 
 

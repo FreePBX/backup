@@ -1009,6 +1009,9 @@ public function GraphQL_Access_token($request) {
 			$backupinfo['size'] = $backupinfo['size'];
 			$files     []       = $backupinfo;
 		}
+		usort($files, function($a, $b) {
+			return $b['timestamp'] - $a['timestamp'];
+		});
 		return $files;
 	}
 
@@ -1416,6 +1419,9 @@ public function GraphQL_Access_token($request) {
 				}
 			}
 		}
+		usort($final, function($a, $b) {
+			return $b['timestamp'] - $a['timestamp'];
+		});
 		return $final;
 	}
 	public function remoteToLocal($location,$file){

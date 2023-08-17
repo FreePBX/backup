@@ -213,11 +213,12 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		if (is_dir("/var/spool/asterisk/incron")) {
 			$triggers = ['update-dns', 'config-postfix', 'update-ftp', 'fail2ban-generate', 'update-mdadm', 'update-timezone-no-restart', 'update-ports', 'update-ups', 'update-sslconf'];
 			foreach ($triggers as $f) {
-				 $filename = "/var/spool/asterisk/incron/sysadmin.$f";
-				 if (file_exists($filename)) {
-					 @unlink($filename);
-				 }
-				 @fclose(@fopen($filename, "w"));
+				$filename = "/var/spool/asterisk/incron/sysadmin.$f";
+				if (file_exists($filename)) {
+					@unlink($filename);
+				}
+				$fileHandle = @fopen($filename, "w");
+    			@fclose($fileHandle);
 			}
 		} else {
 			$this->log('post Restore hooks failed !!!!!');
@@ -227,7 +228,8 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		if (file_exists($filename)) {
 			 @unlink($filename);
 		} else {
-			@fclose(@fopen($filename, "w"));
+			$fileHandle = @fopen($filename, "w");
+    		@fclose($fileHandle);
 		}
 	}
 

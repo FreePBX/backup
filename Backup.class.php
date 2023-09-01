@@ -556,7 +556,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 					@unlink($errorFile);
 					return json_encode(['status' => 'stopped', 'log' => $log]);
 				};
-				(new SSE(new Event($callback, 'new-msgs')))->start(1000);
+				(new SSE(new Event($callback, 'new-msgs')))->start();
 				exit;
 			break;
 			case 'remotedownload':

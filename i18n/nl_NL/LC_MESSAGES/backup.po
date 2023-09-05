@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-10 09:41+0000\n"
+"POT-Creation-Date: 2023-09-05 06:02+0000\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -69,11 +69,11 @@ msgstr ""
 msgid "%s table Restore Error %s "
 msgstr ""
 
-#: Backup.class.php:1502
+#: Backup.class.php:1508
 msgid "/path/to/dir"
 msgstr "/pad/naar/map"
 
-#: Backup.class.php:1495
+#: Backup.class.php:1501
 msgid "/path/to/file"
 msgstr "/pad/naar/bestand"
 
@@ -196,7 +196,7 @@ msgstr ""
 msgid "Are you sure, you want to restore this backup?"
 msgstr ""
 
-#: Backup.class.php:1470
+#: Backup.class.php:1476
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -211,7 +211,7 @@ msgstr ""
 msgid "Backup"
 msgstr "Reservekopie"
 
-#: Backup.class.php:1142
+#: Backup.class.php:1145
 #, php-format
 msgid "Backup %s"
 msgstr ""
@@ -502,7 +502,7 @@ msgstr ""
 msgid "Delete After Runs"
 msgstr ""
 
-#: Backup.class.php:1508
+#: Backup.class.php:1514
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr ""
 "Verwijder deze invoer. Vergeet niet om op Verzenden te klikken om op te "
@@ -527,7 +527,7 @@ msgstr ""
 msgid "Determining backup file type..."
 msgstr ""
 
-#: Backup.class.php:1501
+#: Backup.class.php:1507
 msgid "Directory"
 msgstr "Map"
 
@@ -575,7 +575,7 @@ msgstr ""
 msgid "Enable scheduled backups, default false"
 msgstr ""
 
-#: Backup.class.php:1374 views/backup/form.php:334
+#: Backup.class.php:1377 views/backup/form.php:334
 msgid "Enabled"
 msgstr ""
 
@@ -707,7 +707,7 @@ msgstr ""
 msgid "Failure"
 msgstr ""
 
-#: Backup.class.php:1494
+#: Backup.class.php:1500
 msgid "File"
 msgstr "Bestand"
 
@@ -819,11 +819,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1455
+#: Backup.class.php:1461
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1461
+#: Backup.class.php:1467
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -1108,7 +1108,7 @@ msgstr ""
 msgid "Only Restoring %s"
 msgstr ""
 
-#: Backup.class.php:1504
+#: Backup.class.php:1510
 msgid "PATTERNs, one per line"
 msgstr "PATROON, één per regel"
 
@@ -1287,13 +1287,13 @@ msgstr ""
 msgid "Restoring %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:279
+#: Handlers/Restore/Common.php:281
 #, php-format
 msgid "Restoring custom directory to %s"
 msgstr ""
 
-#: Handlers/Restore/Common.php:268 Handlers/Restore/Common.php:287
-#: Handlers/Restore/Common.php:313 Handlers/Restore/Common.php:350
+#: Handlers/Restore/Common.php:270 Handlers/Restore/Common.php:289
+#: Handlers/Restore/Common.php:315 Handlers/Restore/Common.php:352
 #, php-format
 msgid "Restoring custom file to %s"
 msgstr ""
@@ -1507,7 +1507,7 @@ msgstr ""
 msgid "Skipping CertMan module Restore , Warmspare skip Certificate enabled"
 msgstr ""
 
-#: Handlers/Restore/Common.php:341
+#: Handlers/Restore/Common.php:343
 #, php-format
 msgid "Skipping directory %s"
 msgstr ""
@@ -1779,7 +1779,7 @@ msgstr ""
 msgid "Unable to upload file to the remote server"
 msgstr ""
 
-#: Backup.class.php:1374
+#: Backup.class.php:1377
 msgid "Uninstalled or Disabled"
 msgstr ""
 

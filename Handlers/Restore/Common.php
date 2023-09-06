@@ -185,7 +185,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 				if($key == 'acp' || $key == 'sslacp') {
 					if(!strpos((string) $port, 'available')){
 						$this->log("New port for accessing $key = $port ");
-						$this->log($_SERVER['SERVER_ADDR'].":$port/admin/config.php?display=backup ");
+						$this->log(($_SERVER['SERVER_ADDR'] ?? '').":$port/admin/config.php?display=backup ");
 					}
 				}
 			}
@@ -199,7 +199,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 			$ports[$keyvalue['key']] = $keyvalue['value'];
 		}
 		foreach($this->existingports as $key => $value) {
-			if($ports[$key] != $value) { // port has changed
+			if(isset($ports[$key]) && $ports[$key] != $value) { // port has changed
 				$this->changedports[$key] = $ports[$key];
 			}
 		}

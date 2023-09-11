@@ -11,6 +11,7 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 use function FreePBX\modules\Backup\Json\json_decode;
 use function FreePBX\modules\Backup\Json\json_encode;
 use Monolog\Formatter;
+#[\AllowDynamicProperties]
 class Multiple extends Common {
 	private $id;
 	private $dependencies = [];

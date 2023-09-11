@@ -3,6 +3,7 @@ namespace FreePBX\modules\Backup\Handlers;
 use Symfony\Component\Filesystem\Filesystem;
 use FreePBX\modules\Backup\Monolog\ConsoleOutput;
 use Monolog\Formatter as Formatter;
+#[\AllowDynamicProperties]
 abstract class CommonBase {
 	protected $Backup;
 	protected $logpath;

@@ -10,6 +10,7 @@ use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Command\LockableTrait;
 use function FreePBX\modules\Backup\Json\json_decode;
 use function FreePBX\modules\Backup\Json\json_encode;
+#[\AllowDynamicProperties]
 class Backup extends Command {
 	use LockableTrait;
 

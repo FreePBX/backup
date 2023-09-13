@@ -23,6 +23,7 @@ use Hhxsv5\SSE\Event;
 use function FreePBX\modules\Backup\Json\json_decode;
 use function FreePBX\modules\Backup\Json\json_encode;
 include __DIR__.'/vendor/autoload.php';
+#[\AllowDynamicProperties]
 class Backup extends FreePBX_Helpers implements BMO {
 	public $swiftmsg = false;
 	public $backupHandler  = null;

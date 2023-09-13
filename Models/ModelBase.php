@@ -4,6 +4,7 @@
  */
 namespace FreePBX\modules\Backup\Models;
 
+#[\AllowDynamicProperties]
 class ModelBase {
 	protected $FreePBX;
 	protected $backupModVer;

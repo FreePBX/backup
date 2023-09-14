@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 06:23+0000\n"
+"POT-Creation-Date: 2023-09-14 10:13+0000\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Lónyai Gergely <alephlg@gmail.com>\n"
 "Language-Team: Magyar <support@freepbx.hu>\n"
@@ -600,7 +600,7 @@ msgstr ""
 msgid "Error in processing legacy cdr sql restore process....  %s %s %s  "
 msgstr ""
 
-#: Handlers/FreePBXModule.php:29
+#: Handlers/FreePBXModule.php:30
 #, php-format
 msgid "Error installing %s reason(s): %s"
 msgstr ""
@@ -609,7 +609,7 @@ msgstr ""
 msgid "Error running Restore on Spare Server"
 msgstr ""
 
-#: Handlers/FreePBXModule.php:41
+#: Handlers/FreePBXModule.php:42
 #, php-format
 msgid "Error uninstalling %s reason(s): %s"
 msgstr ""

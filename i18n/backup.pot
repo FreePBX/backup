@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 12:28+0000\n"
+"POT-Creation-Date: 2023-09-14 10:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -623,7 +623,7 @@ msgstr ""
 msgid "Error in processing legacy cdr sql restore process....  %s %s %s  "
 msgstr ""
 
-#: Handlers/FreePBXModule.php:29
+#: Handlers/FreePBXModule.php:30
 #, php-format
 msgid "Error installing %s reason(s): %s"
 msgstr ""
@@ -632,7 +632,7 @@ msgstr ""
 msgid "Error running Restore on Spare Server"
 msgstr ""
 
-#: Handlers/FreePBXModule.php:41
+#: Handlers/FreePBXModule.php:42
 #, php-format
 msgid "Error uninstalling %s reason(s): %s"
 msgstr ""

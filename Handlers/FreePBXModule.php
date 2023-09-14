@@ -6,6 +6,7 @@ namespace FreePBX\modules\Backup\Handlers;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
+#[\AllowDynamicProperties]
 class FreePBXModule{
 	public $moduleXML = false;
 	public function __construct($freepbx) {

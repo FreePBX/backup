@@ -218,7 +218,9 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 					@unlink($filename);
 				}
 				$fileHandle = @fopen($filename, "w");
-    			@fclose($fileHandle);
+    			if ($fileHandle !== false) {
+					@fclose($fileHandle);
+				}
 			}
 		} else {
 			$this->log('post Restore hooks failed !!!!!');
@@ -229,7 +231,9 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 			 @unlink($filename);
 		} else {
 			$fileHandle = @fopen($filename, "w");
-    		@fclose($fileHandle);
+			if ($fileHandle !== false) {
+				@fclose($fileHandle);
+			}
 		}
 	}
 

@@ -786,13 +786,13 @@ public function GraphQL_Access_token($request) {
 		switch ($page) {
 			case 'settings':
 				$vars = [];
-				$hdir = $this->getAsteriskUserHomeDir();
-				$file = $hdir.'/.ssh/id_rsa';
+				$hdir = $this->getAsteriskUserHomeDir();dbug($hdir);
+				$file = $hdir.'/.ssh/id_dsa_pri.pem';
 				if (!file_exists($file)) {
 					$ssh = new FilestoreRemote();
 					$ssh->generateKey($hdir.'/.ssh');
 				}
-				$filePub = $hdir.'/.ssh/id_rsa.pub';
+				$filePub = $hdir.'/.ssh/id_dsa_pub.pem';
 				$data = file_get_contents($filePub);
 				$vars['publickey'] = $data;
 				return load_view(__DIR__.'/views/backup/settings.php',$vars);

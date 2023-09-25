@@ -13,7 +13,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="publickey-help" class="help-block fpbx-help-block"><?php echo _("Public SSH key to allow other servers to connect")?></span>
+			<span id="publickey-help" class="help-block fpbx-help-block"><?php echo _("Public SSH key to allow other servers to connect. Only ECDSA SSH key is supported")?></span>
 		</div>
 	</div>
 </div>

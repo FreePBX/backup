@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-22 05:11+0000\n"
+"POT-Creation-Date: 2023-09-26 07:00+0000\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -1179,7 +1179,9 @@ msgid "Public Key"
 msgstr ""
 
 #: views/backup/settings.php:16
-msgid "Public SSH key to allow other servers to connect"
+msgid ""
+"Public SSH key to allow other servers to connect. Only ECDSA SSH key is "
+"supported"
 msgstr ""
 
 #: RestoreBase.php:263

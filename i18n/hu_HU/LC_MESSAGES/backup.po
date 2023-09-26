@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-22 05:11+0000\n"
+"POT-Creation-Date: 2023-09-26 07:00+0000\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Lónyai Gergely <alephlg@gmail.com>\n"
 "Language-Team: Magyar <support@freepbx.hu>\n"
@@ -1168,7 +1168,9 @@ msgid "Public Key"
 msgstr ""
 
 #: views/backup/settings.php:16
-msgid "Public SSH key to allow other servers to connect"
+msgid ""
+"Public SSH key to allow other servers to connect. Only ECDSA SSH key is "
+"supported"
 msgstr ""
 
 #: RestoreBase.php:263

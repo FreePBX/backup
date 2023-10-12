@@ -126,11 +126,11 @@ class Backup extends Command {
 				$errors = $backupHandler->getErrors();
 				$warnings = $backupHandler->getWarnings();
 				if(empty($errors) && empty($warnings)) {
-					$backupHandler->sendEmail(false);
+					$backupHandler->sendEmail(false,$transactionid);
 					$output->writeln(_("Backup completed successfully"));
 				} else {
 					if(!empty($errors)) {
-						$backupHandler->sendEmail(true);
+						$backupHandler->sendEmail(true,$transactionid);
 						$output->writeln(_("There were errors during the backup process"));
 						foreach($errors as $error) {
 							$output->writeln("\t<error>".$error."</error>");
@@ -202,7 +202,7 @@ class Backup extends Command {
 				$this->freepbx->Backup->setConfig($transactionid,["buid" => $buid, "status"=>"PROCESSINGMODULES","backupstatus"=>$bkstatus],"runningBackupstatus");
 				$val = $backupHandler->process();
 				if($val == "") {
-					$backupHandler->sendEmail(true);
+					$backupHandler->sendEmail(true,$transactionid);
 					return 0;
 				}
 				$maintenanceHandler = new Handler\Backup\Maintenance($this->freepbx, $buid, $transactionid, posix_getpid());
@@ -221,7 +221,7 @@ class Backup extends Command {
 				$warnings = array_merge($backupHandler->getWarnings(),$maintenanceHandler->getWarnings(),$storageHandler->getWarnings());
 
 				if(empty($errors) && empty($warnings)) {
-					$backupHandler->sendEmail(false);
+					$backupHandler->sendEmail(false,$transactionid);
 					$output->writeln(_("Backup completed successfully"));
 				} else {
 					$backuperror_warning = 0 ;// 0 mean no error
@@ -239,7 +239,7 @@ class Backup extends Command {
 						}
 					}
 					$bkstatus = $backuperror_warning == 1 ? true:false;
-					$backupHandler->sendEmail($bkstatus);
+					$backupHandler->sendEmail($bkstatus,$transactionid);
 				}
 				$this->freepbx->Backup->delConfig($buid,"runningBackupJobs");
 				$postbu_hook = $this->freepbx->Backup->getConfig("postbu_hook",$buid);

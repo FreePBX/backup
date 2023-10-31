@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-26 07:00+0000\n"
+"POT-Creation-Date: 2023-10-31 10:43+0000\n"
 "PO-Revision-Date: 2015-11-17 12:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -209,12 +209,12 @@ msgstr ""
 msgid "Backup %s"
 msgstr ""
 
-#: Monolog/Swift.php:76
+#: Handlers/Backup/Email.php:17 Monolog/Swift.php:76
 #, php-format
 msgid "Backup %s failed for %s"
 msgstr ""
 
-#: Monolog/Swift.php:74
+#: Handlers/Backup/Email.php:26 Monolog/Swift.php:74
 #, php-format
 msgid "Backup %s success for %s"
 msgstr ""
@@ -749,12 +749,12 @@ msgstr ""
 msgid "Framework"
 msgstr ""
 
-#: Handlers/Backup/Email.php:50
+#: Handlers/Backup/Email.php:86
 #, php-format
 msgid "Generated Backup process result email to %s. Status: Failure"
 msgstr ""
 
-#: Handlers/Backup/Email.php:54
+#: Handlers/Backup/Email.php:90
 #, php-format
 msgid "Generated Backup process result email to %s. Status: Success"
 msgstr ""
@@ -1431,7 +1431,7 @@ msgstr ""
 msgid "Scheduling"
 msgstr ""
 
-#: Monolog/Swift.php:144
+#: Handlers/Backup/Email.php:65 Monolog/Swift.php:144
 msgid "See attachment"
 msgstr ""
 

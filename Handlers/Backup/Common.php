@@ -109,6 +109,7 @@ abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 		try {
 			$class->runBackup($id, $this->transactionId);
 		}  catch (\RuntimeException|\Exception $e) {
+			$this->log("Backup error in : ".print_r($module['rawname'], true). "\n" ."File : ".$e->getFile(). "\n" . "Error : ".$e->getMessage(). "\n" . "Line : ".$e->getLine());
 			$this->addError($e->getMessage());
 		}
 		

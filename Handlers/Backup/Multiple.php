@@ -45,6 +45,7 @@ class Multiple extends Common {
 	 * @return void
 	 */
 	public function process($extenalBackupitems = []) {
+		try{
 		$qkey = null;
   $ivrkey = null;
   $rearragedorder = [];
@@ -221,6 +222,9 @@ class Multiple extends Common {
 		$this->log(sprintf(_("Finished created backup file: %s"),$targzname));
 
 		return $this->getFile();
+		} catch(\Exception $e) {
+			$this->log($e->getMessage(). "\n" .$e->getFile(). "\n" .$e->getLine());
+		}
 	}
 
 	/**

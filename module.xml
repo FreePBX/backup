@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>17.0.5.6</version>
+	<version>17.0.5.7</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -18,16 +18,7 @@
 		<version>17.0.1</version>
 	</depends>
 	<changelog>
-		*17.0.5.6* Packaging of ver 17.0.5.6
-		*17.0.5.5* Packaging of ver 17.0.5.5
-		*17.0.5.4* Packaging of ver 17.0.5.4
-		*17.0.5.3* Packaging of ver 17.0.5.3
-		*17.0.5.2* Packaging of ver 17.0.5.2
-		*17.0.5.1 Packaging of ver 17.0.5.1
-		*17.0.5* Packaging of ver 17.0.5
-		*17.0.4* Packaging of ver 17.0.4
-		*17.0.3* Packaging of ver 17.0.3
-		*17.0.2* Packaging of ver 17.0.2
+		*17.0.5.7* Packaging of ver 17.0.5.7
 		*17.0.1alpha* 17.0.1 alpha release
 	</changelog>
 	<supported>

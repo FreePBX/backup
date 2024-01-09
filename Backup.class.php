@@ -985,7 +985,23 @@ public function GraphQL_Access_token($request) {
 		$backupdir = $base . '/backup';
 
 		$this->fs->mkdir($backupdir);
-
+		//  find all runningBackupstatus
+		$runningBackupstatus = $this->getAll('runningBackupstatus');
+		$localfiles = [];
+		foreach( $runningBackupstatus as $backs) {
+			if($backs['status'] == 'FINISHED'){
+				if(file_exists($backs['backupfile'])){
+					//local file exits here 
+					$localfiles[$backs['backupfile']] = $backs;
+				}else { //missed files
+					$filepath   = preg_replace('#/backup/#', '/', $backs['backupfile'], 1);
+					if(file_exists($filepath)){
+						$backs['backupfile'] = $filepath;
+						$localfiles[$backs['backupfile']] = $backs;
+					}
+				}
+			}
+		}
 		$Directory = new \RecursiveDirectoryIterator($backupdir,\FilesystemIterator::SKIP_DOTS|\FilesystemIterator::CURRENT_AS_FILEINFO);
 		$Iterator  = new \RecursiveIteratorIterator($Directory,\RecursiveIteratorIterator::LEAVES_ONLY);
 		$this->delById('localfilepaths');
@@ -998,6 +1014,7 @@ public function GraphQL_Access_token($request) {
 			if(empty($backupinfo)){
 				continue;
 			}
+			unset($localfiles[$k]);
 			$this->setConfig(md5($k),$k,'localfilepaths');
 			$backupinfo['path'] = $path;
 			$backupinfo['id']   = md5($k);
@@ -1005,6 +1022,24 @@ public function GraphQL_Access_token($request) {
 			$backupinfo['timestamp'] = $backupinfo['timestamp'];
 			$backupinfo['size'] = $backupinfo['size'];
 			$files     []       = $backupinfo;
+		}
+		//process missed files
+		foreach ($localfiles as $f) {
+			$file = $f['backupfile'];	
+			$path       = dirname($file);
+			$buname     = $this->getConfig('backup_name',$f['buid']);
+			$buname     = str_replace('_',' ',$buname);
+			$backupFile = new BackupSplFileInfo($file);
+			$backupinfo = $backupFile->backupData();
+			if(empty($backupinfo)){
+					continue;
+			}
+			$this->setConfig(md5($file),$file,'localfilepaths');
+			$backupinfo['path'] = $path;
+			$backupinfo['id']   = md5($file);
+			$backupinfo['name'] = $buname;
+			$backupinfo['timestamp'] = $backupinfo['timestamp'];
+			$files[]     = $backupinfo;
 		}
 		return $files;
 	}

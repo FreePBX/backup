@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for backup
-# Copyright (C) 2008-2023 Sangoma Technologies, Inc.
+# Copyright (C) 2008-2024 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-29 03:10-0500\n"
+"POT-Creation-Date: 2024-01-09 02:57-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -777,7 +777,7 @@ msgstr ""
 msgid "Finished Remote Maintenance"
 msgstr ""
 
-#: Handlers/Storage.php:82
+#: Handlers/Storage.php:86
 msgid "Finished Saving to selected Filestore locations"
 msgstr ""
 
@@ -947,6 +947,11 @@ msgstr ""
 #: Handlers/Backup/Maintenance.php:98
 #: Handlers/Storage.php:51
 msgid "Invalid filestore location"
+msgstr ""
+
+#: Handlers/Storage.php:55
+#, php-format
+msgid "Invalid filestore location. Path not found. Info: %s "
 msgstr ""
 
 #: views/backup/transfer.php:39
@@ -1510,7 +1515,7 @@ msgstr ""
 msgid "Saving to selected Filestore locations"
 msgstr ""
 
-#: Handlers/Storage.php:72
+#: Handlers/Storage.php:76
 #, php-format
 msgid "Saving to: %s:'%s' instance ,File location: %s%s "
 msgstr ""

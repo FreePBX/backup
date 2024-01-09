@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-30 12:17+0000\n"
+"POT-Creation-Date: 2024-01-09 10:21+0000\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -82,11 +82,11 @@ msgstr ""
 msgid "%s table Restore Error %s "
 msgstr ""
 
-#: Backup.class.php:1504
+#: Backup.class.php:1539
 msgid "/path/to/dir"
 msgstr "/path/to/dir"
 
-#: Backup.class.php:1492
+#: Backup.class.php:1527
 msgid "/path/to/file"
 msgstr "/path/to/file"
 
@@ -210,7 +210,7 @@ msgstr ""
 msgid "Are you sure, you want to restore this backup?"
 msgstr ""
 
-#: Backup.class.php:1463
+#: Backup.class.php:1498
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -226,7 +226,7 @@ msgstr "RESPALDO NO ANEXO"
 msgid "Backup"
 msgstr "Respaldo"
 
-#: Backup.class.php:1132
+#: Backup.class.php:1167
 #, php-format
 msgid "Backup %s"
 msgstr ""
@@ -542,7 +542,7 @@ msgstr ""
 msgid "Delete After Runs"
 msgstr ""
 
-#: Backup.class.php:1517
+#: Backup.class.php:1552
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr ""
 "Borrar esta entrada. No olvide oprimir \"Enviar\" para guardar los cambios!"
@@ -566,7 +566,7 @@ msgstr ""
 msgid "Determining backup file type..."
 msgstr ""
 
-#: Backup.class.php:1499
+#: Backup.class.php:1534
 msgid "Directory"
 msgstr "Directorio"
 
@@ -618,7 +618,7 @@ msgstr ""
 msgid "Enable scheduled backups, default false"
 msgstr ""
 
-#: Backup.class.php:1369 views/backup/form.php:334
+#: Backup.class.php:1404 views/backup/form.php:334
 msgid "Enabled"
 msgstr ""
 
@@ -755,7 +755,7 @@ msgstr ""
 msgid "Failure"
 msgstr ""
 
-#: Backup.class.php:1487
+#: Backup.class.php:1522
 msgid "File"
 msgstr "Archivo"
 
@@ -876,11 +876,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1448
+#: Backup.class.php:1483
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1454
+#: Backup.class.php:1489
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -1177,7 +1177,7 @@ msgstr "Notificaciones"
 msgid "Only Restoring %s"
 msgstr ""
 
-#: Backup.class.php:1512
+#: Backup.class.php:1547
 msgid "PATTERNs, one per line"
 msgstr "PATRONes, uno por linea"
 
@@ -1883,7 +1883,7 @@ msgstr ""
 msgid "Unable to upload file to the remote server"
 msgstr "No se puede subir el archivo al servidor remoto"
 
-#: Backup.class.php:1369
+#: Backup.class.php:1404
 msgid "Uninstalled or Disabled"
 msgstr ""
 

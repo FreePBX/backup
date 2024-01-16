@@ -51,12 +51,12 @@ class Storage extends CommonFile {
 					$this->log(_('Invalid filestore location'),'ERROR');
 					continue;
 				}
-				if(!isset($info['path'])) {
+				if($info['driver'] != 'Email' && !isset($info['path'])) {
 					$this->log("\t".sprintf(_("Invalid filestore location. Path not found. Info: %s "), print_r($info, true)),'ERROR');
 					continue;
 				}
-				$Rpath = $this->translatePath($info['path']); 
-				$Rfile = basename((string) $this->file);
+				$Rpath = ($info['driver'] != 'Email') ? $this->translatePath($info['path']) : '';
+				$Rfile = ($info['driver'] != 'Email') ? basename((string) $this->file) : $this->file;
 				if ($this->backupInfo['backup_addbjname'] == 'yes') {
 					if ($info['driver'] == 'Email') {
 						$Rfile = basename((string) $this->file);

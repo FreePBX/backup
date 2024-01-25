@@ -597,7 +597,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 
 		$dbhost = $amp_conf['AMPDBHOST'];
 		$dbuser = $amp_conf['AMPDBUSER'];
-		$dbport = $amp_conf['AMPDBPORT'];
+		$dbport = $amp_conf['AMPDBPORT'] ?? '3306';
 		$dbpass = $amp_conf['AMPDBPASS'];
 		$dbname = $amp_conf['AMPDBNAME'];
 
@@ -605,7 +605,7 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		if (in_array(strtolower($tableName), $cdrDbTables)) {
 			$dbhost = $this->FreePBX->Config->get('CDRDBHOST') ? $this->FreePBX->Config->get('CDRDBHOST') : $amp_conf['AMPDBHOST'];
 			$dbuser = $this->FreePBX->Config->get('CDRDBUSER') ? $this->FreePBX->Config->get('CDRDBUSER') : $amp_conf['AMPDBUSER'];
-			$dbport = $this->FreePBX->Config->get('CDRDBPORT') ? $this->FreePBX->Config->get('CDRDBPORT') : $amp_conf['AMPDBPORT'];
+			$dbport = $this->FreePBX->Config->get('CDRDBPORT') ? $this->FreePBX->Config->get('CDRDBPORT') : ($amp_conf['AMPDBPORT'] ?? '3306');
 			$dbpass = $this->FreePBX->Config->get('CDRDBPASS') ? $this->FreePBX->Config->get('CDRDBPASS') : $amp_conf['AMPDBPASS'];
 			$dbname = $this->FreePBX->Config->get('CDRDBNAME') ? $this->FreePBX->Config->get('CDRDBNAME') : 'asteriskcdrdb';
 		}

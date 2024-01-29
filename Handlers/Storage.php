@@ -39,32 +39,36 @@ class Storage extends CommonFile {
 	 */
 	public function process($storages = []) {
 		$storage_ids = $this->Backup->getStorageById($this->id);
-		$storage_ids = count($storages)> 0?$storages:$storage_ids;
+		$storage_ids = (is_countable($storages) ? count($storages) : 0)> 0?$storages:$storage_ids;
 		$this->log(_("Saving to selected Filestore locations"));
 		$tmpfiledelete = true;
 		foreach ($storage_ids as $location) {
-			if(empty(trim($location))){
+			if(empty(trim((string) $location))){
 				continue;
 			}
 			try {
-				$id = explode('_', $location, 2)[1];
+				$id = explode('_', (string) $location, 2)[1];
 				$info = $this->Filestore->getItemById($id);
 				if(empty($info)) {
 					$this->log(_('Invalid filestore location'),'ERROR');
 					continue;
 				}
-				$Rpath = $this->translatePath($info['path']); 
-				$Rfile = basename($this->file);
+				if($info['driver'] != 'Email' && !isset($info['path'])) {
+					$this->log("\t".sprintf(_("Invalid filestore location. Path not found. Info: %s "), print_r($info, true)),'ERROR');
+					continue;
+				}
+				$Rpath = ($info['driver'] != 'Email') ? $this->translatePath($info['path']) : '';
+				$Rfile = ($info['driver'] != 'Email') ? basename((string) $this->file) : $this->file;
 				if ($this->backupInfo['backup_addbjname'] == 'yes') {
 					if ($info['driver'] == 'Email') {
-						$Rfile = basename($this->file);
+						$Rfile = basename((string) $this->file);
 					} else { 
-						$Rfile = $this->backupInfo['backup_name'].'/'.basename($this->file);
+						$Rfile = $this->backupInfo['backup_name'].'/'.basename((string) $this->file);
 						$this->freepbx->Filestore->makeDirectory($id, $this->backupInfo['backup_name']);
 					}
 				}
 				if($info['driver'] == 'Local'){
-					$localpath = rtrim($Rpath,'/').'/'.$Rfile;
+					$localpath = rtrim((string) $Rpath,'/').'/'.$Rfile;
 					if($this->file == $localpath){
 						$tmpfiledelete = false;
 						continue;

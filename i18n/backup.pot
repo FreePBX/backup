@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-19 00:57-0500\n"
+"POT-Creation-Date: 2024-02-21 22:43-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,7 +62,7 @@ msgstr ""
 msgid "%s is now loaded into memory"
 msgstr ""
 
-#: BackupBase.php:254
+#: BackupBase.php:260
 #, php-format
 msgid "%s table Backup Error %s "
 msgstr ""
@@ -441,7 +441,7 @@ msgstr ""
 msgid "Complete Path"
 msgstr ""
 
-#: BackupBase.php:261
+#: BackupBase.php:267
 #, php-format
 msgid "Completed mysql dumps of : %s"
 msgstr ""
@@ -1660,7 +1660,7 @@ msgstr ""
 msgid "Starting legacy cdr sql restore process"
 msgstr ""
 
-#: BackupBase.php:246
+#: BackupBase.php:252
 #, php-format
 msgid "Starting mysql dumps of : %s"
 msgstr ""

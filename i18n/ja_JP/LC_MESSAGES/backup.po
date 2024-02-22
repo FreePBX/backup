@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.41\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 05:32-0500\n"
+"POT-Creation-Date: 2024-02-21 22:43-0500\n"
 "PO-Revision-Date: 2015-10-27 13:38+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -87,7 +87,7 @@ msgstr ""
 msgid "%s is now loaded into memory"
 msgstr ""
 
-#: BackupBase.php:254
+#: BackupBase.php:260
 #, php-format
 msgid "%s table Backup Error %s "
 msgstr ""
@@ -447,7 +447,7 @@ msgstr ""
 msgid "Complete Path"
 msgstr ""
 
-#: BackupBase.php:261
+#: BackupBase.php:267
 #, php-format
 msgid "Completed mysql dumps of : %s"
 msgstr ""
@@ -1602,7 +1602,7 @@ msgstr ""
 msgid "Starting legacy cdr sql restore process"
 msgstr ""
 
-#: BackupBase.php:246
+#: BackupBase.php:252
 #, php-format
 msgid "Starting mysql dumps of : %s"
 msgstr ""

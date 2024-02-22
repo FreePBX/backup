@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 05:32-0500\n"
+"POT-Creation-Date: 2024-02-21 22:43-0500\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -74,7 +74,7 @@ msgstr ""
 msgid "%s is now loaded into memory"
 msgstr ""
 
-#: BackupBase.php:254
+#: BackupBase.php:260
 #, php-format
 msgid "%s table Backup Error %s "
 msgstr ""
@@ -434,7 +434,7 @@ msgstr ""
 msgid "Complete Path"
 msgstr ""
 
-#: BackupBase.php:261
+#: BackupBase.php:267
 #, php-format
 msgid "Completed mysql dumps of : %s"
 msgstr ""
@@ -1593,7 +1593,7 @@ msgstr ""
 msgid "Starting legacy cdr sql restore process"
 msgstr ""
 
-#: BackupBase.php:246
+#: BackupBase.php:252
 #, php-format
 msgid "Starting mysql dumps of : %s"
 msgstr ""

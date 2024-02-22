@@ -201,9 +201,10 @@ class BackupBase extends Model\Backup{
 
 		$dbhost = $amp_conf['AMPDBHOST'];
 		$dbuser = $amp_conf['AMPDBUSER'];
-		$dbport = $amp_conf['AMPDBPORT']??'3306';
+		$dbport = $amp_conf['AMPDBPORT'] ?? '3306';
 		$dbpass = $amp_conf['AMPDBPASS'];
 		$dbname = $amp_conf['AMPDBNAME'];
+		$dbsock = $amp_conf['AMPDBSOCK'] ?? '';
 
 		$cdrDbTables = ['cdr', 'cel', 'queuelog'];
 		if (in_array($tableName, $cdrDbTables)) {
@@ -226,8 +227,13 @@ class BackupBase extends Model\Backup{
 		$fileExt = $zipDump ? 'sql.gz' : 'sql';
 		$tmpfile = "{$tmpdir}/{$moduleName}.{$fileExt}";
 
-		$dbhost = ($dbhost === 'localhost' || $dbhost === '127.0.0.1') ? '' : '-h ' . $dbhost;
-		$dbport = empty(trim($dbport)) ? '' : '-P ' . $dbport;
+		if (empty($dbsock)) {
+			$dbhost = ($dbhost === 'localhost' || $dbhost === '127.0.0.1') ? '' : '-h ' . $dbhost;
+			$dbport = empty(trim($dbport)) ? '' : '-P ' . $dbport;
+		} else {
+			$dbhost = '-S ' . $dbsock;
+			$dbport = '';
+		}
 
 		$command = "{$mysqldump} {$dbport} {$dbhost} -u{$dbuser} -p{$dbpass} {$dbname} ";
 

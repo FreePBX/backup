@@ -622,10 +622,10 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 		}
 		
 		$this->log(sprintf(_("Started restoring mysql dumps of : %s"), $tableName));
-
+		$this->log(_("The restore process may require some time, with the current default timeout set to 10 hours"));
 		try {
 			$process =  \freepbx_get_process_obj($restore);
-			$process->setTimeout(3600);
+			$process->setTimeout(36000);
 			$process->disableOutput();
 			$process->mustRun();
 		} catch (ProcessFailedException $e) {

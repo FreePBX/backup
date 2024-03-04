@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-21 22:43-0500\n"
+"POT-Creation-Date: 2024-03-04 10:02-0500\n"
 "PO-Revision-Date: 2016-02-05 11:17+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -1680,6 +1680,12 @@ msgstr ""
 #: Handlers/Backup/Common.php:117
 #, php-format
 msgid "The module %s returned no data, No backup created"
+msgstr ""
+
+#: RestoreBase.php:625
+msgid ""
+"The restore process may require some time, with the current default timeout "
+"set to 10 hours"
 msgstr ""
 
 #: assets/js/backup.js:496

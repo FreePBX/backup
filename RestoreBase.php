@@ -152,12 +152,16 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 			foreach($content as $family => $extra) {
 				if(!is_array($extra)){// content is not array eg:/DAYNIGHT/C      : NIGHT
 					$this->log(sprintf(_('Importing AstDB family %s/%s  : %s'),$key,$family,$extra));
-					$this->FreePBX->astman->database_put($key,$family,$extra);
+					if($this->FreePBX->astman->connected()){
+						$this->FreePBX->astman->database_put($key,$family,$extra);
+					}
 					continue;
 				}
 				foreach($extra as $children => $val ){
 					$this->log(sprintf(_('Importing AstDB family %s from %s'),$family,$this->data['module']));
-					$this->FreePBX->astman->database_put($family,$children,$val);
+					if($this->FreePBX->astman->connected()){
+						$this->FreePBX->astman->database_put($family,$children,$val);
+					}
 				}
 			}
 		}

@@ -1333,6 +1333,10 @@ public function GraphQL_Access_token($request) {
 				$value = str_replace(' ', '-', (string) $value); 
 				$value = preg_replace('/[^A-Za-z0-9\-]/', '', $value);
 			}
+			if($col == 'core_disabletrunks') {
+				$disableTrunkValue = $this->freepbx->Core->getConfig('core_disabletrunks', $data['id']);
+				$value = (!empty($disableTrunkValue) ? $disableTrunkValue : 'no');
+			}
 			$this->updateBackupSetting($data['id'], $col, $value);
 		}
 

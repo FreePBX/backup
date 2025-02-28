@@ -1328,12 +1328,14 @@ public function GraphQL_Access_token($request) {
 				continue;
 			}
 
-			$value = $this->getReqUnsafe($col,'');
-			if($col == 'backup_name'){
-				$value = str_replace(' ', '-', (string) $value); 
-				$value = preg_replace('/[^A-Za-z0-9\-]/', '', $value);
+			if(isset($_REQUEST[$col]) || $_REQUEST['action'] == "addbackup") {
+				$value = $this->getReqUnsafe($col,'');
+				if($col == 'backup_name'){
+					$value = str_replace(' ', '-', (string) $value);
+					$value = preg_replace('/[^A-Za-z0-9\-]/', '', $value);
+				}
+				$this->updateBackupSetting($data['id'], $col, $value);
 			}
-			$this->updateBackupSetting($data['id'], $col, $value);
 		}
 
 		$backup_name = $this->getReq('backup_name','');

@@ -32,6 +32,7 @@ if (!empty($bkjobs)) {
 						<input type="hidden" id="id" name="id" value="<?php echo $id ?>">
 						<input type="hidden" id="backup_items" name="backup_items" value='unchanged'>
 						<input type="hidden" id="backup_schedule" name="backup_schedule" value="<?php echo $backup_schedule ?>">
+						<input type="hidden" id="action" name="action" value="<?php echo $_REQUEST['view'] ?>">
 						<div class="section-title" data-for="backup-basic">
 							<h3>
 								<i class="fa fa-minus"></i>

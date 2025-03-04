@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-19 13:30+0000\n"
+"POT-Creation-Date: 2025-03-04 05:54+0000\n"
 "PO-Revision-Date: 2016-07-11 13:48+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/backup/"
@@ -84,11 +84,11 @@ msgstr ""
 msgid "%s table Restore Error %s "
 msgstr ""
 
-#: Backup.class.php:1548
+#: Backup.class.php:1552
 msgid "/path/to/dir"
 msgstr "/путь/к/каталогу"
 
-#: Backup.class.php:1536
+#: Backup.class.php:1540
 msgid "/path/to/file"
 msgstr "/путь/к/файлу"
 
@@ -179,6 +179,10 @@ msgstr ""
 msgid "Adding module manifest for %s"
 msgstr ""
 
+#: backup.i18n.php:6
+msgid "Admin"
+msgstr "Админ"
+
 #: views/restore/processRestore.php:28
 msgid "After the restore you might reload with the apply config button"
 msgstr ""
@@ -204,7 +208,7 @@ msgstr ""
 msgid "Are you sure, you want to restore this backup?"
 msgstr ""
 
-#: Backup.class.php:1507
+#: Backup.class.php:1511
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -219,7 +223,7 @@ msgstr "АРХИВ НЕ ПРИСОЕДИНЁН"
 msgid "Backup"
 msgstr "Бекап"
 
-#: Backup.class.php:1174
+#: Backup.class.php:1178
 #, php-format
 msgid "Backup %s"
 msgstr ""
@@ -234,9 +238,17 @@ msgstr ""
 msgid "Backup %s success for %s"
 msgstr ""
 
-#: views/landing.php:5
+#: backup.i18n.php:4 backup.i18n.php:10 views/landing.php:5
 msgid "Backup & Restore"
 msgstr "Резервное копирование и восстановление"
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Restore"
+msgstr "Резервное копирование и восстановление - Восстановление"
+
+#: backup.i18n.php:8
+msgid "Backup & Restore for your FreePBX environment"
+msgstr "Резервное копирование и восстановление для вашего FreePBX"
 
 #: views/restore/landing.php:73 views/restore/landing.php:119
 msgid "Backup Date"
@@ -502,7 +514,7 @@ msgstr ""
 msgid "Delete After Runs"
 msgstr ""
 
-#: Backup.class.php:1561
+#: Backup.class.php:1565
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr "Удалить этот пункт. Не забудьте нажать Сохранить для записи изменений!"
 
@@ -525,7 +537,7 @@ msgstr ""
 msgid "Determining backup file type..."
 msgstr ""
 
-#: Backup.class.php:1543
+#: Backup.class.php:1547
 msgid "Directory"
 msgstr "Каталог"
 
@@ -573,7 +585,7 @@ msgstr ""
 msgid "Enable scheduled backups, default false"
 msgstr ""
 
-#: Backup.class.php:1411 views/backup/form.php:334
+#: Backup.class.php:1415 views/backup/form.php:334
 msgid "Enabled"
 msgstr ""
 
@@ -709,7 +721,7 @@ msgstr ""
 msgid "Failure"
 msgstr ""
 
-#: Backup.class.php:1531
+#: Backup.class.php:1535
 msgid "File"
 msgstr "Файл"
 
@@ -820,11 +832,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1492
+#: Backup.class.php:1496
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1498
+#: Backup.class.php:1502
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -1114,7 +1126,7 @@ msgstr "Уведомления"
 msgid "Only Restoring %s"
 msgstr ""
 
-#: Backup.class.php:1556
+#: Backup.class.php:1560
 msgid "PATTERNs, one per line"
 msgstr "Шаблоны, один на линию"
 
@@ -1636,7 +1648,8 @@ msgid "The Backup Id to delete"
 msgstr ""
 
 #: Api/Gql/Backup.php:64
-msgid "The Backup job name "
+#, php-format
+msgid "The Backup job name %s is already in use, please use a different name."
 msgstr ""
 
 #: assets/js/backup.js:97
@@ -1805,7 +1818,7 @@ msgstr ""
 msgid "Unable to upload file to the remote server"
 msgstr ""
 
-#: Backup.class.php:1411
+#: Backup.class.php:1415
 msgid "Uninstalled or Disabled"
 msgstr ""
 
@@ -2036,15 +2049,6 @@ msgstr ""
 #: Api/Gql/Backup.php:76
 msgid "updateBackup"
 msgstr ""
-
-#~ msgid "Admin"
-#~ msgstr "Админ"
-
-#~ msgid "Backup & Restore - Restore"
-#~ msgstr "Резервное копирование и восстановление - Восстановление"
-
-#~ msgid "Backup & Restore for your FreePBX environment"
-#~ msgstr "Резервное копирование и восстановление для вашего FreePBX"
 
 #~ msgid "Backup Module"
 #~ msgstr "Модуль резервного копирования"

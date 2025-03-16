@@ -1,22 +1,25 @@
-# This file is part of FreePBX.
+# Этот файл является частью FreePBX.
 #
-#    FreePBX is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 2 of the License, or
-#    (at your option) any later version.
+#	FreePBX — это свободное программное обеспечение:
+#	Вы можете распространять, а также изменять FreePBX
+#	на условиях GNU General Public License,
+#	актуальной, 2ой версии лицензии, опубликованной Фондом
+#	свободного программного обеспечения, либо использовать
+#	любую более позднюю версию лицензии.
 #
-#    FreePBX is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
+#	FreePBX распространяется в надежде, что она окажется полезной,
+#	но БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ; даже без подразумеваемых гарантий
+#	товарности или пригодности для определенной цели. Смотри
+#	GNU General Public License для более подробной информации.
 #
-#    You should have received a copy of the GNU General Public License
-#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#	Вы должны были получить копию Стандартной общественной лицензии GNU.
+#	вместе с FreePBX.  Если нет, смотрите <http://www.gnu.org/licenses/>.
 #
-# Russian freePBX ver. translation
-# Copyright (c) 2006-2008 PostMet Corporation
-# This file is distributed under the same license as the freePBX package.
-# Alexander Kozyrev <ceo@postmet.com>, Sergey Nikolayev <sergey@postmet.com>, 2006-2008.
+# Русский перевод freePBX:
+# 1) Copyright (c) 2006-2008 PostMet Corporation
+# 	 Этот файл распространяется по той же лицензии, что и пакет freePBX.
+# 	 Александр Козырев <ceo@postmet.com>, Сергей Николаев <sergey@postmet.com>, 2006-2008.
+# 2) Частное лицо Виктор Борисенко <victor.borisenko81@gmail.com>, <victor.borisenko81@yandex.ru>, 2025г.
 #
 # Использовать iconv yourfile.new -f UTF-8 -t ISO-8859-5 -o yourfile.po
 msgid ""
@@ -44,11 +47,16 @@ msgid ""
 "please ensure that 'asterisk' user has permissions to read the file/"
 "directory path. Or move the backup file to the '/home/asterisk' path."
 msgstr ""
+"\n" 
+" Нет доступа к файлу %s. Процесс восстановления FreePBX "
+"запускается от имени пользователя asterisk, убедитесь, что у пользователя 'asterisk' "
+"есть права на чтение файла и каталога. Или переместите файл резервной копии "
+"в каталог '/home/asterisk'."
 
 #: RestoreBase.php:264
 #, php-format
 msgid " %s found no database definitions in module.xml"
-msgstr ""
+msgstr " %s не определены настройки баз данных в файле module.xml"
 
 #: views/restore/landing.php:110 views/restore/processRestore.php:89
 msgid ""
@@ -58,49 +66,55 @@ msgid ""
 "Alternatively, you can cancel the restore process and downgrade the Asterisk "
 "version first, then attempt to restore your backup."
 msgstr ""
+" Файл резервной копии содержит устаревшие расширения chan_sip или транков, "
+"которые не совместимы с новой версией Asterisk. В случае продолжения, "
+"устаревшие расширения или транки будут преобразованы в PJSIP. " 
+" Также, вы можете отменить процесс восстановления и попытаться восстановить"
+"резервную копию на более старую версию Asterisk." 
+
 
 #: views/backup/form.php:25
 #, php-format
 msgid "%s Backup %s"
-msgstr ""
+msgstr "%s Backup %s"
 
 #: views/backup/form.php:434 views/backup/form.php:437
 #: views/backup/form.php:440 views/backup/form.php:443
 #, php-format
 msgid "%s Days"
-msgstr ""
+msgstr "%s Дней"
 
 #: views/backup/form.php:446 views/backup/form.php:449
 #: views/backup/form.php:452 views/backup/form.php:455
 #: views/backup/form.php:458
 #, php-format
 msgid "%s Days (%s Months)"
-msgstr ""
+msgstr "%s Дней (%s Месяцев)"
 
 #: Handlers/Backup/Common.php:172 Handlers/Restore/Multiple.php:18
 #, php-format
 msgid "%s does not exist"
-msgstr ""
+msgstr "%s не существует"
 
 #: RestoreBase.php:195 RestoreBase.php:395
 #, php-format
 msgid "%s does not implement KVStore"
-msgstr ""
+msgstr "%s не поддерживает тип KVStore"
 
 #: Handlers/Restore/Legacy.php:137
 #, php-format
 msgid "%s is now loaded into memory"
-msgstr ""
+msgstr "%s загружено"
 
 #: BackupBase.php:260
 #, php-format
 msgid "%s table Backup Error %s "
-msgstr ""
+msgstr "%s Ошибка резервного копирования таблицы %s "
 
 #: RestoreBase.php:637
 #, php-format
 msgid "%s table Restore Error %s "
-msgstr ""
+msgstr "%s ошибка восстановления таблицы %s "
 
 #: Backup.class.php:1712
 msgid "/path/to/dir"
@@ -112,45 +126,47 @@ msgstr "/путь/к/файлу"
 
 #: Api/Gql/Backup.php:105 Api/Gql/Backup.php:387
 msgid "A id used to identify your backups"
-msgstr ""
+msgstr "id, используемый для идентификации резервных копий"
 
 #: Api/Gql/Backup.php:324 Api/Gql/Backup.php:391 views/backup/form.php:60
 msgid "A name used to identify your backups"
-msgstr ""
+msgstr "Имя, используемое для идентификации резервных копий"
 
 #: Console/Backup.class.php:309
 msgid ""
 "A restore is already in progress; please wait until it completes before "
 "starting a new one."
 msgstr ""
+"Восстановление уже выполняется; пожалуйста, подождите пока завершится существующий процесс."
+
 
 #: views/backup/form.php:519
 msgid "A script to be run AFTER a backup is completed."
-msgstr "Скрипт, запускаемый ПОСЛЕ выполнения резервного копирования."
+msgstr "Скрипт, ВЫПОЛНЯЕМЫЙ ПОСЛЕ выполнения резервного копирования."
 
 #: views/backup/form.php:567
 msgid "A script to be run AFTER a backup is restored."
-msgstr "Скрипт, запускаемый ПОСЛЕ восстановления из резервной копии."
+msgstr "Скрипт, ВЫПОЛНЯЕМЫЙ ПОСЛЕ восстановления из резервной копии."
 
 #: views/backup/form.php:543
 msgid "A script to be run BEFORE a backup is restored."
-msgstr "Скрипт, запускаемый ДО восстановления из резервной копии."
+msgstr "Скрипт, ВЫПОЛНЯЕМЫЙ ПЕРЕД восстановлением из резервной копии."
 
 #: views/backup/form.php:495
 msgid "A script to be run BEFORE a backup is started."
-msgstr "Сценарий, запускаемый ПОСЛЕ запуска резервного копирования."
+msgstr "Скрипт, ВЫПОЛНЯЕМЫЙ ПЕРЕД резервным копированием."
 
 #: views/backup/warmspare.php:277
 msgid "API"
-msgstr ""
+msgstr "API"
 
 #: views/backup/warmspare.php:332
 msgid "Access Token URL"
-msgstr ""
+msgstr "URL-адрес токена доступа"
 
 #: views/backup/warmspare.php:344
 msgid "Access Token URL of Warm Spare server."
-msgstr ""
+msgstr "URL-адрес токена доступа для сервера Warm Spare."
 
 #: views/backup/grid.php:27 views/restore/landing.php:60
 #: views/restore/landing.php:91
@@ -159,78 +175,79 @@ msgstr "Действия"
 
 #: views/backup/form.php:25
 msgid "Add"
-msgstr ""
+msgstr "Добавить"
 
 #: views/backup/grid.php:5 views/rnav.php:3
 msgid "Add Backup"
-msgstr ""
+msgstr "Добавить резервную копию"
 
 #: Api/Gql/Backup.php:328 Api/Gql/Backup.php:395 views/backup/form.php:84
 msgid "Add a description for your backup"
-msgstr ""
+msgstr "Добавить описание резервной копии"
 
 #: views/backup/form.php:140
 msgid "Add custom files in backup"
-msgstr ""
+msgstr "Добавить файлы в резервную копию"
 
 #: Handlers/Backup/Common.php:211
 #, php-format
 msgid "Adding custom directory to tar: %s"
-msgstr ""
+msgstr "Добавление пользовательского каталога в tar: %s"
 
 #: Handlers/Backup/Common.php:170
 #, php-format
 msgid "Adding custom file to tar: %s"
-msgstr ""
+msgstr "Добавление пользовательского файла в tar: %s"
 
 #: Handlers/Backup/Common.php:128
 #, php-format
 msgid "Adding directory to tar: %s"
-msgstr ""
+msgstr "Добавление каталога в tar: %s"
 
 #: Handlers/Backup/Common.php:143
 #, php-format
 msgid "Adding file to tar: %s"
-msgstr ""
+msgstr "Добавление файла в tar: %s"
 
 #: Handlers/Backup/Multiple.php:144
 #, php-format
 msgid "Adding module %s to queue because %s depends on it"
-msgstr ""
+msgstr "Добавление модуля %s в очередь, так как %s имеет зависимость"
 
 #: Handlers/Backup/Common.php:150
 #, php-format
 msgid "Adding module manifest for %s"
-msgstr ""
+msgstr "Объявление модуля для %s"
 
 #: backup.i18n.php:6
 msgid "Admin"
-msgstr "Админ"
+msgstr "Admin"
 
 #: views/restore/processRestore.php:45
 msgid "After the restore you might reload with the apply config button"
-msgstr ""
+msgstr "После восстановления, нажмите кнопку Применить настройки, система будет перезагружена."
 
 #: Handlers/Restore/Common.php:183
 msgid ""
 "Apache will Restart now... And your GUI may die if the ports are changed !!!!"
 msgstr ""
+"сервер Apache будет перезагружен... В случае смены портов, связь с визуальным интерфейсом будет потеряна !!!!"
 
 #: views/backup/form.php:292
 msgid "Append Backup Name as a directory to the Storage path"
-msgstr ""
+msgstr "Использовать имя резервной копии в качестве имени каталога в хранилище"
 
 #: views/backup/warmspare.php:208
 msgid "Apply Configs"
-msgstr "Применить конфигурации"
+msgstr "Применить настройки"
 
 #: assets/js/backup.js:218 assets/js/backup.js:255
 msgid "Are you sure you wish to delete this file? This cannot be undone"
-msgstr ""
+msgstr "Вы действительно хотите удалить этот файл? Процедура необратима"
 
 #: views/restore/landing.php:111 views/restore/processRestore.php:90
 msgid "Are you sure, you want to restore this backup?"
-msgstr ""
+msgstr "Вы уверены, что хотите восстановить эту резервную копию?"
 
 #: Backup.class.php:1680
 #, php-format
@@ -238,10 +255,12 @@ msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
 "Aborting"
 msgstr ""
+"Домашняя директория Asterisk (%s) не существует, и ASTSPOOLDIR не существует."
+"Отмена"
 
 #: views/restore/landing.php:110 views/restore/processRestore.php:89
 msgid "Attention:"
-msgstr ""
+msgstr "Внимание:"
 
 #: Console/Backup.class.php:328
 #, php-format
@@ -252,49 +271,54 @@ msgid ""
 "Alternatively, you can cancel the restore process and downgrade the Asterisk "
 "version first, then attempt to restore your backup."
 msgstr ""
+"Внимание: файл резервной копии содержит устаревшие расширения chan_sip или транков, "
+"которые не совместимы с новой версией Asterisk. В случае продолжения, "
+"устаревшие расширения или транки будут преобразованы в PJSIP. " 
+" Также, вы можете отменить процесс восстановления и попытаться восстановить"
+"резервную копию на более старую версию Asterisk." 
 
 #: functions.inc/class.backup.php:399 functions.inc/class.backup.php:402
 msgid "BACKUP NOT ATTACHED"
-msgstr "АРХИВ НЕ ПРИСОЕДИНЁН"
+msgstr "АРХИВ НЕ ПРИКРЕПЛЕН"
 
 #: functions.inc/class.backup.php:393 views/landing.php:13
 msgid "Backup"
-msgstr "Бекап"
+msgstr "Backup"
 
 #: Backup.class.php:1346
 #, php-format
 msgid "Backup %s"
-msgstr ""
+msgstr "Backup"
 
 #: Handlers/Backup/Email.php:17 Monolog/Swift.php:76
 #, php-format
 msgid "Backup %s failed for %s"
-msgstr ""
+msgstr "Ошибка %s при создании резервной копии %s"
 
 #: Handlers/Backup/Email.php:26 Monolog/Swift.php:74
 #, php-format
 msgid "Backup %s success for %s"
-msgstr ""
+msgstr "Резервное копироваие %s успешно выполнено %s"
 
 #: backup.i18n.php:4 backup.i18n.php:10 views/landing.php:5
 msgid "Backup & Restore"
-msgstr "Резервное копирование и восстановление"
+msgstr "Резервное копирование и Восстановление"
 
 #: backup.i18n.php:12
 msgid "Backup & Restore - Restore"
-msgstr "Резервное копирование и восстановление - Восстановление"
+msgstr "Резервное копирование и Восстановление - Восстановление"
 
 #: backup.i18n.php:8
 msgid "Backup & Restore for your FreePBX environment"
-msgstr "Резервное копирование и восстановление для вашего FreePBX"
+msgstr "Резервное копирование и Восстановление для среды FreePBX"
 
 #: views/restore/landing.php:57 views/restore/landing.php:87
 msgid "Backup Date"
-msgstr ""
+msgstr "Дата Резервного копирования"
 
 #: Backup.class.php:370
 msgid "Backup Deleted"
-msgstr ""
+msgstr "Резервная копия удалена"
 
 #: views/backup/form.php:72
 msgid "Backup Description"
@@ -302,76 +326,76 @@ msgstr "Описание резервной копии"
 
 #: functions.inc/class.backup.php:398
 msgid "Backup ERROR (exceeded SMTP limits)"
-msgstr "ОШИБКА при отсылке резервной копии (превышен лимит SMTP)"
+msgstr "Ошибка резервного копирования (превышены лимиты SMTP)"
 
 #: functions.inc/class.backup.php:401
 msgid "Backup ERROR (exceeded soft limit)"
-msgstr "ОШИБКА при создании резервной копии (превышен софт лимит)"
+msgstr "Ошибка резервного копирования (превышен мягкий лимит)"
 
 #: views/restore/landing.php:16
 msgid "Backup File"
-msgstr ""
+msgstr "Файл резервной копии"
 
 #: views/restore/landing.php:86
 msgid "Backup File Name"
-msgstr ""
+msgstr "Имя файла резервной копии"
 
 #: Handlers/Backup/Multiple.php:65
 #, php-format
 msgid "Backup File Name: %s"
-msgstr ""
+msgstr "Имя файла резервной копии: %s"
 
 #: Console/Backup.class.php:24
 msgid "Backup ID"
-msgstr ""
+msgstr "ID резервной копии"
 
 #: views/restore/processRestore.php:11
 msgid "Backup Info"
-msgstr ""
+msgstr "Информация о резервной копии"
 
 #: views/restore/landing.php:90
 msgid "Backup Instance"
-msgstr ""
+msgstr "Экземпляр резервной копии"
 
 #: views/backup/form.php:96
 msgid "Backup Items"
-msgstr "Пункты бекапа"
+msgstr "Элементы резервной копии"
 
 #: views/backup/form.php:48 views/restore/landing.php:56
 msgid "Backup Name"
-msgstr "Имя бекапа"
+msgstr "Имя резервной копии"
 
 #: Backup.class.php:829
 msgid "Backup Restored Successfully"
-msgstr ""
+msgstr "Резервная копия успешно восстановлена"
 
 #: Api/Gql/Backup.php:678
 msgid "Backup Storage Location Required"
-msgstr ""
+msgstr "Укажите место хранения резервных копий"
 
 #: views/restore/landing.php:89
 msgid "Backup Type"
-msgstr ""
+msgstr "Тип резервного копирования"
 
 #: views/backup/grid.php:6
 msgid "Backup Wizard"
-msgstr "Мастер создания  резервной копии"
+msgstr "Мастер создания резервных копий"
 
 #: Console/Backup.class.php:140 Console/Backup.class.php:236
 msgid "Backup completed successfully"
-msgstr ""
+msgstr "Создание резервной копии успешно завершено"
 
 #: Api/Gql/Backup.php:186
 msgid "Backup deleted successfully"
-msgstr ""
+msgstr "Резервная копия успешно удалена"
 
 #: Api/Gql/Backup.php:188 Api/Gql/Backup.php:194
 msgid "Backup does not exists"
-msgstr ""
+msgstr "Резервная копия не существует"
 
 #: Api/Gql/Backup.php:712
 msgid "Backup does not found"
-msgstr ""
+msgstr "Резервная копия не обнаружена"
 
 #: functions.inc/class.backup.php:288
 #, php-format
@@ -379,39 +403,41 @@ msgid ""
 "Backup failed dumping SQL database [%s] to file [%s], you have a corrupted "
 "backup from server [%s]."
 msgstr ""
-"Не удалось резервное копирование дампа SQL базы [%s] в файл [%s]. У вас есть "
-"поврежденная резервная копия с сервера [%s]."
+"Ошибка резервного копирования дампа SQL базы [%s] в файл [%s]. "
+"Резервная копия создана с ошибками [%s]."
 
 #: functions.inc/class.backup.php:487
 msgid "Backup file uploaded to the remote server"
-msgstr ""
+msgstr "Резервная копия выгружена на удаленный сервер"
 
 #: Api/Gql/Backup.php:608
 msgid "Backup has been performed/schedules"
-msgstr ""
+msgstr "Резервное копирование настроено"
 
 #: Api/Gql/Backup.php:707
 msgid "Backup has been updated"
-msgstr ""
+msgstr "Настройки резервного копирования обновлены"
 
 #: Api/Gql/Backup.php:130
 msgid ""
 "Backup process has been initiated. Kindly check the fetchApiStatus api with "
 "the transaction id."
 msgstr ""
+"Запущен процесс резервного копирования. Для проверки статуса, используйте fetchApiStatus api"
+"с идентификатором транзакции."
 
 #: Backup.class.php:553
 msgid "Backup running"
-msgstr ""
+msgstr "Резервное копирование запущено"
 
 #: Console/Backup.class.php:25
 msgid "Base64 encoded backup job"
-msgstr ""
+msgstr "Процесс шифрования резервной копии средствами Base64"
 
 #: Handlers/Restore/Common.php:123
 #, php-format
 msgid "Based on Module settings We are NOT Resetting %s module data"
-msgstr ""
+msgstr "Согласно настроек модуля, мы НЕ Сбрасываем данные модуля %s"
 
 #: views/backup/form.php:38
 msgid "Basic Information"
@@ -419,96 +445,96 @@ msgstr "Базовая информация"
 
 #: views/backup/form.php:238
 msgid "Both"
-msgstr ""
+msgstr "Оба"
 
 #: Handlers/Restore/Common.php:85
 #, php-format
 msgid "Can't find the module data for %s"
-msgstr ""
+msgstr "Не удается найти данные модуля %s"
 
 #: Console/Backup.class.php:328 Console/Backup.class.php:336
 #: views/restore/landing.php:116 views/restore/processRestore.php:95
 #: assets/js/backup.js:219 assets/js/backup.js:256
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: Handlers/Backup/Single.php:52
 msgid "Cleaning up"
-msgstr ""
+msgstr "Очистить"
 
 #: Handlers/Backup/Multiple.php:209
 #, php-format
 msgid "Cleaning up data generated by %s"
-msgstr ""
+msgstr "Очистка данных, созданных %s"
 
 #: Backup.class.php:175
 msgid "Cleaning up old data"
-msgstr ""
+msgstr "Очистка старых данных"
 
 #: views/restore/landing.php:21
 msgid "Click to upload a backup file."
-msgstr ""
+msgstr "Нажмите, чтобы загрузить файл резервной копии."
 
 #: views/backup/warmspare.php:428
 msgid "Client Access Token"
-msgstr ""
+msgstr "Токен доступа клиента"
 
 #: views/backup/warmspare.php:356
 msgid "Client ID"
-msgstr ""
+msgstr "ID клиента"
 
 #: views/backup/warmspare.php:380
 msgid "Client Secret"
-msgstr ""
+msgstr "Пароль клиента"
 
 #: views/backup/warmspare.php:392
 msgid "Client Secret of the Warm Spare server."
-msgstr ""
+msgstr "Пароль клиента сервера Warm Spare."
 
 #: views/backup/warmspare.php:368
 msgid "ClientID of the Warm Spare server."
-msgstr ""
+msgstr "ID клиента, сервера Warm Spare."
 
 #: views/backup/form.php:638 views/runModal.php:12
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: RestoreBase.php:557
 #, php-format
 msgid "Column '%s' does not exist in %s, skipping"
-msgstr ""
+msgstr "Колонка '%s' не существует в %s, пропуск"
 
 #: views/backup/item_table.php:8
 msgid "Complete Path"
-msgstr ""
+msgstr "Полный путь"
 
 #: BackupBase.php:267
 #, php-format
 msgid "Completed mysql dumps of : %s"
-msgstr ""
+msgstr "Завершено создание mysql дампа : %s"
 
 #: RestoreBase.php:641
 #, php-format
 msgid "Completed restoring mysql dumps of : %s"
-msgstr ""
+msgstr "Завершено восстановление дампов mysql из : %s"
 
 #: views/backup/warmspare.php:270
 msgid "Connect Warm Spare Server Over"
-msgstr ""
+msgstr "Подключение сервера Warm Spare"
 
 #: Console/Backup.class.php:328 Console/Backup.class.php:332
 #: views/restore/landing.php:114 views/restore/processRestore.php:93
 msgid "Continue"
-msgstr ""
+msgstr "Продолжить"
 
 #: Console/Backup.class.php:48
 msgid ""
 "Convert legacy chan_sip extensions to chan_pjsip extensions during restore"
-msgstr ""
+msgstr "Преобразование устаревших расширений chan_sip в расширения chan_pjsip при восстановлении из резервной копии"
 
 #: Console/Backup.class.php:50
 msgid "Convert legacy chan_sip trunks to chan_pjsip trunks during restore"
-msgstr ""
+msgstr "Преобразование устаревших транков chan_sip в транки chan_pjsip во время восстановления"
 
 #: Handlers/Backup/Multiple.php:131
 #, php-format
@@ -516,28 +542,30 @@ msgid ""
 "Could not backup module %s because it depends on %s which is not enabled. "
 "Please enable %s"
 msgstr ""
+"Не удалось создать резервную копию модуля %s, поскольку существует зависимость от не подключенного объекта %s."
+"Включите %s"
 
 #: Handlers/Backup/Multiple.php:94
 #, php-format
 msgid "Could not backup module %s because it is not enabled"
-msgstr ""
+msgstr "Не удалось создать резервную копию модуля %s, поскольку он не включен"
 
 #: functions.inc/class.backup.php:801
 #, php-format
 msgid "Could not find %s on the remote system"
-msgstr ""
+msgstr "Не удалось найти %s в удаленной системе"
 
 #: Backup.class.php:480 Backup.class.php:488
 msgid "Could not find a file for the id supplied"
-msgstr ""
+msgstr "Не удалось найти файл для указанного ID"
 
 #: Handlers/Restore/Common.php:170
 msgid "Could not locate the manifest for this file"
-msgstr ""
+msgstr "Не удалось найти описание для этого файла"
 
 #: Backup.class.php:929 Backup.class.php:997
 msgid "Couldn't find your file, please try submitting your file again."
-msgstr ""
+msgstr "Файл недоступен, попробуйте отправить его повторно."
 
 #: functions.inc/class.backup.php:386
 msgid "Created"
@@ -546,21 +574,21 @@ msgstr "Создано"
 #: functions.inc/class.backup.php:465
 #, php-format
 msgid "Creating directory '%s'"
-msgstr ""
+msgstr "Создание каталога '%s'"
 
 #: views/backup/form.php:121
 msgid "Custom Files"
-msgstr ""
+msgstr "Пользовательские файлы"
 
 #: Handlers/Backup/Common.php:221
 #, php-format
 msgid "Custom directory not exists: %s"
-msgstr ""
+msgstr "Пользовательский каталог не существует: %s"
 
 #: Handlers/Backup/Common.php:177
 #, php-format
 msgid "Custom file not exists: %s"
-msgstr ""
+msgstr "Пользовательский файл не существует: %s"
 
 #: Backup.class.php:262 views/backup/item_table.php:14
 #: views/restore/landing.php:49 views/restore/landing.php:79
@@ -570,20 +598,20 @@ msgstr "Удалить "
 
 #: views/backup/form.php:423
 msgid "Delete After Days"
-msgstr ""
+msgstr "Удалить через указанное количество дней"
 
 #: views/backup/form.php:399
 msgid "Delete After Runs"
-msgstr ""
+msgstr "Удаление после выполнения"
 
 #: Backup.class.php:1718
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
-msgstr "Удалить этот пункт. Не забудьте нажать Сохранить для записи изменений!"
+msgstr "Удалить эту запись. Не забудьте нажать кнопку Отправить, чтобы сохранить изменения!"
 
 #: Handlers/Backup/Multiple.php:120
 #, php-format
 msgid "Depend field was blank for %s. Skipping because not sure what to do"
-msgstr ""
+msgstr "Поле зависимостей было пустым для %s. Пропускаем, потому что не уверены, что делать"
 
 #: views/backup/grid.php:26 views/restore/processRestore.php:15
 #: views/rnav.php:17
@@ -593,11 +621,11 @@ msgstr "Описание"
 #: Handlers/Restore/Legacy.php:85
 #, php-format
 msgid "Detected file %s as the PBX (Asterisk) database. Attempting restore"
-msgstr ""
+msgstr "Обнаружен файл %s в качестве базы данных PBX (Asterisk). Попытка восстановления"
 
 #: Console/Backup.class.php:314
 msgid "Determining backup file type..."
-msgstr ""
+msgstr "Определение типа файла резервной копии..."
 
 #: Backup.class.php:1711
 msgid "Directory"
@@ -606,100 +634,103 @@ msgstr "Каталог"
 #: functions.inc/class.backup.php:469
 #, php-format
 msgid "Directory '%s' did not exist and we could not create it"
-msgstr ""
+msgstr "Директория '%s' не существует или не может быть создана"
 
 #: views/backup/warmspare.php:50
 msgid "Disable Remote Trunks"
-msgstr ""
+msgstr "Отключение удаленных транков"
 
 #: Console/Backup.class.php:294 Handlers/Restore/Common.php:128
 #: Handlers/Restore/Legacy.php:248
 msgid "Done"
-msgstr ""
+msgstr "Выполнено"
 
 #: views/backup/transfer.php:31
 msgid "Donor"
-msgstr ""
+msgstr "Исходный объект"
 
 #: Console/Backup.class.php:26
 msgid "Dump Base64 backup data"
-msgstr ""
+msgstr "Выгрузка данных резервного копирования в формате Base64"
 
 #: views/backup/form.php:25
 msgid "Edit"
-msgstr ""
+msgstr "Редактировать"
 
 #: views/backup/form.php:218
 msgid "Email Type"
-msgstr ""
+msgstr "Тип электронной почты"
 
 #: Api/Gql/Backup.php:336 Api/Gql/Backup.php:403 views/backup/form.php:171
 msgid ""
 "Email address to send notifications, Multiple email addresses need to be "
 "separated by comma"
 msgstr ""
+"Адрес электронной почты для отправки уведомлений, "
+"несколько адресов электронной почты, должны быть разделены запятой"
 
 #: views/backup/warmspare.php:19
 msgid "Enable"
-msgstr ""
+msgstr "Включить"
 
 #: views/backup/form.php:355
 msgid "Enable scheduled backups"
-msgstr ""
+msgstr "Включить резервное копирование по расписанию"
 
 #: Api/Gql/Backup.php:356 Api/Gql/Backup.php:423
 msgid "Enable scheduled backups, default false"
-msgstr ""
+msgstr "Включить резервное копирование по расписанию, "
+"по умолчанию установлено значение false"
 
 #: Backup.class.php:1578 views/backup/form.php:334
 msgid "Enabled"
-msgstr ""
+msgstr "Включить"
 
 #: views/backup/warmspare.php:227
 msgid ""
 "Equivalence of clicking the red button, will happen automatically after a "
 "restore on a Standby system"
 msgstr ""
-"Эквивалентно нажатию на красную кнопку, происходит автоматически после "
-"восстановления на резервной системе"
+"Эквивалентно нажатию красной кнопки, произойдет автоматически "
+"после восстановления в системе резервного копирования"
 
 #: assets/js/backup.js:471 assets/js/backup.js:491 assets/js/backup.js:510
 #: assets/js/backup.js:603
 msgid "Error"
-msgstr ""
+msgstr "Ошибка"
 
 #: Handlers/Backup/Multiple.php:215
 #, php-format
 msgid "Error Removing %s, %s"
-msgstr ""
+msgstr "Ошибка при удалении %s, %s"
 
 #: functions.inc/class.backup.php:459
 msgid "Error creating the FTP object"
-msgstr ""
+msgstr "Ошибка создания объекта FTP"
 
 #: functions.inc/class.backup.php:808
 #, php-format
 msgid "Error deleting %s"
-msgstr ""
+msgstr "Ошибка при удалении %s"
 
 #: Handlers/Restore/Legacy.php:170
 #, php-format
 msgid "Error in processing legacy cdr sql restore process....  %s %s %s  "
-msgstr ""
+msgstr "Ошибка при обработке унаследованного процесса восстановления cdr sql....  %s %s %s  "
 
 #: Handlers/FreePBXModule.php:30
 #, php-format
 msgid "Error installing %s reason(s): %s"
-msgstr ""
+msgstr "Ошибка при установке %s причина(ы): %s"
 
 #: Backup.class.php:831
 msgid "Error running Restore on Spare Server"
-msgstr ""
+msgstr "Ошибка при выполнении восстановления на Spare сервере"
 
 #: Handlers/FreePBXModule.php:42
 #, php-format
 msgid "Error uninstalling %s reason(s): %s"
-msgstr ""
+msgstr "Ошибка при деинсталляции %s причина(ы): %s"
 
 #: views/backup/item_table.php:11
 msgid "Exclude"
@@ -707,15 +738,15 @@ msgstr "Исключить"
 
 #: views/backup/warmspare.php:144
 msgid "Exclude Bind Address"
-msgstr ""
+msgstr "Исключить привязку адреса"
 
 #: views/backup/warmspare.php:81
 msgid "Exclude CERTIFICATE settings"
-msgstr ""
+msgstr "Исключить настройки СЕРТИФИКАТОВ"
 
 #: views/backup/warmspare.php:177
 msgid "Exclude DNS"
-msgstr ""
+msgstr "Исключить DNS"
 
 #: views/backup/warmspare.php:113
 msgid "Exclude NAT settings"
@@ -723,74 +754,78 @@ msgstr "Исключить настройки NAT"
 
 #: views/backup/warmspare.php:239
 msgid "Exclude Trunks"
-msgstr ""
+msgstr "Исключить Транки"
 
 #: views/backup/warmspare.php:165
 msgid ""
 "Explicitly exclude any machine-specific Bindaddres. This allows you to have "
 "a warm-spare machine with a different IP address."
 msgstr ""
+"Явно исключите любые специфические привязки адреса для машины. Это позволит вам "
+"настроить warm-spare сервер с другим IP-адресом."
 
 #: views/backup/warmspare.php:196
 msgid ""
 "Explicitly exclude any machine-specific DNS. This allows you to have a warm-"
 "spare machine with a different DNS."
 msgstr ""
+"Явно исключите любые DNS для конкретной машины. Это позволит вам настроить"
+"warm-spare резервную машину с другим DNS."
 
 #: views/backup/warmspare.php:132
 msgid ""
 "Explicitly exclude any machine-specific IP settings. This allows you to have "
 "a warm-spare machine with a different IP address."
 msgstr ""
-"Явно исключать любые специфичные для конкретной системы IP-настройки. Это "
-"позволяет иметь запасную систему с другими IP-адресами."
+"Явно исключите любые настройки IP-адресов, специфичные для конкретной машины."
+"Это позволит вам настроить warm-spare резервную машину с другим IP-адресом."
 
 #: BackupBase.php:57
 #, php-format
 msgid "Exporting Advanced settings from %s"
-msgstr ""
+msgstr "Экспорт расширенных настроек из %s"
 
 #: BackupBase.php:137
 #, php-format
 msgid "Exporting Databases from %s"
-msgstr ""
+msgstr "Экспорт баз данных из %s"
 
 #: BackupBase.php:71
 #, php-format
 msgid "Exporting Feature Codes from %s"
-msgstr ""
+msgstr "Экспорт кодов характеристик из %s"
 
 #: BackupBase.php:173
 #, php-format
 msgid "Exporting KVStore based on ids  %s"
-msgstr ""
+msgstr "Экспорт KVStore на основе идентификаторов %s"
 
 #: BackupBase.php:171
 #, php-format
 msgid "Exporting KVStore from %s"
-msgstr ""
+msgstr "Экспорт KVStore из %s"
 
 #: Handlers/Restore/Multiple.php:21
 msgid "Extracting Backup"
-msgstr ""
+msgstr "Извлечение резервной копии"
 
 #: Handlers/Restore/Common.php:148
 msgid "Extracting backup..."
-msgstr ""
+msgstr "Извлечение резервной копии..."
 
 #: Handlers/Restore/Legacy.php:127
 #, php-format
 msgid "Extracting supplied database file %s"
-msgstr ""
+msgstr "Извлечение файла базы данных %s"
 
 #: Handlers/Backup/Common.php:209
 #, php-format
 msgid "Failed to open some directory in "
-msgstr ""
+msgstr "Не удалось открыть каталог в "
 
 #: views/backup/form.php:233
 msgid "Failure"
-msgstr ""
+msgstr "Отказ"
 
 #: Backup.class.php:1704
 msgid "File"
@@ -798,16 +833,16 @@ msgstr "Файл"
 
 #: Backup.class.php:379
 msgid "File Deleted"
-msgstr ""
+msgstr "Файл удален"
 
 #: Handlers/Restore/Legacy.php:79
 #, php-format
 msgid "File named: %s"
-msgstr ""
+msgstr "Имя файла: %s"
 
 #: Backup.class.php:408
 msgid "File reached the server but could not be processed"
-msgstr ""
+msgstr "Файл загружен, но не может быть обработан"
 
 #: functions.inc/class.backup.php:387
 msgid "Files"
@@ -816,76 +851,76 @@ msgstr "Файлы"
 #: Handlers/Restore/Legacy.php:301 Handlers/Restore/Multiple.php:109
 #: Handlers/Restore/Single.php:34
 msgid "Finished"
-msgstr ""
+msgstr "Выполнено"
 
 #: Handlers/Backup/Multiple.php:220 Handlers/Backup/Single.php:57
 msgid "Finished Cleaning up"
-msgstr ""
+msgstr "Завершенные Чистки"
 
 #: Console/Backup.class.php:222
 msgid "Finished Local Maintenance"
-msgstr ""
+msgstr "Завершенные обслуживания"
 
 #: Console/Backup.class.php:232
 msgid "Finished Remote Maintenance"
-msgstr ""
+msgstr "Завершенные удаленные обслуживания"
 
 #: Handlers/Storage.php:87
 msgid "Finished Saving to selected Filestore locations"
-msgstr ""
+msgstr "Завершенные сохранения хранения файлов"
 
 #: Handlers/Backup/Multiple.php:222 Handlers/Backup/Single.php:62
 #, php-format
 msgid "Finished created backup file: %s"
-msgstr ""
+msgstr "Завершеные создания файлов резервной копии: %s"
 
 #: Handlers/Backup/Common.php:215
 #, php-format
 msgid "Folder %s does not exist"
-msgstr ""
+msgstr "Папка %s не существует"
 
 #: Handlers/Restore/Legacy.php:66
 #, php-format
 msgid "Found %s database files in the backup."
-msgstr ""
+msgstr "Найдено %s файлов баз данных в резервной копии."
 
 #: views/restore/landing.php:59
 msgid "Framework"
-msgstr ""
+msgstr "Framework"
 
 #: Handlers/Backup/Email.php:86
 #, php-format
 msgid "Generated Backup process result email to %s. Status: Failure"
-msgstr ""
+msgstr "Создано электронное письмо с результатом процесса резервного копирования на %s. Статус: Сбой"
 
 #: Handlers/Backup/Email.php:90
 #, php-format
 msgid "Generated Backup process result email to %s. Status: Success"
-msgstr ""
+msgstr "Создано электронное письмо с результатом процесса резервного копирования на %s. Статус: Успех"
 
 #: views/backup/rsa.php:1
 msgid "Generating Key Pair please standby"
-msgstr ""
+msgstr "Генерация пары ключей, пожалуйста, будьте готовы"
 
 #: views/backup/warmspare.php:442
 msgid "Get OAUTH2 Token for the Warm Spare server API."
-msgstr ""
+msgstr "Получение OAUTH2-токена для API сервера Warm Spare."
 
 #: views/backup/warmspare.php:10
 msgid "Get Warm Spare Token"
-msgstr ""
+msgstr "Получить Токен сервера Warm Spare"
 
 #: views/landing.php:23
 msgid "Global Settings"
-msgstr ""
+msgstr "Глобальные настройки"
 
 #: views/backup/warmspare.php:404
 msgid "GraphQL URL"
-msgstr ""
+msgstr "URL-адрес GraphQL"
 
 #: views/backup/warmspare.php:416
 msgid "GraphQL URL of the Warm Spare server."
-msgstr ""
+msgstr "GraphQL URL-адрес сервера Warm Spare."
 
 #: views/backup/form.php:474
 msgid "Hooks"
@@ -896,110 +931,115 @@ msgid ""
 "How long to maintain backups. Example 30 will delete anything older than 30 "
 "days."
 msgstr ""
+"Как долго хранить резервные копии. Например 30 удалит все, что старше 30 дней"
 
 #: Api/Gql/Backup.php:364 Api/Gql/Backup.php:431 views/backup/form.php:411
 msgid ""
 "How many updates to keep. If this number is 3, the last 3 will be kept. 0 is "
 "unlimited"
 msgstr ""
+"Сколько обновлений нужно сохранить. Если указано число 3, "
+"будут сохранены последние 3 обновления. Если указано число 0 - неограниченно"
 
 #: Backup.class.php:1665
 msgid "I don't know who I should be running Backup as."
-msgstr ""
+msgstr "Не определена роль сервера, для выполнение резервного копирования"
 
 #: Backup.class.php:1671
 #, php-format
 msgid ""
-"I tried to find out about %s, but the system doesn't think that user exists"
+"Не определен пользователь %s (или пользователя не существует в системе)"
 msgstr ""
 
 #: views/backup/transfer.php:16
 msgid "ID From the donor machine"
-msgstr ""
+msgstr "ID исходной машины"
 
 #: views/backup/warmspare.php:100
 msgid ""
 "If this option is set to yes then certificate will not be restored which "
 "require HTTPS config to be rebuild manually with spare server certificate."
 msgstr ""
+"Если установлено значение yes, то сертификат не будет восстановлен, "
+"потребуется на стройка HTTPS с использованием сертификата spare сервера"
 
 #: RestoreBase.php:85 RestoreBase.php:370
 #, php-format
 msgid "Importing Advanced Settings from %s"
-msgstr ""
+msgstr "Импорт расширенных настроек из %s"
 
 #: RestoreBase.php:160
 #, php-format
 msgid "Importing AstDB family %s from %s"
-msgstr ""
+msgstr "Импорт семейства AstDB %s из %s"
 
 #: RestoreBase.php:154
 #, php-format
 msgid "Importing AstDB family %s/%s  : %s"
-msgstr ""
+msgstr "Импорт семейства AstDB %s/%s : %s"
 
 #: RestoreBase.php:287
 #, php-format
 msgid "Importing Databases from %s"
-msgstr ""
+msgstr "Импорт баз данных из %s"
 
 #: RestoreBase.php:108
 #, php-format
 msgid "Importing Feature Codes from %s"
-msgstr ""
+msgstr "Импорт кодов характеристик из %s"
 
 #: RestoreBase.php:198
 #, php-format
 msgid "Importing KVStore from %s"
-msgstr ""
+msgstr "Импорт KVStore из %s"
 
 #: RestoreBase.php:179
 #, php-format
 msgid "Importing Table %s from %s"
-msgstr ""
+msgstr "Импорт таблицы %s из %s"
 
 #: RestoreBase.php:297
 #, php-format
 msgid "Importing table '%s' from legacy %s"
-msgstr ""
+msgstr "Импорт таблицы '%s' из старой версии %s"
 
 #: Handlers/Backup/Single.php:42 Handlers/Restore/Single.php:26
 msgid "In single restores mode dependencies are NOT processed"
-msgstr ""
+msgstr "В режиме одиночного восстановления зависимости НЕ обрабатываются"
 
 #: views/backup/form.php:183
 msgid "Inline Logs"
-msgstr ""
+msgstr "Логирование"
 
 #: Handlers/Restore/Legacy.php:182 Handlers/Restore/Legacy.php:194
 #, php-format
 msgid "Installing  %s"
-msgstr ""
+msgstr "Установка %s"
 
 #: Backup.class.php:845
 msgid "Invalid Backup ID"
-msgstr ""
+msgstr "Неверный ID резервной копии"
 
 #: Api/Gql/Backup.php:116
 msgid "Invalid Backup id"
-msgstr ""
+msgstr "Неверный id резервной копии"
 
 #: Backup.class.php:337 Backup.class.php:385
 msgid "Invalid ID Provided"
-msgstr ""
+msgstr "Предоставлен неверный ID"
 
 #: Handlers/Backup/Maintenance.php:98 Handlers/Storage.php:51
 msgid "Invalid filestore location"
-msgstr ""
+msgstr "Недопустимое расположение хранилища файлов"
 
 #: Handlers/Storage.php:56
 #, php-format
 msgid "Invalid filestore location. Path not found. Info: %s "
-msgstr ""
+msgstr "Неверное расположение хранилища файлов. Путь не найден. Информация: %s "
 
 #: views/backup/transfer.php:39
 msgid "Is this the donor machine or the recipient"
-msgstr ""
+msgstr "Это исходная-машина или машина-реципиент"
 
 #: views/backup/form.php:128
 msgid "Items"
@@ -1011,106 +1051,108 @@ msgid ""
 "Legacy CDR Restore Opted. we are processing , It may take long time to "
 "process %s "
 msgstr ""
+"Восстановление устаревших версий CDR. Процесс может занять много времени " 
+"процесс %s  "
 
 #: Models/BackupSplFileInfo.php:81
 msgid "Legacy Restore"
-msgstr ""
+msgstr "Восстановление данных устаревших версий"
 
 #: RestoreBase.php:43
 #, php-format
 msgid "Legacy Restore in %s is not implemented"
-msgstr ""
+msgstr "Восстановление данных устаревших версий в %s не выполнено"
 
 #: RestoreBase.php:40
 #, php-format
 msgid "Legacy Restore in %s is not implemented, using default fallback"
-msgstr ""
+msgstr "Восстановление данных устаревших версий в %s не выполнено, используются данные по умолчанию"
 
 #: views/rnav.php:2
 msgid "List Backups"
-msgstr ""
+msgstr "Список резервных копий"
 
 #: Console/Backup.class.php:28
 msgid "List backups"
-msgstr ""
+msgstr "Список резервных копий"
 
 #: Api/Gql/Backup.php:166
 msgid "List of backup configurations"
-msgstr ""
+msgstr "Список конфигураций резервного копирования"
 
 #: Api/Gql/Backup.php:155
 msgid "List of backup files"
-msgstr ""
+msgstr "Список файлов резервного копирования"
 
 #: Api/Gql/Backup.php:277 Api/Gql/Backup.php:287
 msgid "List of bakup files"
-msgstr ""
+msgstr "Список файлов резервного копирования"
 
 #: assets/js/backup.js:527
 msgid "Loading Please Wait"
-msgstr ""
+msgstr "Загрузка Пожалуйста, подождите"
 
 #: Handlers/Restore/Legacy.php:41
 msgid "Loading astdb to memory"
-msgstr ""
+msgstr "Загрузка astdb в память"
 
 #: Handlers/Restore/Legacy.php:33
 msgid "Loading manifest to memory"
-msgstr ""
+msgstr "Загрузка данных в память"
 
 #: Handlers/Restore/Legacy.php:135
 #, php-format
 msgid "Loading supplied database file %s"
-msgstr ""
+msgstr "Загрузка файла базы данных %s"
 
 #: Backup.class.php:700
 msgid "Log file is missing but process is still running!"
-msgstr ""
+msgstr "Лог-файл отсутствует, но процесс все еще запущен!"
 
 #: Handlers/Restore/Legacy.php:274 Handlers/Restore/Multiple.php:63
 #, php-format
 msgid "MODULE SKIPED %s"
-msgstr ""
+msgstr "МОДУЛЬ ПРОПУЩЕН %s"
 
 #: views/backup/form.php:389
 msgid "Maintenance"
-msgstr ""
+msgstr "Техническое обслуживание"
 
 #: Api/Gql/Backup.php:227 Api/Gql/Backup.php:269
 msgid "Message for the request"
-msgstr ""
+msgstr "Сообщение по запросу"
 
 #: Backup.class.php:166
 msgid "Migrating legacy backupjobs"
-msgstr ""
+msgstr "Перенос устаревших заданий резервного копирования"
 
 #: Backup.class.php:171
 msgid "Migrating legacy backups to the new backup"
-msgstr ""
+msgstr "Перенос устаревших резервных копий в новую резервную копию"
 
 #: Backup.class.php:687
 msgid "Missing id or transaction or pid"
-msgstr ""
+msgstr "Отсутствует id или транзакция или pid"
 
 #: views/backup/form.php:627 views/restore/processRestore.php:65
 msgid "Module"
-msgstr ""
+msgstr "Модуль"
 
 #: Console/Backup.class.php:36
 msgid "Module backup to restore"
-msgstr ""
+msgstr "Резервная копия модуля для восстановления"
 
 #: Console/Backup.class.php:37
 msgid "Module to backup"
-msgstr ""
+msgstr "Модуль для резервного копирования"
 
 #: views/backup/form.php:102
 msgid "Modules"
-msgstr ""
+msgstr "Модули"
 
 #: assets/js/backup.js:419
 msgid "Modules ("
-msgstr ""
+msgstr "Модули"
 
 #: views/restore/processRestore.php:52
 msgid "Modules in this backup"
@@ -1118,24 +1160,24 @@ msgstr ""
 
 #: views/backup/form.php:602
 msgid "Modules to Backup"
-msgstr ""
+msgstr "Модули в этой резервной копии"
 
 #: Api/Gql/Backup.php:332 Api/Gql/Backup.php:399
 msgid "Modules to backup"
-msgstr ""
+msgstr "Модули для резервного копирования"
 
 #: Backup.class.php:167
 msgid "Moving servers to filestore"
-msgstr ""
+msgstr "Перемещение серверов в хранилище файлов"
 
 #: functions.inc/class.backup.php:388
 msgid "Mysql Db's"
-msgstr "База данных  MySQL"
+msgstr "Базы данных MySQL"
 
 #: Handlers/Restore/Common.php:117
 #, php-format
 msgid "NOT Resetting %s module data"
-msgstr ""
+msgstr "НЕ Сбрасывает данные модуля %s"
 
 #: functions.inc/class.backup.php:385 views/backup/grid.php:25
 #: views/restore/processRestore.php:14 views/rnav.php:16
@@ -1144,11 +1186,11 @@ msgstr "Имя"
 
 #: Api/Gql/Backup.php:67 Api/Gql/Backup.php:84
 msgid "Name contains whitespaces/special characters use - instead"
-msgstr ""
+msgstr "Имя содержит пробелы или специальные символы, замените их"
 
 #: Api/Gql/Backup.php:453
 msgid "Name of the Restore input file"
-msgstr ""
+msgstr "Имя файла восстановления"
 
 #: views/backup/form.php:198 views/backup/form.php:305
 #: views/backup/form.php:347 views/backup/warmspare.php:30
@@ -1161,44 +1203,48 @@ msgstr "Нет"
 
 #: Handlers/Backup/Multiple.php:103
 msgid "No Module or Custom files selected for this backup"
-msgstr ""
+msgstr "Для этого резервного копирования не выбраны файлы модулей или пользовательских файлов"
 
 #: assets/js/backup.js:392
 msgid "No Storage Locations"
-msgstr ""
+msgstr "Не указано место для хранения"
 
 #: Api/Gql/Backup.php:111 Backup.class.php:537
 msgid "No backup id provided"
-msgstr ""
+msgstr "Не предоставлен id идентификатор резервной копии"
 
 #: Backup.class.php:405
 msgid "No file provided"
-msgstr ""
+msgstr "Нет доступа к файлу"
 
 #: Backup.class.php:918
 msgid "No id was specified to process. Please try submitting your file again."
-msgstr ""
+msgstr "Не указан id для обработки. Пожалуйста, попробуйте отправить файл еще раз."
 
 #: assets/js/backup.js:100 assets/js/backup.js:415
 msgid ""
 "No module has selected for this Backup. Please ensure you are selecting "
 "atleast Custom files"
 msgstr ""
+"Для этого резервного копирования не выбран ни один модуль. Убедитесь, что вы выбрали "
+"пользовательские файлы"
 
 #: assets/js/backup.js:441 assets/js/backup.js:448
 msgid ""
 "No storage location selected for Backup. Please select atleast one storage "
 "location to save the backup"
 msgstr ""
+"Не указано место хранения для резервного копирования. Пожалуйста, укажите хотя бы одно хранилище "
+"для сохранения резервной копии"
 
 #: Handlers/Restore/Legacy.php:241
 #, php-format
 msgid "Not Resetting %s"
-msgstr ""
+msgstr "Не сбрасывается %s"
 
 #: views/backup/form.php:159
 msgid "Notification Email"
-msgstr ""
+msgstr "Уведомление по электронной почте"
 
 #: views/backup/form.php:149
 msgid "Notifications"
@@ -1206,38 +1252,40 @@ msgstr "Уведомления"
 
 #: views/restore/landing.php:115 views/restore/processRestore.php:94
 msgid "Ok"
-msgstr ""
+msgstr "Ок"
 
 #: Handlers/Restore/Legacy.php:265 Handlers/Restore/Multiple.php:51
 #, php-format
 msgid "Only Restoring %s"
-msgstr ""
+msgstr "Только восстановление %s"
 
 #: Console/Backup.class.php:43
 msgid "Option --skipbindport skip bindport on restore"
-msgstr ""
+msgstr "Опция --skipbindport пропускает привязки портов при восстановлении"
 
 #: Console/Backup.class.php:44
 msgid "Option --skipdns skip dns on restore"
-msgstr ""
+msgstr "Опция --skipdns пропускает dns при восстановлении"
 
 #: Console/Backup.class.php:45
 msgid "Option --skipremotenat skip remotenat on restore"
-msgstr ""
+msgstr "Опция --skipremotenat пропускает remotenat при восстановлении"
 
 #: Console/Backup.class.php:42
 msgid "Option --skiprestorehooks skip postrestore hooks on restore"
-msgstr ""
+msgstr "Опция --skiprestorehooks пропускает обработчик после восстановления"
 
 #: Console/Backup.class.php:46
 msgid "Option --skiptrunksandroutes skip trunks on restore"
-msgstr ""
+msgstr "Опция --skiptrunksandroutes пропускает транки при восстановлении"
 
 #: Console/Backup.class.php:41
 msgid ""
 "Option --useinfiledb to restore Legacy backup using file based sqlite, By "
 "default system uses inmemory"
 msgstr ""
+"Опция --useinfiledb для восстановления резервных копий устаревших версий "
+"с помощью sqlite на основе файлов, по умолчанию система использует inmemory"
 
 #: Backup.class.php:1714
 msgid "PATTERNs, one per line"
@@ -1247,25 +1295,28 @@ msgstr "Шаблоны, один на линию"
 msgid ""
 "Parsing out SQL tables. This may take a moment depending on backup size."
 msgstr ""
+"Обработка таблиц SQL. Это может занять некоторое время в зависимости от размера резервной копии."
 
 #: functions.inc/class.backup.php:797 functions.inc/class.backup.php:798
 #, php-format
 msgid "Path: %s"
-msgstr ""
+msgstr "Путь: %s"
 
 #: Console/Backup.class.php:220
 msgid "Performing Local Maintenance"
-msgstr ""
+msgstr "Выполнение локального обслуживания"
 
 #: Console/Backup.class.php:230
 msgid "Performing Remote Maintenance"
-msgstr ""
+msgstr "Выполнение удаленного обслуживания"
 
 #: Handlers/Restore/Legacy.php:164
 msgid ""
 "Please note that, legacy cdr sql restoration process may take a long time "
 "depends on cdr sql file size "
 msgstr ""
+"Обратите внимание, что процесс восстановления cdr sql устаревшей версии, может "
+"занять много времени в зависимости от размера файла cdr sql"
 
 #: views/backup/form.php:507
 msgid "Post-Backup Hook"
@@ -1285,17 +1336,17 @@ msgstr "Обработчик перед началом восстановлен�
 
 #: Backup.class.php:702
 msgid "Process is no longer running"
-msgstr ""
+msgstr "Процесс остановлен"
 
 #: Handlers/Backup/Single.php:38 Handlers/Restore/Legacy.php:279
 #: Handlers/Restore/Multiple.php:67
 #, php-format
 msgid "Processing %s"
-msgstr ""
+msgstr "Обработка %s"
 
 #: assets/js/backup.js:26
 msgid "Processing..."
-msgstr ""
+msgstr "Обработка..."
 
 #: Handlers/Restore/Multiple.php:36
 msgid ""
@@ -1303,48 +1354,53 @@ msgid ""
 "single module backup file so please re-try with '--restoresingle' option to "
 "restore the backup from the CLI "
 msgstr ""
+"Предоставленный файл резервной копии не содержит нескольких модулей. Возможно, "
+"это файл резервной копии одного модуля, поэтому повторите попытку "
+"с опцией '--restoresingle' для восстановления резервной копии из CLI"
 
 #: views/backup/settings.php:19
 msgid "Public Key"
-msgstr ""
+msgstr "Открытый ключ"
 
 #: views/backup/settings.php:29
 msgid ""
 "Public SSH key to allow other servers to connect. Only ECDSA SSH key is "
 "supported"
 msgstr ""
+"Открытый SSH-ключ, позволяющий другим серверам подключаться. "
+"Поддерживается только ключ SSH ECDSA"
 
 #: views/backup/settings.php:9
 msgid "Public key of other system"
-msgstr ""
+msgstr "Открытый ключ другой системы"
 
 #: views/backup/settings.php:4
 msgid "Public key of this system"
-msgstr ""
+msgstr "Открытый ключ этой системы"
 
 #: RestoreBase.php:268
 #, php-format
 msgid "Reading Databases Table infromation using module name %s"
-msgstr ""
+msgstr "Чтение Информация о таблицах баз данных, с использованием имени модуля %s"
 
 #: views/backup/transfer.php:33
 msgid "Recipient"
-msgstr ""
+msgstr "Получатель"
 
 #: Handlers/Restore/Legacy.php:297 Handlers/Restore/Multiple.php:97
 msgid "Reloading...... DONE"
-msgstr ""
+msgstr "Перезагрузка...... DONE"
 
 #: Handlers/Backup/Maintenance.php:130 Handlers/Backup/Maintenance.php:154
 #: Handlers/Backup/Multiple.php:211 Handlers/Backup/Single.php:54
 #, php-format
 msgid "Removing %s"
-msgstr ""
+msgstr "Удаление %s"
 
 #: Backup.class.php:187
 #, php-format
 msgid "Removing table %s."
-msgstr ""
+msgstr "Удаление таблицы %s."
 
 #: Backup.class.php:247 views/backup/form.php:635
 msgid "Reset"
@@ -1353,20 +1409,20 @@ msgstr "Сброс"
 #: Handlers/Restore/Legacy.php:243
 #, php-format
 msgid "Resetting %s"
-msgstr ""
+msgstr "Сброс %s"
 
 #: Handlers/Restore/Common.php:120
 #, php-format
 msgid "Resetting %s module data"
-msgstr ""
+msgstr "Сброс данных модуля %s"
 
 #: Console/Backup.class.php:279
 msgid "Response from Warmspare Server "
-msgstr ""
+msgstr "Ответ от Warmspare Server "
 
 #: Console/Backup.class.php:271
 msgid "Response from Warmspare backup Server API"
-msgstr ""
+msgstr "Ответ API сервера резервного копирования Warmspare"
 
 #: views/landing.php:18 views/restore/landing.php:103
 #: views/restore/processRestore.php:82
@@ -1375,32 +1431,32 @@ msgstr "Восстановить"
 
 #: Api/Gql/Backup.php:92
 msgid "Restore Backup"
-msgstr ""
+msgstr "Восстановление резервной копии"
 
 #: Console/Backup.class.php:32
 msgid "Restore File"
-msgstr ""
+msgstr "Восстановить файл"
 
 #: views/restore/processRestore.php:23
 msgid "Restore Information"
-msgstr ""
+msgstr "Восстановление информации"
 
 #: Console/Backup.class.php:167 Console/Backup.class.php:384
 msgid "Restore completed successfully"
-msgstr ""
+msgstr "Восстановление успешно завершено"
 
 #: views/restore/landing.php:44
 msgid "Restore from local cache"
-msgstr ""
+msgstr "Восстановление из локального кэша"
 
 #: views/restore/landing.php:68
 msgid "Restore from the cloud"
-msgstr ""
+msgstr "Восстановление из облака"
 
 #: Handlers/Restore/Legacy.php:168
 #, php-format
 msgid "Restore of legacy cdr sql process done....  %s  "
-msgstr ""
+msgstr "Процесс восстановления устаревшей версии cdr sql выполнен....  %s  "
 
 #: Handlers/Restore/Legacy.php:36
 msgid ""
@@ -1408,87 +1464,93 @@ msgid ""
 "backup file. Please ensure your backup file is proper or regenerate the new "
 "backup file to proceed further."
 msgstr ""
+"Процесс восстановления не удался из-за повреждения файла манифеста в "
+"предоставленном файле резервной копии. Пожалуйста, убедитесь, что ваш файл "
+"резервной копии исправен, или создайте новый файл резервной копии, чтобы "
+"продолжить процесс."
 
 #: Api/Gql/Backup.php:625
 msgid ""
 "Restore process has been initiated. Kindly check the fetchApiStatus api with "
 "the transaction id."
 msgstr ""
+"Процесс восстановления запущен. Для получения статуса, используйте api fetchApiStatus "
+"с идентификатором транзакции."
 
 #: Handlers/Restore/Legacy.php:291 Handlers/Restore/Multiple.php:81
 msgid "Restore processing for modules are finished successfully"
-msgstr ""
+msgstr "Восстановление модулей успешно завершено"
 
 #: Backup.class.php:534
 msgid "Restore running"
-msgstr ""
+msgstr "Восстановление запущено"
 
 #: Handlers/Restore/Legacy.php:184 Handlers/Restore/Legacy.php:196
 #, php-format
 msgid "Restored module %s [%s]"
-msgstr ""
+msgstr "Восстановлен модуль %s [%s]"
 
 #: views/restore/processRestore.php:2
 #, php-format
 msgid "Restoring %s"
-msgstr ""
+msgstr "Восстановление %s"
 
 #: Handlers/Restore/Common.php:291
 #, php-format
 msgid "Restoring custom directory to %s"
-msgstr ""
+msgstr "Восстановление пользовательского каталога в %s"
 
 #: Handlers/Restore/Common.php:278 Handlers/Restore/Common.php:299
 #: Handlers/Restore/Common.php:325 Handlers/Restore/Common.php:362
 #, php-format
 msgid "Restoring custom file to %s"
-msgstr ""
+msgstr "Восстановление пользовательского файла в %s"
 
 #: Handlers/Restore/Common.php:126 Handlers/Restore/Legacy.php:245
 #, php-format
 msgid "Restoring from %s [%s]"
-msgstr ""
+msgstr "Восстановление из %s [%s]"
 
 #: Console/Backup.class.php:291
 #, php-format
 msgid "Retrieving %s from %s:%s..."
-msgstr ""
+msgstr "Извлечение %s из %s:%s..."
 
 #: Api/Gql/Backup.php:251
 msgid "Return backup description"
-msgstr ""
+msgstr "Получить описание резервного копирования"
 
 #: Api/Gql/Backup.php:235
 msgid "Return backup file name"
-msgstr ""
+msgstr "Получить имя файла резервного копирования"
 
 #: Api/Gql/Backup.php:239
 msgid "Return backup file size"
-msgstr ""
+msgstr "Получить размер файла резервного копирования"
 
 #: Api/Gql/Backup.php:243
 msgid "Return backup framework"
-msgstr ""
+msgstr "Получить framework резервного копирования"
 
 #: Api/Gql/Backup.php:255
 msgid "Return backup instancename"
-msgstr ""
+msgstr "Получить имя экземпляра резервного копирования"
 
 #: Api/Gql/Backup.php:219
 msgid "Return backup name"
-msgstr ""
+msgstr "Получить имя резервной копии"
 
 #: Api/Gql/Backup.php:247
 msgid "Return backup timestamp"
-msgstr ""
+msgstr "Получить временную метку резервного копирования"
 
 #: Api/Gql/Backup.php:215
 msgid "Returns backup id"
-msgstr ""
+msgstr "Получить id резервного копирования"
 
 #: Api/Gql/Backup.php:231
 msgid "Returns backup type"
-msgstr ""
+msgstr "Получить тип резервного копирования"
 
 #: Api/Gql/Backup.php:101
 msgid "Run Backup"
@@ -1496,33 +1558,33 @@ msgstr "Создать резервную копию"
 
 #: views/restore/processRestore.php:16
 msgid "Run Date"
-msgstr ""
+msgstr "Дата выполнения"
 
 #: Backup.class.php:233
 msgid "Run Restore"
-msgstr ""
+msgstr "Запустить восстановление"
 
 #: Backup.class.php:238
 msgid "Run Restore & Legacy CDR "
-msgstr ""
+msgstr "Запустить восстановление и CDR устаревшей версии"
 
 #: Console/Backup.class.php:22
 msgid "Run backup and restore jobs"
-msgstr ""
+msgstr "Запуск заданий резервного копирования и восстановления"
 
 #: assets/js/backup.js:673
 msgid "Run the following in the CLI"
-msgstr ""
+msgstr "Выполнить следующие действия в CLI"
 
 #: BackupBase.php:27
 #, php-format
 msgid "RunBackup method is not implemented in %s"
-msgstr ""
+msgstr "Метод RunBackup не реализован в %s"
 
 #: BackupBase.php:24
 #, php-format
 msgid "RunBackup method is not implemented in %s, using default fallback"
-msgstr ""
+msgstr "Метод RunBackup не реализован в %s, использование метода по умолчанию"
 
 #: RestoreBase.php:20
 #, php-format
@@ -1530,6 +1592,8 @@ msgid ""
 "RunRestore method is not implemented in %s, but was backed up using default "
 "backup fallback, using default fallback"
 msgstr ""
+"Метод RunRestore не реализован в %s, но резервная копия была создана с использованием "
+"резервного копирования по умолчанию"
 
 #: RestoreBase.php:23
 #, php-format
@@ -1537,34 +1601,37 @@ msgid ""
 "RunRestore method is not implemented in %s, however there is default falback "
 "data, nothing to do"
 msgstr ""
+"Метод RunRestore не реализован в %s, существуют данные восстановления по умолчанию."
 
 #: RestoreBase.php:25
 #, php-format
 msgid "RunRestore method is not implemented in %s, nothing to do"
-msgstr ""
+msgstr "Метод RunRestore не реализован в %s, нет задач для выполнения"
 
 #: Handlers/Backup/Multiple.php:56
 #, php-format
 msgid "Running Backup ID: %s"
-msgstr ""
+msgstr "Выполнение резервного копирования ID: %s"
 
 #: Handlers/Restore/Legacy.php:300 Handlers/Restore/Multiple.php:108
 msgid "Running Post Restore Hooks DONE"
-msgstr ""
+msgstr "Выполнение обработчиков после восстановления ЗАВЕРШЕНО"
 
 #: Handlers/Restore/Legacy.php:298 Handlers/Restore/Multiple.php:103
 msgid ""
 "Running Post Restore Hooks.. Please note that hook will restart httpd "
 "service so please refresh your page (using new ports) "
 msgstr ""
+"Выполнение обработчиков после восстановления.. Обратите внимание, "
+"что обработчик перезапустит httpd сервис, пожалуйста, обновите страницу"
 
 #: views/restore/processRestore.php:43
 msgid "Running a restore will overwrite current data. This cannot be undone!"
-msgstr ""
+msgstr "Запуск восстановления приведет к перезаписи текущих данных. Это невозможно отменить!"
 
 #: functions.inc/class.backup.php:488
 msgid "Running maintenance.."
-msgstr ""
+msgstr "Выполняется обслуживание"
 
 #: views/backup/warmspare.php:281
 msgid "SSH"
@@ -1572,7 +1639,7 @@ msgstr "SSH"
 
 #: Backup.class.php:134
 msgid "SSH key Generated"
-msgstr ""
+msgstr "SSH ключи сгенерированы"
 
 #: Backup.class.php:252
 msgid "Save"
@@ -1580,7 +1647,7 @@ msgstr "Сохранить"
 
 #: views/backup/form.php:641
 msgid "Save Changes"
-msgstr ""
+msgstr "Сохранить изменения"
 
 #: Backup.class.php:257
 msgid "Save and Run"
@@ -1588,46 +1655,48 @@ msgstr "Сохранить и запустить"
 
 #: functions.inc/class.backup.php:476
 msgid "Saving file to remote ftp"
-msgstr ""
+msgstr "Созранение файла на FTP"
 
 #: Handlers/Storage.php:41
 msgid "Saving to selected Filestore locations"
-msgstr ""
+msgstr "Сохранение в выбранных местах расположения файлов"
 
 #: Handlers/Storage.php:77
 #, php-format
 msgid "Saving to: %s:'%s' instance ,File location: %s%s "
-msgstr ""
+msgstr "Сохранение в: %s:'%s' экземпляр, Расположение файла: %s%s "
 
 #: views/restore/landing.php:109 views/restore/processRestore.php:88
 msgid "Scanning the backup file. Please wait..."
-msgstr ""
+msgstr "Сканирование файла резервной копии. Пожалуйста, подождите..."
 
 #: views/backup/form.php:324
 msgid "Schedule and Maintenance"
-msgstr ""
+msgstr "Расписание и техническое обслуживание"
 
 #: views/backup/form.php:367
 msgid "Scheduling"
-msgstr ""
+msgstr "Расписание"
 
 #: Handlers/Backup/Email.php:65 Monolog/Swift.php:144
 msgid "See attachment"
-msgstr ""
+msgstr "См. вложение"
 
 #: views/backup/warmspare.php:306 views/backup/warmspare.php:461
 msgid "Select Warm Spare server"
-msgstr ""
+msgstr "Выбрать Warm Spare сервер"
 
 #: views/backup/form.php:110
 msgid "Select items to backup"
-msgstr ""
+msgstr "Выбрать элементы для резервного копирования"
 
 #: Api/Gql/Backup.php:348 Api/Gql/Backup.php:415 views/backup/form.php:281
 msgid ""
 "Select one or more storage locations. Storage locations can be added/"
 "configured with the Filestore module"
 msgstr ""
+"Выберите одно или несколько мест хранения. Места хранения можно добавить/настроить "
+"с помощью модуля Файлового хранилища (Filestore)"
 
 #: views/backup/form.php:624
 msgid "Selected"
@@ -1635,47 +1704,47 @@ msgstr "Выбранные"
 
 #: views/backup/transfer.php:26
 msgid "Server Mode"
-msgstr ""
+msgstr "Режим работы сервера"
 
 #: Api/Gql/Backup.php:51
 msgid "Set Backup Configurations"
-msgstr ""
+msgstr "Настроить конфигурацию резервного копирования"
 
 #: Console/Backup.class.php:29
 msgid "Set the warmspare flag"
-msgstr ""
+msgstr "Настроить warmspare"
 
 #: views/backup/warmspare.php:69
 msgid "Should the remote trunks be Disabled"
-msgstr ""
+msgstr "Должны ли быть отключены транки"
 
 #: views/backup/warmspare.php:258
 msgid "Should the trunks be Excluded"
-msgstr ""
+msgstr "Должны ли быть исключены транки"
 
 #: views/backup/warmspare.php:38
 msgid "Should the warm spare feature be enabled"
-msgstr ""
+msgstr "Должны ли быть включены настройки warm spare"
 
 #: Api/Gql/Backup.php:372 Api/Gql/Backup.php:439
 msgid "Should the warm spare feature be enabled, default false"
-msgstr ""
+msgstr "Должны ли быть выключены настройки warm spare"
 
 #: views/restore/landing.php:58 views/restore/landing.php:88
 msgid "Size"
-msgstr ""
+msgstr "Размер"
 
 #: Console/Backup.class.php:47
 msgid "Skip legacy chan_sip extensions during restore"
-msgstr ""
+msgstr "Пропускать устаревшие расширения chan_sip при восстановлении"
 
 #: Console/Backup.class.php:49
 msgid "Skip legacy chan_sip trunks during restore"
-msgstr ""
+msgstr "Пропускать устаревшие транки chan_sip при восстановлении"
 
 #: Handlers/Restore/Multiple.php:106
 msgid "Skipped Post Restore Hooks.."
-msgstr ""
+msgstr "Пропускать выполнение обработчиков, после восстановления..."
 
 #: Handlers/Backup/Multiple.php:125
 #, php-format
@@ -1683,152 +1752,157 @@ msgid ""
 "Skipping %s which depends on framework because framework is a system "
 "requirement. Framework should be removed as a dependency"
 msgstr ""
+"Пропуск %s, зависящего от фреймворка. Фреймворк должен быть удален как зависимость"
 
 #: Handlers/Restore/Multiple.php:57
 msgid "Skipping CertMan module Restore , Warmspare skip Certificate enabled"
-msgstr ""
+msgstr "Пропуск восстановления модуля CertMan, Warmspare пропуск сертификата включен"
 
 #: Handlers/Restore/Common.php:353
 #, php-format
 msgid "Skipping directory %s"
-msgstr ""
+msgstr "Пропуск директории %s"
 
 #: Backup.class.php:356 Backup.class.php:381
 msgid "Something failed, The file may need to be removed manually."
-msgstr ""
+msgstr "Неизвестная ошибка, возможно, файл нужно удалить вручную."
 
 #: Backup.class.php:372
 msgid "Something failed."
-msgstr ""
+msgstr "Неизвестная ошибка."
 
 #: Api/Gql/Backup.php:564
 msgid "Sorry Module name "
-msgstr ""
+msgstr "Название модуля "
 
 #: Api/Gql/Backup.php:132
 msgid "Sorry failed to perform backup"
-msgstr ""
+msgstr "Не удалось выполнить резервное копирование"
 
 #: Api/Gql/Backup.php:627
 msgid "Sorry failed to perform restore"
-msgstr ""
+msgstr "Не удалось выполнить восстановление"
 
 #: Api/Gql/Backup.php:581 Api/Gql/Backup.php:693
 msgid "Sorry location "
-msgstr ""
+msgstr "Расположение "
 
 #: Api/Gql/Backup.php:664
 msgid "Sorry module name "
-msgstr ""
+msgstr "Имя модуля "
 
 #: Api/Gql/Backup.php:168
 msgid "Sorry unable to find the backup configurations"
-msgstr ""
+msgstr "Не удается найти конфигурации резервного копирования"
 
 #: Api/Gql/Backup.php:157
 msgid "Sorry unable to find the backup files"
-msgstr ""
+msgstr "Невозможно найти файлы резервных копий"
 
 #: Console/Backup.class.php:35
 msgid ""
 "Specific Modules to restore from using --restore, separate each module by a "
 "comma"
 msgstr ""
+"Определенные модули для восстановления с использованием --restore, разделяйте "
+"каждый модуль запятой"
 
 #: RestoreBase.php:629
 #, php-format
 msgid "Started restoring mysql dumps of : %s"
-msgstr ""
+msgstr "Началось восстановление дампов mysql из : %s"
 
 #: Handlers/Backup/Multiple.php:206
 msgid "Starting Cleaning up"
-msgstr ""
+msgstr "Выполнение очистки"
 
 #: Handlers/Backup/Multiple.php:59
 #, php-format
 msgid "Starting backup %s"
-msgstr ""
+msgstr "Выполнение резервного копироваия %s"
 
 #: Handlers/Restore/Legacy.php:161
 msgid "Starting legacy cdr sql restore process"
-msgstr ""
+msgstr "Выполнение процесса восстановления устаревшей версии cdr sql"
 
 #: BackupBase.php:252
 #, php-format
 msgid "Starting mysql dumps of : %s"
-msgstr ""
+msgstr "Выполнение дампов mysql из : %s"
 
 #: views/restore/processRestore.php:67
 msgid "Status"
-msgstr ""
+msgstr "Статус"
 
 #: Api/Gql/Backup.php:273
 msgid "Status for the request"
-msgstr ""
+msgstr "Статус запроса"
 
 #: Api/Gql/Backup.php:223
 msgid "Status of the request"
-msgstr ""
+msgstr "Статус запроса"
 
 #: views/backup/form.php:257
 msgid "Storage"
-msgstr ""
+msgstr "Хранилище"
 
 #: views/backup/form.php:267
 msgid "Storage Location"
-msgstr ""
+msgstr "Расположение хранилища"
 
 #: views/backup/form.php:228
 msgid "Success"
-msgstr ""
+msgstr "Выполнено"
 
 #: Backup.class.php:911
 msgid "System Transfer"
-msgstr ""
+msgstr "Система Передачи"
 
 #: Handlers/Backup/Common.php:78
 #, php-format
 msgid "System is not Activated,Skipping %s module"
-msgstr ""
+msgstr "Система не активирована, пропуск модуля %s"
 
 #: RestoreBase.php:303
 #, php-format
 msgid "Table '%s' does not exist in legacy %s, skipping"
-msgstr ""
+msgstr "Таблица '%s' не существует в устаревшей версии %s, пропуск"
 
 #: RestoreBase.php:300
 #, php-format
 msgid "Table '%s' is empty from legacy %s, skipping"
-msgstr ""
+msgstr "Таблица '%s' пуста в устаревшей версии %s, пропуск"
 
 #: Api/Gql/Backup.php:177
 msgid "The Backup Id to delete"
-msgstr ""
+msgstr "Id резервной копии для удаления"
 
 #: Api/Gql/Backup.php:64
 #, php-format
 msgid "The Backup job name %s is already in use, please use a different name."
-msgstr ""
+msgstr "Имя задания резервного копирования %s уже используется, пожалуйста, используйте другое имя."
 
 #: assets/js/backup.js:109
 #, perl-format
 msgid "The Backup job name %s is already in used, please use a different name."
-msgstr ""
+msgstr "Имя задания резервного копирования %s уже используется, пожалуйста, используйте другое имя."
 
 #: Backup.class.php:136
 msgid "The SSH key already exists"
-msgstr ""
+msgstr "Ключ SSH уже существует"
 
 #: Handlers/Backup/Multiple.php:253
 #, php-format
 msgid "The backup %s did not set a status and may have had an error"
-msgstr ""
+msgstr "Резервное копирование %s может иметь ошибки"
 
 #: views/restore/processRestore.php:39
 msgid ""
 "The backup contains ChanSIP Trunks! These ChanSIP Trunks can either be "
 "converted to pjsip  or can be skipped during the restore process."
 msgstr ""
+"Резервная копия содержит транки ChanSIP! Эти транки ChanSIP могут быть "
+"преобразованы в pjsip или пропущены в процессе восстановления."
 
 #: views/restore/processRestore.php:33
 msgid ""
@@ -1836,6 +1910,8 @@ msgid ""
 "be converted to pjsip extensions or can be skipped during the restore "
 "process."
 msgstr ""
+"Резервная копия содержит расширения ChanSIP! Эти расширения ChanSIP могут быть "
+"преобразованы в расширения pjsip или пропущены в процессе восстановления."
 
 #: functions.inc/class.backup.php:399
 msgid ""
@@ -1843,9 +1919,9 @@ msgid ""
 "attempted to be sent. Please shrink your backup, or use a different method "
 "of transferring your backup."
 msgstr ""
-"Файл резервной копии превысил максимальный лимит для SMTP в 25 МБ. Попытки "
-"отправить не будет возобновлены.Пожалуйста уменьшите размер вашей резервной "
-"копии, или используйте другой метод передачи вашей резервной копии."
+"Файл резервной копии превысил максимальный лимит для SMTP в 25 МБ. Пожалуйста "
+"уменьшите размер вашей резервной, копии, или используйте другой метод передачи "
+"вашей резервной копии."
 
 #: functions.inc/class.backup.php:402
 #, php-format
@@ -1854,9 +1930,9 @@ msgid ""
 "bytes). It was not attempted to be sent. Please shrink your backup, or use a "
 "different method of transferring your backup."
 msgstr ""
-"Файл резервной копии превысил максимальный лимит для SMTP (%s). Попытки "
-"отправить не будет возобновлены. Пожалуйста уменьшите размер вашей резервной "
-"копии, или используйте другой метод передачи вашей резервной копии."
+"Файл резервной копии превысил максимальный лимит для SMTP (%s). Пожалуйста "
+"уменьшите размер вашей резервной копии, или используйте другой метод передачи "
+"вашей резервной копии."
 
 #: views/restore/processRestore.php:28
 msgid ""
@@ -1864,6 +1940,9 @@ msgid ""
 "Asterisk to a supported version, convert chan_sip extensions to pjsip, or "
 "skip chan_sip extensions for restore."
 msgstr ""
+"Текущая версия Asterisk не поддерживает chan_sip. Обновите Asterisk до "
+"поддерживаемой версии, преобразуйте расширения chan_sip в pjsip или пропустите "
+"расширения chan_sip для восстановления."
 
 #: Handlers/Restore/Common.php:102
 #, php-format
@@ -1871,100 +1950,109 @@ msgid ""
 "The module %s does not seem to support restore or is not installed on this "
 "system."
 msgstr ""
+"Модуль %s, не поддерживает восстановление или не установлен в этой системе."
 
 #: Handlers/Restore/Legacy.php:217
 #, php-format
 msgid ""
 "The module %s does not support restore or is not installed on this system"
 msgstr ""
+"Модуль %s не поддерживает восстановление или не установлен в этой системе."
 
 #: Handlers/Backup/Common.php:91
 #, php-format
 msgid "The module %s doesn't seem to support Backup"
-msgstr ""
+msgstr "Модуль %s не поддерживает резервное копирование"
 
 #: Handlers/Backup/Common.php:117
 #, php-format
 msgid "The module %s returned no data, No backup created"
-msgstr ""
+msgstr "Модуль %s вернул пустые данные, резервная копия не создана"
 
 #: RestoreBase.php:630
 msgid ""
 "The restore process may require some time, with the current default timeout "
 "set to 10 hours"
 msgstr ""
+"Процесс восстановления может занять некоторое время, по умолчанию установлен "
+"тайм-аут на 10-часов."
 
 #: assets/js/backup.js:603
 #, perl-format
 msgid "There was an error during %s"
-msgstr ""
+msgstr "Произошла ошибка во время %s"
 
 #: Handlers/Backup/Single.php:59
 msgid "There was nothing to cleanup"
-msgstr ""
+msgstr "Нет данных для очистки"
 
 #: Console/Backup.class.php:144 Console/Backup.class.php:241
 msgid "There were errors during the backup process"
-msgstr ""
+msgstr "В процессе резервного копирования возникли ошибки"
 
 #: Console/Backup.class.php:170 Console/Backup.class.php:387
 msgid "There were errors during the restore process"
-msgstr ""
+msgstr "В процессе восстановления возникли ошибки"
 
 #: Console/Backup.class.php:150 Console/Backup.class.php:247
 msgid "There were warnings during the backup process"
-msgstr ""
+msgstr "В процессе резервного копирования появлялись предупреждения"
 
 #: Console/Backup.class.php:176 Console/Backup.class.php:393
 msgid "There were warnings during the restore process"
-msgstr ""
+msgstr "В процессе восстановления появлялись предупреждения"
 
 #: Handlers/Backup/Multiple.php:64
 msgid ""
 "This backup will be stored locally and is subject to maintenance settings"
 msgstr ""
+"Эта резервная копия будет храниться локально и добавлена к обслуживанию."
 
 #: views/restore/landing.php:72
 msgid ""
 "This feature requires filestore be setup and may not be availible on a clean "
 "install"
 msgstr ""
+"Эта функция требует настройки хранилища файлов и может быть недоступна при "
+"чистой установке."
 
 #: views/backup/warmspare.php:62
 msgid ""
 "This option has moved to Backup Items -> Core (Disable Trunks on Restore?) "
 msgstr ""
+"Эта опция была перемещена в раздел резервное копирование -> "
+"Ядро (Выключить Транки при восстановлении)"
 
 #: views/restore/processRestore.php:44
 msgid "This restore will only affect the modules listed below"
-msgstr ""
+msgstr "Это восстановление затронет только перечисленные ниже модули"
 
 #: views/restore/processRestore.php:53
 msgid "This table will be empty on backups created prior to version 15"
-msgstr ""
+msgstr "Эта таблица будет пустой в резервных копиях, созданных до версии 15."
 
 #: Console/Backup.class.php:27
 msgid "Transaction ID for the backup"
-msgstr ""
+msgstr "ID транзакции для резервной копии"
 
 #: Console/Backup.class.php:123
 #, php-format
 msgid "Transaction ID is: %s"
-msgstr ""
+msgstr "ID транзакции: %s"
 
 #: Handlers/Backup/Multiple.php:57
 #, php-format
 msgid "Transaction: %s"
-msgstr ""
+msgstr "Транзакция: %s"
 
 #: views/backup/transfer.php:6
 msgid "Transfer Id"
-msgstr ""
+msgstr "Id передачи"
 
 #: functions.inc/class.backup.php:481
 #, php-format
 msgid "Trying to upload %s to %s"
-msgstr ""
+msgstr "Попытка выгрузить %s в %s"
 
 #: views/backup/item_table.php:5
 msgid "Type"
@@ -1973,16 +2061,16 @@ msgstr "Тип"
 #: Console/Backup.class.php:299
 #, php-format
 msgid "Unable to access the file %s"
-msgstr ""
+msgstr "Невозможно получить доступ к файлу %s"
 
 #: Migration/Servers.php:82
 #, php-format
 msgid "Unable to map '%s' of type '%s"
-msgstr ""
+msgstr "Невозможно сопоставить '%s' с типом '%s"
 
 #: Api/Gql/Backup.php:610
 msgid "Unable to perform backup"
-msgstr ""
+msgstr "Невозможно выполнить резервное копирование"
 
 #: RestoreBase.php:283
 #, php-format
@@ -1990,133 +2078,137 @@ msgid ""
 "Unable to run restoreLegacyDatabase on %s because NO Database information "
 "provided"
 msgstr ""
+"Невозможно запустить restoreLegacyDatabase на %s, нет информации о базе данных"
 
 #: RestoreBase.php:259
 #, php-format
 msgid ""
 "Unable to run restoreLegacyDatabase on %s because module.xml was not found"
 msgstr ""
+"Невозможно запустить restoreLegacyDatabase на %s, module.xml не найден".
 
 #: Monolog/Swift.php:85
 msgid "Unable to send backup email!"
-msgstr ""
+msgstr "Невозможно отправить резервную копию на email!"
 
 #: Api/Gql/Backup.php:709
 msgid "Unable to update backup"
-msgstr ""
+msgstr "Невозможно обновить резервную копию"
 
 #: functions.inc/class.backup.php:479
 msgid "Unable to upload file to the remote server"
-msgstr ""
+msgstr "Невозможно загрузить файл на удаленный сервер"
 
 #: Backup.class.php:1578
 msgid "Uninstalled or Disabled"
-msgstr ""
+msgstr "Деинсталлировано или отключено"
 
 #: Console/Backup.class.php:317
 msgid "Unknown file type"
-msgstr ""
+msgstr "Неизвестный тип файла"
 
 #: Handlers/Backup/Single.php:27
 #, php-format
 msgid "Unknown module %s"
-msgstr ""
+msgstr "Неизвестный модуль %s"
 
 #: views/backup/form.php:431
 msgid "Unlimited"
-msgstr ""
+msgstr "Неограниченно"
 
 #: Api/Gql/Backup.php:77
 msgid "Update Backup Configurations"
-msgstr ""
+msgstr "Обновление конфигураций резервного копирования"
 
 #: views/restore/landing.php:34
 msgid "Upload a valid backup.tar.gz"
-msgstr ""
+msgstr "Загрузите backup.tar.gz"
 
 #: views/restore/landing.php:8
 msgid "Upload your restore files"
-msgstr ""
+msgstr "Загрузите файлы восстановления"
 
 #: assets/js/backup.js:16
 msgid "Uploading..."
-msgstr ""
+msgstr "Загрузка..."
 
 #: Console/Backup.class.php:31
 msgid "Use filestore ID to restore a file"
-msgstr ""
+msgstr "Использование ID хранилища файлов для восстановления файла"
 
 #: Handlers/Backup/Common.php:97
 msgid "Using default backup strategy"
-msgstr ""
+msgstr "Использование стратегии резервного копирования по умолчанию"
 
 #: Handlers/Restore/Legacy.php:221
 msgid "Using default restore strategy"
-msgstr ""
+msgstr "Использование стратегии восстановления по умолчанию"
 
 #: Handlers/Restore/Common.php:106
 msgid "Using fallback restore strategy"
-msgstr ""
+msgstr "Использование резервной стратегии восстановления"
 
 #: Handlers/Restore/Legacy.php:318
 #, php-format
 msgid "Utilizing cached based sqlite at %s. The data might be stale!"
-msgstr ""
+msgstr "Использование кэшированного sqlite на основе %s. Данные могут быть устаревшими!"
 
 #: Handlers/Restore/Legacy.php:322
 #, php-format
 msgid "Utilizing file based sqlite at %s, This is SLOW"
-msgstr ""
+msgstr "Использование файлового sqlite на %s, это работает медленно"
 
 #: views/restore/processRestore.php:66
 msgid "Version in Backup"
-msgstr ""
+msgstr "Версия в резервной копии"
 
 #: assets/js/backup.js:206
 msgid "View backup log"
-msgstr ""
+msgstr "Просмотр журнала резервного копирования"
 
 #: assets/js/backup.js:59
 msgid "View running restore"
-msgstr ""
+msgstr "Просмотр запущенного восстановления"
 
 #: views/backup/warmspare.php:4
 msgid "Warm Spare"
-msgstr ""
+msgstr "Warm Spare"
 
 #: views/backup/warmspare.php:300 views/backup/warmspare.php:455
 msgid "Warm Spare Server"
-msgstr ""
+msgstr "Warm Spare сервер"
 
 #: views/backup/warmspare.php:321 views/backup/warmspare.php:476
 msgid ""
 "Warm Spare server needs to add to filestore, And it should be a FreePBX 15 "
 "and Above"
 msgstr ""
+Warm Spare сервер должен быть добавлен в хранилище файлов, и это должна быть "
+"FreePBX 15 и выше"
 
 #: Console/Backup.class.php:265 Console/Backup.class.php:276
 msgid "Warmspare enabled for this backup"
-msgstr ""
+msgstr "Для этого резервного копирования включена функция Warmspare"
 
 #: views/backup/warmspare.php:289
 msgid "Way to Connect Warm spare Server"
-msgstr ""
+msgstr "Способ подключения Warm spare сервера"
 
 #: Console/Backup.class.php:268
 msgid "We Have triggered an API to restore the backup on Spare Server"
-msgstr ""
+msgstr "Мы запустили API для восстановления резервной копии на Spare сервере"
 
 #: Console/Backup.class.php:277
 msgid "We are running Restore command on Spare Server"
-msgstr ""
+msgstr "Мы выполняем команду восстановления на Spare сервере"
 
 #: Backup.class.php:344 Backup.class.php:394
 msgid "We can't seem to delete the chosen file"
-msgstr ""
+msgstr "Мы не можем удалить выбранный файл."
 
 #: Backup.class.php:341 Backup.class.php:389
 msgid "We don't have permissions to this file"
-msgstr ""
+msgstr "У нас нет прав на этот файл"
 
 #: views/backup/form.php:314
 msgid ""
@@ -2124,6 +2216,9 @@ msgid ""
 "name/backup-file' and if set to NO then backup file will store into "
 "'filestore-path/backup-file'"
 msgstr ""
+"Если установлено значение Да(Yes), файлы резервных копий будут храниться в файле "
+"'filestore-path/backup-job-name/backup-file', а если установлено значение NO, "
+"то файл резервной копии будет храниться в файле 'filestore-path/backup-file'"
 
 #: Api/Gql/Backup.php:419
 msgid ""
@@ -2131,18 +2226,27 @@ msgid ""
 "backup-file and if set to NO then backup file will store into filestore-path/"
 "backup-file,default false"
 msgstr ""
+"Если установлено значение Да(Yes), файлы резервных копий будут храниться в файловом "
+"хранилище path/backup-job-name/backup-file, а если установлено значение NO, то "
+"файлы резервных копий будут храниться в файловом хранилище path/backup-file, "
+"по умолчанию false"
 
 #: views/backup/form.php:207
 msgid ""
 "When set to Yes logs will be added to the body of the email, when set to No "
 "logs will be added as an attachment"
 msgstr ""
+При установке значения Да(Yes) журналы будут добавлены в тело письма, при "
+"установке значения Нет(No) журналы будут добавлены в качестве вложения"
 
 #: Api/Gql/Backup.php:407
 msgid ""
 "When set to Yes logs will be added to the body of the email, when set to No "
 "logs will be added as an attachment, default no"
 msgstr ""
+"При установке значения Да(Yes) журналы будут добавлены в тело письма, при "
+"установке значения Нет(No) журналы будут добавлены в качестве вложения, по "
+"умолчанию Нет(No)"
 
 #: Api/Gql/Backup.php:352
 msgid ""
@@ -2150,33 +2254,39 @@ msgid ""
 "name/backup-file and if set to false then backup file will store into "
 "filestore-path/backup-file,default false"
 msgstr ""
+"Если установлено значение true, файлы резервных копий будут храниться в "
+"файловом хранилище path/backup-job-name/backup-file, а если установлено "
+"значение false, то файл резервной копии будет храниться в файловом хранилище "
+"path/backup-file, по умолчанию false"
 
 #: Api/Gql/Backup.php:340
 msgid ""
 "When set to true logs will be added to the body of the email, when set to "
 "false logs will be added as an attachment, default false"
 msgstr ""
+"При значении true журналы будут добавлены в тело письма, при значении false "
+"журналы будут добавлены в качестве вложения, по умолчанию false"
 
 #: Api/Gql/Backup.php:360 Api/Gql/Backup.php:427 views/backup/form.php:379
 msgid "When should this backup run"
-msgstr ""
+msgstr "Когда должно выполняться это резервное копирование"
 
 #: views/backup/form.php:247
 msgid "When to email"
-msgstr ""
+msgstr "Когда писать по электронной почте"
 
 #: Api/Gql/Backup.php:344 Api/Gql/Backup.php:411
 msgid "When to email default both"
-msgstr ""
+msgstr "Когда отправлять письмо по умолчанию обоим"
 
 #: Console/Backup.class.php:38
 msgid "Where to save the single module backup."
-msgstr ""
+msgstr "Куда сохранить резервную копию одного модуля."
 
 #: Handlers/Backup/Common.php:74
 #, php-format
 msgid "Working with %s module"
-msgstr ""
+msgstr "Работа с модулем %s"
 
 #: views/backup/form.php:193 views/backup/form.php:301
 #: views/backup/form.php:342 views/backup/warmspare.php:26
@@ -2189,40 +2299,40 @@ msgstr "Да"
 
 #: Api/Gql/Backup.php:70 Api/Gql/Backup.php:703
 msgid "You have enabled enableBackupSchedule so please add scheduleBackup"
-msgstr ""
+msgstr "Вы включили enableBackupSchedule, поэтому добавьте scheduleBackup"
 
 #: assets/js/backup.js:80
 msgid "You must enter a valid Warm Spare Access Token URL"
-msgstr ""
+msgstr "Вы должны ввести действительный URL-адрес токена доступа к теплому резерву."
 
 #: assets/js/backup.js:85
 msgid "You must enter a valid Warm Spare Server API Client ID"
-msgstr ""
+msgstr "Вы должны ввести действительный ID клиента API Warm Spare Server."
 
 #: assets/js/backup.js:90
 msgid "You must enter a valid Warm Spare Server API Client Secret"
-msgstr ""
+msgstr "Вы должны ввести действительный пароль клиента API Warm Spare Server."
 
 #: assets/js/backup.js:95
 msgid "You must enter a valid Warm Spare Server API GraphQL URL"
-msgstr ""
+msgstr "Вы должны ввести действительный URL-адрес GraphQL API Warm Spare Server."
 
 #: assets/js/backup.js:75
 msgid "You must select a valid Warm Spare Server"
-msgstr ""
+msgstr "Вы должны выбрать действительный сервер Warm Spare Server"
 
 #: assets/js/backup.js:67
 msgid "You must set a valid job name for this backup"
-msgstr ""
+msgstr "Вы должны задать действительное имя задания для этого резервного копирования"
 
 #: assets/js/backup.js:599
 #, perl-format
 msgid "Your %s has finished"
-msgstr ""
+msgstr "%s завершен"
 
 #: Api/Gql/Backup.php:50
 msgid "addBackup"
-msgstr ""
+msgstr "addBackup"
 
 #: functions.inc/class.backup.php:389
 msgid "astDb's"
@@ -2230,36 +2340,36 @@ msgstr "astDb'-ы"
 
 #: views/backup/item_table.php:39
 msgid "choose"
-msgstr ""
+msgstr "выбор"
 
 #: Console/Backup.class.php:34
 msgid "pass the Option --ignoremodules get ignore modules names"
-msgstr ""
+msgstr "Передать опцию --ignoremodules, чтобы получить игнорируемые имена модулей"
 
 #: Console/Backup.class.php:33
 msgid "pass the Option --restorelegacycdr to restore LegacyCDR"
-msgstr ""
+msgstr "передать опцию --restorelegacycdr для восстановления LegacyCDR"
 
 #: Api/Gql/Backup.php:91
 msgid "restoreBackup"
-msgstr ""
+msgstr "restoreBackup"
 
 #: Api/Gql/Backup.php:100
 msgid "runBackup"
-msgstr ""
+msgstr "runBackup"
 
 #: Monolog/Swift.php:56
 msgid "success"
-msgstr ""
+msgstr "выполнено"
 
 #: Console/Backup.class.php:319
 #, php-format
 msgid "type is %s"
-msgstr ""
+msgstr "тип - %s"
 
 #: Api/Gql/Backup.php:76
 msgid "updateBackup"
-msgstr ""
+msgstr "updateBackup"
 
 #~ msgid "Backup Module"
 #~ msgstr "Модуль резервного копирования"

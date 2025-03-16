@@ -2183,7 +2183,7 @@ msgid ""
 "Warm Spare server needs to add to filestore, And it should be a FreePBX 15 "
 "and Above"
 msgstr ""
-Warm Spare сервер должен быть добавлен в хранилище файлов, и это должна быть "
+"Warm Spare сервер должен быть добавлен в хранилище файлов, и это должна быть "
 "FreePBX 15 и выше"
 
 #: Console/Backup.class.php:265 Console/Backup.class.php:276
@@ -2236,7 +2236,7 @@ msgid ""
 "When set to Yes logs will be added to the body of the email, when set to No "
 "logs will be added as an attachment"
 msgstr ""
-При установке значения Да(Yes) журналы будут добавлены в тело письма, при "
+"При установке значения Да(Yes) журналы будут добавлены в тело письма, при "
 "установке значения Нет(No) журналы будут добавлены в качестве вложения"
 
 #: Api/Gql/Backup.php:407

@@ -120,4 +120,11 @@
 	<supported>
 		<version>16.0</version>
 	</supported>
+	<console>
+		<command>
+			<name>backup</name>
+			<alias>bu</alias>
+			<class>Backup</class>
+		</command>
+    </console>
 </module>

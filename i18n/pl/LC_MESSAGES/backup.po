@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-04 00:53-0500\n"
+"POT-Creation-Date: 2025-04-01 07:50-0400\n"
 "PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/backup/pl/"
@@ -248,12 +248,17 @@ msgstr "Kopa zapasowa"
 msgid "Backup %s"
 msgstr ""
 
-#: Handlers/Backup/Email.php:17 Monolog/Swift.php:76
+#: Handlers/Backup/Email.php:18 Monolog/Swift.php:76
 #, php-format
 msgid "Backup %s failed for %s"
 msgstr ""
 
-#: Handlers/Backup/Email.php:26 Monolog/Swift.php:74
+#: Handlers/Backup/Email.php:38
+#, php-format
+msgid "Backup %s status for %s"
+msgstr ""
+
+#: Handlers/Backup/Email.php:27 Monolog/Swift.php:74
 #, php-format
 msgid "Backup %s success for %s"
 msgstr ""
@@ -831,12 +836,12 @@ msgstr ""
 msgid "Framework"
 msgstr ""
 
-#: Handlers/Backup/Email.php:86
+#: Handlers/Backup/Email.php:96
 #, php-format
 msgid "Generated Backup process result email to %s. Status: Failure"
 msgstr ""
 
-#: Handlers/Backup/Email.php:90
+#: Handlers/Backup/Email.php:100
 #, php-format
 msgid "Generated Backup process result email to %s. Status: Success"
 msgstr ""
@@ -1043,6 +1048,10 @@ msgstr ""
 
 #: Backup.class.php:700
 msgid "Log file is missing but process is still running!"
+msgstr ""
+
+#: Handlers/Backup/Email.php:76
+msgid "Log file was not generated for this backup."
 msgstr ""
 
 #: Handlers/Restore/Legacy.php:274 Handlers/Restore/Multiple.php:63
@@ -1589,7 +1598,7 @@ msgstr ""
 msgid "Scheduling"
 msgstr ""
 
-#: Handlers/Backup/Email.php:65 Monolog/Swift.php:144
+#: Handlers/Backup/Email.php:73 Monolog/Swift.php:144
 msgid "See attachment"
 msgstr ""
 

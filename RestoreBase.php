@@ -602,9 +602,10 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 
 		$dbhost = $amp_conf['AMPDBHOST'];
 		$dbuser = $amp_conf['AMPDBUSER'];
-		$dbport = $amp_conf['AMPDBPORT'] ?? '3306';
+		$dbport = $amp_conf['AMPDBPORT'] ?? '';
 		$dbpass = $amp_conf['AMPDBPASS'];
 		$dbname = $amp_conf['AMPDBNAME'];
+		$dbsock = $amp_conf['AMPDBSOCK'] ?? '';
 
 		$cdrDbTables = ['cdr', 'cel', 'queuelog'];
 		if (in_array(strtolower($tableName), $cdrDbTables)) {
@@ -617,8 +618,13 @@ class RestoreBase extends \FreePBX\modules\Backup\Models\Restore{
 
 		$mysql = fpbx_which('mysql');
 
-		$dbhost = ($dbhost === 'localhost' || $dbhost === '127.0.0.1') ? '' : '-h ' . $dbhost;
-		$dbport = empty(trim($dbport)) ? '' : '-P ' . trim($dbport);
+		if (empty($dbsock)) {
+			$dbhost = ($dbhost === 'localhost' || $dbhost === '127.0.0.1') ? '' : '-h ' . $dbhost;
+			$dbport = empty(trim($dbport)) ? '' : '-P ' . trim($dbport);
+		} else {
+			$dbhost = '-S ' . $dbsock;
+			$dbport = '';
+		}
 
 		if (strpos($dumpfile, '.gz') !== false) {
 			$restore = "gunzip < " . $dumpfile . " | " . "{$mysql} {$dbport} {$dbhost} -u{$dbuser} -p{$dbpass} {$dbname}";

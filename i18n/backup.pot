@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-01 07:50-0400\n"
+"POT-Creation-Date: 2025-04-20 22:12-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,7 +86,7 @@ msgstr ""
 msgid "%s table Backup Error %s "
 msgstr ""
 
-#: RestoreBase.php:637
+#: RestoreBase.php:643
 #, php-format
 msgid "%s table Restore Error %s "
 msgstr ""
@@ -503,7 +503,7 @@ msgstr ""
 msgid "Completed mysql dumps of : %s"
 msgstr ""
 
-#: RestoreBase.php:641
+#: RestoreBase.php:647
 #, php-format
 msgid "Completed restoring mysql dumps of : %s"
 msgstr ""
@@ -1820,7 +1820,7 @@ msgid ""
 "comma"
 msgstr ""
 
-#: RestoreBase.php:629
+#: RestoreBase.php:635
 #, php-format
 msgid "Started restoring mysql dumps of : %s"
 msgstr ""
@@ -1967,7 +1967,7 @@ msgstr ""
 msgid "The module %s returned no data, No backup created"
 msgstr ""
 
-#: RestoreBase.php:630
+#: RestoreBase.php:636
 msgid ""
 "The restore process may require some time, with the current default timeout "
 "set to 10 hours"

@@ -257,7 +257,9 @@ class BackupBase extends Model\Backup{
 			$process->disableOutput();
 			$process->mustRun();
 		} catch (ProcessFailedException $e) {
-			$this->log(sprintf(_("%s table Backup Error %s "), $tableName, $e->getMessage()), 'ERROR');
+			// Mask sensitive information in error message
+			$maskedMessage = preg_replace('/-p\S+/', '-p******', $e->getMessage());
+			$this->log(sprintf(_("%s table Backup Error %s "), $tableName, $maskedMessage), 'ERROR');
 			return false;
 		}
 		$fileObj = new \SplFileInfo($tmpfile);

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-20 22:12-0400\n"
+"POT-Creation-Date: 2025-06-09 02:37-0400\n"
 "PO-Revision-Date: 2016-02-05 11:17+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -87,7 +87,7 @@ msgstr ""
 msgid "%s is now loaded into memory"
 msgstr ""
 
-#: BackupBase.php:260
+#: BackupBase.php:262
 #, php-format
 msgid "%s table Backup Error %s "
 msgstr ""
@@ -480,7 +480,7 @@ msgstr ""
 msgid "Complete Path"
 msgstr ""
 
-#: BackupBase.php:267
+#: BackupBase.php:269
 #, php-format
 msgid "Completed mysql dumps of : %s"
 msgstr ""

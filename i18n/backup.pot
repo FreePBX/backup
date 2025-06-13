@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-09 02:37-0400\n"
+"POT-Creation-Date: 2025-06-13 01:48-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -883,12 +883,12 @@ msgstr ""
 msgid "Framework"
 msgstr ""
 
-#: Handlers/Backup/Email.php:96
+#: Handlers/Backup/Email.php:95
 #, php-format
 msgid "Generated Backup process result email to %s. Status: Failure"
 msgstr ""
 
-#: Handlers/Backup/Email.php:100
+#: Handlers/Backup/Email.php:99
 #, php-format
 msgid "Generated Backup process result email to %s. Status: Success"
 msgstr ""
@@ -1107,7 +1107,7 @@ msgstr ""
 msgid "Log file is missing but process is still running!"
 msgstr ""
 
-#: Handlers/Backup/Email.php:76
+#: Handlers/Backup/Email.php:75
 msgid "Log file was not generated for this backup."
 msgstr ""
 
@@ -1688,7 +1688,7 @@ msgstr ""
 msgid "Scheduling"
 msgstr ""
 
-#: Handlers/Backup/Email.php:73
+#: Handlers/Backup/Email.php:72
 #: Monolog/Swift.php:144
 msgid "See attachment"
 msgstr ""

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-09 02:37-0400\n"
+"POT-Creation-Date: 2025-06-13 01:48-0400\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -858,12 +858,12 @@ msgstr ""
 msgid "Framework"
 msgstr ""
 
-#: Handlers/Backup/Email.php:96
+#: Handlers/Backup/Email.php:95
 #, php-format
 msgid "Generated Backup process result email to %s. Status: Failure"
 msgstr ""
 
-#: Handlers/Backup/Email.php:100
+#: Handlers/Backup/Email.php:99
 #, php-format
 msgid "Generated Backup process result email to %s. Status: Success"
 msgstr ""
@@ -1072,7 +1072,7 @@ msgstr ""
 msgid "Log file is missing but process is still running!"
 msgstr ""
 
-#: Handlers/Backup/Email.php:76
+#: Handlers/Backup/Email.php:75
 msgid "Log file was not generated for this backup."
 msgstr ""
 
@@ -1620,7 +1620,7 @@ msgstr ""
 msgid "Scheduling"
 msgstr ""
 
-#: Handlers/Backup/Email.php:73 Monolog/Swift.php:144
+#: Handlers/Backup/Email.php:72 Monolog/Swift.php:144
 msgid "See attachment"
 msgstr ""
 

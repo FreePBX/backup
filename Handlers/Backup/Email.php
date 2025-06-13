@@ -23,7 +23,7 @@ trait Email {
 				// Loop through the lines in reverse order
 				for ($i = count($lines) - 1; $i >= 0; $i--) {
 					$line = $lines[$i];
-					if (stripos($line, 'Finished Saving to selected Filestore locations') !== false) {
+					if ((stripos($line, 'Finished Saving to selected Filestore locations') !== false) || (stripos($line, 'Finished created backup file') !== false)) {
 						$subject = sprintf(_('Backup %s success for %s'), $this->backupInfo['backup_name'], $sysname);
 						if($this->backupInfo['backup_emailtype'] == 'success' || $this->backupInfo['backup_emailtype'] == 'both') {
 							$sendemail = true;
@@ -59,7 +59,6 @@ trait Email {
 			$emailList = explode(',', (string) $emailId);
 			$email->to($emailList);
 			$email->subject($subject);
-
 			$inline = (!isset($this->backupInfo['backup_emailinline']) || $this->backupInfo['backup_emailinline'] === 'no') ? false : true;
 			if($inline && !empty($lines)) {
 				//read log file and add the contents to email body

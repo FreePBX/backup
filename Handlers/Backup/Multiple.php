@@ -157,7 +157,12 @@ class Multiple extends Common {
 				'version' => $version
 			];
 		}
-		if(!empty($this->backupInfo['custom_files'])) {
+		if (
+			!empty($this->backupInfo['custom_files']) &&
+			is_string($this->backupInfo['custom_files']) &&
+			json_decode($this->backupInfo['custom_files'], true) !== null &&
+			json_last_error() === JSON_ERROR_NONE
+		) {
 			$this->addcustomFiles($this->backupInfo['custom_files']);
 		}
 		//FREEPBX-20060 restapps stopping the restore in between, because apache restart

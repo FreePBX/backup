@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>17.0.5.69</version>
+	<version>17.0.5.70</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -14,10 +14,11 @@
 		<backup_restore hidden="true" needsenginedb="yes">Backup &amp; Restore - Restore</backup_restore>
 	</menuitems>
 	<depends>
-		<module>filestore ge 17.0.1</module>
+		<module>filestore ge 17.0.2.44</module>
 		<version>17.0.1</version>
 	</depends>
 	<changelog>
+		*17.0.5.70* #823 backup module issue in freepbx v17 
 		*17.0.5.69* FREEI-2242 advr syncback to primary issue resolved 
 		*17.0.5.68* issue-773 depend column added on featurecode backup 
 		*17.0.5.67* FREEI-2055 backup log attachment missing in email 

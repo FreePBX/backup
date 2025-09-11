@@ -73,8 +73,15 @@ class Storage extends CommonFile {
 						continue;
 					}
 				}
+				if($info['driver'] == 'FTP'){
+					$Rfile = rtrim((string) $Rpath,'/').'/'.$Rfile;
+				}
 				$this->Filestore->upload($id,$this->file,$Rfile);
-				$this->log("\t".sprintf(_("Saving to: %s:'%s' instance ,File location: %s%s "),$info['driver'],$info['name'],$Rpath,$Rfile),'DEBUG');
+				if($info['driver'] == 'FTP') {
+					$this->log("\t".sprintf(_("Saving to: %s:'%s' instance ,File location: %s "),$info['driver'],$info['name'],$Rfile),'DEBUG');
+				} else {
+					$this->log("\t".sprintf(_("Saving to: %s:'%s' instance ,File location: %s%s "),$info['driver'],$info['name'],$Rpath,$Rfile),'DEBUG');
+				}
 			} catch (\Exception $e) {
 				$err = $e->getMessage();
 				$this->log($err,'ERROR');

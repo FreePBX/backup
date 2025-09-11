@@ -479,7 +479,12 @@ class Backup extends FreePBX_Helpers implements BMO {
 					if(empty($info)) {
 						return ['status' => false, 'message' => _("Could not find a file for the id supplied")];
 					} else {
-						$args = '--filestore='.escapeshellarg($parts[1]).' --restore='.escapeshellarg((string) $_GET['filepath']);
+						if($info['driver'] == 'FTP') {
+							$restorefilepath = $info['path'] . $_GET['filepath'];
+						} else {
+							$restorefilepath = $_GET['filepath'];
+						}
+						$args = '--filestore='.escapeshellarg($parts[1]).' --restore='.escapeshellarg((string) $restorefilepath);
 					}
 				} else {
 					//local
@@ -1592,38 +1597,42 @@ public function GraphQL_Access_token($request) {
 	public function getAllRemote(){
 		$final = [];
 		$ret = $this->freepbx->Filestore->listAllFiles(true);
-		foreach($ret as $dname => $driver){
-			foreach($driver as $id => $location){
-				if(!isset($location['results'])){
+		foreach ($ret as $dname => $driver) {
+			foreach ($driver as $id => $location) {
+				if (!isset($location['results'])) {
 					continue;
 				}
-				foreach($location['results'] as $file){
-					if($file['type'] == 'dir'){
+				foreach ($location['results'] as $file) {
+					if (!$file instanceof \League\Flysystem\FileAttributes) {
 						continue;
 					}
-					if(!isset($file['path'])) {
+					if ($file->type() === 'dir') {
 						continue;
 					}
-					$backupFile = new BackupSplFileInfo($file['path']);
+					$path = $file->path();
+					if (empty($path)) {
+						continue;
+					}
+					$backupFile = new BackupSplFileInfo($path);
 					$info = $backupFile->backupData();
 					if($info === false) {
-						continue; //not a backup file
+						continue; // not a backup file
 					}
-					$infoSize = $this->freepbx->Filestore->getSize($id, $file['path']);
+					$infoSize = $this->freepbx->Filestore->getSize($id, $path);
 					$final[] = [
-						'id' => $dname.'_'.$id.'_'.sha1((string) $file['path']),
-						'type' => $dname,
-						'file' => $file['path'],
-						'framework' => $info['framework'],
-						'timestamp' => $info['timestamp'],
-						'name' => $file['basename'] ?? '',
-						'instancename' => $location['name'],
-						'size'     => $infoSize,
+						'id'          => $dname . '_' . $id . '_' . sha1((string) $path),
+						'type'        => $dname,
+						'file'        => ($dname == 'FTP') ? basename($path) : $path,
+						'framework'   => $info['framework'],
+						'timestamp'   => $info['timestamp'],
+						'name'        => basename($path),
+						'instancename'=> $location['name'],
+						'size'        => $infoSize ?? $file->fileSize(),
 					];
 				}
 			}
 		}
-		usort($final, function($a, $b) {
+		usort($final, function ($a, $b) {
 			return $b['timestamp'] - $a['timestamp'];
 		});
 		return $final;

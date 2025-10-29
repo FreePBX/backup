@@ -85,7 +85,7 @@ if(isset($error) && !empty($error)){
 	</div>
 	<div class="panel-body">
 		<div class="well well-info">
-			<?php echo _("This feature requires filestore be setup and may not be availible on a clean install")?>
+			<?php echo _("This feature requires filestore be setup and may not be available on a clean install")?>
 		</div>
 		<?php
 			$dataurl = "ajax.php?module=backup&command=restoreFiles";

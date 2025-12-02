@@ -479,11 +479,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 					if(empty($info)) {
 						return ['status' => false, 'message' => _("Could not find a file for the id supplied")];
 					} else {
-						if($info['driver'] == 'FTP') {
-							$restorefilepath = $info['path'] . $_GET['filepath'];
-						} else {
-							$restorefilepath = $_GET['filepath'];
-						}
+						$restorefilepath = $_GET['filepath'];
 						$args = '--filestore='.escapeshellarg($parts[1]).' --restore='.escapeshellarg((string) $restorefilepath);
 					}
 				} else {
@@ -1622,7 +1618,7 @@ public function GraphQL_Access_token($request) {
 					$final[] = [
 						'id'          => $dname . '_' . $id . '_' . sha1((string) $path),
 						'type'        => $dname,
-						'file'        => ($dname == 'FTP') ? basename($path) : $path,
+						'file'        => $path,
 						'framework'   => $info['framework'],
 						'timestamp'   => $info['timestamp'],
 						'name'        => basename($path),

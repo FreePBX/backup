@@ -73,11 +73,18 @@ class BackupSplFileInfo extends SplFileInfo{
 		}
 		if(file_exists($manafestfile)){
 			$manifestdata = file_get_contents($manafestfile);
-			$tmpdata = unserialize($manifestdata);
+
+			$tmpdata = json_decode($manifestdata, true);
+			if ($tmpdata === null || json_last_error() !== JSON_ERROR_NONE || !is_array($tmpdata)) {
+				$tmpdata = unserialize($manifestdata, ['allowed_classes' => false]);
+			}
+			if (!is_array($tmpdata)) {
+				throw new \Exception('Invalid manifest data format');
+			}
 			$meta = [
-				'date' => $tmpdata['ctime'],
+				'date' => isset($tmpdata['ctime']) ? $tmpdata['ctime'] : null,
 				'backupInfo' => [
-					'backup_name' => $tmpdata['name'],
+					'backup_name' => isset($tmpdata['name']) ? $tmpdata['name'] : '',
 					'backup_description' => _("Legacy Restore"),
 				],
 				'manifest' => $tmpdata,

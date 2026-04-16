@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo backup module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-02 03:58-0500\n"
+"POT-Creation-Date: 2026-04-16 04:52-0400\n"
 "PO-Revision-Date: 2016-12-09 05:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -1017,7 +1017,7 @@ msgid ""
 "process %s "
 msgstr ""
 
-#: Models/BackupSplFileInfo.php:81
+#: Models/BackupSplFileInfo.php:88
 msgid "Legacy Restore"
 msgstr ""
 

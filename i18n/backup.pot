@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for backup
-# Copyright (C) 2008-2025 Sangoma Technologies, Inc.
+# Copyright (C) 2008-2026 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-28 11:27+0000\n"
+"POT-Creation-Date: 2026-04-28 09:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -967,7 +967,7 @@ msgid ""
 "process %s "
 msgstr ""
 
-#: Models/BackupSplFileInfo.php:81
+#: Models/BackupSplFileInfo.php:88
 msgid "Legacy Restore"
 msgstr ""
 
@@ -1806,7 +1806,7 @@ msgstr ""
 
 #: views/restore/landing.php:88
 msgid ""
-"This feature requires filestore be setup and may not be availible on a clean "
+"This feature requires filestore be setup and may not be available on a clean "
 "install"
 msgstr ""
 

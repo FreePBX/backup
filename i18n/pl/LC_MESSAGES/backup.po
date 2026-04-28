@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-28 11:27+0000\n"
+"POT-Creation-Date: 2026-04-28 09:17+0000\n"
 "PO-Revision-Date: 2017-03-21 22:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/backup/pl/"
@@ -919,7 +919,7 @@ msgid ""
 "process %s "
 msgstr ""
 
-#: Models/BackupSplFileInfo.php:81
+#: Models/BackupSplFileInfo.php:88
 msgid "Legacy Restore"
 msgstr ""
 
@@ -1722,7 +1722,7 @@ msgstr ""
 
 #: views/restore/landing.php:88
 msgid ""
-"This feature requires filestore be setup and may not be availible on a clean "
+"This feature requires filestore be setup and may not be available on a clean "
 "install"
 msgstr ""
 

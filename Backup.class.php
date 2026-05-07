@@ -364,7 +364,9 @@ class Backup extends FreePBX_Helpers implements BMO {
   				if(!file_exists($path)){
 					mkdir($path);
 				}
-				$finalname = $path.'/'. $_FILES['file']['name'];
+
+				$filename = basename($_FILES['file']['name']);
+				$finalname = $path.'/'. $filename;
   				if(file_exists($finalname)){
 					unlink($finalname);
 				}
@@ -378,13 +380,30 @@ class Backup extends FreePBX_Helpers implements BMO {
 					}
 				}
 				$tmp_name = $_FILES['file']['tmp_name'];
-				$filename = $_FILES['file']['name'];
-				$num = $_POST['dzchunkindex'];
-				$num_chunks = $_POST['dztotalchunkcount'];
-				$uuid = $_POST['dzuuid'];
+				$num = filter_input(INPUT_POST, 'dzchunkindex', FILTER_VALIDATE_INT);
+				if ($num === false || $num < 0) {
+					return ['status' => false, 'message' => _('Invalid chunk index')];
+				}
+
+				$num_chunks = filter_input(INPUT_POST, 'dztotalchunkcount', FILTER_VALIDATE_INT);
+				if ($num_chunks === false || $num_chunks < 1 || $num >= $num_chunks) {
+					return ['status' => false, 'message' => _('Invalid total chunk count')];
+				}
+				
+				$uuid = $_POST['dzuuid'] ?? '';
+				if (!preg_match('/\A[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\z/i', $uuid)) {
+					return ['status' => false, 'message' =>  _('Invalid upload UUID')];
+				}
+
 				$partialPath = sprintf('%s/backup/uploads/%s/', $spooldir,$uuid);
 				$target_file = $partialPath.$filename;
 				@mkdir($partialPath, 0755, true);
+				$base = realpath($spooldir . '/backup/uploads');
+				$target = realpath(dirname($partialPath));
+
+				if ($target === false || strpos($target, $base) !== 0) {
+					return ['status' => false, 'message' => _('Invalid path')];
+				}
 				move_uploaded_file($tmp_name, $partialPath.$filename.$num);
 				if($num + 1 == $num_chunks){
 					for ($i = 0; $i <= $num_chunks - 1; $i++) {

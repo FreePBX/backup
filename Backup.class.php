@@ -653,13 +653,36 @@ class Backup extends FreePBX_Helpers implements BMO {
 				$res=[];
 				$res['status'] = false;
 				try {
-					$publickeyAsteriskUser = $_POST['publickeyAsteriskUser'] ?? '';
-					$servername = $_POST['servername'] ?? '';
+					$authorizedLine = trim($_POST['publickeyAsteriskUser'] ?? '');
+					$barePublicKey = trim($_POST['publickey'] ?? '');
+					$servername = trim($_POST['servername'] ?? '');
+					$sshOptions = [];
+					if (!empty($_POST['sshOptions'])) {
+						$decoded = json_decode((string) $_POST['sshOptions'], true);
+						if (is_array($decoded)) {
+							$sshOptions = $this->sanitizeSshOptions($decoded);
+						}
+					}
+					if ($barePublicKey === '' && $authorizedLine !== '') {
+						$barePublicKey = $this->extractBarePublicKey($authorizedLine);
+					}
+					if ($barePublicKey === '') {
+						$res['status'] = false;
+						$res['message'] = _('Public key is required');
+						return $res;
+					}
+					if (empty($sshOptions['from'])) {
+						$res['status'] = false;
+						$res['message'] = _('From is required (IP, hostname, or comma-separated list)');
+						return $res;
+					}
+					$sshOptions = $this->sanitizeSshOptions($sshOptions);
+					$authorizedLine = $this->buildAuthorizedKeysLine($barePublicKey, $sshOptions);
 					$data = $this->getAll('publickeyAsteriskUser');
 					$publicKeys = $data['publickeyAsteriskUser']['publickeys'] ?? [];
 					$keyalreadyExist=false;
 					foreach($publicKeys as $value) {
-						if (trim($value['publickeyAsteriskUser']) == trim($publickeyAsteriskUser)) {
+						if (trim($value['publickeyAsteriskUser'] ?? '') === $authorizedLine) {
 							$keyalreadyExist=true;
 						}
 					}
@@ -668,8 +691,19 @@ class Backup extends FreePBX_Helpers implements BMO {
 						$res['message'] = 'Public key already added';
 						return $res;
 					}
-					$publicKeys[] = ["servername" => $servername, "publickeyAsteriskUser" => $publickeyAsteriskUser];
-					$this->appendPublicKey($publickeyAsteriskUser);
+					if (!$this->appendPublicKey($authorizedLine)) {
+						$res['status'] = false;
+						$res['message'] = 'Invalid public key format';
+						return $res;
+					}
+
+					$publicKeys[] = [
+						"servername" => $servername,
+						"publickey" => $barePublicKey,
+						"publickeyAsteriskUser" => $authorizedLine,
+						"sshOptions" => $sshOptions,
+						"restrictionsSummary" => $this->summarizeSshOptions($sshOptions),
+					];
 					$this->freepbx->Backup->setConfig('publickeyAsteriskUser', ["publickeys" => $publicKeys], 'publickeyAsteriskUser');
 					$res['status'] = true;
 					$res['message'] = 'Public key saved successfully';
@@ -1753,12 +1787,69 @@ public function GraphQL_Access_token($request) {
 		}
 	}
 
+	private function getSshFixedOptionKeys(): array {
+		return ['restrict', 'pty'];
+	}
+
+	private function sanitizeSshOptions(array $sshOptions): array {
+		$clean = [
+			'restrict' => true,
+			'pty' => true,
+		];
+		if (!empty($sshOptions['from'])) {
+			$clean['from'] = trim((string) $sshOptions['from']);
+		}
+		return $clean;
+	}
+
+	public function buildAuthorizedKeysLine(string $publicKey, array $sshOptions = []): string {
+		$publicKey = trim($publicKey);
+		$parts = $this->getSshFixedOptionKeys();
+		if (!empty($sshOptions['from'])) {
+			$parts[] = 'from="' . $this->escapeSshOptionValue((string) $sshOptions['from']) . '"';
+		}
+		return implode(',', $parts) . ' ' . $publicKey;
+	}
+
+	public function summarizeSshOptions(array $sshOptions = []): string {
+		$parts = $this->getSshFixedOptionKeys();
+		if (!empty($sshOptions['from'])) {
+			$parts[] = 'from=' . $sshOptions['from'];
+		}
+		return implode(', ', $parts);
+	}
+
+	private function escapeSshOptionValue(string $value): string {
+		return str_replace(['\\', '"'], ['\\\\', '\\"'], $value);
+	}
+
+	private function extractBarePublicKey(string $authorizedLine): string {
+		$authorizedLine = trim($authorizedLine);
+		if (preg_match('/\b(ssh-rsa|ssh-ed25519|ecdsa)\b/', $authorizedLine, $matches, PREG_OFFSET_CAPTURE)) {
+			return trim(substr($authorizedLine, $matches[0][1]));
+		}
+		return $authorizedLine;
+	}
+
 	public function appendPublicKey($publicKey) {
+		$publicKey = trim((string) $publicKey);
+		if ($publicKey === '' || preg_match('/[\r\n]/', $publicKey)) {
+			return false;
+		}
+
+		$bareKey = $this->extractBarePublicKey($publicKey);
+		if (!preg_match('/^(ssh-rsa|ssh-ed25519|ecdsa)\b/', $bareKey)) {
+			return false;
+		}
+
 		$filePath = '/home/asterisk/.ssh/authorized_keys';
-		$existingKeys = file($filePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+		$existingKeys = @file($filePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+		if (!is_array($existingKeys)) {
+			$existingKeys = [];
+		}
 		$keyExists = false;
 		foreach ($existingKeys as $existingKey) {
-			if (trim($existingKey) === trim($publicKey)) {
+			if (trim($existingKey) === $publicKey) {
 				$keyExists = true;
 				break;
 			}
@@ -1766,14 +1857,23 @@ public function GraphQL_Access_token($request) {
 		if (!$keyExists) {
 			file_put_contents($filePath, $publicKey . PHP_EOL, FILE_APPEND);
 		}
+		return true;
 	}
 
 	public function removePublicKey($publicKey) {
+		$publicKey = trim((string) $publicKey);
 		$filePath = '/home/asterisk/.ssh/authorized_keys';
-		$fileContent = file_get_contents($filePath);
-		$updatedContent = str_replace($publicKey, '', $fileContent);
-		$updatedContent = preg_replace("/^\s*[\r\n]/m", '', $updatedContent);
-		file_put_contents($filePath, $updatedContent);
+		if (!file_exists($filePath)) {
+			return;
+		}
+		$lines = file($filePath, FILE_IGNORE_NEW_LINES);
+		if (!is_array($lines)) {
+			return;
+		}
+		$updated = array_values(array_filter($lines, function ($line) use ($publicKey) {
+			return trim($line) !== $publicKey && trim($line) !== '';
+		}));
+		file_put_contents($filePath, implode(PHP_EOL, $updated) . (count($updated) ? PHP_EOL : ''));
 	}
 
 }

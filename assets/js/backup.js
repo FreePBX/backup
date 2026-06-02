@@ -717,79 +717,190 @@ $('#backupmodules').bootstrapTable({
     }
 });
 
-$('#addFieldsButton').click(function() {
-	var newRow = $('#serverTable tbody tr:first').clone();
-	var allFilled = true;
-	$('#serverTable tbody tr').not(':first').find('input, textarea').each(function() {
-        if ($.trim($(this).val()) === '') {
-            allFilled = false;
-			$(this).focus();
-			alert("Please fill all fields in existing rows before adding a new one.");
-            return false;
-        }
-    });
-	if (allFilled) {
-		newRow.removeClass('d-none');
-		newRow.find('input, textarea').val('');
-		var saveButton = newRow.find('button.deleteRow');
-		saveButton.removeClass('deleteRow btn-danger').addClass('btn-success saveRow').text('Save');
-		$('#serverTable tbody').append(newRow);
+var pkFromAutoSync = true;
+var PK_SSH_FIXED_OPTIONS = ['restrict', 'pty'];
+
+function escapeSshOptionValue(value) {
+	return value.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+}
+
+function getPkModalSshOptions() {
+	var from = $('#pkFrom').val().trim();
+	var options = {
+		restrict: true,
+		pty: true
+	};
+	if (from) {
+		options.from = from;
 	}
+	return options;
+}
+
+function buildAuthorizedKeysLine(publicKey, sshOptions) {
+	var key = (publicKey || '').trim();
+	if (!key) {
+		return '';
+	}
+	var opts = sshOptions || {};
+	if (!opts.from) {
+		return '';
+	}
+	var parts = PK_SSH_FIXED_OPTIONS.slice();
+	parts.push('from="' + escapeSshOptionValue(opts.from) + '"');
+	return parts.join(',') + ' ' + key;
+}
+
+function summarizePkRestrictions(sshOptions) {
+	var opts = sshOptions || {};
+	var parts = PK_SSH_FIXED_OPTIONS.slice();
+	if (opts.from) {
+		parts.push('from=' + opts.from);
+	}
+	return parts.join(', ');
+}
+
+function updatePkAuthorizedPreview() {
+	var publicKey = $('#pkPublicKey').val().trim();
+	var from = $('#pkFrom').val().trim();
+	if (!publicKey) {
+		$('#pkAuthorizedPreview').text(_('Enter a public key to preview the authorized_keys line'));
+		return;
+	}
+	if (!from) {
+		$('#pkAuthorizedPreview').text(_('Enter From to preview the authorized_keys line'));
+		return;
+	}
+	$('#pkAuthorizedPreview').text(buildAuthorizedKeysLine(publicKey, getPkModalSshOptions()));
+}
+
+function resetAddPublicKeyModal() {
+	pkFromAutoSync = true;
+	$('#pkServerName, #pkPublicKey, #pkFrom').val('');
+	updatePkAuthorizedPreview();
+}
+
+$('#addPublicKeyModal').on('show.bs.modal', function() {
+	resetAddPublicKeyModal();
+	$('#addPublicKeyModal .fpbx-help-block').removeClass('active');
+});
+
+$('#addPublicKeyModal').on('mouseenter', 'i.fpbx-help-icon', function() {
+	var id = $(this).data('for');
+	var container = $(this).closest('.element-container');
+	container.find('.fpbx-help-block').removeClass('active');
+	$('#' + id + '-help').addClass('active');
+	container.one('mouseleave', function() {
+		container.find('.fpbx-help-block.active').fadeOut('fast', function() {
+			$(this).removeClass('active').css('display', '');
+		});
+	});
+});
+
+$('#pkServerName').on('input', function() {
+	var serverName = $(this).val().trim();
+	if (pkFromAutoSync) {
+		$('#pkFrom').val(serverName);
+	}
+	updatePkAuthorizedPreview();
+});
+
+$('#pkFrom').on('input', function() {
+	pkFromAutoSync = $(this).val().trim() === $('#pkServerName').val().trim();
+	updatePkAuthorizedPreview();
+});
+
+$('#pkPublicKey').on('input', updatePkAuthorizedPreview);
+
+function appendPublicKeyTableRow(servername, displayKey, authorizedLine, restrictionsSummary) {
+	var $row = $('<tr>').attr('data-authorized-line', authorizedLine);
+	$row.append($('<td>').append(
+		$('<input>', { type: 'text', name: 'servername[]', class: 'form-control', readonly: true, value: servername })
+	));
+	$row.append($('<td>').append(
+		$('<textarea>', { name: 'publickeyAsteriskUser[]', class: 'form-control', rows: 4, readonly: true }).val(displayKey)
+	));
+	$row.append($('<td>', { class: 'pk-restrictions-cell' }).append(
+		$('<span>', { class: 'text-muted', text: restrictionsSummary })
+	));
+	$row.append($('<td>').append(
+		$('<button>', { type: 'button', class: 'btn btn-danger deleteRow', text: _('Delete') })
+	));
+	$('#serverTable tbody').append($row);
+}
+
+$('#pkModalSave').on('click', function() {
+	var servername = $('#pkServerName').val().trim();
+	var publicKey = $('#pkPublicKey').val().trim();
+	var sshOptions = getPkModalSshOptions();
+	var authorizedLine = buildAuthorizedKeysLine(publicKey, sshOptions);
+
+	if (!servername) {
+		fpbxToast(_('Server name is required'), _('Error'), 'error');
+		$('#pkServerName').focus();
+		return;
+	}
+	if (!publicKey) {
+		fpbxToast(_('Public key is required'), _('Error'), 'error');
+		$('#pkPublicKey').focus();
+		return;
+	}
+	if (!/^(ssh-rsa|ssh-ed25519|ecdsa)\b/.test(publicKey)) {
+		fpbxToast(_('Invalid public key format'), _('Error'), 'error');
+		return;
+	}
+	if (!sshOptions.from) {
+		fpbxToast(_('From is required (IP, hostname, or comma-separated list)'), _('Error'), 'error');
+		$('#pkFrom').focus();
+		return;
+	}
+
+	if (!confirm(_('Are you sure you want to save this public key?'))) {
+		return;
+	}
+
+	$.post(FreePBX.ajaxurl, {
+		module: 'backup',
+		command: 'publicKeySave',
+		publickeyAsteriskUser: authorizedLine,
+		publickey: publicKey,
+		servername: servername,
+		sshOptions: JSON.stringify(sshOptions)
+	}).done(function(data) {
+		if (data.status) {
+			appendPublicKeyTableRow(
+				servername,
+				publicKey,
+				authorizedLine,
+				summarizePkRestrictions(sshOptions)
+			);
+			$('#addPublicKeyModal').modal('hide');
+			fpbxToast(_('Public key saved successfully'));
+		} else {
+			fpbxToast(data.message, _('Error'), 'error');
+		}
+	});
 });
 
 $('#serverTable').on('click', '.deleteRow', function() {
-	if ($('#serverTable tbody tr').length > 1) {
-		var tr = $(this).closest('tr');
-		var publicKey = $(this).closest('tr').find('textarea').val().trim();
-		if (publicKey !='') {
-			if (confirm('Are you sure you want to delete this public key?')) {
-				$.post(
-					FreePBX.ajaxurl,
-					{
-						module: "backup",
-						command: "publicKeyRemove",
-						keyToRemove: publicKey
-					}
-				).done(function(data) {
-					if (data.status) {
-						fpbxToast('Public key deletion succesfully ');
-						tr.remove();
-					} else {
-						fpbxToast(data.message, _('Error'),'error');
-					}
-				});
-			}
-		}else {
+	var tr = $(this).closest('tr');
+	var authorizedLine = tr.data('authorized-line') || tr.find('textarea').val().trim();
+	if (!authorizedLine) {
+		tr.remove();
+		return;
+	}
+	if (!confirm(_('Are you sure you want to delete this public key?'))) {
+		return;
+	}
+	$.post(FreePBX.ajaxurl, {
+		module: 'backup',
+		command: 'publicKeyRemove',
+		keyToRemove: authorizedLine
+	}).done(function(data) {
+		if (data.status) {
+			fpbxToast(_('Public key deleted successfully'));
 			tr.remove();
+		} else {
+			fpbxToast(data.message, _('Error'), 'error');
 		}
-	}
-});
-
-$('#serverTable').on('click', '.saveRow', function() {
-	if ($('#serverTable tbody tr').length > 1) {
-		var publicKey = $(this).closest('tr').find('textarea').val().trim();
-		var servername = $(this).closest('tr').find('input').val().trim();
-		var tr = $(this).closest('tr');
-		if (publicKey !='') {
-			if (confirm('Are you sure you want to save this public key?')) {
-				$.post(
-					FreePBX.ajaxurl,
-					{
-						module: "backup",
-						command: "publicKeySave",
-						publickeyAsteriskUser: publicKey,
-						servername: servername,
-					}
-				).done(function(data) {
-					if(data.status) {
-						tr.find('button.saveRow').removeClass('saveRow btn-success').addClass('btn-danger deleteRow').text('Delete');
-						fpbxToast('Public key Saved succesfully ');
-					} else {
-						tr.find('textarea').val('');
-						fpbxToast(data.message, _('Error'),'error');
-					}
-				});
-			}
-		}
-	}
+	});
 });

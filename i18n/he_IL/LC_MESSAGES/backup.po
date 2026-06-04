@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-13 03:25-0400\n"
+"POT-Creation-Date: 2026-06-04 03:15-0400\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -93,11 +93,11 @@ msgstr ""
 msgid "%s table Restore Error %s "
 msgstr ""
 
-#: Backup.class.php:1736
+#: Backup.class.php:1770
 msgid "/path/to/dir"
 msgstr ""
 
-#: Backup.class.php:1729
+#: Backup.class.php:1763
 msgid "/path/to/file"
 msgstr ""
 
@@ -143,8 +143,8 @@ msgstr ""
 msgid "Access Token URL of Warm Spare server."
 msgstr ""
 
-#: views/backup/grid.php:27 views/restore/landing.php:60
-#: views/restore/landing.php:91
+#: views/backup/grid.php:27 views/backup/settings.php:44
+#: views/restore/landing.php:60 views/restore/landing.php:91
 msgid "Actions"
 msgstr ""
 
@@ -154,6 +154,10 @@ msgstr ""
 
 #: views/backup/grid.php:5 views/rnav.php:3
 msgid "Add Backup"
+msgstr ""
+
+#: views/backup/settings.php:36 views/backup/settings.php:77
+msgid "Add Public Key"
 msgstr ""
 
 #: Api/Gql/Backup.php:328 Api/Gql/Backup.php:395 views/backup/form.php:84
@@ -215,6 +219,10 @@ msgstr ""
 msgid "Apply Configs"
 msgstr ""
 
+#: assets/js/backup.js:857
+msgid "Are you sure you want to save this public key?"
+msgstr ""
+
 #: assets/js/backup.js:218 assets/js/backup.js:255
 msgid "Are you sure you wish to delete this file? This cannot be undone"
 msgstr ""
@@ -223,7 +231,7 @@ msgstr ""
 msgid "Are you sure, you want to restore this backup?"
 msgstr ""
 
-#: Backup.class.php:1704
+#: Backup.class.php:1738
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -252,7 +260,7 @@ msgstr ""
 msgid "Backup"
 msgstr ""
 
-#: Backup.class.php:1366
+#: Backup.class.php:1400
 #, php-format
 msgid "Backup %s"
 msgstr ""
@@ -337,7 +345,7 @@ msgstr ""
 msgid "Backup Name"
 msgstr ""
 
-#: Backup.class.php:849
+#: Backup.class.php:883
 msgid "Backup Restored Successfully"
 msgstr ""
 
@@ -421,8 +429,9 @@ msgid "Can't find the module data for %s"
 msgstr ""
 
 #: Console/Backup.class.php:328 Console/Backup.class.php:336
-#: views/restore/landing.php:116 views/restore/processRestore.php:95
-#: assets/js/backup.js:219 assets/js/backup.js:256
+#: views/backup/settings.php:157 views/restore/landing.php:116
+#: views/restore/processRestore.php:95 assets/js/backup.js:219
+#: assets/js/backup.js:256
 msgid "Cancel"
 msgstr ""
 
@@ -463,7 +472,7 @@ msgstr ""
 msgid "ClientID of the Warm Spare server."
 msgstr ""
 
-#: views/backup/form.php:638 views/runModal.php:12
+#: views/backup/form.php:638 views/backup/settings.php:74 views/runModal.php:12
 msgid "Close"
 msgstr ""
 
@@ -529,7 +538,7 @@ msgstr ""
 msgid "Could not locate the manifest for this file"
 msgstr ""
 
-#: Backup.class.php:949 Backup.class.php:1017
+#: Backup.class.php:983 Backup.class.php:1051
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
@@ -557,8 +566,9 @@ msgid "Custom file not exists: %s"
 msgstr ""
 
 #: Backup.class.php:262 views/backup/item_table.php:14
-#: views/restore/landing.php:49 views/restore/landing.php:79
-#: assets/js/backup.js:219 assets/js/backup.js:256
+#: views/backup/settings.php:60 views/restore/landing.php:49
+#: views/restore/landing.php:79 assets/js/backup.js:219 assets/js/backup.js:256
+#: assets/js/backup.js:826
 #, fuzzy
 msgid "Delete"
 msgstr "נבחר"
@@ -571,7 +581,7 @@ msgstr ""
 msgid "Delete After Runs"
 msgstr ""
 
-#: Backup.class.php:1742
+#: Backup.class.php:1776
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr ""
 
@@ -594,7 +604,7 @@ msgstr ""
 msgid "Determining backup file type..."
 msgstr ""
 
-#: Backup.class.php:1735
+#: Backup.class.php:1769
 msgid "Directory"
 msgstr ""
 
@@ -646,8 +656,16 @@ msgstr ""
 msgid "Enable scheduled backups, default false"
 msgstr ""
 
-#: Backup.class.php:1598 views/backup/form.php:334
+#: Backup.class.php:1632 views/backup/form.php:334
 msgid "Enabled"
+msgstr ""
+
+#: assets/js/backup.js:770
+msgid "Enter From to preview the authorized_keys line"
+msgstr ""
+
+#: views/backup/settings.php:144 assets/js/backup.js:766
+msgid "Enter a public key to preview the authorized_keys line"
 msgstr ""
 
 #: views/backup/warmspare.php:227
@@ -657,7 +675,8 @@ msgid ""
 msgstr ""
 
 #: assets/js/backup.js:471 assets/js/backup.js:491 assets/js/backup.js:510
-#: assets/js/backup.js:603
+#: assets/js/backup.js:603 assets/js/backup.js:838 assets/js/backup.js:843
+#: assets/js/backup.js:848 assets/js/backup.js:852 assets/js/backup.js:879
 msgid "Error"
 msgstr ""
 
@@ -685,7 +704,7 @@ msgstr ""
 msgid "Error installing %s reason(s): %s"
 msgstr ""
 
-#: Backup.class.php:851
+#: Backup.class.php:885
 msgid "Error running Restore on Spare Server"
 msgstr ""
 
@@ -783,7 +802,7 @@ msgstr ""
 msgid "Failure"
 msgstr ""
 
-#: Backup.class.php:1728
+#: Backup.class.php:1762
 msgid "File"
 msgstr ""
 
@@ -844,6 +863,14 @@ msgstr ""
 msgid "Framework"
 msgstr ""
 
+#: views/backup/settings.php:122
+msgid "From"
+msgstr ""
+
+#: Backup.class.php:676 assets/js/backup.js:852
+msgid "From is required (IP, hostname, or comma-separated list)"
+msgstr ""
+
 #: Handlers/Backup/Email.php:95
 #, php-format
 msgid "Generated Backup process result email to %s. Status: Failure"
@@ -882,6 +909,10 @@ msgstr ""
 msgid "Hooks"
 msgstr ""
 
+#: views/backup/settings.php:95
+msgid "Hostname or IP of the remote backup server"
+msgstr ""
+
 #: Api/Gql/Backup.php:368 Api/Gql/Backup.php:435 views/backup/form.php:467
 msgid ""
 "How long to maintain backups. Example 30 will delete anything older than 30 "
@@ -894,11 +925,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1689
+#: Backup.class.php:1723
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1695
+#: Backup.class.php:1729
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -967,7 +998,7 @@ msgstr ""
 msgid "Installing  %s"
 msgstr ""
 
-#: Backup.class.php:865
+#: Backup.class.php:899
 msgid "Invalid Backup ID"
 msgstr ""
 
@@ -994,6 +1025,10 @@ msgstr ""
 
 #: Backup.class.php:462
 msgid "Invalid path"
+msgstr ""
+
+#: assets/js/backup.js:848
+msgid "Invalid public key format"
 msgstr ""
 
 #: Backup.class.php:447
@@ -1070,7 +1105,7 @@ msgstr ""
 msgid "Loading supplied database file %s"
 msgstr ""
 
-#: Backup.class.php:720
+#: Backup.class.php:754
 msgid "Log file is missing but process is still running!"
 msgstr ""
 
@@ -1099,7 +1134,7 @@ msgstr ""
 msgid "Migrating legacy backups to the new backup"
 msgstr ""
 
-#: Backup.class.php:707
+#: Backup.class.php:741
 msgid "Missing id or transaction or pid"
 msgstr ""
 
@@ -1186,7 +1221,7 @@ msgstr ""
 msgid "No file provided"
 msgstr ""
 
-#: Backup.class.php:938
+#: Backup.class.php:972
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
@@ -1200,6 +1235,10 @@ msgstr ""
 msgid ""
 "No storage location selected for Backup. Please select atleast one storage "
 "location to save the backup"
+msgstr ""
+
+#: views/backup/settings.php:54
+msgid "None"
 msgstr ""
 
 #: Handlers/Restore/Legacy.php:241
@@ -1250,13 +1289,21 @@ msgid ""
 "default system uses inmemory"
 msgstr ""
 
-#: Backup.class.php:1738
+#: views/backup/settings.php:140
+msgid "Output preview"
+msgstr ""
+
+#: Backup.class.php:1772
 msgid "PATTERNs, one per line"
 msgstr ""
 
 #: Handlers/Restore/Legacy.php:52
 msgid ""
 "Parsing out SQL tables. This may take a moment depending on backup size."
+msgstr ""
+
+#: views/backup/settings.php:111
+msgid "Paste the remote system's public key (ssh-rsa, ssh-ed25519, or ecdsa)"
 msgstr ""
 
 #: functions.inc/class.backup.php:797 functions.inc/class.backup.php:798
@@ -1294,7 +1341,7 @@ msgstr ""
 msgid "Pre-Restore Hook"
 msgstr ""
 
-#: Backup.class.php:722
+#: Backup.class.php:756
 msgid "Process is no longer running"
 msgstr ""
 
@@ -1315,8 +1362,12 @@ msgid ""
 "restore the backup from the CLI "
 msgstr ""
 
-#: views/backup/settings.php:19
+#: views/backup/settings.php:19 views/backup/settings.php:101
 msgid "Public Key"
+msgstr ""
+
+#: views/backup/settings.php:42
+msgid "Public Key of Asterisk User"
 msgstr ""
 
 #: views/backup/settings.php:29
@@ -1325,12 +1376,20 @@ msgid ""
 "supported"
 msgstr ""
 
+#: Backup.class.php:671 assets/js/backup.js:843
+msgid "Public key is required"
+msgstr ""
+
 #: views/backup/settings.php:9
 msgid "Public key of other system"
 msgstr ""
 
 #: views/backup/settings.php:4
 msgid "Public key of this system"
+msgstr ""
+
+#: assets/js/backup.js:877
+msgid "Public key saved successfully"
 msgstr ""
 
 #: RestoreBase.php:268
@@ -1355,6 +1414,15 @@ msgstr ""
 #: Backup.class.php:187
 #, php-format
 msgid "Removing table %s."
+msgstr ""
+
+#: views/backup/settings.php:132
+msgid ""
+"Required. Limits which client address may use this key (IP, hostname, or "
+"comma-separated list, e.g. 10.0.0.5 or 10.0.0.5,backup.example.com). For "
+"backup servers, set this to the remote system's address; it defaults from "
+"Server Name when that field changes. Connections from other IPs are rejected "
+"even with a valid key."
 msgstr ""
 
 #: Backup.class.php:247 views/backup/form.php:635
@@ -1458,6 +1526,10 @@ msgstr ""
 #: Handlers/Restore/Common.php:126 Handlers/Restore/Legacy.php:245
 #, php-format
 msgid "Restoring from %s [%s]"
+msgstr ""
+
+#: views/backup/settings.php:126
+msgid "Restrict source IP/host"
 msgstr ""
 
 #: Console/Backup.class.php:291
@@ -1581,11 +1653,19 @@ msgstr ""
 msgid "SSH"
 msgstr ""
 
+#: views/backup/settings.php:116
+msgid "SSH Key Restrictions"
+msgstr ""
+
+#: views/backup/settings.php:43
+msgid "SSH Restrictions"
+msgstr ""
+
 #: Backup.class.php:134
 msgid "SSH key Generated"
 msgstr ""
 
-#: Backup.class.php:252
+#: Backup.class.php:252 views/backup/settings.php:158
 msgid "Save"
 msgstr ""
 
@@ -1648,6 +1728,14 @@ msgstr ""
 msgid "Server Mode"
 msgstr ""
 
+#: views/backup/settings.php:41 views/backup/settings.php:85
+msgid "Server Name"
+msgstr ""
+
+#: assets/js/backup.js:838
+msgid "Server name is required"
+msgstr ""
+
 #: Api/Gql/Backup.php:51
 msgid "Set Backup Configurations"
 msgstr ""
@@ -1670,6 +1758,12 @@ msgstr ""
 
 #: Api/Gql/Backup.php:372 Api/Gql/Backup.php:439
 msgid "Should the warm spare feature be enabled, default false"
+msgstr ""
+
+#: views/backup/settings.php:150
+msgid ""
+"Shows the exact single line that will be appended to /home/asterisk/.ssh/"
+"authorized_keys as restrict,pty,from=\"...\" followed by the public key."
 msgstr ""
 
 #: views/restore/landing.php:58 views/restore/landing.php:88
@@ -1793,7 +1887,7 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: Backup.class.php:931
+#: Backup.class.php:965
 msgid "System Transfer"
 msgstr ""
 
@@ -2014,7 +2108,7 @@ msgstr ""
 msgid "Unable to upload file to the remote server"
 msgstr ""
 
-#: Backup.class.php:1598
+#: Backup.class.php:1632
 msgid "Uninstalled or Disabled"
 msgstr ""
 
@@ -2237,6 +2331,10 @@ msgstr ""
 msgid "choose"
 msgstr ""
 
+#: views/backup/settings.php:89
+msgid "e.g. 10.25.3.146"
+msgstr ""
+
 #: Console/Backup.class.php:34
 msgid "pass the Option --ignoremodules get ignore modules names"
 msgstr ""
@@ -2247,6 +2345,12 @@ msgstr ""
 
 #: Api/Gql/Backup.php:91
 msgid "restoreBackup"
+msgstr ""
+
+#: views/backup/settings.php:117
+msgid ""
+"restrict and pty are applied automatically. Set From to limit which hosts "
+"may connect."
 msgstr ""
 
 #: Api/Gql/Backup.php:100

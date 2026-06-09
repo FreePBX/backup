@@ -114,7 +114,7 @@
 
 					<hr class="pk-modal-section-divider" />
 					<h5 class="col-sm-offset-3 pk-modal-section-title"><?php echo _("SSH Key Restrictions") ?></h5>
-					<p class="col-sm-offset-3 text-muted pk-section-intro"><?php echo _("restrict and pty are applied automatically. Set From to limit which hosts may connect.") ?></p>
+					<p class="col-sm-offset-3 text-muted pk-section-intro"><?php echo _("restrict, pty, and a forced command wrapper are applied automatically. Set From to limit which hosts may connect.") ?></p>
 
 					<div class="row">
 						<div class="form-group">
@@ -147,7 +147,7 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<span id="pkAuthorizedPreview-help" class="help-block fpbx-help-block"><?php echo _("Shows the exact single line that will be appended to /home/asterisk/.ssh/authorized_keys as restrict,pty,from=\"...\" followed by the public key.") ?></span>
+						<span id="pkAuthorizedPreview-help" class="help-block fpbx-help-block"><?php echo _("Shows the exact single line that will be appended to /home/asterisk/.ssh/authorized_keys as restrict,pty,command=\"/usr/local/bin/freepbx-ssh-restrict.sh\",from=\"...\" followed by the public key.") ?></span>
 						</div>
 					</div>
 				</div>
@@ -245,11 +245,8 @@
 </style>
 <script>
 (function($) {
+	var PK_SSH_RESTRICT_SCRIPT = '/usr/local/bin/freepbx-ssh-restrict.sh';
 	var PK_SSH_FIXED_OPTIONS = ['restrict', 'pty'];
-
-	function pkEscapeSshOptionValue(value) {
-		return String(value).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
-	}
 
 	function pkBuildAuthorizedKeysLine(publicKey, fromValue) {
 		var key = (publicKey || '').trim();
@@ -257,7 +254,14 @@
 		if (!key || !from) {
 			return '';
 		}
-		return PK_SSH_FIXED_OPTIONS.join(',') + ',from="' + pkEscapeSshOptionValue(from) + '" ' + key;
+		return PK_SSH_FIXED_OPTIONS.join(',')
+			+ ',command="' + pkEscapeSshOptionValue(PK_SSH_RESTRICT_SCRIPT) + '"'
+			+ ',from="' + pkEscapeSshOptionValue(from) + '" '
+			+ key;
+	}
+
+	function pkEscapeSshOptionValue(value) {
+		return String(value).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
 	}
 
 	function pkUpdateAuthorizedPreview() {

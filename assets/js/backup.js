@@ -718,6 +718,7 @@ $('#backupmodules').bootstrapTable({
 });
 
 var pkFromAutoSync = true;
+var PK_SSH_RESTRICT_SCRIPT = '/usr/local/bin/freepbx-ssh-restrict.sh';
 var PK_SSH_FIXED_OPTIONS = ['restrict', 'pty'];
 
 function escapeSshOptionValue(value) {
@@ -728,7 +729,8 @@ function getPkModalSshOptions() {
 	var from = $('#pkFrom').val().trim();
 	var options = {
 		restrict: true,
-		pty: true
+		pty: true,
+		command: PK_SSH_RESTRICT_SCRIPT
 	};
 	if (from) {
 		options.from = from;
@@ -746,6 +748,7 @@ function buildAuthorizedKeysLine(publicKey, sshOptions) {
 		return '';
 	}
 	var parts = PK_SSH_FIXED_OPTIONS.slice();
+	parts.push('command="' + escapeSshOptionValue(opts.command || PK_SSH_RESTRICT_SCRIPT) + '"');
 	parts.push('from="' + escapeSshOptionValue(opts.from) + '"');
 	return parts.join(',') + ' ' + key;
 }
@@ -753,6 +756,7 @@ function buildAuthorizedKeysLine(publicKey, sshOptions) {
 function summarizePkRestrictions(sshOptions) {
 	var opts = sshOptions || {};
 	var parts = PK_SSH_FIXED_OPTIONS.slice();
+	parts.push('command=' + (opts.command || PK_SSH_RESTRICT_SCRIPT));
 	if (opts.from) {
 		parts.push('from=' + opts.from);
 	}
@@ -870,8 +874,8 @@ $('#pkModalSave').on('click', function() {
 			appendPublicKeyTableRow(
 				servername,
 				publicKey,
-				authorizedLine,
-				summarizePkRestrictions(sshOptions)
+				data.publickeyAsteriskUser || authorizedLine,
+				data.restrictionsSummary || summarizePkRestrictions(sshOptions)
 			);
 			$('#addPublicKeyModal').modal('hide');
 			fpbxToast(_('Public key saved successfully'));

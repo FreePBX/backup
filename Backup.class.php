@@ -155,6 +155,8 @@ class Backup extends FreePBX_Helpers implements BMO {
 		return false;
 	}
 	public function install(){
+		$this->installSshRestrictScript();
+
 		/** Oh... Migration, migration, let's learn about migration. It's nature's inspiration to move around the sea.
 		 * We have split the functionality up so things backup use to do may be done by another module. The other module(s)
 		 * May not yet be installed or may install after.  So we need to keep a kvstore with the various data and when installing
@@ -707,6 +709,8 @@ class Backup extends FreePBX_Helpers implements BMO {
 					$this->freepbx->Backup->setConfig('publickeyAsteriskUser', ["publickeys" => $publicKeys], 'publickeyAsteriskUser');
 					$res['status'] = true;
 					$res['message'] = 'Public key saved successfully';
+					$res['restrictionsSummary'] = $this->summarizeSshOptions($sshOptions);
+					$res['publickeyAsteriskUser'] = $authorizedLine;
 					return $res;
 				} catch (\Exception $e) {
 					$res['status'] = false;
@@ -1787,6 +1791,32 @@ public function GraphQL_Access_token($request) {
 		}
 	}
 
+	private function getSshRestrictScript(): string {
+		return '/usr/local/bin/freepbx-ssh-restrict.sh';
+	}
+
+	private function installSshRestrictScript(): void {
+		$source = __DIR__ . '/bin/freepbx-ssh-restrict.sh';
+		$target = $this->getSshRestrictScript();
+		if (!is_readable($source)) {
+			out(_("SSH restrict script source not found, skipping install"));
+			return;
+		}
+		if (!@copy($source, $target)) {
+			out(sprintf(_("Failed to install SSH restrict script to %s"), $target));
+			return;
+		}
+		chmod($target, 0755);
+		chown($target, 'root');
+		$logFile = '/var/log/asterisk/freepbx-ssh-restrict.log';
+		if (!file_exists($logFile)) {
+			touch($logFile);
+			chown($logFile, 'asterisk');
+			chmod($logFile, 0644);
+		}
+		out(sprintf(_("Installed SSH restrict script to %s"), $target));
+	}
+
 	private function getSshFixedOptionKeys(): array {
 		return ['restrict', 'pty'];
 	}
@@ -1795,6 +1825,7 @@ public function GraphQL_Access_token($request) {
 		$clean = [
 			'restrict' => true,
 			'pty' => true,
+			'command' => $this->getSshRestrictScript(),
 		];
 		if (!empty($sshOptions['from'])) {
 			$clean['from'] = trim((string) $sshOptions['from']);
@@ -1805,6 +1836,7 @@ public function GraphQL_Access_token($request) {
 	public function buildAuthorizedKeysLine(string $publicKey, array $sshOptions = []): string {
 		$publicKey = trim($publicKey);
 		$parts = $this->getSshFixedOptionKeys();
+		$parts[] = 'command="' . $this->escapeSshOptionValue($this->getSshRestrictScript()) . '"';
 		if (!empty($sshOptions['from'])) {
 			$parts[] = 'from="' . $this->escapeSshOptionValue((string) $sshOptions['from']) . '"';
 		}
@@ -1812,7 +1844,10 @@ public function GraphQL_Access_token($request) {
 	}
 
 	public function summarizeSshOptions(array $sshOptions = []): string {
-		$parts = $this->getSshFixedOptionKeys();
+		$parts = array_merge(
+			$this->getSshFixedOptionKeys(),
+			['command=' . $this->getSshRestrictScript()]
+		);
 		if (!empty($sshOptions['from'])) {
 			$parts[] = 'from=' . $sshOptions['from'];
 		}

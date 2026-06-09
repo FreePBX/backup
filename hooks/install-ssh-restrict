@@ -1,0 +1,32 @@
+#!/usr/bin/php -q
+<?php
+// Install freepbx-ssh-restrict.sh to /usr/local/bin as root via incron.
+
+require '/usr/lib/sysadmin/includes.php';
+
+$src = dirname(__DIR__) . '/bin/freepbx-ssh-restrict.sh';
+$dest = '/usr/local/bin/freepbx-ssh-restrict.sh';
+
+if (!is_readable($src)) {
+	fwrite(STDERR, "SSH restrict script source not found: $src\n");
+	exit(1);
+}
+
+if (is_link($dest)) {
+	unlink($dest);
+}
+
+if (!copy($src, $dest)) {
+	fwrite(STDERR, "Failed to copy SSH restrict script to $dest\n");
+	exit(1);
+}
+
+chmod($dest, 0755);
+chown($dest, 'root');
+
+if (!is_executable($dest)) {
+	fwrite(STDERR, "SSH restrict script is not executable after install: $dest\n");
+	exit(1);
+}
+
+exit(0);

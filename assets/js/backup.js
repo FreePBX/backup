@@ -718,7 +718,13 @@ $('#backupmodules').bootstrapTable({
 });
 
 var pkFromAutoSync = true;
+var PK_SSH_RESTRICT_SCRIPT = '/usr/local/bin/freepbx-ssh-restrict.sh';
 var PK_SSH_FIXED_OPTIONS = ['restrict', 'pty'];
+
+function isPkCommandRestrictionEnabled() {
+	return typeof window.PK_SSH_COMMAND_RESTRICTION_ENABLED !== 'undefined'
+		&& window.PK_SSH_COMMAND_RESTRICTION_ENABLED;
+}
 
 function escapeSshOptionValue(value) {
 	return value.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
@@ -730,6 +736,9 @@ function getPkModalSshOptions() {
 		restrict: true,
 		pty: true
 	};
+	if (isPkCommandRestrictionEnabled()) {
+		options.command = PK_SSH_RESTRICT_SCRIPT;
+	}
 	if (from) {
 		options.from = from;
 	}
@@ -746,6 +755,9 @@ function buildAuthorizedKeysLine(publicKey, sshOptions) {
 		return '';
 	}
 	var parts = PK_SSH_FIXED_OPTIONS.slice();
+	if (isPkCommandRestrictionEnabled()) {
+		parts.push('command="' + escapeSshOptionValue(opts.command || PK_SSH_RESTRICT_SCRIPT) + '"');
+	}
 	parts.push('from="' + escapeSshOptionValue(opts.from) + '"');
 	return parts.join(',') + ' ' + key;
 }
@@ -753,6 +765,9 @@ function buildAuthorizedKeysLine(publicKey, sshOptions) {
 function summarizePkRestrictions(sshOptions) {
 	var opts = sshOptions || {};
 	var parts = PK_SSH_FIXED_OPTIONS.slice();
+	if (isPkCommandRestrictionEnabled()) {
+		parts.push('command=' + (opts.command || PK_SSH_RESTRICT_SCRIPT));
+	}
 	if (opts.from) {
 		parts.push('from=' + opts.from);
 	}
@@ -870,8 +885,8 @@ $('#pkModalSave').on('click', function() {
 			appendPublicKeyTableRow(
 				servername,
 				publicKey,
-				authorizedLine,
-				summarizePkRestrictions(sshOptions)
+				data.publickeyAsteriskUser || authorizedLine,
+				data.restrictionsSummary || summarizePkRestrictions(sshOptions)
 			);
 			$('#addPublicKeyModal').modal('hide');
 			fpbxToast(_('Public key saved successfully'));

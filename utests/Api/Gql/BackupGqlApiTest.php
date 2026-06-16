@@ -1057,7 +1057,7 @@ class BackupGqlApiTest extends ApiBaseTestCase {
     }');
 
    $json = (string)$response->getBody();
-   $this->assertEquals('{"data":{"runBackup":{"status":true,"message":"Backup running","transaction":"12345","backupid":"68baf123-db78-46b0-ad48-6d2fece23e16","log":"Running with: \/usr\/sbin\/fwconsole backup --backup='."'".'68baf123-db78-46b0-ad48-6d2fece23e16'."'".' --transaction='."'".'12345'."'".' >> \/var\/log\/asterisk\/backup_12345_out.log 2> \/var\/log\/asterisk\/backup_12345_err.log & echo $!\n"}}}',$json);
+   $this->assertEquals('{"data":{"runBackup":{"status":true,"message":"Backup running","transaction":"12345","backupid":"68baf123-db78-46b0-ad48-6d2fece23e16","log":"Running with: backup --backup='."'".'68baf123-db78-46b0-ad48-6d2fece23e16'."'".' --transaction='."'".'12345'."'".' --output='."'".'\/var\/log\/asterisk\/backup_12345_out.log'."'".' --error-log='."'".'\/var\/log\/asterisk\/backup_12345_err.log'."'".'\n"}}}',$json);
    $this->assertEquals(200, $response->getStatusCode());
 
   }

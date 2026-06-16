@@ -6,6 +6,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Output\StreamOutput;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Command\LockableTrait;
 use function FreePBX\modules\Backup\Json\json_decode;
@@ -48,6 +49,8 @@ class Backup extends Command {
 				new InputOption('convertchansipexts2pjsip', '', InputOption::VALUE_NONE, _('Convert legacy chan_sip extensions to chan_pjsip extensions during restore')),
 				new InputOption('skipchansiptrunks', '', InputOption::VALUE_NONE, _('Skip legacy chan_sip trunks during restore')),
 				new InputOption('convertchansiptrunks2pjsip', '', InputOption::VALUE_NONE, _('Convert legacy chan_sip trunks to chan_pjsip trunks during restore')),
+				new InputOption('output', '', InputOption::VALUE_REQUIRED, _('Write command output to file')),
+				new InputOption('error-log', '', InputOption::VALUE_REQUIRED, _('Write command errors to file')),
 		))
 		->setHelp('Run a backup: fwconsole backup --backup [backup-id]'.PHP_EOL
 		.'Run a restore: fwconsole backup --restore [/path/to/restore-xxxxxx.tar.gz]'.PHP_EOL
@@ -70,8 +73,18 @@ class Backup extends Command {
 				$output->writeln("$AMPASTERISKWEBUSER is not a valid user");
 				return 0;
 			}
+			if ($input->getOption('restore') || $input->getOption('restoresingle')) {
+				$output->writeln(_("Fixing file permissions before restore..."));
+				passthru($this->freepbx->Config->get('AMPSBIN').'/fwconsole chown', $chownRet);
+				if ($chownRet !== 0) {
+					$output->writeln('<comment>'._('Warning: pre-restore permission fix returned a non-zero exit code').'</comment>');
+				}
+			}
 			posix_setuid($info['uid']);
 		}
+
+		$output = $this->configureOutputStreams($input, $output);
+		$this->freepbx->Backup->output = $output;
 
 		if (!$this->lock()) {
 			$output->writeln('The command is already running in another process.');
@@ -252,14 +265,12 @@ class Backup extends Command {
 					$bkstatus = $backuperror_warning == 1 ? true:false;
 					$backupHandler->sendEmail($bkstatus,$transactionid);
 				}
-				$this->freepbx->Backup->delConfig($buid,"runningBackupJobs");
 				$postbu_hook = $this->freepbx->Backup->getConfig("postbu_hook",$buid);
 				if(strlen(trim($postbu_hook))> 1) {
 					$output->writeln(sprintf('Executing Post Backup Hook: %s',$postbu_hook));
 					exec($postbu_hook);
 				}
-				$this->freepbx->Backup->setConfig($transactionid,["buid" => $buid, "status"=>"FINISHED","backupstatus"=>$bkstatus,"backupfile"=>$backupHandler->getFile()],"runningBackupstatus");
-				//trigger Warmspare API
+				// Warm spare must finish before FINISHED/runningBackupJobs cleanup or the UI SSE poller stops early.
 				if($item['warmspareenabled'] == 'yes') {
 					if($item['warmsparewayofrestore'] == 'API') {
 						$output->writeln(_("Warmspare enabled for this backup"));
@@ -274,6 +285,7 @@ class Backup extends Command {
 					}
 					if($item['warmsparewayofrestore'] == 'SSH') {
 						$output->writeln(_("Warmspare enabled for this backup"));
+						$this->freepbx->Backup->setConfig($transactionid,["buid" => $buid, "status"=>"WARMSPARE_RESTORE","backupstatus"=>$bkstatus],"runningBackupstatus");
 						$output->writeln(_("We are running Restore command on Spare Server"));
 						$resp = $this->freepbx->Backup->RunRestoreusingSSH($item,basename($backupHandler->getFile()),$transactionid);
 						$output->writeln(_("Response from Warmspare Server "));
@@ -281,6 +293,8 @@ class Backup extends Command {
 						$output->writeln("Restorestatus :".$resp['msg']);
 					}
 				}
+				$this->freepbx->Backup->delConfig($buid,"runningBackupJobs");
+				$this->freepbx->Backup->setConfig($transactionid,["buid" => $buid, "status"=>"FINISHED","backupstatus"=>$bkstatus,"backupfile"=>$backupHandler->getFile()],"runningBackupstatus");
 				return 0;
 			break;
 			case $filestore:
@@ -430,6 +444,42 @@ class Backup extends Command {
 		}
 		$table->setRows($list);
 		$table->render();
+	}
+
+	private function validateLogPath(string $path): void {
+		if ($path === '' || strpos($path, "\0") !== false || preg_match('/\.\./', $path)) {
+			throw new \RuntimeException(sprintf(_('Invalid log path: %s'), $path));
+		}
+	}
+
+	private function configureOutputStreams(InputInterface $input, OutputInterface $output): OutputInterface {
+		$outputPath = $input->getOption('output');
+		$errorPath = $input->getOption('error-log');
+
+		if ($errorPath) {
+			$this->validateLogPath($errorPath);
+			$dir = dirname($errorPath);
+			if (!is_dir($dir) && !@mkdir($dir, 0775, true) && !is_dir($dir)) {
+				throw new \RuntimeException(sprintf(_('Cannot create log directory: %s'), $dir));
+			}
+			ini_set('log_errors', '1');
+			ini_set('error_log', $errorPath);
+		}
+
+		if ($outputPath) {
+			$this->validateLogPath($outputPath);
+			$dir = dirname($outputPath);
+			if (!is_dir($dir) && !@mkdir($dir, 0775, true) && !is_dir($dir)) {
+				throw new \RuntimeException(sprintf(_('Cannot create log directory: %s'), $dir));
+			}
+			$handle = fopen($outputPath, 'a');
+			if (!$handle) {
+				throw new \RuntimeException(sprintf(_('Unable to open output log: %s'), $outputPath));
+			}
+			return new StreamOutput($handle);
+		}
+
+		return $output;
 	}
 
 	public function addBackupByString($base64){

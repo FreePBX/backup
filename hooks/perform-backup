@@ -16,9 +16,16 @@ if (isset($argv[1])) {
         $warm = $settings[4];
     }
   }
-$command = '/usr/sbin/fwconsole backup --backup=' . escapeshellarg($buid) . '' . $warm . ' --transaction=' . escapeshellarg($jobid) . ' >> '.$location.'/backup_'.$jobid.'_out.log 2> '.$location.'/backup_'.$jobid.'_err.log & echo $!';
+$outLog = $location.'/backup_'.$jobid.'_out.log';
+$errLog = $location.'/backup_'.$jobid.'_err.log';
+$fwconsoleCommand = 'backup --backup=' . escapeshellarg($buid) . '' . $warm . ' --transaction=' . escapeshellarg($jobid)
+    . ' --output=' . escapeshellarg($outLog) . ' --error-log=' . escapeshellarg($errLog);
 $message = $status = "";
-exec($command);
+$shell = 'nohup ' . escapeshellarg('/usr/sbin/fwconsole') . ' ' . $fwconsoleCommand . ' </dev/null >/dev/null 2>&1 & echo $!';
+$process = \freepbx_get_process_obj($shell);
+if ($process) {
+    $process->mustRun();
+}
 
 $db = \Sysadmin\FreePBX::Database();
 //get backup process id

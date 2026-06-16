@@ -115,8 +115,8 @@
 					<hr class="pk-modal-section-divider" />
 					<h5 class="col-sm-offset-3 pk-modal-section-title"><?php echo _("SSH Key Restrictions") ?></h5>
 					<p class="col-sm-offset-3 text-muted pk-section-intro"><?php echo !empty($sshCommandRestrictionEnabled)
-						? _("restrict, pty, and a forced command wrapper are applied automatically. Set From to limit which hosts may connect.")
-						: _("restrict and pty are applied automatically. Set From to limit which hosts may connect.") ?></p>
+						? _("restrict and a forced command wrapper are applied automatically. Set From to limit which hosts may connect.")
+						: _("restrict is applied automatically. Set From to limit which hosts may connect.") ?></p>
 
 					<div class="row">
 						<div class="form-group">
@@ -150,8 +150,8 @@
 					<div class="row">
 						<div class="col-sm-12">
 						<span id="pkAuthorizedPreview-help" class="help-block fpbx-help-block"><?php echo !empty($sshCommandRestrictionEnabled)
-							? _("Shows the exact single line that will be appended to /home/asterisk/.ssh/authorized_keys as restrict,pty,command=\"/usr/local/bin/freepbx-ssh-restrict.sh\",from=\"...\" followed by the public key.")
-							: _("Shows the exact single line that will be appended to /home/asterisk/.ssh/authorized_keys as restrict,pty,from=\"...\" followed by the public key.") ?></span>
+							? _("Shows the exact single line that will be appended to /home/asterisk/.ssh/authorized_keys as restrict,command=\"/usr/local/bin/freepbx-ssh-restrict.sh\",from=\"...\" followed by the public key.")
+							: _("Shows the exact single line that will be appended to /home/asterisk/.ssh/authorized_keys as restrict,from=\"...\" followed by the public key.") ?></span>
 						</div>
 					</div>
 				</div>
@@ -251,7 +251,7 @@
 (function($) {
 	window.PK_SSH_COMMAND_RESTRICTION_ENABLED = <?php echo !empty($sshCommandRestrictionEnabled) ? 'true' : 'false'; ?>;
 	var PK_SSH_RESTRICT_SCRIPT = '/usr/local/bin/freepbx-ssh-restrict.sh';
-	var PK_SSH_FIXED_OPTIONS = ['restrict', 'pty'];
+	var PK_SSH_FIXED_OPTIONS = ['restrict'];
 
 	function pkBuildAuthorizedKeysLine(publicKey, fromValue) {
 		var key = (publicKey || '').trim();

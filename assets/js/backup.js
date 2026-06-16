@@ -556,7 +556,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 })
 
 var reconnects = 0;
-var maxReconnects = 10;
+var maxReconnects = 120;
 
 function getRestoreStatus(id, transaction, pid) {
 	reconnects = 0;
@@ -589,6 +589,7 @@ function getStatus(type, id, transaction, pid) {
 		var data = JSON.parse(event.data);
 
 		console.log(data);
+		reconnects = 0;
 
 		if(data.log.length) {
 			$("#runModal .modal-body").html('<pre>'+data.log+'</pre>');
@@ -719,7 +720,7 @@ $('#backupmodules').bootstrapTable({
 
 var pkFromAutoSync = true;
 var PK_SSH_RESTRICT_SCRIPT = '/usr/local/bin/freepbx-ssh-restrict.sh';
-var PK_SSH_FIXED_OPTIONS = ['restrict', 'pty'];
+var PK_SSH_FIXED_OPTIONS = ['restrict'];
 
 function isPkCommandRestrictionEnabled() {
 	return typeof window.PK_SSH_COMMAND_RESTRICTION_ENABLED !== 'undefined'
@@ -733,8 +734,7 @@ function escapeSshOptionValue(value) {
 function getPkModalSshOptions() {
 	var from = $('#pkFrom').val().trim();
 	var options = {
-		restrict: true,
-		pty: true
+		restrict: true
 	};
 	if (isPkCommandRestrictionEnabled()) {
 		options.command = PK_SSH_RESTRICT_SCRIPT;

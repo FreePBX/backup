@@ -27,7 +27,8 @@ class Warmspare extends Multiple {
 		$keypath = $homepath. '/.ssh/id_rsa';
 		$ssh->authenticateSSH($user,$keypath);
 		$transaction = 'remote-backup-'.time();
-		$command = sprintf('/usr/sbin/fwconsole backup --externbackup=%s --transaction=%s',$backupData, $transaction);
+		require_once dirname(__DIR__, 2) . '/functions.inc/ssh_restrict.php';
+		$command = \FreePBX\modules\Backup\SshRestrict::fwconsoleBackupExtern($backupData, $transaction);
 		$ssh->sendCommand($command, DEBUG);
 		$ssh->grabFile($homepath.'/'.$transaction.'.tar.gz', $homepath . '/' . $transaction . '.tar.gz');
 		exec('/usr/sbin/fwconsole backup --warmspare --restore='. $homepath . '/' . $transaction . '.tar.gz',$out,$ret);

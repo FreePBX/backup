@@ -13,25 +13,39 @@ class ConsoleOutput extends AbstractProcessingHandler {
 
 	public function __construct($level = Logger::DEBUG, $bubble = true) {
 		parent::__construct($level, $bubble);
-		$this->output = new SymfonyConsoleOutput();
+	}
+
+	private function getOutput() {
+		try {
+			$backupOutput = \FreePBX::Create()->Backup->output ?? null;
+			if ($backupOutput) {
+				return $backupOutput;
+			}
+		} catch (\Exception) {
+		}
+		if ($this->output === null) {
+			$this->output = new SymfonyConsoleOutput();
+		}
+		return $this->output;
 	}
 
 	protected function write(array $record): void  {
+		$output = $this->getOutput();
 		switch($record['level']) {
 			case Logger::EMERGENCY:
 			case Logger::ALERT:
 			case Logger::CRITICAL:
 			case Logger::ERROR:
-				$this->output->writeln('<error>'.$record['formatted'].'</error>');
+				$output->writeln('<error>'.$record['formatted'].'</error>');
 			break;
 			case Logger::WARNING:
 			case Logger::NOTICE:
-				$this->output->writeln('<comment>'.$record['formatted'].'</comment>');
+				$output->writeln('<comment>'.$record['formatted'].'</comment>');
 			break;
 			case Logger::INFO:
 			case Logger::DEBUG:
 			default:
-				$this->output->writeln($record['formatted']);
+				$output->writeln($record['formatted']);
 			break;
 		}
 	}

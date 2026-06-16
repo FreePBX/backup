@@ -20,9 +20,11 @@ use splitbrain\PHPArchive\Tar;
 use FreePBX\modules\Backup\Handlers\MonologSwift;
 use Hhxsv5\SSE\SSE;
 use Hhxsv5\SSE\Event;
+use Hhxsv5\SSE\StopSSEException;
 use function FreePBX\modules\Backup\Json\json_decode;
 use function FreePBX\modules\Backup\Json\json_encode;
 include __DIR__.'/vendor/autoload.php';
+require_once __DIR__.'/functions.inc/ssh_restrict.php';
 #[\AllowDynamicProperties]
 class Backup extends FreePBX_Helpers implements BMO {
 	public $swiftmsg = false;
@@ -548,12 +550,15 @@ class Backup extends FreePBX_Helpers implements BMO {
 
 				$jobid   = $this->generateId();
 				$location = $this->freepbx->Config->get('ASTLOGDIR');
-				$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup '.$args.' --transaction='.escapeshellarg($jobid);
-				file_put_contents($location.'/restore_'.$jobid.'_out.log','Running with: '.$command.PHP_EOL);
-				$process = \freepbx_get_process_obj($command.' >> '.$location.'/restore_'.$jobid.'_out.log 2> '.$location.'/restore_'.$jobid.'_err.log & echo $!');
-				$process->mustRun();
-				$log = file_get_contents($location.'/restore_'.$jobid.'_out.log');
-				return ['status' => true, 'message' => _("Restore running"), 'transaction' => $jobid, 'restoreid' => $ruid, 'pid' => trim($process->getOutput() ?? ""), 'log' => $log];
+				$outLog = $location.'/restore_'.$jobid.'_out.log';
+				$errLog = $location.'/restore_'.$jobid.'_err.log';
+				$fwCommand = 'backup '.$args.' --transaction='.escapeshellarg($jobid) . $this->buildFwconsoleLogFlags($outLog, $errLog);
+				try {
+					$started = $this->startBackgroundFwconsole($fwCommand, $outLog, $errLog, null, $jobid);
+				} catch (\RuntimeException $e) {
+					return ['status' => false, 'message' => $e->getMessage()];
+				}
+				return ['status' => true, 'message' => _("Restore running"), 'transaction' => $jobid, 'restoreid' => $ruid, 'pid' => $started['pid'], 'log' => $started['log']];
 			case 'runBackup':
 				if(!isset($_GET['id'])){
 					return ['status' => false, 'message' => _("No backup id provided")];
@@ -567,12 +572,16 @@ class Backup extends FreePBX_Helpers implements BMO {
 				} else {
 					$warm = '';
 				}
-				$command = $this->freepbx->Config->get('AMPSBIN').'/fwconsole backup --backup=' . escapeshellarg((string) $buid) . '' . $warm . ' --transaction=' . escapeshellarg($jobid) . ' >> '.$location.'/backup_'.$jobid.'_out.log 2> '.$location.'/backup_'.$jobid.'_err.log & echo $!';
-				file_put_contents($location.'/backup_'.$jobid.'_out.log','Running with: '.$command.PHP_EOL);
-				$process = \freepbx_get_process_obj($command);
-				$process->mustRun();
-				$log = file_get_contents($location.'/backup_'.$jobid.'_out.log');
-				return ['status' => true, 'message' => _("Backup running"), 'transaction' => $jobid, 'backupid' => $buid, 'pid' => trim($process->getOutput() ?? ""), 'log' => $log];
+				$outLog = $location.'/backup_'.$jobid.'_out.log';
+				$errLog = $location.'/backup_'.$jobid.'_err.log';
+				$fwCommand = 'backup --backup=' . escapeshellarg((string) $buid) . $warm . ' --transaction=' . escapeshellarg($jobid)
+					. $this->buildFwconsoleLogFlags($outLog, $errLog);
+				try {
+					$started = $this->startBackgroundFwconsole($fwCommand, $outLog, $errLog, $buid);
+				} catch (\RuntimeException $e) {
+					return ['status' => false, 'message' => $e->getMessage()];
+				}
+				return ['status' => true, 'message' => _("Backup running"), 'transaction' => $jobid, 'backupid' => $buid, 'pid' => $started['pid'], 'log' => $started['log']];
 			case 'backupGrid':
 				return array_values($this->listBackups());
 			case 'backupStorage':
@@ -728,6 +737,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 		switch($_REQUEST['command']){
 			case 'restorestatus':
 			case 'backupstatus':
+				set_time_limit(0);
 				if(function_exists("apache_setenv")) {
 					apache_setenv('no-gzip', '1');
 				}
@@ -740,11 +750,18 @@ class Backup extends FreePBX_Helpers implements BMO {
 				header('Access-Control-Allow-Credentials: true');
 				header('X-Accel-Buffering: no');//Nginx: unbuffered responses suitable for Comet and HTTP streaming applications
 				$location = $this->freepbx->Config->get('ASTLOGDIR');
-				$callback = function () use ($location) {
+				$freepbx = $this->freepbx;
+				$backupModule = $this;
+				$finished = false;
+				$callback = function () use ($location, &$finished, $freepbx, $backupModule) {
+					if ($finished) {
+						throw new StopSSEException();
+					}
 					if (!isset($_GET['id']) || !isset($_GET['transaction']) || !isset($_GET['pid'])) {
+						$finished = true;
 						return json_encode(['status' => 'stopped', 'error' => _("Missing id or transaction or pid")]);
 					}
-					$pid = $_GET['pid'];
+					$pid = (int) $_GET['pid'];
 					$job = $_GET['transaction'];
 					$buid = $_GET['id'];
 
@@ -753,28 +770,76 @@ class Backup extends FreePBX_Helpers implements BMO {
 					$outFile = $location . '/' . $type . '_' . $job . '_out.log';
 					$errorFile = $location . '/' . $type . '_' . $job . '_err.log';
 
-					if (!file_exists($outFile)) {
-						if (posix_getpgid($pid) !== false) {
-							return json_encode(['status' => 'errored', 'log' => _("Log file is missing but process is still running!")]);
-						} else {
-							return json_encode(['status' => 'stopped', 'log' => _("Process is no longer running")]);
+					$resolveActivePid = static function (int $reportedPid, string $jobType, string $transaction, string $fileId) use ($freepbx, $backupModule): int {
+						if ($reportedPid > 0 && posix_getpgid($reportedPid) !== false) {
+							return $reportedPid;
 						}
+						// fwconsole updates kvstore in another process; bypass in-request cache.
+						if ($jobType === 'restore') {
+							$backupModule->forgetConfigCache('runningRestoreJob', 'noid');
+							$runningJob = $freepbx->Backup->getConfig('runningRestoreJob');
+							if (!empty($runningJob['transaction']) && $runningJob['transaction'] === $transaction && !empty($runningJob['pid'])) {
+								$storedPid = (int) $runningJob['pid'];
+								if ($storedPid > 0 && posix_getpgid($storedPid) !== false) {
+									return $storedPid;
+								}
+							}
+							return 0;
+						}
+						$backupModule->forgetConfigCache($fileId, 'runningBackupJobs');
+						$runningJob = $freepbx->Backup->getConfig($fileId, 'runningBackupJobs');
+						if (!empty($runningJob['pid'])) {
+							$storedPid = (int) $runningJob['pid'];
+							if ($storedPid > 0 && posix_getpgid($storedPid) !== false) {
+								return $storedPid;
+							}
+						}
+						return 0;
+					};
+
+					if ($type !== 'restore') {
+						$backupModule->forgetConfigCache($job, 'runningBackupstatus');
+						$backupStatus = $freepbx->Backup->getConfig($job, 'runningBackupstatus');
+						$jobPhase = $backupStatus['status'] ?? '';
+						if ($jobPhase === 'WARMSPARE_RESTORE') {
+							$log = file_exists($outFile) ? file_get_contents($outFile) : '';
+							return json_encode(['status' => 'running', 'log' => $log]);
+						}
+						if (!empty($backupStatus['status']) && $backupStatus['status'] === 'FINISHED') {
+							$log = file_exists($outFile) ? file_get_contents($outFile) : '';
+							@unlink($outFile);
+							@unlink($errorFile);
+							$finished = true;
+							return json_encode(['status' => 'stopped', 'log' => $log]);
+						}
+					}
+
+					$activePid = $resolveActivePid($pid, $type, $job, $buid);
+
+					if (!file_exists($outFile)) {
+						if ($activePid > 0) {
+							return json_encode(['status' => 'running', 'log' => _("Waiting for backup log...")]);
+						}
+						$finished = true;
+						return json_encode(['status' => 'stopped', 'log' => _("Process is no longer running")]);
 					}
 					$log = file_get_contents($outFile);
 
-					if (posix_getpgid($pid) !== false) {
+					if ($activePid > 0) {
 						return json_encode(['status' => 'running', 'log' => $log]);
 					}
 
-					$error = file_get_contents($errorFile);
+					$error = file_exists($errorFile) ? file_get_contents($errorFile) : '';
 					if (!empty($error)) {
 						@unlink($outFile);
 						@unlink($errorFile);
+						$finished = true;
 						return json_encode(['status' => 'errored', 'log' => $log . $error]);
 					}
 
 					@unlink($outFile);
 					@unlink($errorFile);
+					$finished = true;
 					return json_encode(['status' => 'stopped', 'log' => $log]);
 				};
 				(new SSE(new Event($callback, 'new-msgs')))->start();
@@ -878,15 +943,31 @@ public function GraphQL_Access_token($request) {
 		} else {
 			$filename = $sparefilepath.'/'.$filename;
 		}
-		$command = "ssh -tt -i $key -o StrictHostKeyChecking=no $user@$host '/usr/sbin/fwconsole backup --restore $path$filename --transaction=$transactionid'";
+		$remote = \FreePBX\modules\Backup\SshRestrict::fwconsoleBackupRestore($filename, $transactionid);
+		// Use -T (no PTY). Restricted authorized_keys use no-pty/restrict; ssh -tt exits 255 immediately.
+		$command = 'ssh -T -i ' . escapeshellarg($key)
+			. ' -o BatchMode=yes -o StrictHostKeyChecking=no -o ConnectTimeout=60 '
+			. escapeshellarg($user . '@' . $host) . ' ' . escapeshellarg($remote);
 		$process = \freepbx_get_process_obj($command);
+		$consoleOutput = $this->output ?? null;
 		try {
 			$process->setTimeout(null);
-			$process->mustRun();
+			$process->run(function ($type, $buffer) use ($consoleOutput) {
+				if ($consoleOutput !== null && $buffer !== '') {
+					$consoleOutput->write($buffer);
+				}
+			});
+			if (!$process->isSuccessful()) {
+				throw new ProcessFailedException($process);
+			}
 			$return['status'] = true;
 			$return['msg']= _('Backup Restored Successfully');
-		} catch (ProcessFailedException) {
-			$return['msg']= _('Error running Restore on Spare Server');
+		} catch (ProcessFailedException $e) {
+			$detail = trim($process->getErrorOutput() . "\n" . $process->getOutput());
+			$return['msg'] = _('Error running Restore on Spare Server');
+			if ($detail !== '') {
+				$return['msg'] .= ': ' . preg_replace('/\s+/', ' ', $detail);
+			}
 			$return['status'] = false;
 		}
 		return $return;
@@ -1341,7 +1422,7 @@ public function GraphQL_Access_token($request) {
 			$warmspare = $this->getConfig('warmspareenabled', $id) === 'yes';
 			if($enabled === 'yes'){
 				$schedule = $this->getBackupSetting($id, 'backup_schedule');
-				$command  = sprintf($sbin.'/fwconsole backup --backup=%s %s > /dev/null 2>&1',$id, $warmspare ? '--warmspare' : '');
+				$command  = sprintf($sbin.'/fwconsole backup --backup=%s %s --output=/dev/null --error-log=/dev/null',$id, $warmspare ? '--warmspare' : '');
 				$backupOptionWithId  = '--backup=' . $id;
 				$this->freepbx->Cron->removeAll($backupOptionWithId);
 				$this->freepbx->Cron->add($schedule.' '.$command);
@@ -1362,7 +1443,7 @@ public function GraphQL_Access_token($request) {
 			$warmspare = $this->getConfig('warmspareenabled', $key) === 'yes';
 			if($enabled === 'yes'){
 				$schedule = $this->getBackupSetting($key, 'backup_schedule');
-				$command  = sprintf($sbin.'/fwconsole backup --backup=%s %s> /dev/null 2>&1',$key, $warmspare ? '--warmspare' : '');
+				$command  = sprintf($sbin.'/fwconsole backup --backup=%s %s --output=/dev/null --error-log=/dev/null',$key, $warmspare ? '--warmspare' : '');
 				$backupOptionWithId  = '--backup=' . $id;
 				$this->freepbx->Cron->removeAll($backupOptionWithId);
 				$this->freepbx->Cron->add($schedule.' '.$command);
@@ -1866,13 +1947,14 @@ public function GraphQL_Access_token($request) {
 	}
 
 	private function getSshFixedOptionKeys(): array {
-		return ['restrict', 'pty'];
+		// Do not force pty: it breaks SFTP (filestore uploads) while still allowing
+		// clients to request a TTY for restricted exec sessions (e.g. warm spare restore).
+		return ['restrict'];
 	}
 
 	private function sanitizeSshOptions(array $sshOptions): array {
 		$clean = [
 			'restrict' => true,
-			'pty' => true,
 		];
 		if ($this->isSshCommandRestrictionEnabled()) {
 			$clean['command'] = $this->getSshRestrictScript();
@@ -1967,6 +2049,105 @@ public function GraphQL_Access_token($request) {
 			return trim($line) !== $publicKey && trim($line) !== '';
 		}));
 		file_put_contents($filePath, implode(PHP_EOL, $updated) . (count($updated) ? PHP_EOL : ''));
+	}
+
+	public function buildFwconsoleLogFlags(string $outLog, string $errLog): string {
+		return ' --output=' . escapeshellarg($outLog) . ' --error-log=' . escapeshellarg($errLog);
+	}
+
+	public function prepareFwconsoleLogFiles(string $outLog, string $errLog = ''): void {
+		$files = array_filter([$outLog, $errLog]);
+		foreach ($files as $file) {
+			$dir = dirname($file);
+			if (!is_dir($dir) && !@mkdir($dir, 0775, true) && !is_dir($dir)) {
+				throw new \RuntimeException(sprintf(_('Cannot create log directory: %s'), $dir));
+			}
+			if (!is_writable($dir)) {
+				throw new \RuntimeException(sprintf(_('Log directory is not writable: %s'), $dir));
+			}
+			if (file_exists($file) && !@unlink($file)) {
+				throw new \RuntimeException(sprintf(_('Unable to reset log file: %s'), $file));
+			}
+		}
+	}
+
+	public function startBackgroundFwconsole(string $fwconsoleCommand, string $outLog, string $errLog = '', ?string $buid = null, ?string $restoreTransaction = null): array {
+		$this->prepareFwconsoleLogFiles($outLog, $errLog);
+		file_put_contents($outLog, 'Running with: ' . $fwconsoleCommand . PHP_EOL);
+
+		$fwconsole = $this->freepbx->Config->get('AMPSBIN') . '/fwconsole';
+		$shell = 'nohup ' . escapeshellarg($fwconsole) . ' ' . $fwconsoleCommand . ' </dev/null >/dev/null 2>&1 & echo $!';
+		$process = \freepbx_get_process_obj($shell);
+		if (!$process) {
+			throw new \RuntimeException(_('Unable to start background process'));
+		}
+		$process->mustRun();
+		$pid = trim($process->getOutput() ?? '');
+		if ($pid === '' || !ctype_digit($pid)) {
+			throw new \RuntimeException(_('Unable to determine background process id'));
+		}
+
+		$storedPid = null;
+		if ($buid !== null) {
+			$storedPid = $this->waitForRunningBackupPid($buid);
+		} elseif ($restoreTransaction !== null) {
+			$storedPid = $this->waitForRunningRestorePid($restoreTransaction);
+		}
+		if ($storedPid !== null) {
+			$pid = (string) $storedPid;
+		}
+
+		return [
+			'pid' => $pid,
+			'log' => (string) @file_get_contents($outLog),
+		];
+	}
+
+	private function waitForRunningBackupPid(string $buid, int $maxWaitMs = 8000): ?int {
+		$deadline = (int) (microtime(true) * 1000) + $maxWaitMs;
+		while ((int) (microtime(true) * 1000) < $deadline) {
+			$this->forgetConfigCache($buid, 'runningBackupJobs');
+			$runningJob = $this->getConfig($buid, 'runningBackupJobs');
+			if (!empty($runningJob['pid'])) {
+				$storedPid = (int) $runningJob['pid'];
+				if ($storedPid > 0 && posix_getpgid($storedPid) !== false) {
+					return $storedPid;
+				}
+			}
+			usleep(200000);
+		}
+		return null;
+	}
+
+	private function waitForRunningRestorePid(string $transaction, int $maxWaitMs = 8000): ?int {
+		$deadline = (int) (microtime(true) * 1000) + $maxWaitMs;
+		while ((int) (microtime(true) * 1000) < $deadline) {
+			$this->forgetConfigCache('runningRestoreJob', 'noid');
+			$runningJob = $this->getConfig('runningRestoreJob');
+			if (!empty($runningJob['transaction']) && $runningJob['transaction'] === $transaction && !empty($runningJob['pid'])) {
+				$storedPid = (int) $runningJob['pid'];
+				if ($storedPid > 0 && posix_getpgid($storedPid) !== false) {
+					return $storedPid;
+				}
+			}
+			usleep(200000);
+		}
+		return null;
+	}
+
+	/**
+	 * Drop a cached kvstore entry so long-lived requests see updates from other processes.
+	 */
+	private function forgetConfigCache(string $key, string $id): void {
+		$tablename = \DB_Helper::getTableName($this);
+		$ref = new \ReflectionClass(\DB_Helper::class);
+		$prop = $ref->getProperty('cache');
+		$prop->setAccessible(true);
+		$cache = $prop->getValue();
+		if (isset($cache[$tablename][$id][$key])) {
+			unset($cache[$tablename][$id][$key]);
+			$prop->setValue(null, $cache);
+		}
 	}
 
 }

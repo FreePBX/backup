@@ -251,7 +251,10 @@
 (function($) {
 	window.PK_SSH_COMMAND_RESTRICTION_ENABLED = <?php echo !empty($sshCommandRestrictionEnabled) ? 'true' : 'false'; ?>;
 	var PK_SSH_RESTRICT_SCRIPT = '/usr/local/bin/freepbx-ssh-restrict.sh';
-	var PK_SSH_FIXED_OPTIONS = ['restrict'];
+
+	function pkGetSshFixedOptions() {
+		return window.PK_SSH_COMMAND_RESTRICTION_ENABLED ? ['restrict'] : [];
+	}
 
 	function pkBuildAuthorizedKeysLine(publicKey, fromValue) {
 		var key = (publicKey || '').trim();
@@ -259,7 +262,7 @@
 		if (!key || !from) {
 			return '';
 		}
-		var parts = PK_SSH_FIXED_OPTIONS.slice();
+		var parts = pkGetSshFixedOptions().slice();
 		if (window.PK_SSH_COMMAND_RESTRICTION_ENABLED) {
 			parts.push('command="' + pkEscapeSshOptionValue(PK_SSH_RESTRICT_SCRIPT) + '"');
 		}

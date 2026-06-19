@@ -541,6 +541,7 @@ class Backup {
 					//ensure directory structure
 					require_once dirname(__DIR__) . '/functions.inc/ssh_restrict.php';
 					$remote = \FreePBX\modules\Backup\SshRestrict::mkdir($destdir);
+					$remote = \FreePBX\modules\Backup\SshRestrict::resolveRemoteCommand($s['host'], $remote, $s['key'], $s['user']);
 					$cmd = fpbx_which('ssh').' -o StrictHostKeyChecking=no -i ';
 					$cmd .= $s['key']." -l ".$s['user'].' '.$s['host'].' -p '.$s['port'];
 					$cmd .= ' ' . escapeshellarg($remote);
@@ -736,6 +737,7 @@ class Backup {
 			case 'ssh':
 				require_once dirname(__DIR__) . '/functions.inc/ssh_restrict.php';
 				$remote = \FreePBX\modules\Backup\SshRestrict::ls($data['path'] . '/' . $this->b['_dirname']);
+				$remote = \FreePBX\modules\Backup\SshRestrict::resolveRemoteCommand($data['host'], $remote, $data['key'], $data['user']);
 				$cmd = [fpbx_which('ssh'), '-o StrictHostKeyChecking=no -i', $data['key'], $data['user'] . '\@' . $data['host'], '-p ' . $data['port'], $remote];
 				exec(implode(' ', $cmd), $dir);
 				unset($cmd);
@@ -819,7 +821,9 @@ class Backup {
 					$handle->deleteObject($data['bucket'],baseName((string) $file));
 					break;
 				case 'ssh':
+					require_once dirname(__DIR__) . '/functions.inc/ssh_restrict.php';
 					$remote = \FreePBX\modules\Backup\SshRestrict::rm($data['path'] . '/' . $this->b['_dirname'] . '/' . $file);
+					$remote = \FreePBX\modules\Backup\SshRestrict::resolveRemoteCommand($data['host'], $remote, $data['key'], $data['user']);
 					$cmd = [fpbx_which('ssh'), '-o StrictHostKeyChecking=no -i', $data['key'], $data['user'] . '\@' . $data['host'], '-p ' . $data['port'], $remote];
 					exec(implode(' ', $cmd));
 					unset($delete[$key]);

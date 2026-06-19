@@ -944,6 +944,7 @@ public function GraphQL_Access_token($request) {
 			$filename = $sparefilepath.'/'.$filename;
 		}
 		$remote = \FreePBX\modules\Backup\SshRestrict::fwconsoleBackupRestore($filename, $transactionid);
+		$remote = $this->resolveRemoteSshCommand($host, $remote, $key, $user);
 		// Use -T (no PTY). Restricted authorized_keys use no-pty/restrict; ssh -tt exits 255 immediately.
 		$command = 'ssh -T -i ' . escapeshellarg($key)
 			. ' -o BatchMode=yes -o StrictHostKeyChecking=no -o ConnectTimeout=60 '
@@ -1953,10 +1954,9 @@ public function GraphQL_Access_token($request) {
 	}
 
 	private function sanitizeSshOptions(array $sshOptions): array {
-		$clean = [
-			'restrict' => true,
-		];
+		$clean = [];
 		if ($this->isSshCommandRestrictionEnabled()) {
+			$clean['restrict'] = true;
 			$clean['command'] = $this->getSshRestrictScript();
 		}
 		if (!empty($sshOptions['from'])) {
@@ -1966,7 +1966,7 @@ public function GraphQL_Access_token($request) {
 	}
 
 	private function buildAuthorizedKeysOptionParts(array $sshOptions = [], bool $forSummary = false): array {
-		$parts = $this->getSshFixedOptionKeys();
+		$parts = $this->isSshCommandRestrictionEnabled() ? $this->getSshFixedOptionKeys() : [];
 		if ($this->isSshCommandRestrictionEnabled()) {
 			$command = $this->getSshRestrictScript();
 			if ($forSummary) {
@@ -1988,6 +1988,115 @@ public function GraphQL_Access_token($request) {
 	public function buildAuthorizedKeysLine(string $publicKey, array $sshOptions = []): string {
 		$publicKey = trim($publicKey);
 		return implode(',', $this->buildAuthorizedKeysOptionParts($sshOptions)) . ' ' . $publicKey;
+	}
+
+	/** @var array<string,bool> */
+	private static $remoteSshRestrictionCache = [];
+
+	public function clearRemoteSshRestrictionCache(): void {
+		self::$remoteSshRestrictionCache = [];
+	}
+
+	public function resolveRemoteSshCommand(string $host, string $restrictedCmd, string $privateKeyPath, string $user = 'asterisk'): string {
+		if ($this->remoteUsesSshCommandRestriction($host, $privateKeyPath, $user)) {
+			return $restrictedCmd;
+		}
+		return \FreePBX\modules\Backup\SshRestrict::toDirectCommand($restrictedCmd);
+	}
+
+	public function remoteUsesSshCommandRestriction(string $host, string $privateKeyPath, string $user = 'asterisk'): bool {
+		$host = trim($host);
+		$privateKeyPath = trim($privateKeyPath);
+		$user = trim($user) !== '' ? trim($user) : 'asterisk';
+		if ($host === '' || $privateKeyPath === '') {
+			return false;
+		}
+
+		$cacheKey = strtolower($host) . '|' . $user . '|' . md5($privateKeyPath);
+		if (array_key_exists($cacheKey, self::$remoteSshRestrictionCache)) {
+			return self::$remoteSshRestrictionCache[$cacheKey];
+		}
+
+		$result = $this->detectRemoteSshCommandRestriction($host, $privateKeyPath, $user);
+		self::$remoteSshRestrictionCache[$cacheKey] = $result;
+		return $result;
+	}
+
+	public function authorizedKeysLineUsesSshRestrict(string $authorizedLine): bool {
+		$authorizedLine = trim($authorizedLine);
+		if ($authorizedLine === '') {
+			return false;
+		}
+		return (bool) preg_match('/\bcommand\s*=.*freepbx-ssh-restrict\.sh/i', $authorizedLine);
+	}
+
+	public function getPublicKeySearchMarker(string $privateKeyPath): string {
+		$publicKeyPath = preg_match('/\.pub$/', $privateKeyPath) ? $privateKeyPath : $privateKeyPath . '.pub';
+		if (!is_readable($publicKeyPath)) {
+			return '';
+		}
+		$line = trim((string) file_get_contents($publicKeyPath));
+		if ($line === '') {
+			return '';
+		}
+		if (!preg_match('/^(?:ssh-rsa|ssh-ed25519|ecdsa(?:-sha2-nistp\d+)?)\s+(\S+)/', $line, $matches)) {
+			return '';
+		}
+		$blob = $matches[1];
+		return strlen($blob) > 48 ? substr($blob, 0, 48) : $blob;
+	}
+
+	public function getRemoteAuthorizedKeysPath(string $user): string {
+		$user = trim($user) !== '' ? trim($user) : 'asterisk';
+		if ($user === 'root') {
+			return '/root/.ssh/authorized_keys';
+		}
+		if ($user === 'asterisk') {
+			return rtrim($this->getAsteriskUserHomeDir(), '/') . '/.ssh/authorized_keys';
+		}
+		return '/home/' . $user . '/.ssh/authorized_keys';
+	}
+
+	private function detectRemoteSshCommandRestriction(string $host, string $privateKeyPath, string $user): bool {
+		$marker = $this->getPublicKeySearchMarker($privateKeyPath);
+		if ($marker === '' || !is_readable($privateKeyPath)) {
+			return false;
+		}
+
+		$authorizedKeysPath = $this->getRemoteAuthorizedKeysPath($user);
+		$probeCmd = 'grep -F ' . escapeshellarg($marker) . ' ' . escapeshellarg($authorizedKeysPath) . ' 2>/dev/null | head -1';
+		$command = 'ssh -T -i ' . escapeshellarg($privateKeyPath)
+			. ' -o BatchMode=yes -o StrictHostKeyChecking=no -o ConnectTimeout=15 '
+			. $this->formatSshTarget($host, $user) . ' ' . escapeshellarg($probeCmd);
+
+		try {
+			$process = \freepbx_get_process_obj($command);
+			$process->setTimeout(20);
+			$process->run();
+			$output = trim($process->getOutput());
+			$error = trim($process->getErrorOutput());
+
+			if ($process->isSuccessful() && $output !== '') {
+				return $this->authorizedKeysLineUsesSshRestrict($output);
+			}
+			if ($this->sshProbeIndicatesForcedCommand($error, $output)) {
+				return true;
+			}
+		} catch (\Throwable $e) {
+		}
+
+		return false;
+	}
+
+	private function sshProbeIndicatesForcedCommand(string $error, string $output): bool {
+		return stripos($error . "\n" . $output, 'command not allowed') !== false;
+	}
+
+	private function formatSshTarget(string $host, string $user): string {
+		if (filter_var($host, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+			return escapeshellarg($user . '@[' . $host . ']');
+		}
+		return escapeshellarg($user . '@' . $host);
 	}
 
 	public function summarizeSshOptions(array $sshOptions = []): string {

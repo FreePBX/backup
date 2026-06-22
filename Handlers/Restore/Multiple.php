@@ -22,7 +22,7 @@ class Multiple extends Common {
 
 		$restoreData = $this->getMasterManifest();
 		$bkinfo = $restoreData['backupInfo'];
-		if(isset($bkinfo['prere_hook']) && strlen(trim($bkinfo['prere_hook']))> 1){
+		if(!$skiphooks && isset($bkinfo['prere_hook']) && strlen(trim((string) $bkinfo['prere_hook']))> 1){
 			$this->log(sprintf('Executing Pre Restore Hook: %s',$bkinfo['prere_hook']));
 			exec($bkinfo['prere_hook']);
 		}
@@ -85,7 +85,7 @@ class Multiple extends Common {
 		$this->displayportschanges();
 		$metadata = $this->getMasterManifest();
 		$backupinfo = $metadata['backupInfo'];
-		if(isset($backupinfo['postre_hook']) && strlen(trim($backupinfo['postre_hook']))> 1){
+		if(!$skiphooks && isset($backupinfo['postre_hook']) && strlen(trim((string) $backupinfo['postre_hook']))> 1){
 			$this->log(sprintf('Executing Post Restore Hook: %s',$backupinfo['postre_hook']));
 			exec($backupinfo['postre_hook']);
 		}

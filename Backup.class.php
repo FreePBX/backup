@@ -157,8 +157,6 @@ class Backup extends FreePBX_Helpers implements BMO {
 		return false;
 	}
 	public function install(){
-		$this->installSshRestrictScript();
-
 		/** Oh... Migration, migration, let's learn about migration. It's nature's inspiration to move around the sea.
 		 * We have split the functionality up so things backup use to do may be done by another module. The other module(s)
 		 * May not yet be installed or may install after.  So we need to keep a kvstore with the various data and when installing
@@ -1860,71 +1858,6 @@ public function GraphQL_Access_token($request) {
 
 	private function isSshCommandRestrictionEnabled(): bool {
 		return $this->freepbx->Modules->checkStatus('sysadmin');
-	}
-
-	private function installSshRestrictScript(): void {
-		$source = __DIR__ . '/bin/freepbx-ssh-restrict.sh';
-		$target = $this->getSshRestrictScript();
-		if (!is_readable($source)) {
-			out(_("SSH restrict script source not found, skipping install"));
-			return;
-		}
-		if (!$this->freepbx->Modules->checkStatus('sysadmin')) {
-			out(_("Sysadmin module is required to install the SSH restrict script"));
-			return;
-		}
-		if ($this->installSshRestrictScriptViaHook($target)) {
-			out(sprintf(_("Installed SSH restrict script to %s"), $target));
-			return;
-		}
-		out(sprintf(_("Failed to install SSH restrict script to %s via sysadmin hook"), $target));
-	}
-
-	private function getDeployedSshRestrictHook(): string {
-		return $this->freepbx->Config->get('AMPWEBROOT') . '/admin/modules/backup/hooks/install-ssh-restrict';
-	}
-
-	private function ensureSshRestrictHookDeployed(): void {
-		$webroot = $this->freepbx->Config->get('AMPWEBROOT');
-		$moduleDir = $webroot . '/admin/modules/backup';
-		$moduleHook = __DIR__ . '/hooks/install-ssh-restrict';
-		$deployedHook = $moduleDir . '/hooks/install-ssh-restrict';
-		$sourceBin = __DIR__ . '/bin/freepbx-ssh-restrict.sh';
-		$deployedBin = $moduleDir . '/bin/freepbx-ssh-restrict.sh';
-
-		if (is_dir($moduleDir . '/hooks') && !file_exists($deployedHook) && is_readable($moduleHook)) {
-			@symlink($moduleHook, $deployedHook);
-		}
-		if (!is_dir($moduleDir . '/bin')) {
-			@mkdir($moduleDir . '/bin', 0755, true);
-		}
-		if (!file_exists($deployedBin) && is_readable($sourceBin)) {
-			@symlink($sourceBin, $deployedBin);
-		}
-	}
-
-	private function installSshRestrictScriptViaHook(string $target): bool {
-		if (!file_exists('/etc/incron.d/sysadmin') || !is_dir('/var/spool/asterisk/incron')) {
-			return false;
-		}
-		$this->ensureSshRestrictHookDeployed();
-		if (!is_readable($this->getDeployedSshRestrictHook())) {
-			return false;
-		}
-		try {
-			if (!\FreePBX::Hooks()->runModuleSystemHook('backup', 'install-ssh-restrict')) {
-				return false;
-			}
-		} catch (\Exception $e) {
-			return false;
-		}
-		for ($i = 0; $i < 10; $i++) {
-			if (is_executable($target)) {
-				return true;
-			}
-			usleep(500000);
-		}
-		return false;
 	}
 
 	private function getSshFixedOptionKeys(): array {

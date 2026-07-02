@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-22 01:16-0400\n"
+"POT-Creation-Date: 2026-07-02 00:53-0400\n"
 "PO-Revision-Date: 2015-03-19 19:56+0200\n"
 "Last-Translator: Jan Peter <jpveldhuizen@gmail.com>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -87,11 +87,11 @@ msgstr ""
 msgid "%s table Restore Error %s "
 msgstr ""
 
-#: Backup.class.php:1857
+#: Backup.class.php:1837
 msgid "/path/to/dir"
 msgstr "/pad/naar/map"
 
-#: Backup.class.php:1850
+#: Backup.class.php:1830
 msgid "/path/to/file"
 msgstr "/pad/naar/bestand"
 
@@ -224,7 +224,7 @@ msgstr ""
 msgid "Are you sure, you want to restore this backup?"
 msgstr ""
 
-#: Backup.class.php:1825
+#: Backup.class.php:1805
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -253,7 +253,7 @@ msgstr ""
 msgid "Backup"
 msgstr "Reservekopie"
 
-#: Backup.class.php:1487
+#: Backup.class.php:1467
 #, php-format
 msgid "Backup %s"
 msgstr ""
@@ -338,7 +338,7 @@ msgstr "Reservekopie onderdelen"
 msgid "Backup Name"
 msgstr "Reservekopie naam"
 
-#: Backup.class.php:965
+#: Backup.class.php:946
 msgid "Backup Restored Successfully"
 msgstr ""
 
@@ -430,7 +430,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: Backup.class.php:2172 Console/Backup.class.php:463
+#: Backup.class.php:2306 Console/Backup.class.php:463
 #: Console/Backup.class.php:473
 #, php-format
 msgid "Cannot create log directory: %s"
@@ -539,7 +539,7 @@ msgstr ""
 msgid "Could not locate the manifest for this file"
 msgstr ""
 
-#: Backup.class.php:1069 Backup.class.php:1138
+#: Backup.class.php:1050 Backup.class.php:1118
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
@@ -580,7 +580,7 @@ msgstr ""
 msgid "Delete After Runs"
 msgstr ""
 
-#: Backup.class.php:1863
+#: Backup.class.php:1843
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr ""
 "Verwijder deze invoer. Vergeet niet om op Verzenden te klikken om op te "
@@ -605,7 +605,7 @@ msgstr ""
 msgid "Determining backup file type..."
 msgstr ""
 
-#: Backup.class.php:1856
+#: Backup.class.php:1836
 msgid "Directory"
 msgstr "Map"
 
@@ -657,7 +657,7 @@ msgstr ""
 msgid "Enable scheduled backups, default false"
 msgstr ""
 
-#: Backup.class.php:1719 views/backup/form.php:334
+#: Backup.class.php:1699 views/backup/form.php:334
 msgid "Enabled"
 msgstr ""
 
@@ -700,7 +700,7 @@ msgstr ""
 msgid "Error installing %s reason(s): %s"
 msgstr ""
 
-#: Backup.class.php:968
+#: Backup.class.php:949
 msgid "Error running Restore on Spare Server"
 msgstr ""
 
@@ -789,7 +789,7 @@ msgstr ""
 msgid "Extracting supplied database file %s"
 msgstr ""
 
-#: Backup.class.php:1900
+#: Backup.class.php:1880
 #, php-format
 msgid "Failed to install SSH restrict script to %s via sysadmin hook"
 msgstr ""
@@ -803,7 +803,7 @@ msgstr ""
 msgid "Failure"
 msgstr ""
 
-#: Backup.class.php:1849
+#: Backup.class.php:1829
 msgid "File"
 msgstr "Bestand"
 
@@ -872,7 +872,7 @@ msgstr ""
 msgid "From"
 msgstr ""
 
-#: Backup.class.php:687
+#: Backup.class.php:683
 msgid "From is required (IP, hostname, or comma-separated list)"
 msgstr ""
 
@@ -931,11 +931,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1810
+#: Backup.class.php:1790
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1816
+#: Backup.class.php:1796
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -999,7 +999,7 @@ msgstr ""
 msgid "Inline Logs"
 msgstr ""
 
-#: Backup.class.php:1897
+#: Backup.class.php:1877
 #, php-format
 msgid "Installed SSH restrict script to %s"
 msgstr ""
@@ -1009,7 +1009,7 @@ msgstr ""
 msgid "Installing  %s"
 msgstr ""
 
-#: Backup.class.php:985
+#: Backup.class.php:966
 msgid "Invalid Backup ID"
 msgstr ""
 
@@ -1117,7 +1117,7 @@ msgstr ""
 msgid "Loading supplied database file %s"
 msgstr ""
 
-#: Backup.class.php:2175
+#: Backup.class.php:2309
 #, php-format
 msgid "Log directory is not writable: %s"
 msgstr ""
@@ -1147,7 +1147,7 @@ msgstr ""
 msgid "Migrating legacy backups to the new backup"
 msgstr ""
 
-#: Backup.class.php:762
+#: Backup.class.php:743
 msgid "Missing id or transaction or pid"
 msgstr ""
 
@@ -1234,7 +1234,7 @@ msgstr ""
 msgid "No file provided"
 msgstr ""
 
-#: Backup.class.php:1058
+#: Backup.class.php:1039
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
@@ -1250,7 +1250,7 @@ msgid ""
 "location to save the backup"
 msgstr ""
 
-#: views/backup/settings.php:54
+#: Backup.class.php:2228 views/backup/settings.php:54
 msgid "None"
 msgstr ""
 
@@ -1306,7 +1306,7 @@ msgstr ""
 msgid "Output preview"
 msgstr ""
 
-#: Backup.class.php:1859
+#: Backup.class.php:1839
 msgid "PATTERNs, one per line"
 msgstr "PATROON, één per regel"
 
@@ -1354,7 +1354,7 @@ msgstr ""
 msgid "Pre-Restore Hook"
 msgstr ""
 
-#: Backup.class.php:824
+#: Backup.class.php:805
 msgid "Process is no longer running"
 msgstr ""
 
@@ -1389,7 +1389,7 @@ msgid ""
 "supported"
 msgstr ""
 
-#: Backup.class.php:682
+#: Backup.class.php:646 Backup.class.php:678
 msgid "Public key is required"
 msgstr ""
 
@@ -1674,7 +1674,7 @@ msgstr ""
 msgid "SSH key Generated"
 msgstr ""
 
-#: Backup.class.php:1889
+#: Backup.class.php:1869
 msgid "SSH restrict script source not found, skipping install"
 msgstr ""
 
@@ -1903,11 +1903,11 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: Backup.class.php:1893
+#: Backup.class.php:1873
 msgid "Sysadmin module is required to install the SSH restrict script"
 msgstr ""
 
-#: Backup.class.php:1051
+#: Backup.class.php:1032
 msgid "System Transfer"
 msgstr ""
 
@@ -2094,7 +2094,7 @@ msgstr "Type"
 msgid "Unable to access the file %s"
 msgstr ""
 
-#: Backup.class.php:2196
+#: Backup.class.php:2330
 msgid "Unable to determine background process id"
 msgstr ""
 
@@ -2112,7 +2112,7 @@ msgstr ""
 msgid "Unable to perform backup"
 msgstr ""
 
-#: Backup.class.php:2178
+#: Backup.class.php:2312
 #, php-format
 msgid "Unable to reset log file: %s"
 msgstr ""
@@ -2134,7 +2134,7 @@ msgstr ""
 msgid "Unable to send backup email!"
 msgstr ""
 
-#: Backup.class.php:2191
+#: Backup.class.php:2325
 msgid "Unable to start background process"
 msgstr ""
 
@@ -2146,7 +2146,7 @@ msgstr ""
 msgid "Unable to upload file to the remote server"
 msgstr ""
 
-#: Backup.class.php:1719
+#: Backup.class.php:1699
 msgid "Uninstalled or Disabled"
 msgstr ""
 
@@ -2217,7 +2217,7 @@ msgstr ""
 msgid "View running restore"
 msgstr ""
 
-#: Backup.class.php:821
+#: Backup.class.php:802
 msgid "Waiting for backup log..."
 msgstr ""
 

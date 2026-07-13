@@ -71,6 +71,11 @@ case "$PREFIX" in
 		exec /usr/sbin/asterisk
 		;;
 
+	RESTRICT-ASTERISK-002)
+		[ -z "$ARGS" ] || die
+		exec /usr/sbin/asterisk -rx "core stop gracefully"
+		;;
+
 	RESTRICT-FWCONSOLE-002)
 		restore="${ARGS%% --transaction=*}"
 		transaction="${ARGS#*--transaction=}"
@@ -164,6 +169,18 @@ case "$PREFIX" in
 	RESTRICT-FWCONSOLE-013)
 		[ "$ARGS" = "pm2 --restart advrecovery" ] || die
 		exec "$FWCONSOLE" pm2 --restart advrecovery
+		;;
+
+	RESTRICT-FWCONSOLE-014)
+		[ "${ARGS#advr --markrestoredone }" != "$ARGS" ] || die
+		id="${ARGS#advr --markrestoredone }"
+		validate_id "$id" || die
+		exec "$FWCONSOLE" advr --markrestoredone "$id"
+		;;
+
+	RESTRICT-FWCONSOLE-015)
+		[ "$ARGS" = "stop" ] || die
+		exec "$FWCONSOLE" stop
 		;;
 
 	RESTRICT-TOUCH-001)

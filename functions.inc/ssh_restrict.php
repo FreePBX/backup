@@ -35,6 +35,10 @@ class SshRestrict {
 		return 'RESTRICT-ASTERISK-001';
 	}
 
+	public static function asteriskGracefulStop(): string {
+		return 'RESTRICT-ASTERISK-002';
+	}
+
 	public static function fwconsoleBackupRestoreEq(string $path, string $transaction): string {
 		return 'RESTRICT-FWCONSOLE-002 --restore=' . self::assertPath($path)
 			. ' --transaction=' . self::assertId($transaction);
@@ -94,6 +98,14 @@ class SshRestrict {
 			throw new \InvalidArgumentException('Unsupported pm2 service for restricted SSH command');
 		}
 		return 'RESTRICT-FWCONSOLE-013 pm2 --restart advrecovery';
+	}
+
+	public static function fwconsoleAdvrMarkRestoreDone(string $transaction): string {
+		return 'RESTRICT-FWCONSOLE-014 advr --markrestoredone ' . self::assertId($transaction);
+	}
+
+	public static function fwconsoleStop(): string {
+		return 'RESTRICT-FWCONSOLE-015 stop';
 	}
 
 	public static function touchFwconsoleChown(): string {
@@ -159,6 +171,8 @@ class SshRestrict {
 				return 'mkdir -p -- ' . self::assertPath($args);
 			case 'RESTRICT-ASTERISK-001':
 				return '/usr/sbin/asterisk';
+			case 'RESTRICT-ASTERISK-002':
+				return '/usr/sbin/asterisk -rx ' . escapeshellarg('core stop gracefully');
 			case 'RESTRICT-FWCONSOLE-002':
 				if (!preg_match('/^--restore=(.+?) --transaction=(.+)$/', $args, $matches)) {
 					throw new \InvalidArgumentException('Invalid restricted restore command');
@@ -211,6 +225,16 @@ class SshRestrict {
 				return $fwconsole . ' pm2 --stop advrecovery';
 			case 'RESTRICT-FWCONSOLE-013':
 				return $fwconsole . ' pm2 --restart advrecovery';
+			case 'RESTRICT-FWCONSOLE-014':
+				if (!preg_match('/^advr --markrestoredone (.+)$/', $args, $matches)) {
+					throw new \InvalidArgumentException('Invalid restricted mark restore done command');
+				}
+				return $fwconsole . ' advr --markrestoredone ' . self::assertId($matches[1]);
+			case 'RESTRICT-FWCONSOLE-015':
+				if ($args !== 'stop') {
+					throw new \InvalidArgumentException('Invalid restricted fwconsole stop command');
+				}
+				return $fwconsole . ' stop';
 			case 'RESTRICT-TOUCH-001':
 				return 'touch ' . $incronDir . '/adv_recovery.fwconsole-chown';
 			case 'RESTRICT-TOUCH-002':

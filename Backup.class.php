@@ -1909,7 +1909,7 @@ public function GraphQL_Access_token($request) {
 		return $line;
 	}
 
-	/** @var array<string,bool> */
+	/** @var array<string,bool> Definitive probe results only; inconclusive answers are never cached. */
 	private static $remoteSshRestrictionCache = [];
 
 	public function clearRemoteSshRestrictionCache(): void {
@@ -1937,6 +1937,12 @@ public function GraphQL_Access_token($request) {
 		}
 
 		$result = $this->detectRemoteSshCommandRestriction($host, $privateKeyPath, $user);
+		// null = inconclusive (peer down / SSH unreachable). Do not cache that as
+		// "unrestricted" or a long-lived daemon keeps converting RESTRICT-* to raw
+		// commands after failover (adv_recovery primary-up fwconsole-stop path).
+		if ($result === null) {
+			return $this->isSshCommandRestrictionEnabled();
+		}
 		self::$remoteSshRestrictionCache[$cacheKey] = $result;
 		return $result;
 	}
@@ -1976,7 +1982,12 @@ public function GraphQL_Access_token($request) {
 		return '/home/' . $user . '/.ssh/authorized_keys';
 	}
 
-	private function detectRemoteSshCommandRestriction(string $host, string $privateKeyPath, string $user): bool {
+	/**
+	 * Probe whether the remote peer forces freepbx-ssh-restrict.sh for our key.
+	 *
+	 * @return bool|null true/false when definitive; null when unreachable/inconclusive
+	 */
+	private function detectRemoteSshCommandRestriction(string $host, string $privateKeyPath, string $user): ?bool {
 		$marker = $this->getPublicKeySearchMarker($privateKeyPath);
 		if ($marker === '' || !is_readable($privateKeyPath)) {
 			return false;
@@ -2001,7 +2012,11 @@ public function GraphQL_Access_token($request) {
 			if ($this->sshProbeIndicatesForcedCommand($error, $output)) {
 				return true;
 			}
+			if ($this->sshProbeIndicatesUnreachable($error, $output) || !$process->isSuccessful()) {
+				return null;
+			}
 		} catch (\Throwable $e) {
+			return null;
 		}
 
 		return false;
@@ -2009,6 +2024,28 @@ public function GraphQL_Access_token($request) {
 
 	private function sshProbeIndicatesForcedCommand(string $error, string $output): bool {
 		return stripos($error . "\n" . $output, 'command not allowed') !== false;
+	}
+
+	private function sshProbeIndicatesUnreachable(string $error, string $output): bool {
+		$text = strtolower($error . "\n" . $output);
+		foreach ([
+			'connection refused',
+			'connection timed out',
+			'connection reset',
+			'no route to host',
+			'network is unreachable',
+			'host is down',
+			'could not resolve',
+			'name or service not known',
+			'operation timed out',
+			'connection closed by remote host',
+			'kex_exchange_identification',
+		] as $needle) {
+			if (strpos($text, $needle) !== false) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private function formatSshTarget(string $host, string $user): string {

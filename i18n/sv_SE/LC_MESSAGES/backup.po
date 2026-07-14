@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX backup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-02 02:45-0400\n"
+"POT-Creation-Date: 2026-07-14 05:26-0400\n"
 "PO-Revision-Date: 2010-01-23 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -434,7 +434,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: Backup.class.php:2239 Console/Backup.class.php:463
+#: Backup.class.php:2276 Console/Backup.class.php:463
 #: Console/Backup.class.php:473
 #, php-format
 msgid "Cannot create log directory: %s"
@@ -1118,7 +1118,7 @@ msgstr ""
 msgid "Loading supplied database file %s"
 msgstr ""
 
-#: Backup.class.php:2242
+#: Backup.class.php:2279
 #, php-format
 msgid "Log directory is not writable: %s"
 msgstr ""
@@ -1251,7 +1251,7 @@ msgid ""
 "location to save the backup"
 msgstr ""
 
-#: Backup.class.php:2161 views/backup/settings.php:54
+#: Backup.class.php:2198 views/backup/settings.php:54
 msgid "None"
 msgstr ""
 
@@ -2100,7 +2100,7 @@ msgstr ""
 msgid "Unable to access the file %s"
 msgstr ""
 
-#: Backup.class.php:2263
+#: Backup.class.php:2300
 msgid "Unable to determine background process id"
 msgstr ""
 
@@ -2118,7 +2118,7 @@ msgstr ""
 msgid "Unable to perform backup"
 msgstr ""
 
-#: Backup.class.php:2245
+#: Backup.class.php:2282
 #, php-format
 msgid "Unable to reset log file: %s"
 msgstr ""
@@ -2140,7 +2140,7 @@ msgstr ""
 msgid "Unable to send backup email!"
 msgstr ""
 
-#: Backup.class.php:2258
+#: Backup.class.php:2295
 msgid "Unable to start background process"
 msgstr ""
 

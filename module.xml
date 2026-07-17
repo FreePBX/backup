@@ -2,7 +2,7 @@
 	<rawname>backup</rawname>
 	<repo>standard</repo>
 	<name>Backup &amp; Restore</name>
-	<version>17.0.11.2</version>
+	<version>18.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -14,32 +14,14 @@
 		<backup_restore hidden="true" needsenginedb="yes">Backup &amp; Restore - Restore</backup_restore>
 	</menuitems>
 	<depends>
-		<module>filestore ge 17.0.2.44</module>
-		<version>17.0.1</version>
+		<module>filestore ge 18.0.1</module>
+		<version>18.0</version>
 	</depends>
 	<changelog>
-		*17.0.11.2* Packaging of ver 17.0.11.2
-		*17.0.11.1* bump 
-		*17.0.11* FREEI-2863 Changes done for securly storing the public key in backup 
-		*17.0.10* FREEI-2863 Changes done for securly storing the public key in backup 
-		*17.0.9* FREEI-2863 Changes done for securly storing the public key in backup 
-		*17.0.8* FREEI-2863 Changes done for securly storing the public key in backup 
-		*17.0.7* FREEI-2882 Changes done to fixing remote execution via path traversal
-		*17.0.6* FREEI-2684 Reduce risk of RCE during restore operation
-		*17.0.5.71* #issue-906 ftp file path issue resolved 
-		*17.0.5.70* #823 backup module issue in freepbx v17 
-		*17.0.5.69* FREEI-2242 advr syncback to primary issue resolved 
-		*17.0.5.68* issue-773 depend column added on featurecode backup 
-		*17.0.5.67* FREEI-2055 backup log attachment missing in email 
-		*17.0.5.66* FREEI-2065 hide the mysqlpassword from log 
-		*17.0.5.65* Fixing Github #701 
-		*17.0.5.64* Fixing FREEI-1852 - Send email even if logs are not enabled/present. 
-		*17.0.5.63* Fixing Github #122
-		*17.0.5.62* Fixing Github #546 Old Backups are not deleting issue 
-		*17.0.1alpha* 17.0.1 alpha release
+		*18.0.1* initial release
 	</changelog>
 	<supported>
-		<version>17.0</version>
+		<version>18.0</version>
 	</supported>
 	<console>
 		<command>

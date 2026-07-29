@@ -30,9 +30,20 @@ class Backup extends Base {
 						'mutateAndGetPayload' => function ($input) {
 							//lets run the  restore command 'backupfilename'
 							$filename = $input['backupfilename'];
-							if(file_exists($filename)) {
-								$command = "fwconsole backup --restore $filename --skiprestorehooks";
-								$process = new Process($command);
+
+							if (!$this->isValidRestorePath($filename) || !is_file($filename)) {
+								return ['restorestatus' => 'Backup file not found'];
+							}
+
+							$fwconsole = $this->freepbx->Config->get('AMPSBIN') . '/fwconsole';
+							$process = new Process([
+								$fwconsole,
+								'backup',
+								'--restore',
+								$filename,
+								'--skiprestorehooks',
+							]);
+		
 								try {
 									$process->setTimeout(null);
 									$process->mustRun();
@@ -41,9 +52,6 @@ class Backup extends Base {
 								} catch (ProcessFailedException $e) {
 									return ['restorestatus' =>'Restore Errored'];
 								}
-							}
-
-							return ['restorestatus' =>'Backup file not found'];
 						}
 					]),
 					'addBackup' => Relay::mutationWithClientMutationId([
@@ -739,5 +747,14 @@ class Backup extends Base {
 				}
 			]
 		];
+	}
+
+	private function isValidRestorePath(string $path): bool
+	{
+		if ($path === '' || strpos($path, '..') !== false) {
+			return false;
+		}
+		// Allow only safe path characters (letters, numbers, /, ., _, -, etc.)
+		return (bool) preg_match('/^[a-zA-Z0-9\/_.@+=:-]+$/', $path);
 	}
 }

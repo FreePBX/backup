@@ -31,15 +31,25 @@ class Legacy extends Common {
 		$this->data['astdb'] = [];
 		if(file_exists($this->tmp . '/manifest')){
 			$this->log(_("Loading manifest to memory"));
-			$this->data['manifest'] = unserialize(file_get_contents($this->tmp.'/manifest'));
-			if($this->data['manifest'] === false){
+			$manifestdata = file_get_contents($this->tmp.'/manifest');
+			$tmpdata = json_decode($manifestdata, true);
+			if ($tmpdata === null || json_last_error() !== JSON_ERROR_NONE || !is_array($tmpdata)) {
+				$tmpdata = unserialize($manifestdata, ['allowed_classes' => false]);
+			}
+			if (!is_array($tmpdata)) {
 				$this->log(_("Restore process failed due to corrupted manifest file present in provided backup file. Please ensure your backup file is proper or regenerate the new backup file to proceed further."),'ERROR');
 				exit(1);
 			}
+			$this->data['manifest'] = $tmpdata; 
 		}
 		if(file_exists($this->tmp . '/astdb')){
 			$this->log(_("Loading astdb to memory"));
-			$this->data['astdb'] = unserialize(file_get_contents($this->tmp.'/astdb'));
+			$astdbdata = file_get_contents($this->tmp.'/astdb');
+			$tmpdata = json_decode($astdbdata, true);
+			if ($tmpdata === null || json_last_error() !== JSON_ERROR_NONE || !is_array($tmpdata)) {
+				$tmpdata = unserialize($astdbdata, ['allowed_classes' => false]);
+			}	
+			$this->data['astdb'] = is_array($tmpdata) ? $tmpdata : [];
 		}
 	}
 

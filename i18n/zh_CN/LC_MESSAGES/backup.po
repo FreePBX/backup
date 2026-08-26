@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-25 11:44+0000\n"
+"POT-Creation-Date: 2026-08-26 08:01+0000\n"
 "PO-Revision-Date: 2015-11-17 12:19+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -288,7 +288,7 @@ msgstr "备份名称"
 msgid "Backup Restored Successfully"
 msgstr ""
 
-#: Api/Gql/Backup.php:686
+#: Api/Gql/Backup.php:690
 msgid "Backup Storage Location Required"
 msgstr ""
 
@@ -312,7 +312,7 @@ msgstr ""
 msgid "Backup does not exists"
 msgstr ""
 
-#: Api/Gql/Backup.php:720
+#: Api/Gql/Backup.php:724
 msgid "Backup does not found"
 msgstr ""
 
@@ -323,6 +323,10 @@ msgid ""
 "backup from server [%s]."
 msgstr ""
 
+#: Api/Gql/Backup.php:631
+msgid "Backup file not found or invalid path"
+msgstr ""
+
 #: functions.inc/class.backup.php:499
 msgid "Backup file uploaded to the remote server"
 msgstr ""
@@ -331,7 +335,7 @@ msgstr ""
 msgid "Backup has been performed/schedules"
 msgstr ""
 
-#: Api/Gql/Backup.php:715
+#: Api/Gql/Backup.php:719
 msgid "Backup has been updated"
 msgstr ""
 
@@ -1276,7 +1280,7 @@ msgid ""
 "backup file to proceed further."
 msgstr ""
 
-#: Api/Gql/Backup.php:633
+#: Api/Gql/Backup.php:637
 msgid ""
 "Restore process has been initiated. Kindly check the fetchApiStatus api with "
 "the transaction id."
@@ -1552,15 +1556,15 @@ msgstr ""
 msgid "Sorry failed to perform backup"
 msgstr ""
 
-#: Api/Gql/Backup.php:635
+#: Api/Gql/Backup.php:639
 msgid "Sorry failed to perform restore"
 msgstr ""
 
-#: Api/Gql/Backup.php:589 Api/Gql/Backup.php:701
+#: Api/Gql/Backup.php:589 Api/Gql/Backup.php:705
 msgid "Sorry location "
 msgstr ""
 
-#: Api/Gql/Backup.php:672
+#: Api/Gql/Backup.php:676
 msgid "Sorry module name "
 msgstr ""
 
@@ -1799,7 +1803,7 @@ msgstr ""
 msgid "Unable to send backup email!"
 msgstr ""
 
-#: Api/Gql/Backup.php:717
+#: Api/Gql/Backup.php:721
 msgid "Unable to update backup"
 msgstr ""
 
@@ -1973,7 +1977,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: Api/Gql/Backup.php:78 Api/Gql/Backup.php:711
+#: Api/Gql/Backup.php:78 Api/Gql/Backup.php:715
 msgid "You have enabled enableBackupSchedule so please add scheduleBackup"
 msgstr ""
 

@@ -34,17 +34,16 @@ date_default_timezone_set('UTC');
 	}
 	else {
 		try {
-			// Argument array = no shell interpretation of $filename
-			$process = \freepbx_get_process_obj([
+			if (!class_exists('Symfony\Component\Process\Process')) {
+				require_once dirname(dirname(dirname(__DIR__))) . '/libraries/Composer/vendor/autoload.php';
+			}
+			$process = new \Symfony\Component\Process\Process([
 				'/usr/sbin/fwconsole',
 				'backup',
 				'--restore',
 				$filename,
 				'--skiprestorehooks',
 			]);
-			if (!$process) {
-				throw new Exception('Unable to create restore process');
-			}
 			$process->setTimeout(null);
 			$process->mustRun();
 			$status = 'Executed';

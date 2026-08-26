@@ -6,7 +6,7 @@ date_default_timezone_set('UTC');
 
 	require '/usr/lib/sysadmin/includes.php';
 
-   $filename = $argv[1]; 
+   $filename = '';
    $txn_id  = "";
 
    if (isset($argv[1])) {
@@ -19,18 +19,40 @@ date_default_timezone_set('UTC');
       }
     }
 
-	$command = "fwconsole backup --restore $filename --skiprestorehooks";
 	$message = $status = "";
 
-	try {
-		exec($command);
-		$status = 'Executed'; 
-		$message = 'Restore Done';
-	} catch (Exception $e) {
-		$message = 'Restore Errored'; 
-		$status = 'Failed'; 
-	}
+	$isValidRestorePath = static function (string $path): bool {
+		if ($path === '' || strpos($path, '..') !== false) {
+			return false;
+		}
+		return (bool) preg_match('/^[a-zA-Z0-9\/_.@+=:-]+$/', $path);
+	};
 
+	if (!$isValidRestorePath($filename) || !is_file($filename)) {
+		$status = 'Failed';
+		$message = 'Backup file not found or invalid path';
+	}
+	else {
+		try {
+			if (!class_exists('Symfony\Component\Process\Process')) {
+				require_once dirname(dirname(dirname(__DIR__))) . '/libraries/Composer/vendor/autoload.php';
+			}
+			$process = new \Symfony\Component\Process\Process([
+				'/usr/sbin/fwconsole',
+				'backup',
+				'--restore',
+				$filename,
+				'--skiprestorehooks',
+			]);
+			$process->setTimeout(null);
+			$process->mustRun();
+			$status = 'Executed';
+			$message = 'Restore Done';
+		} catch (Exception $e) {
+			$message = 'Restore Errored';
+			$status = 'Failed';
+		}
+	}
 	$db = \Sysadmin\FreePBX::Database();
    $sql = ("UPDATE IGNORE api_asynchronous_transaction_history SET event_status = :event_status , failure_reason =:failure_reason, process_end_time =:end_time WHERE `txn_id` = :txn_id");
 	$sth = $db->prepare($sql);

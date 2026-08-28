@@ -634,6 +634,10 @@ class Backup extends Base {
 	 */
 	private function restoreBackup($input){
 		$filename = $input['name'];
+		if (!$this->isValidRestorePath($filename) || !is_file($filename)) {
+			return ['message' => _('Backup file not found or invalid path'), 'status' => false];
+		}
+		
 		$txnId = $this->freepbx->api->addTransaction("Processing","restore","perform-restore");
 		$res = \FreePBX::Sysadmin()->ApiHooks()->runModuleSystemHook('backup','perform-restore',array($filename,$txnId));
 		if($res){

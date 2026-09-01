@@ -13,11 +13,17 @@ use function FreePBX\modules\Backup\Json\json_decode;
 use function FreePBX\modules\Backup\Json\json_encode;
 use FreePBX\modules\Backup\Models\BackupSplFileInfo;
 use Symfony\Component\Console\Question\ChoiceQuestion;
-#[\AllowDynamicProperties]
+
 class Backup extends Command {
 	use LockableTrait;
 
-	protected function configure(){
+	private $freepbx;
+	private $Backup;
+	private $tmpDir;
+	private $output;
+	private $input;
+
+	protected function configure(): void{
 		$this->setName('backup')
 		->setAliases(array('bu'))
 		->setDescription(_('Run backup and restore jobs'))
@@ -62,7 +68,7 @@ class Backup extends Command {
 		.'Run a single module backup: fwconsole backup --restoresingle [filename]'.PHP_EOL
 		);
 	}
-	protected function execute(InputInterface $input, OutputInterface $output){
+	protected function execute(InputInterface $input, OutputInterface $output): int{
 		$this->freepbx = \FreePBX::Create();
 		$this->Backup = $this->freepbx->Backup;
 		$this->tmpDir = $this->freepbx->Config->get("ASTSPOOLDIR").'/tmp';
@@ -126,7 +132,7 @@ class Backup extends Command {
 		if($input->getOption('implemented')){
 			$backupHandler = new Handler\Backup($this->freepbx);
 			$output->writeln(json_encode($backupHandler->getModules()));
-			return;
+			return 0;
 		}
 
 		if($transaction) {

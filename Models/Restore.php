@@ -8,6 +8,7 @@ use Exception;
 use FreePBX\modules\Backup\Handlers\FreePBXModule;
 abstract class Restore extends ModelBase {
 	protected $moduleHandler;
+	protected $tmpdir;
 
 	/**
 	 * Constructor, do not allow overridding this

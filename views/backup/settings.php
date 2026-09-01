@@ -200,6 +200,10 @@
 	flex-wrap: nowrap;
 	gap: 5px;
 	padding-top: 7px;
+	padding-right: 15px;
+}
+#addPublicKeyModal .element-container .form-group .col-sm-9 {
+	padding-left: 15px;
 }
 #addPublicKeyModal .element-container .form-group .col-sm-3 .control-label {
 	float: none;

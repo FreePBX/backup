@@ -7,6 +7,8 @@
         ]
     },
     "require": {
-        "euautomation/graphql-client": "0.3.0"
+        "euautomation/graphql-client": "0.3.0",
+        "guzzlehttp/guzzle": "8.0.2 as 6.5.8",
+        "guzzlehttp/promises": "3.0.1"
     }
 }

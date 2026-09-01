@@ -32,6 +32,11 @@ class Backup {
 	 * @param var
 	 */
 	public $t;
+	private $amp_conf;
+	private $db;
+	private $cdrdb;
+	private $lock_file;
+	private $lock;
 
 	function __construct(/**
   * Holds settings for this backup

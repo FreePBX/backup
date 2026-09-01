@@ -9,7 +9,6 @@ use FreePBX\modules\Backup\Handlers as Handlers;
 use splitbrain\PHPArchive\Tar;
 use function FreePBX\modules\Backup\Json\json_decode;
 use function FreePBX\modules\Backup\Json\json_encode;
-#[\AllowDynamicProperties]
 class Multiple extends Common {
 	private $restoreModules;
 

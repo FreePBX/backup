@@ -20,6 +20,7 @@ use Swift_Message;
 class Swift extends MailHandler {
 	private $mailer;
 	private $messageTemplate;
+	private $backupInfo;
 
 	/**
 	 * @param \Swift_Mailer		$mailer  The mailer to use
@@ -37,7 +38,7 @@ class Swift extends MailHandler {
 	/**
 	 * {@inheritdoc}
 	 */
-	protected function send($content, array $records): void {
+	protected function send(string $content, array $records): void {
 		$location = \FreePBX::Config()->get('ASTLOGDIR');
 		$errors = false;
 		foreach ($records as $record) {

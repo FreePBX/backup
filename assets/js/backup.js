@@ -286,7 +286,7 @@ $("#localrestorefiles").on("post-body.bs.table", function () {
 
 
 async function handlelocalrestorefiles(id,type,filepath='',skip = null) {
-	$('#sipmodal').modal('show');
+	bootstrap.Modal.getOrCreateInstance($('#sipmodal')[0]).show();
 	if(type == 'local' || type == 'remote') {
 		$.ajax({
 			url: FreePBX.ajaxurl,
@@ -364,12 +364,12 @@ function waitForModalButtons(modalId, firstButtonId, cancelButtonId, okbtnId) {
 		// Attach click event to the first button
 		$(firstButtonId).on('click', function() {
 			$('#convertchansip').val('convertall');
-			$('#sipmodal').modal('hide');
+			bootstrap.Modal.getOrCreateInstance($('#sipmodal')[0]).hide();
 			resolve('convertbtn');  // Resolve the promise
 		});
 
 		$(okbtnId).on('click', function() {
-			$('#sipmodal').modal('hide');
+			bootstrap.Modal.getOrCreateInstance($('#sipmodal')[0]).hide();
 			resolve('okbtn');  // Resolve the promise
 		});
 
@@ -400,6 +400,8 @@ if ($("#backup_storage").length) {
 		.done(
 			function (data) {
 				$('#backup_storage').multiselect('dataprovider', data);
+				// Rebuild after enable; options inherit :disabled from the empty select.
+				$('#backup_storage').multiselect('rebuild');
 			}
 		)
 		.fail(
@@ -418,7 +420,7 @@ $('#itemsSave').on('click', function (e) {
 	$('#backupmodules').bootstrapTable('resetSearch');
 	$('#backup_modules').text(_("Modules ("+$('#backupmodules').bootstrapTable('getSelections').length+')'))
 
-	$("#itemsModal").modal('hide');
+	bootstrap.Modal.getOrCreateInstance($("#itemsModal")[0]).hide();
 });
 $('#itemsModal').on('show.bs.modal', function (e) {
 	$("#itemsModal .modal-body").css("height",(window.innerHeight-200)+"px")
@@ -513,18 +515,20 @@ function runBackup(id,title) {
 }
 
 function showStatusModal(title) {
-	//keep the modal on top. disable hiding when clicking the background or the ESC key
-	$("#runModal").modal({
-		backdrop: 'static',	
-		keyboard: false	
-	});
+	var runModalEl = document.getElementById('runModal');
+	if (!runModalEl) {
+		return;
+	}
+	bootstrap.Modal.getOrCreateInstance(runModalEl, {
+		backdrop: 'static',
+		keyboard: false
+	}).show();
 
-	$("#runModal .close").prop("disabled",true);
-	$("#runModal .btn-close").prop("disabled",true);
+	$("#runModal [data-bs-dismiss='modal']").prop("disabled",true);
 	$("#runModal .modal-title").text(title);
 	$("#runModal .modal-body").css("height",(window.innerHeight-200)+"px")
 	$("#runModal .modal-body").css("overflow-y","auto")
-	$("#runModal .modal-body").html("<pre>"+_("Loading Please Wait")+"</pre>");
+	$("#runModal .modal-body").empty().append($("<pre></pre>").text(_("Loading Please Wait")));
 }
 
 function toggle_warmspare() {
@@ -576,8 +580,7 @@ function getStatus(type, id, transaction, pid) {
 		$("#runModal .modal-body pre").append('NETWORK ERROR...see console log for more details');
 		if(reconnects > maxReconnects) {
 			$("#runModal .modal-body").animate({scrollTop:$(".modal-body")[0].scrollHeight}, 1000);
-			$("#runModal .close").prop("disabled",false);
-			$("#runModal .btn-close").prop("disabled",false);
+			$("#runModal [data-bs-dismiss='modal']").prop("disabled",false);
 			$("#runModal .modal-body").css("overflow-y","auto")
 		} else {
 			reconnects++;
@@ -592,7 +595,7 @@ function getStatus(type, id, transaction, pid) {
 		reconnects = 0;
 
 		if(data.log.length) {
-			$("#runModal .modal-body").html('<pre>'+data.log+'</pre>');
+			$("#runModal .modal-body").empty().append($("<pre></pre>").text(data.log));
 		}
 
 		switch(data.status) {
@@ -605,8 +608,8 @@ function getStatus(type, id, transaction, pid) {
 				$("#runModal .modal-body").css("overflow-y","auto");
 			break;
 			case 'running':
+				$("#runModal .modal-body").css("overflow-y", "auto");
 				$("#runModal .modal-body").animate({scrollTop:$("#runModal .modal-body")[0].scrollHeight}, 1000);
-				$("#runModal .modal-body").css("overflow-y", "hidden");
 			break;
 			default:
 			break;
@@ -615,8 +618,7 @@ function getStatus(type, id, transaction, pid) {
 		if(data.status !== 'running') {
 			$("#runModal .modal-body").animate({scrollTop:$("#runModal .modal-body")[0].scrollHeight}, 1000);
 			source.close();
-			$("#runModal .close").prop("disabled",false);
-			$("#runModal .btn-close").prop("disabled",false);
+			$("#runModal [data-bs-dismiss='modal']").prop("disabled",false);
 			$("#runModal .modal-body").css("overflow-y","auto");
 		}
 	}, false);
@@ -891,7 +893,7 @@ $('#pkModalSave').on('click', function() {
 				data.publickeyAsteriskUser || authorizedLine,
 				data.restrictionsSummary || summarizePkRestrictions(sshOptions)
 			);
-			$('#addPublicKeyModal').modal('hide');
+			bootstrap.Modal.getOrCreateInstance($('#addPublicKeyModal')[0]).hide();
 			fpbxToast(_('Public key saved successfully'));
 		} else {
 			fpbxToast(data.message, _('Error'), 'error');

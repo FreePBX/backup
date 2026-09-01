@@ -16,6 +16,7 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 abstract class Common extends \FreePBX\modules\Backup\Handlers\CommonFile {
 	protected $tar;
 	protected $filename;
+	protected $filePath;
 	protected $defaultFallback = false;
 
 	public function __construct($freepbx, $filePath, $transactionId, $pid){

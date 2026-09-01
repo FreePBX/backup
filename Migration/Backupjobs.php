@@ -5,6 +5,8 @@ class Backupjobs extends Common{
 	public $backupJobs = [];
 	public $moduleData = [];
 	private $storageMapping = [];
+	private $servers;
+	private $moduleXML = false;
 
 	public function __construct($freepbx = ''){
 		$this->freepbx = $freepbx;
@@ -293,7 +295,7 @@ class Backupjobs extends Common{
 	}
 
 	public function loadModuleXML($module){
-		if($this->ModuleXML){
+		if($this->moduleXML){
 			return $this;
 		}
 		$dir = $this->freepbx->Config->get('AMPWEBROOT') . '/admin/modules/' . $module;

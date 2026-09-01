@@ -4,7 +4,6 @@ namespace FreePBX\modules\Backup\Models;
 /**
  * Extends \SplFileInfo to support backup paths
  */
-#[\AllowDynamicProperties]
 class SplFileInfo extends \SplFileInfo {
 	private $type;
 	private $pathTo;

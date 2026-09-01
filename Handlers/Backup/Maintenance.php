@@ -8,8 +8,8 @@ use Carbon\Carbon;
 use FreePBX\modules\Backup\Handlers as Handler;
 
 class Maintenance extends \FreePBX\modules\Backup\Handlers\CommonBase {
+	private $id;
 	private $dryrun = false;
-	private $backupInfo;
 	private $remoteStorage;
 	private readonly array|string $name;
 	private $spooldir;

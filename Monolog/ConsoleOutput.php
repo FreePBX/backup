@@ -3,6 +3,7 @@
 namespace FreePBX\modules\Backup\Monolog;
 use Monolog\Handler\AbstractProcessingHandler;
 use Monolog\Logger;
+use Monolog\LogRecord;
 use Symfony\Component\Console\Output\ConsoleOutput as SymfonyConsoleOutput;
 
 class ConsoleOutput extends AbstractProcessingHandler {
@@ -29,7 +30,7 @@ class ConsoleOutput extends AbstractProcessingHandler {
 		return $this->output;
 	}
 
-	protected function write(array $record): void  {
+	protected function write(LogRecord $record): void  {
 		$output = $this->getOutput();
 		switch($record['level']) {
 			case Logger::EMERGENCY:

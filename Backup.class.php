@@ -25,7 +25,7 @@ use function FreePBX\modules\Backup\Json\json_decode;
 use function FreePBX\modules\Backup\Json\json_encode;
 include __DIR__.'/vendor/autoload.php';
 require_once __DIR__.'/functions.inc/ssh_restrict.php';
-#[\AllowDynamicProperties]
+
 class Backup extends FreePBX_Helpers implements BMO {
 	public $swiftmsg = false;
 	public $backupHandler  = null;
@@ -74,7 +74,18 @@ class Backup extends FreePBX_Helpers implements BMO {
 		'core_disabletrunks'
 	];
 	public $loggingHooks = null;
+	public $output = null;
 
+	protected $freepbx;
+	protected $db;
+	private $serverName;
+	private $fs;
+	private $mf;
+	private $preBackup;
+	private $postBackup;
+	private $preRestore;
+	private $postRestore;
+	private $homeDir;
 	private ?array $validModulesCache = null;
 
 
@@ -84,23 +95,9 @@ class Backup extends FreePBX_Helpers implements BMO {
 		}
 		$this->freepbx = $freepbx;
 		$this->db = $freepbx->Database;
-	}
-
-	public function __get($var) {
-		switch($var) {
-			case 'serverName':
-				$this->serverName = $this->freepbx->Config->get('FREEPBX_SYSTEM_IDENT');
-				return $this->serverName;
-			break;
-			case 'fs':
-				$this->fs = new Filesystem;
-				return $this->fs;
-			break;
-			case 'mf':
-				$this->mf = \module_functions::create();
-				return $this->mf;
-			break;
-		}
+		$this->fs = new Filesystem();
+		$this->mf = \module_functions::create();
+		$this->serverName = $this->freepbx->Config->get('FREEPBX_SYSTEM_IDENT');
 	}
 	/* Generate ecdsa key */
 	public function generatekey($delete =false) {

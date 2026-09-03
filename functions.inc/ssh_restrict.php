@@ -13,6 +13,25 @@ class SshRestrict {
 		return $path;
 	}
 
+	/** mkdir/ls/rm/cd only under backup-related trees. */
+	private static function assertBackupFsPath(string $path): string {
+		$path = self::assertPath($path);
+		$allowed = [
+			'/var/spool/asterisk/backup',
+			'/var/spool/asterisk/tmp',
+			'/var/spool/asterisk/adv_recovery',
+			'/var/lib/freepbx-sftp/backup',
+			'/backup',
+			'/home/asterisk/adv_recovery',
+		];
+		foreach ($allowed as $prefix) {
+			if ($path === $prefix || strpos($path, $prefix . '/') === 0) {
+				return $path;
+			}
+		}
+		throw new \InvalidArgumentException('Path is outside allowed backup directories for restricted SSH command');
+	}
+
 	private static function assertId(string $id): string {
 		if ($id === '' || !preg_match('/^[a-zA-Z0-9_.-]+$/', $id)) {
 			throw new \InvalidArgumentException('Invalid id for restricted SSH command');
@@ -28,7 +47,7 @@ class SshRestrict {
 	}
 
 	public static function mkdir(string $path): string {
-		return 'RESTRICT-MKDIR-001 ' . self::assertPath($path);
+		return 'RESTRICT-MKDIR-001 ' . self::assertBackupFsPath($path);
 	}
 
 	public static function asteriskStart(): string {
@@ -129,15 +148,15 @@ class SshRestrict {
 	}
 
 	public static function ls(string $path): string {
-		return 'RESTRICT-LS-001 ' . self::assertPath($path);
+		return 'RESTRICT-LS-001 ' . self::assertBackupFsPath($path);
 	}
 
 	public static function rm(string $path): string {
-		return 'RESTRICT-RM-001 ' . self::assertPath($path);
+		return 'RESTRICT-RM-001 ' . self::assertBackupFsPath($path);
 	}
 
 	public static function cd(string $path): string {
-		return 'RESTRICT-CD-001 ' . self::assertPath($path);
+		return 'RESTRICT-CD-001 ' . self::assertBackupFsPath($path);
 	}
 
 	/**
@@ -168,7 +187,7 @@ class SshRestrict {
 
 		switch ($prefix) {
 			case 'RESTRICT-MKDIR-001':
-				return 'mkdir -p -- ' . self::assertPath($args);
+				return 'mkdir -p -- ' . self::assertBackupFsPath($args);
 			case 'RESTRICT-ASTERISK-001':
 				return '/usr/sbin/asterisk';
 			case 'RESTRICT-ASTERISK-002':
@@ -246,11 +265,11 @@ class SshRestrict {
 			case 'RESTRICT-TOUCH-005':
 				return 'touch ' . $incronDir . '/adv_recovery.fwconsole-stop';
 			case 'RESTRICT-LS-001':
-				return 'ls -1 -- ' . self::assertPath($args);
+				return 'ls -1 -- ' . self::assertBackupFsPath($args);
 			case 'RESTRICT-RM-001':
-				return 'rm -- ' . self::assertPath($args);
+				return 'rm -- ' . self::assertBackupFsPath($args);
 			case 'RESTRICT-CD-001':
-				return 'cd -- ' . self::assertPath($args);
+				return 'cd -- ' . self::assertBackupFsPath($args);
 			default:
 				throw new \InvalidArgumentException('Unsupported restricted SSH command: ' . $prefix);
 		}

@@ -1,0 +1,92 @@
+#!/usr/bin/php -q
+<?php
+/**
+ * Sync staging authorized_keys (written by asterisk/PHP) into freepbx-sftp home.
+ * Runs as root via sysadmin/incron.
+ *
+ * Optional argv[1]: base64+gz JSON with key "staging" absolute path. Default staging path
+ * is derived from asterisk home.
+ */
+
+require '/usr/lib/sysadmin/includes.php';
+
+$user = 'freepbx-sftp';
+$destDir = '/var/lib/freepbx-sftp/home/.ssh';
+$dest = $destDir . '/authorized_keys';
+
+$staging = '';
+if (isset($argv[1]) && $argv[1] !== '') {
+	$b = str_replace('_', '/', $argv[1]);
+	$settings = @json_decode(@gzuncompress(@base64_decode($b)), true);
+	if (is_array($settings) && !empty($settings['staging'])) {
+		$staging = (string) $settings['staging'];
+	}
+}
+
+if ($staging === '') {
+	$asterisk = posix_getpwnam('asterisk');
+	$home = is_array($asterisk) && !empty($asterisk['dir']) ? $asterisk['dir'] : '/home/asterisk';
+	$staging = rtrim($home, '/') . '/.ssh/freepbx-sftp.authorized_keys';
+}
+
+if (!is_readable($staging)) {
+	fwrite(STDERR, "Staging authorized_keys not readable: $staging\n");
+	exit(1);
+}
+
+if (posix_getpwnam($user) === false) {
+	fwrite(STDERR, "User $user does not exist; run install-freepbx-sftp first\n");
+	exit(1);
+}
+
+if (!is_dir($destDir) && !mkdir($destDir, 0700, true)) {
+	fwrite(STDERR, "Failed to create $destDir\n");
+	exit(1);
+}
+
+$content = file_get_contents($staging);
+if ($content === false) {
+	fwrite(STDERR, "Failed to read staging file\n");
+	exit(1);
+}
+
+// Normalize to one key per non-empty line.
+$lines = preg_split("/\r\n|\n|\r/", $content);
+$clean = [];
+foreach ($lines as $line) {
+	$line = trim($line);
+	if ($line === '' || strpos($line, '#') === 0) {
+		continue;
+	}
+	if (preg_match('/[\r\n]/', $line)) {
+		continue;
+	}
+	$clean[] = $line;
+}
+$payload = $clean ? (implode("\n", $clean) . "\n") : '';
+
+if (file_put_contents($dest, $payload) === false) {
+	fwrite(STDERR, "Failed to write $dest\n");
+	exit(1);
+}
+
+chown($destDir, $user);
+chgrp($destDir, 'asterisk');
+// 0750: asterisk (group) can traverse to verify sync; not group-writable (sshd StrictModes).
+chmod($destDir, 0750);
+chown($dest, $user);
+chgrp($dest, 'asterisk');
+// 0640: asterisk can read for sync verification; not group-writable.
+chmod($dest, 0640);
+
+// Stamp asterisk can always read, so UI sync checks work even if dest perms differ.
+$stamp = $staging . '.synced';
+file_put_contents($stamp, hash('sha256', $payload) . "\n");
+$asteriskPw = posix_getpwnam('asterisk');
+if (is_array($asteriskPw)) {
+	@chown($stamp, (int) $asteriskPw['uid']);
+	@chgrp($stamp, (int) $asteriskPw['gid']);
+}
+@chmod($stamp, 0640);
+
+exit(0);

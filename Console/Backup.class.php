@@ -293,8 +293,8 @@ class Backup extends Command {
 						$output->writeln("Restorestatus :".$resp['msg']);
 					}
 				}
-				$this->freepbx->Backup->delConfig($buid,"runningBackupJobs");
 				$this->freepbx->Backup->setConfig($transactionid,["buid" => $buid, "status"=>"FINISHED","backupstatus"=>$bkstatus,"backupfile"=>$backupHandler->getFile()],"runningBackupstatus");
+				$this->freepbx->Backup->delConfig($buid,"runningBackupJobs");
 				return 0;
 			break;
 			case $filestore:

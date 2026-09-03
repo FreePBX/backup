@@ -645,6 +645,7 @@ class Backup extends FreePBX_Helpers implements BMO {
 						return $res;
 					}
 					$this->removePublicKey($keyToRemove);
+					$this->removeSftpPublicKey($keyToRemove);
 					$res['status'] = true;
 					return $res;
 				} catch (\Exception $e) {
@@ -661,6 +662,12 @@ class Backup extends FreePBX_Helpers implements BMO {
 					$authorizedLine = trim($_POST['publickeyAsteriskUser'] ?? '');
 					$barePublicKey = trim($_POST['publickey'] ?? '');
 					$servername = trim($_POST['servername'] ?? '');
+					$enableSftp = !empty($_POST['enableSftp']) && (
+						$_POST['enableSftp'] === true
+						|| $_POST['enableSftp'] === 1
+						|| $_POST['enableSftp'] === '1'
+						|| $_POST['enableSftp'] === 'true'
+					);
 					$sshOptions = [];
 					if (!empty($_POST['sshOptions'])) {
 						$decoded = json_decode((string) $_POST['sshOptions'], true);
@@ -681,6 +688,16 @@ class Backup extends FreePBX_Helpers implements BMO {
 						$res['message'] = _('From is required (IP, hostname, or comma-separated list)');
 						return $res;
 					}
+					if ($enableSftp && !$this->isFreepbxSftpReady()) {
+						$res['status'] = false;
+						$res['message'] = _('SFTP user (freepbx-sftp) is not available. Install/upgrade Backup with sysadmin present, or uncheck Enable SFTP.');
+						return $res;
+					}
+					if ($enableSftp && $this->filestoreHasFreepbxSftpUser()) {
+						$res['status'] = false;
+						$res['message'] = _('An SSH Filestore location already uses the freepbx-sftp user. Remove or change that Filestore entry before adding another SFTP-enabled public key.');
+						return $res;
+					}
 					$barePublicKey = $this->stripSshKeyComment($barePublicKey);
 					$sshOptions = $this->sanitizeSshOptions($sshOptions);
 					$authorizedLine = $this->buildAuthorizedKeysLine($barePublicKey, $sshOptions, $servername);
@@ -695,10 +712,26 @@ class Backup extends FreePBX_Helpers implements BMO {
 						return $res;
 					}
 
+					$sftpEnabled = false;
+					if ($enableSftp) {
+						$sftpLine = $this->buildSftpAuthorizedKeysLine($barePublicKey, $sshOptions, $servername);
+						if (!$this->appendSftpPublicKey($sftpLine)) {
+							// Roll back Role A key if Role B failed.
+							$this->removePublicKey($authorizedLine);
+							$res['status'] = false;
+							$res['message'] = _('Failed to add public key for freepbx-sftp (SFTP)');
+							return $res;
+						}
+						$sftpEnabled = true;
+					}
+
 					$res['status'] = true;
 					$res['message'] = 'Public key saved successfully';
 					$res['restrictionsSummary'] = $this->summarizeSshOptions($sshOptions);
 					$res['publickeyAsteriskUser'] = $authorizedLine;
+					$res['sftpEnabled'] = $sftpEnabled;
+					$res['sftpUser'] = $this->getFreepbxSftpUser();
+					$res['sftpPath'] = $this->getFreepbxSftpClientPath();
 					return $res;
 				} catch (\Exception $e) {
 					$res['status'] = false;
@@ -780,11 +813,29 @@ class Backup extends FreePBX_Helpers implements BMO {
 						$backupModule->forgetConfigCache($job, 'runningBackupstatus');
 						$backupStatus = $freepbx->Backup->getConfig($job, 'runningBackupstatus');
 						$jobPhase = $backupStatus['status'] ?? '';
+						// FREEI-3019 / warmspare: keep UI in "running" only while the backup
+						// process is still alive. If the process exited, fall through so Close
+						// can unlock even if FINISHED was delayed or missed.
 						if ($jobPhase === 'WARMSPARE_RESTORE') {
+							$warmPid = $resolveActivePid($pid, $type, $job, $buid);
 							$log = file_exists($outFile) ? file_get_contents($outFile) : '';
-							return json_encode(['status' => 'running', 'log' => $log]);
+							if ($warmPid > 0) {
+								return json_encode(['status' => 'running', 'log' => $log]);
+							}
+							$backupModule->forgetConfigCache($job, 'runningBackupstatus');
+							$backupStatus = $freepbx->Backup->getConfig($job, 'runningBackupstatus');
+							$jobPhase = $backupStatus['status'] ?? '';
 						}
 						if (!empty($backupStatus['status']) && $backupStatus['status'] === 'FINISHED') {
+							$log = file_exists($outFile) ? file_get_contents($outFile) : '';
+							@unlink($outFile);
+							@unlink($errorFile);
+							$finished = true;
+							return json_encode(['status' => 'stopped', 'log' => $log]);
+						}
+						// Warmspare restore finished writing but FINISHED marker missing and
+						// process already gone - unlock the modal with current log.
+						if ($jobPhase === 'WARMSPARE_RESTORE') {
 							$log = file_exists($outFile) ? file_get_contents($outFile) : '';
 							@unlink($outFile);
 							@unlink($errorFile);
@@ -915,6 +966,11 @@ public function GraphQL_Access_token($request) {
 		$user = $filestore['user'];
 		$host = $filestore['host'];
 		$sparefilepath = $filestore['path'];
+		// FREEI-3019: Filestore uploads use freepbx-sftp (Role B / SFTP-only).
+		// Warmspare restore must exec RESTRICT-* / fwconsole as asterisk (Role A).
+		if ($user === $this->getFreepbxSftpUser()) {
+			$user = 'asterisk';
+		}
 		$sparefilepath = rtrim((string) $sparefilepath,'/');
 		if ($item['backup_addbjname'] == 'yes') {
 			$foldername = $item['backup_name'];
@@ -1076,6 +1132,10 @@ public function GraphQL_Access_token($request) {
 				$vars['publickey'] = $data;
 				$vars['publickeyAsteriskUser'] = $this->readPublicKeysFromAuthorizedKeys();
 				$vars['sshCommandRestrictionEnabled'] = $this->isSshCommandRestrictionEnabled();
+				$vars['freepbxSftpReady'] = $this->isFreepbxSftpReady();
+				$vars['freepbxSftpUser'] = $this->getFreepbxSftpUser();
+				$vars['freepbxSftpPath'] = $this->getFreepbxSftpClientPath();
+				$vars['freepbxSftpInstallError'] = $this->getFreepbxSftpInstallError();
 				return load_view(__DIR__.'/views/backup/settings.php',$vars);
 			break;
 			case 'backup':
@@ -1861,8 +1921,7 @@ public function GraphQL_Access_token($request) {
 	}
 
 	private function getSshFixedOptionKeys(): array {
-		// Do not force pty: it breaks SFTP (filestore uploads) while still allowing
-		// clients to request a TTY for restricted exec sessions (e.g. warm spare restore).
+		// Do not force pty. Role A no longer allows SFTP (FREEI-3019); SFTP uses freepbx-sftp.
 		return ['restrict'];
 	}
 
@@ -1979,6 +2038,9 @@ public function GraphQL_Access_token($request) {
 		if ($user === 'asterisk') {
 			return rtrim($this->getAsteriskUserHomeDir(), '/') . '/.ssh/authorized_keys';
 		}
+		if ($user === $this->getFreepbxSftpUser()) {
+			return $this->getFreepbxSftpChroot() . '/home/.ssh/authorized_keys';
+		}
 		return '/home/' . $user . '/.ssh/authorized_keys';
 	}
 
@@ -2080,6 +2142,7 @@ public function GraphQL_Access_token($request) {
 		if (!is_array($lines)) {
 			return [];
 		}
+		$sftpBlobs = $this->getSftpAuthorizedKeyBlobs();
 		$entries = [];
 		foreach ($lines as $line) {
 			$line = trim((string) $line);
@@ -2091,12 +2154,14 @@ public function GraphQL_Access_token($request) {
 				continue;
 			}
 			$sshOptions = $this->parseSshOptionsFromAuthorizedLine($line);
+			$blob = $this->getSshKeyBlob($bareKey);
 			$entries[] = [
 				'servername' => $this->deriveServerName($line, $sshOptions),
 				'publickey' => $this->stripSshKeyComment($bareKey),
 				'publickeyAsteriskUser' => $line,
 				'sshOptions' => $sshOptions,
 				'restrictionsSummary' => $this->summarizeAuthorizedKeysLine($line),
+				'sftpEnabled' => ($blob !== '' && isset($sftpBlobs[$blob])),
 			];
 		}
 		return $entries;
@@ -2262,6 +2327,282 @@ public function GraphQL_Access_token($request) {
 			return trim($line) !== $publicKey && trim($line) !== '';
 		}));
 		file_put_contents($filePath, implode(PHP_EOL, $updated) . (count($updated) ? PHP_EOL : ''));
+	}
+
+	public function getFreepbxSftpUser(): string {
+		return 'freepbx-sftp';
+	}
+
+	public function getFreepbxSftpChroot(): string {
+		return '/var/lib/freepbx-sftp';
+	}
+
+	/** Path Filestore SSH clients should use (relative to chroot). */
+	public function getFreepbxSftpClientPath(): string {
+		return '/backup';
+	}
+
+	public function getFreepbxSftpHostPath(): string {
+		return $this->getFreepbxSftpChroot() . '/backup';
+	}
+
+	public function isFreepbxSftpReady(): bool {
+		if (!$this->isSshCommandRestrictionEnabled()) {
+			return false;
+		}
+		// FREEI-3019 / Chris Maj: foreign pre-existing freepbx-sftp leaves an error
+		// flag and SFTP must stay disabled until the account is renamed and Backup reinstalled.
+		$errFlag = '/var/spool/asterisk/tmp/freepbx-sftp-install.err';
+		if (is_readable($errFlag) && trim((string) @file_get_contents($errFlag)) !== '') {
+			return false;
+		}
+		$user = $this->getFreepbxSftpUser();
+		$dropIn = '/etc/ssh/sshd_config.d/sangoma-freepbx-sftp.conf';
+		$managed = $this->getFreepbxSftpChroot() . '/.freepbx-managed';
+		if (posix_getpwnam($user) === false
+			|| !is_dir($this->getFreepbxSftpChroot())
+			|| !is_dir($this->getFreepbxSftpHostPath())
+			|| !is_file($dropIn)) {
+			return false;
+		}
+		if (is_file($managed)) {
+			return true;
+		}
+		$conf = (string) @file_get_contents($dropIn);
+		return $conf !== '' && strpos($conf, 'Managed by FreePBX backup module') !== false;
+	}
+
+	/**
+	 * True when any Filestore SSH location is configured with the freepbx-sftp username.
+	 */
+	public function filestoreHasFreepbxSftpUser(): bool {
+		$sftpUser = $this->getFreepbxSftpUser();
+		try {
+			// Do not use isset($this->freepbx->Filestore): FreePBX magic __get makes isset false.
+			if (!$this->freepbx->Modules->checkStatus('filestore')) {
+				return false;
+			}
+			$filestore = $this->freepbx->Filestore;
+			if (!is_object($filestore)) {
+				return false;
+			}
+			$items = $filestore->listItems('SSH', true);
+		} catch (\Throwable $e) {
+			return false;
+		}
+		if (!is_array($items)) {
+			return false;
+		}
+		foreach ($items as $item) {
+			$id = $item['id'] ?? '';
+			if ($id === '') {
+				continue;
+			}
+			try {
+				$full = $filestore->getItemById($id);
+			} catch (\Throwable $e) {
+				continue;
+			}
+			$user = isset($full['user']) ? trim((string) $full['user']) : '';
+			if ($user !== '' && $user === $sftpUser) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/** Human-readable install failure (e.g. pre-existing foreign freepbx-sftp account). */
+	public function getFreepbxSftpInstallError(): string {
+		$errFlag = '/var/spool/asterisk/tmp/freepbx-sftp-install.err';
+		if (!is_readable($errFlag)) {
+			return '';
+		}
+		return trim((string) @file_get_contents($errFlag));
+	}
+
+	public function getSftpStagingAuthorizedKeysPath(): string {
+		return rtrim($this->getAsteriskUserHomeDir(), '/') . '/.ssh/freepbx-sftp.authorized_keys';
+	}
+
+	public function buildSftpAuthorizedKeysLine(string $publicKey, array $sshOptions = [], string $comment = ''): string {
+		$publicKey = trim($this->stripSshKeyComment($publicKey));
+		$parts = [];
+		if (!empty($sshOptions['from'])) {
+			$parts[] = 'from="' . $this->escapeSshOptionValue((string) $sshOptions['from']) . '"';
+		}
+		$line = $parts ? implode(',', $parts) . ' ' . $publicKey : $publicKey;
+		$comment = trim($comment);
+		if ($comment !== '') {
+			$line .= ' ' . $comment;
+		}
+		return $line;
+	}
+
+	private function getSftpAuthorizedKeyBlobs(): array {
+		$path = $this->getSftpStagingAuthorizedKeysPath();
+		if (!is_readable($path)) {
+			return [];
+		}
+		$lines = file($path, FILE_IGNORE_NEW_LINES);
+		if (!is_array($lines)) {
+			return [];
+		}
+		$blobs = [];
+		foreach ($lines as $line) {
+			$line = trim((string) $line);
+			if ($line === '' || strpos($line, '#') === 0) {
+				continue;
+			}
+			$blob = $this->getSshKeyBlob($this->extractBarePublicKey($line));
+			if ($blob !== '') {
+				$blobs[$blob] = true;
+			}
+		}
+		return $blobs;
+	}
+
+	private function readSftpStagingLines(): array {
+		$path = $this->getSftpStagingAuthorizedKeysPath();
+		if (!is_readable($path)) {
+			return [];
+		}
+		$lines = file($path, FILE_IGNORE_NEW_LINES);
+		if (!is_array($lines)) {
+			return [];
+		}
+		$out = [];
+		foreach ($lines as $line) {
+			$line = trim((string) $line);
+			if ($line === '' || strpos($line, '#') === 0) {
+				continue;
+			}
+			$out[] = $line;
+		}
+		return $out;
+	}
+
+	private function writeSftpStagingLines(array $lines): bool {
+		$path = $this->getSftpStagingAuthorizedKeysPath();
+		$dir = dirname($path);
+		if (!is_dir($dir) && !@mkdir($dir, 0700, true) && !is_dir($dir)) {
+			return false;
+		}
+		$payload = '';
+		foreach ($lines as $line) {
+			$line = trim((string) $line);
+			if ($line === '') {
+				continue;
+			}
+			$payload .= $line . PHP_EOL;
+		}
+		if (file_put_contents($path, $payload) === false) {
+			return false;
+		}
+		@chmod($path, 0600);
+		return $this->syncSftpAuthorizedKeys();
+	}
+
+	/** True when freepbx-sftp authorized_keys already matches the asterisk-managed staging file. */
+	private function sftpAuthorizedKeysInSync(): bool {
+		$staging = $this->getSftpStagingAuthorizedKeysPath();
+		if (!is_readable($staging)) {
+			return false;
+		}
+		$a = @file_get_contents($staging);
+		if ($a === false) {
+			return false;
+		}
+		$expected = hash('sha256', trim((string) $a) === '' ? '' : (trim((string) $a) . "\n"));
+		// Prefer stamp written by root sync hook (always readable by asterisk).
+		$stamp = $staging . '.synced';
+		if (is_readable($stamp)) {
+			$got = trim((string) @file_get_contents($stamp));
+			if ($got !== '' && hash_equals($expected, $got)) {
+				return true;
+			}
+		}
+		$dest = $this->getFreepbxSftpChroot() . '/home/.ssh/authorized_keys';
+		if (!is_readable($dest)) {
+			return trim((string) $a) === '' && (!is_readable($stamp) || trim((string) @file_get_contents($stamp)) === hash('sha256', ''));
+		}
+		$b = @file_get_contents($dest);
+		if ($b === false) {
+			return false;
+		}
+		return trim((string) $a) === trim((string) $b);
+	}
+
+	private function syncSftpAuthorizedKeys(): bool {
+		// Already applied (common when a previous save synced but UI failed the hook race).
+		if ($this->sftpAuthorizedKeysInSync()) {
+			return true;
+		}
+		if (!file_exists('/etc/incron.d/sysadmin') || !is_dir('/var/spool/asterisk/incron')) {
+			return false;
+		}
+
+		// Trigger root sync. Hooks::runModuleSystemHook only waits ~0.5s for pickup and
+		// often returns false even when incron eventually runs — so we always poll below.
+		try {
+			\FreePBX::Hooks()->runModuleSystemHook('backup', 'sync-sftp-authorized-keys', [
+				'staging' => $this->getSftpStagingAuthorizedKeysPath(),
+			]);
+		} catch (\Throwable $e) {
+			// Continue polling; a prior/queued hook may still apply.
+		}
+
+		for ($i = 0; $i < 20; $i++) {
+			if ($this->sftpAuthorizedKeysInSync()) {
+				return true;
+			}
+			usleep(250000);
+		}
+		return $this->sftpAuthorizedKeysInSync();
+	}
+
+	public function appendSftpPublicKey(string $authorizedLine): bool {
+		$authorizedLine = trim($authorizedLine);
+		if ($authorizedLine === '' || preg_match('/[\r\n]/', $authorizedLine)) {
+			return false;
+		}
+		$bareKey = $this->extractBarePublicKey($authorizedLine);
+		if (!preg_match('/^(ssh-rsa|ssh-ed25519|ecdsa)\b/', $bareKey)) {
+			return false;
+		}
+		$blob = $this->getSshKeyBlob($bareKey);
+		$lines = $this->readSftpStagingLines();
+		foreach ($lines as $existing) {
+			if ($this->getSshKeyBlob($this->extractBarePublicKey($existing)) === $blob) {
+				// Key already staged; ensure dest is synced (do not treat as hard failure if synced).
+				return $this->syncSftpAuthorizedKeys();
+			}
+		}
+		$lines[] = $authorizedLine;
+		return $this->writeSftpStagingLines($lines);
+	}
+
+	public function removeSftpPublicKey(string $keyOrLine): void {
+		$keyOrLine = trim($keyOrLine);
+		if ($keyOrLine === '') {
+			return;
+		}
+		$blob = $this->getSshKeyBlob($this->extractBarePublicKey($keyOrLine));
+		if ($blob === '') {
+			return;
+		}
+		$lines = $this->readSftpStagingLines();
+		$updated = [];
+		$changed = false;
+		foreach ($lines as $line) {
+			if ($this->getSshKeyBlob($this->extractBarePublicKey($line)) === $blob) {
+				$changed = true;
+				continue;
+			}
+			$updated[] = $line;
+		}
+		if ($changed || !is_readable($this->getSftpStagingAuthorizedKeysPath())) {
+			$this->writeSftpStagingLines($updated);
+		}
 	}
 
 	public function buildFwconsoleLogFlags(string $outLog, string $errLog): string {

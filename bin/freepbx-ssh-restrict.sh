@@ -1,15 +1,13 @@
 #!/bin/bash
 # Restrict incoming SSH to backup / adv_recovery / warm spare operations only.
 # Remote commands must use a RESTRICT-* prefix agreed with SshRestrict PHP helper.
+#
+# SFTP is intentionally NOT allowed on this ForceCommand path.
+# File transfer must use the dedicated freepbx-sftp user (chrooted internal-sftp).
 
 CMD="${SSH_ORIGINAL_COMMAND:-}"
-SFTP_SERVER="/usr/lib/openssh/sftp-server"
 FWCONSOLE="/usr/sbin/fwconsole"
 INCRON_DIR="/var/spool/asterisk/incron"
-
-if [ ! -x "$SFTP_SERVER" ] && [ -x /usr/lib/sftp-server ]; then
-	SFTP_SERVER="/usr/lib/sftp-server"
-fi
 
 die() {
 	echo "command not allowed" >&2
@@ -30,6 +28,20 @@ validate_path() {
 	return 0
 }
 
+# only allow mkdir/ls/rm/cd under backup-related trees.
+# Include legacy Adv Recovery paths for Old↔Old / transition; New↔New uses /backup.
+is_allowed_fs_path() {
+	case "$1" in
+		/var/spool/asterisk/backup|/var/spool/asterisk/backup/*) return 0 ;;
+		/var/spool/asterisk/tmp|/var/spool/asterisk/tmp/*) return 0 ;;
+		/var/spool/asterisk/adv_recovery|/var/spool/asterisk/adv_recovery/*) return 0 ;;
+		/var/lib/freepbx-sftp/backup|/var/lib/freepbx-sftp/backup/*) return 0 ;;
+		/backup|/backup/*) return 0 ;;
+		/home/asterisk/adv_recovery|/home/asterisk/adv_recovery/*) return 0 ;;
+		*) return 1 ;;
+	esac
+}
+
 validate_id() {
 	case "$1" in
 		""|*[![:alnum:]._-]*)
@@ -48,11 +60,10 @@ validate_base64() {
 	return 0
 }
 
-# SFTP subsystem (filestore backup upload/download). Forced-command keys must not
-# use the pty option or the SFTP binary protocol will fail client-side.
+# Deny SFTP subsystem on Role A (asterisk + freepbx-ssh-restrict.sh).
 case "$CMD" in
-	""|sftp|/usr/lib/openssh/sftp-server|/usr/lib/sftp-server)
-		exec "$SFTP_SERVER"
+	""|sftp|/usr/lib/openssh/sftp-server|/usr/lib/sftp-server|internal-sftp)
+		die
 		;;
 esac
 
@@ -63,6 +74,7 @@ ARGS="${ARGS# }"
 case "$PREFIX" in
 	RESTRICT-MKDIR-001)
 		validate_path "$ARGS" || die
+		is_allowed_fs_path "$ARGS" || die
 		exec /usr/bin/mkdir -p -- "$ARGS"
 		;;
 
@@ -210,16 +222,19 @@ case "$PREFIX" in
 
 	RESTRICT-LS-001)
 		validate_path "$ARGS" || die
+		is_allowed_fs_path "$ARGS" || die
 		exec /usr/bin/ls -1 -- "$ARGS"
 		;;
 
 	RESTRICT-RM-001)
 		validate_path "$ARGS" || die
+		is_allowed_fs_path "$ARGS" || die
 		exec /usr/bin/rm -- "$ARGS"
 		;;
 
 	RESTRICT-CD-001)
 		validate_path "$ARGS" || die
+		is_allowed_fs_path "$ARGS" || die
 		exec /bin/bash -c 'cd -- "$1"' _ "$ARGS"
 		;;
 

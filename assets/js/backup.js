@@ -586,38 +586,55 @@ function getStatus(type, id, transaction, pid) {
 		}
 	};
 	source.addEventListener("new-msgs", function(event){
-		var data = JSON.parse(event.data);
+		var data;
+		try {
+			data = JSON.parse(event.data);
+		} catch (e) {
+			console.warn(e);
+			return;
+		}
 
 		console.log(data);
 		reconnects = 0;
 
-		if(data.log.length) {
+		if(data.log && data.log.length) {
 			$("#runModal .modal-body").html('<pre>'+data.log+'</pre>');
 		}
+
+		var $body = $("#runModal .modal-body");
+		var bodyEl = $body.get(0);
 
 		switch(data.status) {
 			case 'stopped':
 				fpbxToast(sprintf(_('Your %s has finished'),type));
-				$("#runModal .modal-body").css("overflow-y","auto");
+				$body.css("overflow-y","auto");
 			break;
 			case 'errored':
 				fpbxToast(sprintf(_('There was an error during %s'),type),_('Error'),'error');
-				$("#runModal .modal-body").css("overflow-y","auto");
+				$body.css("overflow-y","auto");
 			break;
 			case 'running':
-				$("#runModal .modal-body").animate({scrollTop:$("#runModal .modal-body")[0].scrollHeight}, 1000);
-				$("#runModal .modal-body").css("overflow-y", "hidden");
+				// Keep overflow auto so the scrollbar stays available during long warmspare restores.
+				$body.css("overflow-y", "auto");
+				if (bodyEl) {
+					$body.animate({scrollTop: bodyEl.scrollHeight}, 1000);
+				}
 			break;
 			default:
 			break;
 		}
 
 		if(data.status !== 'running') {
-			$("#runModal .modal-body").animate({scrollTop:$("#runModal .modal-body")[0].scrollHeight}, 1000);
-			source.close();
-			$("#runModal .close").prop("disabled",false);
-			$("#runModal .btn-close").prop("disabled",false);
-			$("#runModal .modal-body").css("overflow-y","auto");
+			try {
+				source.close();
+			} catch (e) {}
+			// Unlock Close even if scroll animation fails.
+			$("#runModal .close").prop("disabled", false).removeAttr("disabled");
+			$("#runModal .btn-close").prop("disabled", false).removeAttr("disabled");
+			$body.css("overflow-y","auto");
+			if (bodyEl) {
+				$body.animate({scrollTop: bodyEl.scrollHeight}, 1000);
+			}
 		}
 	}, false);
 }
@@ -794,6 +811,11 @@ function updatePkAuthorizedPreview() {
 function resetAddPublicKeyModal() {
 	pkFromAutoSync = true;
 	$('#pkServerName, #pkPublicKey, #pkFrom').val('');
+	if (window.PK_FREEPBX_SFTP_READY) {
+		$('#pkEnableSftp').prop('disabled', false).prop('checked', true);
+	} else {
+		$('#pkEnableSftp').prop('disabled', true).prop('checked', false);
+	}
 	updatePkAuthorizedPreview();
 }
 
@@ -829,8 +851,11 @@ $('#pkFrom').on('input', function() {
 
 $('#pkPublicKey').on('input', updatePkAuthorizedPreview);
 
-function appendPublicKeyTableRow(servername, displayKey, authorizedLine, restrictionsSummary) {
-	var $row = $('<tr>').attr('data-authorized-line', authorizedLine);
+function appendPublicKeyTableRow(servername, displayKey, authorizedLine, restrictionsSummary, sftpEnabled) {
+	var sftpOn = !!sftpEnabled;
+	var $row = $('<tr>')
+		.attr('data-authorized-line', authorizedLine)
+		.attr('data-sftp-enabled', sftpOn ? '1' : '0');
 	$row.append($('<td>').append(
 		$('<input>', { type: 'text', name: 'servername[]', class: 'form-control', readonly: true, value: servername })
 	));
@@ -839,6 +864,12 @@ function appendPublicKeyTableRow(servername, displayKey, authorizedLine, restric
 	));
 	$row.append($('<td>', { class: 'pk-restrictions-cell' }).append(
 		$('<span>', { class: 'text-muted', text: restrictionsSummary })
+	));
+	$row.append($('<td>', { class: 'pk-sftp-cell' }).append(
+		$('<span>', {
+			class: sftpOn ? 'text-success' : 'text-muted',
+			text: sftpOn ? _('Enabled') : _('Disabled')
+		})
 	));
 	$row.append($('<td>').append(
 		$('<button>', { type: 'button', class: 'btn btn-danger deleteRow', text: _('Delete') })
@@ -851,6 +882,7 @@ $('#pkModalSave').on('click', function() {
 	var publicKey = $('#pkPublicKey').val().trim();
 	var sshOptions = getPkModalSshOptions();
 	var authorizedLine = buildAuthorizedKeysLine(publicKey, sshOptions);
+	var enableSftp = $('#pkEnableSftp').is(':checked') ? 1 : 0;
 
 	if (!servername) {
 		fpbxToast(_('Server name is required'), _('Error'), 'error');
@@ -871,6 +903,10 @@ $('#pkModalSave').on('click', function() {
 		$('#pkFrom').focus();
 		return;
 	}
+	if (enableSftp && !window.PK_FREEPBX_SFTP_READY) {
+		fpbxToast(_('SFTP user is not available on this system'), _('Error'), 'error');
+		return;
+	}
 
 	if (!confirm(_('Are you sure you want to save this public key?'))) {
 		return;
@@ -882,17 +918,23 @@ $('#pkModalSave').on('click', function() {
 		publickeyAsteriskUser: authorizedLine,
 		publickey: publicKey,
 		servername: servername,
-		sshOptions: JSON.stringify(sshOptions)
+		sshOptions: JSON.stringify(sshOptions),
+		enableSftp: enableSftp
 	}).done(function(data) {
 		if (data.status) {
 			appendPublicKeyTableRow(
 				servername,
 				publicKey,
 				data.publickeyAsteriskUser || authorizedLine,
-				data.restrictionsSummary || summarizePkRestrictions(sshOptions)
+				data.restrictionsSummary || summarizePkRestrictions(sshOptions),
+				!!data.sftpEnabled
 			);
 			$('#addPublicKeyModal').modal('hide');
-			fpbxToast(_('Public key saved successfully'));
+			var msg = _('Public key saved successfully');
+			if (data.sftpEnabled) {
+				msg += ' (' + _('SFTP') + ': ' + (data.sftpUser || 'freepbx-sftp') + ', ' + _('path') + ' ' + (data.sftpPath || '/backup') + ')';
+			}
+			fpbxToast(msg);
 		} else {
 			fpbxToast(data.message, _('Error'), 'error');
 		}

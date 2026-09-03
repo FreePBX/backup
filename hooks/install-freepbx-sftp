@@ -1,0 +1,205 @@
+#!/usr/bin/php -q
+<?php
+/**
+ * Create freepbx-sftp user, chroot layout, and sshd Match block.
+ * Runs as root via sysadmin/incron (same pattern as install-ssh-restrict).
+ *
+ * Pre-existing foreign freepbx-sftp accounts are refused :
+ * rename the account and reinstall Backup; SFTP stays disabled until then.
+ * Accounts previously created by this hook (managed marker / our home / our drop-in)
+ * are refreshed on upgrade.
+ */
+
+require '/usr/lib/sysadmin/includes.php';
+
+$user = 'freepbx-sftp';
+$chroot = '/var/lib/freepbx-sftp';
+$homeInside = $chroot . '/home';
+$backupDir = $chroot . '/backup';
+$sshDir = $homeInside . '/.ssh';
+$authKeys = $sshDir . '/authorized_keys';
+$managedMarker = $chroot . '/.freepbx-managed';
+$sshdDropInDir = '/etc/ssh/sshd_config.d';
+$sshdDropIn = $sshdDropInDir . '/sangoma-freepbx-sftp.conf';
+$errFlag = '/var/spool/asterisk/tmp/freepbx-sftp-install.err';
+$nologin = file_exists('/usr/sbin/nologin') ? '/usr/sbin/nologin' : '/sbin/nologin';
+
+function sftp_fail($msg, $errFlag = '') {
+	fwrite(STDERR, $msg . "\n");
+	if ($errFlag !== '') {
+		$dir = dirname($errFlag);
+		if (!is_dir($dir)) {
+			@mkdir($dir, 0775, true);
+		}
+		@file_put_contents($errFlag, $msg . "\n");
+		$asterisk = posix_getpwnam('asterisk');
+		if (is_array($asterisk) && is_file($errFlag)) {
+			@chown($errFlag, (int) $asterisk['uid']);
+			@chgrp($errFlag, (int) $asterisk['gid']);
+			@chmod($errFlag, 0640);
+		}
+	}
+	exit(1);
+}
+
+function sftp_is_managed_account(array $pw, string $expectedHome, string $managedMarker, string $sshdDropIn): bool {
+	$home = isset($pw['dir']) ? rtrim((string) $pw['dir'], '/') : '';
+	if ($home !== '' && $home === rtrim($expectedHome, '/')) {
+		return true;
+	}
+	if (is_file($managedMarker)) {
+		return true;
+	}
+	if (is_file($sshdDropIn)) {
+		$conf = (string) @file_get_contents($sshdDropIn);
+		if ($conf !== '' && strpos($conf, 'Managed by FreePBX backup module') !== false) {
+			return true;
+		}
+	}
+	return false;
+}
+
+if (!is_dir('/etc/ssh')) {
+	sftp_fail('OpenSSH is not installed (/etc/ssh missing)', $errFlag);
+}
+
+// Ensure group/user exist. Primary group asterisk so uploaded files are readable for restore.
+$asteriskGid = posix_getgrnam('asterisk');
+if ($asteriskGid === false) {
+	sftp_fail('asterisk group does not exist', $errFlag);
+}
+
+$existing = posix_getpwnam($user);
+if ($existing === false) {
+	$cmd = sprintf(
+		'useradd -r -g asterisk -d %s -s %s %s',
+		escapeshellarg($homeInside),
+		escapeshellarg($nologin),
+		escapeshellarg($user)
+	);
+	exec($cmd . ' 2>&1', $out, $rc);
+	if ($rc !== 0 && posix_getpwnam($user) === false) {
+		sftp_fail('Failed to create user ' . $user . ': ' . implode(' ', $out), $errFlag);
+	}
+} else {
+	if (!sftp_is_managed_account($existing, $homeInside, $managedMarker, $sshdDropIn)) {
+		$home = isset($existing['dir']) ? $existing['dir'] : '(unknown)';
+		sftp_fail(
+			"Pre-existing user '{$user}' found (home={$home}). Rename or remove that account and reinstall the Backup module. SFTP remains disabled until then.",
+			$errFlag
+		);
+	}
+	// Refresh home/shell/group for our managed account on upgrade.
+	exec(sprintf(
+		'usermod -g asterisk -d %s -s %s %s 2>&1',
+		escapeshellarg($homeInside),
+		escapeshellarg($nologin),
+		escapeshellarg($user)
+	));
+}
+
+// Clear prior install error once we are proceeding with a managed account.
+if (is_file($errFlag)) {
+	@unlink($errFlag);
+}
+
+// ChrootDirectory and all components must be root-owned and not group/world-writable.
+foreach ([$chroot] as $dir) {
+	if (!is_dir($dir) && !mkdir($dir, 0755, true)) {
+		sftp_fail('Failed to create ' . $dir, $errFlag);
+	}
+}
+chown($chroot, 'root');
+chgrp($chroot, 'root');
+chmod($chroot, 0755);
+
+foreach ([$homeInside, $backupDir, $sshDir] as $dir) {
+	if (!is_dir($dir) && !mkdir($dir, 0755, true)) {
+		sftp_fail('Failed to create ' . $dir, $errFlag);
+	}
+}
+
+chown($homeInside, $user);
+chgrp($homeInside, 'asterisk');
+chmod($homeInside, 0755);
+
+chown($backupDir, $user);
+chgrp($backupDir, 'asterisk');
+chmod($backupDir, 02775); // setgid so asterisk can read uploaded backups
+
+// Host path /backup -> chroot backup dir so Filestore path "/backup" works for
+// both SFTP (inside chroot) and asterisk restore/fwconsole (outside chroot).
+$backupLink = '/backup';
+if (is_link($backupLink)) {
+	$target = readlink($backupLink);
+	if ($target !== $backupDir) {
+		unlink($backupLink);
+		if (!symlink($backupDir, $backupLink)) {
+			sftp_fail('Failed to refresh symlink ' . $backupLink, $errFlag);
+		}
+	}
+} elseif (!file_exists($backupLink)) {
+	if (!symlink($backupDir, $backupLink)) {
+		sftp_fail('Failed to create symlink ' . $backupLink . ' -> ' . $backupDir, $errFlag);
+	}
+} elseif (!is_dir($backupLink)) {
+	sftp_fail($backupLink . ' exists and is not a directory or symlink', $errFlag);
+}
+
+chown($sshDir, $user);
+chgrp($sshDir, 'asterisk');
+chmod($sshDir, 0750);
+
+if (!file_exists($authKeys)) {
+	touch($authKeys);
+}
+chown($authKeys, $user);
+chgrp($authKeys, 'asterisk');
+chmod($authKeys, 0640);
+
+if (!is_dir($sshdDropInDir) && !mkdir($sshdDropInDir, 0755, true)) {
+	sftp_fail('Failed to create ' . $sshdDropInDir, $errFlag);
+}
+
+$sshdConf = <<<CONF
+# Managed by FreePBX backup module. Do not edit manually.
+Match User {$user}
+	ChrootDirectory {$chroot}
+	ForceCommand internal-sftp
+	AllowTcpForwarding no
+	X11Forwarding no
+	PermitTunnel no
+	AllowAgentForwarding no
+	PasswordAuthentication no
+	PubkeyAuthentication yes
+CONF;
+
+if (file_put_contents($sshdDropIn, $sshdConf) === false) {
+	sftp_fail('Failed to write ' . $sshdDropIn, $errFlag);
+}
+chmod($sshdDropIn, 0644);
+chown($sshdDropIn, 'root');
+chgrp($sshdDropIn, 'root');
+
+// Marker so upgrades recognize this account as ours.
+if (file_put_contents($managedMarker, "managed by FreePBX backup module \n") === false) {
+	sftp_fail('Failed to write managed marker ' . $managedMarker, $errFlag);
+}
+chown($managedMarker, 'root');
+chgrp($managedMarker, 'root');
+chmod($managedMarker, 0644);
+
+// Validate and reload sshd when possible.
+exec('sshd -t 2>&1', $sshdOut, $sshdRc);
+if ($sshdRc !== 0) {
+	@unlink($sshdDropIn);
+	sftp_fail('sshd config test failed, reverted drop-in: ' . implode(' ', $sshdOut), $errFlag);
+}
+
+if (file_exists('/bin/systemctl') || file_exists('/usr/bin/systemctl')) {
+	exec('systemctl reload sshd 2>/dev/null || systemctl reload ssh 2>/dev/null || true');
+} else {
+	exec('service sshd reload 2>/dev/null || service ssh reload 2>/dev/null || true');
+}
+
+exit(0);

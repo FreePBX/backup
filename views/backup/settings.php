@@ -41,6 +41,7 @@
 						<th><?php echo _("Server Name") ?></th>
 						<th><?php echo _("Public Key of Asterisk User") ?></th>
 						<th><?php echo _("SSH Restrictions") ?></th>
+						<th><?php echo _("SFTP") ?></th>
 						<th><?php echo _("Actions") ?></th>
 					</tr>
 				</thead>
@@ -53,10 +54,14 @@
 							$displayKey = htmlspecialchars($v['publickey'] ?? $authorizedLine, ENT_QUOTES, 'UTF-8');
 							$restrictions = htmlspecialchars($v['restrictionsSummary'] ?? _('None'), ENT_QUOTES, 'UTF-8');
 							$authorizedAttr = htmlspecialchars($authorizedLine, ENT_QUOTES, 'UTF-8');
-							echo '<tr data-authorized-line="' . $authorizedAttr . '">'
+							$sftpEnabled = !empty($v['sftpEnabled']);
+							$sftpLabel = $sftpEnabled ? _('Enabled') : _('Disabled');
+							$sftpClass = $sftpEnabled ? 'text-success' : 'text-muted';
+							echo '<tr data-authorized-line="' . $authorizedAttr . '" data-sftp-enabled="' . ($sftpEnabled ? '1' : '0') . '">'
 								. '<td><input name="servername[]" class="form-control" value="' . $servername . '" readonly /></td>'
 								. '<td><textarea name="publickeyAsteriskUser[]" class="form-control" rows="4" readonly>' . $displayKey . '</textarea></td>'
 								. '<td class="pk-restrictions-cell"><span class="text-muted">' . $restrictions . '</span></td>'
+								. '<td class="pk-sftp-cell"><span class="' . $sftpClass . '">' . htmlspecialchars($sftpLabel, ENT_QUOTES, 'UTF-8') . '</span></td>'
 								. '<td><button type="button" class="btn btn-danger deleteRow">' . _('Delete') . '</button></td>'
 								. '</tr>';
 						}
@@ -135,6 +140,39 @@
 						</div>
 					</div>
 
+					<div class="row">
+						<div class="form-group">
+							<div class="col-sm-3">
+								<label class="control-label" for="pkEnableSftp"><?php echo _("Enable SFTP") ?></label>
+								<i class="fa fa-question-circle fpbx-help-icon" data-for="pkEnableSftp"></i>
+							</div>
+							<div class="col-sm-9">
+								<span class="radioset">
+									<input type="checkbox" id="pkEnableSftp" name="pkEnableSftp" value="1" <?php echo !empty($freepbxSftpReady) ? 'checked' : 'disabled'; ?> />
+									<label for="pkEnableSftp"><?php echo _("Allow chrooted SFTP file transfer for this key") ?></label>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<span id="pkEnableSftp-help" class="help-block fpbx-help-block"><?php
+								if (!empty($freepbxSftpReady)) {
+									echo sprintf(
+										_("When checked, this key is also authorized for SFTP as user %s (chrooted). Filestore SSH should use username %s and path %s. SSH commands (warm spare / Advanced Recovery) still use asterisk. Unchecked = command access only, no SFTP."),
+										htmlspecialchars($freepbxSftpUser ?? 'freepbx-sftp', ENT_QUOTES, 'UTF-8'),
+										'<strong>' . htmlspecialchars($freepbxSftpUser ?? 'freepbx-sftp', ENT_QUOTES, 'UTF-8') . '</strong>',
+										'<strong>' . htmlspecialchars($freepbxSftpPath ?? '/backup', ENT_QUOTES, 'UTF-8') . '</strong>'
+									);
+								} elseif (!empty($freepbxSftpInstallError)) {
+									echo htmlspecialchars($freepbxSftpInstallError, ENT_QUOTES, 'UTF-8');
+								} else {
+									echo _("SFTP user is not ready (requires sysadmin and Backup module install of freepbx-sftp). Leave unchecked for command-only access.");
+								}
+							?></span>
+						</div>
+					</div>
+
 					<hr class="pk-modal-section-divider" />
 					<div class="row pk-output-preview-section">
 						<div class="form-group">
@@ -150,7 +188,7 @@
 					<div class="row">
 						<div class="col-sm-12">
 						<span id="pkAuthorizedPreview-help" class="help-block fpbx-help-block"><?php echo !empty($sshCommandRestrictionEnabled)
-							? _("Shows the exact single line that will be appended to /home/asterisk/.ssh/authorized_keys as restrict,command=\"/usr/local/bin/freepbx-ssh-restrict.sh\",from=\"...\" followed by the public key.")
+							? _("Shows the Role A (asterisk) authorized_keys line: restrict,command=\"/usr/local/bin/freepbx-ssh-restrict.sh\",from=\"...\" + public key. SFTP is not allowed on this line; use Enable SFTP for Role B.")
 							: _("Shows the exact single line that will be appended to /home/asterisk/.ssh/authorized_keys as restrict,from=\"...\" followed by the public key.") ?></span>
 						</div>
 					</div>
@@ -250,6 +288,9 @@
 <script>
 (function($) {
 	window.PK_SSH_COMMAND_RESTRICTION_ENABLED = <?php echo !empty($sshCommandRestrictionEnabled) ? 'true' : 'false'; ?>;
+	window.PK_FREEPBX_SFTP_READY = <?php echo !empty($freepbxSftpReady) ? 'true' : 'false'; ?>;
+	window.PK_FREEPBX_SFTP_USER = <?php echo json_encode($freepbxSftpUser ?? 'freepbx-sftp'); ?>;
+	window.PK_FREEPBX_SFTP_PATH = <?php echo json_encode($freepbxSftpPath ?? '/backup'); ?>;
 	var PK_SSH_RESTRICT_SCRIPT = '/usr/local/bin/freepbx-ssh-restrict.sh';
 
 	function pkGetSshFixedOptions() {

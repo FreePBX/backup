@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-24 05:14-0400\n"
+"POT-Creation-Date: 2026-09-29 03:14-0400\n"
 "PO-Revision-Date: 2017-03-06 03:04+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/backup/"
@@ -87,11 +87,11 @@ msgstr ""
 msgid "%s table Restore Error %s "
 msgstr ""
 
-#: Backup.class.php:1835
+#: Backup.class.php:1895
 msgid "/path/to/dir"
 msgstr "Ordnerpfad"
 
-#: Backup.class.php:1828
+#: Backup.class.php:1888
 msgid "/path/to/file"
 msgstr "Dateipfad"
 
@@ -138,7 +138,7 @@ msgstr ""
 msgid "Access Token URL of Warm Spare server."
 msgstr ""
 
-#: views/backup/grid.php:27 views/backup/settings.php:44
+#: views/backup/grid.php:27 views/backup/settings.php:45
 #: views/restore/landing.php:60 views/restore/landing.php:91
 msgid "Actions"
 msgstr "Aktionen"
@@ -151,7 +151,7 @@ msgstr ""
 msgid "Add Backup"
 msgstr ""
 
-#: views/backup/settings.php:36 views/backup/settings.php:77
+#: views/backup/settings.php:36 views/backup/settings.php:82
 msgid "Add Public Key"
 msgstr ""
 
@@ -201,6 +201,16 @@ msgstr "Administrator"
 msgid "After the restore you might reload with the apply config button"
 msgstr ""
 
+#: views/backup/settings.php:152
+msgid "Allow chrooted SFTP file transfer for this key"
+msgstr ""
+
+#: Backup.class.php:698
+msgid ""
+"An SSH Filestore location already uses the freepbx-sftp user. Remove or "
+"change that Filestore entry before adding another SFTP-enabled public key."
+msgstr ""
+
 #: Handlers/Restore/Common.php:183
 msgid ""
 "Apache will Restart now... And your GUI may die if the ports are changed !!!!"
@@ -222,7 +232,7 @@ msgstr ""
 msgid "Are you sure, you want to restore this backup?"
 msgstr ""
 
-#: Backup.class.php:1803
+#: Backup.class.php:1863
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -251,7 +261,7 @@ msgstr "Sicherung nicht angehängt"
 msgid "Backup"
 msgstr "Sicherung"
 
-#: Backup.class.php:1465
+#: Backup.class.php:1525
 #, php-format
 msgid "Backup %s"
 msgstr ""
@@ -336,7 +346,7 @@ msgstr "Sicherungselemente"
 msgid "Backup Name"
 msgstr "Sicherungsname"
 
-#: Backup.class.php:944
+#: Backup.class.php:1000
 msgid "Backup Restored Successfully"
 msgstr ""
 
@@ -426,13 +436,13 @@ msgid "Can't find the module data for %s"
 msgstr ""
 
 #: Console/Backup.class.php:342 Console/Backup.class.php:350
-#: views/backup/settings.php:161 views/restore/landing.php:116
+#: views/backup/settings.php:199 views/restore/landing.php:116
 #: views/restore/processRestore.php:95 assets/js/backup.js:219
 #: assets/js/backup.js:256
 msgid "Cancel"
 msgstr ""
 
-#: Backup.class.php:2276 Console/Backup.class.php:463
+#: Backup.class.php:2617 Console/Backup.class.php:463
 #: Console/Backup.class.php:473
 #, php-format
 msgid "Cannot create log directory: %s"
@@ -475,7 +485,7 @@ msgstr ""
 msgid "ClientID of the Warm Spare server."
 msgstr ""
 
-#: views/backup/form.php:638 views/backup/settings.php:74 views/runModal.php:12
+#: views/backup/form.php:638 views/backup/settings.php:79 views/runModal.php:12
 msgid "Close"
 msgstr ""
 
@@ -541,7 +551,7 @@ msgstr ""
 msgid "Could not locate the manifest for this file"
 msgstr ""
 
-#: Backup.class.php:1048 Backup.class.php:1116
+#: Backup.class.php:1104 Backup.class.php:1176
 msgid "Couldn't find your file, please try submitting your file again."
 msgstr ""
 
@@ -569,7 +579,7 @@ msgid "Custom file not exists: %s"
 msgstr ""
 
 #: Backup.class.php:264 views/backup/item_table.php:14
-#: views/backup/settings.php:60 views/restore/landing.php:49
+#: views/backup/settings.php:65 views/restore/landing.php:49
 #: views/restore/landing.php:79 assets/js/backup.js:219 assets/js/backup.js:256
 msgid "Delete"
 msgstr "Löschen"
@@ -582,7 +592,7 @@ msgstr ""
 msgid "Delete After Runs"
 msgstr ""
 
-#: Backup.class.php:1841
+#: Backup.class.php:1901
 msgid "Delete this entry. Don't forget to click Submit to save changes!"
 msgstr ""
 "Eintrag löschen. Klicken Sie auf 'Bestätigen' um die Änderung zu Speichern!"
@@ -606,7 +616,7 @@ msgstr ""
 msgid "Determining backup file type..."
 msgstr ""
 
-#: Backup.class.php:1834
+#: Backup.class.php:1894
 msgid "Directory"
 msgstr "Verzeichnis"
 
@@ -618,6 +628,10 @@ msgstr ""
 
 #: views/backup/warmspare.php:50
 msgid "Disable Remote Trunks"
+msgstr ""
+
+#: views/backup/settings.php:58
+msgid "Disabled"
 msgstr ""
 
 #: Console/Backup.class.php:308 Handlers/Restore/Common.php:128
@@ -651,6 +665,10 @@ msgstr ""
 msgid "Enable"
 msgstr ""
 
+#: views/backup/settings.php:146
+msgid "Enable SFTP"
+msgstr ""
+
 #: views/backup/form.php:355
 msgid "Enable scheduled backups"
 msgstr ""
@@ -659,11 +677,11 @@ msgstr ""
 msgid "Enable scheduled backups, default false"
 msgstr ""
 
-#: Backup.class.php:1697 views/backup/form.php:334
+#: Backup.class.php:1757 views/backup/form.php:334 views/backup/settings.php:58
 msgid "Enabled"
 msgstr ""
 
-#: views/backup/settings.php:146
+#: views/backup/settings.php:184
 msgid "Enter a public key to preview the authorized_keys line"
 msgstr ""
 
@@ -676,7 +694,7 @@ msgstr ""
 "einer Wiederherstellung (restore) auf einem Standby-System"
 
 #: assets/js/backup.js:471 assets/js/backup.js:491 assets/js/backup.js:510
-#: assets/js/backup.js:604
+#: assets/js/backup.js:613
 msgid "Error"
 msgstr ""
 
@@ -704,7 +722,7 @@ msgstr ""
 msgid "Error installing %s reason(s): %s"
 msgstr ""
 
-#: Backup.class.php:947
+#: Backup.class.php:1003
 msgid "Error running Restore on Spare Server"
 msgstr ""
 
@@ -793,9 +811,17 @@ msgstr ""
 msgid "Extracting supplied database file %s"
 msgstr ""
 
-#: install.php:74
+#: Backup.class.php:722
+msgid "Failed to add public key for freepbx-sftp (SFTP)"
+msgstr ""
+
+#: install.php:87
 #, php-format
 msgid "Failed to install SSH restrict script to %s via sysadmin hook"
+msgstr ""
+
+#: install.php:126
+msgid "Failed to install freepbx-sftp user/chroot via sysadmin hook"
 msgstr ""
 
 #: Handlers/Backup/Common.php:209
@@ -807,7 +833,7 @@ msgstr ""
 msgid "Failure"
 msgstr ""
 
-#: Backup.class.php:1827
+#: Backup.class.php:1887
 msgid "File"
 msgstr "Datei"
 
@@ -872,11 +898,11 @@ msgstr ""
 msgid "Framework"
 msgstr ""
 
-#: views/backup/settings.php:124
+#: views/backup/settings.php:129
 msgid "From"
 msgstr ""
 
-#: Backup.class.php:681
+#: Backup.class.php:688
 msgid "From is required (IP, hostname, or comma-separated list)"
 msgstr ""
 
@@ -918,7 +944,7 @@ msgstr ""
 msgid "Hooks"
 msgstr "Anhänge"
 
-#: views/backup/settings.php:95
+#: views/backup/settings.php:100
 msgid "Hostname or IP of the remote backup server"
 msgstr ""
 
@@ -934,11 +960,11 @@ msgid ""
 "unlimited"
 msgstr ""
 
-#: Backup.class.php:1788
+#: Backup.class.php:1848
 msgid "I don't know who I should be running Backup as."
 msgstr ""
 
-#: Backup.class.php:1794
+#: Backup.class.php:1854
 #, php-format
 msgid ""
 "I tried to find out about %s, but the system doesn't think that user exists"
@@ -1002,9 +1028,13 @@ msgstr ""
 msgid "Inline Logs"
 msgstr ""
 
-#: install.php:71
+#: install.php:84
 #, php-format
 msgid "Installed SSH restrict script to %s"
+msgstr ""
+
+#: install.php:136
+msgid "Installed freepbx-sftp chrooted SFTP user"
 msgstr ""
 
 #: Handlers/Restore/Legacy.php:192 Handlers/Restore/Legacy.php:204
@@ -1012,7 +1042,7 @@ msgstr ""
 msgid "Installing  %s"
 msgstr ""
 
-#: Backup.class.php:964
+#: Backup.class.php:1020
 msgid "Invalid Backup ID"
 msgstr ""
 
@@ -1120,7 +1150,7 @@ msgstr ""
 msgid "Loading supplied database file %s"
 msgstr ""
 
-#: Backup.class.php:2279
+#: Backup.class.php:2620
 #, php-format
 msgid "Log directory is not writable: %s"
 msgstr ""
@@ -1150,7 +1180,7 @@ msgstr ""
 msgid "Migrating legacy backups to the new backup"
 msgstr ""
 
-#: Backup.class.php:741
+#: Backup.class.php:774
 msgid "Missing id or transaction or pid"
 msgstr ""
 
@@ -1237,7 +1267,7 @@ msgstr ""
 msgid "No file provided"
 msgstr ""
 
-#: Backup.class.php:1037
+#: Backup.class.php:1093
 msgid "No id was specified to process. Please try submitting your file again."
 msgstr ""
 
@@ -1253,7 +1283,7 @@ msgid ""
 "location to save the backup"
 msgstr ""
 
-#: Backup.class.php:2198 views/backup/settings.php:54
+#: Backup.class.php:2263 views/backup/settings.php:55
 msgid "None"
 msgstr ""
 
@@ -1305,11 +1335,11 @@ msgid ""
 "default system uses inmemory"
 msgstr ""
 
-#: views/backup/settings.php:142
+#: views/backup/settings.php:180
 msgid "Output preview"
 msgstr ""
 
-#: Backup.class.php:1837
+#: Backup.class.php:1897
 msgid "PATTERNs, one per line"
 msgstr "PATTERN (Erkennungsmuster), eines pro Zeile"
 
@@ -1318,7 +1348,7 @@ msgid ""
 "Parsing out SQL tables. This may take a moment depending on backup size."
 msgstr ""
 
-#: views/backup/settings.php:111
+#: views/backup/settings.php:116
 msgid "Paste the remote system's public key (ssh-rsa, ssh-ed25519, or ecdsa)"
 msgstr ""
 
@@ -1357,7 +1387,7 @@ msgstr "Sicherung-Vor-Skript"
 msgid "Pre-Restore Hook"
 msgstr "Wiederherstellung-Vor-Skript"
 
-#: Backup.class.php:803
+#: Backup.class.php:854
 msgid "Process is no longer running"
 msgstr ""
 
@@ -1378,7 +1408,7 @@ msgid ""
 "restore the backup from the CLI "
 msgstr ""
 
-#: views/backup/settings.php:19 views/backup/settings.php:101
+#: views/backup/settings.php:19 views/backup/settings.php:106
 msgid "Public Key"
 msgstr ""
 
@@ -1392,7 +1422,7 @@ msgid ""
 "supported"
 msgstr ""
 
-#: Backup.class.php:644 Backup.class.php:676
+#: Backup.class.php:644 Backup.class.php:683
 msgid "Public key is required"
 msgstr ""
 
@@ -1428,7 +1458,7 @@ msgstr ""
 msgid "Removing table %s."
 msgstr ""
 
-#: views/backup/settings.php:134
+#: views/backup/settings.php:139
 msgid ""
 "Required. Limits which client address may use this key (IP, hostname, or "
 "comma-separated list, e.g. 10.0.0.5 or 10.0.0.5,backup.example.com). For "
@@ -1540,7 +1570,7 @@ msgstr ""
 msgid "Restoring from %s [%s]"
 msgstr ""
 
-#: views/backup/settings.php:128
+#: views/backup/settings.php:133
 msgid "Restrict source IP/host"
 msgstr ""
 
@@ -1605,7 +1635,7 @@ msgstr ""
 msgid "Run backup and restore jobs"
 msgstr ""
 
-#: assets/js/backup.js:674
+#: assets/js/backup.js:691
 msgid "Run the following in the CLI"
 msgstr ""
 
@@ -1661,11 +1691,27 @@ msgstr ""
 msgid "Running maintenance.."
 msgstr ""
 
+#: views/backup/settings.php:44
+msgid "SFTP"
+msgstr ""
+
+#: Backup.class.php:693
+msgid ""
+"SFTP user (freepbx-sftp) is not available. Install/upgrade Backup with "
+"sysadmin present, or uncheck Enable SFTP."
+msgstr ""
+
+#: views/backup/settings.php:170
+msgid ""
+"SFTP user is not ready (requires sysadmin and Backup module install of "
+"freepbx-sftp). Leave unchecked for command-only access."
+msgstr ""
+
 #: views/backup/warmspare.php:281
 msgid "SSH"
 msgstr "SSH"
 
-#: views/backup/settings.php:116
+#: views/backup/settings.php:121
 msgid "SSH Key Restrictions"
 msgstr ""
 
@@ -1677,16 +1723,11 @@ msgstr ""
 msgid "SSH key Generated"
 msgstr ""
 
-#: install.php:63
-#, php-format
-msgid "SSH restrict script already installed at %s"
-msgstr ""
-
-#: install.php:59
+#: install.php:75
 msgid "SSH restrict script source not found, skipping install"
 msgstr ""
 
-#: Backup.class.php:254 views/backup/settings.php:162
+#: Backup.class.php:254 views/backup/settings.php:200
 msgid "Save"
 msgstr "Speichern"
 
@@ -1749,7 +1790,7 @@ msgstr ""
 msgid "Server Mode"
 msgstr ""
 
-#: views/backup/settings.php:41 views/backup/settings.php:85
+#: views/backup/settings.php:41 views/backup/settings.php:90
 msgid "Server Name"
 msgstr "Server-Name"
 
@@ -1777,14 +1818,14 @@ msgstr ""
 msgid "Should the warm spare feature be enabled, default false"
 msgstr ""
 
-#: views/backup/settings.php:153
+#: views/backup/settings.php:191
 msgid ""
-"Shows the exact single line that will be appended to /home/asterisk/.ssh/"
-"authorized_keys as restrict,command=\"/usr/local/bin/freepbx-ssh-restrict."
-"sh\",from=\"...\" followed by the public key."
+"Shows the Role A (asterisk) authorized_keys line: restrict,command=\"/usr/"
+"local/bin/freepbx-ssh-restrict.sh\",from=\"...\" + public key. SFTP is not "
+"allowed on this line; use Enable SFTP for Role B."
 msgstr ""
 
-#: views/backup/settings.php:154
+#: views/backup/settings.php:192
 msgid ""
 "Shows the exact single line that will be appended to /home/asterisk/.ssh/"
 "authorized_keys as restrict,from=\"...\" followed by the public key."
@@ -1911,11 +1952,15 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: install.php:67
+#: install.php:79
 msgid "Sysadmin module is required to install the SSH restrict script"
 msgstr ""
 
-#: Backup.class.php:1030
+#: install.php:121
+msgid "Sysadmin module is required to install the freepbx-sftp user"
+msgstr ""
+
+#: Backup.class.php:1086
 msgid "System Transfer"
 msgstr ""
 
@@ -2028,7 +2073,7 @@ msgid ""
 "set to 10 hours"
 msgstr ""
 
-#: assets/js/backup.js:604
+#: assets/js/backup.js:613
 #, perl-format
 msgid "There was an error during %s"
 msgstr ""
@@ -2109,7 +2154,7 @@ msgstr "Typ"
 msgid "Unable to access the file %s"
 msgstr ""
 
-#: Backup.class.php:2300
+#: Backup.class.php:2641
 msgid "Unable to determine background process id"
 msgstr ""
 
@@ -2127,7 +2172,7 @@ msgstr ""
 msgid "Unable to perform backup"
 msgstr ""
 
-#: Backup.class.php:2282
+#: Backup.class.php:2623
 #, php-format
 msgid "Unable to reset log file: %s"
 msgstr ""
@@ -2149,7 +2194,7 @@ msgstr ""
 msgid "Unable to send backup email!"
 msgstr ""
 
-#: Backup.class.php:2295
+#: Backup.class.php:2636
 msgid "Unable to start background process"
 msgstr ""
 
@@ -2161,7 +2206,7 @@ msgstr ""
 msgid "Unable to upload file to the remote server"
 msgstr "Die Datei kann nicht auf dem Remoteserver hochgeladen werden"
 
-#: Backup.class.php:1697
+#: Backup.class.php:1757
 msgid "Uninstalled or Disabled"
 msgstr ""
 
@@ -2232,7 +2277,7 @@ msgstr ""
 msgid "View running restore"
 msgstr ""
 
-#: Backup.class.php:800
+#: Backup.class.php:851
 msgid "Waiting for backup log..."
 msgstr ""
 
@@ -2276,6 +2321,15 @@ msgstr ""
 
 #: Backup.class.php:343 Backup.class.php:391
 msgid "We don't have permissions to this file"
+msgstr ""
+
+#: views/backup/settings.php:162
+#, php-format
+msgid ""
+"When checked, this key is also authorized for SFTP as user %s (chrooted). "
+"Filestore SSH should use username %s and path %s. SSH commands (warm spare / "
+"Advanced Recovery) still use asterisk. Unchecked = command access only, no "
+"SFTP."
 msgstr ""
 
 #: views/backup/form.php:314
@@ -2383,7 +2437,7 @@ msgstr ""
 msgid "You must set a valid job name for this backup"
 msgstr ""
 
-#: assets/js/backup.js:600
+#: assets/js/backup.js:609
 #, perl-format
 msgid "Your %s has finished"
 msgstr ""
@@ -2400,8 +2454,12 @@ msgstr "ast-Db's"
 msgid "choose"
 msgstr ""
 
-#: views/backup/settings.php:89
+#: views/backup/settings.php:94
 msgid "e.g. 10.25.3.146"
+msgstr ""
+
+#: install.php:142
+msgid "freepbx-sftp install hook ran but user/chroot was not detected yet"
 msgstr ""
 
 #: Console/Backup.class.php:35
@@ -2416,13 +2474,13 @@ msgstr ""
 msgid "restoreBackup"
 msgstr ""
 
-#: views/backup/settings.php:118
+#: views/backup/settings.php:123
 msgid ""
 "restrict and a forced command wrapper are applied automatically. Set From to "
 "limit which hosts may connect."
 msgstr ""
 
-#: views/backup/settings.php:119
+#: views/backup/settings.php:124
 msgid ""
 "restrict is applied automatically. Set From to limit which hosts may connect."
 msgstr ""

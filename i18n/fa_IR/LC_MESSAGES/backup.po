@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-22 06:52-0400\n"
+"POT-Creation-Date: 2026-10-06 06:11-0400\n"
 "PO-Revision-Date: 2016-07-22 06:45+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -192,6 +192,10 @@ msgstr ""
 msgid "Adding module manifest for %s"
 msgstr ""
 
+#: backup.i18n.php:6
+msgid "Admin"
+msgstr "مدیر"
+
 #: views/restore/processRestore.php:45
 msgid "After the restore you might reload with the apply config button"
 msgstr ""
@@ -266,9 +270,17 @@ msgstr ""
 msgid "Backup %s success for %s"
 msgstr ""
 
-#: views/landing.php:5
+#: backup.i18n.php:4 backup.i18n.php:10 views/landing.php:5
 msgid "Backup & Restore"
 msgstr "پشتیبان گیری و بازیابی"
+
+#: backup.i18n.php:12
+msgid "Backup & Restore - Restore"
+msgstr "پشتیبان گیری و بازیابی - بازیابی"
+
+#: backup.i18n.php:8
+msgid "Backup & Restore for your FreePBX environment"
+msgstr "پشتیبان گیری و بازیابی برای محیط FreePBX"
 
 #: views/restore/landing.php:57 views/restore/landing.php:87
 msgid "Backup Date"
@@ -2426,15 +2438,6 @@ msgstr ""
 #: Api/Gql/Backup.php:76
 msgid "updateBackup"
 msgstr ""
-
-#~ msgid "Admin"
-#~ msgstr "مدیر"
-
-#~ msgid "Backup & Restore - Restore"
-#~ msgstr "پشتیبان گیری و بازیابی - بازیابی"
-
-#~ msgid "Backup & Restore for your FreePBX environment"
-#~ msgstr "پشتیبان گیری و بازیابی برای محیط FreePBX"
 
 #~ msgid "Backup Module"
 #~ msgstr "ماژول پشتیبان گیری"

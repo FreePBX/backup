@@ -267,7 +267,8 @@ class SshRestrict {
 			case 'RESTRICT-LS-001':
 				return 'ls -1 -- ' . self::assertBackupFsPath($args);
 			case 'RESTRICT-RM-001':
-				return 'rm -- ' . self::assertBackupFsPath($args);
+				$rmPath = self::assertBackupFsPath($args);
+				return 'if [ -d ' . escapeshellarg($rmPath) . ' ]; then rmdir -- ' . escapeshellarg($rmPath) . '; else rm -- ' . escapeshellarg($rmPath) . '; fi';
 			case 'RESTRICT-CD-001':
 				return 'cd -- ' . self::assertBackupFsPath($args);
 			default:

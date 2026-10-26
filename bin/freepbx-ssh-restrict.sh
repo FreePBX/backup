@@ -229,6 +229,10 @@ case "$PREFIX" in
 	RESTRICT-RM-001)
 		validate_path "$ARGS" || die
 		is_allowed_fs_path "$ARGS" || die
+		# rmdir removes an empty directory only. It cannot wipe a backup tree.
+		if [ -d "$ARGS" ]; then
+			exec /usr/bin/rmdir -- "$ARGS"
+		fi
 		exec /usr/bin/rm -- "$ARGS"
 		;;
 

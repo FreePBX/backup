@@ -127,6 +127,14 @@ class SshRestrict {
 		return 'RESTRICT-FWCONSOLE-015 stop';
 	}
 
+	/** Base64 of one "key-type blob" line. Installed for freepbx-sftp, not Role A. */
+	public static function installSftpKey(string $payload): string {
+		if (strlen($payload) > 2048) {
+			throw new \InvalidArgumentException('SFTP key payload is too long');
+		}
+		return 'RESTRICT-SFTPKEY-001 ' . self::assertBase64($payload);
+	}
+
 	public static function touchFwconsoleChown(): string {
 		return 'RESTRICT-TOUCH-001';
 	}
@@ -254,6 +262,8 @@ class SshRestrict {
 					throw new \InvalidArgumentException('Invalid restricted fwconsole stop command');
 				}
 				return $fwconsole . ' stop';
+			case 'RESTRICT-SFTPKEY-001':
+				throw new \InvalidArgumentException('SFTP key install is only valid on a command-restricted peer');
 			case 'RESTRICT-TOUCH-001':
 				return 'touch ' . $incronDir . '/adv_recovery.fwconsole-chown';
 			case 'RESTRICT-TOUCH-002':

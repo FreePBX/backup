@@ -220,6 +220,45 @@ case "$PREFIX" in
 		exec /usr/bin/touch "$INCRON_DIR/adv_recovery.fwconsole-stop"
 		;;
 
+	# Install the caller's public key for the chrooted freepbx-sftp user.
+	# Payload is base64 of a single "key-type blob" line, with no SSH options.
+	RESTRICT-SFTPKEY-001)
+		[ "${#ARGS}" -le 2048 ] || die
+		validate_base64 "$ARGS" || die
+		line=$(printf '%s' "$ARGS" | /usr/bin/base64 -d 2>/dev/null) || die
+		case "$line" in
+			*$'\n'*|*$'\r'*|*'command='*|*'restrict'*|*'environment='*|*'agent-forwarding'*|*'port-forwarding'*|*'permitopen='*|*'tunnel='*)
+				die
+				;;
+		esac
+		printf '%s\n' "$line" | /usr/bin/grep -Eq '^(ssh-ed25519|ecdsa-sha2-nistp256|ecdsa-sha2-nistp384|ecdsa-sha2-nistp521|ssh-rsa) [A-Za-z0-9+/=]+$' || die
+		asthome=$(getent passwd asterisk | cut -d: -f6)
+		[ -n "$asthome" ] || asthome=/home/asterisk
+		sshdir="$asthome/.ssh"
+		staging="$sshdir/freepbx-sftp.authorized_keys"
+		mkdir -p -- "$sshdir" || die
+		touch "$staging" || die
+		chmod 700 "$sshdir" || die
+		chmod 600 "$staging" || die
+		blob="${line##* }"
+		if ! /usr/bin/grep -F -q -- "$blob" "$staging"; then
+			printf '%s\n' "$line" >> "$staging" || die
+		fi
+		syncfile="$INCRON_DIR/backup.sync-sftp-authorized-keys"
+		rm -f -- "$syncfile"
+		: > "$syncfile" || die
+		i=0
+		while [ -f "$syncfile" ] && [ "$i" -lt 40 ]; do
+			sleep 0.25
+			i=$((i + 1))
+		done
+		if [ -f "$syncfile" ]; then
+			echo "sftp key sync timed out" >&2
+			exit 1
+		fi
+		exit 0
+		;;
+
 	RESTRICT-LS-001)
 		validate_path "$ARGS" || die
 		is_allowed_fs_path "$ARGS" || die

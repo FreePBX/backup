@@ -165,7 +165,7 @@ $sshdConf = <<<CONF
 # Managed by FreePBX backup module. Do not edit manually.
 Match User {$user}
 	ChrootDirectory {$chroot}
-	ForceCommand internal-sftp
+	ForceCommand internal-sftp -u 0002
 	AllowTcpForwarding no
 	X11Forwarding no
 	PermitTunnel no

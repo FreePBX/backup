@@ -30,20 +30,35 @@ class Backup extends Base {
 						'mutateAndGetPayload' => function ($input) {
 							//lets run the  restore command 'backupfilename'
 							$filename = $input['backupfilename'];
-							if(file_exists($filename)) {
-								$command = "fwconsole backup --restore $filename --skiprestorehooks";
-								$process = \freepbx_get_process_obj($command);
-								try {
-									$process->setTimeout(null);
-									$process->mustRun();
-									$out = $process->getOutput();
-									return ['restorestatus' =>'Restore Done'];
-								} catch (ProcessFailedException $e) {
-									return ['restorestatus' =>'Restore Errored'];
-								}
+							if (!$this->isValidRestorePath($filename) || !is_file($filename)) {
+								return ['restorestatus' => 'Backup file not found'];
 							}
 
-							return ['restorestatus' =>'Backup file not found'];
+							$fwconsole = $this->freepbx->Config->get('AMPSBIN') . '/fwconsole';
+							$logDir = $this->freepbx->Config->get('ASTLOGDIR');
+							$jobId = $this->freepbx->backup->generateId(); // or similar unique id
+							$outLog = $logDir . '/gql_restore_' . $jobId . '_out.log';
+							$errLog = $logDir . '/gql_restore_' . $jobId . '_err.log';
+							$this->freepbx->backup->prepareFwconsoleLogFiles($outLog, $errLog);
+							
+							$process = \freepbx_get_process_obj([
+								$fwconsole,
+								'backup',
+								'--restore',
+								$filename,
+								'--skiprestorehooks',
+								'--output=' . $outLog,
+								'--error-log=' . $errLog,
+							]);
+
+							try {
+								$process->setTimeout(null);
+								$process->mustRun();
+								return ['restorestatus' => 'Restore Done'];
+							} catch (ProcessFailedException $e) {
+
+								return ['restorestatus' => 'Restore Errored'];
+							}
 						}
 					]),
 					'addBackup' => Relay::mutationWithClientMutationId([
@@ -739,5 +754,14 @@ class Backup extends Base {
 				}
 			]
 		];
+	}
+
+	private function isValidRestorePath(string $path): bool
+	{
+		if ($path === '' || strpos($path, '..') !== false) {
+			return false;
+		}
+		// Allow only safe path characters (letters, numbers, /, ., _, -, etc.)
+		return (bool) preg_match('/^[a-zA-Z0-9\/_.@+=:-]+$/', $path);
 	}
 }
